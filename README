@@ -1,0 +1,21 @@
+LibMEI
+------
+
+Distributed Digital Music Archives and Libraries Lab
+Music Technology Area
+Schulich School of Music
+McGill University
+http://ddmal.music.mcgill.ca/
+
+LibMEI is a C++ library for reading and writing MEI[1] files
+
+[1]: http://music-encoding.org/
+
+
+Developing
+----------
+An Xcode project file is included, that should let you develop libMEI.
+
+We use googletest for unit testing.
+
+For every src <file>.cpp/h you create, create a test/<file>_test.cpp
