@@ -17,6 +17,11 @@
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
 		9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE4E73C131D4F7C00A59F5D /* gtest.framework */; };
+		9BE4E744131D570100A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
+		9BE4E750131D64B400A59F5D /* meielement_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E74E131D64B400A59F5D /* meielement_test.cpp */; };
+		9BE4E753131D663200A59F5D /* meielement_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E74E131D64B400A59F5D /* meielement_test.cpp */; };
+		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
+		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,9 @@
 		61DBCCD01312C85E00B46918 /* mei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mei-Info.plist"; sourceTree = "<group>"; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
 		9BE4E73C131D4F7C00A59F5D /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../gtest.framework; sourceTree = SOURCE_ROOT; };
+		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; };
+		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
+		9BE4E74E131D64B400A59F5D /* meielement_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement_test.cpp; path = test/meielement_test.cpp; sourceTree = "<group>"; };
 		D2AAC09D05546B4700DB518D /* libmei.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmei.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +116,8 @@
 			children = (
 				617B4322130450C900EBBE7F /* libmei.h */,
 				617B4323130450C900EBBE7F /* libmei.cpp */,
+				9BE4E742131D570100A59F5D /* meielement.h */,
+				9BE4E743131D570100A59F5D /* meielement.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -126,6 +136,7 @@
 			children = (
 				61DBCD401312DDF500B46918 /* gtest_main.cc */,
 				617B43081304501F00EBBE7F /* mei_test.cpp */,
+				9BE4E74E131D64B400A59F5D /* meielement_test.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61DBCCD71312C86F00B46918 /* libmei.h in Headers */,
+				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE4E753131D663200A59F5D /* meielement_test.cpp in Sources */,
 				61DBCC4B1312C31C00B46918 /* mei_test.cpp in Sources */,
 				61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */,
+				9BE4E744131D570100A59F5D /* meielement.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
 				61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				617B4325130450C900EBBE7F /* libmei.cpp in Sources */,
+				9BE4E750131D64B400A59F5D /* meielement_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
