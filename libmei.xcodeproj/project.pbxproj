@@ -10,13 +10,13 @@
 		617B4324130450C900EBBE7F /* libmei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* libmei.h */; };
 		617B4325130450C900EBBE7F /* libmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B4323130450C900EBBE7F /* libmei.cpp */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
-		61DBCC2C1312C07500B46918 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCC1E1312BF8300B46918 /* gtest.framework */; };
 		61DBCC4B1312C31C00B46918 /* mei_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43081304501F00EBBE7F /* mei_test.cpp */; };
 		61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B4323130450C900EBBE7F /* libmei.cpp */; };
 		61DBCCD71312C86F00B46918 /* libmei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* libmei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61DBCCE81312C99500B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
+		9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE4E73C131D4F7C00A59F5D /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +27,11 @@
 		617B4323130450C900EBBE7F /* libmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = libmei.cpp; path = src/libmei.cpp; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
 		617B43441304560400EBBE7F /* readmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readmei; sourceTree = BUILT_PRODUCTS_DIR; };
-		61DBCC1E1312BF8300B46918 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "/Network/Servers/borges.mt.lan/Volumes/home/portera/Downloads/gtest-1.5.0/xcode/build/Release/gtest.framework"; sourceTree = "<absolute>"; };
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCCF1312C85D00B46918 /* mei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = mei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCD01312C85E00B46918 /* mei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mei-Info.plist"; sourceTree = "<group>"; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
+		9BE4E73C131D4F7C00A59F5D /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../gtest.framework; sourceTree = SOURCE_ROOT; };
 		D2AAC09D05546B4700DB518D /* libmei.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmei.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -49,7 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61DBCCE81312C99500B46918 /* mei.framework in Frameworks */,
-				61DBCC2C1312C07500B46918 /* gtest.framework in Frameworks */,
+				9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				61DBCC1E1312BF8300B46918 /* gtest.framework */,
+				9BE4E73C131D4F7C00A59F5D /* gtest.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -234,7 +234,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -411,6 +410,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/gtest-1.5.0/xcode/build/Release\"",
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -432,6 +433,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/gtest-1.5.0/xcode/build/Release\"",
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
