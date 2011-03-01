@@ -9,7 +9,7 @@
 
 // Test that incr() increases the constructor parameter by 1
 TEST(MeiTest, TestIncr) {
-    mei m = mei(2);
+    Mei m = Mei(2);
     ASSERT_EQ(3, m.incr());
 }
 

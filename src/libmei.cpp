@@ -3,14 +3,16 @@
  *
  */
 
-#include <iostream>
 #include "libmei.h"
 
-mei::mei(int start) {
+#include <iostream>
+
+
+Mei::Mei(int start) {
     state = start;
 }
 
-int mei::incr() {
+int Mei::incr() {
     state++;
     return state;
 }
