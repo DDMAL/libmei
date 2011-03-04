@@ -21,4 +21,4 @@ private:
 };
 
 #pragma GCC visibility pop
- #endif // LIBMEI_H_
+#endif // LIBMEI_H_
