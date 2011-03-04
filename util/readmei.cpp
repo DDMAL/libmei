@@ -11,6 +11,6 @@ using std::endl;
 #include "libmei.h"
 
 int main(int argc, char **argv) {
-    mei m = mei(1);
+    Mei m = Mei(1);
     cout << m.incr() << endl;
 }
