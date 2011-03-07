@@ -30,9 +30,12 @@ class MeiElement
 		vector <MeiAttribute> getAttributes();
 		
 		void addAttribute(MeiAttribute attribute);
-		void removeAttribute(MeiAttribute attribute);
+		void removeAttribute(string attributeName);
 		
 		void setValue(string value);
+		
+		void addChild(MeiElement child);
+		void removeChild(MeiElement child);
 
 		
 	private:

@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 
 MeiElement::MeiElement(string name) {
 	this->name = name;	
@@ -36,10 +38,21 @@ void MeiElement::setValue(string value) {
 }
 
 vector<MeiAttribute> MeiElement::getAttributes() {
-	return attributes; 
+	return attributes;       
 }
 
 void MeiElement::addAttribute(MeiAttribute attribute) {
 	attributes.push_back(attribute); 
 }
+
+void MeiElement::removeAttribute(string attributeName) {
+	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+			if ((*iter).getName() == attributeName) attributes.erase(iter);
+	}
+}
+
+void MeiElement::addChild(MeiElement child) {
+	children.push_back(child);
+}
+
 
