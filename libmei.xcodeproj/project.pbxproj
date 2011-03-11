@@ -22,6 +22,13 @@
 		9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB63B13214C430054C2DC /* meiattribute.cpp */; };
 		9B3CB642132151680054C2DC /* meiattribute_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB641132151680054C2DC /* meiattribute_test.cpp */; };
 		9B3CB643132151680054C2DC /* meiattribute_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB641132151680054C2DC /* meiattribute_test.cpp */; };
+		9BDC6439132A90430062255E /* meidocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BDC6437132A90430062255E /* meidocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BDC643A132A90430062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
+		9BDC643C132A905F0062255E /* meidocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BDC6437132A90430062255E /* meidocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
+		9BDC64A1132AB3520062255E /* meidocument_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC64A0132AB3520062255E /* meidocument_test.cpp */; };
+		9BDC64A2132AB3520062255E /* meidocument_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC64A0132AB3520062255E /* meidocument_test.cpp */; };
+		9BDC64AD132AB4480062255E /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; };
 		9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE4E73C131D4F7C00A59F5D /* gtest.framework */; };
 		9BE4E744131D570100A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E750131D64B400A59F5D /* meielement_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E74E131D64B400A59F5D /* meielement_test.cpp */; };
@@ -45,6 +52,9 @@
 		9B3CB63A13214C430054C2DC /* meiattribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meiattribute.h; path = src/meiattribute.h; sourceTree = "<group>"; };
 		9B3CB63B13214C430054C2DC /* meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute.cpp; path = src/meiattribute.cpp; sourceTree = "<group>"; };
 		9B3CB641132151680054C2DC /* meiattribute_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute_test.cpp; path = test/meiattribute_test.cpp; sourceTree = "<group>"; };
+		9BDC6437132A90430062255E /* meidocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meidocument.h; path = src/meidocument.h; sourceTree = "<group>"; };
+		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
+		9BDC64A0132AB3520062255E /* meidocument_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument_test.cpp; path = test/meidocument_test.cpp; sourceTree = "<group>"; };
 		9BE4E73C131D4F7C00A59F5D /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../gtest.framework; sourceTree = SOURCE_ROOT; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
@@ -129,6 +139,8 @@
 				9BE4E743131D570100A59F5D /* meielement.cpp */,
 				9B3CB63A13214C430054C2DC /* meiattribute.h */,
 				9B3CB63B13214C430054C2DC /* meiattribute.cpp */,
+				9BDC6437132A90430062255E /* meidocument.h */,
+				9BDC6438132A90430062255E /* meidocument.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 				617B43081304501F00EBBE7F /* mei_test.cpp */,
 				9BE4E74E131D64B400A59F5D /* meielement_test.cpp */,
 				9B3CB641132151680054C2DC /* meiattribute_test.cpp */,
+				9BDC64A0132AB3520062255E /* meidocument_test.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -171,6 +184,7 @@
 				9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */,
 				61DBCCD71312C86F00B46918 /* libmei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
+				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +192,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BDC64AD132AB4480062255E /* meielement.h in Headers */,
+				9BDC6439132A90430062255E /* meidocument.h in Headers */,
 				617B4324130450C900EBBE7F /* libmei.h in Headers */,
 				9B3CB63C13214C430054C2DC /* meiattribute.h in Headers */,
 			);
@@ -308,6 +324,7 @@
 				61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */,
 				9BE4E744131D570100A59F5D /* meielement.cpp in Sources */,
 				9B3CB643132151680054C2DC /* meiattribute_test.cpp in Sources */,
+				9BDC64A2132AB3520062255E /* meidocument_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +335,7 @@
 				9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */,
 				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
 				61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */,
+				9BDC643D132A905F0062255E /* meidocument.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +347,8 @@
 				9BE4E750131D64B400A59F5D /* meielement_test.cpp in Sources */,
 				9B3CB63D13214C430054C2DC /* meiattribute.cpp in Sources */,
 				9B3CB642132151680054C2DC /* meiattribute_test.cpp in Sources */,
+				9BDC643A132A90430062255E /* meidocument.cpp in Sources */,
+				9BDC64A1132AB3520062255E /* meidocument_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
