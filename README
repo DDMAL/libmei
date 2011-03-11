@@ -18,4 +18,12 @@ An Xcode project file is included, that should let you develop libMEI.
 
 We use googletest for unit testing.
 
+To create new files: 
+	- Go to File -> New File -> C and C++ -> C++ File
+	- Ensure the checkbox for creaing a .h file is selected
+	- Choose file location to be in the src folder
+	- Once created, add the header file to Targets -> libmei -> Copy Headers
+	- Right-click on the header file, choose "Set Role" and set it to "Public"
+
 For every src <file>.cpp/h you create, create a test/<file>_test.cpp
+	- For _test files, no header files are needed. When creating the file uncheck the box 		that also creates a .h file
