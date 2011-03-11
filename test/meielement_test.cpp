@@ -7,7 +7,6 @@
  *
  */
 
-
 #include <gtest/gtest.h>
 
 #include <mei/meielement.h>
@@ -17,7 +16,7 @@
 // Test that ana MeiElement exists and the name can be retrieved
 TEST(MeiElementTest, NameTest) {
     
-	MeiElement element = MeiElement ("note"); 
+	MeiElement element = MeiElement ("note");
 	ASSERT_EQ("note", element.getName()); 
 	
 }
@@ -31,17 +30,47 @@ TEST(MeiElementTest, ValueTest) {
 }
 
 
-//Test that an attribute can be added to an MeiElement's attribute list
+//Test that an attribute can be added to an MeiElement's attribute list and then removed
 TEST(MeiElementTest, AttributeTest) {
 	MeiElement element = MeiElement ("note"); 
 	MeiAttribute attribute = MeiAttribute ("accid","sharp");
 	
 	vector<MeiAttribute> attr = element.getAttributes(); 
-	ASSERT_EQ((unsigned int)0,attr.size()); 
+	ASSERT_EQ((unsigned int)0, attr.size()); 
 	
 	element.addAttribute(attribute);
 	attr = element.getAttributes();
-	ASSERT_EQ((unsigned int)1,attr.size()); 
+	ASSERT_EQ((unsigned int)1, attr.size());
+	
+	ASSERT_TRUE(element.hasAttribute(attribute)); 
+	
+	element.removeAttribute("accid");
+	attr = element.getAttributes();
+	ASSERT_EQ((unsigned int)0, attr.size());
 		
 }
+
+//Test an MeiElement's children, and their add/remove functionality 
+TEST(MeiElementTest, childrenTest) {
+	MeiElement parent = MeiElement ("staff");
+	MeiElement child = MeiElement ("note");
+	
+	vector<MeiElement> children = parent.getChildren(); 
+	ASSERT_EQ((unsigned int)0, children.size()); 
+	
+	parent.addChild(child);
+	children = parent.getChildren(); 
+	
+	ASSERT_EQ((unsigned int)1, children.size());
+	
+	ASSERT_TRUE(parent.hasChild(child));
+	
+	parent.removeChild(child); 
+	children = parent.getChildren(); 
+	
+	ASSERT_EQ((unsigned int)0, children.size()); 
+}
+
+
+
 
