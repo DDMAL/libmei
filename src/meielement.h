@@ -11,12 +11,12 @@
 #define MEIELEMENT_H_
 
 #include <string>
-#include <vector> 
+#include <vector>
+
+#include "meiattribute.h"
 
 using std::string;
 using std::vector;
-
-class MeiAttribute; 
 
 class MeiElement
 	{
@@ -28,14 +28,18 @@ class MeiElement
 		string getValue();
 		
 		vector <MeiAttribute> getAttributes();
+		bool meiCompare(MeiElement element1, MeiElement element2);
 		
 		void addAttribute(MeiAttribute attribute);
 		void removeAttribute(string attributeName);
+		bool hasAttribute(MeiAttribute attribute);
 		
 		void setValue(string value);
 		
+		vector <MeiElement> getChildren();
 		void addChild(MeiElement child);
 		void removeChild(MeiElement child);
+		bool hasChild(MeiElement child);
 
 		
 	private:
@@ -48,6 +52,10 @@ class MeiElement
 		
 		MeiElement child (string name); 
 		vector<MeiElement> children;
+		
+		MeiElement element1(string name);
+		MeiElement element2(string name);
+
 		
 
 	};

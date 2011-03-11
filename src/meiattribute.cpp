@@ -13,8 +13,8 @@
 #include <string>
 
 MeiAttribute::MeiAttribute(string name, string value) {
-	this-> name = name; 
-	this-> value = value; 
+	this->name = name; 
+	this->value = value; 
 	
 }
 

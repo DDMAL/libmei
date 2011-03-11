@@ -27,10 +27,8 @@ class MeiAttribute
 	private:
 		string name; 
 		string value;
-		string prefix; 
-		
-		MeiElement element(string name);
-		
+		//string prefix;
+				
 	};
 
 
