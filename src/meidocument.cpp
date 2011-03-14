@@ -27,7 +27,10 @@ void MeiDocument::setEncoding(string encoding) {
 	this->encoding = encoding;
 }
 
-
 vector<MeiElement> MeiDocument::getElements() {
 	return elements; 
+}
+
+void MeiDocument::addElement(MeiElement element) {
+	elements.push_back(element);
 }

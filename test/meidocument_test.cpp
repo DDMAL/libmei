@@ -28,3 +28,19 @@ TEST(MeiDocumentTest, EncodingTest) {
 	
 	ASSERT_EQ("Unicode", doc.getEncoding()); 
 }
+
+//Test that an element exists, can be added and/or removed from a document
+TEST(MeiDocumentTest, ElementTest) { 
+	MeiDocument doc = MeiDocument("document1","UTF-8");
+	MeiElement element = MeiElement("note");
+	
+	vector<MeiElement> elements = doc.getElements();
+	
+	ASSERT_EQ((unsigned int)0, elements.size());
+	
+	doc.addElement(element);
+	elements = doc.getElements(); 
+	
+	ASSERT_EQ((unsigned int)1, elements.size());
+	
+} 

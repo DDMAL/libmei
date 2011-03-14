@@ -60,11 +60,4 @@ class MeiElement
 
 	};
 
-
-
-
-
-
-
-
 #endif // MEIELEMENT_H_
