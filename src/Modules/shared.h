@@ -14,7 +14,7 @@
 class Note: public MeiElement
 	{
 	public:
-		Note(); 
+		Note();
 	private:
 	};
 

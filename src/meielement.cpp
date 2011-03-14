@@ -26,19 +26,19 @@ string MeiElement::getName() {
 }
 
 string MeiElement::getValue() {
-	return value; 
+	return value;
 }
 
 string MeiElement::getTail() {
-	return tail; 
+	return tail;
 }
 
 void MeiElement::setValue(string value) {
-	this->value = value; 
+	this->value = value;
 }
 
 vector<MeiAttribute> MeiElement::getAttributes() {
-	return attributes;       
+	return attributes;
 }
 
 bool MeiElement::hasAttribute(MeiAttribute attribute) {
@@ -49,7 +49,7 @@ bool MeiElement::hasAttribute(MeiAttribute attribute) {
 }
 
 void MeiElement::addAttribute(MeiAttribute attribute) {
-	attributes.push_back(attribute); 
+	attributes.push_back(attribute);
 }
 
 void MeiElement::removeAttribute(string attributeName) {
@@ -59,18 +59,18 @@ void MeiElement::removeAttribute(string attributeName) {
 			iter = attributes.erase(iter);
 		}
 		else {
-			++iter; 
+			++iter;
 		}
 	}
 }
 
 vector<MeiElement> MeiElement::getChildren() {
-	return children;       
+	return children;
 }
 
 bool MeiElement::hasChild(MeiElement child) {
 	for (vector<MeiElement>::iterator iter = children.begin(); iter != children.end(); ++iter) {
-		if (meiCompare((*iter), child)) return true; 
+		if (meiCompare((*iter), child)) return true;
 	}
 	return false;	
 }
@@ -82,7 +82,7 @@ void MeiElement::addChild(MeiElement child) {
 void MeiElement::removeChild(MeiElement child) {
 	vector<MeiElement>::iterator iter = children.begin();
 	while (iter != children.end()) {
-		if (meiCompare((*iter), child)) { 
+		if (meiCompare((*iter), child)) {
 			iter = children.erase(iter);
 		}
 		else {
@@ -94,6 +94,6 @@ void MeiElement::removeChild(MeiElement child) {
 // Temporarily use this method to compare MeiElements, to be later replaced by an overloaded == operator
 bool MeiElement::meiCompare(MeiElement element1, MeiElement element2) {
 	if(element1.getName() == element2.getName()) return true;
-	else return false; 
+	else return false;
 }
 

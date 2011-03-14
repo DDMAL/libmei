@@ -10,7 +10,7 @@
 #ifndef MEIATTRIBUTE_H_
 #define MEIATTRIBUTE_H_
 
-#include <string> 
+#include <string>
 
 using std::string;
 
@@ -19,13 +19,13 @@ class MeiElement;
 class MeiAttribute
 	{
 	public:
-		MeiAttribute(string name, string value); 
+		MeiAttribute(string name, string value);
 		
-		string getName(); 
+		string getName();
 		string getValue();		
 		
 	private:
-		string name; 
+		string name;
 		string value;
 		//string prefix;
 				

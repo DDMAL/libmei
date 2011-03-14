@@ -23,8 +23,8 @@ class MeiElement
 	public:
 		MeiElement(string name);
 		
-		string getName(); 
-		string getTail(); 
+		string getName();
+		string getTail();
 		string getValue();
 		
 		vector <MeiAttribute> getAttributes();
@@ -50,7 +50,7 @@ class MeiElement
 		MeiAttribute attribute(string name, string value);
 		vector<MeiAttribute> attributes;
 		
-		MeiElement child (string name); 
+		MeiElement child (string name);
 		vector<MeiElement> children;
 		
 		MeiElement element1(string name);

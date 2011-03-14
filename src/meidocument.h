@@ -28,8 +28,8 @@ class MeiDocument
 		
 		void setEncoding(string encoding);
 		
-		void addElement(MeiElement element); 
-		void removeElement(MeiElement element); 
+		void addElement(MeiElement element);
+		void removeElement(MeiElement element);
 		
 	private:
 		string docname;
