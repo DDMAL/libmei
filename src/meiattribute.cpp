@@ -15,7 +15,6 @@
 MeiAttribute::MeiAttribute(string name, string value) {
 	this->name = name;
 	this->value = value;
-	
 }
 
 string MeiAttribute::getName() {
@@ -24,4 +23,8 @@ string MeiAttribute::getName() {
 
 string MeiAttribute::getValue() {
 	return value;
+}
+
+void MeiAttribute::setValue(string value) {
+	this->value = value;
 }

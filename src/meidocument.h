@@ -34,10 +34,7 @@ class MeiDocument
 	private:
 		string docname;
 		string encoding;
-		
-		MeiElement element (string name);
 		vector<MeiElement> elements;
-		
 	};
 
 #endif // MEIDOCUMENT_H_

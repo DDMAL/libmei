@@ -22,13 +22,14 @@ class MeiAttribute
 		MeiAttribute(string name, string value);
 		
 		string getName();
-		string getValue();		
+		string getValue();
+		
+		void setValue(string value);
 		
 	private:
 		string name;
 		string value;
 		//string prefix;
-				
 	};
 
 
