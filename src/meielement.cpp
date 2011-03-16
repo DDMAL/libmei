@@ -41,9 +41,16 @@ vector<MeiAttribute> MeiElement::getAttributes() {
 	return attributes;
 }
 
-bool MeiElement::hasAttribute(MeiAttribute attribute) {
+MeiAttribute* MeiElement::getAttribute(string name) {
 	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
-		if ((*iter).getName() == attribute.getName()) return true;
+		if ((*iter).getName() == name) return &(*iter);
+	}
+	return NULL;
+}
+
+bool MeiElement::hasAttribute(string name) {
+	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+		if ((*iter).getName() == name) return true;
 	}
 	return false;
 }
