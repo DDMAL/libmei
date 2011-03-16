@@ -10,15 +10,33 @@
 #define SHARED_H_
 
 #include "meielement.h"
+#include "meiattribute.h"
+#include "exceptions.h"
 
-class Note: public MeiElement
+class Note: public MeiElement 
 	{
 	public:
 		Note();
+		string getPitchName() throw (invalidAttribute);
+		void setPitchName(string pitchname);
+		
+	private:
+		string pitchname;
+	};
+
+class Clef: public MeiElement 
+	{
+	public:
+		Clef();
 	private:
 	};
 
-
+class KeySig: public MeiElement 
+	{
+	public:
+		KeySig();
+	private:
+	};
 
 
 #endif // SHARED_H_

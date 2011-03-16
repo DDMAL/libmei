@@ -12,16 +12,14 @@
 
 #include "meielement.h"
 
-class Ineume: public MeiElement
-	{
+class Ineume: public MeiElement	{
 	public:
 		Ineume(string value);
 	private:
 	};
 
 
-class Uneume: public MeiElement
-	{
+class Uneume: public MeiElement	{
 	public:
 		Uneume(string value);
 	private:
