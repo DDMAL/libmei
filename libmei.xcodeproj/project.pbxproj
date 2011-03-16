@@ -18,6 +18,7 @@
 		9B11C8AF132E6CC80090FDA6 /* neume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8AD132E6CC80090FDA6 /* neume.cpp */; };
 		9B11C8B4132E75120090FDA6 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B11C8B2132E75120090FDA6 /* shared.h */; };
 		9B11C8B5132E75120090FDA6 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8B3132E75120090FDA6 /* shared.cpp */; };
+		9B2EE933133117D700C94712 /* exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B2EE931133117D700C94712 /* exceptions.h */; };
 		9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CB63A13214C430054C2DC /* meiattribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB63B13214C430054C2DC /* meiattribute.cpp */; };
 		9B3CB643132151680054C2DC /* meiattribute_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB641132151680054C2DC /* meiattribute_test.cpp */; };
@@ -47,6 +48,7 @@
 		9B11C8AD132E6CC80090FDA6 /* neume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = neume.cpp; path = src/Modules/neume.cpp; sourceTree = "<group>"; };
 		9B11C8B2132E75120090FDA6 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shared.h; path = src/Modules/shared.h; sourceTree = "<group>"; };
 		9B11C8B3132E75120090FDA6 /* shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shared.cpp; path = src/Modules/shared.cpp; sourceTree = "<group>"; };
+		9B2EE931133117D700C94712 /* exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = exceptions.h; path = src/exceptions.h; sourceTree = "<group>"; };
 		9B3CB63A13214C430054C2DC /* meiattribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meiattribute.h; path = src/meiattribute.h; sourceTree = "<group>"; };
 		9B3CB63B13214C430054C2DC /* meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute.cpp; path = src/meiattribute.cpp; sourceTree = "<group>"; };
 		9B3CB641132151680054C2DC /* meiattribute_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute_test.cpp; path = test/meiattribute_test.cpp; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				9B3CB63B13214C430054C2DC /* meiattribute.cpp */,
 				9BDC6437132A90430062255E /* meidocument.h */,
 				9BDC6438132A90430062255E /* meidocument.cpp */,
+				9B2EE931133117D700C94712 /* exceptions.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
 				9B11C8AE132E6CC80090FDA6 /* neume.h in Headers */,
 				9B11C8B4132E75120090FDA6 /* shared.h in Headers */,
+				9B2EE933133117D700C94712 /* exceptions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +255,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
