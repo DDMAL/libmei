@@ -24,17 +24,16 @@ class MeiDocument
 		
 		string getName();
 		string getEncoding();
-		vector<MeiElement> getElements();
 		
 		void setEncoding(string encoding);
-		
-		void addElement(MeiElement element);
-		void removeElement(MeiElement element);
+
+		MeiElement* getRootElement();
+		void setRootElement(MeiElement* root);
 		
 	private:
 		string docname;
 		string encoding;
-		vector<MeiElement> elements;
+		MeiElement* root;
 	};
 
 #endif // MEIDOCUMENT_H_

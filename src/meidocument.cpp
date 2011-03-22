@@ -27,10 +27,10 @@ void MeiDocument::setEncoding(string encoding) {
 	this->encoding = encoding;
 }
 
-vector<MeiElement> MeiDocument::getElements() {
-	return elements;
+MeiElement* MeiDocument::getRootElement() {
+	return root;
 }
 
-void MeiDocument::addElement(MeiElement element) {
-	elements.push_back(element);
+void MeiDocument::setRootElement(MeiElement* root) {
+	this->root = root;
 }
