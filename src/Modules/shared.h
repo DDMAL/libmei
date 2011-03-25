@@ -297,11 +297,19 @@ class Note: public MeiElement
 	{
 	public:
 		Note();
+		string getAccidental() throw (invalidAttribute);
+		void setAccidental(string accidental);
+		
 		string getPitchName() throw (invalidAttribute);
 		void setPitchName(string pitchname);
 		
+		string getOctave() throw (invalidAttribute);
+		void setOctave(string octave);
+		
 	private:
 		string pitchname;
+		string octave;
+		string accidental;
 	};
 
 class Num: public MeiElement

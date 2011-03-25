@@ -133,10 +133,38 @@ Name::Name(): MeiElement("name") {
 Note::Note(): MeiElement("note") {
 }
 
+string Note::getAccidental() throw (invalidAttribute) {
+	MeiAttribute* accidentalAttr = getAttribute("accid");
+	if (accidentalAttr!=NULL) {
+		return accidentalAttr->getValue();
+	} else {
+		throw invalidAttribute();
+	}
+}
+
+void Note::setAccidental(string accidental) {
+	MeiAttribute accidentalAttr = MeiAttribute("accid", accidental);
+	addAttribute(accidentalAttr);
+}
+
+string Note::getOctave() throw (invalidAttribute) {
+	MeiAttribute* octaveAttr = getAttribute("oct");
+	if (octaveAttr!=NULL) {
+		return octaveAttr->getValue();
+	} else {
+		throw invalidAttribute();
+	}
+}
+
+void Note::setOctave(string octave) {
+	MeiAttribute octaveAttr = MeiAttribute("oct", octave);
+	addAttribute(octaveAttr);
+}
+
 string Note::getPitchName() throw (invalidAttribute) {
 	MeiAttribute* pitchName = getAttribute("pname");
 	if (pitchName!=NULL) {
-		return pitchName->getName();
+		return pitchName->getValue();
 	} else {
 		throw invalidAttribute();
 	}
@@ -144,7 +172,10 @@ string Note::getPitchName() throw (invalidAttribute) {
 
 void Note::setPitchName(string pitchname) {
 	MeiAttribute pitchName = MeiAttribute("pname", pitchname);
+	addAttribute(pitchName);
 }
+
+
 
 Num::Num(): MeiElement("num") {
 }

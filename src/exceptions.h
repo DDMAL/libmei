@@ -17,7 +17,7 @@ using std::exception;
 class invalidAttribute: public exception 
 	{
 		virtual const char* what() const throw() {
-			return "This note does not contain a pitch attribute";
+			return "This note does not contain the requested attribute";
 		}
 	};
 
