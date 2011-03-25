@@ -42,7 +42,7 @@ TEST(MeiElementTest, AttributeTest) {
 	attr = element.getAttributes();
 	ASSERT_EQ((unsigned int)1, attr.size());
 	
-	ASSERT_TRUE(element.hasAttribute(attribute));
+	ASSERT_TRUE(element.hasAttribute("accid"));
 	
 	element.removeAttribute("accid");
 	attr = element.getAttributes();
