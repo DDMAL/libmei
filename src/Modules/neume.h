@@ -14,16 +14,28 @@
 
 class Ineume: public MeiElement	{
 	public:
-		Ineume(string value);
+		Ineume();
 	private:
 	};
 
+class Syllable: public MeiElement	{
+public:
+	Syllable();
+private:
+};
 
 class Uneume: public MeiElement	{
 	public:
-		Uneume(string value);
+		Uneume();
 	private:
 	};
+
+// This is not in the MEI standard yet
+class Division: public MeiElement	{
+public:
+	Division();
+private:
+};
 
 
 

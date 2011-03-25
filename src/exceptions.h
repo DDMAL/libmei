@@ -16,9 +16,21 @@ using std::exception;
 
 class invalidAttribute: public exception 
 	{
-		virtual const char* what() const throw() {
-			return "This note does not contain the requested attribute";
+	public:
+		invalidAttribute(string attributeName) {
+			this->attributeName = attributeName;
 		}
+		
+		~invalidAttribute() throw() { };
+		
+		virtual const char* what() const throw() {
+			string s = "This note does not contain the attribute ";
+			s = s + attributeName;
+			return s.c_str();
+		}
+		
+	private:
+		string attributeName;
 	};
 
 

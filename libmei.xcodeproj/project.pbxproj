@@ -22,6 +22,45 @@
 		9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CB63A13214C430054C2DC /* meiattribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB63B13214C430054C2DC /* meiattribute.cpp */; };
 		9B3CB643132151680054C2DC /* meiattribute_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB641132151680054C2DC /* meiattribute_test.cpp */; };
+		9B716F05133D361E00A862F8 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F03133D361E00A862F8 /* text.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716F06133D361E00A862F8 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F04133D361E00A862F8 /* text.cpp */; };
+		9B716F07133D361E00A862F8 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F04133D361E00A862F8 /* text.cpp */; };
+		9B716F3F133D3A4000A862F8 /* lyrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F3D133D3A4000A862F8 /* lyrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716F40133D3A4000A862F8 /* lyrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F3E133D3A4000A862F8 /* lyrics.cpp */; };
+		9B716F41133D3A4000A862F8 /* lyrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F3E133D3A4000A862F8 /* lyrics.cpp */; };
+		9B716F44133D3BF500A862F8 /* harmony.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F42133D3BF500A862F8 /* harmony.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716F45133D3BF500A862F8 /* harmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F43133D3BF500A862F8 /* harmony.cpp */; };
+		9B716F46133D3BF500A862F8 /* harmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F43133D3BF500A862F8 /* harmony.cpp */; };
+		9B716F4D133D3E2200A862F8 /* mensural.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F4B133D3E2200A862F8 /* mensural.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716F4E133D3E2200A862F8 /* mensural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F4C133D3E2200A862F8 /* mensural.cpp */; };
+		9B716F4F133D3E2200A862F8 /* mensural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F4C133D3E2200A862F8 /* mensural.cpp */; };
+		9B716F8A133D403000A862F8 /* cmn.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F88133D403000A862F8 /* cmn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716F8B133D403000A862F8 /* cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F89133D403000A862F8 /* cmn.cpp */; };
+		9B716F8C133D403000A862F8 /* cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F89133D403000A862F8 /* cmn.cpp */; };
+		9B716FA8133D4B0300A862F8 /* cmnornaments.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FA6133D4B0300A862F8 /* cmnornaments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716FA9133D4B0300A862F8 /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */; };
+		9B716FAA133D4B0300A862F8 /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */; };
+		9B716FB0133D4C8D00A862F8 /* corpus.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FAE133D4C8D00A862F8 /* corpus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716FB1133D4C8D00A862F8 /* corpus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FAF133D4C8D00A862F8 /* corpus.cpp */; };
+		9B716FB2133D4C8D00A862F8 /* corpus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FAF133D4C8D00A862F8 /* corpus.cpp */; };
+		9B716FB8133D4F8C00A862F8 /* critapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FB6133D4F8C00A862F8 /* critapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716FB9133D4F8C00A862F8 /* critapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FB7133D4F8C00A862F8 /* critapp.cpp */; };
+		9B716FBA133D4F8C00A862F8 /* critapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FB7133D4F8C00A862F8 /* critapp.cpp */; };
+		9B716FC0133D531600A862F8 /* edittrans.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FBE133D531600A862F8 /* edittrans.h */; };
+		9B716FC1133D531600A862F8 /* edittrans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FBF133D531600A862F8 /* edittrans.cpp */; };
+		9B716FC2133D531600A862F8 /* edittrans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FBF133D531600A862F8 /* edittrans.cpp */; };
+		9B716FC8133D559200A862F8 /* facsimile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FC6133D559200A862F8 /* facsimile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B716FC9133D559200A862F8 /* facsimile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FC7133D559200A862F8 /* facsimile.cpp */; };
+		9B716FCA133D559200A862F8 /* facsimile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FC7133D559200A862F8 /* facsimile.cpp */; };
+		9B716FD0133D56BC00A862F8 /* figtable.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FCE133D56BC00A862F8 /* figtable.h */; };
+		9B716FD1133D56BC00A862F8 /* figtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FCF133D56BC00A862F8 /* figtable.cpp */; };
+		9B716FD2133D56BC00A862F8 /* figtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FCF133D56BC00A862F8 /* figtable.cpp */; };
+		9B716FD8133D588800A862F8 /* linkalign.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FD6133D588800A862F8 /* linkalign.h */; };
+		9B716FD9133D588800A862F8 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FD7133D588800A862F8 /* linkalign.cpp */; };
+		9B716FDA133D588800A862F8 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FD7133D588800A862F8 /* linkalign.cpp */; };
+		9B71704F133D598A00A862F8 /* midi.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B71704D133D598A00A862F8 /* midi.h */; };
+		9B717050133D598A00A862F8 /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B71704E133D598A00A862F8 /* midi.cpp */; };
+		9B717051133D598A00A862F8 /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B71704E133D598A00A862F8 /* midi.cpp */; };
 		9B956908133CE2780034FC1E /* module_shared_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B956907133CE2780034FC1E /* module_shared_test.cpp */; };
 		9B956909133CE2780034FC1E /* module_shared_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B956907133CE2780034FC1E /* module_shared_test.cpp */; };
 		9B956922133CE68B0034FC1E /* neume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8AD132E6CC80090FDA6 /* neume.cpp */; };
@@ -56,6 +95,32 @@
 		9B3CB63A13214C430054C2DC /* meiattribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meiattribute.h; path = src/meiattribute.h; sourceTree = "<group>"; };
 		9B3CB63B13214C430054C2DC /* meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute.cpp; path = src/meiattribute.cpp; sourceTree = "<group>"; };
 		9B3CB641132151680054C2DC /* meiattribute_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute_test.cpp; path = test/meiattribute_test.cpp; sourceTree = "<group>"; };
+		9B716F03133D361E00A862F8 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text.h; path = src/Modules/text.h; sourceTree = "<group>"; };
+		9B716F04133D361E00A862F8 /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = src/Modules/text.cpp; sourceTree = "<group>"; };
+		9B716F3D133D3A4000A862F8 /* lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lyrics.h; path = src/Modules/lyrics.h; sourceTree = "<group>"; };
+		9B716F3E133D3A4000A862F8 /* lyrics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lyrics.cpp; path = src/Modules/lyrics.cpp; sourceTree = "<group>"; };
+		9B716F42133D3BF500A862F8 /* harmony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = harmony.h; path = src/Modules/harmony.h; sourceTree = "<group>"; };
+		9B716F43133D3BF500A862F8 /* harmony.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = harmony.cpp; path = src/Modules/harmony.cpp; sourceTree = "<group>"; };
+		9B716F4B133D3E2200A862F8 /* mensural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mensural.h; path = src/Modules/mensural.h; sourceTree = "<group>"; };
+		9B716F4C133D3E2200A862F8 /* mensural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mensural.cpp; path = src/Modules/mensural.cpp; sourceTree = "<group>"; };
+		9B716F88133D403000A862F8 /* cmn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmn.h; path = src/Modules/cmn.h; sourceTree = "<group>"; };
+		9B716F89133D403000A862F8 /* cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmn.cpp; path = src/Modules/cmn.cpp; sourceTree = "<group>"; };
+		9B716FA6133D4B0300A862F8 /* cmnornaments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmnornaments.h; path = src/Modules/cmnornaments.h; sourceTree = "<group>"; };
+		9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmnornaments.cpp; path = src/Modules/cmnornaments.cpp; sourceTree = "<group>"; };
+		9B716FAE133D4C8D00A862F8 /* corpus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = corpus.h; path = src/Modules/corpus.h; sourceTree = "<group>"; };
+		9B716FAF133D4C8D00A862F8 /* corpus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = corpus.cpp; path = src/Modules/corpus.cpp; sourceTree = "<group>"; };
+		9B716FB6133D4F8C00A862F8 /* critapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = critapp.h; path = src/Modules/critapp.h; sourceTree = "<group>"; };
+		9B716FB7133D4F8C00A862F8 /* critapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = critapp.cpp; path = src/Modules/critapp.cpp; sourceTree = "<group>"; };
+		9B716FBE133D531600A862F8 /* edittrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edittrans.h; path = src/Modules/edittrans.h; sourceTree = "<group>"; };
+		9B716FBF133D531600A862F8 /* edittrans.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = edittrans.cpp; path = src/Modules/edittrans.cpp; sourceTree = "<group>"; };
+		9B716FC6133D559200A862F8 /* facsimile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = facsimile.h; path = src/Modules/facsimile.h; sourceTree = "<group>"; };
+		9B716FC7133D559200A862F8 /* facsimile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = facsimile.cpp; path = src/Modules/facsimile.cpp; sourceTree = "<group>"; };
+		9B716FCE133D56BC00A862F8 /* figtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figtable.h; path = src/Modules/figtable.h; sourceTree = "<group>"; };
+		9B716FCF133D56BC00A862F8 /* figtable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = figtable.cpp; path = src/Modules/figtable.cpp; sourceTree = "<group>"; };
+		9B716FD6133D588800A862F8 /* linkalign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linkalign.h; path = src/Modules/linkalign.h; sourceTree = "<group>"; };
+		9B716FD7133D588800A862F8 /* linkalign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = linkalign.cpp; path = src/Modules/linkalign.cpp; sourceTree = "<group>"; };
+		9B71704D133D598A00A862F8 /* midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = midi.h; path = src/Modules/midi.h; sourceTree = "<group>"; };
+		9B71704E133D598A00A862F8 /* midi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = midi.cpp; path = src/Modules/midi.cpp; sourceTree = "<group>"; };
 		9B956907133CE2780034FC1E /* module_shared_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = module_shared_test.cpp; path = test/module_shared_test.cpp; sourceTree = "<group>"; };
 		9BDC6437132A90430062255E /* meidocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meidocument.h; path = src/meidocument.h; sourceTree = "<group>"; };
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
@@ -180,6 +245,32 @@
 				9B11C8AC132E6CC80090FDA6 /* neume.h */,
 				9B11C8AD132E6CC80090FDA6 /* neume.cpp */,
 				9B11C8B3132E75120090FDA6 /* shared.cpp */,
+				9B716F03133D361E00A862F8 /* text.h */,
+				9B716F04133D361E00A862F8 /* text.cpp */,
+				9B716F3D133D3A4000A862F8 /* lyrics.h */,
+				9B716F3E133D3A4000A862F8 /* lyrics.cpp */,
+				9B716F42133D3BF500A862F8 /* harmony.h */,
+				9B716F43133D3BF500A862F8 /* harmony.cpp */,
+				9B716F4B133D3E2200A862F8 /* mensural.h */,
+				9B716F4C133D3E2200A862F8 /* mensural.cpp */,
+				9B716F88133D403000A862F8 /* cmn.h */,
+				9B716F89133D403000A862F8 /* cmn.cpp */,
+				9B716FA6133D4B0300A862F8 /* cmnornaments.h */,
+				9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */,
+				9B716FAE133D4C8D00A862F8 /* corpus.h */,
+				9B716FAF133D4C8D00A862F8 /* corpus.cpp */,
+				9B716FB6133D4F8C00A862F8 /* critapp.h */,
+				9B716FB7133D4F8C00A862F8 /* critapp.cpp */,
+				9B716FBE133D531600A862F8 /* edittrans.h */,
+				9B716FBF133D531600A862F8 /* edittrans.cpp */,
+				9B716FC6133D559200A862F8 /* facsimile.h */,
+				9B716FC7133D559200A862F8 /* facsimile.cpp */,
+				9B716FCE133D56BC00A862F8 /* figtable.h */,
+				9B716FCF133D56BC00A862F8 /* figtable.cpp */,
+				9B716FD6133D588800A862F8 /* linkalign.h */,
+				9B716FD7133D588800A862F8 /* linkalign.cpp */,
+				9B71704D133D598A00A862F8 /* midi.h */,
+				9B71704E133D598A00A862F8 /* midi.cpp */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -191,6 +282,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B716F8A133D403000A862F8 /* cmn.h in Headers */,
+				9B716FD8133D588800A862F8 /* linkalign.h in Headers */,
+				9B716F4D133D3E2200A862F8 /* mensural.h in Headers */,
+				9B716FB8133D4F8C00A862F8 /* critapp.h in Headers */,
+				9B716FC8133D559200A862F8 /* facsimile.h in Headers */,
+				9B716FB0133D4C8D00A862F8 /* corpus.h in Headers */,
+				9B716F3F133D3A4000A862F8 /* lyrics.h in Headers */,
+				9B716F05133D361E00A862F8 /* text.h in Headers */,
+				9B716FA8133D4B0300A862F8 /* cmnornaments.h in Headers */,
+				9B716F44133D3BF500A862F8 /* harmony.h in Headers */,
 				9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */,
 				61DBCCD71312C86F00B46918 /* libmei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
@@ -198,6 +299,9 @@
 				9B11C8AE132E6CC80090FDA6 /* neume.h in Headers */,
 				9B11C8B4132E75120090FDA6 /* shared.h in Headers */,
 				9B2EE933133117D700C94712 /* exceptions.h in Headers */,
+				9B716FC0133D531600A862F8 /* edittrans.h in Headers */,
+				9B716FD0133D56BC00A862F8 /* figtable.h in Headers */,
+				9B71704F133D598A00A862F8 /* midi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +401,19 @@
 			files = (
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
 				9B956908133CE2780034FC1E /* module_shared_test.cpp in Sources */,
+				9B716F07133D361E00A862F8 /* text.cpp in Sources */,
+				9B716F41133D3A4000A862F8 /* lyrics.cpp in Sources */,
+				9B716F46133D3BF500A862F8 /* harmony.cpp in Sources */,
+				9B716F4F133D3E2200A862F8 /* mensural.cpp in Sources */,
+				9B716F8C133D403000A862F8 /* cmn.cpp in Sources */,
+				9B716FAA133D4B0300A862F8 /* cmnornaments.cpp in Sources */,
+				9B716FB2133D4C8D00A862F8 /* corpus.cpp in Sources */,
+				9B716FBA133D4F8C00A862F8 /* critapp.cpp in Sources */,
+				9B716FC2133D531600A862F8 /* edittrans.cpp in Sources */,
+				9B716FCA133D559200A862F8 /* facsimile.cpp in Sources */,
+				9B716FD2133D56BC00A862F8 /* figtable.cpp in Sources */,
+				9B716FDA133D588800A862F8 /* linkalign.cpp in Sources */,
+				9B717051133D598A00A862F8 /* midi.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,12 +437,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B716FA9133D4B0300A862F8 /* cmnornaments.cpp in Sources */,
+				9B716FC9133D559200A862F8 /* facsimile.cpp in Sources */,
+				9B716F8B133D403000A862F8 /* cmn.cpp in Sources */,
+				9B716FD9133D588800A862F8 /* linkalign.cpp in Sources */,
+				9B716F4E133D3E2200A862F8 /* mensural.cpp in Sources */,
+				9B716FB1133D4C8D00A862F8 /* corpus.cpp in Sources */,
+				9B716FB9133D4F8C00A862F8 /* critapp.cpp in Sources */,
+				9B716F45133D3BF500A862F8 /* harmony.cpp in Sources */,
+				9B716F40133D3A4000A862F8 /* lyrics.cpp in Sources */,
 				9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */,
+				9B716F06133D361E00A862F8 /* text.cpp in Sources */,
 				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
 				61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */,
 				9BDC643D132A905F0062255E /* meidocument.cpp in Sources */,
 				9B11C8AF132E6CC80090FDA6 /* neume.cpp in Sources */,
 				9B11C8B5132E75120090FDA6 /* shared.cpp in Sources */,
+				9B716FC1133D531600A862F8 /* edittrans.cpp in Sources */,
+				9B716FD1133D56BC00A862F8 /* figtable.cpp in Sources */,
+				9B717050133D598A00A862F8 /* midi.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

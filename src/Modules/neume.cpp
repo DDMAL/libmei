@@ -9,10 +9,14 @@
 
 #include "neume.h"
 
-Ineume::Ineume(string value): MeiElement("ineume") {
-	setValue(value);
+Ineume::Ineume(): MeiElement("ineume") {
 }
 
-Uneume::Uneume(string value): MeiElement("uneume") {
-	setValue(value);
+Syllable::Syllable(): MeiElement("syllable") {
+}
+
+Uneume::Uneume(): MeiElement("uneume") {
+}
+
+Division::Division(): MeiElement("division") {
 }

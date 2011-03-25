@@ -138,7 +138,7 @@ string Note::getAccidental() throw (invalidAttribute) {
 	if (accidentalAttr!=NULL) {
 		return accidentalAttr->getValue();
 	} else {
-		throw invalidAttribute();
+		throw invalidAttribute("accid");
 	}
 }
 
@@ -152,7 +152,7 @@ string Note::getOctave() throw (invalidAttribute) {
 	if (octaveAttr!=NULL) {
 		return octaveAttr->getValue();
 	} else {
-		throw invalidAttribute();
+		throw invalidAttribute("oct");
 	}
 }
 
@@ -166,7 +166,7 @@ string Note::getPitchName() throw (invalidAttribute) {
 	if (pitchName!=NULL) {
 		return pitchName->getValue();
 	} else {
-		throw invalidAttribute();
+		throw invalidAttribute("pname");
 	}
 }
 
