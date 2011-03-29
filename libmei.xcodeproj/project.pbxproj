@@ -22,6 +22,18 @@
 		9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CB63A13214C430054C2DC /* meiattribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB63B13214C430054C2DC /* meiattribute.cpp */; };
 		9B3CB643132151680054C2DC /* meiattribute_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB641132151680054C2DC /* meiattribute_test.cpp */; };
+		9B56BB451342671F00BEAB84 /* namesdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B56BB431342671F00BEAB84 /* namesdates.h */; };
+		9B56BB461342671F00BEAB84 /* namesdates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB441342671F00BEAB84 /* namesdates.cpp */; };
+		9B56BB471342671F00BEAB84 /* namesdates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB441342671F00BEAB84 /* namesdates.cpp */; };
+		9B56BB4D1342730500BEAB84 /* ptrref.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B56BB4B1342730500BEAB84 /* ptrref.h */; };
+		9B56BB4E1342730500BEAB84 /* ptrref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB4C1342730500BEAB84 /* ptrref.cpp */; };
+		9B56BB4F1342730500BEAB84 /* ptrref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB4C1342730500BEAB84 /* ptrref.cpp */; };
+		9B56BB52134273E000BEAB84 /* usersymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B56BB50134273E000BEAB84 /* usersymbols.h */; };
+		9B56BB53134273E000BEAB84 /* usersymbols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB51134273E000BEAB84 /* usersymbols.cpp */; };
+		9B56BB54134273E000BEAB84 /* usersymbols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB51134273E000BEAB84 /* usersymbols.cpp */; };
+		9B56BB621342751000BEAB84 /* header.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B56BB601342751000BEAB84 /* header.h */; };
+		9B56BB631342751000BEAB84 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB611342751000BEAB84 /* header.cpp */; };
+		9B56BB641342751000BEAB84 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B56BB611342751000BEAB84 /* header.cpp */; };
 		9B716F05133D361E00A862F8 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F03133D361E00A862F8 /* text.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B716F06133D361E00A862F8 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F04133D361E00A862F8 /* text.cpp */; };
 		9B716F07133D361E00A862F8 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F04133D361E00A862F8 /* text.cpp */; };
@@ -95,6 +107,14 @@
 		9B3CB63A13214C430054C2DC /* meiattribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meiattribute.h; path = src/meiattribute.h; sourceTree = "<group>"; };
 		9B3CB63B13214C430054C2DC /* meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute.cpp; path = src/meiattribute.cpp; sourceTree = "<group>"; };
 		9B3CB641132151680054C2DC /* meiattribute_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute_test.cpp; path = test/meiattribute_test.cpp; sourceTree = "<group>"; };
+		9B56BB431342671F00BEAB84 /* namesdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = namesdates.h; path = src/Modules/namesdates.h; sourceTree = "<group>"; };
+		9B56BB441342671F00BEAB84 /* namesdates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = namesdates.cpp; path = src/Modules/namesdates.cpp; sourceTree = "<group>"; };
+		9B56BB4B1342730500BEAB84 /* ptrref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ptrref.h; path = src/Modules/ptrref.h; sourceTree = "<group>"; };
+		9B56BB4C1342730500BEAB84 /* ptrref.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ptrref.cpp; path = src/Modules/ptrref.cpp; sourceTree = "<group>"; };
+		9B56BB50134273E000BEAB84 /* usersymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usersymbols.h; path = src/Modules/usersymbols.h; sourceTree = "<group>"; };
+		9B56BB51134273E000BEAB84 /* usersymbols.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbols.cpp; path = src/Modules/usersymbols.cpp; sourceTree = "<group>"; };
+		9B56BB601342751000BEAB84 /* header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = header.h; path = src/Modules/header.h; sourceTree = "<group>"; };
+		9B56BB611342751000BEAB84 /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = header.cpp; path = src/Modules/header.cpp; sourceTree = "<group>"; };
 		9B716F03133D361E00A862F8 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text.h; path = src/Modules/text.h; sourceTree = "<group>"; };
 		9B716F04133D361E00A862F8 /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = src/Modules/text.cpp; sourceTree = "<group>"; };
 		9B716F3D133D3A4000A862F8 /* lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lyrics.h; path = src/Modules/lyrics.h; sourceTree = "<group>"; };
@@ -271,6 +291,14 @@
 				9B716FD7133D588800A862F8 /* linkalign.cpp */,
 				9B71704D133D598A00A862F8 /* midi.h */,
 				9B71704E133D598A00A862F8 /* midi.cpp */,
+				9B56BB431342671F00BEAB84 /* namesdates.h */,
+				9B56BB441342671F00BEAB84 /* namesdates.cpp */,
+				9B56BB4B1342730500BEAB84 /* ptrref.h */,
+				9B56BB4C1342730500BEAB84 /* ptrref.cpp */,
+				9B56BB50134273E000BEAB84 /* usersymbols.h */,
+				9B56BB51134273E000BEAB84 /* usersymbols.cpp */,
+				9B56BB601342751000BEAB84 /* header.h */,
+				9B56BB611342751000BEAB84 /* header.cpp */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -302,6 +330,10 @@
 				9B716FC0133D531600A862F8 /* edittrans.h in Headers */,
 				9B716FD0133D56BC00A862F8 /* figtable.h in Headers */,
 				9B71704F133D598A00A862F8 /* midi.h in Headers */,
+				9B56BB451342671F00BEAB84 /* namesdates.h in Headers */,
+				9B56BB4D1342730500BEAB84 /* ptrref.h in Headers */,
+				9B56BB52134273E000BEAB84 /* usersymbols.h in Headers */,
+				9B56BB621342751000BEAB84 /* header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +446,10 @@
 				9B716FD2133D56BC00A862F8 /* figtable.cpp in Sources */,
 				9B716FDA133D588800A862F8 /* linkalign.cpp in Sources */,
 				9B717051133D598A00A862F8 /* midi.cpp in Sources */,
+				9B56BB471342671F00BEAB84 /* namesdates.cpp in Sources */,
+				9B56BB4F1342730500BEAB84 /* ptrref.cpp in Sources */,
+				9B56BB54134273E000BEAB84 /* usersymbols.cpp in Sources */,
+				9B56BB641342751000BEAB84 /* header.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +492,10 @@
 				9B716FC1133D531600A862F8 /* edittrans.cpp in Sources */,
 				9B716FD1133D56BC00A862F8 /* figtable.cpp in Sources */,
 				9B717050133D598A00A862F8 /* midi.cpp in Sources */,
+				9B56BB461342671F00BEAB84 /* namesdates.cpp in Sources */,
+				9B56BB4E1342730500BEAB84 /* ptrref.cpp in Sources */,
+				9B56BB53134273E000BEAB84 /* usersymbols.cpp in Sources */,
+				9B56BB631342751000BEAB84 /* header.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
