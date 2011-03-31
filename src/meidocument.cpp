@@ -10,13 +10,17 @@
 #include "meidocument.h"
 #include "meielement.h"
 
-MeiDocument::MeiDocument(string name, string encoding) {
-	this->docname = name;
+MeiDocument::MeiDocument(string docname, string encoding) {
+	this->docname = docname;
 	this->encoding = encoding;
 }
 
-string MeiDocument::getName() {
+string MeiDocument::getDocName() {
 	return docname;
+}
+
+void MeiDocument::setDocName(string docname) {
+    this->docname = docname;
 }
 
 string MeiDocument::getEncoding() {
@@ -34,3 +38,5 @@ MeiElement* MeiDocument::getRootElement() {
 void MeiDocument::setRootElement(MeiElement* root) {
 	this->root = root;
 }
+
+

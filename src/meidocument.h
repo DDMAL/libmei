@@ -22,7 +22,9 @@ class MeiDocument
 	public:
 		MeiDocument(string docname, string encoding);
 		
-		string getName();
+		string getDocName();
+        void setDocName(string docname);
+        
 		string getEncoding();
 		
 		void setEncoding(string encoding);

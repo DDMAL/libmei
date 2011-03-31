@@ -12,19 +12,34 @@
 #include <iostream>
 #include <string>
 
-MeiAttribute::MeiAttribute(string name, string value) {
-	this->name = name;
-	this->value = value;
+MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
+	this->name = attrname;
+	this->value = attrvalue;
 }
 
 string MeiAttribute::getName() {
 	return name;
 }
 
+void MeiAttribute::setName(string attrname)
+{
+    this->name = attrname;
+}
+
 string MeiAttribute::getValue() {
 	return value;
 }
 
-void MeiAttribute::setValue(string value) {
-	this->value = value;
+void MeiAttribute::setValue(string attrvalue) {
+	this->value = attrvalue;
 }
+
+string MeiAttribute::getPrefix() {
+    return prefix;
+}
+
+void MeiAttribute::setPrefix(string prfx) {
+    this->prefix = prfx;
+}
+
+

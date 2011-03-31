@@ -19,17 +19,21 @@ class MeiElement;
 class MeiAttribute
 	{
 	public:
-		MeiAttribute(string name, string value);
+		MeiAttribute(string attrname, string attrvalue);
 		
 		string getName();
+        void setName(string attrname);
+        
 		string getValue();
-		
-		void setValue(string value);
+		void setValue(string attrvalue);
+        
+        string getPrefix();
+        void setPrefix(string prfx);
 		
 	private:
 		string name;
 		string value;
-		//string prefix;
+		string prefix;
 	};
 
 
