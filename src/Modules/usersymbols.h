@@ -13,10 +13,10 @@
 #include "meielement.h"
 
 class AnchoredText: public MeiElement {
-public:
-	AnchoredText();
-private:
-};
+	public:
+		AnchoredText();
+	private:
+	};
 
 class Curve: public MeiElement {
 public:
