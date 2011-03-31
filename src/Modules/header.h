@@ -20,7 +20,7 @@ private:
 
 class AcqSource: public MeiElement {
 public:
-	Acq();
+	AcqSource();
 private:
 };
 
@@ -113,4 +113,5 @@ class Event: public MeiElement {
 	private:
 };
 
-};
+}; 
+#endif
