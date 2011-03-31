@@ -14,24 +14,27 @@
 
 using std::exception;
 
-class invalidAttribute: public exception 
-	{
-	public:
-		invalidAttribute(string attributeName) {
-			this->attributeName = attributeName;
-		}
-		
-		~invalidAttribute() throw() { };
-		
-		virtual const char* what() const throw() {
-			string s = "This note does not contain the attribute ";
-			s = s + attributeName;
-			return s.c_str();
-		}
-		
-	private:
-		string attributeName;
-	};
+class AttributeNotFoundException: public exception
+{
+public:
+    AttributeNotFoundException(string attributeName)
+    {
+        this->attributeName = attributeName;
+    }
+    
+    ~AttributeNotFoundException() throw() { };
+    
+    virtual const char* what() const throw() 
+    {
+        string s = "This attribute does not exist on ";
+        s = s + attributeName;
+        return s.c_str();
+    }
+
+private:
+    string attributeName;
+
+};
 
 
 

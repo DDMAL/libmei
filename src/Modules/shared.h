@@ -297,13 +297,13 @@ class Note: public MeiElement
 	{
 	public:
 		Note();
-		string getAccidental() throw (invalidAttribute);
+		string getAccidental() throw (AttributeNotFoundException);
 		void setAccidental(string accidental);
 		
-		string getPitchName() throw (invalidAttribute);
+		string getPitchName() throw (AttributeNotFoundException);
 		void setPitchName(string pitchname);
 		
-		string getOctave() throw (invalidAttribute);
+		string getOctave() throw (AttributeNotFoundException);
 		void setOctave(string octave);
 		
 	private:
