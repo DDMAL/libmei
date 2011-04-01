@@ -14,6 +14,8 @@
 #include <vector>
 #include "meielement.h"
 
+#include <libxml/xmlreader.h>
+
 using std::string;
 using std::vector;
 
@@ -32,10 +34,17 @@ class MeiDocument
 		MeiElement* getRootElement();
 		void setRootElement(MeiElement* root);
 		
+		MeiDocument ReadFromXML(string docname, string encoding);
+		void WriteToXML();
+		
 	private:
 		string docname;
 		string encoding;
 		MeiElement* root;
+		
+		// Obtain information on the current node in an XML document being read
+		void XmlNodeToMei (xmlNode* node, MeiElement* parent);
+		
 	};
 
 #endif // MEIDOCUMENT_H_

@@ -41,8 +41,10 @@ class MeiElement
 		void addChild(MeiElement child);
 		void removeChild(MeiElement child);
 		bool hasChild(MeiElement child);
-
 		
+		void print();
+		void print(int l);
+				
 	private:
 		string name;
 		string value;

@@ -11,6 +11,7 @@
 #include "meiattribute.h"
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <vector>
 
@@ -104,3 +105,15 @@ bool MeiElement::meiCompare(MeiElement element1, MeiElement element2) {
 	else return false;
 }
 
+void MeiElement::print() {
+	print(0);
+}
+
+void MeiElement::print(int level) {
+	printf("%*s\n", level + (int)getName().length(), getName().c_str());
+	vector<MeiElement>::iterator iter = children.begin();
+	while (iter != children.end()) {
+		(*iter).print(level+2);
+		iter++;
+	}
+}
