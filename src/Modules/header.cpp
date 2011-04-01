@@ -102,12 +102,6 @@ Normalization::Normalization(): MeiElement("normalization") {
 NotesStmt::NotesStmt(): MeiElement("notesstmt") {
 }
 
-Num_::Num_(): MeiElement("num") {
-}
-
-Octave_::Octave_(): MeiElement("octave") {
-}
-
 PhysDesc::PhysDesc(): MeiElement("physdesc") {
 }
 

@@ -204,19 +204,6 @@ class NotesStmt: public MeiElement {
 	private:
 };
 	
-class Num_: public MeiElement {
-	public:
-		Num_();
-	private:
-};
-	
-// The Octave class name was changed to "OctaveH" since there is another octave class stored under cmn.h 
-class Octave_: public MeiElement {
-	public:
-		Octave_();
-	private:
-};
-	
 class PhysDesc: public MeiElement {
 	public:
 		PhysDesc();
