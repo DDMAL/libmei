@@ -41,6 +41,7 @@ class MeiElement
 		void addChild(MeiElement child);
 		void removeChild(MeiElement child);
 		bool hasChild(MeiElement child);
+        void addChildren(vector<MeiElement> children);
 
 		
 	private:

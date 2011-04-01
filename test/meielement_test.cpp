@@ -51,7 +51,7 @@ TEST(MeiElementTest, AttributeTest) {
 }
 
 //Test an MeiElement's children, and their add/remove functionality
-TEST(MeiElementTest, childrenTest) {
+TEST(MeiElementTest, AddOneChildTest) {
 	MeiElement parent = MeiElement ("staff");
 	MeiElement child = MeiElement ("note");
 	
@@ -69,6 +69,21 @@ TEST(MeiElementTest, childrenTest) {
 	children = parent.getChildren();
 	
 	ASSERT_EQ((unsigned int)0, children.size());
+}
+
+TEST(MeiElementTest, AddManyChildrenTest) {
+    MeiElement n = MeiElement("note");
+    MeiElement c = MeiElement("accid");
+    MeiElement b = MeiElement("accid");
+    
+    vector<MeiElement> children;
+    children.push_back(c);
+    children.push_back(b);
+    
+    n.addChildren(children);
+    
+    vector<MeiElement> notechildren = n.getChildren();
+    ASSERT_EQ((unsigned int)2, notechildren.size());
 }
 
 
