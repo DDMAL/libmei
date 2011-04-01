@@ -133,27 +133,52 @@ Name::Name(): MeiElement("name") {
 Note::Note(): MeiElement("note") {
 }
 
-string Note::getAccidental() throw (AttributeNotFoundException) {
-	MeiAttribute* accidentalAttr = getAttribute("accid");
-	if (accidentalAttr!=NULL) {
-		return accidentalAttr->getValue();
-	} else {
-		throw AttributeNotFoundException("accid");
-	}
+/*
+ Accidentals are maintained in their own list, since we don't know if they are an 
+ attribute or a child.
+ 
+ We can probably fix this to check it when we call getAccidentals. But for now, this will do.
+*/
+vector<string> Note::getAccidentals() throw (AttributeNotFoundException) {
+    return this->accidentals;
 }
 
-void Note::setAccidental(string accidental) {
-	MeiAttribute accidentalAttr = MeiAttribute("accid", accidental);
-	addAttribute(accidentalAttr);
+/*
+ A note may have multiple accidentals. Because of this, we have to separate
+ two cases:
+    1. One accidental. The accidental gets added to the note element as an attribute
+    2. More than one accidental. The accidentals get added as child elements to the note.
+ 
+ This means that the "setAccidentals" method must always take a vector, even if that vector
+ is just one accidental.
+ 
+*/
+void Note::setAccidentals(vector<string> accid) {
+    if (accidentals.size() == 1) {
+        // only one attribute. Create an MEI attribute with the first element.
+        string firstel = accid.front();
+        MeiAttribute accidentalAttr = MeiAttribute("accid", firstel);
+        addAttribute(accidentalAttr);
+        accidentals.push_back(firstel);
+    } else if (accidentals.size() > 1) {
+        for (int i=0; i < accid.size(); i++) {
+            MeiElement accidentalElement = MeiElement("accid");
+            MeiAttribute accidAttr = MeiAttribute("accid", accid[i]);
+            accidentalElement.addAttribute(accidAttr);
+            addChild(accidentalElement);
+            accidentals.push_back(accid[i]);
+        }
+    }
 }
 
 string Note::getOctave() throw (AttributeNotFoundException) {
-	MeiAttribute* octaveAttr = getAttribute("oct");
-	if (octaveAttr!=NULL) {
-		return octaveAttr->getValue();
-	} else {
-		throw AttributeNotFoundException("oct");
-	}
+    MeiAttribute* octaveAttr = getAttribute("oct");
+    if (octaveAttr!=NULL) {
+        this->octave = octaveAttr->getValue();
+    } else {
+        throw AttributeNotFoundException("oct");
+    }
+    return this->octave;
 }
 
 void Note::setOctave(string octave) {
@@ -164,10 +189,11 @@ void Note::setOctave(string octave) {
 string Note::getPitchName() throw (AttributeNotFoundException) {
 	MeiAttribute* pitchName = getAttribute("pname");
 	if (pitchName!=NULL) {
-		return pitchName->getValue();
+        this->pitchname = pitchName->getValue();
 	} else {
-		throw AttributeNotFoundException("pname");
+        throw AttributeNotFoundException("pname");
 	}
+    return this->pitchname;
 }
 
 void Note::setPitchName(string pitchname) {
@@ -175,7 +201,110 @@ void Note::setPitchName(string pitchname) {
 	addAttribute(pitchName);
 }
 
+string Note::getDuration() throw (AttributeNotFoundException) {
+    MeiAttribute* duration = getAttribute("dur");
+    if (duration !=NULL) {
+        this->duration = duration->getValue();
+    } else {
+        throw AttributeNotFoundException("dur");
+    }
+    return this->duration;
+}
 
+void Note::setDuration(string duration) {
+    MeiAttribute dur = MeiAttribute("dur", duration);
+    addAttribute(dur);
+}
+
+string Note::getStemDir() throw (AttributeNotFoundException) {
+    MeiAttribute* stemdir = getAttribute("stem.dir");
+    if (stemdir != NULL) {
+        this->stemdir = stemdir->getValue();
+    } else {
+        throw AttributeNotFoundException("stem.dir");
+    }
+    return this->stemdir;
+}
+
+void Note::setStemDir(string direction) {
+    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
+    addAttribute(stemDirection);
+}
+
+bool Note::getIsDotted() {
+    MeiAttribute* dots = getAttribute("dots");
+    if (dots != NULL) {
+        this->isdotted = true;
+        return this->isdotted;
+    } else {
+        return false;
+    }
+}
+
+string Note::getNumDots() throw (AttributeNotFoundException) {
+    MeiAttribute* numdots = getAttribute("dots");
+    if (numdots != NULL) {
+        this->dots = numdots->getValue();
+    } else {
+        throw AttributeNotFoundException("dots");
+    }
+    return this->dots;
+}
+
+void Note::setNumDots(string numDots) {
+    MeiAttribute nd = MeiAttribute("dots", numDots);
+    addAttribute(nd);
+}
+
+bool Note::getIsTied() {
+    MeiAttribute* tie = getAttribute("tie");
+    if (tie != NULL) {
+        this->istied = true;
+        return this->istied;
+    } else {
+        return false;
+    }
+}
+
+string Note::getTie() throw (AttributeNotFoundException) {
+    MeiAttribute* tie = getAttribute("tie");
+    if (tie != NULL) {
+        this->tie = tie->getValue();
+    } else {
+        throw AttributeNotFoundException("tie");
+    }
+    return this->tie;
+}
+
+void Note::setTie(string tie) {
+    MeiAttribute tievalue = MeiAttribute("tie", tie);
+    addAttribute(tievalue);
+}
+
+bool Note::getIsTuplet() {
+    MeiAttribute* tupl = getAttribute("tuplet");
+    if (tupl != NULL) {
+        this->istuplet = true;
+        return this->istuplet;
+    } else {
+        return false;
+    }
+}
+
+string Note::getTuplet() throw (AttributeNotFoundException) {
+    MeiAttribute* tupl = getAttribute("tuplet");
+    if (tupl != NULL) {
+        this->tuplet = tupl->getValue();
+    } else {
+        throw AttributeNotFoundException("tuplet");
+    }
+    return this->tuplet;
+}
+
+void Note::setTuplet(string tuplet) {
+    MeiAttribute tupletvalue = MeiAttribute("tuplet", tuplet);
+    addAttribute(tupletvalue);
+}
 
 Num::Num(): MeiElement("num") {
 }

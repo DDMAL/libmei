@@ -296,20 +296,51 @@ class Name: public MeiElement
 class Note: public MeiElement 
 	{
 	public:
-		Note();
-		string getAccidental() throw (AttributeNotFoundException);
-		void setAccidental(string accidental);
+        Note();
+        vector<string> getAccidentals() throw (AttributeNotFoundException);
+        void setAccidentals(vector<string> accidentals);
+        
+        string getPitchName() throw (AttributeNotFoundException);
+        void setPitchName(string pitchname);
 		
-		string getPitchName() throw (AttributeNotFoundException);
-		void setPitchName(string pitchname);
-		
-		string getOctave() throw (AttributeNotFoundException);
-		void setOctave(string octave);
+        string getOctave() throw (AttributeNotFoundException);
+        void setOctave(string octave);
+        
+        string getDuration() throw (AttributeNotFoundException);
+        void setDuration(string duration);
+        
+        string getStemDir() throw (AttributeNotFoundException);
+        void setStemDir(string direction);
+        
+        bool getIsDotted();
+        
+        string getNumDots() throw (AttributeNotFoundException);
+        void setNumDots(string numDots);
+        
+        bool getIsTied();
+        
+        string getTie() throw (AttributeNotFoundException);
+        void setTie(string tie);
+        
+        bool getIsTuplet();
+        
+        string getTuplet() throw (AttributeNotFoundException);
+        void setTuplet(string tuplet);
 		
 	private:
-		string pitchname;
-		string octave;
-		string accidental;
+        string pitchname;
+        string octave;
+        string duration;
+        string stemdir;
+        string tie;
+        string tuplet;
+        string dots;
+        
+        vector<string> accidentals;
+        
+        bool isdotted;
+        bool istied;
+        bool istuplet;
 	};
 
 class Num: public MeiElement
