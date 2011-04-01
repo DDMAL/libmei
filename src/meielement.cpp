@@ -76,27 +76,33 @@ vector<MeiElement> MeiElement::getChildren() {
 	return children;
 }
 
-bool MeiElement::hasChild(MeiElement child) {
+bool MeiElement::hasChild(MeiElement c) {
 	for (vector<MeiElement>::iterator iter = children.begin(); iter != children.end(); ++iter) {
-		if (meiCompare((*iter), child)) return true;
+		if (meiCompare((*iter), c)) return true;
 	}
 	return false;	
 }
 
 void MeiElement::addChild(MeiElement child) {
-	children.push_back(child);
+	this->children.push_back(child);
 }
 
-void MeiElement::removeChild(MeiElement child) {
+void MeiElement::removeChild(MeiElement c) {
 	vector<MeiElement>::iterator iter = children.begin();
 	while (iter != children.end()) {
-		if (meiCompare((*iter), child)) {
-			iter = children.erase(iter);
+		if (meiCompare((*iter), c)) {
+			iter = this->children.erase(iter);
 		}
 		else {
 			++iter;
 		}
 	}
+}
+
+void MeiElement::addChildren(vector<MeiElement> c) {
+    for (int i=0; i < c.size(); i++) {
+        this->children.push_back(c[i]);
+    }
 }
 
 // Temporarily use this method to compare MeiElements, to be later replaced by an overloaded == operator
