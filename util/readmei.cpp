@@ -8,9 +8,16 @@
 using std::cout;
 using std::endl;
 
-#include "libmei.h"
+#include <mei/meielement.h>
 
 int main(int argc, char **argv) {
-    Mei m = Mei(1);
-    cout << m.incr() << endl;
+    MeiElement el = MeiElement("neume");
+	MeiElement n = MeiElement("note"); 
+	MeiElement o = MeiElement("octave");
+	
+	el.addChild(n);
+	el.addChild(o);
+	
+	el.print();
+							  
 }
