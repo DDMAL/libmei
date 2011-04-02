@@ -9,38 +9,76 @@
 
 #include <gtest/gtest.h>
 #include <mei/shared.h>
+#include <mei/exceptions.h>
 
-TEST(SharedModuleTest, NoteAttributesTest) {
+#include <string>
+#include <vector>
+
+using std::string;
+using std::vector;
+
+TEST(NoteTest, AccidentalTest) {
 	Note Do = Note();
 	
-	Do.setAccidental("sharp");
-	Do.setOctave("4");
-	Do.setPitchName("A");
-	
-	ASSERT_EQ(Do.getAccidental(), "sharp"); 	//Test to see if a valid accidental is aquired
-	ASSERT_EQ(Do.getOctave(), "4"); 	//Test to see if a valid octave is aquired
-	ASSERT_EQ(Do.getPitchName(), "A"); 	//Test to see if a valid pitchname is aquired
+    vector<string> as = vector<string>();
+    as.push_back("s");
+    as.push_back("f");
+	Do.setAccidentals(as);
+
+    ASSERT_EQ(Do.getAccidentals().size(), 2);
+    ASSERT_EQ(Do.getAccidentals()[0], "s");
+    ASSERT_EQ(Do.getAccidentals()[1], "f");
+
+    Do.addAccidental("ff");
+    ASSERT_EQ(Do.getAccidentals().size(), 3);
+    ASSERT_EQ(Do.getAccidentals()[2], "ff");
+
+    as.clear();
+    as.push_back("ss");
+    Do.setAccidentals(as);
+    ASSERT_EQ(Do.getAccidentals().size(), 1);
+
 }
 
-TEST(SharedModuleTest, ExceptionTest) {
+TEST(NoteTest, NoteAttributeTest) {
+    Note n = Note();
+    n.setOctave("4");
+    ASSERT_EQ(n.getOctave(), "4");
+
+    n.setPitchName("A");
+    ASSERT_EQ(n.getPitchName(), "A");
+}
+
+/*
+   getAccidentals() doesn't throw an exception yet
+TEST(NoteTest, AccidentalExceptionTest) {
 	Note Do = Note();
-	
+
 	try {
-		
-		Do.getAccidental();
-		ASSERT_TRUE(false);
-		
-		Do.getOctave();
-		ASSERT_TRUE(false);
-		
-		Do.getPitchName();
-		ASSERT_TRUE(false);
-		
-	}
-	catch (...) {
-	}
-	
+        vector<Accid> accids = Do.getAccidentals();
+        ASSERT_TRUE(false); // shouldn't get here
+    } catch (AttributeNotFoundException) {
+
+    }
+}
+*/
+
+TEST(NoteTest, OctaveExceptionTest) {
+    Note n = Note();
+    try {
+        n.getOctave();
+        ASSERT_TRUE(false); // shouldn't get here
+    } catch (AttributeNotFoundException) {
+
+    }
 }
 
+TEST(NoteTest, PitchExceptionTest) {
+    Note n = Note();
+    try {
+        n.getPitchName();
+        ASSERT_TRUE(false); // shouldn't get here
+    } catch (AttributeNotFoundException) {
 
-
+    }
+}

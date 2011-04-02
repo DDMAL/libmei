@@ -13,7 +13,7 @@
 TEST(MeiDocumentTest, NameTest) {
 	MeiDocument doc = MeiDocument("document1","UTF-8");
 	
-	ASSERT_EQ("document1", doc.getName());
+	ASSERT_EQ("document1", doc.getDocName());
 
 }
 

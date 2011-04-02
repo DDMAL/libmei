@@ -10,6 +10,8 @@
 #include "meielement.h"
 #include "meiattribute.h"
 
+#include <stdio.h>
+
 #include <iostream>
 #include <iomanip>
 #include <string>

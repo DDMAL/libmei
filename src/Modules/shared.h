@@ -298,6 +298,7 @@ class Note: public MeiElement
 	public:
         Note();
         vector<string> getAccidentals() throw (AttributeNotFoundException);
+        void addAccidental(string accidental);
         void setAccidentals(vector<string> accidentals);
         
         string getPitchName() throw (AttributeNotFoundException);

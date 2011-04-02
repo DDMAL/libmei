@@ -143,6 +143,12 @@ vector<string> Note::getAccidentals() throw (AttributeNotFoundException) {
     return this->accidentals;
 }
 
+void Note::addAccidental(string accid) {
+    vector<string> newaccid = accidentals;
+    newaccid.push_back(accid);
+    setAccidentals(newaccid);
+}
+
 /*
  A note may have multiple accidentals. Because of this, we have to separate
  two cases:
@@ -154,13 +160,14 @@ vector<string> Note::getAccidentals() throw (AttributeNotFoundException) {
  
 */
 void Note::setAccidentals(vector<string> accid) {
-    if (accidentals.size() == 1) {
+    accidentals.clear();
+    if (accid.size() == 1) {
         // only one attribute. Create an MEI attribute with the first element.
         string firstel = accid.front();
         MeiAttribute accidentalAttr = MeiAttribute("accid", firstel);
         addAttribute(accidentalAttr);
         accidentals.push_back(firstel);
-    } else if (accidentals.size() > 1) {
+    } else if (accid.size() > 1) {
         for (int i=0; i < accid.size(); i++) {
             MeiElement accidentalElement = MeiElement("accid");
             MeiAttribute accidAttr = MeiAttribute("accid", accid[i]);
