@@ -23,7 +23,7 @@ class Abbr: public MeiElement
 class Accid: public MeiElement
 	{
 	public:
-		Accid();
+		Accid(string accid);
 	private:
 	};
 
@@ -297,8 +297,8 @@ class Note: public MeiElement
 	{
 	public:
         Note();
-        vector<string> getAccidentals() throw (AttributeNotFoundException);
-        void setAccidentals(vector<string> accidentals);
+        vector<Accid> getAccidentals() throw (AttributeNotFoundException);
+        void setAccidentals(vector<Accid> accidentals);
         
         string getPitchName() throw (AttributeNotFoundException);
         void setPitchName(string pitchname);
@@ -327,20 +327,8 @@ class Note: public MeiElement
         string getTuplet() throw (AttributeNotFoundException);
         void setTuplet(string tuplet);
 		
-	private:
-        string pitchname;
-        string octave;
-        string duration;
-        string stemdir;
-        string tie;
-        string tuplet;
-        string dots;
-        
-        vector<string> accidentals;
-        
-        bool isdotted;
-        bool istied;
-        bool istuplet;
+	private:        
+        vector<Accid> accidentals;
 	};
 
 class Num: public MeiElement

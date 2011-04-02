@@ -10,37 +10,73 @@
 #include <gtest/gtest.h>
 #include <mei/shared.h>
 
-TEST(SharedModuleTest, NoteAttributesTest) {
-	Note Do = Note();
-	
-	Do.setAccidental("sharp");
-	Do.setOctave("4");
-	Do.setPitchName("A");
-	
-	ASSERT_EQ(Do.getAccidental(), "sharp"); 	//Test to see if a valid accidental is aquired
-	ASSERT_EQ(Do.getOctave(), "4"); 	//Test to see if a valid octave is aquired
-	ASSERT_EQ(Do.getPitchName(), "A"); 	//Test to see if a valid pitchname is aquired
+TEST(SharedModuleTest, SettingOneAccidentalTest) {
+    Accid a = Accid("xs");
+    vector<Accid> oneAccidental;
+    oneAccidental.push_back(a);
+    
+    Note n = Note();
+    n.setAccidentals(oneAccidental);
 }
 
-TEST(SharedModuleTest, ExceptionTest) {
-	Note Do = Note();
-	
-	try {
-		
-		Do.getAccidental();
-		ASSERT_TRUE(false);
-		
-		Do.getOctave();
-		ASSERT_TRUE(false);
-		
-		Do.getPitchName();
-		ASSERT_TRUE(false);
-		
-	}
-	catch (...) {
-	}
-	
+TEST(SharedModuleTest, SettingMultipleAccidentalsTest) {
+    Accid a1 = Accid("s");
+    Accid a2 = Accid("f");
+    Accid a3 = Accid("n");
+    Accid a4 = Accid("qs");
+    
+    vector<Accid> fourAccidentals;
+    fourAccidentals.push_back(a1);
+    fourAccidentals.push_back(a2);
+    fourAccidentals.push_back(a3);
+    fourAccidentals.push_back(a4);
+    
+    Note n = Note();
+    n.setAccidentals(fourAccidentals);
 }
+
+TEST(SharedModuleTest, SettingAccidentalWithAttributesTest) {  
+    Accid a = Accid("xs");
+    MeiAttribute attrColor = MeiAttribute("color", "fuscia");
+    a.addAttribute(attrColor);
+    
+    vector<Accid> attrWithColor;
+    attrWithColor.push_back(a);
+    
+    Note n = Note();
+    n.setAccidentals(attrWithColor);
+}
+
+
+
+TEST(SharedModuleTest, GetOctaveExceptionTest) {
+	Note n = Note();
+	try {
+		n.getOctave();
+		ASSERT_TRUE(false); // this should never happen.
+	}
+	catch (AttributeNotFoundException) { 
+        // this should always happen.
+    }
+}
+
+TEST(SharedModuleTest, GetPitchNameExceptionTest) {
+    Note n = Note();
+    try {
+        n.getPitchName();
+        ASSERT_TRUE(false);
+    } catch (AttributeNotFoundException) { }
+}
+
+TEST(SharedModuleTest, GetDurationExceptionTest) {
+    Note n = Note();
+    try {
+        n.getDuration();
+        ASSERT_TRUE(false);
+    } catch (AttributeNotFoundException) { }
+}
+
+
 
 
 
