@@ -17,27 +17,46 @@
 using std::string;
 using std::vector;
 
-TEST(NoteTest, AccidentalTest) {
-	Note Do = Note();
-	
-    vector<string> as = vector<string>();
-    as.push_back("s");
-    as.push_back("f");
-	Do.setAccidentals(as);
+TEST(NoteTest, SettingOneAccidentalTest) {
+    vector<Accid> oneAccidental;
+    oneAccidental.push_back(Accid("xs"));
 
-    ASSERT_EQ(Do.getAccidentals().size(), 2);
-    ASSERT_EQ(Do.getAccidentals()[0], "s");
-    ASSERT_EQ(Do.getAccidentals()[1], "f");
+    Note n = Note();
+    n.setAccidentals(oneAccidental);
+	ASSERT_EQ((unsigned int)1, n.getAccidentals().size());
+	ASSERT_TRUE(n.hasAttribute("accid"));
 
-    Do.addAccidental("ff");
-    ASSERT_EQ(Do.getAccidentals().size(), 3);
-    ASSERT_EQ(Do.getAccidentals()[2], "ff");
+    n.addAccidental(Accid("xf"));
+    ASSERT_FALSE(n.hasAttribute("accid"));
+    ASSERT_EQ((unsigned int)2, n.getAccidentals().size());
+}
 
-    as.clear();
-    as.push_back("ss");
-    Do.setAccidentals(as);
-    ASSERT_EQ(Do.getAccidentals().size(), 1);
+TEST(NoteTest, SettingMultipleAccidentalsTest) {
+    vector<Accid> fourAccidentals;
+    fourAccidentals.push_back(Accid("s"));
+    fourAccidentals.push_back(Accid("f"));
+    fourAccidentals.push_back(Accid("n"));
+    fourAccidentals.push_back(Accid("qs"));
 
+    Note n = Note();
+    n.setAccidentals(fourAccidentals);
+	ASSERT_TRUE(n.hasChild("accid"));
+    ASSERT_EQ((unsigned int)4, n.getAccidentals().size());
+}
+
+TEST(NoteTest, SettingAccidentalWithAttributesTest) {  
+    Accid a = Accid("xs");
+    MeiAttribute attrColor = MeiAttribute("color", "fuscia");
+    a.addAttribute(attrColor);
+
+    vector<Accid> attrWithColor;
+    attrWithColor.push_back(a);
+
+    Note n = Note();
+    n.setAccidentals(attrWithColor);
+	ASSERT_TRUE(n.hasChild("accid"));
+
+    ASSERT_EQ("fuscia", n.getAccidentals()[0].getAttribute("color")->getValue());
 }
 
 TEST(NoteTest, NoteAttributeTest) {
@@ -49,20 +68,6 @@ TEST(NoteTest, NoteAttributeTest) {
     ASSERT_EQ(n.getPitchName(), "A");
 }
 
-/*
-   getAccidentals() doesn't throw an exception yet
-TEST(NoteTest, AccidentalExceptionTest) {
-	Note Do = Note();
-
-	try {
-        vector<Accid> accids = Do.getAccidentals();
-        ASSERT_TRUE(false); // shouldn't get here
-    } catch (AttributeNotFoundException) {
-
-    }
-}
-*/
-
 TEST(NoteTest, OctaveExceptionTest) {
     Note n = Note();
     try {
@@ -71,6 +76,14 @@ TEST(NoteTest, OctaveExceptionTest) {
     } catch (AttributeNotFoundException) {
 
     }
+}
+
+TEST(NoteTest, GetDurationExceptionTest) {
+    Note n = Note();
+    try {
+        n.getDuration();
+        ASSERT_TRUE(false);
+    } catch (AttributeNotFoundException) { }
 }
 
 TEST(NoteTest, PitchExceptionTest) {

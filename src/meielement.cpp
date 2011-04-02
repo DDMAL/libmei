@@ -78,31 +78,53 @@ vector<MeiElement> MeiElement::getChildren() {
 	return children;
 }
 
-bool MeiElement::hasChild(MeiElement c) {
-	for (vector<MeiElement>::iterator iter = children.begin(); iter != children.end(); ++iter) {
-		if (meiCompare((*iter), c)) return true;
+/* We need to discuss this method. Calling meiCompare seems like 
+	it's a bad idea, since it obscures what's going on (just comparing the names).
+ 
+	If we want to really check if an element has a *specific* instance of a child, 
+    we should create a new method, hasChildElement or something like that.
+*/
+bool MeiElement::hasChild(string childName) {
+	for (vector<MeiElement>::iterator iter = this->children.begin(); iter != children.end(); ++iter) {
+		if ((*iter).getName() == childName) return true;
 	}
 	return false;	
 }
 
-void MeiElement::addChild(MeiElement child) {
-	this->children.push_back(child);
+void MeiElement::addChild(MeiElement c) {
+	this->children.push_back(c);
 }
 
-void MeiElement::removeChild(MeiElement c) {
+/* this has been renamed to *removeChildren*, since it will remove *all* children 
+	that match the name childName.
+*/
+void MeiElement::removeChildren(string childName) {
 	vector<MeiElement>::iterator iter = children.begin();
-	while (iter != children.end()) {
-		if (meiCompare((*iter), c)) {
+	while (iter != this->children.end()) {
+		if((*iter).getName() == childName) {
 			iter = this->children.erase(iter);
-		}
-		else {
+		} else {
 			++iter;
 		}
 	}
 }
 
+/* removes one specific element from the children array.
+	This needs help to actually work.
+*/
+//void MeiElement::removeChild(MeiElement c) {
+//	vector<MeiElement>::iterator iter = children.begin();
+//	while (iter != this->children.end()) {
+//		if((*iter) === c) {
+//			iter = this->children.erase(iter);
+//		} else {
+//			++iter;
+//		}
+//	}	
+//}
+
 void MeiElement::addChildren(vector<MeiElement> c) {
-    for (int i=0; i < c.size(); i++) {
+    for (unsigned int i=0; i < c.size(); i++) {
         this->children.push_back(c[i]);
     }
 }
