@@ -18,7 +18,7 @@ MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
 }
 
 string MeiAttribute::getName() {
-	return name;
+	return this->name;
 }
 
 void MeiAttribute::setName(string attrname)
@@ -27,7 +27,7 @@ void MeiAttribute::setName(string attrname)
 }
 
 string MeiAttribute::getValue() {
-	return value;
+	return this->value;
 }
 
 void MeiAttribute::setValue(string attrvalue) {
@@ -35,7 +35,7 @@ void MeiAttribute::setValue(string attrvalue) {
 }
 
 string MeiAttribute::getPrefix() {
-    return prefix;
+    return this->prefix;
 }
 
 void MeiAttribute::setPrefix(string prfx) {

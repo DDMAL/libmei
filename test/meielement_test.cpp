@@ -63,13 +63,31 @@ TEST(MeiElementTest, AddOneChildTest) {
 	
 	ASSERT_EQ((unsigned int)1, children.size());
 	
-	ASSERT_TRUE(parent.hasChild(child));
-	
-	parent.removeChild(child);
-	children = parent.getChildren();
-	
-	ASSERT_EQ((unsigned int)0, children.size());
+	ASSERT_TRUE(parent.hasChild("note"));
 }
+
+TEST(MeiElementTest, RemoveChildrenTest) {
+	MeiElement parent = MeiElement ("staff");
+	MeiElement child = MeiElement ("note");
+	
+	parent.addChild(child);
+	ASSERT_EQ((unsigned int)1, parent.getChildren().size());
+	
+	parent.removeChildren("note");
+	ASSERT_EQ((unsigned int)0, parent.getChildren().size());
+}
+
+// This is written for when RemoveChild actually works.
+//TEST(MeiElementTest, RemoveChildTest) {
+//	MeiElement parent = MeiElement ("staff");
+//	MeiElement child = MeiElement ("note");
+//	
+//	parent.addChild(child);
+//	ASSERT_EQ((unsigned int)1, parent.getChildren().size());
+//	
+//	parent.removeChild(child);
+//	ASSERT_EQ((unsigned int)0, parent.getChildren().size());
+//}
 
 TEST(MeiElementTest, AddManyChildrenTest) {
     MeiElement n = MeiElement("note");

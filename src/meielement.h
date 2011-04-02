@@ -38,9 +38,10 @@ class MeiElement
 		void setValue(string value);
 		
 		vector <MeiElement> getChildren();
-		void addChild(MeiElement child);
-		void removeChild(MeiElement child);
-		bool hasChild(MeiElement child);
+		void addChild(MeiElement c);
+		void removeChildren(string childName);
+		//void removeChild(MeiElement c);
+		bool hasChild(string childName);
         void addChildren(vector<MeiElement> children);
 
 		void print();
