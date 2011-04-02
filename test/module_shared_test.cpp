@@ -17,6 +17,8 @@ TEST(SharedModuleTest, SettingOneAccidentalTest) {
     
     Note n = Note();
     n.setAccidentals(oneAccidental);
+	ASSERT_EQ((unsigned int)1, n.getAttributes().size());
+	ASSERT_TRUE(n.hasAttribute("accid"));
 }
 
 TEST(SharedModuleTest, SettingMultipleAccidentalsTest) {
@@ -33,6 +35,7 @@ TEST(SharedModuleTest, SettingMultipleAccidentalsTest) {
     
     Note n = Note();
     n.setAccidentals(fourAccidentals);
+	ASSERT_TRUE(n.hasChild("accid"));
 }
 
 TEST(SharedModuleTest, SettingAccidentalWithAttributesTest) {  
@@ -45,9 +48,8 @@ TEST(SharedModuleTest, SettingAccidentalWithAttributesTest) {
     
     Note n = Note();
     n.setAccidentals(attrWithColor);
+	ASSERT_TRUE(n.hasChild("accid"));
 }
-
-
 
 TEST(SharedModuleTest, GetOctaveExceptionTest) {
 	Note n = Note();

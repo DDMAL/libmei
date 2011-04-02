@@ -146,9 +146,23 @@ vector<Accid> Note::getAccidentals() throw (AttributeNotFoundException) {
 }
 
 void Note::setAccidentals(vector<Accid> accid) {
-    for (int i=0; i < accid.size(); i++) {
-        
-    }
+	if (accid.size() > 1) {
+		// more than one accidental. Every accidental becomes a child element.
+	    for (unsigned int i=0; i < accid.size(); i++) {
+			this->accidentals.push_back(accid[i]);
+			addChild(accid[i]);
+		} 
+    } else {
+		// only one accidental (most common). Only becomes a child element 
+		// if it has more than one attribute; else it is a note attribute.	
+		Accid onlyAccidental = accid.front();
+		this->accidentals.push_back(onlyAccidental);
+		if(onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() > 1) {
+			addChild(onlyAccidental);
+		} else if (onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() == 1) {
+			addAttribute(*onlyAccidental.getAttribute("accid"));
+		}
+	}
 }
 
 string Note::getOctave() throw (AttributeNotFoundException) {
