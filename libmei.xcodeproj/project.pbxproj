@@ -56,6 +56,7 @@
 		9B716FD9133D588800A862F8 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FD7133D588800A862F8 /* linkalign.cpp */; };
 		9B71704F133D598A00A862F8 /* midi.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B71704D133D598A00A862F8 /* midi.h */; };
 		9B717050133D598A00A862F8 /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B71704E133D598A00A862F8 /* midi.cpp */; };
+		9B802B901347A51B007966B0 /* sample.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B802B8F1347A51B007966B0 /* sample.xml */; };
 		9B956909133CE2780034FC1E /* module_shared_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B956907133CE2780034FC1E /* module_shared_test.cpp */; };
 		9B956922133CE68B0034FC1E /* neume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8AD132E6CC80090FDA6 /* neume.cpp */; };
 		9B956923133CE68B0034FC1E /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8B3132E75120090FDA6 /* shared.cpp */; };
@@ -123,6 +124,7 @@
 		9B716FD7133D588800A862F8 /* linkalign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = linkalign.cpp; path = src/Modules/linkalign.cpp; sourceTree = "<group>"; };
 		9B71704D133D598A00A862F8 /* midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = midi.h; path = src/Modules/midi.h; sourceTree = "<group>"; };
 		9B71704E133D598A00A862F8 /* midi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = midi.cpp; path = src/Modules/midi.cpp; sourceTree = "<group>"; };
+		9B802B8F1347A51B007966B0 /* sample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample.xml; path = test/sample.xml; sourceTree = "<group>"; };
 		9B956907133CE2780034FC1E /* module_shared_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = module_shared_test.cpp; path = test/module_shared_test.cpp; sourceTree = "<group>"; };
 		9BDC6437132A90430062255E /* meidocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meidocument.h; path = src/meidocument.h; sourceTree = "<group>"; };
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				9B3CB641132151680054C2DC /* meiattribute_test.cpp */,
 				9BDC64A0132AB3520062255E /* meidocument_test.cpp */,
 				9B956907133CE2780034FC1E /* module_shared_test.cpp */,
+				9B802B8F1347A51B007966B0 /* sample.xml */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B802B901347A51B007966B0 /* sample.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,8 +516,12 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = ../src;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					../src,
+				);
 				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = readmei;
 			};

@@ -1,0 +1,10 @@
+<mei>
+	<meihead>
+		<titlestmt>
+			<title> Mazurka in A Minor </title>
+		</titlestmt>
+	</meihead>
+	<music>
+		<note pname="A" oct="5" dur="4" />
+	</music>
+</mei>

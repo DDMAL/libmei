@@ -34,7 +34,7 @@ class MeiDocument
 		MeiElement* getRootElement();
 		void setRootElement(MeiElement* root);
 		
-		MeiDocument ReadFromXML(string docname, string encoding);
+		static MeiDocument* ReadFromXML(string docname, string encoding);
 		void WriteToXML();
 		
 	private:
@@ -43,7 +43,7 @@ class MeiDocument
 		MeiElement* root;
 		
 		// Obtain information on the current node in an XML document being read
-		void XmlNodeToMei (xmlNode* node, MeiElement* parent);
+		static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
 		
 	};
 

@@ -9,6 +9,7 @@ using std::cout;
 using std::endl;
 
 #include <mei/meielement.h>
+#include <mei/meidocument.h>
 
 int main(int argc, char **argv) {
     MeiElement el = MeiElement("neume");
@@ -17,7 +18,13 @@ int main(int argc, char **argv) {
 	
 	el.addChild(n);
 	el.addChild(o);
+    
+    if (argc > 1) {
+    
+        MeiDocument* Doc = MeiDocument::ReadFromXML(argv[1],"UTF-8");
 	
-	el.print();
-							  
+    Doc->getRootElement()->print(); 
+    }
+	
+	return 0;
 }
