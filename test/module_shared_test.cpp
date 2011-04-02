@@ -20,14 +20,14 @@ using std::vector;
 TEST(NoteTest, SettingOneAccidentalTest) {
     vector<Accid> oneAccidental;
     oneAccidental.push_back(Accid("xs"));
-    
+
     Note n = Note();
     n.setAccidentals(oneAccidental);
 	ASSERT_EQ((unsigned int)1, n.getAccidentals().size());
 	ASSERT_TRUE(n.hasAttribute("accid"));
-        
+
     n.addAccidental(Accid("xf"));
-    //ASSERT_FALSE(n.hasAttribute("accid"));
+    ASSERT_FALSE(n.hasAttribute("accid"));
     ASSERT_EQ((unsigned int)2, n.getAccidentals().size());
 }
 
@@ -37,7 +37,7 @@ TEST(NoteTest, SettingMultipleAccidentalsTest) {
     fourAccidentals.push_back(Accid("f"));
     fourAccidentals.push_back(Accid("n"));
     fourAccidentals.push_back(Accid("qs"));
-    
+
     Note n = Note();
     n.setAccidentals(fourAccidentals);
 	ASSERT_TRUE(n.hasChild("accid"));
@@ -48,14 +48,14 @@ TEST(NoteTest, SettingAccidentalWithAttributesTest) {
     Accid a = Accid("xs");
     MeiAttribute attrColor = MeiAttribute("color", "fuscia");
     a.addAttribute(attrColor);
-    
+
     vector<Accid> attrWithColor;
     attrWithColor.push_back(a);
-    
+
     Note n = Note();
     n.setAccidentals(attrWithColor);
 	ASSERT_TRUE(n.hasChild("accid"));
-    
+
     ASSERT_EQ("fuscia", n.getAccidentals()[0].getAttribute("color")->getValue());
 }
 

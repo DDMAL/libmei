@@ -151,13 +151,18 @@ void Note::addAccidental(Accid accid) {
     setAccidentals(newaccid);
 }
 
+/**
+ * Set accidentals for this note. All previous accidentals are cleared.
+ */
 void Note::setAccidentals(vector<Accid> accid) {
-	if (accid.size() > 1) {
-		// more than one accidental. Every accidental becomes a child element.
-	    for (unsigned int i=0; i < accid.size(); i++) {
-			this->accidentals.push_back(accid[i]);
-			addChild(accid[i]);
-		} 
+    this->accidentals.clear();
+    if (accid.size() > 1) {
+        removeAttribute("accid");
+        // more than one accidental. Every accidental becomes a child element.
+        for (unsigned int i=0; i < accid.size(); i++) {
+            this->accidentals.push_back(accid[i]);
+            addChild(accid[i]);
+        }
     } else {
 		// only one accidental (most common). Only becomes a child element 
 		// if it has more than one attribute; else it is a note attribute.	
