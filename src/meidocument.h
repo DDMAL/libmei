@@ -34,17 +34,20 @@ class MeiDocument
 		MeiElement* getRootElement();
 		void setRootElement(MeiElement* root);
 		
-		static MeiDocument* ReadFromXML(string docname, string encoding);
-		void WriteToXML();
+		static MeiDocument* ReadFromXml(string docname, string encoding);
+		void WriteToXml(MeiDocument* meidoc);
 		
 	private:
 		string docname;
 		string encoding;
 		MeiElement* root;
 		
-		// Obtain information on the current node in an XML document being read
+		// Read Information off an XMLNode tree to create an Mei one
 		static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
-		
+        
+        // Read Information from an MEI tree to create an XML tree  
+		static void MeiToXmlNode (MeiElement meiparent, xmlNodePtr xmlparent);
+
 	};
 
 #endif // MEIDOCUMENT_H_
