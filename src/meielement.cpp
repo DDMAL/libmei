@@ -25,15 +25,15 @@ MeiElement::MeiElement(string name) {
 }
 
 string MeiElement::getName() {
-	return name;
+	return this->name;
 }
 
 string MeiElement::getValue() {
-	return value;
+	return this->value;
 }
 
 string MeiElement::getTail() {
-	return tail;
+	return this->tail;
 }
 
 void MeiElement::setValue(string value) {
@@ -41,19 +41,19 @@ void MeiElement::setValue(string value) {
 }
 
 vector<MeiAttribute> MeiElement::getAttributes() {
-	return attributes;
+	return this->attributes;
 }
 
 MeiAttribute* MeiElement::getAttribute(string name) {
 	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
-		if ((*iter).getName() == name) return &(*iter);
+		if (iter->getName() == name) return &(*iter);
 	}
 	return NULL;
 }
 
 bool MeiElement::hasAttribute(string name) {
 	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
-		if ((*iter).getName() == name) return true;
+		if (iter->getName() == name) return true;
 	}
 	return false;
 }
@@ -65,7 +65,7 @@ void MeiElement::addAttribute(MeiAttribute attribute) {
 void MeiElement::removeAttribute(string attributeName) {
 	vector<MeiAttribute>::iterator iter = attributes.begin();
 	while (iter != attributes.end()) {
-		if ((*iter).getName() == attributeName) {
+		if (iter->getName() == attributeName) {
 			iter = attributes.erase(iter);
 		}
 		else {
@@ -86,7 +86,7 @@ vector<MeiElement> MeiElement::getChildren() {
 */
 bool MeiElement::hasChild(string childName) {
 	for (vector<MeiElement>::iterator iter = this->children.begin(); iter != children.end(); ++iter) {
-		if ((*iter).getName() == childName) return true;
+		if (iter->getName() == childName) return true;
 	}
 	return false;	
 }
@@ -101,7 +101,7 @@ void MeiElement::addChild(MeiElement c) {
 void MeiElement::removeChildren(string childName) {
 	vector<MeiElement>::iterator iter = children.begin();
 	while (iter != this->children.end()) {
-		if((*iter).getName() == childName) {
+		if(iter->getName() == childName) {
 			iter = this->children.erase(iter);
 		} else {
 			++iter;
