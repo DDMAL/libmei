@@ -25,13 +25,18 @@ int main(int argc, char **argv) {
     
     meidoc->WriteToXml(meidoc);
     
-    /*if (argc > 1) {
+   // if (argc > 1) {
     
-        MeiDocument* Doc = MeiDocument::ReadFromXML(argv[1],"UTF-8");
+        MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
 	
-    Doc->getRootElement()->print(); 
-    }
-	*/
+    Doc->getRootElement()->print();
+    
+    Doc->getRootElement()->getAttributes();
+    
+    
+    
+  //  }
+	
     
 	return 0;
 }

@@ -70,17 +70,39 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
     
     MeiToXmlNode (*root, xmlrootnode); // fill the XML tree with xmlrootnode as the root element
     
-    xmlSaveFile((const char*)meidoc->getDocName().c_str(), xmldoc);
+    xmlSaveFormatFile((const char*)meidoc->getDocName().c_str(), xmldoc, 1);
 }
 
 
 // Private method used to go through the tree structure, get the nodes and create MeiElements
 void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
-	xmlNode *curnode = NULL;
-	for (curnode = node; curnode; curnode = curnode->next) {
+	xmlNode* curnode = NULL;
+    xmlAttr* curattr = NULL;
+    const xmlChar* attrname;
+    xmlNode* attrvalue = NULL;
+	
+    for (curnode = node; curnode; curnode = curnode->next) {
         if (curnode->type == XML_ELEMENT_NODE) {
             printf("node type: Element, name: %s\n", curnode->name);
             MeiElement* child = new MeiElement((const char *)curnode->name);
+            if (curnode->properties != NULL) {
+                
+                for (curattr = curnode->properties; curattr; curattr = curattr->next) {
+                    if (curattr->type == XML_ATTRIBUTE_NODE) {
+                        attrname = curattr->name;
+                        printf("current attribute name: %s\n", attrname);
+                        if (curattr->children != NULL) {
+                            attrvalue = curattr->children;
+                            printf("attribute value %s \n", attrvalue->content);
+                            string name = (const char *)(attrname);
+                            string value = (const char *)(attrvalue->content); 
+                            
+                            MeiAttribute curmeiattr = MeiAttribute(name, value);
+                            child->addAttribute(curmeiattr);
+                        }
+                    }
+                }
+            }
             XmlNodeToMei(curnode->children, child);
             parent->addChild(*child);
         }
@@ -92,10 +114,11 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent) {
     xmlNodePtr curxmlnode = NULL;
     
     for (vector<MeiElement>::iterator iter = meichildren.begin(); iter != meichildren.end(); ++iter) {
-        if ((*iter).getChildren().size() > 0) {
-            string nodename=(*iter).getName();
-            curxmlnode = xmlNewNode(NULL, (const xmlChar*)nodename.c_str());
-            curxmlnode = xmlAddChild(xmlparent, curxmlnode);
+        string nodename=iter->getName();
+        iter->print();
+        curxmlnode = xmlNewNode(NULL, (const xmlChar*)nodename.c_str());
+        curxmlnode = xmlAddChild(xmlparent, curxmlnode);
+        if (iter->getChildren().size() > 0) {
             MeiToXmlNode(*iter, curxmlnode);
         }
     }
