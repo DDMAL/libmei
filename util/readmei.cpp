@@ -13,26 +13,34 @@ using std::endl;
 #include <libxml/xmlreader.h>
 
 int main(int argc, char **argv) {
-    MeiElement* el = new MeiElement("neume");
+    MeiElement* el = new MeiElement("mei");
+    MeiElement* neume = new MeiElement("neume");
 	MeiElement n = MeiElement("note"); 
 	MeiElement o = MeiElement("octave");
 	
-	el->addChild(n);
-	el->addChild(o);
+    el->addChild(neume);
     
-    MeiDocument* meidoc = new MeiDocument("example1","UTF-8");
+	neume->addChild(n);
+	neume->addChild(o);
+    
+    MeiAttribute a1 = MeiAttribute("accid", "s");
+    MeiAttribute a2 = MeiAttribute("artic", "stacc");
+    
+    n.addAttribute(a1);
+    n.addAttribute(a2);
+    
+    MeiDocument* meidoc = new MeiDocument("example1.xml","UTF-8");
     meidoc->setRootElement(el);
     
     meidoc->WriteToXml(meidoc);
     
    // if (argc > 1) {
     
-        MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
+   // MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
 	
-    Doc->getRootElement()->print();
+   // Doc->getRootElement()->print();
     
-    Doc->getRootElement()->getAttributes();
-    
+  //  Doc->getRootElement()->getAttributes();
     
     
   //  }
