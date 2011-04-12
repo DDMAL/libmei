@@ -24,8 +24,15 @@ class MeiElement
 		MeiElement(string name);
 		
 		string getName();
+        
+        string getId();
+        void setId(string id);
+        
 		string getTail();
-		string getValue();
+		void setTail(string tail);
+        
+        string getValue();
+		void setValue(string value);
 		
 		vector <MeiAttribute> getAttributes();
 		MeiAttribute* getAttribute(string name);
@@ -34,8 +41,6 @@ class MeiElement
 		void addAttribute(MeiAttribute attribute);
 		void removeAttribute(string name);
 		bool hasAttribute(string name);
-		
-		void setValue(string value);
 		
 		vector <MeiElement> getChildren();
 		void addChild(MeiElement c);
@@ -51,6 +56,7 @@ class MeiElement
 		void print(int l);
 				
 	private:
+        string id;
 		string name;
 		string value;
 		string tail;

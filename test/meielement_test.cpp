@@ -15,18 +15,22 @@
 
 // Test that ana MeiElement exists and the name can be retrieved
 TEST(MeiElementTest, NameTest) {
-
 	MeiElement element = MeiElement ("note");
 	ASSERT_EQ("note", element.getName());
-	
 }
 
 //Test that a value can be set to an MeiElement
 TEST(MeiElementTest, ValueTest) {
 	MeiElement element = MeiElement("note");
 	element.setValue("3");
-	
 	ASSERT_EQ("3", element.getValue());
+}
+
+TEST(MeiElementTest, IdTest) {
+    MeiElement element = MeiElement("note");
+    element.setId("1234567890");
+    ASSERT_EQ("1234567890", element.getId());
+    ASSERT_EQ("1234567890", element.getAttribute("xml:id")->getValue());
 }
 
 

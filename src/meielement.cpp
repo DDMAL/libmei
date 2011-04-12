@@ -24,20 +24,36 @@ MeiElement::MeiElement(string name) {
 	this->name = name;	
 }
 
+// name should always be set at instantiation, so we don't need an explicit setter here.
 string MeiElement::getName() {
 	return this->name;
+}
+
+string MeiElement::getId() {
+    return this->id;
+}
+
+// TODO: when we get namespaces working properly, this needs to be fixed
+void MeiElement::setId(string id) {
+    MeiAttribute xmlid = MeiAttribute("xml:id", id);
+    this->addAttribute(xmlid);
+    this->id = id;
 }
 
 string MeiElement::getValue() {
 	return this->value;
 }
 
+void MeiElement::setValue(string value) {
+	this->value = value;
+}
+
 string MeiElement::getTail() {
 	return this->tail;
 }
 
-void MeiElement::setValue(string value) {
-	this->value = value;
+void MeiElement::setTail(string tail) {
+    this->tail = tail;
 }
 
 vector<MeiAttribute> MeiElement::getAttributes() {
@@ -78,11 +94,9 @@ vector<MeiElement> MeiElement::getChildren() {
 	return this->children;
 }
 
-/* We need to discuss this method. Calling meiCompare seems like 
-	it's a bad idea, since it obscures what's going on (just comparing the names).
- 
-	If we want to really check if an element has a *specific* instance of a child, 
-    we should create a new method, hasChildElement or something like that.
+/*  
+    we should create a new method, hasChildElement or something like that, to check for a
+    specific instance of a child.
 */
 bool MeiElement::hasChild(string childName) {
 	for (vector<MeiElement>::iterator iter = this->children.begin(); iter != children.end(); ++iter) {
@@ -138,12 +152,6 @@ void MeiElement::setFacs(string uuid) {
     MeiAttribute facs = MeiAttribute("facs", uuid);
     this->addAttribute(facs);
 }
-
-// Temporarily use this method to compare MeiElements, to be later replaced by an overloaded == operator
-//bool MeiElement::meiCompare(MeiElement element1, MeiElement element2) {
-//	if(element1.getName() == element2.getName()) return true;
-//	else return false;
-//}
 
 void MeiElement::print() {
 	print(0);
