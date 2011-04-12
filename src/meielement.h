@@ -43,7 +43,10 @@ class MeiElement
 		//void removeChild(MeiElement c);
 		bool hasChild(string childName);
         void addChildren(vector<MeiElement> children);
-
+        
+        MeiAttribute* getFacs();
+        void setFacs(string uuid);
+        
 		void print();
 		void print(int l);
 				

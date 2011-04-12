@@ -104,6 +104,12 @@ TEST(MeiElementTest, AddManyChildrenTest) {
     ASSERT_EQ((unsigned int)2, notechildren.size());
 }
 
+TEST(MeiElementTest, FacsTest) {
+    MeiElement s = MeiElement("staff");
+    s.setFacs("11ddsseeffsssafsdfagda34w988");
+    ASSERT_EQ("11ddsseeffsssafsdfagda34w988", s.getFacs()->getValue());
+}
+
 
 
 

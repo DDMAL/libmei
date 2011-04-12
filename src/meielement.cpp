@@ -75,7 +75,7 @@ void MeiElement::removeAttribute(string attributeName) {
 }
 
 vector<MeiElement> MeiElement::getChildren() {
-	return children;
+	return this->children;
 }
 
 /* We need to discuss this method. Calling meiCompare seems like 
@@ -129,11 +129,21 @@ void MeiElement::addChildren(vector<MeiElement> c) {
     }
 }
 
-// Temporarily use this method to compare MeiElements, to be later replaced by an overloaded == operator
-bool MeiElement::meiCompare(MeiElement element1, MeiElement element2) {
-	if(element1.getName() == element2.getName()) return true;
-	else return false;
+MeiAttribute* MeiElement::getFacs() {
+    MeiAttribute* facs = this->getAttribute("facs");
+    return facs;
 }
+
+void MeiElement::setFacs(string uuid) {
+    MeiAttribute facs = MeiAttribute("facs", uuid);
+    this->addAttribute(facs);
+}
+
+// Temporarily use this method to compare MeiElements, to be later replaced by an overloaded == operator
+//bool MeiElement::meiCompare(MeiElement element1, MeiElement element2) {
+//	if(element1.getName() == element2.getName()) return true;
+//	else return false;
+//}
 
 void MeiElement::print() {
 	print(0);
