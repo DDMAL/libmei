@@ -20,15 +20,18 @@ int main(int argc, char **argv) {
     
     MeiAttribute a1 = MeiAttribute("accid", "s");
     MeiAttribute a2 = MeiAttribute("artic", "stacc");
+    
+    MeiAttribute b1 = MeiAttribute("accid", "f");
 
     n.addAttribute(a1);
     n.addAttribute(a2);
+    o.addAttribute(b1);
     
     neume.addChild(n);
 	neume.addChild(o);
         
     el->addChild(neume);
-    el->print(4);
+   // el->print(4);
     
     MeiDocument* meidoc = new MeiDocument("example1.xml","UTF-8");
     meidoc->setRootElement(el);
@@ -37,8 +40,8 @@ int main(int argc, char **argv) {
     
    // if (argc > 1) {
     
-   // MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
-    
+    MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
+    Doc->getRootElement()->print(4);
     
   //  }
 	
