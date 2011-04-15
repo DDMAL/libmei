@@ -14,20 +14,21 @@ using std::endl;
 
 int main(int argc, char **argv) {
     MeiElement* el = new MeiElement("mei");
-    MeiElement* neume = new MeiElement("neume");
+    MeiElement neume = MeiElement("neume");
 	MeiElement n = MeiElement("note"); 
 	MeiElement o = MeiElement("octave");
-	
-    el->addChild(neume);
-    
-	neume->addChild(n);
-	neume->addChild(o);
     
     MeiAttribute a1 = MeiAttribute("accid", "s");
     MeiAttribute a2 = MeiAttribute("artic", "stacc");
-    
+
     n.addAttribute(a1);
     n.addAttribute(a2);
+    
+    neume.addChild(n);
+	neume.addChild(o);
+        
+    el->addChild(neume);
+    el->print(4);
     
     MeiDocument* meidoc = new MeiDocument("example1.xml","UTF-8");
     meidoc->setRootElement(el);
@@ -37,10 +38,6 @@ int main(int argc, char **argv) {
    // if (argc > 1) {
     
    // MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
-	
-   // Doc->getRootElement()->print();
-    
-  //  Doc->getRootElement()->getAttributes();
     
     
   //  }

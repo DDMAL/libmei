@@ -118,21 +118,16 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent) {
         string nodename=iter->getName();
         curxmlnode = xmlNewNode(NULL, (const xmlChar*)nodename.c_str());
         curxmlnode = xmlAddChild(xmlparent, curxmlnode);
-        
-        if(iter->getAttributes().size() == 0){
-            printf("The Attributes vector size is zero");
-          
-            /*vector<MeiAttribute> attributes = iter->getAttributes();
+
+            vector<MeiAttribute> attributes = iter->getAttributes();
             for (vector<MeiAttribute>::iterator itera = attributes.begin(); itera !=attributes.end(); ++itera) {
                 string attrname = itera->getName();
                 string attrvalue = itera->getValue();
-                printf("Attribute Name %s /n", attrname.c_str());
-                printf("Attribute Value %s /n", attrvalue.c_str());
+                printf("Attribute Name %s \n", attrname.c_str());
+                printf("Attribute Value %s \n", attrvalue.c_str());
                 
                 curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
-//              xmlTextWriterWriteAttribute(writer, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
-            }*/
-        }
+            }
         
         if (iter->getChildren().size() > 0) {
             MeiToXmlNode(*iter, curxmlnode);
