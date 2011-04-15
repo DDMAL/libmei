@@ -90,7 +90,7 @@ void MeiElement::removeAttribute(string attributeName) {
 	}
 }
 
-vector<MeiElement> MeiElement::getChildren() {
+vector<MeiElement> &MeiElement::getChildren() {
 	return this->children;
 }
 
@@ -159,10 +159,9 @@ void MeiElement::print() {
 
 void MeiElement::print(int level) {
 	printf("%*s ", level + (int)getName().length(), getName().c_str());
-    for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
-        printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
-    }
-    
+        for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
+            printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
+        }
     printf("\n");
         
 	vector<MeiElement>::iterator iter = children.begin();
