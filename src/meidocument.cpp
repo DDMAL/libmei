@@ -49,7 +49,8 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
 	
     doc = xmlReadFile(docname.c_str(), NULL, 0);
 	rootelement = xmlDocGetRootElement(doc);
-	MeiElement* meiroot = new MeiElement("mei");
+	MeiElement* meiroot = new MeiElement((const char *)rootelement->name);
+    
     MeiDocument::XmlNodeToMei(rootelement->children, meiroot);
 	xmlFreeDoc(doc);
     
@@ -83,17 +84,14 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 	
     for (curnode = node; curnode; curnode = curnode->next) {
         if (curnode->type == XML_ELEMENT_NODE) {
-            printf("node type: Element, name: %s\n", curnode->name);
             MeiElement* child = new MeiElement((const char *)curnode->name);
             if (curnode->properties != NULL) {
                 
                 for (curattr = curnode->properties; curattr; curattr = curattr->next) {
                     if (curattr->type == XML_ATTRIBUTE_NODE) {
                         attrname = curattr->name;
-                        printf("current attribute name: %s\n", attrname);
                         if (curattr->children != NULL) {
                             attrvalue = curattr->children;
-                            printf("attribute value %s \n", attrvalue->content);
                             string name = (const char *)(attrname);
                             string value = (const char *)(attrvalue->content); 
                             
@@ -123,8 +121,8 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent) {
             for (vector<MeiAttribute>::iterator itera = attributes.begin(); itera !=attributes.end(); ++itera) {
                 string attrname = itera->getName();
                 string attrvalue = itera->getValue();
-                printf("Attribute Name %s \n", attrname.c_str());
-                printf("Attribute Value %s \n", attrvalue.c_str());
+        //        printf("Attribute Name %s \n", attrname.c_str());
+        //        printf("Attribute Value %s \n", attrvalue.c_str());
                 
                 curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
             }

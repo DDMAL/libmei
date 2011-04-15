@@ -56,7 +56,7 @@ void MeiElement::setTail(string tail) {
     this->tail = tail;
 }
 
-vector<MeiAttribute> MeiElement::getAttributes() {
+vector<MeiAttribute>& MeiElement::getAttributes() {
 	return this->attributes;
 }
 

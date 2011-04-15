@@ -34,7 +34,7 @@ class MeiElement
         string getValue();
 		void setValue(string value);
 		
-		vector <MeiAttribute> getAttributes();
+		vector <MeiAttribute>& getAttributes();
 		MeiAttribute* getAttribute(string name);
 		bool meiCompare(MeiElement element1, MeiElement element2);
 		
@@ -42,7 +42,7 @@ class MeiElement
 		void removeAttribute(string name);
 		bool hasAttribute(string name);
 		
-		vector <MeiElement> &getChildren();
+		vector <MeiElement>& getChildren();
 		void addChild(MeiElement c);
 		void removeChildren(string childName);
 		//void removeChild(MeiElement c);
