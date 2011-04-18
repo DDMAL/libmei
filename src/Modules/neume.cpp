@@ -18,5 +18,5 @@ Syllable::Syllable(): MeiElement("syllable") {
 Uneume::Uneume(): MeiElement("uneume") {
 }
 
-Division::Division(): MeiElement("division") {
-}
+//Division::Division(): MeiElement("division") {
+//}

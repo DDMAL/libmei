@@ -8,7 +8,7 @@
  */
 
 #include <gtest/gtest.h>
-#include <mei/ax_layout.h>
+#include <mei/solesmes.h>
 #include <mei/exceptions.h>
 
 #include <string>
@@ -18,17 +18,17 @@ using std::string;
 using std::vector;
 
 /* testing constructors */
-TEST(LayoutTest, NewLayoutTest) {
-    Layout l = Layout();
+TEST(SolesmesTest, NewNeumeTest) {
+    Neume n = Neume();
     ASSERT_TRUE(true); // test passed
 }
 
-TEST(LayoutTest, NewSystemTest) {
-    System s = System();
+TEST(SolesmesTest, NewDivisionTest) {
+    Division d = Division();
     ASSERT_TRUE(true); // test passed
 }
 
-TEST(LayoutTest, NewPageTest) {
-    Page p = Page();
+TEST(SolesmesTest, NewEpisemaTest) {
+    Episema e = Episema();
     ASSERT_TRUE(true); // test passed
 }
