@@ -31,11 +31,11 @@ class Uneume: public MeiElement	{
 	};
 
 // This is not in the MEI standard yet
-class Division: public MeiElement	{
-public:
-	Division();
-private:
-};
+//class Division: public MeiElement	{
+//public:
+//	Division();
+//private:
+//};
 
 
 
