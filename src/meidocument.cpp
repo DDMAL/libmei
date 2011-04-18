@@ -46,10 +46,26 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
     printf("read from xml\n");
 	xmlDoc *doc = NULL;
 	xmlNode *rootelement = NULL;
+    xmlAttr* rootattr = NULL;
+    const xmlChar* attrname;
+    xmlNode* attrvalue = NULL;
 	
     doc = xmlReadFile(docname.c_str(), NULL, 0);
 	rootelement = xmlDocGetRootElement(doc);
 	MeiElement* meiroot = new MeiElement((const char *)rootelement->name);
+    
+    for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
+        if (rootattr->type == XML_ATTRIBUTE_NODE) {
+            attrname = rootattr->name;
+            if (rootattr->children != NULL) {
+                attrvalue = rootattr->children;
+                string name = (const char *)(attrname);
+                string value = (const char *)(attrvalue->content);
+                MeiAttribute rootmeiattr = MeiAttribute(name, value);
+                meiroot->addAttribute(rootmeiattr);
+            }
+        }
+    }
     
     MeiDocument::XmlNodeToMei(rootelement->children, meiroot);
 	xmlFreeDoc(doc);
@@ -63,14 +79,21 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
 void MeiDocument::WriteToXml(MeiDocument* meidoc) {
     xmlDocPtr xmldoc = NULL;
     xmlNodePtr xmlrootnode = NULL;
+    xmlAttrPtr xmlrootattr = NULL;
     MeiElement* root = meidoc->getRootElement();
     
     xmldoc = xmlNewDoc ((const xmlChar*)"1.0");  
     xmlrootnode = xmlNewNode(NULL, (const xmlChar*)root->getName().c_str());
     xmlDocSetRootElement(xmldoc, xmlrootnode);
     
-    MeiToXmlNode (*root, xmlrootnode); // fill the XML tree with xmlrootnode as the root element
+    vector<MeiAttribute> attributes = root->getAttributes();
+    for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
+        string attrname = iter->getName();
+        string attrvalue = iter->getValue();
+        xmlrootattr = xmlNewProp(xmlrootnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+    }
     
+    MeiToXmlNode (*root, xmlrootnode); // fill the XML tree with xmlrootnode as the root element
     xmlSaveFormatFile((const char*)meidoc->getDocName().c_str(), xmldoc, 1);
 }
 

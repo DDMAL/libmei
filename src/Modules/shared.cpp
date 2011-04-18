@@ -48,6 +48,57 @@ Caption::Caption(): MeiElement("caption") {
 Chord::Chord(): MeiElement("chord") {
 }
 
+string Chord::getDuration() throw (AttributeNotFoundException) {
+    MeiAttribute* duration = getAttribute("dur");
+    if (duration !=NULL) {
+        return duration->getValue();
+    } else {
+        throw AttributeNotFoundException("dur");
+    }
+}
+
+void Chord::setDuration(string duration) {
+    MeiAttribute dur = MeiAttribute("dur", duration);
+    addAttribute(dur);
+}
+
+string Chord::getStemDir() throw (AttributeNotFoundException) {
+    MeiAttribute* stemdir = getAttribute("stem.dir");
+    if (stemdir != NULL) {
+        return stemdir->getValue();
+    } else {
+        throw AttributeNotFoundException("stem.dir");
+    }
+}
+
+void Chord::setStemDir(string direction) {
+    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
+    addAttribute(stemDirection);
+}
+
+bool Chord::getIsDotted() {
+    MeiAttribute* dots = getAttribute("dots");
+    if (dots != NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+string Chord::getNumDots() throw (AttributeNotFoundException) {
+    MeiAttribute* numdots = getAttribute("dots");
+    if (numdots != NULL) {
+        return numdots->getValue();
+    } else {
+        throw AttributeNotFoundException("dots");
+    }
+}
+
+void Chord::setNumDots(string numDots) {
+    MeiAttribute nd = MeiAttribute("dots", numDots);
+    addAttribute(nd);
+}
+
 Clef::Clef(): MeiElement("clef") {
 }
 
@@ -344,6 +395,57 @@ Repository::Repository(): MeiElement("repository") {
 }
 
 Rest::Rest(): MeiElement("rest") {
+}
+
+string Rest::getDuration() throw (AttributeNotFoundException) {
+    MeiAttribute* duration = getAttribute("dur");
+    if (duration !=NULL) {
+        return duration->getValue();
+    } else {
+        throw AttributeNotFoundException("dur");
+    }
+}
+
+void Rest::setDuration(string duration) {
+    MeiAttribute dur = MeiAttribute("dur", duration);
+    addAttribute(dur);
+}
+
+string Rest::getStemDir() throw (AttributeNotFoundException) {
+    MeiAttribute* stemdir = getAttribute("stem.dir");
+    if (stemdir != NULL) {
+        return stemdir->getValue();
+    } else {
+        throw AttributeNotFoundException("stem.dir");
+    }
+}
+
+void Rest::setStemDir(string direction) {
+    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
+    addAttribute(stemDirection);
+}
+
+bool Rest::getIsDotted() {
+    MeiAttribute* dots = getAttribute("dots");
+    if (dots != NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+string Rest::getNumDots() throw (AttributeNotFoundException) {
+    MeiAttribute* numdots = getAttribute("dots");
+    if (numdots != NULL) {
+        return numdots->getValue();
+    } else {
+        throw AttributeNotFoundException("dots");
+    }
+}
+
+void Rest::setNumDots(string numDots) {
+    MeiAttribute nd = MeiAttribute("dots", numDots);
+    addAttribute(nd);
 }
 
 Sb::Sb(): MeiElement("sb") {

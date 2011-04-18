@@ -59,6 +59,8 @@ class Artic: public MeiElement
 	{
 	public:
 		Artic();
+        
+        
 	private:
 	};
 
@@ -94,7 +96,19 @@ class Chord: public MeiElement
 	{
 	public:
 		Chord();
+        
+        string getDuration() throw (AttributeNotFoundException);
+        void setDuration(string duration);
+        
+        string getStemDir() throw (AttributeNotFoundException);
+        void setStemDir(string direction);
+        
+        string getNumDots() throw (AttributeNotFoundException);
+        void setNumDots(string numDots);
+        bool getIsDotted();
+        
 	private:
+        string duration;
 	};
 
 class Clef: public MeiElement 
@@ -435,6 +449,17 @@ class Rest: public MeiElement
 	{
 	public:
 		Rest();
+        
+        string getDuration() throw (AttributeNotFoundException);
+        void setDuration(string duration);
+        
+        string getStemDir() throw (AttributeNotFoundException);
+        void setStemDir(string direction);
+        
+        string getNumDots() throw (AttributeNotFoundException);
+        void setNumDots(string numDots);
+        bool getIsDotted();
+        
 	private:
 	};
 
