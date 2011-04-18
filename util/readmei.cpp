@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
     
     MeiAttribute a1 = MeiAttribute("accid", "s");
     MeiAttribute a2 = MeiAttribute("artic", "stacc");
+    MeiAttribute ver = MeiAttribute("meiversion", "2011-04");
     
     MeiAttribute b1 = MeiAttribute("accid", "f");
 
@@ -32,6 +33,7 @@ int main(int argc, char **argv) {
         
     el->addChild(neume);
    // el->print(4);
+    el->addAttribute(ver);
     
     MeiDocument* meidoc = new MeiDocument("example1.xml","UTF-8");
     meidoc->setRootElement(el);
