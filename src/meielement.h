@@ -18,12 +18,21 @@
 using std::string;
 using std::vector;
 
+struct MeiNs {
+    string prefix;
+    string href;
+};
+
 class MeiElement
 	{
 	public:
 		MeiElement(string name);
+        MeiElement(string name, vector<MeiNs> ns);
+        MeiElement(string name, string prefix);
 		
 		string getName();
+        
+        vector<MeiNs> getNs();
         
         string getId();
         void setId(string id);
@@ -64,6 +73,7 @@ class MeiElement
 		MeiAttribute attribute(string name, string value);
 		vector<MeiAttribute> attributes;
 		vector<MeiElement> children;
+        vector<MeiNs> ns;
 
 	};
 

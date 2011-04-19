@@ -13,10 +13,23 @@ using std::endl;
 #include <libxml/xmlreader.h>
 
 int main(int argc, char **argv) {
-    MeiElement* el = new MeiElement("mei");
-    MeiElement neume = MeiElement("neume");
-	MeiElement n = MeiElement("note"); 
-	MeiElement o = MeiElement("octave");
+    vector<MeiNs> ns;
+    MeiNs ns1;
+    MeiNs ns2;
+    
+    ns1.href = "http://www.example1.com";
+    ns1.prefix = "link";
+    
+    ns2.href = "http://example12.ca";
+    ns2.prefix = "show";
+    
+    ns.push_back(ns1);
+    ns.push_back(ns2);
+    
+    MeiElement* el = new MeiElement("mei", ns);
+    MeiElement neume = MeiElement("neume", ns);
+	MeiElement n = MeiElement("note", ns); 
+	MeiElement o = MeiElement("octave", ns);
     
     MeiAttribute a1 = MeiAttribute("accid", "s");
     MeiAttribute a2 = MeiAttribute("artic", "stacc");

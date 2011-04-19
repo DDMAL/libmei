@@ -24,9 +24,19 @@ MeiElement::MeiElement(string name) {
 	this->name = name;	
 }
 
+MeiElement::MeiElement(string name, vector<MeiNs> ns) {
+    this->name = name;
+    this->ns = ns;
+}
+
+
 // name should always be set at instantiation, so we don't need an explicit setter here.
 string MeiElement::getName() {
 	return this->name;
+}
+
+vector<MeiNs> MeiElement::getNs() {
+    return this->ns;
 }
 
 string MeiElement::getId() {
@@ -159,9 +169,15 @@ void MeiElement::print() {
 
 void MeiElement::print(int level) {
 	printf("%*s ", level + (int)getName().length(), getName().c_str());
-        for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
-            printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
-        }
+    
+    for (vector<MeiNs>::iterator iterns = ns.begin(); iterns !=ns.end(); iterns++) {
+        printf("%s%s ", (*iterns).prefix.c_str(), (*iterns).href.c_str());
+    }
+    
+    for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
+        printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
+    }
+    
     printf("\n");
         
 	vector<MeiElement>::iterator iter = children.begin();
