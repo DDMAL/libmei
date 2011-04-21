@@ -15,6 +15,26 @@ Arpeg::Arpeg(): MeiElement("arpeg") {
 Beam::Beam(): MeiElement("beam") {
 }
 
+// Need to create another exception that takes care of children not existing to be applied here instead of the Attribute one
+MeiElement Beam::getFirstChild() throw (ChildrenNotFoundException) {
+    vector<MeiElement> children = getChildren();
+    if (children.size() > 0) {
+        return children[0];
+    } else {
+        throw ChildrenNotFoundException();
+    }
+}
+
+MeiElement Beam::getLastChild() throw (ChildrenNotFoundException) {
+    vector<MeiElement> children = getChildren();
+    if (children.size() > 0) {
+        int ind = children.size();
+        return children[ind-1];
+    } else {
+        throw ChildrenNotFoundException();
+    }
+}
+
 BeamSpan::BeamSpan(): MeiElement("beamspan") {
 }
 
@@ -46,6 +66,48 @@ HarpPedal::HarpPedal(): MeiElement("harppedal") {
 }
 
 Measure::Measure(): MeiElement("measure") {
+}
+
+string Measure::getMeasureNumber() throw (AttributeNotFoundException) {
+    MeiAttribute* measureNum = getAttribute("n");
+    if (measureNum != NULL) {
+        return measureNum->getValue();
+    } else {
+        throw AttributeNotFoundException("n");
+    }
+}
+
+void Measure::setMeasureNumber(string measurenumber) {
+    MeiAttribute measureNum = MeiAttribute("n", measurenumber);
+    addAttribute(measureNum);
+}
+
+string Measure::getBarline() throw (AttributeNotFoundException) {
+    MeiAttribute* barLine = getAttribute("right");
+    if (barLine != NULL) {
+        return barLine->getValue();
+    } else {
+        throw AttributeNotFoundException("right");
+    }
+}
+
+void Measure::setBarline(string barline) {
+    MeiAttribute Barline = MeiAttribute("right", barline);
+    addAttribute(Barline);
+}
+
+bool Measure::hasBarline() {
+    return hasAttribute("right");
+}
+
+bool Measure::isRepeated() {
+    if (hasAttribute("right")) {
+        MeiAttribute* measureAttr = getAttribute("right");
+        if (measureAttr->getValue() == "rptstart" || measureAttr->getValue() == "rptend" || measureAttr->getValue() == "rptboth") {
+            return true;
+        }
+    }
+    return false;
 }
 
 MRest::MRest(): MeiElement("mrest") {
@@ -81,7 +143,91 @@ Reh::Reh(): MeiElement("reh") {
 Slur::Slur(): MeiElement("slur") {
 }
 
+string Slur::getStartId() throw (AttributeNotFoundException) {
+    MeiAttribute* startID = getAttribute("startid");
+    if (startID != NULL) {
+        return startID->getValue();
+    } else {
+        throw AttributeNotFoundException("startid");
+    }
+}
+
+void Slur::setStartId(string stid) {
+    MeiAttribute startID = MeiAttribute("startid", stid);
+    addAttribute(startID);
+}
+
+string Slur::getEndId() throw (AttributeNotFoundException) {
+    MeiAttribute* endID = getAttribute("endid");
+    if (endID != NULL) {
+        return endID->getValue();
+    } else {
+        throw AttributeNotFoundException("endid");
+    }
+}
+
+void Slur::setEndId(string eid) {
+    MeiAttribute endID = MeiAttribute("endid", eid);
+    addAttribute(endID);
+}
+
+string Slur::getStaff() throw (AttributeNotFoundException) {
+    MeiAttribute* staFF = getAttribute("staff");
+    if (staFF != NULL) {
+        return staFF->getValue();
+    } else {
+        throw AttributeNotFoundException("staff");
+    }
+}
+
+void Slur::setStaff(string staff) {
+    MeiAttribute staFF = MeiAttribute("staff", staff);
+    addAttribute(staFF);
+}
+
 Tie::Tie(): MeiElement("tie") {
+}
+
+string Tie::getStartId() throw (AttributeNotFoundException) {
+    MeiAttribute* startID = getAttribute("startid");
+    if (startID != NULL) {
+        return startID->getValue();
+    } else {
+        throw AttributeNotFoundException("startid");
+    }
+}
+
+void Tie::setStartId(string stid) {
+    MeiAttribute startID = MeiAttribute("startid", stid);
+    addAttribute(startID);
+}
+
+string Tie::getEndId() throw (AttributeNotFoundException) {
+    MeiAttribute* endID = getAttribute("endid");
+    if (endID != NULL) {
+        return endID->getValue();
+    } else {
+        throw AttributeNotFoundException("endid");
+    }
+}
+
+void Tie::setEndId(string eid) {
+    MeiAttribute endID = MeiAttribute("endid", eid);
+    addAttribute(endID);
+}
+
+string Tie::getStaff() throw (AttributeNotFoundException) {
+    MeiAttribute* staFF = getAttribute("staff");
+    if (staFF != NULL) {
+        return staFF->getValue();
+    } else {
+        throw AttributeNotFoundException("staff");
+    }
+}
+
+void Tie::setStaff(string staff) {
+    MeiAttribute staFF = MeiAttribute("staff", staff);
+    addAttribute(staFF);
 }
 
 Tuplet::Tuplet(): MeiElement("tuplet") {

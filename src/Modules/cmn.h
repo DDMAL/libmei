@@ -11,6 +11,7 @@
 #define CMN_H_
 
 #include "meielement.h"
+#include "exceptions.h"
 
 class Arpeg: public MeiElement {
 public:
@@ -21,6 +22,9 @@ private:
 class Beam: public MeiElement {
 public:
 	Beam();
+    
+    MeiElement getFirstChild() throw (ChildrenNotFoundException);
+    MeiElement getLastChild() throw (ChildrenNotFoundException);
 private:
 };
 
@@ -87,7 +91,17 @@ private:
 class Measure: public MeiElement {
 public:
 	Measure();
+    
+    string getMeasureNumber() throw (AttributeNotFoundException);
+    void setMeasureNumber(string measurenumber);
+    
+    string getBarline() throw (AttributeNotFoundException);
+    void setBarline(string barline);
+    bool hasBarline();
+    bool isRepeated();
+    
 private:
+    vector<string> barlines;
 };
 
 class MRest: public MeiElement {
@@ -153,12 +167,32 @@ private:
 class Slur: public MeiElement {
 public:
 	Slur();
+    
+    string getStartId() throw (AttributeNotFoundException);
+    void setStartId(string stid);
+    
+    string getEndId() throw (AttributeNotFoundException);
+    void setEndId(string eid);
+    
+    string getStaff() throw (AttributeNotFoundException);
+    void setStaff(string staff);
+    
 private:
 };
 
 class Tie: public MeiElement {
 public:
 	Tie();
+    
+    string getStartId() throw (AttributeNotFoundException);
+    void setStartId(string stid);
+    
+    string getEndId() throw (AttributeNotFoundException);
+    void setEndId(string eid);
+    
+    string getStaff() throw (AttributeNotFoundException);
+    void setStaff(string staff);
+    
 private:
 };
 
