@@ -33,6 +33,20 @@ AppInfo::AppInfo(): MeiElement("appinfo") {
 Artic::Artic(): MeiElement("artic") {
 }
 
+string Artic::getArticulation() throw (AttributeNotFoundException) {
+    MeiAttribute* Articulation = getAttribute("artic");
+    if (Articulation != NULL) {
+        return Articulation->getValue();
+    } else {
+        throw AttributeNotFoundException("atric");
+    }
+}
+
+void Artic::setArticulation(string artic) {
+    MeiAttribute Articulation = MeiAttribute("artic", artic);
+    addAttribute(Articulation);
+}
+
 BarLine::BarLine(): MeiElement("barline") {
 }
 

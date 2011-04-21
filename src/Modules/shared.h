@@ -60,6 +60,8 @@ class Artic: public MeiElement
 	public:
 		Artic();
         
+        string getArticulation() throw (AttributeNotFoundException);
+        void setArticulation(string artic);
         
 	private:
 	};

@@ -36,6 +36,23 @@ private:
 
 };
 
+class ChildrenNotFoundException: public exception
+    {
+    public:
+        ChildrenNotFoundException() { }
+        
+        ~ChildrenNotFoundException() throw() { };
+        
+        virtual const char* what() const throw() 
+        {
+            string s = "This element has no children.";
+            return s.c_str();
+        }
+        
+    private:
+        
+    };
+
 
 
 #endif //EXCEPTIONS_H_
