@@ -497,3 +497,11 @@ Title::Title(): MeiElement("title") {
 
 TitlePage::TitlePage(): MeiElement("titlepage") {
 }
+
+// added in MEI 2011
+CastItem::CastItem(): MeiElement("castitem") { }
+RoleDesc::RoleDesc(): MeiElement("roledesc") { }
+Actor::Actor(): MeiElement("actor") { }
+Role::Role(): MeiElement("role") { }
+CastList::CastList(): MeiElement("castlist") { }
+CastGrp::CastGrp(): MeiElement("castgrp") { }

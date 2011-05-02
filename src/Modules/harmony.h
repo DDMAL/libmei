@@ -42,4 +42,18 @@ public:
 private:
 };
 
+//added in MEI 2011
+class F: public MeiElement {
+public:
+	F();
+private:
+};
+
+class Fb: public MeiElement {
+public:
+	Fb();
+private:
+};
+
+
 #endif // HARMONY_H_

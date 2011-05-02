@@ -347,5 +347,87 @@ class UserStrict: public MeiElement {
 		UserStrict();
 	private:
 };	
- 
+
+// added in MEI 2011
+class Plate: public MeiElement {
+public:
+    Plate();
+private:
+};
+
+class TermList: public MeiElement {
+public:
+    TermList();
+private:
+};	
+
+class Watermark: public MeiElement {
+public:
+    Watermark();
+private:
+};	
+
+class RelatedItem: public MeiElement {
+public:
+    RelatedItem();
+private:
+};	
+
+class Contents: public MeiElement {
+public:
+    Contents();
+private:
+};	
+
+class Work: public MeiElement {
+public:
+    Work();
+private:
+};	
+
+class PerfMedium: public MeiElement {
+public:
+    PerfMedium();
+private:
+};	
+
+class WorkDesc: public MeiElement {
+public:
+    WorkDesc();
+private:
+};	
+
+class InstrVoice: public MeiElement {
+public:
+    InstrVoice();
+private:
+};	
+
+class Performer: public MeiElement {
+public:
+    Performer();
+private:
+};
+
+class Key: public MeiElement {
+public:
+    Key();
+private:
+};	
+
+class Ensemble: public MeiElement {
+public:
+    Ensemble();
+private:
+};	
+
+class History: public MeiElement {
+public:
+    History();
+private:
+};	
+
+
+
+
 #endif

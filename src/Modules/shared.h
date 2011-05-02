@@ -556,4 +556,48 @@ class TitlePage: public MeiElement
 	private:
 	};
 
+
+// added in MEI 2011
+class CastItem: public MeiElement
+{
+    public:
+        CastItem();
+    private:
+};
+
+class RoleDesc: public MeiElement
+{
+public:
+    RoleDesc();
+private:
+};
+
+class Actor: public MeiElement
+{
+public:
+    Actor();
+private:
+};
+
+class Role: public MeiElement
+{
+public:
+    Role();
+private:
+};
+
+class CastList: public MeiElement
+{
+public:
+    CastList();
+private:
+};
+
+class CastGrp: public MeiElement
+{
+public:
+    CastGrp();
+private:
+};
+
 #endif // SHARED_H_
