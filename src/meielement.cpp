@@ -24,7 +24,7 @@ MeiElement::MeiElement(string name) {
 	this->name = name;	
 }
 
-MeiElement::MeiElement(string name, vector<MeiNs> ns) {
+MeiElement::MeiElement(string name, MeiNs ns) {
     this->name = name;
     this->ns = ns;
 }
@@ -35,7 +35,7 @@ string MeiElement::getName() {
 	return this->name;
 }
 
-vector<MeiNs> MeiElement::getNs() {
+MeiNs MeiElement::getNs() {
     return this->ns;
 }
 
@@ -170,9 +170,7 @@ void MeiElement::print() {
 void MeiElement::print(int level) {
 	printf("%*s ", level + (int)getName().length(), getName().c_str());
     
-    for (vector<MeiNs>::iterator iterns = ns.begin(); iterns !=ns.end(); iterns++) {
-        printf("%s%s ", (*iterns).prefix.c_str(), (*iterns).href.c_str());
-    }
+	printf("%s%s ", ns.prefix.c_str(), ns.href.c_str());
     
     for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
         printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());

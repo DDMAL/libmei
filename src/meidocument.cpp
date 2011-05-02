@@ -61,7 +61,7 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
         const xmlChar* roothref = rootxmlns->href;
         printf("roothref %s \n", roothref);
         const xmlChar* rootprefix = rootxmlns->prefix;
-        MeiNs ns;
+		MeiNs ns;
         if (roothref != NULL) {
         ns.href = (const char*)roothref;
         }
@@ -73,7 +73,7 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
     
     printf("NSLIST SIZE %s \n", (char*)nslist.size());
     
-    MeiElement* meiroot = new MeiElement((const char *)rootelement->name, nslist);
+    MeiElement* meiroot = new MeiElement((const char *)rootelement->name);
     
     for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
         if (rootattr->type == XML_ATTRIBUTE_NODE) {
@@ -152,18 +152,16 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
     xmlNsPtr xmlcurns = NULL;
 
     MeiElement* root = meidoc->getRootElement();
-    vector<MeiNs> ns = root->getNs();
+	MeiNs ns = root->getNs();
     
     xmldoc = xmlNewDoc ((const xmlChar*)"1.0");  
     xmlrootnode = xmlNewNode(xmlcurns, (const xmlChar*)root->getName().c_str());
     xmlDocSetRootElement(xmldoc, xmlrootnode);
     
-    // add multiple namespaces to the element
-    for(vector<MeiNs>::iterator iterns = ns.begin(); iterns !=ns.end(); iterns++) {
-        string nodehref = (*iterns).href;
-        string nodeprefix = (*iterns).prefix;
-        xmlcurns = xmlNewNs (xmlrootnode, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
-    }
+    // add namespaces to the element
+    string nodehref = ns.href;
+    string nodeprefix = ns.prefix;
+    xmlcurns = xmlNewNs (xmlrootnode, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
     
     vector<MeiAttribute> attributes = root->getAttributes();
     for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
@@ -183,12 +181,10 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent) {
     xmlAttrPtr curxmlattr = NULL;
     xmlNsPtr   curxmlns   = NULL; 
     
-    vector<MeiNs> ns = meiparent.getNs();
-    for(vector<MeiNs>::iterator iterns = ns.begin(); iterns !=ns.end(); iterns++) {
-        string nodehref = (*iterns).href;
-        string nodeprefix = (*iterns).prefix;
-        curxmlns = xmlNewNs (curxmlnode, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
-    }
+    MeiNs ns = meiparent.getNs();
+	string nodehref = ns.href;
+	string nodeprefix = ns.prefix;
+	curxmlns = xmlNewNs (curxmlnode, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
     
     for (vector<MeiElement>::iterator iter = meichildren.begin(); iter != meichildren.end(); ++iter) {
         string nodename=iter->getName();

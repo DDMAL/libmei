@@ -27,12 +27,12 @@ class MeiElement
 	{
 	public:
 		MeiElement(string name);
-        MeiElement(string name, vector<MeiNs> ns);
+        MeiElement(string name, MeiNs ns);
         MeiElement(string name, string prefix);
 		
 		string getName();
         
-        vector<MeiNs> getNs();
+        MeiNs getNs();
         
         string getId();
         void setId(string id);
@@ -73,7 +73,7 @@ class MeiElement
 		MeiAttribute attribute(string name, string value);
 		vector<MeiAttribute> attributes;
 		vector<MeiElement> children;
-        vector<MeiNs> ns;
+        MeiNs ns;
 
 	};
 
