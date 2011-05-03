@@ -483,6 +483,25 @@ Staff::Staff(): MeiElement("staff") {
 StaffDef::StaffDef(): MeiElement("staffdef") {
 }
 
+string StaffDef::getClefArray() throw(AttributeNotFoundException) {
+    
+    MeiAttribute* Clefs = getAttribute("clef");
+    if (Clefs != NULL) {
+        return Clefs->getValue();
+    } else {
+        throw AttributeNotFoundException("clef");
+    }
+}
+
+string StaffDef::getPPQ() throw(AttributeNotFoundException) {
+    MeiAttribute* Ppq = getAttribute("ppq");
+    if (Ppq != NULL) {
+        return Ppq->getValue();
+    } else {
+        throw AttributeNotFoundException("ppq");
+    }
+}
+
 StaffGrp::StaffGrp(): MeiElement("staffgrp") {
 }
 

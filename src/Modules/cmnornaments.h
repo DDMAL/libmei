@@ -11,10 +11,24 @@
 #define CMNORNAMENTS_H_
 
 #include "meielement.h"
+#include "exceptions.h"
 
 class Mordent: public MeiElement {
 public:
 	Mordent();
+    
+    string getTimeStamp() throw(AttributeNotFoundException);
+    void setTimeStamp(string tmstp);
+    
+    string getPlace() throw(AttributeNotFoundException);
+    void setPlace(string place);
+    
+    string getForm() throw(AttributeNotFoundException);
+    void setForm(string Form);
+    
+    string getStaff() throw(AttributeNotFoundException);
+    void setStaff(string staff);
+    
 private:
 };
 

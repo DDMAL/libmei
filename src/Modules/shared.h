@@ -518,6 +518,10 @@ class StaffDef: public MeiElement
 	{
 	public:
 		StaffDef();
+        
+        string getClefArray() throw(AttributeNotFoundException);
+        string getPPQ() throw(AttributeNotFoundException);
+        
 	private:
 	};
 
