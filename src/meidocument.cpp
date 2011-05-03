@@ -120,7 +120,7 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
         xmlrootattr = xmlNewProp(xmlrootnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
     
-    MeiToXmlNode (*root, xmlrootnode, xmlrootnode); // fill the XML tree with xmlrootnode as the root element
+    MeiToXmlNode (*root, xmlrootnode, xmlrootnode, xmldoc); // fill the XML tree with xmlrootnode as the root element
     xmlSaveFormatFile((const char*)meidoc->getDocName().c_str(), xmldoc, 1);
 }
 
@@ -167,7 +167,7 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 	}
 }
 
-void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot) {
+void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc) {
     vector<MeiElement> meichildren = meiparent.getChildren();
     xmlNodePtr curxmlnode = NULL;
     xmlAttrPtr curxmlattr = NULL;
@@ -183,7 +183,14 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNo
 		MeiNs ns = iter->getNs();
 		string nodehref = ns.href;
 		string nodeprefix = ns.prefix;
-		curxmlns = xmlNewNs (xmlroot, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
+        
+       const char* nodehrefc = nodehref.c_str();
+        
+        curxmlns = xmlSearchNsByHref(doc, curxmlnode, (const xmlChar*)nodehrefc);
+        
+        if(curxmlns==NULL) {
+            curxmlns = xmlNewNs (xmlroot, (const xmlChar*)nodehref.c_str(), (const xmlChar*)nodeprefix.c_str());
+        }       
 		xmlSetNs(curxmlnode, curxmlns);
         
 		// add attributes to each child
@@ -195,7 +202,7 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNo
             }
         
         if (iter->getChildren().size() > 0) {
-            MeiToXmlNode(*iter, curxmlnode, xmlroot);
+            MeiToXmlNode(*iter, curxmlnode, xmlroot, doc);
         }
     }
 }
