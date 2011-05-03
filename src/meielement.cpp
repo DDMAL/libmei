@@ -170,8 +170,10 @@ void MeiElement::print() {
 void MeiElement::print(int level) {
 	printf("%*s ", level + (int)getName().length(), getName().c_str());
     
-	printf("%s%s ", ns.prefix.c_str(), ns.href.c_str());
-    
+	if (ns.href.size()>0) {
+		printf("%s:%s ", ns.prefix.c_str(), ns.href.c_str());
+    }
+	
     for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
         printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
     }

@@ -55,27 +55,21 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
 	
     doc = xmlReadFile(docname.c_str(), NULL, 0);
 	rootelement = xmlDocGetRootElement(doc);
-    vector<MeiNs> nslist;
     
-    for (rootxmlns = rootelement->ns; rootxmlns; rootxmlns = rootxmlns->next) {
-        const xmlChar* roothref = rootxmlns->href;
-        printf("roothref %s \n", roothref);
-        const xmlChar* rootprefix = rootxmlns->prefix;
-		MeiNs ns;
-        if (roothref != NULL) {
-        ns.href = (const char*)roothref;
-        }
-        if (rootprefix !=NULL) {
+    rootxmlns = rootelement->ns; 
+	const xmlChar* roothref = rootxmlns->href;
+	const xmlChar* rootprefix = rootxmlns->prefix;
+	MeiNs ns;
+		
+	if (roothref != NULL) {
+		ns.href = (const char*)roothref;
+	}
+	if (rootprefix !=NULL) {
         ns.prefix = (const char*)rootprefix;
-        }
-        nslist.push_back(ns);
-    }
+	}
     
-    printf("NSLIST SIZE %s \n", (char*)nslist.size());
-    
-    MeiElement* meiroot = new MeiElement((const char *)rootelement->name);
-    
-    for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
+    MeiElement* meiroot = new MeiElement((const char *)rootelement->name, ns);
+	for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
         if (rootattr->type == XML_ATTRIBUTE_NODE) {
             attrname = rootattr->name;
             if (rootattr->children != NULL) {
@@ -141,22 +135,18 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
     for (curnode = node; curnode; curnode = curnode->next) {
         if (curnode->type == XML_ELEMENT_NODE) {
             
-            vector<MeiNs> nslist;
-            for (xmlns = curnode->ns; xmlns; xmlns = xmlns->next) {
-                const xmlChar* childhref = xmlns->href;
-                const xmlChar* childprefix = xmlns->prefix;
-                MeiNs ns;
-                if (childhref != NULL) {
-					ns.href = (const char*)childhref;
-                }
-                if (childprefix != NULL) {
-					ns.prefix = (const char*)childprefix;
-                }
-                nslist.push_back(ns);
-            }
+            xmlns = curnode->ns;
+			const xmlChar* childhref = xmlns->href;
+			const xmlChar* childprefix = xmlns->prefix;
+			MeiNs ns;
+			if (childhref != NULL) {
+				ns.href = (const char*)childhref;
+			}
+			if (childprefix != NULL) {
+				ns.prefix = (const char*)childprefix;
+			}
             
-            MeiElement* child = new MeiElement((const char *)curnode->name);
-            
+            MeiElement* child = new MeiElement((const char *)curnode->name, ns);
             if (curnode->properties != NULL) {                
                 for (curattr = curnode->properties; curattr; curattr = curattr->next) {
                     if (curattr->type == XML_ATTRIBUTE_NODE) {
@@ -165,7 +155,6 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
                             attrvalue = curattr->children;
                             string name = (const char *)(attrname);
                             string value = (const char *)(attrvalue->content); 
-                            
                             MeiAttribute curmeiattr = MeiAttribute(name, value);
                             child->addAttribute(curmeiattr);
                         }

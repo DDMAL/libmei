@@ -26,6 +26,8 @@ int main(int argc, char **argv) {
     MeiElement neume = MeiElement("neume", ns1);
 	MeiElement n = MeiElement("note", ns2); 
 	MeiElement o = MeiElement("octave", ns2);
+	MeiElement p = MeiElement("accidental", ns2);
+
     
     MeiAttribute a1 = MeiAttribute("accid", "s");
     MeiAttribute a2 = MeiAttribute("artic", "stacc");
@@ -39,6 +41,7 @@ int main(int argc, char **argv) {
     
     neume.addChild(n);
 	neume.addChild(o);
+	neume.addChild(p);
         
     el->addChild(neume);
    // el->print(4);
