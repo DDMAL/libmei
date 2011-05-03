@@ -168,6 +168,17 @@ Unpub::Unpub(): MeiElement("unpub") {
 UserStrict::UserStrict(): MeiElement("userstrict") {
 }
 
-
-
-
+// added in MEI 2011
+Plate::Plate(): MeiElement("plate") { }
+TermList::TermList(): MeiElement("termlist") { }
+Watermark::Watermark(): MeiElement("watermark") { }
+RelatedItem::RelatedItem(): MeiElement("relateditem") { }
+Contents::Contents(): MeiElement("contents") { }
+Work::Work(): MeiElement("work") { }
+PerfMedium::PerfMedium(): MeiElement("perfmedium") { }
+WorkDesc::WorkDesc(): MeiElement("workdesc") { }
+InstrVoice::InstrVoice(): MeiElement("instrvoice") { }
+Performer::Performer(): MeiElement("performer") { }
+Key::Key(): MeiElement("key") { }
+Ensemble::Ensemble(): MeiElement("ensemble") { }
+History::History(): MeiElement("history") { }

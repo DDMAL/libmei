@@ -23,3 +23,7 @@ ChordTable::ChordTable(): MeiElement("chordtable") {
 
 Harm::Harm(): MeiElement("harm") {
 }
+
+// added in MEI 2011
+F::F(): MeiElement("f") { }
+Fb::Fb(): MeiElement("fb") { }
