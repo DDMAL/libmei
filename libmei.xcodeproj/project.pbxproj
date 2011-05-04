@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCC4B1312C31C00B46918 /* mei_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43081304501F00EBBE7F /* mei_test.cpp */; };
-		61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B4323130450C900EBBE7F /* libmei.cpp */; };
-		61DBCCD71312C86F00B46918 /* libmei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* libmei.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61DBCCD71312C86F00B46918 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61DBCCE81312C99500B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
@@ -74,8 +73,7 @@
 		5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiProj.xcconfig; sourceTree = "<group>"; };
 		5073E0C709E734A800EC74B6 /* libmeiTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiTarget.xcconfig; sourceTree = "<group>"; };
 		617B43081304501F00EBBE7F /* mei_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mei_test.cpp; path = test/mei_test.cpp; sourceTree = "<group>"; };
-		617B4322130450C900EBBE7F /* libmei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libmei.h; path = src/libmei.h; sourceTree = "<group>"; };
-		617B4323130450C900EBBE7F /* libmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = libmei.cpp; path = src/libmei.cpp; sourceTree = "<group>"; };
+		617B4322130450C900EBBE7F /* mei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mei.h; path = src/mei.h; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
 		617B43441304560400EBBE7F /* readmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readmei; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,8 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
-				617B4322130450C900EBBE7F /* libmei.h */,
-				617B4323130450C900EBBE7F /* libmei.cpp */,
+				617B4322130450C900EBBE7F /* mei.h */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
 				9BE4E743131D570100A59F5D /* meielement.cpp */,
 				9B3CB63A13214C430054C2DC /* meiattribute.h */,
@@ -306,7 +303,7 @@
 				9B716FA8133D4B0300A862F8 /* cmnornaments.h in Headers */,
 				9B716F44133D3BF500A862F8 /* harmony.h in Headers */,
 				9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */,
-				61DBCCD71312C86F00B46918 /* libmei.h in Headers */,
+				61DBCCD71312C86F00B46918 /* mei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
 				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
 				9B11C8AE132E6CC80090FDA6 /* neume.h in Headers */,
@@ -454,7 +451,6 @@
 				9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */,
 				9B716F06133D361E00A862F8 /* text.cpp in Sources */,
 				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
-				61DBCCD51312C86C00B46918 /* libmei.cpp in Sources */,
 				9BDC643D132A905F0062255E /* meidocument.cpp in Sources */,
 				9B11C8AF132E6CC80090FDA6 /* neume.cpp in Sources */,
 				9B11C8B5132E75120090FDA6 /* shared.cpp in Sources */,
