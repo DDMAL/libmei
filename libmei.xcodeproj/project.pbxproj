@@ -382,6 +382,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -497,6 +498,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -630,7 +632,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "mei-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = mei;
 				ZERO_LINK = NO;
