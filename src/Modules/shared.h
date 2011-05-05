@@ -13,6 +13,8 @@
 #include "meiattribute.h"
 #include "exceptions.h"
 
+/** \brief A generic element for a shortened form of a word, including an acronym.
+ */
 class Abbr: public MeiElement
 	{
 	public:
@@ -20,6 +22,8 @@ class Abbr: public MeiElement
 	private:
 	};
 
+/** \brief Records a temporary alteration to the pitch of a note.
+ */
 class Accid: public MeiElement
 	{
 	public:

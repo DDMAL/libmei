@@ -19,9 +19,20 @@
 using std::string;
 using std::vector;
 
+/** \brief The entity which will contains all the elements and attributes 
+ *         storing a musical piece in the MEI schema. 
+ * 
+ * An MeiDocument is the first entity created or used when reading and writing MEI files. 
+ * All musical information for a piece is stored as a tree of MeiElements within the MeiDocument. 
+ * The document itself contains a name and an encoding, both of which are needed to identify it. 
+ * MeiDocuments can be written to and Read from XML.
+ */
+
 class MeiDocument
 	{
 	public:
+        /** \brief The MeiDocument Constructor, requires the document name and encoding
+         */
 		MeiDocument(string docname, string encoding);
 		
 		string getDocName();
