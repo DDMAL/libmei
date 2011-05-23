@@ -55,6 +55,7 @@ class MeiElement
         /** \brief Return the namespace associated with the Mei Element
          */
         MeiNs getNs();
+		void setNs(MeiNs ns);
         
         /** \brief Return the associated ID with the Mei Element
          */

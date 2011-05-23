@@ -39,6 +39,10 @@ MeiNs MeiElement::getNs() {
     return this->ns;
 }
 
+void MeiElement::setNs(MeiNs ns) {
+	this->ns = ns;
+}
+
 string MeiElement::getId() {
     return this->id;
 }
