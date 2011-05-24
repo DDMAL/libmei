@@ -83,7 +83,7 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
         }
     }
     
-    MeiDocument::XmlNodeToMei(rootelement->children, meiroot, meiroot);
+    MeiDocument::XmlNodeToMei(rootelement->children, meiroot);
 	xmlFreeDoc(doc);
     
     MeiDocument* meidoc = new MeiDocument(docname, encoding);
@@ -124,7 +124,7 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
     for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
         string attrname = iter->getName();
         string attrvalue = iter->getValue();
-        xmlrootattr = xmlNewNsProp(xmlrootnode, xmlcurns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+		xmlrootattr = xmlNewProp(xmlrootnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
     
     MeiToXmlNode (*root, xmlrootnode, xmlrootnode, xmldoc); // fill the XML tree with xmlrootnode as the root element
@@ -132,7 +132,7 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
 }
 
 // Private method used to go through the tree structure, get the nodes and create MeiElements
-void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiElement *root) {
+void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 	xmlNode* curnode = NULL;
     xmlAttr* curattr = NULL;
     const xmlChar* attrname;
@@ -163,11 +163,8 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiElement *ro
 					string prefix = (const char*)(curnode->nsDef->prefix);
 					string href = (const char*)(curnode->nsDef->href);
 					MeiAttribute attribute = MeiAttribute(prefix,href);
-					if (curnode->nsDef->next != NULL) { //not correct, supposed to pick up the prefix of the namespace declaration, as in xmlns:xlink->xmlns
-						string context = (const char*)(curnode->nsDef->next->prefix);
-						attribute.setPrefix(context);
-					}
-					root->addAttribute(attribute);
+					attribute.setPrefix("xmlns");
+					child->addAttribute(attribute);
 				}
 			}
 			
@@ -197,7 +194,7 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiElement *ro
                     }					
                 }
             }
-            XmlNodeToMei(curnode->children, child, root);
+            XmlNodeToMei(curnode->children, child);
             parent->addChild(*child);
         }
 	}
@@ -244,8 +241,9 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNo
         vector<MeiAttribute> attributes = iter->getAttributes();
         for (vector<MeiAttribute>::iterator itera = attributes.begin(); itera !=attributes.end(); ++itera) {
             string attrname = itera->getName();
-			if (attrname != "xml:id") {
-				string attrvalue = itera->getValue();
+			string attrprefix = itera->getPrefix();
+			string attrvalue = itera->getValue();
+			if (attrname != "xml:id" && attrprefix != "xmlns") {
 				string attrprefix = itera->getPrefix();
 				if (attrprefix != "") {
 					curxmlns = xmlNewNs (xmlroot, NULL, (const xmlChar*)attrprefix.c_str());
@@ -253,6 +251,9 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNo
 				} else {
 					curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
 				}
+			} else if (attrprefix == "xmlns") { //for namespace definitions
+				curxmlns = xmlNewNs(curxmlnode, (const xmlChar*)attrvalue.c_str(), (const xmlChar*)attrname.c_str());
+				curxmlnode->nsDef = curxmlns;
 			}
 		}
         if (iter->getChildren().size() > 0) {

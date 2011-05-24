@@ -81,7 +81,7 @@ class MeiDocument
 		MeiElement* root;
 		
 		// Read Information off an XMLNode tree to create an Mei one
-		static void XmlNodeToMei (xmlNode* node, MeiElement* parent, MeiElement *root);
+		static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
         
         // Read Information from an MEI tree to create an XML tree  
 		static void MeiToXmlNode (MeiElement meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDocPtr xmldoc);
