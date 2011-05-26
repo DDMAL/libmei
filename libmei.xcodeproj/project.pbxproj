@@ -13,6 +13,7 @@
 		61DBCCE81312C99500B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
+		7D138AE81386E13500BDEB01 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D138AE41386E12C00BDEB01 /* gtest.framework */; };
 		9B11C8AE132E6CC80090FDA6 /* neume.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B11C8AC132E6CC80090FDA6 /* neume.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B11C8AF132E6CC80090FDA6 /* neume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8AD132E6CC80090FDA6 /* neume.cpp */; };
 		9B11C8B4132E75120090FDA6 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B11C8B2132E75120090FDA6 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,7 +63,6 @@
 		9BDC643C132A905F0062255E /* meidocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BDC6437132A90430062255E /* meidocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
 		9BDC64A2132AB3520062255E /* meidocument_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC64A0132AB3520062255E /* meidocument_test.cpp */; };
-		9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE4E73C131D4F7C00A59F5D /* gtest.framework */; };
 		9BE4E744131D570100A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E753131D663200A59F5D /* meielement_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E74E131D64B400A59F5D /* meielement_test.cpp */; };
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
@@ -80,6 +80,9 @@
 		61DBCCCF1312C85D00B46918 /* mei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = mei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCD01312C85E00B46918 /* mei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mei-Info.plist"; sourceTree = "<group>"; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
+		7D138AE41386E12C00BDEB01 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "/Users/jamie/ax-libs/osx/gtest.framework"; sourceTree = "<absolute>"; };
+		7DAB6177138C27EF00E691FC /* mei */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = mei; path = build/Debug/mei.framework/Versions/A/mei; sourceTree = "<group>"; };
+		7DAB617D138C282E00E691FC /* mei */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = mei; path = build/Release/mei.framework/Versions/A/mei; sourceTree = "<group>"; };
 		9B11C8AC132E6CC80090FDA6 /* neume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = neume.h; path = src/Modules/neume.h; sourceTree = "<group>"; };
 		9B11C8AD132E6CC80090FDA6 /* neume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = neume.cpp; path = src/Modules/neume.cpp; sourceTree = "<group>"; };
 		9B11C8B2132E75120090FDA6 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shared.h; path = src/Modules/shared.h; sourceTree = "<group>"; };
@@ -127,7 +130,6 @@
 		9BDC6437132A90430062255E /* meidocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meidocument.h; path = src/meidocument.h; sourceTree = "<group>"; };
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
 		9BDC64A0132AB3520062255E /* meidocument_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument_test.cpp; path = test/meidocument_test.cpp; sourceTree = "<group>"; };
-		9BE4E73C131D4F7C00A59F5D /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../gtest.framework; sourceTree = SOURCE_ROOT; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
 		9BE4E74E131D64B400A59F5D /* meielement_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement_test.cpp; path = test/meielement_test.cpp; sourceTree = "<group>"; };
@@ -146,8 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D138AE81386E13500BDEB01 /* gtest.framework in Frameworks */,
 				61DBCCE81312C99500B46918 /* mei.framework in Frameworks */,
-				9BE4E73D131D4F7C00A59F5D /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +176,8 @@
 		0867D691FE84028FC02AAC07 /* libmei */ = {
 			isa = PBXGroup;
 			children = (
+				7DAB617D138C282E00E691FC /* mei */,
+				7DAB6177138C27EF00E691FC /* mei */,
 				617B4333130453F500EBBE7F /* Util */,
 				617B42F113044EE600EBBE7F /* Test */,
 				5073E0CA09E734BC00EC74B6 /* Configuration Files */,
@@ -188,7 +192,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				9BE4E73C131D4F7C00A59F5D /* gtest.framework */,
+				7D138AE41386E12C00BDEB01 /* gtest.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -379,6 +383,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -494,6 +499,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -555,6 +561,7 @@
 					"\"$(SRCROOT)/build/Debug\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../ax-libs/osx\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -578,6 +585,7 @@
 					"\"$(SRCROOT)/build/Debug\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../ax-libs/osx\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
@@ -595,6 +603,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ax-libs/osx\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -604,11 +616,15 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2/;
 				INFOPLIST_FILE = "mei-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug/mei.framework/Versions/A\"",
+				);
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = mei;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -620,13 +636,21 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ax-libs/osx\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "mei-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug/mei.framework/Versions/A\"",
+				);
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = mei;
