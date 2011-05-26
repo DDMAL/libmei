@@ -177,6 +177,9 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 							if (curattr->atype == XML_ATTRIBUTE_ID) {
 								string ID = (const char *)(attrvalue->content);
 								child->setId(ID);
+							} else if (attrname == (const xmlChar*)"facs") {
+								string facs = (const char *)(attrvalue->content);
+								child->setFacs(facs);
 							} else {
 								string name = (const char *)(attrname);
 								string value = (const char *)(attrvalue->content);
