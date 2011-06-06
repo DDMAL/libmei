@@ -120,14 +120,13 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
 	xmlSetNs(xmlrootnode, xmlcurns);
     
 	// add attributes to the node
-    vector<MeiAttribute> attributes = root->getAttributes();
-    for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
+    for (vector<MeiAttribute>::iterator iter = root->getAttributes().begin(); iter !=root->getAttributes().end(); ++iter) {
         string attrname = iter->getName();
         string attrvalue = iter->getValue();
 		xmlrootattr = xmlNewProp(xmlrootnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
     
-    MeiToXmlNode (*root, xmlrootnode, xmlrootnode, xmldoc); // fill the XML tree with xmlrootnode as the root element
+    MeiToXmlNode (root, xmlrootnode, xmlrootnode, xmldoc); // fill the XML tree with xmlrootnode as the root element
     xmlSaveFormatFile((const char*)meidoc->getDocName().c_str(), xmldoc, 1);
 }
 
@@ -198,25 +197,24 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
                 }
             }
             XmlNodeToMei(curnode->children, child);
-            parent->addChild(*child);
+			parent->addChild(child);
         }
 	}
 }
 
-void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc) {
-    vector<MeiElement> meichildren = meiparent.getChildren();
+void MeiDocument::MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc) {
     xmlNodePtr curxmlnode = NULL;
     xmlAttrPtr curxmlattr = NULL;
     xmlNsPtr   curxmlns   = NULL; 
     
     // run through children
-    for (vector<MeiElement>::iterator iter = meichildren.begin(); iter != meichildren.end(); ++iter) {
-        string nodename=iter->getName();
+    for (vector<MeiElement*>::iterator iter = meiparent->getChildren().begin(); iter != meiparent->getChildren().end(); ++iter) {
+        string nodename=(*iter)->getName();
         curxmlnode = xmlNewNode(curxmlns, (const xmlChar*)nodename.c_str());
         curxmlnode = xmlAddChild(xmlparent, curxmlnode);
 		
 		// add namespaces
-		MeiNs ns = iter->getNs();
+		MeiNs ns = (*iter)->getNs();
 		string nodehref = ns.href;
 		string nodeprefix = ns.prefix;
         
@@ -234,32 +232,37 @@ void MeiDocument::MeiToXmlNode(MeiElement meiparent, xmlNodePtr xmlparent, xmlNo
 		
 		xmlSetNs(curxmlnode, curxmlns);
 		
-		string ID = iter->getId();
+		string ID = (*iter)->getId();
 		if (ID != "") {
 			curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)"xml:id", (const xmlChar*)ID.c_str());
 			curxmlattr->atype = XML_ATTRIBUTE_ID;
 		}
         
 		// add attributes to each child
-        vector<MeiAttribute> attributes = iter->getAttributes();
-        for (vector<MeiAttribute>::iterator itera = attributes.begin(); itera !=attributes.end(); ++itera) {
-            string attrname = itera->getName();
-			string attrprefix = itera->getPrefix();
-			string attrvalue = itera->getValue();
-			if (attrname != "xml:id" && attrprefix != "xmlns") {
-				string attrprefix = itera->getPrefix();
-				if (attrprefix != "") {
-					curxmlns = xmlNewNs (xmlroot, NULL, (const xmlChar*)attrprefix.c_str());
-					curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
-				} else {
-					curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+        for (vector<MeiAttribute>::iterator itera = (*iter)->getAttributes().begin(); itera != (*iter)->getAttributes().end(); ++itera) {
+            string attrname;
+			if (itera->getName() != "") {
+				attrname = itera->getName();
+				string attrprefix;
+				if (itera->getPrefix() != "") {
+					attrprefix = itera->getPrefix();
 				}
-			} else if (attrprefix == "xmlns") { //for namespace definitions
-				curxmlns = xmlNewNs(curxmlnode, (const xmlChar*)attrvalue.c_str(), (const xmlChar*)attrname.c_str());
-				curxmlnode->nsDef = curxmlns;
+				string attrvalue = itera->getValue();
+				if (attrname != "xml:id" && attrprefix != "xmlns") {
+					string attrprefix = itera->getPrefix();
+					if (attrprefix != "") {
+						curxmlns = xmlNewNs (xmlroot, NULL, (const xmlChar*)attrprefix.c_str());
+						curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+					} else {
+					curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+					}
+				} else if (attrprefix == "xmlns") { //for namespace definitions
+					curxmlns = xmlNewNs(curxmlnode, (const xmlChar*)attrvalue.c_str(), (const xmlChar*)attrname.c_str());
+					curxmlnode->nsDef = curxmlns;
+				}
 			}
 		}
-        if (iter->getChildren().size() > 0) {
+        if ((*iter)->getChildren().size() > 0) {
 		MeiToXmlNode(*iter, curxmlnode, xmlroot, doc);
         }
     }

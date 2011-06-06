@@ -21,14 +21,33 @@ using namespace std;
 
 
 MeiElement::MeiElement(string name) {
-	this->name = name;	
+	this->name = name;
+	this->parent = NULL;
 }
 
 MeiElement::MeiElement(string name, MeiNs ns) {
     this->name = name;
     this->ns = ns;
+	this->parent = NULL;
 }
 
+MeiElement::~MeiElement() {}
+
+//currently fails to compare children vectors
+bool MeiElement::operator==(const MeiElement &other) const {
+	if (!this->children.empty() && !other.children.empty()) {
+		return (this->name == other.name && this->parent == other.parent && this->id == other.id 
+				&& this->value == other.value && this->tail == other.tail && this->attributes == other.attributes 
+				/*&& this->children == other.children self-referentiality?*/ && this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
+	} else if (this->children.empty() && other.children.empty()) {
+		return (this->name == other.name && this->parent == other.parent && this->id == other.id 
+				&& this->value == other.value && this->tail == other.tail && this->attributes == other.attributes 
+				&& this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
+	} else {
+		return false;
+	}
+		
+}
 
 // name should always be set at instantiation, so we don't need an explicit setter here.
 string MeiElement::getName() {
@@ -104,7 +123,23 @@ void MeiElement::removeAttribute(string attributeName) {
 	}
 }
 
-vector<MeiElement> &MeiElement::getChildren() {
+bool MeiElement::hasParent() {
+	return (parent != NULL);
+}
+
+void MeiElement::setParent(MeiElement &_parent) {
+	parent = &_parent;
+}
+
+void MeiElement::removeParent() {
+	parent = NULL;
+}
+
+MeiElement &MeiElement::getParent() {
+	return *parent;
+}
+
+vector<MeiElement*> &MeiElement::getChildren() {
 	return this->children;
 }
 
@@ -113,23 +148,24 @@ vector<MeiElement> &MeiElement::getChildren() {
     specific instance of a child.
 */
 bool MeiElement::hasChild(string childName) {
-	for (vector<MeiElement>::iterator iter = this->children.begin(); iter != children.end(); ++iter) {
-		if (iter->getName() == childName) return true;
+	for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != children.end(); ++iter) {
+		if ((*iter)->getName() == childName) return true;
 	}
 	return false;	
 }
 
-void MeiElement::addChild(MeiElement c) {
-	this->children.push_back(c);
+void MeiElement::addChild(MeiElement *c) {
+	c->setParent(*this);
+	children.push_back(c);
 }
 
 /* this has been renamed to *removeChildren*, since it will remove *all* children 
 	that match the name childName.
 */
 void MeiElement::removeChildren(string childName) {
-	vector<MeiElement>::iterator iter = children.begin();
+	vector<MeiElement*>::iterator iter = children.begin();
 	while (iter != this->children.end()) {
-		if(iter->getName() == childName) {
+		if((*iter)->getName() == childName) {
 			iter = this->children.erase(iter);
 		} else {
 			++iter;
@@ -138,22 +174,22 @@ void MeiElement::removeChildren(string childName) {
 }
 
 /* removes one specific element from the children array.
-	This needs help to actually work.
 */
-//void MeiElement::removeChild(MeiElement c) {
-//	vector<MeiElement>::iterator iter = children.begin();
-//	while (iter != this->children.end()) {
-//		if((*iter) === c) {
-//			iter = this->children.erase(iter);
-//		} else {
-//			++iter;
-//		}
-//	}	
-//}
+void MeiElement::removeChild(MeiElement *c) {
+	vector<MeiElement*>::iterator iter = children.begin();
+	while (iter != this->children.end()) {
+		if((*iter) == c) {
+			c->removeParent();
+			iter = children.erase(iter);
+		} else {
+			++iter;
+		}
+	}	
+}
 
-void MeiElement::addChildren(vector<MeiElement> c) {
-    for (unsigned int i=0; i < c.size(); i++) {
-        this->children.push_back(c[i]);
+void MeiElement::addChildren(vector<MeiElement*> c) {
+    for (vector<MeiElement*>::iterator i = c.begin(); i != c.end(); i++) {
+        this->addChild(*i);
     }
 }
 
@@ -184,9 +220,9 @@ void MeiElement::print(int level) {
     
     printf("\n");
         
-	vector<MeiElement>::iterator iter = children.begin();
+	vector<MeiElement*>::iterator iter = children.begin();
 	while (iter != children.end()) {
-		(*iter).print(level+2);
+		(*iter)->print(level+2);
 		iter++;
 	}
 }

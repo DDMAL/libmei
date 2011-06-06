@@ -226,7 +226,7 @@ void Note::setAccidentals(vector<Accid> accid) {
         // more than one accidental. Every accidental becomes a child element.
         for (unsigned int i=0; i < accid.size(); i++) {
             this->accidentals.push_back(accid[i]);
-            addChild(accid[i]);
+            this->addChild(&(accid[i]));
         }
     } else {
 		// only one accidental (most common). Only becomes a child element 
@@ -234,7 +234,7 @@ void Note::setAccidentals(vector<Accid> accid) {
 		Accid onlyAccidental = accid.front();
 		this->accidentals.push_back(onlyAccidental);
 		if(onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() > 1) {
-			addChild(onlyAccidental);
+			this->addChild(&onlyAccidental);
 		} else if (onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() == 1) {
 			addAttribute(*onlyAccidental.getAttribute("accid"));
 		}

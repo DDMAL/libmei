@@ -36,7 +36,11 @@ struct MeiNs {
 class MeiElement
 	{
 	public:
-        /** \brief The MeiElement Constructor, requires the element name (MEI tag name)
+        /** \brief overloading the == operator to allow comparison of two MeiElements.
+		 */
+		bool operator==(const MeiElement &other) const;
+		
+		/** \brief The MeiElement Constructor, requires the element name (MEI tag name)
          */
 		MeiElement(string name);
         
@@ -47,6 +51,8 @@ class MeiElement
         /** \brief The MeiElement Constructor, taking in the element name and the associated XML prefix
          */
         MeiElement(string name, string prefix);
+		
+		virtual ~MeiElement();
         
 		/** \brief Return the name of the Mei Element
          */
@@ -113,24 +119,41 @@ class MeiElement
          */
 		bool hasAttribute(string name);
         
+		/** \brief Determine whether the element has a parent element
+		 *
+		 *	\return True if it does, False if it does not
+		 */
+		bool hasParent();
+		
+		/** \return the element's parent, if it exists.
+		 */
+		MeiElement &getParent();
+		
+		/** \brief sets the element's parent to the given Mei element
+		 */
+		void setParent(MeiElement &_parent);
+		
+		void removeParent();
+		
         /** \brief Obtain a list of all the child elements of an Mei element
          *  \return A vector of Mei elements (the element's children)
          */
-		vector <MeiElement>& getChildren();
+		vector <MeiElement*>& getChildren();
         
         /** \brief Make the Mei element c the child of another Mei element, 
          *         c is added to the list of children associated with the Mei element. 
          */
-		void addChild(MeiElement c);
+		void addChild(MeiElement *c);
         
         /** \brief Find and remove an element from the children of an Mei element using
          *         the child element's name
          */
 		void removeChildren(string childName);
         
-        /** \brief
+        /** \brief If the MeiElement has a child matching the given MeiElement exactly,
+		 *			it is removed from the array of its children.
          */
-		//void removeChild(MeiElement c);
+		void removeChild(MeiElement *c);
         
         /** \brief Determine whether an element is a child of another Mei element
          *  
@@ -142,7 +165,7 @@ class MeiElement
         /** \brief Make multiple Mei elements children of a parent Mei element, 
          *         the child elements must be in a vector to be added similtaneously
          */
-        void addChildren(vector<MeiElement> children);
+        void addChildren(vector<MeiElement*> children);
         
         /** \brief Get the facsimile*/
         MeiAttribute* getFacs();
@@ -164,7 +187,8 @@ class MeiElement
 		
 		MeiAttribute attribute(string name, string value);
 		vector<MeiAttribute> attributes;
-		vector<MeiElement> children;
+		vector<MeiElement*> children;
+		MeiElement *parent;
         MeiNs ns;
 
 	};

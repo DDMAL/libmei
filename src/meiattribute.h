@@ -31,7 +31,11 @@ class MeiAttribute
         /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
 		MeiAttribute(string attrname, string attrvalue);
 		
-        /** \brief Get the name of the attribute.
+		virtual ~MeiAttribute() {}
+		
+        bool operator==(const MeiAttribute &other) const;
+		
+		/** \brief Get the name of the attribute.
          *
          *  Each attribute is created with a name and value, the attribute cannot exist without a name
          *  \return string containing the attribute name.

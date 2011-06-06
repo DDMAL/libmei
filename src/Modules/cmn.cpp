@@ -17,19 +17,19 @@ Beam::Beam(): MeiElement("beam") {
 
 // Need to create another exception that takes care of children not existing to be applied here instead of the Attribute one
 MeiElement Beam::getFirstChild() throw (ChildrenNotFoundException) {
-    vector<MeiElement> children = getChildren();
+    vector<MeiElement*> children = getChildren();
     if (children.size() > 0) {
-        return children[0];
+        return *children[0];
     } else {
         throw ChildrenNotFoundException();
     }
 }
 
 MeiElement Beam::getLastChild() throw (ChildrenNotFoundException) {
-    vector<MeiElement> children = getChildren();
+    vector<MeiElement*> children = getChildren();
     if (children.size() > 0) {
         int ind = children.size();
-        return children[ind-1];
+        return *children[ind-1];
     } else {
         throw ChildrenNotFoundException();
     }

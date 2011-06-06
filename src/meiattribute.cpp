@@ -15,6 +15,11 @@
 MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
 	this->name = attrname;
 	this->value = attrvalue;
+	this->prefix = "";
+}
+
+bool MeiAttribute::operator==(const MeiAttribute &other) const {
+	return (this->name == other.name && this->value == other.value && this->prefix == other.prefix);
 }
 
 string MeiAttribute::getName() {
