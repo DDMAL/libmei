@@ -57,6 +57,10 @@ class MeiElement
 		/** \brief Return the name of the Mei Element
          */
 		string getName();
+		
+		/** \brief Set the name of the Mei Element
+		 */
+		void setName(string _name);
         
         /** \brief Return the namespace associated with the Mei Element
          */
@@ -172,6 +176,14 @@ class MeiElement
         
         /** \brief Set the facsimile*/
         void setFacs(string uuid);
+		
+		/** \return the element's corresponding zone
+		 */
+		MeiElement &getZone();
+		
+		/** \brief set the zone node associated to the element to a given Mei Element
+		 */
+		void setZone(MeiElement &element);
         
         /** \brief Print the current Mei tree*/
 		void print();
@@ -188,6 +200,7 @@ class MeiElement
 		MeiAttribute attribute(string name, string value);
 		vector<MeiAttribute> attributes;
 		vector<MeiElement*> children;
+		MeiElement *zone;
 		MeiElement *parent;
         MeiNs ns;
 

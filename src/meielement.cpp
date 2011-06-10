@@ -23,12 +23,14 @@ using namespace std;
 MeiElement::MeiElement(string name) {
 	this->name = name;
 	this->parent = NULL;
+	this->zone = NULL;
 }
 
 MeiElement::MeiElement(string name, MeiNs ns) {
     this->name = name;
     this->ns = ns;
 	this->parent = NULL;
+	this->zone = NULL;
 }
 
 MeiElement::~MeiElement() {}
@@ -49,9 +51,13 @@ bool MeiElement::operator==(const MeiElement &other) const {
 		
 }
 
-// name should always be set at instantiation, so we don't need an explicit setter here.
 string MeiElement::getName() {
 	return this->name;
+}
+
+//need a name setter for editing MEI files
+void MeiElement::setName(string _name) {
+	this->name = _name;
 }
 
 MeiNs MeiElement::getNs() {
@@ -199,8 +205,20 @@ MeiAttribute* MeiElement::getFacs() {
 }
 
 void MeiElement::setFacs(string uuid) {
-    MeiAttribute facs = MeiAttribute("facs", uuid);
-    this->addAttribute(facs);
+	if (this->getAttribute("facs") == NULL) {
+		MeiAttribute facs = MeiAttribute("facs", uuid);
+		this->addAttribute(facs);
+	} else {
+		this->getAttribute("facs")->setValue(uuid);
+	}
+}
+
+MeiElement &MeiElement::getZone() {
+	return *zone;
+}
+
+void MeiElement::setZone(MeiElement &element) {
+	zone = &element;
 }
 
 void MeiElement::print() {
