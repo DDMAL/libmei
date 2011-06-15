@@ -1,8 +1,3 @@
-/*
- *  libmei: Music Encoding Initiative
- *
- */
-
 #include <gtest/gtest.h>
 
 #include <mei/libmei.h>

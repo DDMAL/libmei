@@ -1,12 +1,3 @@
-/*
- *  module_shared_test.cpp
- *  libmei
- *
- *  Created by Mahtab Ghamsari-Esfahani on 3/25/11.
- *  Copyright 2011 __MyCompanyName__. All rights reserved.
- *
- */
-
 #include <gtest/gtest.h>
 #include <mei/ax_layout.h>
 #include <mei/exceptions.h>

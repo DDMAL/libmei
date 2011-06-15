@@ -1,12 +1,3 @@
-/*
- *  meidocument_test.cpp
- *  libmei
- *
- *  Created by Mahtab Ghamsari-Esfahani on 3/11/11.
- *  Copyright 2011 __MyCompanyName__. All rights reserved.
- *
- */
-
 #include <gtest/gtest.h>
 #include <mei/meidocument.h>
 
