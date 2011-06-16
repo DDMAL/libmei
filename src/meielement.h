@@ -179,11 +179,11 @@ class MeiElement
 		
 		/** \return the element's corresponding zone
 		 */
-		MeiElement &getZone();
+		MeiElement* getZone();
 		
 		/** \brief set the zone node associated to the element to a given Mei Element
 		 */
-		void setZone(MeiElement &element);
+		void setZone(MeiElement* element);
         
         /** \brief Print the current Mei tree*/
 		void print();

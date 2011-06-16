@@ -213,12 +213,12 @@ void MeiElement::setFacs(string uuid) {
 	}
 }
 
-MeiElement &MeiElement::getZone() {
-	return *zone;
+MeiElement* MeiElement::getZone() {
+	return zone;
 }
 
-void MeiElement::setZone(MeiElement &element) {
-	zone = &element;
+void MeiElement::setZone(MeiElement* element) {
+	this->zone = element;
 }
 
 void MeiElement::print() {
