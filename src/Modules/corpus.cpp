@@ -24,5 +24,5 @@
 
 #include "corpus.h"
 
-MeiCorpus::MeiCorpus(): MeiElement("meicorpus") {
+MeiCorpus::MeiCorpus(): MeiElement("meiCorpus") {
 }

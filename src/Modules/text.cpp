@@ -35,7 +35,7 @@ Div::Div(): MeiElement("div") {
 Front::Front(): MeiElement("front") {
 }
 
-Ftrem::Ftrem(): MeiElement("ftrem") {
+FTrem::FTrem(): MeiElement("fTrem") {
 }
 
 Head::Head(): MeiElement("head") {

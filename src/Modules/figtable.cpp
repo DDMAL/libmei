@@ -27,7 +27,7 @@
 Fig::Fig(): MeiElement("fig") {
 }
 
-FigDesc::FigDesc(): MeiElement("figdesc") {
+FigDesc::FigDesc(): MeiElement("figDesc") {
 }
 
 Graphic::Graphic(): MeiElement("graphic") {

@@ -23,7 +23,7 @@
 
 #include "usersymbols.h"
 
-AnchoredText::AnchoredText(): MeiElement("anochoredtext") {
+AnchoredText::AnchoredText(): MeiElement("anchoredText") {
 }
 
 Curve::Curve(): MeiElement("curve") {
@@ -35,8 +35,8 @@ Line::Line(): MeiElement("line") {
 Symbol::Symbol(): MeiElement("symbol") {
 }
 
-SymbolDef::SymbolDef(): MeiElement("symboldef") {
+SymbolDef::SymbolDef(): MeiElement("symbolDef") {
 }
 
-SymbolTable::SymbolTable(): MeiElement("symboltable") {
+SymbolTable::SymbolTable(): MeiElement("symbolTable") {
 }

@@ -44,16 +44,16 @@ Lyrics::Lyrics(): MeiElement("lyrics") {
 Marker::Marker(): MeiElement("marker") {
 }
 
-MetaText::MetaText(): MeiElement("metatext") {
+MetaText::MetaText(): MeiElement("metaText") {
 }
 
 Midi::Midi(): MeiElement("midi") {
 }
 
-NoteOff::NoteOff(): MeiElement("noteoff") {
+NoteOff::NoteOff(): MeiElement("noteOff") {
 }
 
-NoteOn::NoteOn(): MeiElement("noteon") {
+NoteOn::NoteOn(): MeiElement("noteOn") {
 }
 
 Port::Port(): MeiElement("port") {
@@ -62,10 +62,10 @@ Port::Port(): MeiElement("port") {
 Prog::Prog(): MeiElement("prog") {
 }
 
-SeqNum::SeqNum(): MeiElement("seqnum") {
+SeqNum::SeqNum(): MeiElement("seqNum") {
 }
 
-TrkName::TrkName(): MeiElement("trkname") {
+TrkName::TrkName(): MeiElement("trkName") {
 }
 
 Vel::Vel(): MeiElement("vel") {

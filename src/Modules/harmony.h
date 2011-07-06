@@ -40,7 +40,7 @@ public:
 private:
 };
 
-/** \brief An individual pitch in a chord defined by a <chorddef> element.*/
+/** \brief An individual pitch in a chord defined by a <chordDef> element.*/
 class ChordMember: public MeiElement {
 public:
 	ChordMember();

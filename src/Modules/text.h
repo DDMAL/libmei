@@ -55,9 +55,9 @@ private:
 };
 
 /** \brief A rapid alternation between a pair of notes that are farther apart than a major second*/
-class Ftrem: public MeiElement {
+class FTrem: public MeiElement {
 public:
-	Ftrem();
+	FTrem();
 private:
 };
 

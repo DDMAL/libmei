@@ -50,10 +50,10 @@ MeiElement Beam::getLastChild() throw (ChildrenNotFoundException) {
     }
 }
 
-BeamSpan::BeamSpan(): MeiElement("beamspan") {
+BeamSpan::BeamSpan(): MeiElement("beamSpan") {
 }
 
-BeatRpt::BeatRpt(): MeiElement("beatrpt") {
+BeatRpt::BeatRpt(): MeiElement("beatRpt") {
 }
 
 Bend::Bend(): MeiElement("bend") {
@@ -62,7 +62,7 @@ Bend::Bend(): MeiElement("bend") {
 Breath::Breath(): MeiElement("breath") {
 }
 
-BtRem::BtRem(): MeiElement("bterm") {
+BTrem::BTrem(): MeiElement("bTrem") {
 }
 
 Fermata::Fermata(): MeiElement("fermata") {
@@ -74,10 +74,10 @@ Gliss::Gliss(): MeiElement("gliss") {
 HairPin::HairPin(): MeiElement("hairpin") {
 }
 
-HalfMRpt::HalfMRpt(): MeiElement("halfmrpt") {
+HalfMRpt::HalfMRpt(): MeiElement("halfmRpt") {
 }
 
-HarpPedal::HarpPedal(): MeiElement("harppedal") {
+HarpPedal::HarpPedal(): MeiElement("harpPedal") {
 }
 
 Measure::Measure(): MeiElement("measure") {
@@ -125,22 +125,22 @@ bool Measure::isRepeated() {
     return false;
 }
 
-MRest::MRest(): MeiElement("mrest") {
+MRest::MRest(): MeiElement("mRest") {
 }
 
-MRpt::MRpt(): MeiElement("mrpt") {
+MRpt::MRpt(): MeiElement("mRpt") {
 }
 
-MRpt2::MRpt2(): MeiElement("mrpt2") {
+MRpt2::MRpt2(): MeiElement("mRpt2") {
 }
 
-MSpace::MSpace(): MeiElement("mspace") {
+MSpace::MSpace(): MeiElement("mRpace") {
 }
 
-MultiRest::MultiRest(): MeiElement("multirest") {
+MultiRest::MultiRest(): MeiElement("multiRest") {
 }
 
-MultiRpt::MultiRpt(): MeiElement("multirpt") {
+MultiRpt::MultiRpt(): MeiElement("multiRpt") {
 }
 
 Octave::Octave(): MeiElement("octave") {
@@ -248,5 +248,5 @@ void Tie::setStaff(string staff) {
 Tuplet::Tuplet(): MeiElement("tuplet") {
 }
 
-TupletSpan::TupletSpan(): MeiElement("tupletspan") {
+TupletSpan::TupletSpan(): MeiElement("tupletSpan") {
 }

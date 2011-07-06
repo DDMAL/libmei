@@ -42,7 +42,7 @@ Del::Del(): MeiElement("del") {
 Gap::Gap(): MeiElement("gap") {
 }
 
-HandShift::HandShift(): MeiElement("handshift") {
+HandShift::HandShift(): MeiElement("handShift") {
 }
 
 Orig::Orig(): MeiElement("orig") {

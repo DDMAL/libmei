@@ -35,7 +35,7 @@ Accid::Accid(string accidental): MeiElement("accid") {
 Address::Address(): MeiElement("address") {
 }
 
-AddressLine::AddressLine(): MeiElement("addressline") {
+AddrLine::AddrLine(): MeiElement("addrLine") {
 }
 
 Annot::Annot(): MeiElement("annot") {
@@ -61,7 +61,7 @@ void Artic::setArticulation(string artic) {
     addAttribute(Articulation);
 }
 
-BarLine::BarLine(): MeiElement("barline") {
+BarLine::BarLine(): MeiElement("barLine") {
 }
 
 Bibl::Bibl(): MeiElement("bibl") {
@@ -130,7 +130,7 @@ void Chord::setNumDots(string numDots) {
 Clef::Clef(): MeiElement("clef") {
 }
 
-ClefChange::ClefChange(): MeiElement("clefchange") {
+ClefChange::ClefChange(): MeiElement("clefChange") {
 }
 
 Custos::Custos(): MeiElement("custos") {
@@ -172,19 +172,19 @@ Grpsym::Grpsym(): MeiElement("grpsym") {
 Identifier::Identifier(): MeiElement("identifier") {
 }
 
-Instrdef::Instrdef(): MeiElement("instrdef") {
+Instrdef::Instrdef(): MeiElement("instrDef") {
 }
 
-Instrgrp::Instrgrp(): MeiElement("instrgrp") {
+Instrgrp::Instrgrp(): MeiElement("instrGrp") {
 }
 
-KeyAccid::KeyAccid(): MeiElement("keyaccid") {
+KeyAccid::KeyAccid(): MeiElement("keyAccid") {
 }
 
 KeyChange::KeyChange(): MeiElement("keychange") {
 }
 
-KeySig::KeySig(): MeiElement("keysig") {
+KeySig::KeySig(): MeiElement("keySig") {
 }
 
 Label::Label(): MeiElement("label") {
@@ -193,7 +193,7 @@ Label::Label(): MeiElement("label") {
 Layer::Layer(): MeiElement("layer") {
 }
 
-LayerDef::LayerDef(): MeiElement("layerdef") {
+LayerDef::LayerDef(): MeiElement("layerDef") {
 }
 
 Lb::Lb(): MeiElement("lb") {
@@ -398,19 +398,19 @@ Parts::Parts(): MeiElement("parts") {
 Pb::Pb(): MeiElement("pb") {
 }
 
-PgDesc::PgDesc(): MeiElement("pgdesc") {
+PgDesc::PgDesc(): MeiElement("pgDesc") {
 }
 
-PgFoot1::PgFoot1(): MeiElement("pgfoot1") {
+PgFoot::PgFoot(): MeiElement("pgFoot") {
 }
 
-PgFoot2::PgFoot2(): MeiElement("pgfoot2") {
+PgFoot2::PgFoot2(): MeiElement("pgFoot2") {
 }
 
-PgHead1::PgHead1(): MeiElement("pghead1") {
+PgHead::PgHead(): MeiElement("pgHead") {
 }
 
-PgHead2::PgHead2(): MeiElement("pghead2") {
+PgHead2::PgHead2(): MeiElement("pgHead2") {
 }
 
 Phrase::Phrase(): MeiElement("phrase") {
@@ -482,7 +482,7 @@ Sb::Sb(): MeiElement("sb") {
 Score::Score(): MeiElement("score") {
 }
 
-ScoreDef::ScoreDef(): MeiElement("scoredef") {
+ScoreDef::ScoreDef(): MeiElement("scoreDef") {
 }
 
 Space::Space(): MeiElement("space") {
@@ -494,7 +494,7 @@ Stack::Stack(): MeiElement("stack") {
 Staff::Staff(): MeiElement("staff") {
 }
 
-StaffDef::StaffDef(): MeiElement("staffdef") {
+StaffDef::StaffDef(): MeiElement("staffDef") {
 }
 
 string StaffDef::getClefArray() throw(AttributeNotFoundException) {
@@ -516,7 +516,7 @@ string StaffDef::getPPQ() throw(AttributeNotFoundException) {
     }
 }
 
-StaffGrp::StaffGrp(): MeiElement("staffgrp") {
+StaffGrp::StaffGrp(): MeiElement("staffGrp") {
 }
 
 Syl::Syl(): MeiElement("syl") {
@@ -528,13 +528,13 @@ Tempo::Tempo(): MeiElement("tempo") {
 Title::Title(): MeiElement("title") {
 }
 
-TitlePage::TitlePage(): MeiElement("titlepage") {
+TitlePage::TitlePage(): MeiElement("titlePage") {
 }
 
 // added in MEI 2011
-CastItem::CastItem(): MeiElement("castitem") { }
+CastItem::CastItem(): MeiElement("castItem") { }
 RoleDesc::RoleDesc(): MeiElement("roledesc") { }
 Actor::Actor(): MeiElement("actor") { }
 Role::Role(): MeiElement("role") { }
-CastList::CastList(): MeiElement("castlist") { }
-CastGrp::CastGrp(): MeiElement("castgrp") { }
+CastList::CastList(): MeiElement("castList") { }
+CastGrp::CastGrp(): MeiElement("castGrp") { }

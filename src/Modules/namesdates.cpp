@@ -22,18 +22,18 @@
 */
 #include "namesdates.h"
 
-CorpName::CorpName(): MeiElement("corpname") {
+CorpName::CorpName(): MeiElement("corpName") {
 }
 
-GeogName::GeogName(): MeiElement("geogname") {
+GeogName::GeogName(): MeiElement("geogName") {
 }
 
-PeriodName::PeriodName(): MeiElement("periodname") {
+PeriodName::PeriodName(): MeiElement("periodName") {
 }
 
-PersName::PersName(): MeiElement("persname") {
+PersName::PersName(): MeiElement("persName") {
 }
 
-StyleName::StyleName(): MeiElement("stylename") {
+StyleName::StyleName(): MeiElement("styleName") {
 }
 

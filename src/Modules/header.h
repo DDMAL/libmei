@@ -27,9 +27,9 @@
 #include "meielement.h"
 
 /** \brief */
-class AccessDesc: public MeiElement {
+class accessRestrict: public MeiElement {
 	public:
-		AccessDesc();
+		accessRestrict();
 	private:
 };
 
@@ -153,9 +153,9 @@ class EventList: public MeiElement {
 };
 
 /** \brief */	
-class ExhibitHist: public MeiElement {
+class ExhibHist: public MeiElement {
 	public:
-		ExhibitHist();
+		ExhibHist();
 	private:
 };
 
@@ -190,6 +190,13 @@ class Hand: public MeiElement {
 class HandList: public MeiElement {
 	public:
 		HandList();
+	private:
+};
+
+/** \brief */
+class IncipCode: public MeiElement {
+	public:
+		IncipCode();
 	private:
 };
 
@@ -271,6 +278,13 @@ class PhysMedium: public MeiElement {
 };
 
 /** \brief */
+class PlateNum: public MeiElement {
+	public:
+		PlateNum();
+	private:
+};
+
+/** \brief */
 class ProfileDesc: public MeiElement {
 	public:
 		ProfileDesc();
@@ -327,9 +341,9 @@ class RevisionDesc: public MeiElement {
 };
 
 /** \brief */
-class SamplingDescl: public MeiElement {
+class SamplingDecl: public MeiElement {
 	public:
-		SamplingDescl();
+		SamplingDecl();
 	private:
 };
 
@@ -390,16 +404,16 @@ class TitleStmt: public MeiElement {
 };
 
 /** \brief */
-class TreatmentHist: public MeiElement {
+class TreatHist: public MeiElement {
 	public:
-		TreatmentHist();
+		TreatHist();
 	private:
 };
 
 /** \brief */
-class TreatmentSched: public MeiElement {
+class TreatSched: public MeiElement {
 	public:
-		TreatmentSched();
+		TreatSched();
 	private:
 };
 
@@ -411,9 +425,9 @@ class Unpub: public MeiElement {
 };
 
 /** \brief */
-class UserStrict: public MeiElement {
+class UseRestrict: public MeiElement {
 	public:
-		UserStrict();
+		UseRestrict();
 	private:
 };	
 
@@ -452,7 +466,14 @@ class Contents: public MeiElement {
 public:
     Contents();
 private:
-};	
+};
+
+/** \brief */
+class ContentItem: public MeiElement {
+public:
+	ContentItem();
+private:
+};
 
 /** \brief */
 class Work: public MeiElement {

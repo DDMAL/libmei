@@ -53,10 +53,10 @@ class Address: public MeiElement
 	};
 
 /** \brief Single line of a postal address.*/
-class AddressLine: public MeiElement
+class AddrLine: public MeiElement
 	{
 	public:
-		AddressLine();
+		AddrLine();
 	private:
 	};
 
@@ -463,10 +463,10 @@ class PgDesc: public MeiElement
 	};
 
 /** \brief A running footer on the first page.*/
-class PgFoot1: public MeiElement
+class PgFoot: public MeiElement
 	{
 	public:
-		PgFoot1();
+		PgFoot();
 	private:
 	};
 
@@ -479,10 +479,10 @@ class PgFoot2: public MeiElement
 	};
 
 /** \brief A running header on the first page.*/
-class PgHead1: public MeiElement
+class PgHead: public MeiElement
 	{
 	public:
-		PgHead1();
+		PgHead();
 	private:
 	};
 

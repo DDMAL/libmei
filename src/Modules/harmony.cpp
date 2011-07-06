@@ -27,13 +27,13 @@
 Barre::Barre(): MeiElement("barre") {
 }
 
-ChordDef::ChordDef(): MeiElement("chorddef") {
+ChordDef::ChordDef(): MeiElement("chordDef") {
 }
 
-ChordMember::ChordMember(): MeiElement("chordmember") {
+ChordMember::ChordMember(): MeiElement("chordMember") {
 }
 
-ChordTable::ChordTable(): MeiElement("chordtable") {
+ChordTable::ChordTable(): MeiElement("chordTable") {
 }
 
 Harm::Harm(): MeiElement("harm") {

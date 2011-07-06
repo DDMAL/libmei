@@ -73,9 +73,9 @@ private:
 };
 
 /** \brief A rapid alternation on a single pitch or chord.*/
-class BtRem: public MeiElement {
+class BTrem: public MeiElement {
 public:
-	BtRem();
+	BTrem();
 private:
 };
 

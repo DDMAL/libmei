@@ -23,10 +23,10 @@
 
 #include "header.h"
 
-AccessDesc::AccessDesc(): MeiElement("accessdesc") {
+AccessRestrict::AccessRestrict(): MeiElement("accessRestrict") {
 }
 
-AcqSource::AcqSource(): MeiElement("acqsource") {
+AcqSource::AcqSource(): MeiElement("acqSource") {
 }
 
 AltMeiid::AltMeiid(): MeiElement("altmeiid") {
@@ -41,10 +41,10 @@ Availability::Availability(): MeiElement("availability") {
 Change::Change(): MeiElement("change") {
 }
 
-ChangeDesc::ChangeDesc(): MeiElement("changedesc") {
+ChangeDesc::ChangeDesc(): MeiElement("changeDesc") {
 }
 
-ClassCode::ClassCode(): MeiElement("classcode") {
+ClassCode::ClassCode(): MeiElement("classCode") {
 }
 
 Classification::Classification(): MeiElement("classification") {
@@ -62,28 +62,28 @@ Creation::Creation(): MeiElement("creation") {
 Dimensions::Dimensions(): MeiElement("dimensions") {
 }
 
-EditionStmt::EditionStmt(): MeiElement("editionstmt") {
+EditionStmt::EditionStmt(): MeiElement("editionStmt") {
 }
 
-EditorialDecl::EditorialDecl(): MeiElement("editorialdecl") {
+EditorialDecl::EditorialDecl(): MeiElement("editorialDecl") {
 }
 
-EncodingDesc::EncodingDesc(): MeiElement("encodingdesc") {
+EncodingDesc::EncodingDesc(): MeiElement("encodingDesc") {
 }
 
 Event::Event(): MeiElement("event") {
 }
 
-EventList::EventList(): MeiElement("eventlist") {
+EventList::EventList(): MeiElement("eventList") {
 }
 
-ExhibitHist::ExhibitHist(): MeiElement("exhibithist") {
+ExhibHist::ExhibHist(): MeiElement("exhibHist") {
 }
 
 Extent::Extent(): MeiElement("extent") {
 }
 
-FileDesc::FileDesc(): MeiElement("filedesc") {
+FileDesc::FileDesc(): MeiElement("fileDesc") {
 }
 
 FingerPrint::FingerPrint(): MeiElement("fingerprint") {
@@ -92,10 +92,13 @@ FingerPrint::FingerPrint(): MeiElement("fingerprint") {
 Hand::Hand(): MeiElement("hand") {
 }
 
-HandList::HandList(): MeiElement("handlist") {
+HandList::HandList(): MeiElement("handList") {
 }
 
 Inscription::Inscription(): MeiElement("inscription") {
+}
+
+IncipCode::IncipCode(): MeiElement("incipCode") {
 }
 
 Interpretation::Interpretation(): MeiElement("interpretation") {
@@ -107,22 +110,28 @@ KeyWords::KeyWords(): MeiElement("keywords") {
 Language::Language(): MeiElement("language") {
 }
 
-MeiHead::MeiHead(): MeiElement("meihead") {
+LangUsage::LangUsage(): MeiElement("langUsage") {
+}
+
+MeiHead::MeiHead(): MeiElement("meiHead") {
 }
 
 Normalization::Normalization(): MeiElement("normalization") {
 }
 
-NotesStmt::NotesStmt(): MeiElement("notesstmt") {
+NotesStmt::NotesStmt(): MeiElement("notesStmt") {
 }
 
-PhysDesc::PhysDesc(): MeiElement("physdesc") {
+PhysDesc::PhysDesc(): MeiElement("physDesc") {
 }
 
-PhysLoc::PhysLoc(): MeiElement("physloc") {
+PhysLoc::PhysLoc(): MeiElement("physLoc") {
 }
 
-PhysMedium::PhysMedium(): MeiElement("physmedium") {
+PhysMedium::PhysMedium(): MeiElement("physMedium") {
+}
+
+PlateNum::PlateNum(): MeiElement("plateNum") {
 }
 
 ProfileDesc::ProfileDesc(): MeiElement("profiledesc") {
@@ -131,67 +140,68 @@ ProfileDesc::ProfileDesc(): MeiElement("profiledesc") {
 Provenance::Provenance(): MeiElement("provenance") {
 }
 
-PubStmt::PubStmt(): MeiElement("pubstmt") {
+PubStmt::PubStmt(): MeiElement("pubStmt") {
 }
 
 Resp::Resp(): MeiElement("resp") {
 }
 
-RespStmt::RespStmt(): MeiElement("respstmt") {
+RespStmt::RespStmt(): MeiElement("respStmt") {
 }
 
-RevisionDesc::RevisionDesc(): MeiElement("revisiondesc") {
+RevisionDesc::RevisionDesc(): MeiElement("revisionDesc") {
 }
 
-SamplingDescl::SamplingDescl(): MeiElement("samplingdescl") {
+SamplingDecl::SamplingDecl(): MeiElement("samplingDecl") {
 }
 
 Segmentation::Segmentation(): MeiElement("segmentation") {
 }
 
-SeriesStmt::SeriesStmt(): MeiElement("seriesstmt") {
+SeriesStmt::SeriesStmt(): MeiElement("seriesStmt") {
 }
 
 Source::Source(): MeiElement("source") {
 }
 
-SourceDesc::SourceDesc(): MeiElement("sourcedesc") {
+SourceDesc::SourceDesc(): MeiElement("sourceDesc") {
 }
 
-StdVals::StdVals(): MeiElement("stdvals") {
+StdVals::StdVals(): MeiElement("stdVals") {
 }
 
-SysReq::SysReq(): MeiElement("sysreq") {
+SysReq::SysReq(): MeiElement("sysReq") {
 }
 
 Term::Term(): MeiElement("term") {
 }
 
-TitleStmt::TitleStmt(): MeiElement("titlestmt") {
+TitleStmt::TitleStmt(): MeiElement("titleStmt") {
 }
 
-TreatmentHist::TreatmentHist(): MeiElement("treatmenthist") {
+TreatHist::TreatHist(): MeiElement("treatHist") {
 }
 
-TreatmentSched::TreatmentSched(): MeiElement("treatmentsched") {
+TreatSched::TreatSched(): MeiElement("treatSched") {
 }
 
 Unpub::Unpub(): MeiElement("unpub") {
 }
 
-UserStrict::UserStrict(): MeiElement("userstrict") {
+UseRestrict::UseRestrict(): MeiElement("useRestrict") {
 }
 
 // added in MEI 2011
 Plate::Plate(): MeiElement("plate") { }
-TermList::TermList(): MeiElement("termlist") { }
+TermList::TermList(): MeiElement("termList") { }
 Watermark::Watermark(): MeiElement("watermark") { }
-RelatedItem::RelatedItem(): MeiElement("relateditem") { }
+RelatedItem::RelatedItem(): MeiElement("relatedItem") { }
 Contents::Contents(): MeiElement("contents") { }
+ContentItem::ContentItem(): MeiElement("contentItem") { }
 Work::Work(): MeiElement("work") { }
-PerfMedium::PerfMedium(): MeiElement("perfmedium") { }
-WorkDesc::WorkDesc(): MeiElement("workdesc") { }
-InstrVoice::InstrVoice(): MeiElement("instrvoice") { }
+PerfMedium::PerfMedium(): MeiElement("perfMedium") { }
+WorkDesc::WorkDesc(): MeiElement("workDesc") { }
+InstrVoice::InstrVoice(): MeiElement("instrVoice") { }
 Performer::Performer(): MeiElement("performer") { }
 Key::Key(): MeiElement("key") { }
 Ensemble::Ensemble(): MeiElement("ensemble") { }
