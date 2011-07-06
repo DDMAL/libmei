@@ -90,10 +90,15 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
             attrname = rootattr->name;
             if (rootattr->children != NULL) {
                 attrvalue = rootattr->children;
-                string name = (const char *)(attrname);
-                string value = (const char *)(attrvalue->content);
-                MeiAttribute rootmeiattr = MeiAttribute(name, value);
-                meiroot->addAttribute(rootmeiattr);
+				if (rootattr->atype == XML_ATTRIBUTE_ID) { //xml:id attribute
+					string ID = (const char *)(attrvalue->content);
+					meiroot->setId(ID);
+				} else {
+					string name = (const char *)(attrname);
+					string value = (const char *)(attrvalue->content);
+					MeiAttribute rootmeiattr = MeiAttribute(name, value);
+					meiroot->addAttribute(rootmeiattr);
+				}
             }
         }
     }
@@ -154,10 +159,10 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
     xmlNode* attrvalue = NULL;
     xmlNs* xmlns = NULL;
 	
-	//need to consider curnode->nsDef and add an attribute with the appropriate name
-	
     for (curnode = node; curnode; curnode = curnode->next) {
-        if (curnode->type == XML_ELEMENT_NODE) {
+        if ( curnode->type == XML_TEXT_NODE) {
+			parent->setValue((const char *)curnode->content);
+		} else if (curnode->type == XML_ELEMENT_NODE) {
             
             xmlns = curnode->ns;
 			const xmlChar* childhref = xmlns->href;
@@ -169,7 +174,7 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 			if (childprefix != NULL) {
 				ns.prefix = (const char*)childprefix;
 			}
-            
+			
             MeiElement* child = new MeiElement((const char *)curnode->name, ns);
 			
 			if (curnode->nsDef != NULL) {
@@ -188,10 +193,10 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
                         attrname = curattr->name;
                         if (curattr->children != NULL) {
 							attrvalue = curattr->children;
-							if (curattr->atype == XML_ATTRIBUTE_ID) {
+							if (curattr->atype == XML_ATTRIBUTE_ID) { //xml:id attribute
 								string ID = (const char *)(attrvalue->content);
 								child->setId(ID);
-							} else if (attrname == (const xmlChar*)"facs") {
+							} else if (attrname == (const xmlChar*)"facs") { //facs attribute
 								string facs = (const char *)(attrvalue->content);
 								child->setFacs(facs);
 							} else {
@@ -246,6 +251,11 @@ void MeiDocument::MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlN
         }
 		
 		xmlSetNs(curxmlnode, curxmlns);
+		
+		if ( (*iter)->getValue() != "" ) {
+			xmlNodePtr text = xmlNewText((const xmlChar*)(*iter)->getValue().c_str());
+			xmlAddChild(curxmlnode, text);
+		}
 		
 		string ID = (*iter)->getId();
 		if (ID != "") {

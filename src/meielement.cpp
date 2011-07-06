@@ -38,6 +38,7 @@ MeiElement::MeiElement(string name) {
 	this->name = name;
 	this->parent = NULL;
 	this->zone = NULL;
+	this->value = "";
 }
 
 MeiElement::MeiElement(string name, MeiNs ns) {
@@ -45,6 +46,7 @@ MeiElement::MeiElement(string name, MeiNs ns) {
     this->ns = ns;
 	this->parent = NULL;
 	this->zone = NULL;
+	this->value = "";
 }
 
 MeiElement::~MeiElement() {}
