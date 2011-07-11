@@ -25,6 +25,7 @@
 #define TEXT_H_
 
 #include "meielement.h"
+#include "types.h"
 
 /** \brief Back matter such as indexes, advertisements, etc.*/
 class Back: public MeiElement {
@@ -76,7 +77,7 @@ private:
 };
 
 /** \brief Line of Text - Contains a single line of text within a line group.*/
-class L: public MeiElement	{
+class L: public SpatialElement	{
 public:
 	L();
 private:

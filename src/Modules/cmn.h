@@ -26,6 +26,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "types.h"
 
 /** \brief Indicates that the notes of a chord are to be performed successively rather than simultaneously.*/
 class Arpeg: public MeiElement {
@@ -210,7 +211,7 @@ private:
  *         Nowadays, however, "slur" often has the same meaning as "phrase",
  *         since the visual rendition of the two concepts is the same. 
  */
-class Slur: public MeiElement {
+class Slur: public SpanningElement {
 public:
 	Slur();
     
@@ -229,7 +230,7 @@ private:
 /** \brief An indication that two notes of the same pitch form a single note 
  *         with their combined rhythmic values. 
  */
-class Tie: public MeiElement {
+class Tie: public SpanningElement {
 public:
 	Tie();
     

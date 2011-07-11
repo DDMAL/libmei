@@ -29,7 +29,7 @@ Ineume::Ineume(): MeiElement("ineume") {
 Syllable::Syllable(): MeiElement("syllable") {
 }
 
-Uneume::Uneume(): MeiElement("uneume") {
+Uneume::Uneume(): MeiElement("uneume"), SpatialElement() {
 }
 
 //Division::Division(): MeiElement("division") {

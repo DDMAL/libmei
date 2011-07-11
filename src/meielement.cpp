@@ -33,6 +33,11 @@
 
 using namespace std;
 
+MeiElement::MeiElement() {
+	this->parent = NULL;
+	this->zone = NULL;
+	this->value = "";
+}
 
 MeiElement::MeiElement(string name) {
 	this->name = name;

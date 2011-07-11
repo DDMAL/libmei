@@ -155,7 +155,7 @@ Pedal::Pedal(): MeiElement("pedal") {
 Reh::Reh(): MeiElement("reh") {
 }
 
-Slur::Slur(): MeiElement("slur") {
+Slur::Slur() : MeiElement("slur") {
 }
 
 string Slur::getStartId() throw (AttributeNotFoundException) {

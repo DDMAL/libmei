@@ -27,9 +27,9 @@
 #include "meielement.h"
 
 /** \brief */
-class accessRestrict: public MeiElement {
+class AccessRestrict: public MeiElement {
 	public:
-		accessRestrict();
+		AccessRestrict();
 	private:
 };
 

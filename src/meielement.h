@@ -55,6 +55,8 @@ class MeiElement
 		 */
 		bool operator==(const MeiElement &other) const;
 		
+		MeiElement();
+		
 		/** \brief The MeiElement Constructor, requires the element name (MEI tag name)
          */
 		MeiElement(string name);

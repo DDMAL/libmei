@@ -283,14 +283,14 @@ void Note::setPitchName(string pitchname) {
 	addAttribute(pitchName);
 }
 
-string Note::getDuration() throw (AttributeNotFoundException) {
+/*string Note::getDuration() throw (AttributeNotFoundException) {
     MeiAttribute* duration = getAttribute("dur");
     if (duration !=NULL) {
         return duration->getValue();
     } else {
         throw AttributeNotFoundException("dur");
     }
-}
+}*/
 
 void Note::setDuration(string duration) {
     MeiAttribute dur = MeiAttribute("dur", duration);

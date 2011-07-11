@@ -27,6 +27,7 @@
 #include "meielement.h"
 #include "meiattribute.h"
 #include "exceptions.h"
+#include "types.h"
 
 /** \brief A generic element for a shortened form of a word, including an acronym.*/
 class Abbr: public MeiElement
@@ -89,7 +90,7 @@ class Artic: public MeiElement
 	};
 
 /** \brief Vertical line drawn through one or more staves that divides musical notation into metrical units.*/
-class BarLine: public MeiElement
+class BarLine: public SpatialElement
 	{
 	public:
 		BarLine();
@@ -122,7 +123,7 @@ class Caption: public MeiElement
 	};
 
 /** \brief A simultaneous sounding of two or more notes in the same layer with the same duration.*/
-class Chord: public MeiElement
+class Chord: public SpatialElement, public DurationElement
 	{
 	public:
 		Chord();
@@ -142,7 +143,7 @@ class Chord: public MeiElement
 	};
 
 /** \brief Indication of the exact location of a particular note on the staff and, therefore, the other notes as well. */
-class Clef: public MeiElement 
+class Clef: public SpatialElement
 	{
 	public:
 		Clef();
@@ -158,7 +159,7 @@ class ClefChange: public MeiElement
 	};
 
 /** \brief Symbol placed at the end of a line of music to indicate the first note of the next line.*/
-class Custos: public MeiElement
+class Custos: public SpatialElement, public PitchedElement
 	{
 	public:
 		Custos();
@@ -366,7 +367,7 @@ class Name: public MeiElement
 	};
 
 /** \brief A single pitched event.*/
-class Note: public MeiElement 
+class Note: public PitchedElement, public DurationElement, public SpatialElement
 	{
 	public:
         Note();
@@ -381,7 +382,7 @@ class Note: public MeiElement
         string getOctave() throw (AttributeNotFoundException);
         void setOctave(string octave);
         
-        string getDuration() throw (AttributeNotFoundException);
+        //string getDuration() throw (AttributeNotFoundException);
         void setDuration(string duration);
         
         string getStemDir() throw (AttributeNotFoundException);
@@ -519,7 +520,7 @@ class Repository: public MeiElement
 	};
 
 /** \brief A non-sounding event found in the source being transcribed*/
-class Rest: public MeiElement
+class Rest: public DurationElement, public SpatialElement
 	{
 	public:
 		Rest();
@@ -586,7 +587,7 @@ class Stack: public MeiElement
 	};
 
 /** \brief A group of equidistant horizontal lines on which notes are placed in order to represent pitch.*/
-class Staff: public MeiElement
+class Staff: public SpatialElement
 	{
 	public:
 		Staff();
