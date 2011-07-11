@@ -37,14 +37,6 @@ class Abbr: public MeiElement
 	private:
 	};
 
-/** \brief Records a temporary alteration to the pitch of a note.*/
-class Accid: public MeiElement
-	{
-	public:
-		Accid(string accid);
-	private:
-	};
-
 /** \brief Contains a postal address, for example of a publisher, an organization, or an individual. */
 class Address: public MeiElement
 	{
@@ -128,15 +120,8 @@ class Chord: public SpatialElement, public DurationElement
 	public:
 		Chord();
         
-        string getDuration() throw (AttributeNotFoundException);
-        void setDuration(string duration);
-        
         string getStemDir() throw (AttributeNotFoundException);
         void setStemDir(string direction);
-        
-        string getNumDots() throw (AttributeNotFoundException);
-        void setNumDots(string numDots);
-        bool getIsDotted();
         
 	private:
         string duration;
@@ -371,27 +356,9 @@ class Note: public PitchedElement, public DurationElement, public SpatialElement
 	{
 	public:
         Note();
-
-        void addAccidental(Accid accidental);
-        vector<Accid> getAccidentals() throw (AttributeNotFoundException);
-        void setAccidentals(vector<Accid> accidentals);
-        
-        string getPitchName() throw (AttributeNotFoundException);
-        void setPitchName(string pitchname);
-		
-        string getOctave() throw (AttributeNotFoundException);
-        void setOctave(string octave);
-        
-        //string getDuration() throw (AttributeNotFoundException);
-        void setDuration(string duration);
         
         string getStemDir() throw (AttributeNotFoundException);
         void setStemDir(string direction);
-        
-        bool getIsDotted();
-        
-        string getNumDots() throw (AttributeNotFoundException);
-        void setNumDots(string numDots);
         
         bool getIsTied();
         
@@ -525,15 +492,8 @@ class Rest: public DurationElement, public SpatialElement
 	public:
 		Rest();
         
-        string getDuration() throw (AttributeNotFoundException);
-        void setDuration(string duration);
-        
         string getStemDir() throw (AttributeNotFoundException);
         void setStemDir(string direction);
-        
-        string getNumDots() throw (AttributeNotFoundException);
-        void setNumDots(string numDots);
-        bool getIsDotted();
         
 	private:
 	};

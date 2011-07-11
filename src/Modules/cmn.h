@@ -215,15 +215,6 @@ class Slur: public SpanningElement {
 public:
 	Slur();
     
-    string getStartId() throw (AttributeNotFoundException);
-    void setStartId(string stid);
-    
-    string getEndId() throw (AttributeNotFoundException);
-    void setEndId(string eid);
-    
-    string getStaff() throw (AttributeNotFoundException);
-    void setStaff(string staff);
-    
 private:
 };
 
@@ -233,15 +224,6 @@ private:
 class Tie: public SpanningElement {
 public:
 	Tie();
-    
-    string getStartId() throw (AttributeNotFoundException);
-    void setStartId(string stid);
-    
-    string getEndId() throw (AttributeNotFoundException);
-    void setEndId(string eid);
-    
-    string getStaff() throw (AttributeNotFoundException);
-    void setStaff(string staff);
     
 private:
 };

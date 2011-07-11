@@ -93,8 +93,13 @@ string Measure::getMeasureNumber() throw (AttributeNotFoundException) {
 }
 
 void Measure::setMeasureNumber(string measurenumber) {
-    MeiAttribute measureNum = MeiAttribute("n", measurenumber);
-    addAttribute(measureNum);
+    MeiAttribute *measureNum = getAttribute("n");
+	if (measureNum) {
+		measureNum->setValue(measurenumber);
+	} else {
+		measureNum = new MeiAttribute("n", measurenumber);
+		addAttribute(measureNum);
+	}
 }
 
 string Measure::getBarline() throw (AttributeNotFoundException) {
@@ -107,8 +112,13 @@ string Measure::getBarline() throw (AttributeNotFoundException) {
 }
 
 void Measure::setBarline(string barline) {
-    MeiAttribute Barline = MeiAttribute("right", barline);
-    addAttribute(Barline);
+    MeiAttribute *Barline = getAttribute("right");
+	if (Barline) {
+		Barline->setValue(barline);
+	} else {
+		Barline = new MeiAttribute("right", barline);
+		addAttribute(Barline);
+	}
 }
 
 bool Measure::hasBarline() {
@@ -158,91 +168,7 @@ Reh::Reh(): MeiElement("reh") {
 Slur::Slur() : MeiElement("slur") {
 }
 
-string Slur::getStartId() throw (AttributeNotFoundException) {
-    MeiAttribute* startID = getAttribute("startid");
-    if (startID != NULL) {
-        return startID->getValue();
-    } else {
-        throw AttributeNotFoundException("startid");
-    }
-}
-
-void Slur::setStartId(string stid) {
-    MeiAttribute startID = MeiAttribute("startid", stid);
-    addAttribute(startID);
-}
-
-string Slur::getEndId() throw (AttributeNotFoundException) {
-    MeiAttribute* endID = getAttribute("endid");
-    if (endID != NULL) {
-        return endID->getValue();
-    } else {
-        throw AttributeNotFoundException("endid");
-    }
-}
-
-void Slur::setEndId(string eid) {
-    MeiAttribute endID = MeiAttribute("endid", eid);
-    addAttribute(endID);
-}
-
-string Slur::getStaff() throw (AttributeNotFoundException) {
-    MeiAttribute* staFF = getAttribute("staff");
-    if (staFF != NULL) {
-        return staFF->getValue();
-    } else {
-        throw AttributeNotFoundException("staff");
-    }
-}
-
-void Slur::setStaff(string staff) {
-    MeiAttribute staFF = MeiAttribute("staff", staff);
-    addAttribute(staFF);
-}
-
 Tie::Tie(): MeiElement("tie") {
-}
-
-string Tie::getStartId() throw (AttributeNotFoundException) {
-    MeiAttribute* startID = getAttribute("startid");
-    if (startID != NULL) {
-        return startID->getValue();
-    } else {
-        throw AttributeNotFoundException("startid");
-    }
-}
-
-void Tie::setStartId(string stid) {
-    MeiAttribute startID = MeiAttribute("startid", stid);
-    addAttribute(startID);
-}
-
-string Tie::getEndId() throw (AttributeNotFoundException) {
-    MeiAttribute* endID = getAttribute("endid");
-    if (endID != NULL) {
-        return endID->getValue();
-    } else {
-        throw AttributeNotFoundException("endid");
-    }
-}
-
-void Tie::setEndId(string eid) {
-    MeiAttribute endID = MeiAttribute("endid", eid);
-    addAttribute(endID);
-}
-
-string Tie::getStaff() throw (AttributeNotFoundException) {
-    MeiAttribute* staFF = getAttribute("staff");
-    if (staFF != NULL) {
-        return staFF->getValue();
-    } else {
-        throw AttributeNotFoundException("staff");
-    }
-}
-
-void Tie::setStaff(string staff) {
-    MeiAttribute staFF = MeiAttribute("staff", staff);
-    addAttribute(staFF);
 }
 
 Tuplet::Tuplet(): MeiElement("tuplet") {

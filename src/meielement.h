@@ -113,7 +113,7 @@ class MeiElement
         /** \brief Get a list of all the attributes associated with an Mei Element
          *  \return A vector of Mei Attributes describing the element or NULL if the element has no attributes
          */
-		vector <MeiAttribute>& getAttributes();
+		vector <MeiAttribute*>& getAttributes();
         
         /** \brief Search and find an attribute on an Mei Element given its name 
          *  \return The Attribute associated with the given name or NULL if the attribute
@@ -127,7 +127,7 @@ class MeiElement
         
         /** \brief Adds an attribute to the list of attributes associated with an Mei Element
          */
-		void addAttribute(MeiAttribute attribute);
+		void addAttribute(MeiAttribute *attribute);
         
         /** \brief Find and delete an attribute associated with an Mei element using the attribute's name.
          */
@@ -188,20 +188,6 @@ class MeiElement
          */
         void addChildren(vector<MeiElement*> children);
         
-        /** \brief Get the facsimile*/
-        MeiAttribute* getFacs();
-        
-        /** \brief Set the facsimile*/
-        void setFacs(string uuid);
-		
-		/** \return the element's corresponding zone
-		 */
-		MeiElement* getZone();
-		
-		/** \brief set the zone node associated to the element to a given Mei Element
-		 */
-		void setZone(MeiElement* element);
-        
         /** \brief Print the current Mei tree*/
 		void print();
         
@@ -209,15 +195,14 @@ class MeiElement
 		void print(int l);
 				
 	private:
-        string id;
 		string name;
 		string value;
 		string tail;
 		
 		MeiAttribute attribute(string name, string value);
-		vector<MeiAttribute> attributes;
+		MeiAttribute* idAttr;
+		vector<MeiAttribute*> attributes;
 		vector<MeiElement*> children;
-		MeiElement *zone;
 		MeiElement *parent;
         MeiNs ns;
 

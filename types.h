@@ -25,53 +25,78 @@
 #define TYPES_H_
 
 #include "meielement.h"
+#include "exceptions.h"
+
+/** \brief Records a temporary alteration to the pitch of a note.*/
+class Accid: public MeiElement
+{
+public:
+	Accid(string accid);
+private:
+};
 
 class DurationElement: public virtual MeiElement {
 public:
 	DurationElement();
 	virtual ~DurationElement() {};
-	int getDuration() {return duration;}
-	void setDuration(int duration) {this->duration = duration;} //do stuff to the MeiElement
-	int getDots() {return dots;}
-	void setDots(int dots) {this->dots = dots;} //do stuff to the MeiElement
+	
+	int getDuration() throw (AttributeNotFoundException);
+	void setDuration(int duration);
+	
+	int getDots() throw (AttributeNotFoundException);
+	void setDots(int ndots);
 	bool isDotted();
 	
 private:
 	
 protected:
-	int duration;
-	int dots;
+	MeiAttribute* dur;
+	MeiAttribute* dots;
 };
 
 class PitchedElement: public virtual MeiElement {
 public:
 	PitchedElement();
 	virtual ~PitchedElement() {};
-	string getPitchName() {return pitchName;}
-	void setPitchName(string pname) {this->pitchName = pname;} //do stuff to the MeiElement
-	int getOctave() {return octave;}
-	void setOctave(int oct) {this->octave = oct;} //do stuff to the MeiElement
-	//char* getAccidentals() {return accidentals;}
-	//void setAccidentals(char* accidentals[]) {this->accidentals = accidentals;} //actually have to do stuff to the MeiElement here
-	//PyMEI has a getPitch-type method which returns the whole pitch (i.e. F#5, Bb4, etc)
+	
+	string getPitchName() throw (AttributeNotFoundException);
+	void setPitchName(string pname);
+	
+	int getOctave() throw (AttributeNotFoundException);
+	void setOctave(int octave);
+	
+	vector<Accid*>* getAccidentals() throw (AttributeNotFoundException);
+	void setAccidentals(vector<Accid*>* accids);
+	void addAccidental(Accid *accid);
 	
 private:
 	
 protected:
-	string pitchName;
-	int octave;	
+	MeiAttribute* pName;
+	MeiAttribute* oct;
+	MeiAttribute* accid;
+	vector<Accid*>* accidentals;	
 };
 
 class SpanningElement: public virtual MeiElement {
 public:
 	SpanningElement();
 	virtual ~SpanningElement() {};
-	string getStartId() {return startElement->getId();}
-	void setStartId(string startid); //need to find elements?
-	string getEndId() {return endElement->getId();}
-	void setEndId(string endid) {this->endId = endid;} //need to find element with the given id?
-	string getStaff() {return staffElement->getId();}
-	void setStaff(string staff) {this->staff = staff;} //ditto
+	
+	string getStartId() throw (AttributeNotFoundException);
+	MeiElement *getStartElement() throw (ElementIDNotFoundException);
+	void setStartElement(MeiElement *startel);
+	void setStartId(string startid);
+	
+	string getEndId() throw (AttributeNotFoundException);
+	MeiElement *getEndElement() throw (ElementIDNotFoundException);
+	void setEndElement(MeiElement *endel);
+	void setEndId(string endid);
+	
+	string getStaff() throw (AttributeNotFoundException);
+	MeiElement *getStaffElement() throw (ElementIDNotFoundException);
+	void setStaffElement(MeiElement *staff);
+	void setStaff(string staff);
 	
 private:
 	
@@ -79,22 +104,37 @@ protected:
 	MeiElement* startElement;
 	MeiElement* endElement;
 	MeiElement* staffElement;
-	string startId;
-	string endId;
-	string staff;
+	MeiAttribute* startId;
+	MeiAttribute* endId;
+	MeiAttribute* staff;
 };
 
 class SpatialElement: public virtual MeiElement {
 public:
 	SpatialElement();
 	virtual ~SpatialElement() {};
-	MeiAttribute* getFacs();
+	
+	/** \brief Get the facsimile*/
+	string getFacs() throw (AttributeNotFoundException);
+	
+	/** \brief Set the facsimile*/
 	void setFacs(string uuid);
+	
+	void deleteFacs() {delete facs; facs = NULL;}
+	
+	/** \return the element's corresponding zone
+	 */
+	MeiElement* getZone() throw (ElementIDNotFoundException);
+	
+	/** \brief set the zone node associated to the element to a given Mei Element
+	 */
+	void setZone(MeiElement* zone);
 	
 private:
 	
 protected:
 	MeiAttribute* facs;
+	MeiElement* zone;
 };
 
 #endif //TYPES_H_

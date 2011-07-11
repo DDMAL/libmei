@@ -28,3 +28,12 @@ TEST(MeiDocumentTest, ElementTest) {
 	ASSERT_EQ(doc.getRootElement()->getName(), "note");
 	
 }
+
+void FindContent(MeiElement *element) {
+	if ( element->getValue() != "" ) {
+		printf("%s:%s\n", element->getName().c_str(), element->getValue().c_str());
+	}
+	for (vector<MeiElement*>::iterator i = element->getChildren().begin(); i != element->getChildren().end(); i++) {
+		FindContent( (*i) );
+	}
+}

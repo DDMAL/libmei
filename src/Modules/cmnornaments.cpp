@@ -37,8 +37,13 @@ string Mordent::getTimeStamp() throw(AttributeNotFoundException) {
 }
 
 void Mordent::setTimeStamp(string tmstp) {
-    MeiAttribute Tstamp = MeiAttribute("tstamp", tmstp);
-    addAttribute(Tstamp);
+    MeiAttribute *Tstamp = getAttribute("tstamp");
+	if (Tstamp) {
+		Tstamp->setValue(tmstp);
+	} else {
+		Tstamp = new MeiAttribute("tstamp",tmstp);
+		addAttribute(Tstamp);
+	}
 }
 
 string Mordent::getPlace() throw(AttributeNotFoundException) {
@@ -51,8 +56,13 @@ string Mordent::getPlace() throw(AttributeNotFoundException) {
 }
 
 void Mordent::setPlace(string place) {
-    MeiAttribute Place = MeiAttribute("place", place);
-    addAttribute(Place);
+    MeiAttribute *Place = getAttribute("place");
+	if (Place) {
+		Place->setValue(place);
+	} else {
+		Place = new MeiAttribute("place", place);
+		addAttribute(Place);
+	}
 }
 
 string Mordent::getForm() throw(AttributeNotFoundException) {
@@ -65,8 +75,13 @@ string Mordent::getForm() throw(AttributeNotFoundException) {
 }
 
 void Mordent::setForm(string form) {
-    MeiAttribute Form = MeiAttribute("form", form);
-    addAttribute(Form);
+    MeiAttribute *Form = getAttribute("form");
+	if (Form) {
+		Form->setValue(form);
+	} else {
+		Form = new MeiAttribute("form", form);
+		addAttribute(Form);
+	}
 }
 
 string Mordent::getStaff() throw(AttributeNotFoundException) {
@@ -79,8 +94,13 @@ string Mordent::getStaff() throw(AttributeNotFoundException) {
 }
 
 void Mordent::setStaff(string staff) {
-    MeiAttribute Staff1 = MeiAttribute("staff", staff);
-    addAttribute(Staff1);
+    MeiAttribute *Staff1 = getAttribute("staff");
+	if (Staff1) {
+		Staff1->setValue(staff);
+	} else {
+		Staff1 = new MeiAttribute("staff", staff);
+		addAttribute(Staff1);
+	}
 }
 
 Trill::Trill(): MeiElement("trill") {

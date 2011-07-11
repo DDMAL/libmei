@@ -28,7 +28,7 @@ Abbr::Abbr(): MeiElement("abbr") {
 }
 
 Accid::Accid(string accidental): MeiElement("accid") {
-    MeiAttribute accid = MeiAttribute("accid", accidental);
+    MeiAttribute *accid = new MeiAttribute("accid", accidental);
     addAttribute(accid);
 }
 
@@ -57,8 +57,13 @@ string Artic::getArticulation() throw (AttributeNotFoundException) {
 }
 
 void Artic::setArticulation(string artic) {
-    MeiAttribute Articulation = MeiAttribute("artic", artic);
-    addAttribute(Articulation);
+    MeiAttribute *Articulation = getAttribute("artic");
+	if (Articulation) {
+		Articulation->setValue(artic);
+	} else {
+		Articulation = new MeiAttribute("artic", artic);
+		addAttribute(Articulation);
+	}
 }
 
 BarLine::BarLine(): MeiElement("barLine") {
@@ -76,20 +81,6 @@ Caption::Caption(): MeiElement("caption") {
 Chord::Chord(): MeiElement("chord") {
 }
 
-string Chord::getDuration() throw (AttributeNotFoundException) {
-    MeiAttribute* duration = getAttribute("dur");
-    if (duration !=NULL) {
-        return duration->getValue();
-    } else {
-        throw AttributeNotFoundException("dur");
-    }
-}
-
-void Chord::setDuration(string duration) {
-    MeiAttribute dur = MeiAttribute("dur", duration);
-    addAttribute(dur);
-}
-
 string Chord::getStemDir() throw (AttributeNotFoundException) {
     MeiAttribute* stemdir = getAttribute("stem.dir");
     if (stemdir != NULL) {
@@ -100,31 +91,13 @@ string Chord::getStemDir() throw (AttributeNotFoundException) {
 }
 
 void Chord::setStemDir(string direction) {
-    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
-    addAttribute(stemDirection);
-}
-
-bool Chord::getIsDotted() {
-    MeiAttribute* dots = getAttribute("dots");
-    if (dots != NULL) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-string Chord::getNumDots() throw (AttributeNotFoundException) {
-    MeiAttribute* numdots = getAttribute("dots");
-    if (numdots != NULL) {
-        return numdots->getValue();
-    } else {
-        throw AttributeNotFoundException("dots");
-    }
-}
-
-void Chord::setNumDots(string numDots) {
-    MeiAttribute nd = MeiAttribute("dots", numDots);
-    addAttribute(nd);
+    MeiAttribute *stemDirection = getAttribute("stem.dir");
+	if (stemDirection) {
+		stemDirection->setValue(direction);
+	} else {
+		stemDirection = new MeiAttribute("stem.dir", direction);
+		addAttribute(stemDirection);
+	}
 }
 
 Clef::Clef(): MeiElement("clef") {
@@ -214,89 +187,6 @@ Name::Name(): MeiElement("name") {
 Note::Note(): MeiElement("note") {
 }
 
-/*
- Accidentals are maintained in their own list, since we don't know if they are an 
- attribute or a child.
- 
- We can probably fix this to check it when we call getAccidentals. But for now, this will do.
-*/
-vector<Accid> Note::getAccidentals() throw (AttributeNotFoundException) {
-    return this->accidentals;
-}
-
-void Note::addAccidental(Accid accid) {
-    vector<Accid> newaccid = accidentals;
-    newaccid.push_back(accid);
-    setAccidentals(newaccid);
-}
-
-/**
- * Set accidentals for this note. All previous accidentals are cleared.
- */
-void Note::setAccidentals(vector<Accid> accid) {
-    this->accidentals.clear();
-    if (accid.size() > 1) {
-        removeAttribute("accid");
-        // more than one accidental. Every accidental becomes a child element.
-        for (unsigned int i=0; i < accid.size(); i++) {
-            this->accidentals.push_back(accid[i]);
-            this->addChild(&(accid[i]));
-        }
-    } else {
-		// only one accidental (most common). Only becomes a child element 
-		// if it has more than one attribute; else it is a note attribute.	
-		Accid onlyAccidental = accid.front();
-		this->accidentals.push_back(onlyAccidental);
-		if(onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() > 1) {
-			this->addChild(&onlyAccidental);
-		} else if (onlyAccidental.hasAttribute("accid") && onlyAccidental.getAttributes().size() == 1) {
-			addAttribute(*onlyAccidental.getAttribute("accid"));
-		}
-	}
-}
-
-string Note::getOctave() throw (AttributeNotFoundException) {
-    MeiAttribute* octaveAttr = getAttribute("oct");
-    if (octaveAttr!=NULL) {
-        return octaveAttr->getValue();
-    } else {
-        throw AttributeNotFoundException("oct");
-    }
-}
-
-void Note::setOctave(string octave) {
-	MeiAttribute octaveAttr = MeiAttribute("oct", octave);
-	addAttribute(octaveAttr);
-}
-
-string Note::getPitchName() throw (AttributeNotFoundException) {
-	MeiAttribute* pitchName = getAttribute("pname");
-	if (pitchName!=NULL) {
-        return pitchName->getValue();
-	} else {
-        throw AttributeNotFoundException("pname");
-	}
-}
-
-void Note::setPitchName(string pitchname) {
-	MeiAttribute pitchName = MeiAttribute("pname", pitchname);
-	addAttribute(pitchName);
-}
-
-/*string Note::getDuration() throw (AttributeNotFoundException) {
-    MeiAttribute* duration = getAttribute("dur");
-    if (duration !=NULL) {
-        return duration->getValue();
-    } else {
-        throw AttributeNotFoundException("dur");
-    }
-}*/
-
-void Note::setDuration(string duration) {
-    MeiAttribute dur = MeiAttribute("dur", duration);
-    addAttribute(dur);
-}
-
 string Note::getStemDir() throw (AttributeNotFoundException) {
     MeiAttribute* stemdir = getAttribute("stem.dir");
     if (stemdir != NULL) {
@@ -307,31 +197,13 @@ string Note::getStemDir() throw (AttributeNotFoundException) {
 }
 
 void Note::setStemDir(string direction) {
-    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
-    addAttribute(stemDirection);
-}
-
-bool Note::getIsDotted() {
-    MeiAttribute* dots = getAttribute("dots");
-    if (dots != NULL) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-string Note::getNumDots() throw (AttributeNotFoundException) {
-    MeiAttribute* numdots = getAttribute("dots");
-    if (numdots != NULL) {
-        return numdots->getValue();
-    } else {
-        throw AttributeNotFoundException("dots");
-    }
-}
-
-void Note::setNumDots(string numDots) {
-    MeiAttribute nd = MeiAttribute("dots", numDots);
-    addAttribute(nd);
+    MeiAttribute *stemDirection = getAttribute("stem.dir");
+	if (stemDirection) {
+		stemDirection->setValue(direction);
+	} else {
+		stemDirection = new MeiAttribute("stem.dir", direction);
+		addAttribute(stemDirection);
+	}
 }
 
 bool Note::getIsTied() {
@@ -353,8 +225,13 @@ string Note::getTie() throw (AttributeNotFoundException) {
 }
 
 void Note::setTie(string tie) {
-    MeiAttribute tievalue = MeiAttribute("tie", tie);
-    addAttribute(tievalue);
+    MeiAttribute *tievalue = getAttribute("tie");
+	if (tievalue) {
+		tievalue->setValue(tie);
+	} else {
+		tievalue = new MeiAttribute("tie", tie);
+		addAttribute(tievalue);
+	}
 }
 
 bool Note::getIsTuplet() {
@@ -376,8 +253,13 @@ string Note::getTuplet() throw (AttributeNotFoundException) {
 }
 
 void Note::setTuplet(string tuplet) {
-    MeiAttribute tupletvalue = MeiAttribute("tuplet", tuplet);
-    addAttribute(tupletvalue);
+    MeiAttribute *tupletvalue = getAttribute("tuplet");
+	if (tupletvalue) {
+		tupletvalue->setValue(tuplet);
+	} else {
+		tupletvalue = new MeiAttribute("tuplet", tuplet);
+		addAttribute(tupletvalue);
+	}
 }
 
 Num::Num(): MeiElement("num") {
@@ -425,20 +307,6 @@ Repository::Repository(): MeiElement("repository") {
 Rest::Rest(): MeiElement("rest") {
 }
 
-string Rest::getDuration() throw (AttributeNotFoundException) {
-    MeiAttribute* duration = getAttribute("dur");
-    if (duration !=NULL) {
-        return duration->getValue();
-    } else {
-        throw AttributeNotFoundException("dur");
-    }
-}
-
-void Rest::setDuration(string duration) {
-    MeiAttribute dur = MeiAttribute("dur", duration);
-    addAttribute(dur);
-}
-
 string Rest::getStemDir() throw (AttributeNotFoundException) {
     MeiAttribute* stemdir = getAttribute("stem.dir");
     if (stemdir != NULL) {
@@ -449,31 +317,13 @@ string Rest::getStemDir() throw (AttributeNotFoundException) {
 }
 
 void Rest::setStemDir(string direction) {
-    MeiAttribute stemDirection = MeiAttribute("stem.dir", direction);
-    addAttribute(stemDirection);
-}
-
-bool Rest::getIsDotted() {
-    MeiAttribute* dots = getAttribute("dots");
-    if (dots != NULL) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-string Rest::getNumDots() throw (AttributeNotFoundException) {
-    MeiAttribute* numdots = getAttribute("dots");
-    if (numdots != NULL) {
-        return numdots->getValue();
-    } else {
-        throw AttributeNotFoundException("dots");
-    }
-}
-
-void Rest::setNumDots(string numDots) {
-    MeiAttribute nd = MeiAttribute("dots", numDots);
-    addAttribute(nd);
+    MeiAttribute *stemDirection = getAttribute("stem.dir");
+	if (stemDirection) {
+		stemDirection->setValue(direction);
+	} else {
+		stemDirection = new MeiAttribute("stem.dir", direction);
+		addAttribute(stemDirection);
+	}
 }
 
 Sb::Sb(): MeiElement("sb") {

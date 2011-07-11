@@ -30,19 +30,21 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <uuid/uuid.h>
+#include <algorithm>
 
 using namespace std;
 
 MeiElement::MeiElement() {
 	this->parent = NULL;
-	this->zone = NULL;
+	this->idAttr = NULL;
 	this->value = "";
 }
 
 MeiElement::MeiElement(string name) {
 	this->name = name;
 	this->parent = NULL;
-	this->zone = NULL;
+	this->idAttr = NULL;
 	this->value = "";
 }
 
@@ -50,7 +52,7 @@ MeiElement::MeiElement(string name, MeiNs ns) {
     this->name = name;
     this->ns = ns;
 	this->parent = NULL;
-	this->zone = NULL;
+	this->idAttr = NULL;
 	this->value = "";
 }
 
@@ -59,11 +61,11 @@ MeiElement::~MeiElement() {}
 //currently fails to compare children vectors
 bool MeiElement::operator==(const MeiElement &other) const {
 	if (!this->children.empty() && !other.children.empty()) {
-		return (this->name == other.name && this->parent == other.parent && this->id == other.id 
+		return (this->name == other.name && this->parent == other.parent && this->idAttr == other.idAttr
 				&& this->value == other.value && this->tail == other.tail && this->attributes == other.attributes 
 				/*&& this->children == other.children self-referentiality?*/ && this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
 	} else if (this->children.empty() && other.children.empty()) {
-		return (this->name == other.name && this->parent == other.parent && this->id == other.id 
+		return (this->name == other.name && this->parent == other.parent && this->idAttr == other.idAttr 
 				&& this->value == other.value && this->tail == other.tail && this->attributes == other.attributes 
 				&& this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
 	} else {
@@ -90,14 +92,36 @@ void MeiElement::setNs(MeiNs ns) {
 }
 
 string MeiElement::getId() {
-    return this->id;
+    if (idAttr) {
+		return idAttr->getValue();
+	} else {
+		std::string id;
+		char uuidbuff[36];
+		uuid_t uuidGenerated;
+		uuid_generate(uuidGenerated);
+		uuid_unparse(uuidGenerated, uuidbuff);
+		id = string(uuidbuff);
+		std::transform(id.begin(), id.end(), id.begin(), ::tolower);
+		id = "m-" + id;
+		setId(id);
+		return id;
+	}
 }
 
-// TODO: when we get namespaces working properly, this needs to be fixed
 void MeiElement::setId(string id) {
-    MeiAttribute xmlid = MeiAttribute("xml:id", id);
-    this->addAttribute(xmlid);
-    this->id = id;
+    if (idAttr) {
+		idAttr->setValue(id);
+	} else {
+		MeiAttribute *idatt = getAttribute("id");
+		if (idatt) {
+			idAttr = idatt;
+			idAttr->setValue(id);
+		} else {
+			idAttr = new MeiAttribute("id",id);
+			idAttr->setPrefix("xml");
+			addAttribute(idAttr);
+		}
+	}
 }
 
 string MeiElement::getValue() {
@@ -116,32 +140,32 @@ void MeiElement::setTail(string tail) {
     this->tail = tail;
 }
 
-vector<MeiAttribute>& MeiElement::getAttributes() {
+vector<MeiAttribute*>& MeiElement::getAttributes() {
 	return this->attributes;
 }
 
 MeiAttribute* MeiElement::getAttribute(string name) {
-	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
-		if (iter->getName() == name) return &(*iter);
+	for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+		if ((*iter)->getName() == name) return (*iter);
 	}
 	return NULL;
 }
 
 bool MeiElement::hasAttribute(string name) {
-	for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
-		if (iter->getName() == name) return true;
+	for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+		if ((*iter)->getName() == name) return true;
 	}
 	return false;
 }
 
-void MeiElement::addAttribute(MeiAttribute attribute) {
+void MeiElement::addAttribute(MeiAttribute *attribute) {
 	attributes.push_back(attribute);
 }
 
 void MeiElement::removeAttribute(string attributeName) {
-	vector<MeiAttribute>::iterator iter = attributes.begin();
+	vector<MeiAttribute*>::iterator iter = attributes.begin();
 	while (iter != attributes.end()) {
-		if (iter->getName() == attributeName) {
+		if ((*iter)->getName() == attributeName) {
 			iter = attributes.erase(iter);
 		}
 		else {
@@ -220,28 +244,6 @@ void MeiElement::addChildren(vector<MeiElement*> c) {
     }
 }
 
-MeiAttribute* MeiElement::getFacs() {
-    MeiAttribute* facs = this->getAttribute("facs");
-    return facs;
-}
-
-void MeiElement::setFacs(string uuid) {
-	if (this->getAttribute("facs") == NULL) {
-		MeiAttribute facs = MeiAttribute("facs", uuid);
-		this->addAttribute(facs);
-	} else {
-		this->getAttribute("facs")->setValue(uuid);
-	}
-}
-
-MeiElement* MeiElement::getZone() {
-	return zone;
-}
-
-void MeiElement::setZone(MeiElement* element) {
-	this->zone = element;
-}
-
 void MeiElement::print() {
 	print(0);
 }
@@ -253,8 +255,8 @@ void MeiElement::print(int level) {
 		printf("%s:%s ", ns.prefix.c_str(), ns.href.c_str());
     }
 	
-    for (vector<MeiAttribute>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
-        printf("%s=%s ", (*iter).getName().c_str(), (*iter).getValue().c_str());
+    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
+        printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
     
     printf("\n");

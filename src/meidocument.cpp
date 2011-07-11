@@ -28,6 +28,8 @@
 
 #include "meielement.h"
 
+#include "types.h"
+
 using std::vector;
 
 MeiDocument::MeiDocument(string docname, string encoding) {
@@ -96,7 +98,7 @@ MeiDocument* MeiDocument::ReadFromXml(string docname, string encoding) {
 				} else {
 					string name = (const char *)(attrname);
 					string value = (const char *)(attrvalue->content);
-					MeiAttribute rootmeiattr = MeiAttribute(name, value);
+					MeiAttribute *rootmeiattr = new MeiAttribute(name, value);
 					meiroot->addAttribute(rootmeiattr);
 				}
             }
@@ -140,9 +142,9 @@ void MeiDocument::WriteToXml(MeiDocument* meidoc) {
 	xmlSetNs(xmlrootnode, xmlcurns);
     
 	// add attributes to the node
-    for (vector<MeiAttribute>::iterator iter = root->getAttributes().begin(); iter !=root->getAttributes().end(); ++iter) {
-        string attrname = iter->getName();
-        string attrvalue = iter->getValue();
+    for (vector<MeiAttribute*>::iterator iter = root->getAttributes().begin(); iter !=root->getAttributes().end(); ++iter) {
+        string attrname = (*iter)->getName();
+        string attrvalue = (*iter)->getValue();
 		xmlrootattr = xmlNewProp(xmlrootnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
     
@@ -181,8 +183,8 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 				if (curnode->nsDef->href != NULL && curnode->nsDef->prefix != NULL) {
 					string prefix = (const char*)(curnode->nsDef->prefix);
 					string href = (const char*)(curnode->nsDef->href);
-					MeiAttribute attribute = MeiAttribute(prefix,href);
-					attribute.setPrefix("xmlns");
+					MeiAttribute *attribute = new MeiAttribute(prefix,href);
+					attribute->setPrefix("xmlns");
 					child->addAttribute(attribute);
 				}
 			}
@@ -196,18 +198,15 @@ void MeiDocument::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 							if (curattr->atype == XML_ATTRIBUTE_ID) { //xml:id attribute
 								string ID = (const char *)(attrvalue->content);
 								child->setId(ID);
-							} else if (attrname == (const xmlChar*)"facs") { //facs attribute
-								string facs = (const char *)(attrvalue->content);
-								child->setFacs(facs);
 							} else {
 								string name = (const char *)(attrname);
 								string value = (const char *)(attrvalue->content);
-								MeiAttribute curmeiattr = MeiAttribute(name, value);
+								MeiAttribute *curmeiattr = new MeiAttribute(name, value);
 								if (curattr->ns != NULL) {
 									if (curattr->ns->prefix != NULL) {
 									attrprefix = curattr->ns->prefix;
 									string prefix = (const char*)attrprefix;
-									curmeiattr.setPrefix(prefix);
+									curmeiattr->setPrefix(prefix);
 									}
 								}
                             child->addAttribute(curmeiattr);
@@ -256,25 +255,19 @@ void MeiDocument::MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlN
 			xmlNodePtr text = xmlNewText((const xmlChar*)(*iter)->getValue().c_str());
 			xmlAddChild(curxmlnode, text);
 		}
-		
-		string ID = (*iter)->getId();
-		if (ID != "") {
-			curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)"xml:id", (const xmlChar*)ID.c_str());
-			curxmlattr->atype = XML_ATTRIBUTE_ID;
-		}
         
 		// add attributes to each child
-        for (vector<MeiAttribute>::iterator itera = (*iter)->getAttributes().begin(); itera != (*iter)->getAttributes().end(); ++itera) {
+        for (vector<MeiAttribute*>::iterator itera = (*iter)->getAttributes().begin(); itera != (*iter)->getAttributes().end(); ++itera) {
             string attrname;
-			if (itera->getName() != "") {
-				attrname = itera->getName();
+			if ((*itera)->getName() != "") {
+				attrname = (*itera)->getName();
 				string attrprefix;
-				if (itera->getPrefix() != "") {
-					attrprefix = itera->getPrefix();
+				if ((*itera)->getPrefix() != "") {
+					attrprefix = (*itera)->getPrefix();
 				}
-				string attrvalue = itera->getValue();
-				if (attrname != "xml:id" && attrprefix != "xmlns") {
-					string attrprefix = itera->getPrefix();
+				string attrvalue = (*itera)->getValue();
+				if (attrprefix != "xmlns") {
+					string attrprefix = (*itera)->getPrefix();
 					if (attrprefix != "") {
 						curxmlns = xmlNewNs (xmlroot, NULL, (const xmlChar*)attrprefix.c_str());
 						curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());

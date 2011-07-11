@@ -21,16 +21,16 @@ TEST(MeiElementTest, IdTest) {
     MeiElement element = MeiElement("note");
     element.setId("1234567890");
     ASSERT_EQ("1234567890", element.getId());
-    ASSERT_EQ("1234567890", element.getAttribute("xml:id")->getValue());
+    ASSERT_EQ("1234567890", element.getAttribute("id")->getValue());
 }
 
 
 //Test that an attribute can be added to an MeiElement's attribute list and then removed
 TEST(MeiElementTest, AttributeTest) {
 	MeiElement element = MeiElement ("note");
-	MeiAttribute attribute = MeiAttribute ("accid","sharp");
+	MeiAttribute *attribute = new MeiAttribute ("accid","sharp");
 	
-	vector<MeiAttribute> attr = element.getAttributes();
+	vector<MeiAttribute*> attr = element.getAttributes();
 	ASSERT_EQ((unsigned int)0, attr.size());
 	
 	element.addAttribute(attribute);
@@ -42,7 +42,8 @@ TEST(MeiElementTest, AttributeTest) {
 	element.removeAttribute("accid");
 	attr = element.getAttributes();
 	ASSERT_EQ((unsigned int)0, attr.size());
-		
+	
+	delete attribute;
 }
 
 //Test an MeiElement's children, and their add/remove functionality
@@ -50,10 +51,10 @@ TEST(MeiElementTest, AddOneChildTest) {
 	MeiElement parent = MeiElement ("staff");
 	MeiElement child = MeiElement ("note");
 	
-	vector<MeiElement> children = parent.getChildren();
+	vector<MeiElement*> children = parent.getChildren();
 	ASSERT_EQ((unsigned int)0, children.size());
 	
-	parent.addChild(child);
+	parent.addChild(&child);
 	children = parent.getChildren();
 	
 	ASSERT_EQ((unsigned int)1, children.size());
@@ -65,7 +66,7 @@ TEST(MeiElementTest, RemoveChildrenTest) {
 	MeiElement parent = MeiElement ("staff");
 	MeiElement child = MeiElement ("note");
 	
-	parent.addChild(child);
+	parent.addChild(&child);
 	ASSERT_EQ((unsigned int)1, parent.getChildren().size());
 	
 	parent.removeChildren("note");
@@ -89,20 +90,14 @@ TEST(MeiElementTest, AddManyChildrenTest) {
     MeiElement c = MeiElement("accid");
     MeiElement b = MeiElement("accid");
     
-    vector<MeiElement> children;
-    children.push_back(c);
-    children.push_back(b);
+    vector<MeiElement*> children;
+    children.push_back(&c);
+    children.push_back(&b);
     
     n.addChildren(children);
     
-    vector<MeiElement> notechildren = n.getChildren();
+    vector<MeiElement*> notechildren = n.getChildren();
     ASSERT_EQ((unsigned int)2, notechildren.size());
-}
-
-TEST(MeiElementTest, FacsTest) {
-    MeiElement s = MeiElement("staff");
-    s.setFacs("11ddsseeffsssafsdfagda34w988");
-    ASSERT_EQ("11ddsseeffsssafsdfagda34w988", s.getFacs()->getValue());
 }
 
 
