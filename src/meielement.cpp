@@ -49,8 +49,8 @@ MeiElement::MeiElement(string name) {
 }
 
 MeiElement::MeiElement(string name, MeiNs ns) {
-    this->name = name;
     this->ns = ns;
+	this->name = name;
 	this->parent = NULL;
 	this->idAttr = NULL;
 	this->value = "";
@@ -118,10 +118,10 @@ void MeiElement::setId(string id) {
 			idAttr->setValue(id);
 		} else {
 			idAttr = new MeiAttribute("id",id);
-			idAttr->setPrefix("xml");
 			addAttribute(idAttr);
 		}
 	}
+	idAttr->setPrefix("xml");
 }
 
 string MeiElement::getValue() {
