@@ -33,6 +33,7 @@ class Arpeg: public MeiElement {
 public:
 	Arpeg();
 private:
+	REGISTER_DECLARATION(Arpeg);
 };
 
 /** \brief A container for a series of explicitly beamed events that begins and ends entirely within a measure.*/
@@ -43,6 +44,7 @@ public:
     MeiElement getFirstChild() throw (ChildrenNotFoundException);
     MeiElement getLastChild() throw (ChildrenNotFoundException);
 private:
+	REGISTER_DECLARATION(Beam);
 };
 
 /** \brief Alternative element for explicitly encoding beams which extend across barlines.*/
@@ -50,6 +52,7 @@ class BeamSpan: public MeiElement {
 public:
 	BeamSpan();
 private:
+	REGISTER_DECLARATION(BeamSpan);
 };
 
 /** \brief An indication that material on a preceding beat should be repeated.*/
@@ -57,6 +60,7 @@ class BeatRpt: public MeiElement {
 public:
 	BeatRpt();
 private:
+	REGISTER_DECLARATION(BeatRpt);
 };
 
 /** \brief A variation in pitch (often microtonal) upwards or downwards during the course of a note.*/
@@ -64,6 +68,7 @@ class Bend: public MeiElement {
 public:
 	Bend();
 private:
+	REGISTER_DECLARATION(Bend);
 };
 
 /** \brief A indication of a point at which the performer on an instrument requiring breath may breathe.*/
@@ -71,6 +76,7 @@ class Breath: public MeiElement {
 public:
 	Breath();
 private:
+	REGISTER_DECLARATION(Breath);
 };
 
 /** \brief A rapid alternation on a single pitch or chord.*/
@@ -78,6 +84,7 @@ class BTrem: public MeiElement {
 public:
 	BTrem();
 private:
+	REGISTER_DECLARATION(BTrem);
 };
 
 /** \brief An indication placed over a note or rest to indicated that it should be held longer than its written value.*/
@@ -85,6 +92,7 @@ class Fermata: public MeiElement {
 public:
 	Fermata();
 private:
+	REGISTER_DECLARATION(Fermata);
 };
 
 /** \brief A continuous or sliding movement from one pitch to another, usually indicated by a straight or wavy line.*/
@@ -92,6 +100,7 @@ class Gliss: public MeiElement {
 public:
 	Gliss();
 private:
+	REGISTER_DECLARATION(Gliss);
 };
 
 /** \brief */
@@ -99,6 +108,7 @@ class HairPin: public MeiElement {
 public:
 	HairPin();
 private:
+	REGISTER_DECLARATION(HairPin);
 };
 
 /** \brief A half-measure repeat in any meter. */

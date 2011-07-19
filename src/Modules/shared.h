@@ -379,6 +379,7 @@ class Note: public PitchedElement, public DurationElement, public SpatialElement
         void setTuplet(string tuplet);
 		
 	private:
+		REGISTER_DECLARATION(Note);
 	};
 
 /** \brief Numeric information in any form. */

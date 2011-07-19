@@ -26,9 +26,11 @@
 
 Arpeg::Arpeg(): MeiElement("arpeg") {
 }
+REGISTER_DEFINITION(Arpeg,"arpeg");
 
 Beam::Beam(): MeiElement("beam") {
 }
+REGISTER_DEFINITION(Beam,"beam");
 
 // Need to create another exception that takes care of children not existing to be applied here instead of the Attribute one
 MeiElement Beam::getFirstChild() throw (ChildrenNotFoundException) {
@@ -52,27 +54,35 @@ MeiElement Beam::getLastChild() throw (ChildrenNotFoundException) {
 
 BeamSpan::BeamSpan(): MeiElement("beamSpan") {
 }
+REGISTER_DEFINITION(BeamSpan,"beamSpan");
 
 BeatRpt::BeatRpt(): MeiElement("beatRpt") {
 }
+REGISTER_DEFINITION(BeatRpt,"beatRpt");
 
 Bend::Bend(): MeiElement("bend") {
 }
+REGISTER_DEFINITION(Bend,"bend");
 
 Breath::Breath(): MeiElement("breath") {
 }
+REGISTER_DEFINITION(Breath,"breath");
 
 BTrem::BTrem(): MeiElement("bTrem") {
 }
+REGISTER_DEFINITION(BTrem,"bTrem");
 
 Fermata::Fermata(): MeiElement("fermata") {
 }
+REGISTER_DEFINITION(Fermata,"fermata");
 
 Gliss::Gliss(): MeiElement("gliss") {
 }
+REGISTER_DEFINITION(Gliss,"gliss");
 
 HairPin::HairPin(): MeiElement("hairpin") {
 }
+REGISTER_DEFINITION(HairPin,"hairpin");
 
 HalfMRpt::HalfMRpt(): MeiElement("halfmRpt") {
 }

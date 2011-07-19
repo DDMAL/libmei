@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
-#include <mei/mei.h>
-#include <mei/shared.h>
-#include <mei/cmn.h>
+#include "mei.h"
+#include "cmn.h"
+#include "shared.h"
+#include "iomeixml.h"
 
 TEST(TypesTest, MakeDurationElementTest) {
 	Note note = Note();
@@ -50,4 +51,11 @@ TEST(TypesTest, MakeSpanningElementTest) {
 	slur.setStaffElement(&staff);
 	ASSERT_EQ(slur.getStartId(),"m-5ac4a460-d095-427e-b0a9-a07ad546c1ae");
 	ASSERT_EQ(slur.getEndId(),"1234567890");
+}
+
+TEST(TypesTest, ConstructorsTest) {
+	MeiElement* note = MeiFactory::createInstance("note");
+	dynamic_cast<Note*>(note)->setDuration(5);
+	ASSERT_EQ(dynamic_cast<Note*>(note)->getDuration(),5);
+	delete note;
 }

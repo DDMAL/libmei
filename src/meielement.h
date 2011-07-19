@@ -27,8 +27,15 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "meiattribute.h"
+
+#define REGISTER_DECLARATION(NAME) \
+static DerivedRegister<NAME> reg
+
+#define REGISTER_DEFINITION(NAME,s) \
+DerivedRegister<NAME> NAME::reg(s)
 
 using std::string;
 using std::vector;
@@ -208,4 +215,36 @@ class MeiElement
 
 	};
 
+// http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
+template<typename T> MeiElement* createT() { return new T; }
+
+struct MeiFactory {
+    typedef std::map<std::string, MeiElement*(*)()> map_type;
+
+    static MeiElement* createInstance(std::string const& s) {
+        map_type::iterator it = getMap()->find(s);
+        if(it == getMap()->end())
+            return NULL;
+        return it->second();
+    }
+
+protected:
+    static map_type * getMap() {
+        // never delete'ed. (exist until program termination)
+        // because we can't guarantee correct destruction order 
+        if(!map) { map = new map_type; } 
+        return map; 
+    }
+
+private:
+    static map_type * map;
+};
+
+template<typename T>
+struct DerivedRegister : MeiFactory { 
+    DerivedRegister(std::string const& s) { 
+        getMap()->insert(std::make_pair(s, &createT<T>));
+    }
+};
+	
 #endif // MEIELEMENT_H_

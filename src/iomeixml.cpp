@@ -22,7 +22,6 @@
  */
 
 #include "iomeixml.h"
-#include "modules.h"
 
 MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
     printf("read from xml\n");
@@ -48,8 +47,7 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
         ns.prefix = (const char*)rootprefix;
 	}
     
-	MeiFactory factory;
-	MeiElement* meiroot = factory.ConstructByName(string((const char *)rootelement->name));
+	MeiElement* meiroot = MeiFactory::createInstance(string((const char *)rootelement->name));
 	
 	for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
         if (rootattr->type == XML_ATTRIBUTE_NODE) {
@@ -69,8 +67,7 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
         }
     }
     
-    XmlNodeToMei(rootelement->children, meiroot, &factory);
-	factory.CastAsType(meiroot);
+    XmlNodeToMei(rootelement->children, meiroot);
 	xmlFreeDoc(doc);
     
     MeiDocument* meidoc = new MeiDocument(docname, encoding);
@@ -79,7 +76,7 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
     return meidoc;
 }
 
-void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiFactory *factory) {
+void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 	xmlNode* curnode = NULL;
     xmlAttr* curattr = NULL;
     const xmlChar* attrname;
@@ -103,7 +100,7 @@ void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiFacto
 				ns.prefix = (const char*)childprefix;
 			}
 			
-			MeiElement* child = factory->ConstructByName(string((const char *)curnode->name));
+			MeiElement* child = MeiFactory::createInstance(string((const char *)curnode->name));
 			child->setNs(ns);
 			
 			if (curnode->nsDef != NULL) {
@@ -142,8 +139,7 @@ void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent, MeiFacto
                     }					
                 }
             }
-            XmlNodeToMei(curnode->children, child, factory);
-			factory->CastAsType(child);
+            XmlNodeToMei(curnode->children, child);
 			parent->addChild(child);
         }
 	}

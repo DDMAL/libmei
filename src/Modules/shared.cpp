@@ -192,6 +192,7 @@ Name::Name(): MeiElement("name") {
 
 Note::Note(): MeiElement("note") {
 }
+REGISTER_DEFINITION(Note,"note");
 
 string Note::getStemDir() throw (AttributeNotFoundException) {
     MeiAttribute* stemdir = getAttribute("stem.dir");

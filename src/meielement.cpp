@@ -34,6 +34,7 @@
 #include <algorithm>
 
 using namespace std;
+MeiFactory::map_type * MeiFactory::map;
 
 MeiElement::MeiElement() {
 	this->parent = NULL;

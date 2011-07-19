@@ -23,7 +23,6 @@
 
 #include <libxml/xmlreader.h>
 #include "meidocument.h"
-#include "modules.h"
 
 class MeiXmlInputStream {
 public:
@@ -39,7 +38,7 @@ public:
 	
 private:
 	// Read Information off an XMLNode tree to create an Mei one
-	static void XmlNodeToMei (xmlNode* node, MeiElement* parent, MeiFactory *factory);
+	static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
 };
 
 class MeiXmlOutputStream {
