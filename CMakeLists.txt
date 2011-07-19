@@ -2,7 +2,15 @@ project( libmei )
 
 cmake_minimum_required( VERSION 2.6 )
 
-FIND_PACKAGE( LibXml2 )
+FIND_PACKAGE( LibXml2 REQUIRED )
+find_path    (UUID_INCLUDE_DIR   uuid/uuid.h)
+find_library (UUID_LIBRARY NAMES uuid)
+if (UUID_INCLUDE_DIR AND UUID_LIBRARY)
+	message ("-- Found libuuid: ${UUID_LIBRARY}")
+else (UUID_INCLUDE_DIR AND UUID_LIBRARY)
+	message(FATAL_ERROR "Could not find libuuid")
+endif (UUID_INCLUDE_DIR AND UUID_LIBRARY)
+
 
 set( CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}")
 
@@ -15,7 +23,8 @@ set( MEI_LIB_VERSION_SONAME "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}")
 option(MEI_BUILD_TESTS "Build all unit tests" ON)
 
 if(MEI_BUILD_TESTS)
-	  enable_testing()
+	find_package( GoogleTest REQUIRED )
+	enable_testing()
 endif(MEI_BUILD_TESTS)
 
 set( CPACK_GENERATOR "TBZ2" "DEB" )
@@ -56,6 +65,7 @@ endif (CMAKE_COMPILER_IS_GNUCXX)
 INCLUDE_DIRECTORIES(
 	${CMAKE_CURRENT_SOURCE_DIR}/src
 	${LIBXML2_INCLUDE_DIR}
+	${UUID_INCLUDE_DIR}
 )
 
 ADD_DEFINITIONS(
@@ -66,6 +76,7 @@ add_library( mei SHARED ${LIBMEI_SRC} )
 target_link_libraries( mei 
 	${OS_SPECIFIC_LINK_LIBRARIES}
 	${LIBXML2_LIBRARIES}
+	${UUID_LIBRARY}
 )
 #set_target_properties( mei PROPERTIES VERSION ${MEI_LIB_VERSION} SOVERSION ${MEI_LIB_VERSION_SONAME} )
 install( TARGETS mei   RUNTIME DESTINATION bin
@@ -82,8 +93,6 @@ if( MEI_BUILD_TESTS )
 	file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mei)
 	file(COPY ${LIBMEI_H} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/mei)
 
-	find_package( GoogleTest )
-
 	macro(add_mei_test _source)
 	    get_filename_component(_name ${_source} NAME_WE)
 	    add_executable(${_name} ${_source} test/gtest_main.cc)
@@ -91,11 +100,11 @@ if( MEI_BUILD_TESTS )
 	    add_test(${_name}-test ${EXECUTABLE_OUTPUT_PATH}/${_name})
 	endmacro(add_mei_test)
 
-	add_mei_test ( test/meiattribute_test.cpp )
-	add_mei_test ( test/meidocument_test.cpp )
-	add_mei_test ( test/meielement_test.cpp )
-	add_mei_test ( test/module_shared_test.cpp )
-
+    file(GLOB files "test/*_test.cpp")
+    foreach(file ${files})
+      add_mei_test(${file})
+    endforeach()
+    
 endif( MEI_BUILD_TESTS )
 
 
