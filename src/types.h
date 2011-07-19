@@ -32,6 +32,7 @@ class Accid: public MeiElement
 {
 public:
 	Accid(string accid);
+	Accid();
 private:
 };
 
