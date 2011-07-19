@@ -72,35 +72,11 @@ class MeiDocument
 		
         /** \brief Make an Mei element the Root element of a document*/
         void setRootElement(MeiElement* root);
-        
-		
-        /** \brief Read an Mei file in XMl format and create an Mei Document containing the Mei tree structure.
-         *
-         *  The xml file is found using its name and encoding. The method will go through the xml structure recursively
-         *  and create an Mei tree accordingly.
-         *  \return An Mei Document containing the Mei tree structure or NULL if the XML file does not exist
-         */
-		static MeiDocument* ReadFromXml(string docname, string encoding);
-		
-        /** \brief Take an Mei Document and convert it to Xml format; creates an xml output.
-         *  
-         *  The method will go through the Mei Document structure recursively and create xml tags
-         *  maintaining the same element structure and attributes. A final xml file is created and written
-         *  to a filename and location in the directory.
-         */
-        void WriteToXml(MeiDocument* meidoc);
 		
 	private:
 		string docname;
 		string encoding;
 		MeiElement* root;
-		
-		// Read Information off an XMLNode tree to create an Mei one
-		static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
-        
-        // Read Information from an MEI tree to create an XML tree  
-		static void MeiToXmlNode (MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDocPtr xmldoc);
-
 	};
 
 #endif // MEIDOCUMENT_H_
