@@ -50,4 +50,4 @@ public:
 private:
 };
 
-#endif //CRITAPP_H_
+#endif // CRITAPP_H_

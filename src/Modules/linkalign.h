@@ -40,4 +40,4 @@ public:
 private:
 };
 
-#endif //LINKALIGN_H_
+#endif // LINKALIGN_H_

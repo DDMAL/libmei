@@ -13,7 +13,19 @@
 		61DBCCE81312C99500B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
-		7D138AE81386E13500BDEB01 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D138AE41386E12C00BDEB01 /* gtest.framework */; };
+		7D05FBFC13D60DAA00D5A99A /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */; };
+		7D1F9E3313CCC71000E95E7F /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F9E2D13CCC70F00E95E7F /* layout.cpp */; };
+		7D1F9E3413CCC71000E95E7F /* layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F9E2E13CCC70F00E95E7F /* layout.h */; };
+		7D1F9E3513CCC71000E95E7F /* performance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F9E2F13CCC70F00E95E7F /* performance.cpp */; };
+		7D1F9E3613CCC71000E95E7F /* performance.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F9E3013CCC71000E95E7F /* performance.h */; };
+		7D1F9E3713CCC71000E95E7F /* solesmes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F9E3113CCC71000E95E7F /* solesmes.cpp */; };
+		7D1F9E3813CCC71000E95E7F /* solesmes.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F9E3213CCC71000E95E7F /* solesmes.h */; };
+		7D1F9E7B13CCD5C900E95E7F /* iomeixml.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F9E7913CCD5C900E95E7F /* iomeixml.h */; };
+		7D1F9E7C13CCD5C900E95E7F /* iomeixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */; };
+		7D5F31D513C8CA940037636E /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D5F31D313C8CA940037636E /* types.h */; };
+		7D5F31D613C8CA940037636E /* types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F31D413C8CA940037636E /* types.cpp */; };
+		7D5F326513C90C970037636E /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5F326413C90C970037636E /* gtest.framework */; };
+		7DB3F38A13CB4F9300FC04B0 /* types_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F31D813C8F0270037636E /* types_test.cpp */; };
 		9B11C8AE132E6CC80090FDA6 /* neume.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B11C8AC132E6CC80090FDA6 /* neume.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B11C8AF132E6CC80090FDA6 /* neume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B11C8AD132E6CC80090FDA6 /* neume.cpp */; };
 		9B11C8B4132E75120090FDA6 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B11C8B2132E75120090FDA6 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,7 +53,6 @@
 		9B716F8A133D403000A862F8 /* cmn.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716F88133D403000A862F8 /* cmn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B716F8B133D403000A862F8 /* cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716F89133D403000A862F8 /* cmn.cpp */; };
 		9B716FA8133D4B0300A862F8 /* cmnornaments.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FA6133D4B0300A862F8 /* cmnornaments.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B716FA9133D4B0300A862F8 /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FA7133D4B0300A862F8 /* cmnornaments.cpp */; };
 		9B716FB0133D4C8D00A862F8 /* corpus.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FAE133D4C8D00A862F8 /* corpus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B716FB1133D4C8D00A862F8 /* corpus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B716FAF133D4C8D00A862F8 /* corpus.cpp */; };
 		9B716FB8133D4F8C00A862F8 /* critapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B716FB6133D4F8C00A862F8 /* critapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,7 +91,18 @@
 		61DBCCCF1312C85D00B46918 /* mei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = mei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCD01312C85E00B46918 /* mei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mei-Info.plist"; sourceTree = "<group>"; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
-		7D138AE41386E12C00BDEB01 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "/Users/jamie/ax-libs/osx/gtest.framework"; sourceTree = "<absolute>"; };
+		7D1F9E2D13CCC70F00E95E7F /* layout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = layout.cpp; path = src/Modules/layout.cpp; sourceTree = "<group>"; };
+		7D1F9E2E13CCC70F00E95E7F /* layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layout.h; path = src/Modules/layout.h; sourceTree = "<group>"; };
+		7D1F9E2F13CCC70F00E95E7F /* performance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = performance.cpp; path = src/Modules/performance.cpp; sourceTree = "<group>"; };
+		7D1F9E3013CCC71000E95E7F /* performance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = performance.h; path = src/Modules/performance.h; sourceTree = "<group>"; };
+		7D1F9E3113CCC71000E95E7F /* solesmes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = solesmes.cpp; path = src/Modules/solesmes.cpp; sourceTree = "<group>"; };
+		7D1F9E3213CCC71000E95E7F /* solesmes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = solesmes.h; path = src/Modules/solesmes.h; sourceTree = "<group>"; };
+		7D1F9E7913CCD5C900E95E7F /* iomeixml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iomeixml.h; path = src/iomeixml.h; sourceTree = "<group>"; };
+		7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iomeixml.cpp; path = src/iomeixml.cpp; sourceTree = "<group>"; };
+		7D5F31D313C8CA940037636E /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = src/types.h; sourceTree = "<group>"; };
+		7D5F31D413C8CA940037636E /* types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = types.cpp; path = src/types.cpp; sourceTree = "<group>"; };
+		7D5F31D813C8F0270037636E /* types_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = types_test.cpp; path = test/types_test.cpp; sourceTree = "<group>"; };
+		7D5F326413C90C970037636E /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../Library/Frameworks/gtest.framework; sourceTree = SOURCE_ROOT; };
 		7DAB6177138C27EF00E691FC /* mei */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = mei; path = build/Debug/mei.framework/Versions/A/mei; sourceTree = "<group>"; };
 		7DAB617D138C282E00E691FC /* mei */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = mei; path = build/Release/mei.framework/Versions/A/mei; sourceTree = "<group>"; };
 		9B11C8AC132E6CC80090FDA6 /* neume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = neume.h; path = src/Modules/neume.h; sourceTree = "<group>"; };
@@ -148,8 +170,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D138AE81386E13500BDEB01 /* gtest.framework in Frameworks */,
 				61DBCCE81312C99500B46918 /* mei.framework in Frameworks */,
+				7D5F326513C90C970037636E /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +214,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				7D138AE41386E12C00BDEB01 /* gtest.framework */,
+				7D5F326413C90C970037636E /* gtest.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -209,6 +231,10 @@
 				9BDC6437132A90430062255E /* meidocument.h */,
 				9BDC6438132A90430062255E /* meidocument.cpp */,
 				9B2EE931133117D700C94712 /* exceptions.h */,
+				7D5F31D313C8CA940037636E /* types.h */,
+				7D5F31D413C8CA940037636E /* types.cpp */,
+				7D1F9E7913CCD5C900E95E7F /* iomeixml.h */,
+				7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -230,6 +256,7 @@
 				9BE4E74E131D64B400A59F5D /* meielement_test.cpp */,
 				9B3CB641132151680054C2DC /* meiattribute_test.cpp */,
 				9BDC64A0132AB3520062255E /* meidocument_test.cpp */,
+				7D5F31D813C8F0270037636E /* types_test.cpp */,
 				9B956907133CE2780034FC1E /* module_shared_test.cpp */,
 				9B802B8F1347A51B007966B0 /* sample.xml */,
 			);
@@ -247,8 +274,14 @@
 		9B11C8A5132E6C4E0090FDA6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9B11C8B2132E75120090FDA6 /* shared.h */,
 				9B11C8AC132E6CC80090FDA6 /* neume.h */,
+				7D1F9E2D13CCC70F00E95E7F /* layout.cpp */,
+				7D1F9E2E13CCC70F00E95E7F /* layout.h */,
+				7D1F9E2F13CCC70F00E95E7F /* performance.cpp */,
+				7D1F9E3013CCC71000E95E7F /* performance.h */,
+				7D1F9E3113CCC71000E95E7F /* solesmes.cpp */,
+				7D1F9E3213CCC71000E95E7F /* solesmes.h */,
+				9B11C8B2132E75120090FDA6 /* shared.h */,
 				9B11C8AD132E6CC80090FDA6 /* neume.cpp */,
 				9B11C8B3132E75120090FDA6 /* shared.cpp */,
 				9B716F03133D361E00A862F8 /* text.h */,
@@ -320,6 +353,11 @@
 				9B56BB4D1342730500BEAB84 /* ptrref.h in Headers */,
 				9B56BB52134273E000BEAB84 /* usersymbols.h in Headers */,
 				9B56BB621342751000BEAB84 /* header.h in Headers */,
+				7D5F31D513C8CA940037636E /* types.h in Headers */,
+				7D1F9E3413CCC71000E95E7F /* layout.h in Headers */,
+				7D1F9E3613CCC71000E95E7F /* performance.h in Headers */,
+				7D1F9E3813CCC71000E95E7F /* solesmes.h in Headers */,
+				7D1F9E7B13CCD5C900E95E7F /* iomeixml.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB3F38A13CB4F9300FC04B0 /* types_test.cpp in Sources */,
 				9B956922133CE68B0034FC1E /* neume.cpp in Sources */,
 				9B956923133CE68B0034FC1E /* shared.cpp in Sources */,
 				9B956909133CE2780034FC1E /* module_shared_test.cpp in Sources */,
@@ -443,7 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B716FA9133D4B0300A862F8 /* cmnornaments.cpp in Sources */,
+				7D05FBFC13D60DAA00D5A99A /* cmnornaments.cpp in Sources */,
 				9B716FC9133D559200A862F8 /* facsimile.cpp in Sources */,
 				9B716F8B133D403000A862F8 /* cmn.cpp in Sources */,
 				9B716FD9133D588800A862F8 /* linkalign.cpp in Sources */,
@@ -465,6 +504,11 @@
 				9B56BB4E1342730500BEAB84 /* ptrref.cpp in Sources */,
 				9B56BB53134273E000BEAB84 /* usersymbols.cpp in Sources */,
 				9B56BB631342751000BEAB84 /* header.cpp in Sources */,
+				7D5F31D613C8CA940037636E /* types.cpp in Sources */,
+				7D1F9E3313CCC71000E95E7F /* layout.cpp in Sources */,
+				7D1F9E3513CCC71000E95E7F /* performance.cpp in Sources */,
+				7D1F9E3713CCC71000E95E7F /* solesmes.cpp in Sources */,
+				7D1F9E7C13CCD5C900E95E7F /* iomeixml.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,12 +609,14 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/gtest-1.5.0/xcode/build/Release\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/build/Debug\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/..\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../ax-libs/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -594,12 +640,14 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/gtest-1.5.0/xcode/build/Release\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/build/Debug\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/..\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../ax-libs/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../build/Release";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
@@ -620,10 +668,7 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../ax-libs/osx\"";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -637,10 +682,7 @@
 				INFOPLIST_FILE = "mei-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "$(EXECUTABLE_PATH)";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/build/Debug/mei.framework/Versions/A\"";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
@@ -658,11 +700,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../ax-libs/osx\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
@@ -671,11 +709,7 @@
 				INFOPLIST_FILE = "mei-Info.plist";
 				INSTALL_PATH = "/Library/Frameworks/$(EXECUTABLE_PATH)";
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/build/Debug/mei.framework/Versions/A\"";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = mei;

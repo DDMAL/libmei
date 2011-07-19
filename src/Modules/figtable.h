@@ -78,4 +78,4 @@ private:
 
 
 
-#endif //FIGTABLE_H_
+#endif // FIGTABLE_H_

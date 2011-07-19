@@ -50,4 +50,4 @@ public:
 private:
 };
 
-#endif
+#endif // PERFORMANCE_H_

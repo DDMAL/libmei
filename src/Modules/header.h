@@ -524,7 +524,4 @@ public:
 private:
 };	
 
-
-
-
-#endif
+#endif // HEADER_H_

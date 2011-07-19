@@ -138,4 +138,4 @@ protected:
 	MeiElement* zone;
 };
 
-#endif //TYPES_H_
+#endif // TYPES_H_
