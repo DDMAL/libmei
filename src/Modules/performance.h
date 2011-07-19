@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef HEADER_H_
-#define HEADER_H_
+#ifndef PERFORMANCE_H_
+#define PERFORMANCE_H_
 
 #include "meielement.h"
 

@@ -23,27 +23,22 @@
 
 #include "meielement.h"
 #include "meiattribute.h"
+#include "types.h"
 #include "exceptions.h"
 
-class Layout: public MeiElement {
-public:
-    Layout();
-private:
-};
-
-class Neume: public MeiElement {
+class Neume: public SpatialElement {
     public:
         Neume();
     private:    
 };
 
-class Division: public MeiElement {
+class Division: public SpatialElement {
     public:
         Division();
     private:
 };
 
-class Episema: public MeiElement {
+class Episema: public SpanningElement {
     public:
         Episema();
     private:
