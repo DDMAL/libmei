@@ -41,9 +41,9 @@ private:
 };
 
 /** \brief */
-class AltMeiid: public MeiElement {
+class AltId: public MeiElement {
 public:
-	AltMeiid();
+	AltId();
 private:
 };
 
@@ -281,13 +281,6 @@ class PhysMedium: public MeiElement {
 class PlateNum: public MeiElement {
 	public:
 		PlateNum();
-	private:
-};
-
-/** \brief */
-class ProfileDesc: public MeiElement {
-	public:
-		ProfileDesc();
 	private:
 };
 

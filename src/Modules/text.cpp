@@ -26,9 +26,6 @@
 Back::Back(): MeiElement("back") {
 }
 
-BlockQuote::BlockQuote(): MeiElement("blockquote") {
-}
-
 Div::Div(): MeiElement("div") {
 }
 
@@ -51,4 +48,7 @@ Lg::Lg(): MeiElement("lg") {
 }
 
 List::List(): MeiElement("list") {
+}
+
+Quote::Quote(): MeiElement("quote") {
 }

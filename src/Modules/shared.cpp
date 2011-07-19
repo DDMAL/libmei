@@ -32,6 +32,9 @@ Accid::Accid(string accidental): MeiElement("accid") {
     addAttribute(accid);
 }
 
+Accid::Accid(): MeiElement("accid") {
+}
+
 Address::Address(): MeiElement("address") {
 }
 
@@ -145,10 +148,13 @@ Grpsym::Grpsym(): MeiElement("grpsym") {
 Identifier::Identifier(): MeiElement("identifier") {
 }
 
-Instrdef::Instrdef(): MeiElement("instrDef") {
+Incip::Incip(): MeiElement("incip") {
 }
 
-Instrgrp::Instrgrp(): MeiElement("instrGrp") {
+InstrDef::InstrDef(): MeiElement("instrDef") {
+}
+
+InstrGrp::InstrGrp(): MeiElement("instrGrp") {
 }
 
 KeyAccid::KeyAccid(): MeiElement("keyAccid") {
@@ -328,6 +334,9 @@ void Rest::setStemDir(string direction) {
 
 Sb::Sb(): MeiElement("sb") {
 }
+
+Section::Section(): MeiElement("section") {
+};
 
 Score::Score(): MeiElement("score") {
 }

@@ -29,7 +29,7 @@ AccessRestrict::AccessRestrict(): MeiElement("accessRestrict") {
 AcqSource::AcqSource(): MeiElement("acqSource") {
 }
 
-AltMeiid::AltMeiid(): MeiElement("altmeiid") {
+AltId::AltId(): MeiElement("altId") {
 }
 
 Application::Application(): MeiElement("application") {
@@ -134,7 +134,10 @@ PhysMedium::PhysMedium(): MeiElement("physMedium") {
 PlateNum::PlateNum(): MeiElement("plateNum") {
 }
 
-ProfileDesc::ProfileDesc(): MeiElement("profiledesc") {
+Price::Price() : MeiElement("price") {
+}
+
+ProjectDesc::ProjectDesc() : MeiElement("projectDesc") {
 }
 
 Provenance::Provenance(): MeiElement("provenance") {

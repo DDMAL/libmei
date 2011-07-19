@@ -35,9 +35,9 @@ private:
 };
 
 /** \brief A formatting element that designates an extended quotation.*/
-class BlockQuote: public MeiElement	{
+class Quote: public MeiElement	{
 public:
-	BlockQuote();
+	Quote();
 private:
 };
 

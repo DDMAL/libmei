@@ -247,19 +247,27 @@ class Identifier: public MeiElement
 	private:
 	};
 
-/** \brief MIDI instrument declaration.*/
-class Instrdef: public MeiElement
+/** \brief The opening words or music of a composition. */
+class Incip: public MeiElement
 	{
 	public:
-		Instrdef();
+		Incip();
+	private:
+	};
+
+/** \brief MIDI instrument declaration.*/
+class InstrDef: public MeiElement
+	{
+	public:
+		InstrDef();
 	private:
 	};
 
 /** \brief Collects MIDI instrument definitions.*/
-class Instrgrp: public MeiElement
+class InstrGrp: public MeiElement
 	{
 	public:
-		Instrgrp();
+		InstrGrp();
 	private:
 	};
 
@@ -370,8 +378,7 @@ class Note: public PitchedElement, public DurationElement, public SpatialElement
         string getTuplet() throw (AttributeNotFoundException);
         void setTuplet(string tuplet);
 		
-	private:        
-        vector<Accid> accidentals;
+	private:
 	};
 
 /** \brief Numeric information in any form. */
