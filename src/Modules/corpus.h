@@ -12,6 +12,10 @@
 
 #include "meielement.h"
 
+/** \brief The document element for a group of related MEI documents, 
+ *         each with its own complete header, contains a header for the group, 
+ *         and one or more <mei> elements.
+ */
 class MeiCorpus: public MeiElement {
 public:
 	MeiCorpus();

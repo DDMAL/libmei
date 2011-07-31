@@ -12,18 +12,26 @@
 
 #include "meielement.h"
 
+/** \brief a graphically interrupted neume; that is, a neume which is logically a single entity 
+ *         but is written using multiple signs.
+ */
 class Ineume: public MeiElement	{
 	public:
 		Ineume();
 	private:
 	};
 
+/** \brief Neume notation can be thought of as "neumed text". 
+ *         Therefore, the syllable element provides high-level 
+ *         organization in this repertoire. 
+ */
 class Syllable: public MeiElement	{
 public:
 	Syllable();
 private:
 };
 
+/** \brief A graphically-uninterrupted neume sign.*/
 class Uneume: public MeiElement	{
 	public:
 		Uneume();
@@ -36,7 +44,5 @@ class Uneume: public MeiElement	{
 //	Division();
 //private:
 //};
-
-
 
 #endif // NEUME_H_

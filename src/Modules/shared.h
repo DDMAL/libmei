@@ -13,8 +13,7 @@
 #include "meiattribute.h"
 #include "exceptions.h"
 
-/** \brief A generic element for a shortened form of a word, including an acronym.
- */
+/** \brief A generic element for a shortened form of a word, including an acronym.*/
 class Abbr: public MeiElement
 	{
 	public:
@@ -22,8 +21,7 @@ class Abbr: public MeiElement
 	private:
 	};
 
-/** \brief Records a temporary alteration to the pitch of a note.
- */
+/** \brief Records a temporary alteration to the pitch of a note.*/
 class Accid: public MeiElement
 	{
 	public:
@@ -31,6 +29,7 @@ class Accid: public MeiElement
 	private:
 	};
 
+/** \brief Contains a postal address, for example of a publisher, an organization, or an individual. */
 class Address: public MeiElement
 	{
 	public:
@@ -38,6 +37,7 @@ class Address: public MeiElement
 	private:
 	};
 
+/** \brief Single line of a postal address.*/
 class AddressLine: public MeiElement
 	{
 	public:
@@ -45,6 +45,7 @@ class AddressLine: public MeiElement
 	private:
 	};
 
+/** \brief Provides a short statement explaining the text or indicating the basis for an assertion.*/
 class Annot: public MeiElement
 	{
 	public:
@@ -52,6 +53,7 @@ class Annot: public MeiElement
 	private:
 	};
 
+/** \brief Groups information about applications which have acted upon the MEI file. */
 class AppInfo: public MeiElement
 	{
 	public:
@@ -59,6 +61,7 @@ class AppInfo: public MeiElement
 	private:
 	};
 
+/** \brief An indication of how to play a note or chord.*/
 class Artic: public MeiElement
 	{
 	public:
@@ -70,6 +73,7 @@ class Artic: public MeiElement
 	private:
 	};
 
+/** \brief Vertical line drawn through one or more staves that divides musical notation into metrical units.*/
 class BarLine: public MeiElement
 	{
 	public:
@@ -77,6 +81,7 @@ class BarLine: public MeiElement
 	private:
 	};
 
+/** \brief rovides a citation for a published work.*/
 class Bibl: public MeiElement
 	{
 	public:
@@ -84,6 +89,8 @@ class Bibl: public MeiElement
 	private:
 	};
 
+/** \brief This element contains the actual music data of the MEI encoding, 
+ *         as opposed to the header, front, and back elements, which do not.*/
 class Body: public MeiElement
 	{
 	public:
@@ -91,6 +98,7 @@ class Body: public MeiElement
 	private:
 	};
 
+/** \brief A label which accompanies an illustration or a table.*/
 class Caption: public MeiElement
 	{
 	public:
@@ -98,6 +106,7 @@ class Caption: public MeiElement
 	private:
 	};
 
+/** \brief A simultaneous sounding of two or more notes in the same layer with the same duration.*/
 class Chord: public MeiElement
 	{
 	public:
@@ -117,6 +126,7 @@ class Chord: public MeiElement
         string duration;
 	};
 
+/** \brief Indication of the exact location of a particular note on the staff and, therefore, the other notes as well. */
 class Clef: public MeiElement 
 	{
 	public:
@@ -124,6 +134,7 @@ class Clef: public MeiElement
 	private:
 	};
 
+/** \brief A temporary change of clef.*/
 class ClefChange: public MeiElement
 	{
 	public:
@@ -131,6 +142,7 @@ class ClefChange: public MeiElement
 	private:
 	};
 
+/** \brief Symbol placed at the end of a line of music to indicate the first note of the next line.*/
 class Custos: public MeiElement
 	{
 	public:
@@ -138,6 +150,7 @@ class Custos: public MeiElement
 	private:
 	};
 
+/** \brief A date in any format, including a date range.*/
 class Date: public MeiElement
 	{
 	public:
@@ -145,6 +158,7 @@ class Date: public MeiElement
 	private:
 	};
 
+/** \brief Directive: A text expression that is on the score but not encoded elsewhere in more specific elements, such as <tempo> or <dynam>.*/
 class Dir: public MeiElement
 	{
 	public:
@@ -152,6 +166,7 @@ class Dir: public MeiElement
 	private:
 	};
 
+/** \brief This element provides an alternative to the dots attribute on chord, note, rest, space, tuplet, and tupletspan elements.*/
 class Dot: public MeiElement
 	{
 	public:
@@ -159,6 +174,7 @@ class Dot: public MeiElement
 	private:
 	};
 
+/** \brief Indication of the volume of a note, phrase, or section of music.*/
 class Dynam: public MeiElement
 	{
 	public:
@@ -166,6 +182,7 @@ class Dynam: public MeiElement
 	private:
 	};
 
+/** \brief Edition Designation */
 class Edition: public MeiElement
 	{
 	public:
@@ -173,6 +190,7 @@ class Edition: public MeiElement
 	private:
 	};
 
+/** \brief Alternative ending for a repeated passage of music; i.e., prima volta, seconda volta, etc.*/
 class Ending: public MeiElement
 	{
 	public:
@@ -180,6 +198,7 @@ class Ending: public MeiElement
 	private:
 	};
 
+/** \brief Contains the expansion of an abbreviation.*/
 class Expan: public MeiElement
 	{
 	public:
@@ -187,6 +206,7 @@ class Expan: public MeiElement
 	private:
 	};
 
+/** \brief Indicates how a section may be programmatically expanded into its 'through-composed' form.*/
 class Expansion: public MeiElement
 	{
 	public:
@@ -194,6 +214,7 @@ class Expansion: public MeiElement
 	private:
 	};
 
+/** \brief This element is intended for capture of header/footer material that is non-repeating.*/
 class Fw: public MeiElement
 	{
 	public:
@@ -201,6 +222,7 @@ class Fw: public MeiElement
 	private:
 	};
 
+/** \brief Enables the gathering of multiple documents into a single file.*/
 class Group: public MeiElement
 	{
 	public:
@@ -208,6 +230,7 @@ class Group: public MeiElement
 	private:
 	};
 
+/** \brief A brace or bracket used to group two or more staves of a score or part. */
 class Grpsym: public MeiElement
 	{
 	public:
@@ -215,6 +238,7 @@ class Grpsym: public MeiElement
 	private:
 	};
 
+/** \brief An alpha-numeric string that establishes the identity of the described material, such as a Standard Book Number*/
 class Identifier: public MeiElement
 	{
 	public:
@@ -222,6 +246,7 @@ class Identifier: public MeiElement
 	private:
 	};
 
+/** \brief MIDI instrument declaration.*/
 class Instrdef: public MeiElement
 	{
 	public:
@@ -229,6 +254,7 @@ class Instrdef: public MeiElement
 	private:
 	};
 
+/** \brief Collects MIDI instrument definitions.*/
 class Instrgrp: public MeiElement
 	{
 	public:
@@ -236,6 +262,7 @@ class Instrgrp: public MeiElement
 	private:
 	};
 
+/** \brief Accidental in a key signature.*/
 class KeyAccid: public MeiElement
 	{
 	public:
@@ -243,6 +270,7 @@ class KeyAccid: public MeiElement
 	private:
 	};
 
+/** \brief */
 class KeyChange: public MeiElement
 	{
 	public:
@@ -250,6 +278,7 @@ class KeyChange: public MeiElement
 	private:
 	};
 
+/** \brief This element may be used as an alternative to the key attribute */
 class KeySig: public MeiElement 
 	{
 	public:
@@ -257,6 +286,7 @@ class KeySig: public MeiElement
 	private:
 	};
 
+/** \brief A text string that identifies a staff or staff group.*/
 class Label: public MeiElement
 	{
 	public:
@@ -264,6 +294,7 @@ class Label: public MeiElement
 	private:
 	};
 
+/** \brief An independent stream of events on a staff.*/
 class Layer: public MeiElement
 	{
 	public:
@@ -271,6 +302,7 @@ class Layer: public MeiElement
 	private:
 	};
 
+/** \brief Container for layer meta-information.*/
 class LayerDef: public MeiElement
 	{
 	public:
@@ -278,6 +310,7 @@ class LayerDef: public MeiElement
 	private:
 	};
 
+/** \brief An empty formatting element that forces text to begin on a new line.*/
 class Lb: public MeiElement
 	{
 	public:
@@ -285,6 +318,7 @@ class Lb: public MeiElement
 	private:
 	};
 
+/** \brief The mdiv element may contain one or both of 2 possible views of the music.*/
 class Mdiv: public MeiElement
 	{
 	public:
@@ -292,6 +326,7 @@ class Mdiv: public MeiElement
 	private:
 	};
 
+/** \brief Defines a particular instance of a document encoded with the MEI schema*/
 class Mei: public MeiElement
 	{
 	public:
@@ -299,6 +334,7 @@ class Mei: public MeiElement
 	private:
 	};
 
+/** \brief Container for everything else in the document apart from the header.*/
 class Music: public MeiElement
 	{
 	public:
@@ -306,6 +342,7 @@ class Music: public MeiElement
 	private:
 	};
 
+/** \brief Contains the name of an entity that is difficult to tag.*/
 class Name: public MeiElement
 	{
 	public:
@@ -313,6 +350,7 @@ class Name: public MeiElement
 	private:
 	};
 
+/** \brief A single pitched event.*/
 class Note: public MeiElement 
 	{
 	public:
@@ -353,6 +391,7 @@ class Note: public MeiElement
         vector<Accid> accidentals;
 	};
 
+/** \brief Numeric information in any form. */
 class Num: public MeiElement
 	{
 	public:
@@ -360,6 +399,7 @@ class Num: public MeiElement
 	private:
 	};
 
+/** \brief One or more text phrases that form a logical prose passage.*/
 class P: public MeiElement
 	{
 	public:
@@ -367,6 +407,7 @@ class P: public MeiElement
 	private:
 	};
 
+/** \brief An indication of extra visual space between notational elements.*/
 class Pad: public MeiElement
 	{
 	public:
@@ -374,6 +415,7 @@ class Pad: public MeiElement
 	private:
 	};
 
+/** \brief An alternative visual rendition of the score from a particular performer's point of view.*/
 class Part: public MeiElement
 	{
 	public:
@@ -381,6 +423,7 @@ class Part: public MeiElement
 	private:
 	};
 
+/** \brief Gathers performers' parts.*/
 class Parts: public MeiElement
 	{
 	public:
@@ -388,6 +431,7 @@ class Parts: public MeiElement
 	private:
 	};
 
+/** \brief The n attribute records the page number in the source.*/
 class Pb: public MeiElement
 	{
 	public:
@@ -395,6 +439,7 @@ class Pb: public MeiElement
 	private:
 	};
 
+/** \brief Contains a brief prose description of the appearance or description of the content of a physical page.*/
 class PgDesc: public MeiElement
 	{
 	public:
@@ -402,6 +447,7 @@ class PgDesc: public MeiElement
 	private:
 	};
 
+/** \brief A running footer on the first page.*/
 class PgFoot1: public MeiElement
 	{
 	public:
@@ -409,6 +455,7 @@ class PgFoot1: public MeiElement
 	private:
 	};
 
+/** \brief A running header on the pages following the first.*/
 class PgFoot2: public MeiElement
 	{
 	public:
@@ -416,6 +463,7 @@ class PgFoot2: public MeiElement
 	private:
 	};
 
+/** \brief A running header on the first page.*/
 class PgHead1: public MeiElement
 	{
 	public:
@@ -423,6 +471,7 @@ class PgHead1: public MeiElement
 	private:
 	};
 
+/** \brief A running header on the pages following the first.*/
 class PgHead2: public MeiElement
 	{
 	public:
@@ -430,6 +479,7 @@ class PgHead2: public MeiElement
 	private:
 	};
 
+/** \brief A phrase marking indicating a "unified melodic idea" in terms of the musical flow*/
 class Phrase: public MeiElement
 	{
 	public:
@@ -437,6 +487,7 @@ class Phrase: public MeiElement
 	private:
 	};
 
+/** \brief A formatting element indicating special visual rendering.*/
 class Rend: public MeiElement
 	{
 	public:
@@ -444,6 +495,7 @@ class Rend: public MeiElement
 	private:
 	};
 
+/** \brief Institution or agency which holds a bibliographic item.*/
 class Repository: public MeiElement
 	{
 	public:
@@ -451,6 +503,7 @@ class Repository: public MeiElement
 	private:
 	};
 
+/** \brief A non-sounding event found in the source being transcribed*/
 class Rest: public MeiElement
 	{
 	public:
@@ -469,6 +522,7 @@ class Rest: public MeiElement
 	private:
 	};
 
+/** \brief An empty formatting element that forces notation to begin on a new line.*/
 class Sb: public MeiElement
 	{
 	public:
@@ -476,6 +530,7 @@ class Sb: public MeiElement
 	private:
 	};
 
+/** \brief Full score view of the mdiv*/
 class Score: public MeiElement
 	{
 	public:
@@ -483,6 +538,7 @@ class Score: public MeiElement
 	private:
 	};
 
+/** \brief Container for score meta-information.*/
 class ScoreDef: public MeiElement
 	{
 	public:
@@ -490,6 +546,7 @@ class ScoreDef: public MeiElement
 	private:
 	};
 
+/** \brief Container for actual music data.*/
 class Section: public MeiElement
 	{
 	public:
@@ -497,6 +554,7 @@ class Section: public MeiElement
 	private:
 	};
 
+/** \brief A placeholder used to fill an incomplete measure, layer, etc. so that the combined duration of events equals the number of beats in the measure.*/
 class Space: public MeiElement
 	{
 	public:
@@ -504,6 +562,7 @@ class Space: public MeiElement
 	private:
 	};
 
+/** \brief An inline table with a single column.*/
 class Stack: public MeiElement
 	{
 	public:
@@ -511,6 +570,7 @@ class Stack: public MeiElement
 	private:
 	};
 
+/** \brief A group of equidistant horizontal lines on which notes are placed in order to represent pitch.*/
 class Staff: public MeiElement
 	{
 	public:
@@ -518,6 +578,7 @@ class Staff: public MeiElement
 	private:
 	};
 
+/** \brief Container for staff meta-information.*/
 class StaffDef: public MeiElement
 	{
 	public:
@@ -529,6 +590,7 @@ class StaffDef: public MeiElement
 	private:
 	};
 
+/** \brief A group of bracketed or braced staves.*/
 class StaffGrp: public MeiElement
 	{
 	public:
@@ -536,6 +598,7 @@ class StaffGrp: public MeiElement
 	private:
 	};
 
+/** \brief Individual lyric syllable.*/
 class Syl: public MeiElement
 	{
 	public:
@@ -543,6 +606,7 @@ class Syl: public MeiElement
 	private:
 	};
 
+/** \brief Text and symbols descriptive of tempo, mood, or style.*/
 class Tempo: public MeiElement
 	{
 	public:
@@ -550,6 +614,7 @@ class Tempo: public MeiElement
 	private:
 	};
 
+/** \brief Title of a bibliographic entity.*/
 class Title: public MeiElement
 	{
 	public:
@@ -557,6 +622,7 @@ class Title: public MeiElement
 	private:
 	};
 
+/** \brief Contains a transcription of the title page of a text.*/
 class TitlePage: public MeiElement
 	{
 	public:
@@ -564,8 +630,8 @@ class TitlePage: public MeiElement
 	private:
 	};
 
-
 // added in MEI 2011
+/** \brief */
 class CastItem: public MeiElement
 {
     public:
@@ -573,6 +639,7 @@ class CastItem: public MeiElement
     private:
 };
 
+/** \brief */
 class RoleDesc: public MeiElement
 {
 public:
@@ -580,6 +647,7 @@ public:
 private:
 };
 
+/** \brief */
 class Actor: public MeiElement
 {
 public:
@@ -587,6 +655,7 @@ public:
 private:
 };
 
+/** \brief */
 class Role: public MeiElement
 {
 public:
@@ -594,6 +663,7 @@ public:
 private:
 };
 
+/** \brief */
 class CastList: public MeiElement
 {
 public:
@@ -601,6 +671,7 @@ public:
 private:
 };
 
+/** \brief */
 class CastGrp: public MeiElement
 {
 public:

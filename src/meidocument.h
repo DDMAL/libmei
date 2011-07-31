@@ -35,18 +35,45 @@ class MeiDocument
          */
 		MeiDocument(string docname, string encoding);
 		
+        /** \brief Get the name of the document
+         *  
+         *  Each document is initially creating with a name and encoding thus a document 
+         *  name must exist if a valid Mei document exists
+         *  \return The document name
+         */
 		string getDocName();
+        
+        /** \brief Set/change the name of the Mei document */
         void setDocName(string docname);
         
+        /** \brief Get the string indicating the Mei document encoding*/
 		string getEncoding();
 		
+        /** \brief Set/change the encoding of the Mei document*/
 		void setEncoding(string encoding);
-
+        
+        /** \brief Find the root element of the tree structure in the Mei document*/
 		MeiElement* getRootElement();
-		void setRootElement(MeiElement* root);
 		
+        /** \brief Make an Mei element the Root element of a document*/
+        void setRootElement(MeiElement* root);
+        
+		
+        /** \brief Read an Mei file in XMl format and create an Mei Document containing the Mei tree structure.
+         *
+         *  The xml file is found using its name and encoding. The method will go through the xml structure recursively
+         *  and create an Mei tree accordingly.
+         *  \return An Mei Document containing the Mei tree structure or NULL if the XML file does not exist
+         */
 		static MeiDocument* ReadFromXml(string docname, string encoding);
-		void WriteToXml(MeiDocument* meidoc);
+		
+        /** \brief Take an Mei Document and convert it to Xml format; creates an xml output.
+         *  
+         *  The method will go through the Mei Document structure recursively and create xml tags
+         *  maintaining the same element structure and attributes. A final xml file is created and written
+         *  to a filename and location in the directory.
+         */
+        void WriteToXml(MeiDocument* meidoc);
 		
 	private:
 		string docname;

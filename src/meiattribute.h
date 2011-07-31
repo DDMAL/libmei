@@ -16,8 +16,8 @@ using std::string;
 
 class MeiElement;
 
-/** \brief  A representation of an attribute associate to an element within the MEI schema, 
- *          in essence describing the properties of the Mei Element. 
+/** \brief  A representation of an attribute associated to an element in the MEI schema, 
+ *          attributes describe the properties of the Mei Element. 
  * 
  * MeiAttributes are descriptors associated with MeiElements and are stored on the element. 
  * Each MeiAttribute needs a name and a value to be created and read. 
@@ -28,17 +28,32 @@ class MeiElement;
 class MeiAttribute
 	{
 	public:
-        /** \brief The MeiAttribute Constructor, requires the attribute name and value
-         */
+        /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
 		MeiAttribute(string attrname, string attrvalue);
 		
+        /** \brief Get the name of the attribute.
+         *
+         *  Each attribute is created with a name and value, the attribute cannot exist without a name
+         *  \return string containing the attribute name.
+         */
 		string getName();
+        
+        /** \brief Set/Change the name of an attribute*/
         void setName(string attrname);
         
+        /** \brief Get the value of the attribute.
+         *  \return A string indicating the attribute value
+         */
 		string getValue();
+
+        /** \brief Set/change the value of an attribute*/
 		void setValue(string attrvalue);
         
+        /** \brief Get the prefix associated with an attribute
+         */
         string getPrefix();
+
+        /** \brief Set/change the prefix associated with an attribute*/
         void setPrefix(string prfx);
 		
 	private:

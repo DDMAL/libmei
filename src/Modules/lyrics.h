@@ -12,6 +12,7 @@
 
 #include "meielement.h"
 
+/** \brief Lyric verse. */
 class Verse: public MeiElement {
 public:
 	Verse();

@@ -13,6 +13,9 @@
 #include "meielement.h"
 #include "exceptions.h"
 
+/** \brief An ornament indicating rapid alternation of the main note with a secondary note, 
+ *         usually a step below, but sometimes a step above.
+ */
 class Mordent: public MeiElement {
 public:
 	Mordent();
@@ -32,22 +35,20 @@ public:
 private:
 };
 
+/** \brief Rapid alternation of a note with one (usually at the interval of a second) above.*/
 class Trill: public MeiElement {
 public:
 	Trill();
 private:
 };
 
+/** \brief An ornament consisting of four notes – the upper neighbor of the written note, the written note, 
+ *         the lower neighbor, and the written note.
+ */
 class Turn: public MeiElement {
 public:
 	Turn();
 private:
 };
-
-
-
-
-
-
 
 #endif // CMNORNAMENTS_H_

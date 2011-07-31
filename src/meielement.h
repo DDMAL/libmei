@@ -23,8 +23,8 @@ struct MeiNs {
     string href;
 };
 
-/** \brief  A representation of an MEI tag refering to a single element within a tree, 
- *          the element may contain attributes and children based on musical logic. 
+/** \brief  A representation of an MEI tag refering to an element in an MEI tree, 
+ *          the element may contain attributes and child elements. 
  * 
  * MeiElements are in essence single tags in the MEI schema. 
  * They are stored as tree nodes each of which contains information within itself 
@@ -97,27 +97,33 @@ class MeiElement
          */
 		bool meiCompare(MeiElement element1, MeiElement element2);
         
-        /** \brief
+        /** \brief Adds an attribute to the list of attributes associated with an Mei Element
          */
 		void addAttribute(MeiAttribute attribute);
         
-        /** \brief
+        /** \brief Find and delete an attribute associated with an Mei element using the attribute's name.
          */
 		void removeAttribute(string name);
         
-        /** \brief
+        /** \brief Determine whether an attribute is associated with an Mei element 
+         *         given the attribute's name
+         *
+         *  \return True if the attribute exists, False if it does not
          */
 		bool hasAttribute(string name);
         
-        /** \brief
+        /** \brief Obtain a list of all the child elements of an Mei element
+         *  \return A vector of Mei elements (the element's children)
          */
 		vector <MeiElement>& getChildren();
         
-        /** \brief
+        /** \brief Make the Mei element c the child of another Mei element, 
+         *         c is added to the list of children associated with the Mei element. 
          */
 		void addChild(MeiElement c);
         
-        /** \brief
+        /** \brief Find and remove an element from the children of an Mei element using
+         *         the child element's name
          */
 		void removeChildren(string childName);
         
@@ -125,23 +131,28 @@ class MeiElement
          */
 		//void removeChild(MeiElement c);
         
-        /** \brief
+        /** \brief Determine whether an element is a child of another Mei element
+         *  
+         *  \return TRUE if the parent-child association exists between the elements,
+         *          otherwise FALSE
          */
 		bool hasChild(string childName);
         
-        /** \brief
+        /** \brief Make multiple Mei elements children of a parent Mei element, 
+         *         the child elements must be in a vector to be added similtaneously
          */
         void addChildren(vector<MeiElement> children);
         
-        /** \brief
-         */
+        /** \brief Get the facsimile*/
         MeiAttribute* getFacs();
         
-        /** \brief
-         */
+        /** \brief Set the facsimile*/
         void setFacs(string uuid);
         
+        /** \brief Print the current Mei tree*/
 		void print();
+        
+        /** \brief Print the current Mei tree given an indentation*/
 		void print(int l);
 				
 	private:

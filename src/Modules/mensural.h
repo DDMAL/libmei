@@ -13,18 +13,21 @@
 
 #include "meielement.h"
 
+/** \brief A mensural notation symbol that combines two or more notes into a single sign.*/
 class Ligature: public MeiElement {
 public:
 	Ligature();
 private:
 };
 
+/** \brief The <mensur> element is provided for the encoding of mensural notation. */
 class Mensur: public MeiElement {
 public:
 	Mensur();
 private:
 };
 
+/** \brief The <proportion> element is provided for the encoding of mensural notation.*/
 class Proport: public MeiElement {
 public:
 	Proport();

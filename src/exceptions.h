@@ -14,6 +14,7 @@
 
 using std::exception;
 
+/** \brief Throw an error when an attribute does not exist on an Mei element*/
 class AttributeNotFoundException: public exception
 {
 public:
@@ -36,6 +37,7 @@ private:
 
 };
 
+/** \brief Throw an error when an Mei element has no elements as Children*/
 class ChildrenNotFoundException: public exception
     {
     public:

@@ -12,36 +12,42 @@
 
 #include "meielement.h"
 
+/** \brief */
 class AnchoredText: public MeiElement {
 	public:
 		AnchoredText();
 	private:
 	};
 
+/** \brief */
 class Curve: public MeiElement {
 public:
 	Curve();
 private:
 };
 
+/** \brief */
 class Line: public MeiElement {
 public:
 	Line();
 private:
 };
 
+/** \brief */
 class Symbol: public MeiElement {
 public:
 	Symbol();
 private:
 };
 
+/** \brief */
 class SymbolDef: public MeiElement {
 public:
 	SymbolDef();
 private:
 };
 
+/** \brief */
 class SymbolTable: public MeiElement {
 public:
 	SymbolTable();

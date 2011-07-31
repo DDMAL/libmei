@@ -12,24 +12,36 @@
 
 #include "meielement.h"
 
+/** \brief An empty linking element that uses attributes to connect 
+ *         the MEI document to an external electronic object.
+ */
 class ExtPtr: public MeiElement {
 public:
 	ExtPtr();
 private:
 };
 
+/** \brief A linking element that can include text and sub-elements 
+ *         as a reference to an electronic object external to the MEI document. 
+ */
 class ExtRef: public MeiElement {
 public:
 	ExtRef();
 private:
 };
 
+/** \brief An empty internal linking element that uses attributes to provide for movement 
+ *         from one place in an MEI document to another place in the same document.
+ */
 class Ptr: public MeiElement {
 public:
 	Ptr();
 private:
 };
 
+/** \brief An internal linking element that provides for movement from one place in a 
+ *         MEI document to another point in the same document.
+ */
 class Ref: public MeiElement {
 public:
 	Ref();
