@@ -26,7 +26,8 @@
 #define EXCEPTIONS_H_
 
 #include <exception>
-
+#include <string>
+using std::string;
 using std::exception;
 
 class MeiException: public exception
