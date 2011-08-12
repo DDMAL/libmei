@@ -47,11 +47,10 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
         ns.prefix = (const char*)rootprefix;
 	}
     
-	constructparam p;
-	//set the parameters in here?
-	MeiElement* meiroot = MeiFactory::createInstance(string((const char *)rootelement->name),p);
-	
-	for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
+	MeiElement* meiroot = MeiFactory::createInstanceFromNode(string((const char *)rootelement->name),rootelement);
+    meiroot->setNs(ns);
+    
+	/*for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
         if (rootattr->type == XML_ATTRIBUTE_NODE) {
             attrname = rootattr->name;
             if (rootattr->children != NULL) {
@@ -67,7 +66,7 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
 				}
             }
         }
-    }
+    }*/
     
     XmlNodeToMei(rootelement->children, meiroot);
 	xmlFreeDoc(doc);
@@ -87,64 +86,15 @@ void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
     xmlNs* xmlns = NULL;
 	
     for (curnode = node; curnode; curnode = curnode->next) {
-        if ( curnode->type == XML_TEXT_NODE) {
-			parent->setValue((const char *)curnode->content);
-		} else if (curnode->type == XML_ELEMENT_NODE) {
-            
-            xmlns = curnode->ns;
-			const xmlChar* childhref = xmlns->href;
-			const xmlChar* childprefix = xmlns->prefix;
-			MeiNs ns;
-			if (childhref != NULL) {
-				ns.href = (const char*)childhref;
-			}
-			if (childprefix != NULL) {
-				ns.prefix = (const char*)childprefix;
-			}
-			
-			constructparam p;
-			//set the parameters?
-			MeiElement* child = MeiFactory::createInstance(string((const char *)curnode->name),p);
-			child->setNs(ns);
-			
-			if (curnode->nsDef != NULL) {
-				if (curnode->nsDef->href != NULL && curnode->nsDef->prefix != NULL) {
-					string prefix = (const char*)(curnode->nsDef->prefix);
-					string href = (const char*)(curnode->nsDef->href);
-					MeiAttribute *attribute = new MeiAttribute(prefix,href);
-					attribute->setPrefix("xmlns");
-					child->addAttribute(attribute);
-				}
-			}
-			
-            if (curnode->properties != NULL) {                
-                for (curattr = curnode->properties; curattr; curattr = curattr->next) {
-                    if (curattr->type == XML_ATTRIBUTE_NODE) {
-                        attrname = curattr->name;
-                        if (curattr->children != NULL) {
-							attrvalue = curattr->children;
-							if (curattr->atype == XML_ATTRIBUTE_ID) { //xml:id attribute
-								string ID = (const char *)(attrvalue->content);
-								child->setId(ID);
-							} else {
-								string name = (const char *)(attrname);
-								string value = (const char *)(attrvalue->content);
-								MeiAttribute *curmeiattr = new MeiAttribute(name, value);
-								if (curattr->ns != NULL) {
-									if (curattr->ns->prefix != NULL) {
-										attrprefix = curattr->ns->prefix;
-										string prefix = (const char*)attrprefix;
-										curmeiattr->setPrefix(prefix);
-									}
-								}
-								child->addAttribute(curmeiattr);
-							}
-                        }
-                    }					
-                }
-            }
-            XmlNodeToMei(curnode->children, child);
-			parent->addChild<MeiElement>(child);
+        if (curnode->type == XML_ELEMENT_NODE) {
+            MeiElement* child = MeiFactory::createInstanceFromNode(string((const char*)curnode->name),curnode);
+            if (child) {
+                XmlNodeToMei(curnode->children, child);
+                parent->addChild(child);
+            } else {
+                string message = "unknown node type " + (string)(const char*)curnode->name;
+                throw message;
+            }            
         }
 	}
 }
@@ -184,6 +134,7 @@ void MeiXmlOutputStream::WriteToXml(MeiDocument* meidoc) {
     }
     
     MeiToXmlNode (root, xmlrootnode, xmlrootnode, xmldoc); // fill the XML tree with xmlrootnode as the root element
+    xmlKeepBlanksDefault(0);
     xmlSaveFormatFile((const char*)meidoc->getDocName().c_str(), xmldoc, 1);
 }
 
@@ -238,8 +189,8 @@ void MeiXmlOutputStream::MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparen
 				if (attrprefix != "xmlns") {
 					string attrprefix = (*itera)->getPrefix();
 					if (attrprefix != "") {
-						curxmlns = xmlNewNs (xmlroot, NULL, (const xmlChar*)attrprefix.c_str());
-						curxmlattr = xmlNewNsProp(curxmlnode, curxmlns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+                        string newname = attrprefix + ":" + attrname;
+                        curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)newname.c_str(), (const xmlChar*)attrvalue.c_str());
 					} else {
 						curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
 					}

@@ -26,7 +26,7 @@
 
 class MeiXmlInputStream {
 public:
-	MeiXmlInputStream();
+	MeiXmlInputStream() {};
 	virtual ~MeiXmlInputStream() {};
 	/** \brief Read an Mei file in XMl format and create an Mei Document containing the Mei tree structure.
 	 *
@@ -43,7 +43,7 @@ private:
 
 class MeiXmlOutputStream {
 public:
-	MeiXmlOutputStream();
+	MeiXmlOutputStream() {};
 	virtual ~MeiXmlOutputStream() {};
 	/** \brief Take an Mei Document and convert it to Xml format; creates an xml output.
 	 *  
