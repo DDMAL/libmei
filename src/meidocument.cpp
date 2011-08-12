@@ -25,11 +25,12 @@
 #include "meidocument.h"
 #include "meielement.h"
 
-using std::vector;
+using std::map;
 
 MeiDocument::MeiDocument(string docname, string encoding) {
 	this->docname = docname;
 	this->encoding = encoding;
+    this->root = NULL;
 }
 
 string MeiDocument::getDocName() {
@@ -54,4 +55,30 @@ MeiElement* MeiDocument::getRootElement() {
 
 void MeiDocument::setRootElement(MeiElement* root) {
 	this->root = root;
+}
+
+MeiElement* MeiDocument::getElementById(string id) {
+    map<string,MeiElement*>::iterator it = getMap()->find(id);
+    if (it != getMap()->end()) {
+        return it->second;
+    }
+    return NULL;
+} 
+
+map<string,MeiElement*> *MeiDocument::getMap() {
+    if (!idmap) {
+        idmap = new map<string,MeiElement*>;
+        FillMap(root);
+    }
+    return idmap;
+}
+
+void MeiDocument::FillMap(MeiElement* element) {
+    MeiAttribute *idattr = element->getAttribute("id");
+    if (idattr) {
+        getMap()->insert(std::make_pair(idattr->getValue(),element));
+    }
+    for (vector<MeiElement*>::iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
+        FillMap(*i);
+    }
 }

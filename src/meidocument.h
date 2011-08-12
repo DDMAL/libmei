@@ -27,12 +27,13 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include "meielement.h"
 
 #include <libxml/xmlreader.h>
 
 using std::string;
-using std::vector;
+using std::map;
 
 /** \brief The entity which will contains all the elements and attributes 
  *         storing a musical piece in the MEI schema. 
@@ -72,11 +73,18 @@ class MeiDocument
 		
         /** \brief Make an Mei element the Root element of a document*/
         void setRootElement(MeiElement* root);
+        
+        /** \return The Mei element with the given id. */
+        MeiElement* getElementById(string id);
 		
 	private:
+        map<string,MeiElement*> *getMap();
+        void FillMap(MeiElement* element);
+        
 		string docname;
 		string encoding;
 		MeiElement* root;
+        map<string,MeiElement*> *idmap;
 	};
 
 #endif // MEIDOCUMENT_H_
