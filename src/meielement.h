@@ -30,12 +30,20 @@
 #include <map>
 
 #include "meiattribute.h"
+#include "exceptions.h"
+#include <libxml/xmlreader.h>
 
 #define REGISTER_DECLARATION(NAME) \
 static DerivedRegister<NAME> reg
 
 #define REGISTER_DEFINITION(NAME,s) \
 DerivedRegister<NAME> NAME::reg(s)
+
+#define NODE_REGISTER_DECLARATION(NAME) \
+static NodeDerivedRegister<NAME> nodereg
+
+#define NODE_REGISTER_DEFINITION(NAME,s) \
+NodeDerivedRegister<NAME> NAME::nodereg(s)
 
 using std::string;
 using std::vector;
@@ -76,6 +84,8 @@ class MeiElement
          */
         MeiElement(string name, string prefix);
 		
+		MeiElement(xmlNode* node);
+		
 		virtual ~MeiElement();
         
 		/** \brief Return the name of the Mei Element
@@ -90,13 +100,6 @@ class MeiElement
          */
         MeiNs getNs();
 		void setNs(MeiNs ns);
-        
-        /** \brief Return the associated ID with the Mei Element
-         */
-        string getId();
-        
-        /** \brief Set the MeiElement ID */
-        void setId(string id);
         
         /** \brief get the xml tail of an Mei Element
          * 
@@ -134,7 +137,7 @@ class MeiElement
         
         /** \brief Adds an attribute to the list of attributes associated with an Mei Element
          */
-		void addAttribute(MeiAttribute *attribute);
+		void addAttribute(MeiAttribute *attribute) throw (DuplicateAttributeException);
         
         /** \brief Find and delete an attribute associated with an Mei element using the attribute's name.
          */
@@ -204,14 +207,26 @@ class MeiElement
         
         /** \brief Print the current Mei tree given an indentation*/
 		void print(int l);
+		
+		vector<MeiElement*> getChildrenByName(string _name);
+		
+		void deleteChildren();
+		
+		vector<MeiElement*> getDescendantsByName(string _name);
+		
+		MeiElement* getDescendantById(string _uuid);
+		
+		MeiElement* getAncestorByName(string _name);
+		
+		bool hasAncestor(string _name);
+		
+		vector<MeiElement*>& getPeers();
 				
 	private:
 		string name;
 		string value;
 		string tail;
 		
-		MeiAttribute attribute(string name, string value);
-		MeiAttribute* idAttr;
 		vector<MeiAttribute*> attributes;
 		vector<MeiElement*> children;
 		MeiElement *parent;
@@ -220,35 +235,43 @@ class MeiElement
 	};
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
-struct constructparam {
-	string string0;
-	constructparam() {
-		string0 = "";
-	}
-};
 
-template<typename T> MeiElement* createT(constructparam p) { return new T(p); }
+template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
+template<typename T> MeiElement* createT() { return new T; }
 
 struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)(constructparam)> map_type;
+    typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
+	typedef std::map<std::string, MeiElement*(*)()> default_map;
 
-    static MeiElement* createInstance(std::string const& s, constructparam p) {
-        map_type::iterator it = getMap()->find(s);
-        if(it == getMap()->end())
+    static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
+        node_map::iterator it = getNodeMap()->find(s);
+        if(it == getNodeMap()->end())
             return NULL;
-        return it->second(p);
+        return it->second(node);
     }
+	
+	static MeiElement* createInstance(std::string const& s) {
+		default_map::iterator it = getMap()->find(s);
+		if(it == getMap()->end())
+			return NULL;
+		return it->second();
+	}
 
 protected:
-    static map_type * getMap() {
+    static node_map * getNodeMap() {
         // never delete'ed. (exist until program termination)
         // because we can't guarantee correct destruction order 
-        if(!map) { map = new map_type; } 
-        return map; 
+        if(!nodemap) { nodemap = new node_map; } 
+        return nodemap; 
     }
+	static default_map * getMap() {
+		if(!defaultmap) { defaultmap = new default_map; }
+		return defaultmap;
+	}
 
 private:
-    static map_type * map;
+    static node_map * nodemap;
+	static default_map * defaultmap;
 };
 
 template<typename T>
@@ -257,5 +280,11 @@ struct DerivedRegister : MeiFactory {
         getMap()->insert(std::make_pair(s, &createT<T>));
     }
 };
-	
+
+template<typename T>
+struct NodeDerivedRegister : MeiFactory {
+	NodeDerivedRegister(std::string const& s) {
+		getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
+	}
+};
 #endif // MEIELEMENT_H_

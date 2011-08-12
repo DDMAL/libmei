@@ -84,4 +84,13 @@ public:
 private:
 };
 
+/** \brief throw an error if an attribute is defined twice */
+class DuplicateAttributeException: public MeiException
+{
+public:
+	DuplicateAttributeException(string attributeName) : MeiException("The attribute " + attributeName + " has been defined multiple times.") { }
+	~DuplicateAttributeException() throw () { };
+private:
+};
+
 #endif // EXCEPTIONS_H_
