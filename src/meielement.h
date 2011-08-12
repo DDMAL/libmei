@@ -29,13 +29,15 @@
 #include <vector>
 #include <map>
 
+#include <libxml/xmlreader.h>
+
 #include "meiattribute.h"
 #include "exceptions.h"
 
-#define NODE_REGISTER_DECLARATION(NAME) \
+#define REGISTER_DECLARATION(NAME) \
 static NodeDerivedRegister<NAME> nodereg
 
-#define NODE_REGISTER_DEFINITION(NAME,s) \
+#define REGISTER_DEFINITION(NAME,s) \
 NodeDerivedRegister<NAME> NAME::nodereg(s)
 
 using std::string;
@@ -212,6 +214,8 @@ class MeiElement
 		bool hasAncestor(string _name);
 		
 		vector<MeiElement*>& getPeers();
+        
+        string getId();
 	
     protected:
         MeiElement();
@@ -230,7 +234,8 @@ class MeiElement
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 
-template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
+//template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
+template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(); }
 struct MeiFactory {
     typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
 

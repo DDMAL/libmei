@@ -59,7 +59,7 @@ void MeiDocument::setRootElement(MeiElement* root) {
         ns.href = MEI_NS;
         root->setNs(ns);
     }
-    root->AttSetter("meiversion",MEI_VERSION);
+    root->addAttribute(new MeiAttribute("meiversion",MEI_VERSION));
     this->root = root;
 }
 

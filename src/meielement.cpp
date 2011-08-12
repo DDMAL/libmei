@@ -23,7 +23,6 @@
 
 #include "meielement.h"
 #include "meiattribute.h"
-#include "sharedmixins.h"
 
 #include <stdio.h>
 
@@ -339,11 +338,11 @@ vector<MeiElement*> MeiElement::getDescendantsByName(string _name) {
 MeiElement* MeiElement::getDescendantById(string _uuid) {
 	vector<MeiElement*>::iterator i = children.begin();
 	while ( i != children.end() ) {
-		try {
-			if (dynamic_cast<CommonMixIn*>(*i)->getId() == _uuid) {
-				return (*i);
-			}
-		} catch (bad_cast) {} catch (AttributeNotFoundException) {}
+        // if *i has an id, check it. if it matches, succeed
+		if ((*i)->getId() == _uuid) {
+			return (*i);
+		}
+        // else, recurse
 		MeiElement* result = (*i)->getDescendantById(_uuid);
 		if (result) {
 			return result;
@@ -374,4 +373,13 @@ bool MeiElement::hasAncestor(string _name) {
 
 vector<MeiElement*>& MeiElement::getPeers() {
 	return parent->getChildren();
+}
+
+string MeiElement::getId() {
+    MeiAttribute *id = getAttribute("id");
+    if (id) {
+        return id->getValue();
+    } else {
+        return "";
+    }
 }

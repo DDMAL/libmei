@@ -25,6 +25,8 @@
 
 #include <libxml/xmlreader.h>
 
+static void XmlNodeToMei(xmlNode* node, MeiElement *parent);
+
 MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
     printf("read from xml\n");
 	xmlDoc *doc = NULL;
@@ -94,6 +96,8 @@ static void XmlNodeToMei(xmlNode* node, MeiElement *parent) {
         }
 	}
 }
+
+void MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc);
 
 void MeiXmlOutputStream::WriteToXml(MeiDocument* meidoc) {
     xmlDocPtr xmldoc = NULL;
