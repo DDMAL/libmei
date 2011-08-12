@@ -156,11 +156,11 @@ class MeiElement
 		
 		/** \return the element's parent, if it exists.
 		 */
-		MeiElement &getParent();
+		MeiElement *getParent();
 		
 		/** \brief sets the element's parent to the given Mei element
 		 */
-		void setParent(MeiElement &_parent);
+		void setParent(MeiElement *_parent);
 		
 		void removeParent();
 		
@@ -174,7 +174,7 @@ class MeiElement
          */
 		template<class T>
 		void addChild(T* c) {
-			dynamic_cast<MeiElement*>(c)->setParent(*this);
+			dynamic_cast<MeiElement*>(c)->setParent(this);
 			children.push_back( dynamic_cast<MeiElement*>(c) );
 		}
         

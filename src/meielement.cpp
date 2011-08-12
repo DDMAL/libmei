@@ -106,14 +106,18 @@ MeiElement::MeiElement(xmlNode* node) {
 									curmeiattr->setPrefix(prefix);
 								}
 							}
-							addAttribute(curmeiattr);
-						}
+                            addAttribute(curmeiattr);
+						} else {
+                            MeiAttribute *idattr = new MeiAttribute("id",string((const char*)attrvalue->content));
+                            idattr->setPrefix("xml");
+                            addAttribute(idattr);
+                        }
 					}
 				}					
 			}
 		}
 		
-		for (curnode = node->children; curnode; node = curnode->next) {
+		for (curnode = node->children; curnode; curnode = curnode->next) {
 			if ( curnode->type == XML_TEXT_NODE) {
 				setValue((const char *)curnode->content);
 			}
@@ -216,16 +220,16 @@ bool MeiElement::hasParent() {
 	return (parent != NULL);
 }
 
-void MeiElement::setParent(MeiElement &_parent) {
-	parent = &_parent;
+void MeiElement::setParent(MeiElement *_parent) {
+	parent = _parent;
 }
 
 void MeiElement::removeParent() {
 	parent = NULL;
 }
 
-MeiElement &MeiElement::getParent() {
-	return *parent;
+MeiElement *MeiElement::getParent() {
+	return parent;
 }
 
 vector<MeiElement*> &MeiElement::getChildren() {

@@ -54,7 +54,13 @@ MeiElement* MeiDocument::getRootElement() {
 }
 
 void MeiDocument::setRootElement(MeiElement* root) {
-	this->root = root;
+    if (root->getNs().href == "") {
+        MeiNs ns = root->getNs();
+        ns.href = MEI_NS;
+        root->setNs(ns);
+    }
+    root->AttSetter("meiversion",MEI_VERSION);
+    this->root = root;
 }
 
 MeiElement* MeiDocument::getElementById(string id) {
