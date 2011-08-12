@@ -34,7 +34,6 @@
 
 using namespace std;
 MeiFactory::node_map * MeiFactory::nodemap;
-MeiFactory::default_map * MeiFactory::defaultmap;
 
 MeiElement::MeiElement() {
 	this->parent = NULL;

@@ -33,12 +33,6 @@
 #include "exceptions.h"
 #include <libxml/xmlreader.h>
 
-#define REGISTER_DECLARATION(NAME) \
-static DerivedRegister<NAME> reg
-
-#define REGISTER_DEFINITION(NAME,s) \
-DerivedRegister<NAME> NAME::reg(s)
-
 #define NODE_REGISTER_DECLARATION(NAME) \
 static NodeDerivedRegister<NAME> nodereg
 
@@ -238,11 +232,8 @@ class MeiElement
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 
 template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
-template<typename T> MeiElement* createT() { return new T; }
-
 struct MeiFactory {
     typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
-	typedef std::map<std::string, MeiElement*(*)()> default_map;
 
     static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
         node_map::iterator it = getNodeMap()->find(s);
@@ -250,13 +241,6 @@ struct MeiFactory {
             return NULL;
         return it->second(node);
     }
-	
-	static MeiElement* createInstance(std::string const& s) {
-		default_map::iterator it = getMap()->find(s);
-		if(it == getMap()->end())
-			return NULL;
-		return it->second();
-	}
 
 protected:
     static node_map * getNodeMap() {
@@ -265,21 +249,8 @@ protected:
         if(!nodemap) { nodemap = new node_map; } 
         return nodemap; 
     }
-	static default_map * getMap() {
-		if(!defaultmap) { defaultmap = new default_map; }
-		return defaultmap;
-	}
-
 private:
     static node_map * nodemap;
-	static default_map * defaultmap;
-};
-
-template<typename T>
-struct DerivedRegister : MeiFactory { 
-    DerivedRegister(std::string const& s) { 
-        getMap()->insert(std::make_pair(s, &createT<T>));
-    }
 };
 
 template<typename T>
