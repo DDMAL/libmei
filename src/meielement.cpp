@@ -64,7 +64,7 @@ MeiElement::MeiElement(xmlNode* node) {
     xmlNode* attrvalue = NULL;
     xmlNs* xmlns = NULL;
 	
-	if (node->type == XML_ELEMENT_NODE) {
+	if (node && node->type == XML_ELEMENT_NODE) {
 		xmlns = node->ns;
 		const xmlChar* childhref = xmlns->href;
 		const xmlChar* childprefix = xmlns->prefix;
@@ -328,7 +328,8 @@ vector<MeiElement*> MeiElement::getDescendantsByName(string _name) {
 		if ((*i)->getName() == _name) {
 			result.push_back(*i);
 		}
-		for (vector<MeiElement*>::iterator it = (*i)->getDescendantsByName(_name).begin(); it != (*i)->getDescendantsByName(_name).end(); ++it) {
+        vector<MeiElement*> grandchildren = (*i)->getDescendantsByName(_name);
+		for (vector<MeiElement*>::iterator it = grandchildren.begin(); it != grandchildren.end(); ++it) {
 			result.push_back(*it);
 		}
 	}
