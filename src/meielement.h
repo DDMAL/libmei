@@ -31,7 +31,6 @@
 
 #include "meiattribute.h"
 #include "exceptions.h"
-#include <libxml/xmlreader.h>
 
 #define NODE_REGISTER_DECLARATION(NAME) \
 static NodeDerivedRegister<NAME> nodereg

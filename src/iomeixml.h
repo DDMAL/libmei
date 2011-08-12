@@ -21,7 +21,9 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <libxml/xmlreader.h>
+#ifndef _mei_iomei_h
+#define _mei_iomei_h
+
 #include "meidocument.h"
 
 class MeiXmlInputStream {
@@ -35,10 +37,6 @@ public:
 	 *  \return An Mei Document containing the Mei tree structure or NULL if the XML file does not exist
 	 */
 	static MeiDocument* ReadFromXml(string docname, string encoding);
-	
-private:
-	// Read Information off an XMLNode tree to create an Mei one
-	static void XmlNodeToMei (xmlNode* node, MeiElement* parent);
 };
 
 class MeiXmlOutputStream {
@@ -52,8 +50,6 @@ public:
 	 *  to a filename and location in the directory.
 	 */
 	void WriteToXml(MeiDocument* meidoc);
-	
-private:
-	// Read Information from an MEI tree to create an XML tree  
-	static void MeiToXmlNode (MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDocPtr xmldoc);
 };
+
+#endif

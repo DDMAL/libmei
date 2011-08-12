@@ -23,6 +23,8 @@
 
 #include "iomeixml.h"
 
+#include <libxml/xmlreader.h>
+
 MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
     printf("read from xml\n");
 	xmlDoc *doc = NULL;
@@ -77,14 +79,8 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
     return meidoc;
 }
 
-void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
-	xmlNode* curnode = NULL;
-    xmlAttr* curattr = NULL;
-    const xmlChar* attrname;
-	const xmlChar* attrprefix;
-    xmlNode* attrvalue = NULL;
-    xmlNs* xmlns = NULL;
-	
+static void XmlNodeToMei(xmlNode* node, MeiElement *parent) {
+	xmlNode* curnode = NULL;	
     for (curnode = node; curnode; curnode = curnode->next) {
         if (curnode->type == XML_ELEMENT_NODE) {
             MeiElement* child = MeiFactory::createInstanceFromNode(string((const char*)curnode->name),curnode);
@@ -141,7 +137,7 @@ void MeiXmlOutputStream::WriteToXml(MeiDocument* meidoc) {
 // Private method used to go through the tree structure, get the nodes and create MeiElements
 
 
-void MeiXmlOutputStream::MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc) {
+void MeiToXmlNode(MeiElement *meiparent, xmlNodePtr xmlparent, xmlNodePtr xmlroot, xmlDoc* doc) {
     xmlNodePtr curxmlnode = NULL;
     xmlAttrPtr curxmlattr = NULL;
     xmlNsPtr   curxmlns   = NULL; 

@@ -30,8 +30,6 @@
 #include <map>
 #include "meielement.h"
 
-#include <libxml/xmlreader.h>
-
 #define MEI_VERSION "2011-05"
 #define MEI_NS "http://www.music-encoding.org/ns/mei"
 #define MEI_PREFIX "mei"
