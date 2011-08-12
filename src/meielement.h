@@ -171,7 +171,11 @@ class MeiElement
         /** \brief Make the Mei element c the child of another Mei element, 
          *         c is added to the list of children associated with the Mei element. 
          */
-		void addChild(MeiElement *c);
+		template<class T>
+		void addChild(T* c) {
+			dynamic_cast<MeiElement*>(c)->setParent(*this);
+			children.push_back( dynamic_cast<MeiElement*>(c) );
+		}
         
         /** \brief Find and remove an element from the children of an Mei element using
          *         the child element's name
@@ -216,16 +220,23 @@ class MeiElement
 	};
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
-template<typename T> MeiElement* createT() { return new T; }
+struct constructparam {
+	string string0;
+	constructparam() {
+		string0 = "";
+	}
+};
+
+template<typename T> MeiElement* createT(constructparam p) { return new T(p); }
 
 struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)()> map_type;
+    typedef std::map<std::string, MeiElement*(*)(constructparam)> map_type;
 
-    static MeiElement* createInstance(std::string const& s) {
+    static MeiElement* createInstance(std::string const& s, constructparam p) {
         map_type::iterator it = getMap()->find(s);
         if(it == getMap()->end())
             return NULL;
-        return it->second();
+        return it->second(p);
     }
 
 protected:

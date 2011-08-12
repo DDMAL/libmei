@@ -25,8 +25,6 @@
 #include "meidocument.h"
 #include "meielement.h"
 
-#include "types.h"
-
 using std::vector;
 
 MeiDocument::MeiDocument(string docname, string encoding) {

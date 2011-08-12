@@ -206,11 +206,6 @@ bool MeiElement::hasChild(string childName) {
 	return false;	
 }
 
-void MeiElement::addChild(MeiElement *c) {
-	c->setParent(*this);
-	children.push_back(c);
-}
-
 /* this has been renamed to *removeChildren*, since it will remove *all* children 
 	that match the name childName.
 */

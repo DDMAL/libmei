@@ -47,7 +47,9 @@ MeiDocument* MeiXmlInputStream::ReadFromXml(string docname, string encoding) {
         ns.prefix = (const char*)rootprefix;
 	}
     
-	MeiElement* meiroot = MeiFactory::createInstance(string((const char *)rootelement->name));
+	constructparam p;
+	//set the parameters in here?
+	MeiElement* meiroot = MeiFactory::createInstance(string((const char *)rootelement->name),p);
 	
 	for (rootattr = rootelement->properties; rootattr; rootattr = rootattr->next) {
         if (rootattr->type == XML_ATTRIBUTE_NODE) {
@@ -100,7 +102,9 @@ void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
 				ns.prefix = (const char*)childprefix;
 			}
 			
-			MeiElement* child = MeiFactory::createInstance(string((const char *)curnode->name));
+			constructparam p;
+			//set the parameters?
+			MeiElement* child = MeiFactory::createInstance(string((const char *)curnode->name),p);
 			child->setNs(ns);
 			
 			if (curnode->nsDef != NULL) {
@@ -140,7 +144,7 @@ void MeiXmlInputStream::XmlNodeToMei(xmlNode* node, MeiElement *parent) {
                 }
             }
             XmlNodeToMei(curnode->children, child);
-			parent->addChild(child);
+			parent->addChild<MeiElement>(child);
         }
 	}
 }
