@@ -31,6 +31,7 @@
 
 #include <libxml/xmlreader.h>
 
+#include "mei.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 
@@ -69,17 +70,18 @@ class MeiElement
          */
 		MeiElement(string name);
         
-        /** \brief The MeiElement Constructor, taking in the element name and the associated XML namespace
-         */
-        MeiElement(string name, MeiNs ns);
-        
         /** \brief The MeiElement Constructor, taking in the element name and the associated XML prefix
          */
-        MeiElement(string name, string prefix);
-		
-		MeiElement(xmlNode* node);
+        MeiElement(string _name, string _value);
+        
+        MeiElement(string _name, string _value, string _prefix, string _ns, MeiElement * parent);
 		
 		virtual ~MeiElement();
+        
+        
+        string getId();
+        void setId(string _id);
+        bool hasId();
         
 		/** \brief Return the name of the Mei Element
          */
@@ -91,8 +93,11 @@ class MeiElement
         
         /** \brief Return the namespace associated with the Mei Element
          */
-        MeiNs getNs();
-		void setNs(MeiNs ns);
+        string getNs();
+		void setNs(string _ns);
+        
+        string getPrefix();
+        void setPrefix(string _prefix);
         
         /** \brief get the xml tail of an Mei Element
          * 
@@ -116,34 +121,23 @@ class MeiElement
         /** \brief Get a list of all the attributes associated with an Mei Element
          *  \return A vector of Mei Attributes describing the element or NULL if the element has no attributes
          */
-		vector <MeiAttribute*>& getAttributes();
-        
-        /** \brief Search and find an attribute on an Mei Element given its name 
-         *  \return The Attribute associated with the given name or NULL if the attribute
-         *          does not exist
-         */
-		MeiAttribute* getAttribute(string name);
         
         /** \brief Compare two Mei Elements, 
          */
 		bool meiCompare(MeiElement element1, MeiElement element2);
         
-        /** \brief Adds an attribute to the list of attributes associated with an Mei Element
-         */
-		void addAttribute(MeiAttribute *attribute) throw (DuplicateAttributeException);
         
-        /** \brief Find and delete an attribute associated with an Mei element using the attribute's name.
-         */
-		void removeAttribute(string name);
+        vector<MeiAttribute*>& getAttributes();
+        void setAttributes(vector<MeiAttribute*> _attrs);
+        MeiAttribute* getAttribute(string _name) throw (AttributeNotFoundException);
+        string getAttributeValue(string _name) throw (AttributeNotFoundException);
+        void addAttribute(MeiAttribute *_attribute) throw (DuplicateAttributeException);
+		
+        void removeAttribute(string _name);
+		
+        bool hasAttribute(string _name);
         
-        /** \brief Determine whether an attribute is associated with an Mei element 
-         *         given the attribute's name
-         *
-         *  \return True if the attribute exists, False if it does not
-         */
-		bool hasAttribute(string name);
-        
-		/** \brief Determine whether the element has a parent element
+        /** \brief Determine whether the element has a parent element
 		 *
 		 *	\return True if it does, False if it does not
 		 */
@@ -158,109 +152,86 @@ class MeiElement
 		void setParent(MeiElement *_parent);
 		
 		void removeParent();
-		
-        /** \brief Obtain a list of all the child elements of an Mei element
-         *  \return A vector of Mei elements (the element's children)
-         */
-		vector <MeiElement*>& getChildren();
         
-        /** \brief Make the Mei element c the child of another Mei element, 
-         *         c is added to the list of children associated with the Mei element. 
-         */
-		template<class T>
-		void addChild(T* c) {
-			dynamic_cast<MeiElement*>(c)->setParent(this);
-			children.push_back( dynamic_cast<MeiElement*>(c) );
-		}
+        void addChild(MeiElement *child);
+        void setChildren(vector<MeiElement*> children);
+        vector<MeiElement*> getChildren();
+        vector<MeiElement*> getChildrenByName(string _name) throw (ChildNotFoundException);
+        MeiElement* getChildById(string cid) throw(ChildNotFoundException);
+        void deleteAllChildren();
+        void removeChildren(string cname);
+        void removeChild(MeiElement *child);
+        bool hasChildren(string cname);
+        bool hasChild(MeiElement *child);
         
-        /** \brief Find and remove an element from the children of an Mei element using
-         *         the child element's name
-         */
-		void removeChildren(string childName);
-        
-        /** \brief If the MeiElement has a child matching the given MeiElement exactly,
-		 *			it is removed from the array of its children.
-         */
-		void removeChild(MeiElement *c);
-        
-        /** \brief Determine whether an element is a child of another Mei element
-         *  
-         *  \return TRUE if the parent-child association exists between the elements,
-         *          otherwise FALSE
-         */
-		bool hasChild(string childName);
-        
-        /** \brief Make multiple Mei elements children of a parent Mei element, 
-         *         the child elements must be in a vector to be added similtaneously
-         */
-        void addChildren(vector<MeiElement*> children);
+//        /** \brief Make the Mei element c the child of another Mei element, 
+//         *         c is added to the list of children associated with the Mei element. 
+//         */
+//		template<class T>
+//		void addChild(T* c) {
+//			dynamic_cast<MeiElement*>(c)->setParent(this);
+//			children_.push_back( dynamic_cast<MeiElement*>(c) );
+//		}
         
         /** \brief Print the current Mei tree*/
 		void print();
         
         /** \brief Print the current Mei tree given an indentation*/
 		void print(int l);
-		
-		vector<MeiElement*> getChildrenByName(string _name);
-		
-		void deleteChildren();
-		
-		vector<MeiElement*> getDescendantsByName(string _name);
-		
-		MeiElement* getDescendantById(string _uuid);
-		
-		MeiElement* getAncestorByName(string _name);
-		
-		bool hasAncestor(string _name);
-		
-		vector<MeiElement*>& getPeers();
-        
-        string getId();
-	
+					
     protected:
         MeiElement();
         
 	private:
-		string name;
-		string value;
-		string tail;
-		
-		vector<MeiAttribute*> attributes;
-		vector<MeiElement*> children;
-		MeiElement *parent;
-        MeiNs ns;
+        string id_;
+		string name_;
+		string value_;
+		string tail_;
+		string ns_;
+        string prefix_;
+        
+		vector<MeiAttribute*> attributes_;
+		vector<MeiElement*> children_;
+		MeiElement *parent_;
+        
 
 	};
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 
 //template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
-template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(); }
-struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
+//template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(); }
+//struct MeiFactory {
+//    typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
+//
+//    static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
+//        node_map::iterator it = getNodeMap()->find(s);
+//        if(it == getNodeMap()->end())
+//            return NULL;
+//        return it->second(node);
+//    }
+//
+//protected:
+//    static node_map * getNodeMap() {
+//        // never delete'ed. (exist until program termination)
+//        // because we can't guarantee correct destruction order 
+//        if(!nodemap) { nodemap = new node_map; } 
+//        return nodemap; 
+//    }
+//private:
+//    static node_map * nodemap;
+//};
+//
+//template<typename T>
+//struct NodeDerivedRegister : MeiFactory {
+//	NodeDerivedRegister(std::string const& s) {
+//		getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
+//	}
+//};
 
-    static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
-        node_map::iterator it = getNodeMap()->find(s);
-        if(it == getNodeMap()->end())
-            return NULL;
-        return it->second(node);
-    }
 
-protected:
-    static node_map * getNodeMap() {
-        // never delete'ed. (exist until program termination)
-        // because we can't guarantee correct destruction order 
-        if(!nodemap) { nodemap = new node_map; } 
-        return nodemap; 
-    }
-private:
-    static node_map * nodemap;
+struct BaseMeiElement : public MeiElement {
+    MeiElement m_Base;
 };
 
-template<typename T>
-struct NodeDerivedRegister : MeiFactory {
-	NodeDerivedRegister(std::string const& s) {
-		getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
-	}
-};
 #endif // MEIELEMENT_H_

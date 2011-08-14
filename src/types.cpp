@@ -96,7 +96,7 @@ void DurationElement::setDots(int ndots) {
 }
 
 bool DurationElement::isDotted() {
-	if (dots || hasChild("dot")) { //should probably be hasDescendant
+	if (dots || hasChildren("dot")) { //should probably be hasDescendant
 		return true;
 	} else {
 		MeiAttribute* dotsattr = getAttribute("dots");
