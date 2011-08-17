@@ -76,7 +76,7 @@ CLASSES_HEAD_TEMPLATE = """
 
 ELEMENT_CLASS_HEAD_TEMPLATE = """
 {documentation}
-struct {elementNameUpper} : public BaseMeiElement {{
+struct {elementNameUpper} : public MeiElement {{
     {elementNameUpper}();
     virtual ~{elementNameUpper}() {{}};
     {methods}
@@ -97,17 +97,17 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """
 
 MIXIN_CLASS_HEAD_TEMPLATE = """
 struct {attGroupNameUpper}MixIn {{
-    {attGroupNameUpper}MixIn(BaseMeiElement *b);
+    {attGroupNameUpper}MixIn(MeiElement *b);
     virtual ~{attGroupNameUpper}MixIn() {{}};
     {methods}
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 }};
 
 """
 
 MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
-{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(BaseMeiElement *b) {{
+{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
     this->b = b;
 }};
 {methods}

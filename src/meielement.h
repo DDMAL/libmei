@@ -59,7 +59,7 @@ struct MeiNs {
  * Each element will need a name to exist and can contain a value and attributes as options to further define it.
  */
 
-class MeiElement
+struct BaseMeiElement
 	{
 	public:
         /** \brief overloading the == operator to allow comparison of two MeiElements.
@@ -68,15 +68,15 @@ class MeiElement
 		
 		/** \brief The MeiElement Constructor, requires the element name (MEI tag name)
          */
-		MeiElement(string name);
+		BaseMeiElement(string name);
         
         /** \brief The MeiElement Constructor, taking in the element name and the associated XML prefix
          */
-        MeiElement(string _name, string _value);
+        BaseMeiElement(string _name, string _value);
         
-        MeiElement(string _name, string _value, string _prefix, string _ns, MeiElement * parent);
+        BaseMeiElement(string _name, string _value, string _prefix, string _ns, MeiElement * parent);
 		
-		virtual ~MeiElement();
+		virtual ~BaseMeiElement();
         
         
         string getId();
@@ -180,7 +180,7 @@ class MeiElement
 		void print(int l);
 					
     protected:
-        MeiElement();
+        BaseMeiElement();
         
 	private:
         string id_;
@@ -229,9 +229,8 @@ class MeiElement
 //	}
 //};
 
-
-struct BaseMeiElement : public MeiElement {
-    MeiElement m_Base;
+struct MeiElement : public BaseMeiElement {
+    BaseMeiElement    m_Base;
 };
 
 #endif // MEIELEMENT_H_
