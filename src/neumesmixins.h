@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct IneumeLogMixIn {
-    IneumeLogMixIn(BaseMeiElement *b);
-    virtual ~IneumeLogMixIn() {};
+namespace mei {
     
+class IneumeLogMixIn {
+    public:
+        IneumeLogMixIn(MeiElement *b);
+        virtual ~IneumeLogMixIn() {};
+        
     /** \brief   records the function of the dot.
     */
 
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
@@ -46,26 +47,25 @@ struct IneumeLogMixIn {
     /** \brief   records the name of the neume.
     */
 
-    string getNameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getName() throw (AttributeNotFoundException);
+    MeiAttribute* getName();
     void setName(std::string _name);
     bool hasName();
     void removeName();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct UneumeLogMixIn {
-    UneumeLogMixIn(BaseMeiElement *b);
-    virtual ~UneumeLogMixIn() {};
-    
+class UneumeLogMixIn {
+    public:
+        UneumeLogMixIn(MeiElement *b);
+        virtual ~UneumeLogMixIn() {};
+        
     /** \brief   records the function of the dot.
     */
 
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
@@ -73,15 +73,15 @@ struct UneumeLogMixIn {
     /** \brief   records the name of the neume.
     */
 
-    string getNameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getName() throw (AttributeNotFoundException);
+    MeiAttribute* getName();
     void setName(std::string _name);
     bool hasName();
     void removeName();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // NEUMESMIXIN_H_

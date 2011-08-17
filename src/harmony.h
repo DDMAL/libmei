@@ -34,24 +34,26 @@
 #include "facsimilemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   barre ― An indication of fingering in a chord tablature grid. The startid and
     * endid attributes are used to indicate the <chordMember> elements on which the
     * barre starts and finishes respectively. The fret at which the barre should be
     * created is recorded by the fret attribute.
     */
 
-struct Barre : public BaseMeiElement {
-    Barre();
-    virtual ~Barre() {};
-    
-    
+class Barre : public MeiElement {
+    public:
+        Barre();
+        virtual ~Barre() {};
+        
+        
     CommonMixIn    m_Common;
     FretlocationMixIn    m_Fretlocation;
     StartendidMixIn    m_Startendid;
     StartidMixIn    m_Startid;
     private:
-        //REGISTER_DECLARATION(Barre);
+        REGISTER_DECLARATION(Barre);
 };
 
 
@@ -63,22 +65,22 @@ struct Barre : public BaseMeiElement {
     * single finger is used to stop multiple strings.
     */
 
-struct Chorddef : public BaseMeiElement {
-    Chorddef();
-    virtual ~Chorddef() {};
-    
+class Chorddef : public MeiElement {
+    public:
+        Chorddef();
+        virtual ~Chorddef() {};
+        
     /** \brief   records the fret position at which the chord tablature is to be played.
     */
-    string getPosValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPos() throw (AttributeNotFoundException);
+    MeiAttribute* getPos();
     void setPos(std::string _pos);
     bool hasPos();
     void removePos();
 
-    
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Chorddef);
+        REGISTER_DECLARATION(Chorddef);
 };
 
 
@@ -90,20 +92,20 @@ struct Chorddef : public BaseMeiElement {
     * The fret at which a finger should be placed is recorded in the fret attribute.
     */
 
-struct Chordmember : public BaseMeiElement {
-    Chordmember();
-    virtual ~Chordmember() {};
-    
+class Chordmember : public MeiElement {
+    public:
+        Chordmember();
+        virtual ~Chordmember() {};
+        
     /** \brief   indicates which finger, if any, should be used to play an individual string. The
     * values 'x' and 'o' indicated muffled and open strings, respectively.
     */
-    string getFingValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFing() throw (AttributeNotFoundException);
+    MeiAttribute* getFing();
     void setFing(std::string _fing);
     bool hasFing();
     void removeFing();
 
-    
+        
     CommonMixIn    m_Common;
     AccidentalPerformedMixIn    m_AccidentalPerformed;
     FretlocationMixIn    m_Fretlocation;
@@ -111,7 +113,7 @@ struct Chordmember : public BaseMeiElement {
     PitchMixIn    m_Pitch;
     OctaveMixIn    m_Octave;
     private:
-        //REGISTER_DECLARATION(Chordmember);
+        REGISTER_DECLARATION(Chordmember);
 };
 
 
@@ -120,59 +122,61 @@ struct Chordmember : public BaseMeiElement {
     * table to be shared.
     */
 
-struct Chordtable : public BaseMeiElement {
-    Chordtable();
-    virtual ~Chordtable() {};
-    
-    
+class Chordtable : public MeiElement {
+    public:
+        Chordtable();
+        virtual ~Chordtable() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Chordtable);
+        REGISTER_DECLARATION(Chordtable);
 };
 
 
 /** \brief   Figure (figured bass) ― Single element of a figured bass indication.
     */
 
-struct F : public BaseMeiElement {
-    F();
-    virtual ~F() {};
-    
+class F : public MeiElement {
+    public:
+        F();
+        virtual ~F() {};
+        
     /** \brief   indicates the presence of an extension symbol, typically a dash or underscore,
     * drawn from the end of the harmonic indication to the point indicated by the dur
     * attribute.
     */
-    string getExtenderValue() throw (AttributeNotFoundException);
-    MeiAttribute* getExtender() throw (AttributeNotFoundException);
+    MeiAttribute* getExtender();
     void setExtender(std::string _extender);
     bool hasExtender();
     void removeExtender();
 
-    
+        
     CommonMixIn    m_Common;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     AltsymMixIn    m_Altsym;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(F);
+        REGISTER_DECLARATION(F);
 };
 
 
 /** \brief   Figured Bass ―
     */
 
-struct Fb : public BaseMeiElement {
-    Fb();
-    virtual ~Fb() {};
-    
-    
+class Fb : public MeiElement {
+    public:
+        Fb();
+        virtual ~Fb() {};
+        
+        
     CommonMixIn    m_Common;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(Fb);
+        REGISTER_DECLARATION(Fb);
 };
 
 
@@ -186,11 +190,12 @@ struct Fb : public BaseMeiElement {
     * for the end point of the harmony.
     */
 
-struct Harm : public BaseMeiElement {
-    Harm();
-    virtual ~Harm() {};
-    
-    
+class Harm : public MeiElement {
+    public:
+        Harm();
+        virtual ~Harm() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     HarmLogMixIn    m_HarmLog;
@@ -214,8 +219,9 @@ struct Harm : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Harm);
+        REGISTER_DECLARATION(Harm);
 };
 
 
+}
 #endif // HARMONY_H_

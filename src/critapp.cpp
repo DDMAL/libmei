@@ -2,23 +2,57 @@
 
 #include "critapp.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-App::App() : m_Common(this), m_Typed(this) {
-    m_Base.setName("app");
+mei::App::App() : 
+    MeiElement("app"),
+    m_Common(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::App, "app");
 
 
 
-Lem::Lem() : m_Common(this), m_Crit(this), m_Handident(this), m_Responsibility(this), m_Sequence(this), m_Source(this), m_Typed(this), m_LinkCommon(this), m_LinkExternal(this), m_Participantident(this), m_CommonAnl(this), m_Alignment(this) {
-    m_Base.setName("lem");
+mei::Lem::Lem() : 
+    MeiElement("lem"),
+    m_Common(this),
+    m_Crit(this),
+    m_Handident(this),
+    m_Responsibility(this),
+    m_Sequence(this),
+    m_Source(this),
+    m_Typed(this),
+    m_LinkCommon(this),
+    m_LinkExternal(this),
+    m_Participantident(this),
+    m_CommonAnl(this),
+    m_Alignment(this) 
+{
 };
+REGISTER_DEFINITION(mei::Lem, "lem");
 
 
 
-Rdg::Rdg() : m_Common(this), m_Crit(this), m_Handident(this), m_Responsibility(this), m_Sequence(this), m_Source(this), m_Typed(this), m_LinkCommon(this), m_LinkExternal(this), m_Participantident(this), m_CommonAnl(this), m_Alignment(this) {
-    m_Base.setName("rdg");
+mei::Rdg::Rdg() : 
+    MeiElement("rdg"),
+    m_Common(this),
+    m_Crit(this),
+    m_Handident(this),
+    m_Responsibility(this),
+    m_Sequence(this),
+    m_Source(this),
+    m_Typed(this),
+    m_LinkCommon(this),
+    m_LinkExternal(this),
+    m_Participantident(this),
+    m_CommonAnl(this),
+    m_Alignment(this) 
+{
 };
+REGISTER_DEFINITION(mei::Rdg, "rdg");
 
 
 

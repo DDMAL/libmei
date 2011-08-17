@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct NoteGesTablatureMixIn {
-    NoteGesTablatureMixIn(BaseMeiElement *b);
-    virtual ~NoteGesTablatureMixIn() {};
+namespace mei {
     
+class NoteGesTablatureMixIn {
+    public:
+        NoteGesTablatureMixIn(MeiElement *b);
+        virtual ~NoteGesTablatureMixIn() {};
+        
     /** \brief   records the fret at which a string should be stopped.
     */
 
-    string getTabFretValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTabFret() throw (AttributeNotFoundException);
+    MeiAttribute* getTabFret();
     void setTabFret(std::string _tabfret);
     bool hasTabFret();
     void removeTabFret();
@@ -46,36 +47,36 @@ struct NoteGesTablatureMixIn {
     /** \brief   records which string is to be played.
     */
 
-    string getTabStringValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTabString() throw (AttributeNotFoundException);
+    MeiAttribute* getTabString();
     void setTabString(std::string _tabstring);
     bool hasTabString();
     void removeTabString();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StaffdefGesTablatureMixIn {
-    StaffdefGesTablatureMixIn(BaseMeiElement *b);
-    virtual ~StaffdefGesTablatureMixIn() {};
-    
+class StaffdefGesTablatureMixIn {
+    public:
+        StaffdefGesTablatureMixIn(MeiElement *b);
+        virtual ~StaffdefGesTablatureMixIn() {};
+        
     /** \brief   provides a written pitch and octave for each open string, e.g. "e3 a3 d4 g4 b4
     * e5" for standard guitar tuning. It should contain the number of tokens indicated
     * by the lines attribute. Chromatic alteration may be indicated with '-', or 'f',
     * (flat) and '#', or 's' (sharp). Multiple sharps and flats are not permitted.
     */
 
-    string getTabStringsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTabStrings() throw (AttributeNotFoundException);
+    MeiAttribute* getTabStrings();
     void setTabStrings(std::string _tabstrings);
     bool hasTabStrings();
     void removeTabStrings();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // TABLATUREMIXIN_H_

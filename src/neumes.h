@@ -34,17 +34,19 @@
 #include "linkalignmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   interrupted neume ― a graphically interrupted neume; that is, a neume which is
     * logically a single entity but is written using multiple signs. The constituent
     * signs may be encoded using ineume and uneume sub-elements.
     */
 
-struct Ineume : public BaseMeiElement {
-    Ineume();
-    virtual ~Ineume() {};
-    
-    
+class Ineume : public MeiElement {
+    public:
+        Ineume();
+        virtual ~Ineume() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TypedMixIn    m_Typed;
@@ -53,7 +55,7 @@ struct Ineume : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Ineume);
+        REGISTER_DECLARATION(Ineume);
 };
 
 
@@ -61,14 +63,15 @@ struct Ineume : public BaseMeiElement {
     * syllable element provides high-level organization in this repertoire.
     */
 
-struct Syllable : public BaseMeiElement {
-    Syllable();
-    virtual ~Syllable() {};
-    
-    
+class Syllable : public MeiElement {
+    public:
+        Syllable();
+        virtual ~Syllable() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Syllable);
+        REGISTER_DECLARATION(Syllable);
 };
 
 
@@ -78,11 +81,12 @@ struct Syllable : public BaseMeiElement {
     * neume is a meaningful construct.
     */
 
-struct Uneume : public BaseMeiElement {
-    Uneume();
-    virtual ~Uneume() {};
-    
-    
+class Uneume : public MeiElement {
+    public:
+        Uneume();
+        virtual ~Uneume() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TypedMixIn    m_Typed;
@@ -106,8 +110,9 @@ struct Uneume : public BaseMeiElement {
     IntervalharmonicMixIn    m_Intervalharmonic;
     SolfaMixIn    m_Solfa;
     private:
-        //REGISTER_DECLARATION(Uneume);
+        REGISTER_DECLARATION(Uneume);
 };
 
 
+}
 #endif // NEUMES_H_

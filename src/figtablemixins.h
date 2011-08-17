@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct TabularMixIn {
-    TabularMixIn(BaseMeiElement *b);
-    virtual ~TabularMixIn() {};
+namespace mei {
     
+class TabularMixIn {
+    public:
+        TabularMixIn(MeiElement *b);
+        virtual ~TabularMixIn() {};
+        
     /** \brief   the number of columns spanned by this cell.
     */
 
-    string getColspanValue() throw (AttributeNotFoundException);
-    MeiAttribute* getColspan() throw (AttributeNotFoundException);
+    MeiAttribute* getColspan();
     void setColspan(std::string _colspan);
     bool hasColspan();
     void removeColspan();
@@ -46,15 +47,15 @@ struct TabularMixIn {
     /** \brief   the number of rows spanned by this cell.
     */
 
-    string getRowspanValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRowspan() throw (AttributeNotFoundException);
+    MeiAttribute* getRowspan();
     void setRowspan(std::string _rowspan);
     bool hasRowspan();
     void removeRowspan();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // FIGTABLEMIXIN_H_

@@ -2,773 +2,1031 @@
 
 #include "header.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Accessrestrict::Accessrestrict() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("accessRestrict");
+mei::Accessrestrict::Accessrestrict() : 
+    MeiElement("accessRestrict"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Accessrestrict, "accessRestrict");
 
 
 
-Acqsource::Acqsource() : m_Bibl(this), m_Common(this), m_Lang(this) {
-    m_Base.setName("acqSource");
+mei::Acqsource::Acqsource() : 
+    MeiElement("acqSource"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Acqsource, "acqSource");
 
 
 
-Altid::Altid() : m_Bibl(this), m_Common(this), m_Typed(this) {
-    m_Base.setName("altId");
+mei::Altid::Altid() : 
+    MeiElement("altId"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Altid, "altId");
 
 
 
-Appinfo::Appinfo() : m_Common(this) {
-    m_Base.setName("appInfo");
+mei::Appinfo::Appinfo() : 
+    MeiElement("appInfo"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Appinfo, "appInfo");
 
 
 
-Application::Application() : m_Common(this), m_Datable(this), m_Typed(this) {
-    m_Base.setName("application");
+mei::Application::Application() : 
+    MeiElement("application"),
+    m_Common(this),
+    m_Datable(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Application, "application");
 
 
-string Application::getVersionValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("version")) {
+MeiAttribute* mei::Application::getVersion() {
+    if (!hasAttribute("version")) {
         throw AttributeNotFoundException("version");
     }
-    return m_Base.getAttributeValue("version");
+    return getAttribute("version");
 };
 
-MeiAttribute* Application::getVersion() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("version")) {
-        throw AttributeNotFoundException("version");
-    }
-    return m_Base.getAttribute("version");
-};
-
-void Application::setVersion(std::string _version) {
-    if (!m_Base.hasAttribute("version")) {
+void mei::Application::setVersion(std::string _version) {
+    if (!hasAttribute("version")) {
         MeiAttribute *a = new MeiAttribute("version", _version);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Application::hasVersion() {
-    return m_Base.hasAttribute("version");
+bool mei::Application::hasVersion() {
+    return hasAttribute("version");
 };
 
-void Application::removeVersion() {
-    m_Base.removeAttribute("version");
-};
-
-
-Availability::Availability() : m_Bibl(this), m_Common(this), m_Datapointing(this) {
-    m_Base.setName("availability");
+void mei::Application::removeVersion() {
+    removeAttribute("version");
 };
 
 
-
-Change::Change() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("change");
+mei::Availability::Availability() : 
+    MeiElement("availability"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Datapointing(this) 
+{
 };
+REGISTER_DEFINITION(mei::Availability, "availability");
 
 
 
-Changedesc::Changedesc() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("changeDesc");
+mei::Change::Change() : 
+    MeiElement("change"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Change, "change");
 
 
 
-Classcode::Classcode() : m_Common(this), m_Authorized(this), m_Bibl(this) {
-    m_Base.setName("classCode");
+mei::Changedesc::Changedesc() : 
+    MeiElement("changeDesc"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Changedesc, "changeDesc");
 
 
 
-Classification::Classification() : m_Common(this), m_Bibl(this), m_Datapointing(this) {
-    m_Base.setName("classification");
+mei::Classcode::Classcode() : 
+    MeiElement("classCode"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Classcode, "classCode");
 
 
 
-Condition::Condition() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("condition");
+mei::Classification::Classification() : 
+    MeiElement("classification"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this) 
+{
 };
+REGISTER_DEFINITION(mei::Classification, "classification");
 
 
 
-Contentitem::Contentitem() : m_Bibl(this), m_Common(this) {
-    m_Base.setName("contentItem");
+mei::Condition::Condition() : 
+    MeiElement("condition"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Condition, "condition");
 
 
 
-Contents::Contents() : m_Common(this), m_Bibl(this), m_LinkExternal(this) {
-    m_Base.setName("contents");
+mei::Contentitem::Contentitem() : 
+    MeiElement("contentItem"),
+    m_Bibl(this),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Contentitem, "contentItem");
 
 
 
-Correction::Correction() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this), m_Regularmethod(this) {
-    m_Base.setName("correction");
+mei::Contents::Contents() : 
+    MeiElement("contents"),
+    m_Common(this),
+    m_Bibl(this),
+    m_LinkExternal(this) 
+{
 };
+REGISTER_DEFINITION(mei::Contents, "contents");
 
 
-string Correction::getCorrlevelValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("corrlevel")) {
+
+mei::Correction::Correction() : 
+    MeiElement("correction"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this),
+    m_Regularmethod(this) 
+{
+};
+REGISTER_DEFINITION(mei::Correction, "correction");
+
+
+MeiAttribute* mei::Correction::getCorrlevel() {
+    if (!hasAttribute("corrlevel")) {
         throw AttributeNotFoundException("corrlevel");
     }
-    return m_Base.getAttributeValue("corrlevel");
+    return getAttribute("corrlevel");
 };
 
-MeiAttribute* Correction::getCorrlevel() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("corrlevel")) {
-        throw AttributeNotFoundException("corrlevel");
-    }
-    return m_Base.getAttribute("corrlevel");
-};
-
-void Correction::setCorrlevel(std::string _corrlevel) {
-    if (!m_Base.hasAttribute("corrlevel")) {
+void mei::Correction::setCorrlevel(std::string _corrlevel) {
+    if (!hasAttribute("corrlevel")) {
         MeiAttribute *a = new MeiAttribute("corrlevel", _corrlevel);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Correction::hasCorrlevel() {
-    return m_Base.hasAttribute("corrlevel");
+bool mei::Correction::hasCorrlevel() {
+    return hasAttribute("corrlevel");
 };
 
-void Correction::removeCorrlevel() {
-    m_Base.removeAttribute("corrlevel");
-};
-
-
-Creation::Creation() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("creation");
+void mei::Correction::removeCorrlevel() {
+    removeAttribute("corrlevel");
 };
 
 
-
-Dimensions::Dimensions() : m_Common(this), m_Bibl(this), m_Measurement(this) {
-    m_Base.setName("dimensions");
+mei::Creation::Creation() : 
+    MeiElement("creation"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Creation, "creation");
 
 
 
-Editionstmt::Editionstmt() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("editionStmt");
+mei::Dimensions::Dimensions() : 
+    MeiElement("dimensions"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Measurement(this) 
+{
 };
+REGISTER_DEFINITION(mei::Dimensions, "dimensions");
 
 
 
-Editorialdecl::Editorialdecl() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("editorialDecl");
+mei::Editionstmt::Editionstmt() : 
+    MeiElement("editionStmt"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Editionstmt, "editionStmt");
 
 
 
-Encodingdesc::Encodingdesc() : m_Bibl(this), m_Common(this) {
-    m_Base.setName("encodingDesc");
+mei::Editorialdecl::Editorialdecl() : 
+    MeiElement("editorialDecl"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Editorialdecl, "editorialDecl");
 
 
 
-Ensemble::Ensemble() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("ensemble");
+mei::Encodingdesc::Encodingdesc() : 
+    MeiElement("encodingDesc"),
+    m_Bibl(this),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Encodingdesc, "encodingDesc");
 
 
 
-Event::Event() : m_Bibl(this), m_Calendared(this), m_Common(this), m_Datable(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Lang(this) {
-    m_Base.setName("event");
+mei::Ensemble::Ensemble() : 
+    MeiElement("ensemble"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Ensemble, "ensemble");
 
 
 
-Eventlist::Eventlist() : m_Bibl(this), m_Common(this), m_Typed(this) {
-    m_Base.setName("eventList");
+mei::Event::Event() : 
+    MeiElement("event"),
+    m_Bibl(this),
+    m_Calendared(this),
+    m_Common(this),
+    m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Event, "event");
 
 
 
-Exhibhist::Exhibhist() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("exhibHist");
+mei::Eventlist::Eventlist() : 
+    MeiElement("eventList"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Eventlist, "eventList");
 
 
 
-Extent::Extent() : m_Common(this), m_Bibl(this), m_Measurement(this) {
-    m_Base.setName("extent");
+mei::Exhibhist::Exhibhist() : 
+    MeiElement("exhibHist"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Exhibhist, "exhibHist");
 
 
 
-Filedesc::Filedesc() : m_Bibl(this), m_Common(this) {
-    m_Base.setName("fileDesc");
+mei::Extent::Extent() : 
+    MeiElement("extent"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Measurement(this) 
+{
 };
+REGISTER_DEFINITION(mei::Extent, "extent");
 
 
 
-Fingerprint::Fingerprint() : m_Common(this), m_Lang(this) {
-    m_Base.setName("fingerprint");
+mei::Filedesc::Filedesc() : 
+    MeiElement("fileDesc"),
+    m_Bibl(this),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Filedesc, "fileDesc");
 
 
 
-Hand::Hand() : m_Common(this), m_Bibl(this), m_Lang(this), m_Medium(this), m_Responsibility(this) {
-    m_Base.setName("hand");
+mei::Fingerprint::Fingerprint() : 
+    MeiElement("fingerprint"),
+    m_Common(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
 
 
-string Hand::getInitialValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("initial")) {
+
+mei::Hand::Hand() : 
+    MeiElement("hand"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this),
+    m_Medium(this),
+    m_Responsibility(this) 
+{
+};
+REGISTER_DEFINITION(mei::Hand, "hand");
+
+
+MeiAttribute* mei::Hand::getInitial() {
+    if (!hasAttribute("initial")) {
         throw AttributeNotFoundException("initial");
     }
-    return m_Base.getAttributeValue("initial");
+    return getAttribute("initial");
 };
 
-MeiAttribute* Hand::getInitial() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("initial")) {
-        throw AttributeNotFoundException("initial");
-    }
-    return m_Base.getAttribute("initial");
-};
-
-void Hand::setInitial(std::string _initial) {
-    if (!m_Base.hasAttribute("initial")) {
+void mei::Hand::setInitial(std::string _initial) {
+    if (!hasAttribute("initial")) {
         MeiAttribute *a = new MeiAttribute("initial", _initial);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Hand::hasInitial() {
-    return m_Base.hasAttribute("initial");
+bool mei::Hand::hasInitial() {
+    return hasAttribute("initial");
 };
 
-void Hand::removeInitial() {
-    m_Base.removeAttribute("initial");
-};
-
-
-Handlist::Handlist() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("handList");
+void mei::Hand::removeInitial() {
+    removeAttribute("initial");
 };
 
 
-
-History::History() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("history");
+mei::Handlist::Handlist() : 
+    MeiElement("handList"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Handlist, "handList");
 
 
 
-Incipcode::Incipcode() : m_Common(this), m_Bibl(this), m_Internetmedia(this) {
-    m_Base.setName("incipCode");
+mei::History::History() : 
+    MeiElement("history"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::History, "history");
 
 
-string Incipcode::getSpaceValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("space")) {
+
+mei::Incipcode::Incipcode() : 
+    MeiElement("incipCode"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Internetmedia(this) 
+{
+};
+REGISTER_DEFINITION(mei::Incipcode, "incipCode");
+
+
+MeiAttribute* mei::Incipcode::getSpace() {
+    if (!hasAttribute("space")) {
         throw AttributeNotFoundException("space");
     }
-    return m_Base.getAttributeValue("space");
+    return getAttribute("space");
 };
 
-MeiAttribute* Incipcode::getSpace() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("space")) {
-        throw AttributeNotFoundException("space");
-    }
-    return m_Base.getAttribute("space");
-};
-
-void Incipcode::setSpace(std::string _space) {
-    if (!m_Base.hasAttribute("space")) {
+void mei::Incipcode::setSpace(std::string _space) {
+    if (!hasAttribute("space")) {
         MeiAttribute *a = new MeiAttribute("space", _space);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Incipcode::hasSpace() {
-    return m_Base.hasAttribute("space");
+bool mei::Incipcode::hasSpace() {
+    return hasAttribute("space");
 };
 
-void Incipcode::removeSpace() {
-    m_Base.removeAttribute("space");
+void mei::Incipcode::removeSpace() {
+    removeAttribute("space");
 };
 
-string Incipcode::getFormValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
+MeiAttribute* mei::Incipcode::getForm() {
+    if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return m_Base.getAttributeValue("form");
+    return getAttribute("form");
 };
 
-MeiAttribute* Incipcode::getForm() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return m_Base.getAttribute("form");
-};
-
-void Incipcode::setForm(std::string _form) {
-    if (!m_Base.hasAttribute("form")) {
+void mei::Incipcode::setForm(std::string _form) {
+    if (!hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Incipcode::hasForm() {
-    return m_Base.hasAttribute("form");
+bool mei::Incipcode::hasForm() {
+    return hasAttribute("form");
 };
 
-void Incipcode::removeForm() {
-    m_Base.removeAttribute("form");
-};
-
-
-Inscription::Inscription() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("inscription");
+void mei::Incipcode::removeForm() {
+    removeAttribute("form");
 };
 
 
-
-Instrvoice::Instrvoice() : m_Common(this), m_Bibl(this), m_Authorized(this), m_Regularized(this) {
-    m_Base.setName("instrVoice");
+mei::Inscription::Inscription() : 
+    MeiElement("inscription"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Inscription, "inscription");
 
 
-string Instrvoice::getCountValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("count")) {
+
+mei::Instrvoice::Instrvoice() : 
+    MeiElement("instrVoice"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Authorized(this),
+    m_Regularized(this) 
+{
+};
+REGISTER_DEFINITION(mei::Instrvoice, "instrVoice");
+
+
+MeiAttribute* mei::Instrvoice::getCount() {
+    if (!hasAttribute("count")) {
         throw AttributeNotFoundException("count");
     }
-    return m_Base.getAttributeValue("count");
+    return getAttribute("count");
 };
 
-MeiAttribute* Instrvoice::getCount() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("count")) {
-        throw AttributeNotFoundException("count");
-    }
-    return m_Base.getAttribute("count");
-};
-
-void Instrvoice::setCount(std::string _count) {
-    if (!m_Base.hasAttribute("count")) {
+void mei::Instrvoice::setCount(std::string _count) {
+    if (!hasAttribute("count")) {
         MeiAttribute *a = new MeiAttribute("count", _count);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Instrvoice::hasCount() {
-    return m_Base.hasAttribute("count");
+bool mei::Instrvoice::hasCount() {
+    return hasAttribute("count");
 };
 
-void Instrvoice::removeCount() {
-    m_Base.removeAttribute("count");
+void mei::Instrvoice::removeCount() {
+    removeAttribute("count");
 };
 
-string Instrvoice::getSoloValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("solo")) {
+MeiAttribute* mei::Instrvoice::getSolo() {
+    if (!hasAttribute("solo")) {
         throw AttributeNotFoundException("solo");
     }
-    return m_Base.getAttributeValue("solo");
+    return getAttribute("solo");
 };
 
-MeiAttribute* Instrvoice::getSolo() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("solo")) {
-        throw AttributeNotFoundException("solo");
-    }
-    return m_Base.getAttribute("solo");
-};
-
-void Instrvoice::setSolo(std::string _solo) {
-    if (!m_Base.hasAttribute("solo")) {
+void mei::Instrvoice::setSolo(std::string _solo) {
+    if (!hasAttribute("solo")) {
         MeiAttribute *a = new MeiAttribute("solo", _solo);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Instrvoice::hasSolo() {
-    return m_Base.hasAttribute("solo");
+bool mei::Instrvoice::hasSolo() {
+    return hasAttribute("solo");
 };
 
-void Instrvoice::removeSolo() {
-    m_Base.removeAttribute("solo");
-};
-
-
-Interpretation::Interpretation() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("interpretation");
+void mei::Instrvoice::removeSolo() {
+    removeAttribute("solo");
 };
 
 
-
-Key::Key() : m_Common(this), m_Bibl(this), m_AccidentalPerformed(this), m_Pitch(this) {
-    m_Base.setName("key");
+mei::Interpretation::Interpretation() : 
+    MeiElement("interpretation"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Interpretation, "interpretation");
 
 
-string Key::getModeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("mode")) {
+
+mei::Key::Key() : 
+    MeiElement("key"),
+    m_Common(this),
+    m_Bibl(this),
+    m_AccidentalPerformed(this),
+    m_Pitch(this) 
+{
+};
+REGISTER_DEFINITION(mei::Key, "key");
+
+
+MeiAttribute* mei::Key::getMode() {
+    if (!hasAttribute("mode")) {
         throw AttributeNotFoundException("mode");
     }
-    return m_Base.getAttributeValue("mode");
+    return getAttribute("mode");
 };
 
-MeiAttribute* Key::getMode() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("mode")) {
-        throw AttributeNotFoundException("mode");
-    }
-    return m_Base.getAttribute("mode");
-};
-
-void Key::setMode(std::string _mode) {
-    if (!m_Base.hasAttribute("mode")) {
+void mei::Key::setMode(std::string _mode) {
+    if (!hasAttribute("mode")) {
         MeiAttribute *a = new MeiAttribute("mode", _mode);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Key::hasMode() {
-    return m_Base.hasAttribute("mode");
+bool mei::Key::hasMode() {
+    return hasAttribute("mode");
 };
 
-void Key::removeMode() {
-    m_Base.removeAttribute("mode");
-};
-
-
-Langusage::Langusage() : m_Common(this), m_Bibl(this), m_Datapointing(this) {
-    m_Base.setName("langUsage");
+void mei::Key::removeMode() {
+    removeAttribute("mode");
 };
 
 
-
-Language::Language() : m_Common(this), m_Bibl(this), m_Authorized(this) {
-    m_Base.setName("language");
+mei::Langusage::Langusage() : 
+    MeiElement("langUsage"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this) 
+{
 };
+REGISTER_DEFINITION(mei::Langusage, "langUsage");
 
 
 
-Meihead::Meihead() : m_Bibl(this), m_Common(this), m_Lang(this), m_Meiversion(this) {
-    m_Base.setName("meiHead");
+mei::Language::Language() : 
+    MeiElement("language"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Authorized(this) 
+{
 };
+REGISTER_DEFINITION(mei::Language, "language");
 
 
-string Meihead::getTypeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("type")) {
+
+mei::Meihead::Meihead() : 
+    MeiElement("meiHead"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Lang(this),
+    m_Meiversion(this) 
+{
+};
+REGISTER_DEFINITION(mei::Meihead, "meiHead");
+
+
+MeiAttribute* mei::Meihead::getType() {
+    if (!hasAttribute("type")) {
         throw AttributeNotFoundException("type");
     }
-    return m_Base.getAttributeValue("type");
+    return getAttribute("type");
 };
 
-MeiAttribute* Meihead::getType() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("type")) {
-        throw AttributeNotFoundException("type");
-    }
-    return m_Base.getAttribute("type");
-};
-
-void Meihead::setType(std::string _type) {
-    if (!m_Base.hasAttribute("type")) {
+void mei::Meihead::setType(std::string _type) {
+    if (!hasAttribute("type")) {
         MeiAttribute *a = new MeiAttribute("type", _type);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Meihead::hasType() {
-    return m_Base.hasAttribute("type");
+bool mei::Meihead::hasType() {
+    return hasAttribute("type");
 };
 
-void Meihead::removeType() {
-    m_Base.removeAttribute("type");
-};
-
-
-Normalization::Normalization() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this), m_Regularmethod(this) {
-    m_Base.setName("normalization");
+void mei::Meihead::removeType() {
+    removeAttribute("type");
 };
 
 
-
-Notesstmt::Notesstmt() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("notesStmt");
+mei::Normalization::Normalization() : 
+    MeiElement("normalization"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this),
+    m_Regularmethod(this) 
+{
 };
+REGISTER_DEFINITION(mei::Normalization, "normalization");
 
 
 
-Perfmedium::Perfmedium() : m_Common(this), m_Bibl(this), m_Authorized(this) {
-    m_Base.setName("perfMedium");
+mei::Notesstmt::Notesstmt() : 
+    MeiElement("notesStmt"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Notesstmt, "notesStmt");
 
 
 
-Performer::Performer() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("performer");
+mei::Perfmedium::Perfmedium() : 
+    MeiElement("perfMedium"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Authorized(this) 
+{
 };
+REGISTER_DEFINITION(mei::Perfmedium, "perfMedium");
 
 
 
-Physdesc::Physdesc() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("physDesc");
+mei::Performer::Performer() : 
+    MeiElement("performer"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Performer, "performer");
 
 
 
-Physloc::Physloc() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("physLoc");
+mei::Physdesc::Physdesc() : 
+    MeiElement("physDesc"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Physdesc, "physDesc");
 
 
 
-Physmedium::Physmedium() : m_Common(this), m_Bibl(this), m_Authorized(this), m_Lang(this) {
-    m_Base.setName("physMedium");
+mei::Physloc::Physloc() : 
+    MeiElement("physLoc"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Physloc, "physLoc");
 
 
 
-Platenum::Platenum() : m_Common(this), m_Bibl(this), m_Facsimile(this) {
-    m_Base.setName("plateNum");
+mei::Physmedium::Physmedium() : 
+    MeiElement("physMedium"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Authorized(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Physmedium, "physMedium");
 
 
 
-Price::Price() : m_Common(this), m_Bibl(this), m_Measurement(this) {
-    m_Base.setName("price");
+mei::Platenum::Platenum() : 
+    MeiElement("plateNum"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this) 
+{
 };
+REGISTER_DEFINITION(mei::Platenum, "plateNum");
 
 
 
-Projectdesc::Projectdesc() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("projectDesc");
+mei::Price::Price() : 
+    MeiElement("price"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Measurement(this) 
+{
 };
+REGISTER_DEFINITION(mei::Price, "price");
 
 
 
-Provenance::Provenance() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("provenance");
+mei::Projectdesc::Projectdesc() : 
+    MeiElement("projectDesc"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Projectdesc, "projectDesc");
 
 
 
-Pubstmt::Pubstmt() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("pubStmt");
+mei::Provenance::Provenance() : 
+    MeiElement("provenance"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Provenance, "provenance");
 
 
 
-Relateditem::Relateditem() : m_Datapointing(this), m_Common(this), m_Bibl(this) {
-    m_Base.setName("relatedItem");
+mei::Pubstmt::Pubstmt() : 
+    MeiElement("pubStmt"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Pubstmt, "pubStmt");
 
 
-string Relateditem::getRelValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("rel")) {
+
+mei::Relateditem::Relateditem() : 
+    MeiElement("relatedItem"),
+    m_Datapointing(this),
+    m_Common(this),
+    m_Bibl(this) 
+{
+};
+REGISTER_DEFINITION(mei::Relateditem, "relatedItem");
+
+
+MeiAttribute* mei::Relateditem::getRel() {
+    if (!hasAttribute("rel")) {
         throw AttributeNotFoundException("rel");
     }
-    return m_Base.getAttributeValue("rel");
+    return getAttribute("rel");
 };
 
-MeiAttribute* Relateditem::getRel() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("rel")) {
-        throw AttributeNotFoundException("rel");
-    }
-    return m_Base.getAttribute("rel");
-};
-
-void Relateditem::setRel(std::string _rel) {
-    if (!m_Base.hasAttribute("rel")) {
+void mei::Relateditem::setRel(std::string _rel) {
+    if (!hasAttribute("rel")) {
         MeiAttribute *a = new MeiAttribute("rel", _rel);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Relateditem::hasRel() {
-    return m_Base.hasAttribute("rel");
+bool mei::Relateditem::hasRel() {
+    return hasAttribute("rel");
 };
 
-void Relateditem::removeRel() {
-    m_Base.removeAttribute("rel");
-};
-
-
-Resp::Resp() : m_Authorized(this) {
-    m_Base.setName("resp");
+void mei::Relateditem::removeRel() {
+    removeAttribute("rel");
 };
 
 
-
-Respstmt::Respstmt() : m_Bibl(this), m_Common(this) {
-    m_Base.setName("respStmt");
+mei::Resp::Resp() : 
+    MeiElement("resp"),
+    m_Authorized(this) 
+{
 };
+REGISTER_DEFINITION(mei::Resp, "resp");
 
 
 
-Revisiondesc::Revisiondesc() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("revisionDesc");
+mei::Respstmt::Respstmt() : 
+    MeiElement("respStmt"),
+    m_Bibl(this),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Respstmt, "respStmt");
 
 
 
-Samplingdecl::Samplingdecl() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("samplingDecl");
+mei::Revisiondesc::Revisiondesc() : 
+    MeiElement("revisionDesc"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Revisiondesc, "revisionDesc");
 
 
 
-Segmentation::Segmentation() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("segmentation");
+mei::Samplingdecl::Samplingdecl() : 
+    MeiElement("samplingDecl"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Samplingdecl, "samplingDecl");
 
 
 
-Seriesstmt::Seriesstmt() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("seriesStmt");
+mei::Segmentation::Segmentation() : 
+    MeiElement("segmentation"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Segmentation, "segmentation");
 
 
 
-Source::Source() : m_Datapointing(this), m_Common(this), m_Bibl(this) {
-    m_Base.setName("source");
+mei::Seriesstmt::Seriesstmt() : 
+    MeiElement("seriesStmt"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Seriesstmt, "seriesStmt");
 
 
 
-Sourcedesc::Sourcedesc() : m_Common(this) {
-    m_Base.setName("sourceDesc");
+mei::Source::Source() : 
+    MeiElement("source"),
+    m_Datapointing(this),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Source, "source");
 
 
 
-Stdvals::Stdvals() : m_Common(this), m_Bibl(this), m_Datapointing(this), m_Lang(this) {
-    m_Base.setName("stdVals");
+mei::Sourcedesc::Sourcedesc() : 
+    MeiElement("sourceDesc"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Sourcedesc, "sourceDesc");
 
 
 
-Sysreq::Sysreq() : m_Common(this), m_Bibl(this), m_Lang(this) {
-    m_Base.setName("sysReq");
+mei::Stdvals::Stdvals() : 
+    MeiElement("stdVals"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Datapointing(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Stdvals, "stdVals");
 
 
 
-Term::Term() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("term");
+mei::Sysreq::Sysreq() : 
+    MeiElement("sysReq"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Sysreq, "sysReq");
 
 
-string Term::getClasscodeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("classcode")) {
+
+mei::Term::Term() : 
+    MeiElement("term"),
+    m_Common(this),
+    m_Bibl(this) 
+{
+};
+REGISTER_DEFINITION(mei::Term, "term");
+
+
+MeiAttribute* mei::Term::getClasscode() {
+    if (!hasAttribute("classcode")) {
         throw AttributeNotFoundException("classcode");
     }
-    return m_Base.getAttributeValue("classcode");
+    return getAttribute("classcode");
 };
 
-MeiAttribute* Term::getClasscode() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("classcode")) {
-        throw AttributeNotFoundException("classcode");
-    }
-    return m_Base.getAttribute("classcode");
-};
-
-void Term::setClasscode(std::string _classcode) {
-    if (!m_Base.hasAttribute("classcode")) {
+void mei::Term::setClasscode(std::string _classcode) {
+    if (!hasAttribute("classcode")) {
         MeiAttribute *a = new MeiAttribute("classcode", _classcode);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Term::hasClasscode() {
-    return m_Base.hasAttribute("classcode");
+bool mei::Term::hasClasscode() {
+    return hasAttribute("classcode");
 };
 
-void Term::removeClasscode() {
-    m_Base.removeAttribute("classcode");
-};
-
-
-Termlist::Termlist() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("termList");
+void mei::Term::removeClasscode() {
+    removeAttribute("classcode");
 };
 
 
-string Termlist::getClasscodeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("classcode")) {
+mei::Termlist::Termlist() : 
+    MeiElement("termList"),
+    m_Common(this),
+    m_Bibl(this) 
+{
+};
+REGISTER_DEFINITION(mei::Termlist, "termList");
+
+
+MeiAttribute* mei::Termlist::getClasscode() {
+    if (!hasAttribute("classcode")) {
         throw AttributeNotFoundException("classcode");
     }
-    return m_Base.getAttributeValue("classcode");
+    return getAttribute("classcode");
 };
 
-MeiAttribute* Termlist::getClasscode() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("classcode")) {
-        throw AttributeNotFoundException("classcode");
-    }
-    return m_Base.getAttribute("classcode");
-};
-
-void Termlist::setClasscode(std::string _classcode) {
-    if (!m_Base.hasAttribute("classcode")) {
+void mei::Termlist::setClasscode(std::string _classcode) {
+    if (!hasAttribute("classcode")) {
         MeiAttribute *a = new MeiAttribute("classcode", _classcode);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Termlist::hasClasscode() {
-    return m_Base.hasAttribute("classcode");
+bool mei::Termlist::hasClasscode() {
+    return hasAttribute("classcode");
 };
 
-void Termlist::removeClasscode() {
-    m_Base.removeAttribute("classcode");
-};
-
-
-Titlestmt::Titlestmt() : m_Bibl(this), m_Common(this) {
-    m_Base.setName("titleStmt");
+void mei::Termlist::removeClasscode() {
+    removeAttribute("classcode");
 };
 
 
-
-Treathist::Treathist() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("treatHist");
+mei::Titlestmt::Titlestmt() : 
+    MeiElement("titleStmt"),
+    m_Bibl(this),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Titlestmt, "titleStmt");
 
 
 
-Treatsched::Treatsched() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("treatSched");
+mei::Treathist::Treathist() : 
+    MeiElement("treatHist"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Treathist, "treatHist");
 
 
 
-Unpub::Unpub() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("unpub");
+mei::Treatsched::Treatsched() : 
+    MeiElement("treatSched"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Treatsched, "treatSched");
 
 
 
-Userestrict::Userestrict() : m_Common(this), m_Bibl(this) {
-    m_Base.setName("useRestrict");
+mei::Unpub::Unpub() : 
+    MeiElement("unpub"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Unpub, "unpub");
 
 
 
-Watermark::Watermark() : m_Common(this), m_Bibl(this), m_Facsimile(this) {
-    m_Base.setName("watermark");
+mei::Userestrict::Userestrict() : 
+    MeiElement("useRestrict"),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Userestrict, "useRestrict");
 
 
 
-Work::Work() : m_Datapointing(this), m_Common(this), m_Bibl(this) {
-    m_Base.setName("work");
+mei::Watermark::Watermark() : 
+    MeiElement("watermark"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this) 
+{
 };
+REGISTER_DEFINITION(mei::Watermark, "watermark");
 
 
 
-Workdesc::Workdesc() : m_Common(this) {
-    m_Base.setName("workDesc");
+mei::Work::Work() : 
+    MeiElement("work"),
+    m_Datapointing(this),
+    m_Common(this),
+    m_Bibl(this) 
+{
 };
+REGISTER_DEFINITION(mei::Work, "work");
+
+
+
+mei::Workdesc::Workdesc() : 
+    MeiElement("workDesc"),
+    m_Common(this) 
+{
+};
+REGISTER_DEFINITION(mei::Workdesc, "workDesc");
 
 
 

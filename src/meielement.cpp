@@ -9,40 +9,43 @@
 #include <vector>
 
 using std::string;
-//MeiFactory::node_map * MeiFactory::nodemap;
+using mei::MeiAttribute;
+using mei::MeiFactory;
 
-BaseMeiElement::BaseMeiElement() {
-    this->name_ = "";
-	this->value_ = "";
-    this->prefix_ = MEI_PREFIX;
-    this->ns_ = MEI_NS;
-  	this->parent_ = NULL;
+MeiFactory::default_map * MeiFactory::defaultmap;
+
+mei::MeiElement::MeiElement() {
+    this->name = "";
+	this->value = "";
+    this->prefix = MEI_PREFIX;
+    this->ns = MEI_NS;
+  	this->parent = NULL;
 }
 
-BaseMeiElement::BaseMeiElement(string _name) {
-	this->name_ = _name;
-	this->value_ = "";
-   	this->parent_ = NULL;
+mei::MeiElement::MeiElement(string name) {
+	this->name = name;
+	this->value = "";
+   	this->parent = NULL;
 }
 
-BaseMeiElement::BaseMeiElement(string _name, string _value) {
-    this->name_ = _name;
-    this->value_ = _value;
-    this->parent_ = NULL;
+mei::MeiElement::MeiElement(string name, string value) {
+    this->name = name;
+    this->value = value;
+    this->parent = NULL;
 }
 
-BaseMeiElement::BaseMeiElement(string _name, string _value, string _prefix, string _ns, MeiElement * _parent) {
-	this->name_ = _name;
-    this->value_ = _value;
-    this->ns_ = _ns;
-    this->prefix_ = _prefix;
-	this->parent_ = _parent;
+mei::MeiElement::MeiElement(string name, string value, string prefix, string ns, MeiElement * parent) {
+	this->name = name;
+    this->value = value;
+    this->ns = ns;
+    this->prefix = prefix;
+	this->parent = parent;
 }
 
 
 
 /*
-BaseMeiElement::BaseMeiElement(xmlNode* node) {
+MeiElement::MeiElement(xmlNode* node) {
 	parent_ = NULL;
 	value_ = "";
 	xmlNode* curnode = NULL;
@@ -114,11 +117,11 @@ BaseMeiElement::BaseMeiElement(xmlNode* node) {
 	//else throw an exception?
 }
 */
-BaseMeiElement::~BaseMeiElement() {}
+mei::MeiElement::~MeiElement() {}
 
 //currently fails to compare children vectors
 /*
-bool BaseMeiElement::operator==(const BaseMeiElement &other) const {
+bool MeiElement::operator==(const MeiElement &other) const {
 	if (!this->children.empty() && !other.children_.empty()) {
 		return (this->name_ == other.getName() && this->parent_ == other.getParent()
 				&& this->value_ == other.getValue() && this->tail_ == other.getTail() && this->attributes_ == other.getAttributes()
@@ -134,161 +137,163 @@ bool BaseMeiElement::operator==(const BaseMeiElement &other) const {
 }*/
 
 // TODO: make sure that this is kept in sync with the xml:id MeiAttribute!
-string BaseMeiElement::getId() {
-    return this->id_;
+string mei::MeiElement::getId() {
+    return this->id;
 }
 
-void BaseMeiElement::setId(string _id) {
-    this->id_ = _id;
+void mei::MeiElement::setId(string id) {
+    this->id = id;
     if (this->hasAttribute("xml:id")) {
         this->removeAttribute("xml:id");
-        MeiAttribute *x = new MeiAttribute("xml:id", _id);
+        MeiAttribute *x = new MeiAttribute("xml:id", id);
         this->addAttribute(x);
     }
 }
 
-bool BaseMeiElement::hasId() {
+bool mei::MeiElement::hasId() {
     return this->hasAttribute("xml:id");
 }
 
-string BaseMeiElement::getName() {
-	return this->name_;
+string mei::MeiElement::getName() {
+	return this->name;
 }
 
 //need a name setter for editing MEI files
-void BaseMeiElement::setName(string _name) {
-	this->name_ = _name;
+void mei::MeiElement::setName(string name) {
+	this->name = name;
 }
 
-string BaseMeiElement::getNs() {
-    return this->ns_;
+string mei::MeiElement::getNs() {
+    return this->ns;
 }
 
-void BaseMeiElement::setNs(string _ns) {
-	this->ns_ = _ns;
+void mei::MeiElement::setNs(string ns) {
+	this->ns = ns;
 }
 
-string BaseMeiElement::getValue() {
-	return this->value_;
+string mei::MeiElement::getValue() {
+	return this->value;
 }
 
-string BaseMeiElement::getPrefix() {
-    return this->prefix_;
-};
-
-void BaseMeiElement::setPrefix(string _prefix) {
-    this->prefix_ = _prefix;
-};
-
-void BaseMeiElement::setValue(string _value) {
-	this->value_ = _value;
+string mei::MeiElement::getPrefix() {
+    return this->prefix;
 }
 
-string BaseMeiElement::getTail() {
-	return this->tail_;
+void mei::MeiElement::setPrefix(string prefix) {
+    this->prefix = prefix;
 }
 
-void BaseMeiElement::setTail(string _tail) {
-    this->tail_ = _tail;
+void mei::MeiElement::setValue(string value) {
+	this->value = value;
 }
 
-vector<MeiAttribute*>& BaseMeiElement::getAttributes() {
-	return this->attributes_;
+string mei::MeiElement::getTail() {
+	return this->tail;
 }
 
-void BaseMeiElement::setAttributes(vector<MeiAttribute*> _attrs) {
-    this->attributes_ = _attrs;
-};
+void mei::MeiElement::setTail(string tail) {
+    this->tail = tail;
+}
 
-MeiAttribute* BaseMeiElement::getAttribute(string _name) throw (AttributeNotFoundException) {
+vector<MeiAttribute*>& mei::MeiElement::getAttributes() {
+	return this->attributes;
+}
+
+void mei::MeiElement::setAttributes(vector<MeiAttribute*> attrs) {
+    this->attributes = attrs;
+}
+
+MeiAttribute* mei::MeiElement::getAttribute(string name) throw (AttributeNotFoundException) {
     
-    if(!this->hasAttribute(_name)) {
-        throw AttributeNotFoundException(_name);
+    if(!this->hasAttribute(name)) {
+        throw AttributeNotFoundException(name);
     }
     
-    for (vector<MeiAttribute*>::iterator iter = attributes_.begin(); iter != attributes_.end(); ++iter) {
-        if ((*iter)->getName() == _name) {
+    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+        if ((*iter)->getName() == name) {
             return *iter;
         }
     }
-};
+    return NULL;
+}
 
-string BaseMeiElement::getAttributeValue(string _name) throw (AttributeNotFoundException) {
+string mei::MeiElement::getAttributeValue(string name) throw (AttributeNotFoundException) {
     
-    if (!this->hasAttribute(_name)) {
-        throw AttributeNotFoundException(_name);
+    if (!this->hasAttribute(name)) {
+        throw AttributeNotFoundException(name);
     }
     
-	for (vector<MeiAttribute*>::iterator iter = attributes_.begin(); iter != attributes_.end(); ++iter) {
-		if ((*iter)->getName() == _name) return (*iter)->getValue();
+	for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+		if ((*iter)->getName() == name) return (*iter)->getValue();
 	}
-};
+    return NULL;
+}
 
-bool BaseMeiElement::hasAttribute(string _name) {
-	for (vector<MeiAttribute*>::iterator iter = attributes_.begin(); iter != attributes_.end(); ++iter) {
-		if ((*iter)->getName() == _name) return true;
+bool mei::MeiElement::hasAttribute(string name) {
+	for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+		if ((*iter)->getName() == name) return true;
 	}
 	return false;
-};
+}
 
-void BaseMeiElement::addAttribute(MeiAttribute *_attr) throw (DuplicateAttributeException) {
-	for (vector<MeiAttribute*>::iterator i = attributes_.begin(); i != attributes_.end(); ++i) {
-		if ( (*i)->getName() == _attr->getName() ) {
+void mei::MeiElement::addAttribute(MeiAttribute *attr) throw (DuplicateAttributeException) {
+	for (vector<MeiAttribute*>::iterator i = attributes.begin(); i != attributes.end(); ++i) {
+		if ( (*i)->getName() == attr->getName() ) {
 			throw DuplicateAttributeException((*i)->getName());
 		}
 	}
-	attributes_.push_back(_attr);
-};
+	attributes.push_back(attr);
+}
 
-void BaseMeiElement::removeAttribute(string _name) {
-	vector<MeiAttribute*>::iterator iter = attributes_.begin();
-	while (iter != attributes_.end()) {
-		if ((*iter)->getName() == _name) {
-			iter = attributes_.erase(iter);
+void mei::MeiElement::removeAttribute(string name) {
+	vector<MeiAttribute*>::iterator iter = attributes.begin();
+	while (iter != attributes.end()) {
+		if ((*iter)->getName() == name) {
+			iter = attributes.erase(iter);
 		}
 		else {
 			++iter;
 		}
 	}
-};
+}
 
-bool BaseMeiElement::hasParent() {
-	return (this->parent_ != NULL);
-};
+bool mei::MeiElement::hasParent() {
+	return (this->parent != NULL);
+}
 
-void BaseMeiElement::setParent(MeiElement *_parent) {
-	this->parent_ = _parent;
-};
+void mei::MeiElement::setParent(MeiElement *parent) {
+	this->parent = parent;
+}
 
-void BaseMeiElement::removeParent() {
-	this->parent_ = NULL;
-};
+void mei::MeiElement::removeParent() {
+	this->parent = NULL;
+}
 
-MeiElement* BaseMeiElement::getParent() {
-	return this->parent_;
-};
+mei::MeiElement* mei::MeiElement::getParent() {
+	return this->parent;
+}
 
 /** Working with Children **/
 
-void BaseMeiElement::addChild(MeiElement *child) {
-    this->children_.push_back(child);
+void mei::MeiElement::addChild(MeiElement *child) {
+    this->children.push_back(child);
 }
 
-void BaseMeiElement::setChildren(vector<MeiElement*> children) {
+void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     deleteAllChildren();
-    this->children_ = children;
+    this->children = children;
 }
 
-vector<MeiElement*> BaseMeiElement::getChildren() {
-    return this->children_;
+vector<mei::MeiElement*> mei::MeiElement::getChildren() {
+    return this->children;
 }
 
-vector<MeiElement*> BaseMeiElement::getChildrenByName(string name) throw (ChildNotFoundException) {
+vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) throw (ChildNotFoundException) {
     if (!this->hasChildren(name)) {
         throw ChildNotFoundException(name);
     }
-    vector<MeiElement*> res;
-    for (vector<MeiElement*>::iterator iter = children_.begin(); iter != children_.end(); ++iter) {
+    vector<mei::MeiElement*> res;
+    for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getName() == name) {
             res.push_back(*iter);
         }
@@ -296,75 +301,75 @@ vector<MeiElement*> BaseMeiElement::getChildrenByName(string name) throw (ChildN
     return res;
 }
 
-MeiElement* BaseMeiElement::getChildById(string cid) throw (ChildNotFoundException) {
-    for (vector<MeiElement*>::iterator iter = children_.begin(); iter != children_.end(); ++iter) {
+mei::MeiElement* mei::MeiElement::getChildById(string cid) throw (ChildNotFoundException) {
+    for (vector<mei::MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getId() == cid) return *iter;
     }
     throw ChildNotFoundException(cid);
 }
 
-void BaseMeiElement::deleteAllChildren() {
-    for (vector<MeiElement*>::iterator iter = children_.begin(); iter != children_.end(); ++iter) {
+void mei::MeiElement::deleteAllChildren() {
+    for (vector<mei::MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         delete *iter;
     }
-    this->children_.empty();
+    this->children.empty();
 }
 
-void BaseMeiElement::removeChildren(string cname) {
-    vector<MeiElement*>::iterator iter = children_.begin();
-	while (iter != this->children_.end()) {
+void mei::MeiElement::removeChildren(string cname) {
+    vector<MeiElement*>::iterator iter = this->children.begin();
+	while (iter != this->children.end()) {
 		if((*iter)->getName() == cname) {
-			iter = this->children_.erase(iter);
+			iter = this->children.erase(iter);
 		} else {
 			++iter;
 		}
 	}
 }
 
-void BaseMeiElement::removeChild(MeiElement * child) {
-    vector<MeiElement*>::iterator iter = children_.begin();
-	while (iter != this->children_.end()) {
+void mei::MeiElement::removeChild(MeiElement * child) {
+    vector<MeiElement*>::iterator iter = this->children.begin();
+	while (iter != this->children.end()) {
 		if(child == *iter) {
-			iter = this->children_.erase(iter);
+			iter = this->children.erase(iter);
 		} else {
 			++iter;
 		}
 	}
 }
 
-bool BaseMeiElement::hasChildren(string cname) {
-    for (vector<MeiElement*>::iterator iter = children_.begin(); iter != children_.end(); ++iter) {
+bool mei::MeiElement::hasChildren(string cname) {
+    for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if((*iter)->getName() == cname) return true;
     }
     return false;
 }
 
-bool BaseMeiElement::hasChild(MeiElement * child) {
-    for(vector<MeiElement*>::iterator iter = children_.begin(); iter != children_.end(); ++iter) {
+bool mei::MeiElement::hasChild(MeiElement * child) {
+    for(vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if( child == *iter) return true;
     }
     return false;
 }
 
-void BaseMeiElement::print() {
+void mei::MeiElement::print() {
 	print(0);
 }
 
-void BaseMeiElement::print(int level) {
+void mei::MeiElement::print(int level) {
 	printf("%*s ", level + (int)getName().length(), getName().c_str());
     
 	if (this->getNs().size()>0) {
 		printf("%s:%s ", this->getPrefix().c_str(), this->getNs().c_str());
     }
 	
-    for (vector<MeiAttribute*>::iterator iter = attributes_.begin(); iter !=attributes_.end(); iter++) {
+    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
     
     printf("\n");
         
-	vector<MeiElement*>::iterator iter = children_.begin();
-	while (iter != children_.end()) {
+	vector<MeiElement*>::iterator iter = this->children.begin();
+	while (iter != this->children.end()) {
 		(*iter)->print(level+2);
 		iter++;
 	}

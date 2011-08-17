@@ -29,167 +29,168 @@
 #include "exceptions.h"
 
 
-
-struct AccidLogMixIn {
-    AccidLogMixIn(BaseMeiElement *b);
-    virtual ~AccidLogMixIn() {};
+namespace mei {
     
+class AccidLogMixIn {
+    public:
+        AccidLogMixIn(MeiElement *b);
+        virtual ~AccidLogMixIn() {};
+        
     /** \brief   records the function of an accidental.
     */
 
-    string getFuncValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFunc() throw (AttributeNotFoundException);
+    MeiAttribute* getFunc();
     void setFunc(std::string _func);
     bool hasFunc();
     void removeFunc();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AccidVisMixIn {
-    AccidVisMixIn(BaseMeiElement *b);
-    virtual ~AccidVisMixIn() {};
-    
+class AccidVisMixIn {
+    public:
+        AccidVisMixIn(MeiElement *b);
+        virtual ~AccidVisMixIn() {};
+        
     /** \brief   captures the placement of the item with respect to the staff with which it is
     * associated.
     */
 
-    string getPlaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPlace() throw (AttributeNotFoundException);
+    MeiAttribute* getPlace();
     void setPlace(std::string _place);
     bool hasPlace();
     void removePlace();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AccidentalMixIn {
-    AccidentalMixIn(BaseMeiElement *b);
-    virtual ~AccidentalMixIn() {};
-    
+class AccidentalMixIn {
+    public:
+        AccidentalMixIn(MeiElement *b);
+        virtual ~AccidentalMixIn() {};
+        
     /** \brief   captures a written accidental.
     */
 
-    string getAccidValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAccid() throw (AttributeNotFoundException);
+    MeiAttribute* getAccid();
     void setAccid(std::string _accid);
     bool hasAccid();
     void removeAccid();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AccidentalPerformedMixIn {
-    AccidentalPerformedMixIn(BaseMeiElement *b);
-    virtual ~AccidentalPerformedMixIn() {};
-    
+class AccidentalPerformedMixIn {
+    public:
+        AccidentalPerformedMixIn(MeiElement *b);
+        virtual ~AccidentalPerformedMixIn() {};
+        
     /** \brief   records the performed pitch inflection when it differs from the written
     * accidental.
     */
 
-    string getAccidGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAccidGes() throw (AttributeNotFoundException);
+    MeiAttribute* getAccidGes();
     void setAccidGes(std::string _accidges);
     bool hasAccidGes();
     void removeAccidGes();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AltsymMixIn {
-    AltsymMixIn(BaseMeiElement *b);
-    virtual ~AltsymMixIn() {};
-    
+class AltsymMixIn {
+    public:
+        AltsymMixIn(MeiElement *b);
+        virtual ~AltsymMixIn() {};
+        
     /** \brief   provides a way of pointing to a user-defined symbol. It must contain an ID of a
     * <symbolDef> element elsewhere in the document.
     */
 
-    string getAltsymValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAltsym() throw (AttributeNotFoundException);
+    MeiAttribute* getAltsym();
     void setAltsym(std::string _altsym);
     bool hasAltsym();
     void removeAltsym();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ArticulationMixIn {
-    ArticulationMixIn(BaseMeiElement *b);
-    virtual ~ArticulationMixIn() {};
-    
+class ArticulationMixIn {
+    public:
+        ArticulationMixIn(MeiElement *b);
+        virtual ~ArticulationMixIn() {};
+        
     /** \brief   encodes the written articulation(s). Articulations are normally encoded in order
     * from the note head outward; that is, away from the stem. See additional notes at
     * att.vis.note. Only articulations should be encoded in the artic attribute;
     * fingerings should be encoded using the <dir> element.
     */
 
-    string getArticValue() throw (AttributeNotFoundException);
-    MeiAttribute* getArtic() throw (AttributeNotFoundException);
+    MeiAttribute* getArtic();
     void setArtic(std::string _artic);
     bool hasArtic();
     void removeArtic();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ArticulationPerformedMixIn {
-    ArticulationPerformedMixIn(BaseMeiElement *b);
-    virtual ~ArticulationPerformedMixIn() {};
-    
+class ArticulationPerformedMixIn {
+    public:
+        ArticulationPerformedMixIn(MeiElement *b);
+        virtual ~ArticulationPerformedMixIn() {};
+        
     /** \brief   records performed articulation that differs from the written value.
     */
 
-    string getArticGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getArticGes() throw (AttributeNotFoundException);
+    MeiAttribute* getArticGes();
     void setArticGes(std::string _articges);
     bool hasArticGes();
     void removeArticGes();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AugmentdotsMixIn {
-    AugmentdotsMixIn(BaseMeiElement *b);
-    virtual ~AugmentdotsMixIn() {};
-    
+class AugmentdotsMixIn {
+    public:
+        AugmentdotsMixIn(MeiElement *b);
+        virtual ~AugmentdotsMixIn() {};
+        
     /** \brief   records the number of augmentation dots required by a dotted duration.
     */
 
-    string getDotsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDots() throw (AttributeNotFoundException);
+    MeiAttribute* getDots();
     void setDots(std::string _dots);
     bool hasDots();
     void removeDots();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct AuthorizedMixIn {
-    AuthorizedMixIn(BaseMeiElement *b);
-    virtual ~AuthorizedMixIn() {};
-    
+class AuthorizedMixIn {
+    public:
+        AuthorizedMixIn(MeiElement *b);
+        virtual ~AuthorizedMixIn() {};
+        
     /** \brief   a name or label associated with the controlled vocabulary from which the value
     * is taken.
     */
 
-    string getAuthorityValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAuthority() throw (AttributeNotFoundException);
+    MeiAttribute* getAuthority();
     void setAuthority(std::string _authority);
     bool hasAuthority();
     void removeAuthority();
@@ -198,44 +199,43 @@ struct AuthorizedMixIn {
     * taken.
     */
 
-    string getAuthuriValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAuthuri() throw (AttributeNotFoundException);
+    MeiAttribute* getAuthuri();
     void setAuthuri(std::string _authURI);
     bool hasAuthuri();
     void removeAuthuri();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct BarlineLogMixIn {
-    BarlineLogMixIn(BaseMeiElement *b);
-    virtual ~BarlineLogMixIn() {};
-    
+class BarlineLogMixIn {
+    public:
+        BarlineLogMixIn(MeiElement *b);
+        virtual ~BarlineLogMixIn() {};
+        
     /** \brief   describes the line style of the curve.
     */
 
-    string getRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRend() throw (AttributeNotFoundException);
+    MeiAttribute* getRend();
     void setRend(std::string _rend);
     bool hasRend();
     void removeRend();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct BarplacementMixIn {
-    BarplacementMixIn(BaseMeiElement *b);
-    virtual ~BarplacementMixIn() {};
-    
+class BarplacementMixIn {
+    public:
+        BarplacementMixIn(MeiElement *b);
+        virtual ~BarplacementMixIn() {};
+        
     /** \brief   records the location of a bar line.
     */
 
-    string getBarplaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBarplace() throw (AttributeNotFoundException);
+    MeiAttribute* getBarplace();
     void setBarplace(std::string _barplace);
     bool hasBarplace();
     void removeBarplace();
@@ -250,26 +250,25 @@ struct BarplacementMixIn {
     * staff.
     */
 
-    string getTaktplaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTaktplace() throw (AttributeNotFoundException);
+    MeiAttribute* getTaktplace();
     void setTaktplace(std::string _taktplace);
     bool hasTaktplace();
     void removeTaktplace();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct BeamingVisMixIn {
-    BeamingVisMixIn(BaseMeiElement *b);
-    virtual ~BeamingVisMixIn() {};
-    
+class BeamingVisMixIn {
+    public:
+        BeamingVisMixIn(MeiElement *b);
+        virtual ~BeamingVisMixIn() {};
+        
     /** \brief   encodes whether a beam is "feathered" and in which direction.
     */
 
-    string getBeamRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBeamRend() throw (AttributeNotFoundException);
+    MeiAttribute* getBeamRend();
     void setBeamRend(std::string _beamrend);
     bool hasBeamRend();
     void removeBeamRend();
@@ -277,21 +276,21 @@ struct BeamingVisMixIn {
     /** \brief   captures beam slope.
     */
 
-    string getBeamSlopeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBeamSlope() throw (AttributeNotFoundException);
+    MeiAttribute* getBeamSlope();
     void setBeamSlope(std::string _beamslope);
     bool hasBeamSlope();
     void removeBeamSlope();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct BiblMixIn {
-    BiblMixIn(BaseMeiElement *b);
-    virtual ~BiblMixIn() {};
-    
+class BiblMixIn {
+    public:
+        BiblMixIn(MeiElement *b);
+        virtual ~BiblMixIn() {};
+        
     /** \brief   contains a reference to a field or element in another descriptive encoding
     * system to which this MEI element is comparable. Mapping elements from one system
     * to another may help a repository harvest selected data from the MEI file to
@@ -300,82 +299,81 @@ struct BiblMixIn {
     * specified, e.g., subfields within MARC fields.
     */
 
-    string getAnalogValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAnalog() throw (AttributeNotFoundException);
+    MeiAttribute* getAnalog();
     void setAnalog(std::string _analog);
     bool hasAnalog();
     void removeAnalog();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CalendaredMixIn {
-    CalendaredMixIn(BaseMeiElement *b);
-    virtual ~CalendaredMixIn() {};
-    
+class CalendaredMixIn {
+    public:
+        CalendaredMixIn(MeiElement *b);
+        virtual ~CalendaredMixIn() {};
+        
     /** \brief   indicates the calendar system to which a date belongs, for example, Gregorian,
     * Julian, Roman, Mosaic, Revolutionary, Islamic, etc.
     */
 
-    string getCalendarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCalendar() throw (AttributeNotFoundException);
+    MeiAttribute* getCalendar();
     void setCalendar(std::string _calendar);
     bool hasCalendar();
     void removeCalendar();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CanonicalMixIn {
-    CanonicalMixIn(BaseMeiElement *b);
-    virtual ~CanonicalMixIn() {};
-    
+class CanonicalMixIn {
+    public:
+        CanonicalMixIn(MeiElement *b);
+        virtual ~CanonicalMixIn() {};
+        
     /** \brief   used to record a value which serves as a primary key in an external database.
     */
 
-    string getDbkeyValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDbkey() throw (AttributeNotFoundException);
+    MeiAttribute* getDbkey();
     void setDbkey(std::string _dbkey);
     bool hasDbkey();
     void removeDbkey();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ChordVisMixIn {
-    ChordVisMixIn(BaseMeiElement *b);
-    virtual ~ChordVisMixIn() {};
-    
+class ChordVisMixIn {
+    public:
+        ChordVisMixIn(MeiElement *b);
+        virtual ~ChordVisMixIn() {};
+        
     /** \brief   indicates a single alternative note head should be displayed instead of
     * individual note heads. See Read, p. 320-321, re: tone clusters.
     */
 
-    string getClusterValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCluster() throw (AttributeNotFoundException);
+    MeiAttribute* getCluster();
     void setCluster(std::string _cluster);
     bool hasCluster();
     void removeCluster();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CleffingLogMixIn {
-    CleffingLogMixIn(BaseMeiElement *b);
-    virtual ~CleffingLogMixIn() {};
-    
+class CleffingLogMixIn {
+    public:
+        CleffingLogMixIn(MeiElement *b);
+        virtual ~CleffingLogMixIn() {};
+        
     /** \brief   encodes a value for the clef symbol.
     */
 
-    string getClefShapeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefShape() throw (AttributeNotFoundException);
+    MeiAttribute* getClefShape();
     void setClefShape(std::string _clefshape);
     bool hasClefShape();
     void removeClefShape();
@@ -385,8 +383,7 @@ struct CleffingLogMixIn {
     * starts with the lowest line of the staff.
     */
 
-    string getClefLineValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefLine() throw (AttributeNotFoundException);
+    MeiAttribute* getClefLine();
     void setClefLine(std::string _clefline);
     bool hasClefLine();
     void removeClefLine();
@@ -394,8 +391,7 @@ struct CleffingLogMixIn {
     /** \brief   records the amount of octave displacement to be applied to the clef.
     */
 
-    string getClefDisValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefDis() throw (AttributeNotFoundException);
+    MeiAttribute* getClefDis();
     void setClefDis(std::string _clefdis);
     bool hasClefDis();
     void removeClefDis();
@@ -403,26 +399,25 @@ struct CleffingLogMixIn {
     /** \brief   records the direction of octave displacement to be applied to the clef.
     */
 
-    string getClefDisPlaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefDisPlace() throw (AttributeNotFoundException);
+    MeiAttribute* getClefDisPlace();
     void setClefDisPlace(std::string _clefdisplace);
     bool hasClefDisPlace();
     void removeClefDisPlace();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CleffingVisMixIn {
-    CleffingVisMixIn(BaseMeiElement *b);
-    virtual ~CleffingVisMixIn() {};
-    
+class CleffingVisMixIn {
+    public:
+        CleffingVisMixIn(MeiElement *b);
+        virtual ~CleffingVisMixIn() {};
+        
     /** \brief   describes the color of the clef.
     */
 
-    string getClefColorValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefColor() throw (AttributeNotFoundException);
+    MeiAttribute* getClefColor();
     void setClefColor(std::string _clefcolor);
     bool hasClefColor();
     void removeClefColor();
@@ -430,58 +425,58 @@ struct CleffingVisMixIn {
     /** \brief   determines whether the clef is to be displayed.
     */
 
-    string getClefVisibleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClefVisible() throw (AttributeNotFoundException);
+    MeiAttribute* getClefVisible();
     void setClefVisible(std::string _clefvisible);
     bool hasClefVisible();
     void removeClefVisible();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ClefshapeMixIn {
-    ClefshapeMixIn(BaseMeiElement *b);
-    virtual ~ClefshapeMixIn() {};
-    
+class ClefshapeMixIn {
+    public:
+        ClefshapeMixIn(MeiElement *b);
+        virtual ~ClefshapeMixIn() {};
+        
     /** \brief   describes a clef's shape.
     */
 
-    string getShapeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getShape() throw (AttributeNotFoundException);
+    MeiAttribute* getShape();
     void setShape(std::string _shape);
     bool hasShape();
     void removeShape();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ColorMixIn {
-    ColorMixIn(BaseMeiElement *b);
-    virtual ~ColorMixIn() {};
-    
+class ColorMixIn {
+    public:
+        ColorMixIn(MeiElement *b);
+        virtual ~ColorMixIn() {};
+        
     /** \brief   used to indicate visual appearance. Do not confuse this with the musical term
     * 'color' as used in pre-CMN notation.
     */
 
-    string getColorValue() throw (AttributeNotFoundException);
-    MeiAttribute* getColor() throw (AttributeNotFoundException);
+    MeiAttribute* getColor();
     void setColor(std::string _color);
     bool hasColor();
     void removeColor();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ColorationMixIn {
-    ColorationMixIn(BaseMeiElement *b);
-    virtual ~ColorationMixIn() {};
-    
+class ColorationMixIn {
+    public:
+        ColorationMixIn(MeiElement *b);
+        virtual ~ColorationMixIn() {};
+        
     /** \brief   indicates this feature is 'colored'; that is, it is a participant in a change in
     * rhythmic values. In mensural notation, coloration is indicated by colored notes
     * (red, black, etc.) where void notes would otherwise occur. In CMN, coloration is
@@ -489,28 +484,27 @@ struct ColorationMixIn {
     * otherwise be filled and vice versa.
     */
 
-    string getColoredValue() throw (AttributeNotFoundException);
-    MeiAttribute* getColored() throw (AttributeNotFoundException);
+    MeiAttribute* getColored();
     void setColored(std::string _colored);
     bool hasColored();
     void removeColored();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CommonMixIn {
-    CommonMixIn(BaseMeiElement *b);
-    virtual ~CommonMixIn() {};
-    
+class CommonMixIn {
+    public:
+        CommonMixIn(MeiElement *b);
+        virtual ~CommonMixIn() {};
+        
     /** \brief   regularizes the naming of an element and thus facilitates building links between
     * it and other resources. Each id attribute within a document must have a unique
     * value.
     */
 
-    string getIdValue() throw (AttributeNotFoundException);
-    MeiAttribute* getId() throw (AttributeNotFoundException);
+    MeiAttribute* getId();
     void setId(std::string _id);
     bool hasId();
     void removeId();
@@ -518,8 +512,7 @@ struct CommonMixIn {
     /** \brief   provides a label for an element. The value may be any string.
     */
 
-    string getLabelValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLabel() throw (AttributeNotFoundException);
+    MeiAttribute* getLabel();
     void setLabel(std::string _label);
     bool hasLabel();
     void removeLabel();
@@ -528,8 +521,7 @@ struct CommonMixIn {
     * be unique, it is required to be a single token.
     */
 
-    string getNValue() throw (AttributeNotFoundException);
-    MeiAttribute* getN() throw (AttributeNotFoundException);
+    MeiAttribute* getN();
     void setN(std::string _n);
     bool hasN();
     void removeN();
@@ -538,26 +530,25 @@ struct CommonMixIn {
     * references into absolute URI references.
     */
 
-    string getBaseValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBase() throw (AttributeNotFoundException);
+    MeiAttribute* getBase();
     void setBase(std::string _base);
     bool hasBase();
     void removeBase();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CoordinatedMixIn {
-    CoordinatedMixIn(BaseMeiElement *b);
-    virtual ~CoordinatedMixIn() {};
-    
+class CoordinatedMixIn {
+    public:
+        CoordinatedMixIn(MeiElement *b);
+        virtual ~CoordinatedMixIn() {};
+        
     /** \brief   indicates the upper-left corner x coordinate.
     */
 
-    string getUlxValue() throw (AttributeNotFoundException);
-    MeiAttribute* getUlx() throw (AttributeNotFoundException);
+    MeiAttribute* getUlx();
     void setUlx(std::string _ulx);
     bool hasUlx();
     void removeUlx();
@@ -565,8 +556,7 @@ struct CoordinatedMixIn {
     /** \brief   indicates the upper-left corner y coordinate.
     */
 
-    string getUlyValue() throw (AttributeNotFoundException);
-    MeiAttribute* getUly() throw (AttributeNotFoundException);
+    MeiAttribute* getUly();
     void setUly(std::string _uly);
     bool hasUly();
     void removeUly();
@@ -574,8 +564,7 @@ struct CoordinatedMixIn {
     /** \brief   indicates the lower-right corner x coordinate.
     */
 
-    string getLrxValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLrx() throw (AttributeNotFoundException);
+    MeiAttribute* getLrx();
     void setLrx(std::string _lrx);
     bool hasLrx();
     void removeLrx();
@@ -583,27 +572,26 @@ struct CoordinatedMixIn {
     /** \brief   indicates the lower-left corner x coordinate.
     */
 
-    string getLryValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLry() throw (AttributeNotFoundException);
+    MeiAttribute* getLry();
     void setLry(std::string _lry);
     bool hasLry();
     void removeLry();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CurvatureMixIn {
-    CurvatureMixIn(BaseMeiElement *b);
-    virtual ~CurvatureMixIn() {};
-    
+class CurvatureMixIn {
+    public:
+        CurvatureMixIn(MeiElement *b);
+        virtual ~CurvatureMixIn() {};
+        
     /** \brief   records the placement of Bezier control points as a series of space-separated xy
     * coordinates, e.g., 19 45 -32 118.
     */
 
-    string getBezierValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBezier() throw (AttributeNotFoundException);
+    MeiAttribute* getBezier();
     void setBezier(std::string _bezier);
     bool hasBezier();
     void removeBezier();
@@ -613,8 +601,7 @@ struct CurvatureMixIn {
     * more decimal values expressed in inter-line units.
     */
 
-    string getBulgeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBulge() throw (AttributeNotFoundException);
+    MeiAttribute* getBulge();
     void setBulge(std::string _bulge);
     bool hasBulge();
     void removeBulge();
@@ -622,63 +609,62 @@ struct CurvatureMixIn {
     /** \brief   describes a curve with a generic term indicating the direction of curvature.
     */
 
-    string getCurvedirValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCurvedir() throw (AttributeNotFoundException);
+    MeiAttribute* getCurvedir();
     void setCurvedir(std::string _curvedir);
     bool hasCurvedir();
     void removeCurvedir();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CurverendMixIn {
-    CurverendMixIn(BaseMeiElement *b);
-    virtual ~CurverendMixIn() {};
-    
+class CurverendMixIn {
+    public:
+        CurverendMixIn(MeiElement *b);
+        virtual ~CurverendMixIn() {};
+        
     /** \brief   describes the line style of the curve.
     */
 
-    string getRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRend() throw (AttributeNotFoundException);
+    MeiAttribute* getRend();
     void setRend(std::string _rend);
     bool hasRend();
     void removeRend();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct CustosLogMixIn {
-    CustosLogMixIn(BaseMeiElement *b);
-    virtual ~CustosLogMixIn() {};
-    
+class CustosLogMixIn {
+    public:
+        CustosLogMixIn(MeiElement *b);
+        virtual ~CustosLogMixIn() {};
+        
     /** \brief   encodes the target note when its pitch differs from the pitch at which the
     * custos appears.
     */
 
-    string getTargetValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTarget() throw (AttributeNotFoundException);
+    MeiAttribute* getTarget();
     void setTarget(std::string _target);
     bool hasTarget();
     void removeTarget();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DatableMixIn {
-    DatableMixIn(BaseMeiElement *b);
-    virtual ~DatableMixIn() {};
-    
+class DatableMixIn {
+    public:
+        DatableMixIn(MeiElement *b);
+        virtual ~DatableMixIn() {};
+        
     /** \brief   contains the end point of a date range.
     */
 
-    string getEnddateValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEnddate() throw (AttributeNotFoundException);
+    MeiAttribute* getEnddate();
     void setEnddate(std::string _enddate);
     bool hasEnddate();
     void removeEnddate();
@@ -686,8 +672,7 @@ struct DatableMixIn {
     /** \brief   contains an upper boundary for an uncertain date.
     */
 
-    string getNotafterValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNotafter() throw (AttributeNotFoundException);
+    MeiAttribute* getNotafter();
     void setNotafter(std::string _notafter);
     bool hasNotafter();
     void removeNotafter();
@@ -695,8 +680,7 @@ struct DatableMixIn {
     /** \brief   contains a lower boundary for an uncertain date.
     */
 
-    string getNotbeforeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNotbefore() throw (AttributeNotFoundException);
+    MeiAttribute* getNotbefore();
     void setNotbefore(std::string _notbefore);
     bool hasNotbefore();
     void removeNotbefore();
@@ -704,63 +688,62 @@ struct DatableMixIn {
     /** \brief   contains the starting point of a date range.
     */
 
-    string getStartdateValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStartdate() throw (AttributeNotFoundException);
+    MeiAttribute* getStartdate();
     void setStartdate(std::string _startdate);
     bool hasStartdate();
     void removeStartdate();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DatapointingMixIn {
-    DatapointingMixIn(BaseMeiElement *b);
-    virtual ~DatapointingMixIn() {};
-    
+class DatapointingMixIn {
+    public:
+        DatapointingMixIn(MeiElement *b);
+        virtual ~DatapointingMixIn() {};
+        
     /** \brief   used to link metadata elements to one or more data-containing elements.
     */
 
-    string getDataValue() throw (AttributeNotFoundException);
-    MeiAttribute* getData() throw (AttributeNotFoundException);
+    MeiAttribute* getData();
     void setData(std::string _data);
     bool hasData();
     void removeData();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DeclaringMixIn {
-    DeclaringMixIn(BaseMeiElement *b);
-    virtual ~DeclaringMixIn() {};
-    
+class DeclaringMixIn {
+    public:
+        DeclaringMixIn(MeiElement *b);
+        virtual ~DeclaringMixIn() {};
+        
     /** \brief   identifies one or more metadata elements within the header, which are understood
     * to apply to the element bearing this attribute and its content.
     */
 
-    string getDeclsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDecls() throw (AttributeNotFoundException);
+    MeiAttribute* getDecls();
     void setDecls(std::string _decls);
     bool hasDecls();
     void removeDecls();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DistancesMixIn {
-    DistancesMixIn(BaseMeiElement *b);
-    virtual ~DistancesMixIn() {};
-    
+class DistancesMixIn {
+    public:
+        DistancesMixIn(MeiElement *b);
+        virtual ~DistancesMixIn() {};
+        
     /** \brief   records the distance from the staff for dynamic marks in 1/2 inter-line units.
     */
 
-    string getDynamDistValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDynamDist() throw (AttributeNotFoundException);
+    MeiAttribute* getDynamDist();
     void setDynamDist(std::string _dynamdist);
     bool hasDynamDist();
     void removeDynamDist();
@@ -769,8 +752,7 @@ struct DistancesMixIn {
     * guitar chord grids or functional labels.
     */
 
-    string getHarmDistValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHarmDist() throw (AttributeNotFoundException);
+    MeiAttribute* getHarmDist();
     void setHarmDist(std::string _harmdist);
     bool hasHarmDist();
     void removeHarmDist();
@@ -778,104 +760,103 @@ struct DistancesMixIn {
     /** \brief   determines how far from the staff to render text elements.
     */
 
-    string getTextDistValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextDist() throw (AttributeNotFoundException);
+    MeiAttribute* getTextDist();
     void setTextDist(std::string _textdist);
     bool hasTextDist();
     void removeTextDist();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DotLogMixIn {
-    DotLogMixIn(BaseMeiElement *b);
-    virtual ~DotLogMixIn() {};
-    
+class DotLogMixIn {
+    public:
+        DotLogMixIn(MeiElement *b);
+        virtual ~DotLogMixIn() {};
+        
     /** \brief   records the function of the dot.
     */
 
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DurationDefaultMixIn {
-    DurationDefaultMixIn(BaseMeiElement *b);
-    virtual ~DurationDefaultMixIn() {};
-    
+class DurationDefaultMixIn {
+    public:
+        DurationDefaultMixIn(MeiElement *b);
+        virtual ~DurationDefaultMixIn() {};
+        
     /** \brief   contains a default duration in those situations when the first note, rest,
     * chord, etc. in a measure does not have a duration specified.
     */
 
-    string getDurDefaultValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDurDefault() throw (AttributeNotFoundException);
+    MeiAttribute* getDurDefault();
     void setDurDefault(std::string _durdefault);
     bool hasDurDefault();
     void removeDurDefault();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DurationMusicalMixIn {
-    DurationMusicalMixIn(BaseMeiElement *b);
-    virtual ~DurationMusicalMixIn() {};
-    
+class DurationMusicalMixIn {
+    public:
+        DurationMusicalMixIn(MeiElement *b);
+        virtual ~DurationMusicalMixIn() {};
+        
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.
     */
 
-    string getDurValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDur() throw (AttributeNotFoundException);
+    MeiAttribute* getDur();
     void setDur(std::string _dur);
     bool hasDur();
     void removeDur();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DurationPerformedMixIn {
-    DurationPerformedMixIn(BaseMeiElement *b);
-    virtual ~DurationPerformedMixIn() {};
-    
+class DurationPerformedMixIn {
+    public:
+        DurationPerformedMixIn(MeiElement *b);
+        virtual ~DurationPerformedMixIn() {};
+        
     /** \brief   records performed duration information that differs from written duration. Its
     * value may be expressed in any convenient form, such as measures[s]+
     * beat[s].beatpart, ppq (MIDI clicks), Humdrum **recip values, or MusicXML
     * 'divisions', etc.
     */
 
-    string getDurGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDurGes() throw (AttributeNotFoundException);
+    MeiAttribute* getDurGes();
     void setDurGes(std::string _durges);
     bool hasDurGes();
     void removeDurGes();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DurationRatioMixIn {
-    DurationRatioMixIn(BaseMeiElement *b);
-    virtual ~DurationRatioMixIn() {};
-    
+class DurationRatioMixIn {
+    public:
+        DurationRatioMixIn(MeiElement *b);
+        virtual ~DurationRatioMixIn() {};
+        
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
     */
 
-    string getNumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNum() throw (AttributeNotFoundException);
+    MeiAttribute* getNum();
     void setNum(std::string _num);
     bool hasNum();
     void removeNum();
@@ -884,183 +865,182 @@ struct DurationRatioMixIn {
     * ratio, while numbase is the second.
     */
 
-    string getNumbaseValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNumbase() throw (AttributeNotFoundException);
+    MeiAttribute* getNumbase();
     void setNumbase(std::string _numbase);
     bool hasNumbase();
     void removeNumbase();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct DurationTimestampMixIn {
-    DurationTimestampMixIn(BaseMeiElement *b);
-    virtual ~DurationTimestampMixIn() {};
-    
+class DurationTimestampMixIn {
+    public:
+        DurationTimestampMixIn(MeiElement *b);
+        virtual ~DurationTimestampMixIn() {};
+        
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.
     */
 
-    string getDurValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDur() throw (AttributeNotFoundException);
+    MeiAttribute* getDur();
     void setDur(std::string _dur);
     bool hasDur();
     void removeDur();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct EnclosingcharsMixIn {
-    EnclosingcharsMixIn(BaseMeiElement *b);
-    virtual ~EnclosingcharsMixIn() {};
-    
+class EnclosingcharsMixIn {
+    public:
+        EnclosingcharsMixIn(MeiElement *b);
+        virtual ~EnclosingcharsMixIn() {};
+        
     /** \brief   records the characters often used to mark accidentals, articulations, and
     * sometimes notes as having a cautionary or editorial function. For an example of
     * cautionary accidentals enclosed in parentheses, see Read, p. 131, ex. 9-14.
     */
 
-    string getEncloseValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEnclose() throw (AttributeNotFoundException);
+    MeiAttribute* getEnclose();
     void setEnclose(std::string _enclose);
     bool hasEnclose();
     void removeEnclose();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct FermatapresentMixIn {
-    FermatapresentMixIn(BaseMeiElement *b);
-    virtual ~FermatapresentMixIn() {};
-    
+class FermatapresentMixIn {
+    public:
+        FermatapresentMixIn(MeiElement *b);
+        virtual ~FermatapresentMixIn() {};
+        
     /** \brief   indicates the attachment of a fermata to this element. If visual information
     * about the fermata needs to be recorded, then a <fermata> element should be
     * employed instead.
     */
 
-    string getFermataValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFermata() throw (AttributeNotFoundException);
+    MeiAttribute* getFermata();
     void setFermata(std::string _fermata);
     bool hasFermata();
     void removeFermata();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct HandidentMixIn {
-    HandidentMixIn(BaseMeiElement *b);
-    virtual ~HandidentMixIn() {};
-    
+class HandidentMixIn {
+    public:
+        HandidentMixIn(MeiElement *b);
+        virtual ~HandidentMixIn() {};
+        
     /** \brief   signifies the hand responsible for an action. The value must be the ID of a
     * <hand> element declared in the header.
     */
 
-    string getHandValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHand() throw (AttributeNotFoundException);
+    MeiAttribute* getHand();
     void setHand(std::string _hand);
     bool hasHand();
     void removeHand();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct HorizontalalignMixIn {
-    HorizontalalignMixIn(BaseMeiElement *b);
-    virtual ~HorizontalalignMixIn() {};
-    
+class HorizontalalignMixIn {
+    public:
+        HorizontalalignMixIn(MeiElement *b);
+        virtual ~HorizontalalignMixIn() {};
+        
     /** \brief   records horizontal alignment.
     */
 
-    string getHalignValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHalign() throw (AttributeNotFoundException);
+    MeiAttribute* getHalign();
     void setHalign(std::string _halign);
     bool hasHalign();
     void removeHalign();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct InstrumentidentMixIn {
-    InstrumentidentMixIn(BaseMeiElement *b);
-    virtual ~InstrumentidentMixIn() {};
-    
+class InstrumentidentMixIn {
+    public:
+        InstrumentidentMixIn(MeiElement *b);
+        virtual ~InstrumentidentMixIn() {};
+        
     /** \brief   provides a way of pointing to a MIDI instrument definition. It must contain the
     * ID of an <instrDef> element elsewhere in the document.
     */
 
-    string getInstrValue() throw (AttributeNotFoundException);
-    MeiAttribute* getInstr() throw (AttributeNotFoundException);
+    MeiAttribute* getInstr();
     void setInstr(std::string _instr);
     bool hasInstr();
     void removeInstr();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct InternetmediaMixIn {
-    InternetmediaMixIn(BaseMeiElement *b);
-    virtual ~InternetmediaMixIn() {};
-    
+class InternetmediaMixIn {
+    public:
+        InternetmediaMixIn(MeiElement *b);
+        virtual ~InternetmediaMixIn() {};
+        
     /** \brief   specifies the applicable MIME (multimedia internet mail extension) type. The
     * value should be a valid MIME media type defined by the Internet Engineering Task
     * Force in RFC 2046.
     */
 
-    string getMimetypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMimetype() throw (AttributeNotFoundException);
+    MeiAttribute* getMimetype();
     void setMimetype(std::string _mimetype);
     bool hasMimetype();
     void removeMimetype();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct JoinedMixIn {
-    JoinedMixIn(BaseMeiElement *b);
-    virtual ~JoinedMixIn() {};
-    
+class JoinedMixIn {
+    public:
+        JoinedMixIn(MeiElement *b);
+        virtual ~JoinedMixIn() {};
+        
     /** \brief   used for linking visually separate slurs, sometimes necessary due to system
     * breaks, that form a single musical phrase. Also used to indicate a measure which
     * metrically completes the current one. Record the IDs of the separately encoded
     * components, excluding this one.
     */
 
-    string getJoinValue() throw (AttributeNotFoundException);
-    MeiAttribute* getJoin() throw (AttributeNotFoundException);
+    MeiAttribute* getJoin();
     void setJoin(std::string _join);
     bool hasJoin();
     void removeJoin();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct KeysigsLogMixIn {
-    KeysigsLogMixIn(BaseMeiElement *b);
-    virtual ~KeysigsLogMixIn() {};
-    
+class KeysigsLogMixIn {
+    public:
+        KeysigsLogMixIn(MeiElement *b);
+        virtual ~KeysigsLogMixIn() {};
+        
     /** \brief   contains an accidental for the tonic key, if one is required, e.g., if key.pname
     * equals 'c' and key.accid equals 's', then a tonic of C# is indicated.
     */
 
-    string getKeyAccidValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeyAccid() throw (AttributeNotFoundException);
+    MeiAttribute* getKeyAccid();
     void setKeyAccid(std::string _keyaccid);
     bool hasKeyAccid();
     void removeKeyAccid();
@@ -1068,8 +1048,7 @@ struct KeysigsLogMixIn {
     /** \brief   indicates major, minor, or other tonality.
     */
 
-    string getKeyModeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeyMode() throw (AttributeNotFoundException);
+    MeiAttribute* getKeyMode();
     void setKeyMode(std::string _keymode);
     bool hasKeyMode();
     void removeKeyMode();
@@ -1077,8 +1056,7 @@ struct KeysigsLogMixIn {
     /** \brief   holds the pitch name of the tonic key, e.g. 'c' for the key of C.
     */
 
-    string getKeyPnameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeyPname() throw (AttributeNotFoundException);
+    MeiAttribute* getKeyPname();
     void setKeyPname(std::string _keypname);
     bool hasKeyPname();
     void removeKeyPname();
@@ -1086,8 +1064,7 @@ struct KeysigsLogMixIn {
     /** \brief   indicates where the key lies in the circle of fifths.
     */
 
-    string getKeySigValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeySig() throw (AttributeNotFoundException);
+    MeiAttribute* getKeySig();
     void setKeySig(std::string _keysig);
     bool hasKeySig();
     void removeKeySig();
@@ -1102,26 +1079,25 @@ struct KeysigsLogMixIn {
     * rendered and where they should be placed.
     */
 
-    string getKeySigMixedValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeySigMixed() throw (AttributeNotFoundException);
+    MeiAttribute* getKeySigMixed();
     void setKeySigMixed(std::string _keysigmixed);
     bool hasKeySigMixed();
     void removeKeySigMixed();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct KeysigsVisMixIn {
-    KeysigsVisMixIn(BaseMeiElement *b);
-    virtual ~KeysigsVisMixIn() {};
-    
+class KeysigsVisMixIn {
+    public:
+        KeysigsVisMixIn(MeiElement *b);
+        virtual ~KeysigsVisMixIn() {};
+        
     /** \brief   indicates whether the key signature should be displayed.
     */
 
-    string getKeySigShowValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeySigShow() throw (AttributeNotFoundException);
+    MeiAttribute* getKeySigShow();
     void setKeySigShow(std::string _keysigshow);
     bool hasKeySigShow();
     void removeKeySigShow();
@@ -1129,123 +1105,122 @@ struct KeysigsVisMixIn {
     /** \brief   determines whether cautionary accidentals should be displayed at a key change.
     */
 
-    string getKeySigShowchangeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getKeySigShowchange() throw (AttributeNotFoundException);
+    MeiAttribute* getKeySigShowchange();
     void setKeySigShowchange(std::string _keysigshowchange);
     bool hasKeySigShowchange();
     void removeKeySigShowchange();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LabelsAddlMixIn {
-    LabelsAddlMixIn(BaseMeiElement *b);
-    virtual ~LabelsAddlMixIn() {};
-    
+class LabelsAddlMixIn {
+    public:
+        LabelsAddlMixIn(MeiElement *b);
+        virtual ~LabelsAddlMixIn() {};
+        
     /** \brief   provides a label for a group of staves on pages after the first page. Usually,
     * this label takes an abbreviated form.
     */
 
-    string getLabelAbbrValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLabelAbbr() throw (AttributeNotFoundException);
+    MeiAttribute* getLabelAbbr();
     void setLabelAbbr(std::string _labelabbr);
     bool hasLabelAbbr();
     void removeLabelAbbr();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LangMixIn {
-    LangMixIn(BaseMeiElement *b);
-    virtual ~LangMixIn() {};
-    
+class LangMixIn {
+    public:
+        LangMixIn(MeiElement *b);
+        virtual ~LangMixIn() {};
+        
     /** \brief   identifies the language of the element's content. The values for this attribute
     * are language 'tags' as defined in BCP 47. All language tags that make use of
     * private use sub-tags must be documented in a corresponding language element in
     * the MEI header whose id attribute is the same as the language tag's value.
     */
 
-    string getLangValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLang() throw (AttributeNotFoundException);
+    MeiAttribute* getLang();
     void setLang(std::string _lang);
     bool hasLang();
     void removeLang();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LayeridentMixIn {
-    LayeridentMixIn(BaseMeiElement *b);
-    virtual ~LayeridentMixIn() {};
-    
+class LayeridentMixIn {
+    public:
+        LayeridentMixIn(MeiElement *b);
+        virtual ~LayeridentMixIn() {};
+        
     /** \brief   identifies the layer to which a feature applies.
     */
 
-    string getLayerValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLayer() throw (AttributeNotFoundException);
+    MeiAttribute* getLayer();
     void setLayer(std::string _layer);
     bool hasLayer();
     void removeLayer();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LinelocMixIn {
-    LinelocMixIn(BaseMeiElement *b);
-    virtual ~LinelocMixIn() {};
-    
+class LinelocMixIn {
+    public:
+        LinelocMixIn(MeiElement *b);
+        virtual ~LinelocMixIn() {};
+        
     /** \brief   indicates the line upon which a feature stands. The value must be in the range
     * between 1 and the number of lines on the staff. The numbering of lines starts
     * with the lowest line of the staff.
     */
 
-    string getLineValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLine() throw (AttributeNotFoundException);
+    MeiAttribute* getLine();
     void setLine(std::string _line);
     bool hasLine();
     void removeLine();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LinerendMixIn {
-    LinerendMixIn(BaseMeiElement *b);
-    virtual ~LinerendMixIn() {};
-    
+class LinerendMixIn {
+    public:
+        LinerendMixIn(MeiElement *b);
+        virtual ~LinerendMixIn() {};
+        
     /** \brief   describes the line style of the curve.
     */
 
-    string getRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRend() throw (AttributeNotFoundException);
+    MeiAttribute* getRend();
     void setRend(std::string _rend);
     bool hasRend();
     void removeRend();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LinkCommonMixIn {
-    LinkCommonMixIn(BaseMeiElement *b);
-    virtual ~LinkCommonMixIn() {};
-    
+class LinkCommonMixIn {
+    public:
+        LinkCommonMixIn(MeiElement *b);
+        virtual ~LinkCommonMixIn() {};
+        
     /** \brief   defines whether a link occurs automatically or must be requested by the user. It
     * is used in conjunction with the show attribute to determine link behavior.
     */
 
-    string getActuateValue() throw (AttributeNotFoundException);
-    MeiAttribute* getActuate() throw (AttributeNotFoundException);
+    MeiAttribute* getActuate();
     void setActuate(std::string _actuate);
     bool hasActuate();
     void removeActuate();
@@ -1257,8 +1232,7 @@ struct LinkCommonMixIn {
     * property. When no value is supplied, no particular role value is to be inferred.
     */
 
-    string getRoleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRole() throw (AttributeNotFoundException);
+    MeiAttribute* getRole();
     void setRole(std::string _role);
     bool hasRole();
     void removeRole();
@@ -1266,8 +1240,7 @@ struct LinkCommonMixIn {
     /** \brief   defines how a remote resource is rendered.
     */
 
-    string getShowValue() throw (AttributeNotFoundException);
-    MeiAttribute* getShow() throw (AttributeNotFoundException);
+    MeiAttribute* getShow();
     void setShow(std::string _show);
     bool hasShow();
     void removeShow();
@@ -1276,8 +1249,7 @@ struct LinkCommonMixIn {
     * characterized using any convenient classification scheme or typology.
     */
 
-    string getTargettypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTargettype() throw (AttributeNotFoundException);
+    MeiAttribute* getTargettype();
     void setTargettype(std::string _targettype);
     bool hasTargettype();
     void removeTargettype();
@@ -1291,45 +1263,44 @@ struct LinkCommonMixIn {
     * resource.
     */
 
-    string getTitleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTitle() throw (AttributeNotFoundException);
+    MeiAttribute* getTitle();
     void setTitle(std::string _title);
     bool hasTitle();
     void removeTitle();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LinkExternalMixIn {
-    LinkExternalMixIn(BaseMeiElement *b);
-    virtual ~LinkExternalMixIn() {};
-    
+class LinkExternalMixIn {
+    public:
+        LinkExternalMixIn(MeiElement *b);
+        virtual ~LinkExternalMixIn() {};
+        
     /** \brief   allows the use of an previously-undeclared URI to identify an external
     * electronic object.
     */
 
-    string getHrefValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHref() throw (AttributeNotFoundException);
+    MeiAttribute* getHref();
     void setHref(std::string _href);
     bool hasHref();
     void removeHref();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct LyricstyleMixIn {
-    LyricstyleMixIn(BaseMeiElement *b);
-    virtual ~LyricstyleMixIn() {};
-    
+class LyricstyleMixIn {
+    public:
+        LyricstyleMixIn(MeiElement *b);
+        virtual ~LyricstyleMixIn() {};
+        
     /** \brief   describes the alignment of lyric syllables associated with a note or chord.
     */
 
-    string getLyricAlignValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricAlign() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricAlign();
     void setLyricAlign(std::string _lyricalign);
     bool hasLyricAlign();
     void removeLyricAlign();
@@ -1337,8 +1308,7 @@ struct LyricstyleMixIn {
     /** \brief   sets the font family default value for lyrics.
     */
 
-    string getLyricFamValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricFam() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricFam();
     void setLyricFam(std::string _lyricfam);
     bool hasLyricFam();
     void removeLyricFam();
@@ -1346,8 +1316,7 @@ struct LyricstyleMixIn {
     /** \brief   sets the font name default value for lyrics.
     */
 
-    string getLyricNameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricName() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricName();
     void setLyricName(std::string _lyricname);
     bool hasLyricName();
     void removeLyricName();
@@ -1355,8 +1324,7 @@ struct LyricstyleMixIn {
     /** \brief   sets the default font size value for lyrics.
     */
 
-    string getLyricSizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricSize() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricSize();
     void setLyricSize(std::string _lyricsize);
     bool hasLyricSize();
     void removeLyricSize();
@@ -1364,8 +1332,7 @@ struct LyricstyleMixIn {
     /** \brief   sets the default font style value for lyrics.
     */
 
-    string getLyricStyleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricStyle() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricStyle();
     void setLyricStyle(std::string _lyricstyle);
     bool hasLyricStyle();
     void removeLyricStyle();
@@ -1373,28 +1340,27 @@ struct LyricstyleMixIn {
     /** \brief   sets the default font weight value for lyrics.
     */
 
-    string getLyricWeightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLyricWeight() throw (AttributeNotFoundException);
+    MeiAttribute* getLyricWeight();
     void setLyricWeight(std::string _lyricweight);
     bool hasLyricWeight();
     void removeLyricWeight();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MeasureLogMixIn {
-    MeasureLogMixIn(BaseMeiElement *b);
-    virtual ~MeasureLogMixIn() {};
-    
+class MeasureLogMixIn {
+    public:
+        MeasureLogMixIn(MeiElement *b);
+        virtual ~MeasureLogMixIn() {};
+        
     /** \brief   indicates the visual rendition of the left bar line. It is present here only for
     * facilitation of translation from legacy encodings which use it. Usually, it can
     * be safely ignored.
     */
 
-    string getLeftValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLeft() throw (AttributeNotFoundException);
+    MeiAttribute* getLeft();
     void setLeft(std::string _left);
     bool hasLeft();
     void removeLeft();
@@ -1402,101 +1368,100 @@ struct MeasureLogMixIn {
     /** \brief   indicates the function of the right bar line and is structurally important.
     */
 
-    string getRightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRight() throw (AttributeNotFoundException);
+    MeiAttribute* getRight();
     void setRight(std::string _right);
     bool hasRight();
     void removeRight();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MeasurementMixIn {
-    MeasurementMixIn(BaseMeiElement *b);
-    virtual ~MeasurementMixIn() {};
-    
+class MeasurementMixIn {
+    public:
+        MeasurementMixIn(MeiElement *b);
+        virtual ~MeasurementMixIn() {};
+        
     /** \brief   indicates the units used for a measurement, usually using the standard symbol
     * for the desired unit.
     */
 
-    string getUnitValue() throw (AttributeNotFoundException);
-    MeiAttribute* getUnit() throw (AttributeNotFoundException);
+    MeiAttribute* getUnit();
     void setUnit(std::string _unit);
     bool hasUnit();
     void removeUnit();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MediumMixIn {
-    MediumMixIn(BaseMeiElement *b);
-    virtual ~MediumMixIn() {};
-    
+class MediumMixIn {
+    public:
+        MediumMixIn(MeiElement *b);
+        virtual ~MediumMixIn() {};
+        
     /** \brief   describes the writing medium.
     */
 
-    string getMediumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMedium() throw (AttributeNotFoundException);
+    MeiAttribute* getMedium();
     void setMedium(std::string _medium);
     bool hasMedium();
     void removeMedium();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MeiversionMixIn {
-    MeiversionMixIn(BaseMeiElement *b);
-    virtual ~MeiversionMixIn() {};
-    
+class MeiversionMixIn {
+    public:
+        MeiversionMixIn(MeiElement *b);
+        virtual ~MeiversionMixIn() {};
+        
     /** \brief   records the version of MEI used by the file.
     */
 
-    string getMeiversionValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeiversion() throw (AttributeNotFoundException);
+    MeiAttribute* getMeiversion();
     void setMeiversion(std::string _meiversion);
     bool hasMeiversion();
     void removeMeiversion();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MeterconformanceMixIn {
-    MeterconformanceMixIn(BaseMeiElement *b);
-    virtual ~MeterconformanceMixIn() {};
-    
+class MeterconformanceMixIn {
+    public:
+        MeterconformanceMixIn(MeiElement *b);
+        virtual ~MeterconformanceMixIn() {};
+        
     /** \brief   indicates the relationship between the content of a staff or layer and the
     * prevailing meter
     */
 
-    string getMetconValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMetcon() throw (AttributeNotFoundException);
+    MeiAttribute* getMetcon();
     void setMetcon(std::string _metcon);
     bool hasMetcon();
     void removeMetcon();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MeterconformanceBarMixIn {
-    MeterconformanceBarMixIn(BaseMeiElement *b);
-    virtual ~MeterconformanceBarMixIn() {};
-    
+class MeterconformanceBarMixIn {
+    public:
+        MeterconformanceBarMixIn(MeiElement *b);
+        virtual ~MeterconformanceBarMixIn() {};
+        
     /** \brief   indicates the relationship between the content of a staff or layer and the
     * prevailing meter
     */
 
-    string getMetconValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMetcon() throw (AttributeNotFoundException);
+    MeiAttribute* getMetcon();
     void setMetcon(std::string _metcon);
     bool hasMetcon();
     void removeMetcon();
@@ -1508,27 +1473,26 @@ struct MeterconformanceBarMixIn {
     * the right barline but not the left.
     */
 
-    string getControlValue() throw (AttributeNotFoundException);
-    MeiAttribute* getControl() throw (AttributeNotFoundException);
+    MeiAttribute* getControl();
     void setControl(std::string _control);
     bool hasControl();
     void removeControl();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MetersLogMixIn {
-    MetersLogMixIn(BaseMeiElement *b);
-    virtual ~MetersLogMixIn() {};
-    
+class MetersLogMixIn {
+    public:
+        MetersLogMixIn(MeiElement *b);
+        virtual ~MetersLogMixIn() {};
+        
     /** \brief   captures the number of beats in a measure, that is, the top number of the meter
     * signature.
     */
 
-    string getMeterCountValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeterCount() throw (AttributeNotFoundException);
+    MeiAttribute* getMeterCount();
     void setMeterCount(std::string _metercount);
     bool hasMeterCount();
     void removeMeterCount();
@@ -1537,26 +1501,25 @@ struct MetersLogMixIn {
     * meter signature.
     */
 
-    string getMeterUnitValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeterUnit() throw (AttributeNotFoundException);
+    MeiAttribute* getMeterUnit();
     void setMeterUnit(std::string _meterunit);
     bool hasMeterUnit();
     void removeMeterUnit();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MetersVisMixIn {
-    MetersVisMixIn(BaseMeiElement *b);
-    virtual ~MetersVisMixIn() {};
-    
+class MetersVisMixIn {
+    public:
+        MetersVisMixIn(MeiElement *b);
+        virtual ~MetersVisMixIn() {};
+        
     /** \brief   contains an indication of how the meter signature should be rendered.
     */
 
-    string getMeterRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeterRend() throw (AttributeNotFoundException);
+    MeiAttribute* getMeterRend();
     void setMeterRend(std::string _meterrend);
     bool hasMeterRend();
     void removeMeterRend();
@@ -1565,8 +1528,7 @@ struct MetersVisMixIn {
     * signature changes.
     */
 
-    string getMeterShowchangeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeterShowchange() throw (AttributeNotFoundException);
+    MeiAttribute* getMeterShowchange();
     void setMeterShowchange(std::string _metershowchange);
     bool hasMeterShowchange();
     void removeMeterShowchange();
@@ -1575,65 +1537,64 @@ struct MetersVisMixIn {
     * is, 'C' for common time or 'C' with a slash for cut time.
     */
 
-    string getMeterSymValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMeterSym() throw (AttributeNotFoundException);
+    MeiAttribute* getMeterSym();
     void setMeterSym(std::string _metersym);
     bool hasMeterSym();
     void removeMeterSym();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MmtempoMixIn {
-    MmtempoMixIn(BaseMeiElement *b);
-    virtual ~MmtempoMixIn() {};
-    
+class MmtempoMixIn {
+    public:
+        MmtempoMixIn(MeiElement *b);
+        virtual ~MmtempoMixIn() {};
+        
     /** \brief   used to describe tempo in terms of beats (meter signature denominator) per
     * minute, ala M.M. (Maezel's Metronome).
     */
 
-    string getMmValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMm() throw (AttributeNotFoundException);
+    MeiAttribute* getMm();
     void setMm(std::string _mm);
     bool hasMm();
     void removeMm();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MultinummeasuresMixIn {
-    MultinummeasuresMixIn(BaseMeiElement *b);
-    virtual ~MultinummeasuresMixIn() {};
-    
+class MultinummeasuresMixIn {
+    public:
+        MultinummeasuresMixIn(MeiElement *b);
+        virtual ~MultinummeasuresMixIn() {};
+        
     /** \brief   indicates whether programmatically calculated counts of multiple measures of
     * rest (mRest) and whole measure repeats (mRpt) in parts should be rendered.
     */
 
-    string getMultiNumberValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMultiNumber() throw (AttributeNotFoundException);
+    MeiAttribute* getMultiNumber();
     void setMultiNumber(std::string _multinumber);
     bool hasMultiNumber();
     void removeMultiNumber();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct NameMixIn {
-    NameMixIn(BaseMeiElement *b);
-    virtual ~NameMixIn() {};
-    
+class NameMixIn {
+    public:
+        NameMixIn(MeiElement *b);
+        virtual ~NameMixIn() {};
+        
     /** \brief   used to record a pointer to the regularized form of the name elsewhere in the
     * document.
     */
 
-    string getNymrefValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNymref() throw (AttributeNotFoundException);
+    MeiAttribute* getNymref();
     void setNymref(std::string _nymref);
     bool hasNymref();
     void removeNymref();
@@ -1645,26 +1606,25 @@ struct NameMixIn {
     * property. When no value is supplied, no particular role value is to be inferred.
     */
 
-    string getRoleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRole() throw (AttributeNotFoundException);
+    MeiAttribute* getRole();
     void setRole(std::string _role);
     bool hasRole();
     void removeRole();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct NoteGesMixIn {
-    NoteGesMixIn(BaseMeiElement *b);
-    virtual ~NoteGesMixIn() {};
-    
+class NoteGesMixIn {
+    public:
+        NoteGesMixIn(MeiElement *b);
+        virtual ~NoteGesMixIn() {};
+        
     /** \brief   records performed octave information that differs from the written value.
     */
 
-    string getOctGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOctGes() throw (AttributeNotFoundException);
+    MeiAttribute* getOctGes();
     void setOctGes(std::string _octges);
     bool hasOctGes();
     void removeOctGes();
@@ -1672,8 +1632,7 @@ struct NoteGesMixIn {
     /** \brief   contains a performed pitch name that differs from the written value.
     */
 
-    string getPnameGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPnameGes() throw (AttributeNotFoundException);
+    MeiAttribute* getPnameGes();
     void setPnameGes(std::string _pnameges);
     bool hasPnameGes();
     void removePnameGes();
@@ -1681,81 +1640,80 @@ struct NoteGesMixIn {
     /** \brief   holds a pitch-to-number mapping, a base-40 or MIDI note number, for example.
     */
 
-    string getPnumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPnum() throw (AttributeNotFoundException);
+    MeiAttribute* getPnum();
     void setPnum(std::string _pnum);
     bool hasPnum();
     void removePnum();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct NoteVisMixIn {
-    NoteVisMixIn(BaseMeiElement *b);
-    virtual ~NoteVisMixIn() {};
-    
+class NoteVisMixIn {
+    public:
+        NoteVisMixIn(MeiElement *b);
+        virtual ~NoteVisMixIn() {};
+        
     /** \brief   used to override the head shape normally used for the given duration.
     */
 
-    string getHeadshapeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHeadshape() throw (AttributeNotFoundException);
+    MeiAttribute* getHeadshape();
     void setHeadshape(std::string _headshape);
     bool hasHeadshape();
     void removeHeadshape();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct OctaveMixIn {
-    OctaveMixIn(BaseMeiElement *b);
-    virtual ~OctaveMixIn() {};
-    
+class OctaveMixIn {
+    public:
+        OctaveMixIn(MeiElement *b);
+        virtual ~OctaveMixIn() {};
+        
     /** \brief   captures written octave information.
     */
 
-    string getOctValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOct() throw (AttributeNotFoundException);
+    MeiAttribute* getOct();
     void setOct(std::string _oct);
     bool hasOct();
     void removeOct();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct OctavedefaultMixIn {
-    OctavedefaultMixIn(BaseMeiElement *b);
-    virtual ~OctavedefaultMixIn() {};
-    
+class OctavedefaultMixIn {
+    public:
+        OctavedefaultMixIn(MeiElement *b);
+        virtual ~OctavedefaultMixIn() {};
+        
     /** \brief   contains a default octave specification for use when the first note, rest,
     * chord, etc. in a measure does not have an octave value specified.
     */
 
-    string getOctaveDefaultValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOctaveDefault() throw (AttributeNotFoundException);
+    MeiAttribute* getOctaveDefault();
     void setOctaveDefault(std::string _octavedefault);
     bool hasOctaveDefault();
     void removeOctaveDefault();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct OctavedisplacementMixIn {
-    OctavedisplacementMixIn(BaseMeiElement *b);
-    virtual ~OctavedisplacementMixIn() {};
-    
+class OctavedisplacementMixIn {
+    public:
+        OctavedisplacementMixIn(MeiElement *b);
+        virtual ~OctavedisplacementMixIn() {};
+        
     /** \brief   records the amount of octave displacement.
     */
 
-    string getDisValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDis() throw (AttributeNotFoundException);
+    MeiAttribute* getDis();
     void setDis(std::string _dis);
     bool hasDis();
     void removeDis();
@@ -1763,231 +1721,230 @@ struct OctavedisplacementMixIn {
     /** \brief   records the direction of octave displacement.
     */
 
-    string getDisPlaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDisPlace() throw (AttributeNotFoundException);
+    MeiAttribute* getDisPlace();
     void setDisPlace(std::string _displace);
     bool hasDisPlace();
     void removeDisPlace();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct OnelinestaffMixIn {
-    OnelinestaffMixIn(BaseMeiElement *b);
-    virtual ~OnelinestaffMixIn() {};
-    
+class OnelinestaffMixIn {
+    public:
+        OnelinestaffMixIn(MeiElement *b);
+        virtual ~OnelinestaffMixIn() {};
+        
     /** \brief   determines the placement of notes on a 1-line staff. A value of 'true' places
     * all notes on the line, while a value of 'false' places stems-up notes above the
     * line and stems-down notes below the line.
     */
 
-    string getOnthelineValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOntheline() throw (AttributeNotFoundException);
+    MeiAttribute* getOntheline();
     void setOntheline(std::string _ontheline);
     bool hasOntheline();
     void removeOntheline();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct PadLogMixIn {
-    PadLogMixIn(BaseMeiElement *b);
-    virtual ~PadLogMixIn() {};
-    
+class PadLogMixIn {
+    public:
+        PadLogMixIn(MeiElement *b);
+        virtual ~PadLogMixIn() {};
+        
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
     */
 
-    string getNumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNum() throw (AttributeNotFoundException);
+    MeiAttribute* getNum();
     void setNum(std::string _num);
     bool hasNum();
     void removeNum();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ParticipantidentMixIn {
-    ParticipantidentMixIn(BaseMeiElement *b);
-    virtual ~ParticipantidentMixIn() {};
-    
+class ParticipantidentMixIn {
+    public:
+        ParticipantidentMixIn(MeiElement *b);
+        virtual ~ParticipantidentMixIn() {};
+        
     /** \brief   contains a space separated list of ID references that identify logical events
     * that participate in a collection, such as notes under a phrase mark.
     */
 
-    string getPlistValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPlist() throw (AttributeNotFoundException);
+    MeiAttribute* getPlist();
     void setPlist(std::string _plist);
     bool hasPlist();
     void removePlist();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct PbVisMixIn {
-    PbVisMixIn(BaseMeiElement *b);
-    virtual ~PbVisMixIn() {};
-    
+class PbVisMixIn {
+    public:
+        PbVisMixIn(MeiElement *b);
+        virtual ~PbVisMixIn() {};
+        
     /** \brief   records the function of an accidental.
     */
 
-    string getFuncValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFunc() throw (AttributeNotFoundException);
+    MeiAttribute* getFunc();
     void setFunc(std::string _func);
     bool hasFunc();
     void removeFunc();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct PitchMixIn {
-    PitchMixIn(BaseMeiElement *b);
-    virtual ~PitchMixIn() {};
-    
+class PitchMixIn {
+    public:
+        PitchMixIn(MeiElement *b);
+        virtual ~PitchMixIn() {};
+        
     /** \brief   contains a written pitch name.
     */
 
-    string getPnameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPname() throw (AttributeNotFoundException);
+    MeiAttribute* getPname();
     void setPname(std::string _pname);
     bool hasPname();
     void removePname();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct PlacementMixIn {
-    PlacementMixIn(BaseMeiElement *b);
-    virtual ~PlacementMixIn() {};
-    
+class PlacementMixIn {
+    public:
+        PlacementMixIn(MeiElement *b);
+        virtual ~PlacementMixIn() {};
+        
     /** \brief   captures the placement of the item with respect to the staff with which it is
     * associated.
     */
 
-    string getPlaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPlace() throw (AttributeNotFoundException);
+    MeiAttribute* getPlace();
     void setPlace(std::string _place);
     bool hasPlace();
     void removePlace();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct RegularizedMixIn {
-    RegularizedMixIn(BaseMeiElement *b);
-    virtual ~RegularizedMixIn() {};
-    
+class RegularizedMixIn {
+    public:
+        RegularizedMixIn(MeiElement *b);
+        virtual ~RegularizedMixIn() {};
+        
     /** \brief   provides a regularized, authorized value.
     */
 
-    string getRegValue() throw (AttributeNotFoundException);
-    MeiAttribute* getReg() throw (AttributeNotFoundException);
+    MeiAttribute* getReg();
     void setReg(std::string _reg);
     bool hasReg();
     void removeReg();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct RelativesizeMixIn {
-    RelativesizeMixIn(BaseMeiElement *b);
-    virtual ~RelativesizeMixIn() {};
-    
+class RelativesizeMixIn {
+    public:
+        RelativesizeMixIn(MeiElement *b);
+        virtual ~RelativesizeMixIn() {};
+        
     /** \brief   describes the relative size of a feature.
     */
 
-    string getSizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSize() throw (AttributeNotFoundException);
+    MeiAttribute* getSize();
     void setSize(std::string _size);
     bool hasSize();
     void removeSize();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ResponsibilityMixIn {
-    ResponsibilityMixIn(BaseMeiElement *b);
-    virtual ~ResponsibilityMixIn() {};
-    
+class ResponsibilityMixIn {
+    public:
+        ResponsibilityMixIn(MeiElement *b);
+        virtual ~ResponsibilityMixIn() {};
+        
     /** \brief   captures information regarding responsibility for some aspect of the text's
     * creation, transcription, editing, or encoding. Its value must point to one or
     * more identifiers declared in the document header.
     */
 
-    string getRespValue() throw (AttributeNotFoundException);
-    MeiAttribute* getResp() throw (AttributeNotFoundException);
+    MeiAttribute* getResp();
     void setResp(std::string _resp);
     bool hasResp();
     void removeResp();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SbVisMixIn {
-    SbVisMixIn(BaseMeiElement *b);
-    virtual ~SbVisMixIn() {};
-    
+class SbVisMixIn {
+    public:
+        SbVisMixIn(MeiElement *b);
+        virtual ~SbVisMixIn() {};
+        
     /** \brief   describes the line style of the curve.
     */
 
-    string getRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRend() throw (AttributeNotFoundException);
+    MeiAttribute* getRend();
     void setRend(std::string _rend);
     bool hasRend();
     void removeRend();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ScalableMixIn {
-    ScalableMixIn(BaseMeiElement *b);
-    virtual ~ScalableMixIn() {};
-    
+class ScalableMixIn {
+    public:
+        ScalableMixIn(MeiElement *b);
+        virtual ~ScalableMixIn() {};
+        
     /** \brief   scale factor to be applied to the feature to make it the desired display size.
     */
 
-    string getScaleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getScale() throw (AttributeNotFoundException);
+    MeiAttribute* getScale();
     void setScale(std::string _scale);
     bool hasScale();
     void removeScale();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ScoredefGesMixIn {
-    ScoredefGesMixIn(BaseMeiElement *b);
-    virtual ~ScoredefGesMixIn() {};
-    
+class ScoredefGesMixIn {
+    public:
+        ScoredefGesMixIn(MeiElement *b);
+        virtual ~ScoredefGesMixIn() {};
+        
     /** \brief   holds the pitch name of a tuning reference pitch.
     */
 
-    string getTunePnameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTunePname() throw (AttributeNotFoundException);
+    MeiAttribute* getTunePname();
     void setTunePname(std::string _tunepname);
     bool hasTunePname();
     void removeTunePname();
@@ -1995,8 +1952,7 @@ struct ScoredefGesMixIn {
     /** \brief   holds a value for cycles per second, i.e., Hertz, for a tuning reference pitch.
     */
 
-    string getTuneHzValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTuneHz() throw (AttributeNotFoundException);
+    MeiAttribute* getTuneHz();
     void setTuneHz(std::string _tuneHz);
     bool hasTuneHz();
     void removeTuneHz();
@@ -2004,26 +1960,25 @@ struct ScoredefGesMixIn {
     /** \brief   provides an indication of the tuning system, 'just', for example.
     */
 
-    string getTuneTemperValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTuneTemper() throw (AttributeNotFoundException);
+    MeiAttribute* getTuneTemper();
     void setTuneTemper(std::string _tunetemper);
     bool hasTuneTemper();
     void removeTuneTemper();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct ScoredefVisMixIn {
-    ScoredefVisMixIn(BaseMeiElement *b);
-    virtual ~ScoredefVisMixIn() {};
-    
+class ScoredefVisMixIn {
+    public:
+        ScoredefVisMixIn(MeiElement *b);
+        virtual ~ScoredefVisMixIn() {};
+        
     /** \brief   describes where ending marks should be displayed.
     */
 
-    string getEndingRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEndingRend() throw (AttributeNotFoundException);
+    MeiAttribute* getEndingRend();
     void setEndingRend(std::string _endingrend);
     bool hasEndingRend();
     void removeEndingRend();
@@ -2031,8 +1986,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates whether measure numbers should be displayed.
     */
 
-    string getMnumVisibleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMnumVisible() throw (AttributeNotFoundException);
+    MeiAttribute* getMnumVisible();
     void setMnumVisible(std::string _mnumvisible);
     bool hasMnumVisible();
     void removeMnumVisible();
@@ -2040,8 +1994,7 @@ struct ScoredefVisMixIn {
     /** \brief   sets the default music font name.
     */
 
-    string getMusicNameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMusicName() throw (AttributeNotFoundException);
+    MeiAttribute* getMusicName();
     void setMusicName(std::string _musicname);
     bool hasMusicName();
     void removeMusicName();
@@ -2049,8 +2002,7 @@ struct ScoredefVisMixIn {
     /** \brief   sets the default music font size.
     */
 
-    string getMusicSizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMusicSize() throw (AttributeNotFoundException);
+    MeiAttribute* getMusicSize();
     void setMusicSize(std::string _musicsize);
     bool hasMusicSize();
     void removeMusicSize();
@@ -2059,8 +2011,7 @@ struct ScoredefVisMixIn {
     * the value is 'true', empty staves are displayed.
     */
 
-    string getOptimizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOptimize() throw (AttributeNotFoundException);
+    MeiAttribute* getOptimize();
     void setOptimize(std::string _optimize);
     bool hasOptimize();
     void removeOptimize();
@@ -2068,8 +2019,7 @@ struct ScoredefVisMixIn {
     /** \brief   describes the physical height of the rendered output page.
     */
 
-    string getPageHeightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageHeight() throw (AttributeNotFoundException);
+    MeiAttribute* getPageHeight();
     void setPageHeight(std::string _pageheight);
     bool hasPageHeight();
     void removePageHeight();
@@ -2077,8 +2027,7 @@ struct ScoredefVisMixIn {
     /** \brief   describes the physical width of the rendered output page.
     */
 
-    string getPageWidthValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageWidth() throw (AttributeNotFoundException);
+    MeiAttribute* getPageWidth();
     void setPageWidth(std::string _pagewidth);
     bool hasPageWidth();
     void removePageWidth();
@@ -2087,8 +2036,7 @@ struct ScoredefVisMixIn {
     * used to describe the rendered page height, width, and margins.
     */
 
-    string getPageUnitsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageUnits() throw (AttributeNotFoundException);
+    MeiAttribute* getPageUnits();
     void setPageUnits(std::string _pageunits);
     bool hasPageUnits();
     void removePageUnits();
@@ -2096,8 +2044,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates the amount of whitespace at the top of a rendered score page.
     */
 
-    string getPageTopmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageTopmar() throw (AttributeNotFoundException);
+    MeiAttribute* getPageTopmar();
     void setPageTopmar(std::string _pagetopmar);
     bool hasPageTopmar();
     void removePageTopmar();
@@ -2105,8 +2052,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates the amount of whitespace at the bottom of a rendered score page.
     */
 
-    string getPageBotmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageBotmar() throw (AttributeNotFoundException);
+    MeiAttribute* getPageBotmar();
     void setPageBotmar(std::string _pagebotmar);
     bool hasPageBotmar();
     void removePageBotmar();
@@ -2114,8 +2060,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates the amount of whitespace at the left side of a rendered score page.
     */
 
-    string getPageLeftmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageLeftmar() throw (AttributeNotFoundException);
+    MeiAttribute* getPageLeftmar();
     void setPageLeftmar(std::string _pageleftmar);
     bool hasPageLeftmar();
     void removePageLeftmar();
@@ -2123,8 +2068,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates the amount of whitespace at the right side of a rendered score page.
     */
 
-    string getPageRightmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageRightmar() throw (AttributeNotFoundException);
+    MeiAttribute* getPageRightmar();
     void setPageRightmar(std::string _pagerightmar);
     bool hasPageRightmar();
     void removePageRightmar();
@@ -2132,8 +2076,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates the number of logical pages to be rendered on a single physical page.
     */
 
-    string getPagePanelsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPagePanels() throw (AttributeNotFoundException);
+    MeiAttribute* getPagePanels();
     void setPagePanels(std::string _pagepanels);
     bool hasPagePanels();
     void removePagePanels();
@@ -2141,8 +2084,7 @@ struct ScoredefVisMixIn {
     /** \brief   indicates how the page should be scaled when rendered.
     */
 
-    string getPageScaleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPageScale() throw (AttributeNotFoundException);
+    MeiAttribute* getPageScale();
     void setPageScale(std::string _pagescale);
     bool hasPageScale();
     void removePageScale();
@@ -2150,8 +2092,7 @@ struct ScoredefVisMixIn {
     /** \brief   describes a note's spacing relative to its time value.
     */
 
-    string getSpacingPackexpValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpacingPackexp() throw (AttributeNotFoundException);
+    MeiAttribute* getSpacingPackexp();
     void setSpacingPackexp(std::string _spacingpackexp);
     bool hasSpacingPackexp();
     void removeSpacingPackexp();
@@ -2159,8 +2100,7 @@ struct ScoredefVisMixIn {
     /** \brief   describes the note spacing of output.
     */
 
-    string getSpacingPackfactValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpacingPackfact() throw (AttributeNotFoundException);
+    MeiAttribute* getSpacingPackfact();
     void setSpacingPackfact(std::string _spacingpackfact);
     bool hasSpacingPackfact();
     void removeSpacingPackfact();
@@ -2168,8 +2108,7 @@ struct ScoredefVisMixIn {
     /** \brief   sets the minimum amount of space between staves in the same system.
     */
 
-    string getSpacingStaffValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpacingStaff() throw (AttributeNotFoundException);
+    MeiAttribute* getSpacingStaff();
     void setSpacingStaff(std::string _spacingstaff);
     bool hasSpacingStaff();
     void removeSpacingStaff();
@@ -2178,8 +2117,7 @@ struct ScoredefVisMixIn {
     * amount of space between systems.
     */
 
-    string getSpacingSystemValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpacingSystem() throw (AttributeNotFoundException);
+    MeiAttribute* getSpacingSystem();
     void setSpacingSystem(std::string _spacingsystem);
     bool hasSpacingSystem();
     void removeSpacingSystem();
@@ -2188,8 +2126,7 @@ struct ScoredefVisMixIn {
     * page.leftmar.
     */
 
-    string getSystemLeftmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSystemLeftmar() throw (AttributeNotFoundException);
+    MeiAttribute* getSystemLeftmar();
     void setSystemLeftmar(std::string _systemleftmar);
     bool hasSystemLeftmar();
     void removeSystemLeftmar();
@@ -2198,8 +2135,7 @@ struct ScoredefVisMixIn {
     * page.rightmar.
     */
 
-    string getSystemRightmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSystemRightmar() throw (AttributeNotFoundException);
+    MeiAttribute* getSystemRightmar();
     void setSystemRightmar(std::string _systemrightmar);
     bool hasSystemRightmar();
     void removeSystemRightmar();
@@ -2208,119 +2144,118 @@ struct ScoredefVisMixIn {
     * page only.
     */
 
-    string getSystemTopmarValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSystemTopmar() throw (AttributeNotFoundException);
+    MeiAttribute* getSystemTopmar();
     void setSystemTopmar(std::string _systemtopmar);
     bool hasSystemTopmar();
     void removeSystemTopmar();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SectionVisMixIn {
-    SectionVisMixIn(BaseMeiElement *b);
-    virtual ~SectionVisMixIn() {};
-    
+class SectionVisMixIn {
+    public:
+        SectionVisMixIn(MeiElement *b);
+        virtual ~SectionVisMixIn() {};
+        
     /** \brief   indicates that staves begin again with this section.
     */
 
-    string getRestartValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRestart() throw (AttributeNotFoundException);
+    MeiAttribute* getRestart();
     void setRestart(std::string _restart);
     bool hasRestart();
     void removeRestart();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SequenceMixIn {
-    SequenceMixIn(BaseMeiElement *b);
-    virtual ~SequenceMixIn() {};
-    
+class SequenceMixIn {
+    public:
+        SequenceMixIn(MeiElement *b);
+        virtual ~SequenceMixIn() {};
+        
     /** \brief   used to assign a sequence number related to the order in which the encoded
     * features carrying this attribute are believed to have occurred.
     */
 
-    string getSeqValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSeq() throw (AttributeNotFoundException);
+    MeiAttribute* getSeq();
     void setSeq(std::string _seq);
     bool hasSeq();
     void removeSeq();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SlashcountMixIn {
-    SlashcountMixIn(BaseMeiElement *b);
-    virtual ~SlashcountMixIn() {};
-    
+class SlashcountMixIn {
+    public:
+        SlashcountMixIn(MeiElement *b);
+        virtual ~SlashcountMixIn() {};
+        
     /** \brief   indicates the number of slashes to be rendered along with the feature.
     */
 
-    string getSlashValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSlash() throw (AttributeNotFoundException);
+    MeiAttribute* getSlash();
     void setSlash(std::string _slash);
     bool hasSlash();
     void removeSlash();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SlurpresentMixIn {
-    SlurpresentMixIn(BaseMeiElement *b);
-    virtual ~SlurpresentMixIn() {};
-    
+class SlurpresentMixIn {
+    public:
+        SlurpresentMixIn(MeiElement *b);
+        virtual ~SlurpresentMixIn() {};
+        
     /** \brief   indicates that this element participates in a slur. If visual information about
     * the slur needs to be recorded, then a <slur> element should be employed.
     */
 
-    string getSlurValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSlur() throw (AttributeNotFoundException);
+    MeiAttribute* getSlur();
     void setSlur(std::string _slur);
     bool hasSlur();
     void removeSlur();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SpaceVisMixIn {
-    SpaceVisMixIn(BaseMeiElement *b);
-    virtual ~SpaceVisMixIn() {};
-    
+class SpaceVisMixIn {
+    public:
+        SpaceVisMixIn(MeiElement *b);
+        virtual ~SpaceVisMixIn() {};
+        
     /** \brief   indicates whether a space is 'compressible', i.e., if it may be removed at the
     * discretion of processing software.
     */
 
-    string getCompressableValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCompressable() throw (AttributeNotFoundException);
+    MeiAttribute* getCompressable();
     void setCompressable(std::string _compressable);
     bool hasCompressable();
     void removeCompressable();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StaffdefVisMixIn {
-    StaffdefVisMixIn(BaseMeiElement *b);
-    virtual ~StaffdefVisMixIn() {};
-    
+class StaffdefVisMixIn {
+    public:
+        StaffdefVisMixIn(MeiElement *b);
+        virtual ~StaffdefVisMixIn() {};
+        
     /** \brief   determines whether to display guitar chord grids.
     */
 
-    string getGridShowValue() throw (AttributeNotFoundException);
-    MeiAttribute* getGridShow() throw (AttributeNotFoundException);
+    MeiAttribute* getGridShow();
     void setGridShow(std::string _gridshow);
     bool hasGridShow();
     void removeGridShow();
@@ -2328,8 +2263,7 @@ struct StaffdefVisMixIn {
     /** \brief   indicates the number of layers and their stem directions.
     */
 
-    string getLayerschemeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLayerscheme() throw (AttributeNotFoundException);
+    MeiAttribute* getLayerscheme();
     void setLayerscheme(std::string _layerscheme);
     bool hasLayerscheme();
     void removeLayerscheme();
@@ -2337,8 +2271,7 @@ struct StaffdefVisMixIn {
     /** \brief   indicates the number of staff lines.
     */
 
-    string getLinesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLines() throw (AttributeNotFoundException);
+    MeiAttribute* getLines();
     void setLines(std::string _lines);
     bool hasLines();
     void removeLines();
@@ -2349,8 +2282,7 @@ struct StaffdefVisMixIn {
     * the same RGB value as the background, usually white.
     */
 
-    string getLinesColorValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLinesColor() throw (AttributeNotFoundException);
+    MeiAttribute* getLinesColor();
     void setLinesColor(std::string _linescolor);
     bool hasLinesColor();
     void removeLinesColor();
@@ -2358,8 +2290,7 @@ struct StaffdefVisMixIn {
     /** \brief   records whether all staff lines are visible.
     */
 
-    string getLinesVisibleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLinesVisible() throw (AttributeNotFoundException);
+    MeiAttribute* getLinesVisible();
     void setLinesVisible(std::string _linesvisible);
     bool hasLinesVisible();
     void removeLinesVisible();
@@ -2370,138 +2301,137 @@ struct StaffdefVisMixIn {
     * spacing.system attribute indicates the spacing between systems.
     */
 
-    string getSpacingValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpacing() throw (AttributeNotFoundException);
+    MeiAttribute* getSpacing();
     void setSpacing(std::string _spacing);
     bool hasSpacing();
     void removeSpacing();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StaffgrpVisMixIn {
-    StaffgrpVisMixIn(BaseMeiElement *b);
-    virtual ~StaffgrpVisMixIn() {};
-    
+class StaffgrpVisMixIn {
+    public:
+        StaffgrpVisMixIn(MeiElement *b);
+        virtual ~StaffgrpVisMixIn() {};
+        
     /** \brief   indicates whether bar lines go across the space between staves (true) or are
     * only drawn across the lines of each staff (false).
     */
 
-    string getBarthruValue() throw (AttributeNotFoundException);
-    MeiAttribute* getBarthru() throw (AttributeNotFoundException);
+    MeiAttribute* getBarthru();
     void setBarthru(std::string _barthru);
     bool hasBarthru();
     void removeBarthru();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StaffgroupingsymMixIn {
-    StaffgroupingsymMixIn(BaseMeiElement *b);
-    virtual ~StaffgroupingsymMixIn() {};
-    
+class StaffgroupingsymMixIn {
+    public:
+        StaffgroupingsymMixIn(MeiElement *b);
+        virtual ~StaffgroupingsymMixIn() {};
+        
     /** \brief   specifies the symbol used to group a set of staves.
     */
 
-    string getSymbolValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSymbol() throw (AttributeNotFoundException);
+    MeiAttribute* getSymbol();
     void setSymbol(std::string _symbol);
     bool hasSymbol();
     void removeSymbol();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StaffidentMixIn {
-    StaffidentMixIn(BaseMeiElement *b);
-    virtual ~StaffidentMixIn() {};
-    
+class StaffidentMixIn {
+    public:
+        StaffidentMixIn(MeiElement *b);
+        virtual ~StaffidentMixIn() {};
+        
     /** \brief   signifies the staff on which a notated event occurs or to which a control event
     * applies. Mandatory when applicable.
     */
 
-    string getStaffValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStaff() throw (AttributeNotFoundException);
+    MeiAttribute* getStaff();
     void setStaff(std::string _staff);
     bool hasStaff();
     void removeStaff();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StafflocMixIn {
-    StafflocMixIn(BaseMeiElement *b);
-    virtual ~StafflocMixIn() {};
-    
+class StafflocMixIn {
+    public:
+        StafflocMixIn(MeiElement *b);
+        virtual ~StafflocMixIn() {};
+        
     /** \brief   holds the staff location of the feature.
     */
 
-    string getLocValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLoc() throw (AttributeNotFoundException);
+    MeiAttribute* getLoc();
     void setLoc(std::string _loc);
     bool hasLoc();
     void removeLoc();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StartendidMixIn {
-    StartendidMixIn(BaseMeiElement *b);
-    virtual ~StartendidMixIn() {};
-    
+class StartendidMixIn {
+    public:
+        StartendidMixIn(MeiElement *b);
+        virtual ~StartendidMixIn() {};
+        
     /** \brief   indicates the final element in a sequence of events to which the feature
     * applies.
     */
 
-    string getEndidValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEndid() throw (AttributeNotFoundException);
+    MeiAttribute* getEndid();
     void setEndid(std::string _endid);
     bool hasEndid();
     void removeEndid();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StartidMixIn {
-    StartidMixIn(BaseMeiElement *b);
-    virtual ~StartidMixIn() {};
-    
+class StartidMixIn {
+    public:
+        StartidMixIn(MeiElement *b);
+        virtual ~StartidMixIn() {};
+        
     /** \brief   holds a reference to the first element in a sequence of events to which the
     * feature applies.
     */
 
-    string getStartidValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStartid() throw (AttributeNotFoundException);
+    MeiAttribute* getStartid();
     void setStartid(std::string _startid);
     bool hasStartid();
     void removeStartid();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct StemmedMixIn {
-    StemmedMixIn(BaseMeiElement *b);
-    virtual ~StemmedMixIn() {};
-    
+class StemmedMixIn {
+    public:
+        StemmedMixIn(MeiElement *b);
+        virtual ~StemmedMixIn() {};
+        
     /** \brief   describes the direction of a stem.
     */
 
-    string getStemDirValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStemDir() throw (AttributeNotFoundException);
+    MeiAttribute* getStemDir();
     void setStemDir(std::string _stemdir);
     bool hasStemDir();
     void removeStemDir();
@@ -2509,8 +2439,7 @@ struct StemmedMixIn {
     /** \brief   encodes the stem length.
     */
 
-    string getStemLenValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStemLen() throw (AttributeNotFoundException);
+    MeiAttribute* getStemLen();
     void setStemLen(std::string _stemlen);
     bool hasStemLen();
     void removeStemLen();
@@ -2518,8 +2447,7 @@ struct StemmedMixIn {
     /** \brief   records the position of the stem in relation to the note head(s).
     */
 
-    string getStemPosValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStemPos() throw (AttributeNotFoundException);
+    MeiAttribute* getStemPos();
     void setStemPos(std::string _stempos);
     bool hasStemPos();
     void removeStemPos();
@@ -2527,8 +2455,7 @@ struct StemmedMixIn {
     /** \brief   records the output x coordinate of the stem's attachment point.
     */
 
-    string getStemXValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStemX() throw (AttributeNotFoundException);
+    MeiAttribute* getStemX();
     void setStemX(std::string _stemx);
     bool hasStemX();
     void removeStemX();
@@ -2536,27 +2463,26 @@ struct StemmedMixIn {
     /** \brief   records the output y coordinate of the stem's attachment point.
     */
 
-    string getStemYValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStemY() throw (AttributeNotFoundException);
+    MeiAttribute* getStemY();
     void setStemY(std::string _stemy);
     bool hasStemY();
     void removeStemY();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SylLogMixIn {
-    SylLogMixIn(BaseMeiElement *b);
-    virtual ~SylLogMixIn() {};
-    
+class SylLogMixIn {
+    public:
+        SylLogMixIn(MeiElement *b);
+        virtual ~SylLogMixIn() {};
+        
     /** \brief   describes the symbols typically used to indicate breaks between syllables and
     * their functions.
     */
 
-    string getConValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCon() throw (AttributeNotFoundException);
+    MeiAttribute* getCon();
     void setCon(std::string _con);
     bool hasCon();
     void removeCon();
@@ -2564,45 +2490,44 @@ struct SylLogMixIn {
     /** \brief   records the position of a syllable within a word.
     */
 
-    string getWordposValue() throw (AttributeNotFoundException);
-    MeiAttribute* getWordpos() throw (AttributeNotFoundException);
+    MeiAttribute* getWordpos();
     void setWordpos(std::string _wordpos);
     bool hasWordpos();
     void removeWordpos();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SyltextMixIn {
-    SyltextMixIn(BaseMeiElement *b);
-    virtual ~SyltextMixIn() {};
-    
+class SyltextMixIn {
+    public:
+        SyltextMixIn(MeiElement *b);
+        virtual ~SyltextMixIn() {};
+        
     /** \brief   holds an associated sung text syllable.
     */
 
-    string getSylValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSyl() throw (AttributeNotFoundException);
+    MeiAttribute* getSyl();
     void setSyl(std::string _syl);
     bool hasSyl();
     void removeSyl();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TextstyleMixIn {
-    TextstyleMixIn(BaseMeiElement *b);
-    virtual ~TextstyleMixIn() {};
-    
+class TextstyleMixIn {
+    public:
+        TextstyleMixIn(MeiElement *b);
+        virtual ~TextstyleMixIn() {};
+        
     /** \brief   provides a default value for the font family name of text (other than lyrics)
     * when this information is not provided on the individual elements.
     */
 
-    string getTextFamValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextFam() throw (AttributeNotFoundException);
+    MeiAttribute* getTextFam();
     void setTextFam(std::string _textfam);
     bool hasTextFam();
     void removeTextFam();
@@ -2611,8 +2536,7 @@ struct TextstyleMixIn {
     * information is not provided on the individual elements.
     */
 
-    string getTextNameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextName() throw (AttributeNotFoundException);
+    MeiAttribute* getTextName();
     void setTextName(std::string _textname);
     bool hasTextName();
     void removeTextName();
@@ -2621,8 +2545,7 @@ struct TextstyleMixIn {
     * information is not provided on the individual elements.
     */
 
-    string getTextSizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextSize() throw (AttributeNotFoundException);
+    MeiAttribute* getTextSize();
     void setTextSize(std::string _textsize);
     bool hasTextSize();
     void removeTextSize();
@@ -2631,8 +2554,7 @@ struct TextstyleMixIn {
     * this information is not provided on the individual elements.
     */
 
-    string getTextStyleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextStyle() throw (AttributeNotFoundException);
+    MeiAttribute* getTextStyle();
     void setTextStyle(std::string _textstyle);
     bool hasTextStyle();
     void removeTextStyle();
@@ -2641,65 +2563,64 @@ struct TextstyleMixIn {
     * this information is not provided on the individual elements.
     */
 
-    string getTextWeightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTextWeight() throw (AttributeNotFoundException);
+    MeiAttribute* getTextWeight();
     void setTextWeight(std::string _textweight);
     bool hasTextWeight();
     void removeTextWeight();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TiepresentMixIn {
-    TiepresentMixIn(BaseMeiElement *b);
-    virtual ~TiepresentMixIn() {};
-    
+class TiepresentMixIn {
+    public:
+        TiepresentMixIn(MeiElement *b);
+        virtual ~TiepresentMixIn() {};
+        
     /** \brief   indicates that this element participates in a tie. If visual information about
     * the tie needs to be recorded, then a <tie> element should be employed.
     */
 
-    string getTieValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTie() throw (AttributeNotFoundException);
+    MeiAttribute* getTie();
     void setTie(std::string _tie);
     bool hasTie();
     void removeTie();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TimestampMusicalMixIn {
-    TimestampMusicalMixIn(BaseMeiElement *b);
-    virtual ~TimestampMusicalMixIn() {};
-    
+class TimestampMusicalMixIn {
+    public:
+        TimestampMusicalMixIn(MeiElement *b);
+        virtual ~TimestampMusicalMixIn() {};
+        
     /** \brief   encodes the onset time in terms of musical time, i.e.,
     * beats[.fractional_beat_part]
     */
 
-    string getTstampValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTstamp() throw (AttributeNotFoundException);
+    MeiAttribute* getTstamp();
     void setTstamp(std::string _tstamp);
     bool hasTstamp();
     void removeTstamp();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TimestampPerformedMixIn {
-    TimestampPerformedMixIn(BaseMeiElement *b);
-    virtual ~TimestampPerformedMixIn() {};
-    
+class TimestampPerformedMixIn {
+    public:
+        TimestampPerformedMixIn(MeiElement *b);
+        virtual ~TimestampPerformedMixIn() {};
+        
     /** \brief   used to record the onset time in pulses per quarter note (ppq, MusicXML
     * divisions, or MIDI clicks) since the start of the file.
     */
 
-    string getTstampGesValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTstampGes() throw (AttributeNotFoundException);
+    MeiAttribute* getTstampGes();
     void setTstampGes(std::string _tstampges);
     bool hasTstampGes();
     void removeTstampGes();
@@ -2707,29 +2628,28 @@ struct TimestampPerformedMixIn {
     /** \brief   used to record the onset time in terms of ISO time since the start of the file.
     */
 
-    string getTstampRealValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTstampReal() throw (AttributeNotFoundException);
+    MeiAttribute* getTstampReal();
     void setTstampReal(std::string _tstampreal);
     bool hasTstampReal();
     void removeTstampReal();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TranspositionMixIn {
-    TranspositionMixIn(BaseMeiElement *b);
-    virtual ~TranspositionMixIn() {};
-    
+class TranspositionMixIn {
+    public:
+        TranspositionMixIn(MeiElement *b);
+        virtual ~TranspositionMixIn() {};
+        
     /** \brief   records the amount of diatonic pitch shift, e.g. C to C♯ = 0, C to D♭ = 1.
     * Transposition requires both trans.diat and trans.semi attributes in order to
     * distinguish the difference, for example, between a transposition from C to C♯
     * and one from C to D♭.
     */
 
-    string getTransDiatValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTransDiat() throw (AttributeNotFoundException);
+    MeiAttribute* getTransDiat();
     void setTransDiat(std::string _transdiat);
     bool hasTransDiat();
     void removeTransDiat();
@@ -2740,47 +2660,46 @@ struct TranspositionMixIn {
     * and one from C to D♭.
     */
 
-    string getTransSemiValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTransSemi() throw (AttributeNotFoundException);
+    MeiAttribute* getTransSemi();
     void setTransSemi(std::string _transsemi);
     bool hasTransSemi();
     void removeTransSemi();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TupletpresentMixIn {
-    TupletpresentMixIn(BaseMeiElement *b);
-    virtual ~TupletpresentMixIn() {};
-    
+class TupletpresentMixIn {
+    public:
+        TupletpresentMixIn(MeiElement *b);
+        virtual ~TupletpresentMixIn() {};
+        
     /** \brief   indicates that this feature participates in a tuplet. If visual information
     * about the tuplet needs to be recorded, then a <tuplet> element should be
     * employed.
     */
 
-    string getTupletValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTuplet() throw (AttributeNotFoundException);
+    MeiAttribute* getTuplet();
     void setTuplet(std::string _tuplet);
     bool hasTuplet();
     void removeTuplet();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TypedMixIn {
-    TypedMixIn(BaseMeiElement *b);
-    virtual ~TypedMixIn() {};
-    
+class TypedMixIn {
+    public:
+        TypedMixIn(MeiElement *b);
+        virtual ~TypedMixIn() {};
+        
     /** \brief   characterizes the element in some sense, using any convenient classification
     * scheme or typology.
     */
 
-    string getTypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getType() throw (AttributeNotFoundException);
+    MeiAttribute* getType();
     void setType(std::string _type);
     bool hasType();
     void removeType();
@@ -2789,26 +2708,25 @@ struct TypedMixIn {
     * type attribute.
     */
 
-    string getSubtypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSubtype() throw (AttributeNotFoundException);
+    MeiAttribute* getSubtype();
     void setSubtype(std::string _subtype);
     bool hasSubtype();
     void removeSubtype();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TypographyMixIn {
-    TypographyMixIn(BaseMeiElement *b);
-    virtual ~TypographyMixIn() {};
-    
+class TypographyMixIn {
+    public:
+        TypographyMixIn(MeiElement *b);
+        virtual ~TypographyMixIn() {};
+        
     /** \brief   contains the name of a font-family.
     */
 
-    string getFontfamValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFontfam() throw (AttributeNotFoundException);
+    MeiAttribute* getFontfam();
     void setFontfam(std::string _fontfam);
     bool hasFontfam();
     void removeFontfam();
@@ -2816,8 +2734,7 @@ struct TypographyMixIn {
     /** \brief   holds the name of a font.
     */
 
-    string getFontnameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFontname() throw (AttributeNotFoundException);
+    MeiAttribute* getFontname();
     void setFontname(std::string _fontname);
     bool hasFontname();
     void removeFontname();
@@ -2825,8 +2742,7 @@ struct TypographyMixIn {
     /** \brief   indicates the size of a font in printers' points, i.e., 1/72nd of an inch.
     */
 
-    string getFontsizeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFontsize() throw (AttributeNotFoundException);
+    MeiAttribute* getFontsize();
     void setFontsize(std::string _fontsize);
     bool hasFontsize();
     void removeFontsize();
@@ -2834,8 +2750,7 @@ struct TypographyMixIn {
     /** \brief   records the style of a font, i.e, italic, oblique, or normal.
     */
 
-    string getFontstyleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFontstyle() throw (AttributeNotFoundException);
+    MeiAttribute* getFontstyle();
     void setFontstyle(std::string _fontstyle);
     bool hasFontstyle();
     void removeFontstyle();
@@ -2843,105 +2758,104 @@ struct TypographyMixIn {
     /** \brief   used to indicate bold type.
     */
 
-    string getFontweightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFontweight() throw (AttributeNotFoundException);
+    MeiAttribute* getFontweight();
     void setFontweight(std::string _fontweight);
     bool hasFontweight();
     void removeFontweight();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct VisibilityMixIn {
-    VisibilityMixIn(BaseMeiElement *b);
-    virtual ~VisibilityMixIn() {};
-    
+class VisibilityMixIn {
+    public:
+        VisibilityMixIn(MeiElement *b);
+        virtual ~VisibilityMixIn() {};
+        
     /** \brief   indicates if a feature should be rendered when the notation is presented
     * graphically or sounded when it is presented in an aural form.
     */
 
-    string getVisibleValue() throw (AttributeNotFoundException);
-    MeiAttribute* getVisible() throw (AttributeNotFoundException);
+    MeiAttribute* getVisible();
     void setVisible(std::string _visible);
     bool hasVisible();
     void removeVisible();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct VisualoffsetHoMixIn {
-    VisualoffsetHoMixIn(BaseMeiElement *b);
-    virtual ~VisualoffsetHoMixIn() {};
-    
+class VisualoffsetHoMixIn {
+    public:
+        VisualoffsetHoMixIn(MeiElement *b);
+        virtual ~VisualoffsetHoMixIn() {};
+        
     /** \brief   records a horizontal adjustment to a feature's programmatically-determined
     * location in terms of staff interline distance; that is, in units of 1/2 the
     * distance between adjacent staff lines.
     */
 
-    string getHoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHo() throw (AttributeNotFoundException);
+    MeiAttribute* getHo();
     void setHo(std::string _ho);
     bool hasHo();
     void removeHo();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct VisualoffsetToMixIn {
-    VisualoffsetToMixIn(BaseMeiElement *b);
-    virtual ~VisualoffsetToMixIn() {};
-    
+class VisualoffsetToMixIn {
+    public:
+        VisualoffsetToMixIn(MeiElement *b);
+        virtual ~VisualoffsetToMixIn() {};
+        
     /** \brief   records a timestamp adjustment of a feature's programmatically-determined
     * location in terms of musical time; that is, beats.
     */
 
-    string getToValue() throw (AttributeNotFoundException);
-    MeiAttribute* getTo() throw (AttributeNotFoundException);
+    MeiAttribute* getTo();
     void setTo(std::string _to);
     bool hasTo();
     void removeTo();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct VisualoffsetVoMixIn {
-    VisualoffsetVoMixIn(BaseMeiElement *b);
-    virtual ~VisualoffsetVoMixIn() {};
-    
+class VisualoffsetVoMixIn {
+    public:
+        VisualoffsetVoMixIn(MeiElement *b);
+        virtual ~VisualoffsetVoMixIn() {};
+        
     /** \brief   records the vertical adjustment of a feature's programmatically-determined
     * location in terms of staff interline distance; that is, in units of 1/2 the
     * distance between adjacent staff lines.
     */
 
-    string getVoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getVo() throw (AttributeNotFoundException);
+    MeiAttribute* getVo();
     void setVo(std::string _vo);
     bool hasVo();
     void removeVo();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct Visualoffset2HoMixIn {
-    Visualoffset2HoMixIn(BaseMeiElement *b);
-    virtual ~Visualoffset2HoMixIn() {};
-    
+class Visualoffset2HoMixIn {
+    public:
+        Visualoffset2HoMixIn(MeiElement *b);
+        virtual ~Visualoffset2HoMixIn() {};
+        
     /** \brief   records the horizontal adjustment of a feature's programmatically-determined
     * start point.
     */
 
-    string getStarthoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStartho() throw (AttributeNotFoundException);
+    MeiAttribute* getStartho();
     void setStartho(std::string _startho);
     bool hasStartho();
     void removeStartho();
@@ -2950,27 +2864,26 @@ struct Visualoffset2HoMixIn {
     * point.
     */
 
-    string getEndhoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEndho() throw (AttributeNotFoundException);
+    MeiAttribute* getEndho();
     void setEndho(std::string _endho);
     bool hasEndho();
     void removeEndho();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct Visualoffset2ToMixIn {
-    Visualoffset2ToMixIn(BaseMeiElement *b);
-    virtual ~Visualoffset2ToMixIn() {};
-    
+class Visualoffset2ToMixIn {
+    public:
+        Visualoffset2ToMixIn(MeiElement *b);
+        virtual ~Visualoffset2ToMixIn() {};
+        
     /** \brief   records a timestamp adjustment of a feature's programmatically-determined start
     * point.
     */
 
-    string getStarttoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStartto() throw (AttributeNotFoundException);
+    MeiAttribute* getStartto();
     void setStartto(std::string _startto);
     bool hasStartto();
     void removeStartto();
@@ -2979,27 +2892,26 @@ struct Visualoffset2ToMixIn {
     * point.
     */
 
-    string getEndtoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEndto() throw (AttributeNotFoundException);
+    MeiAttribute* getEndto();
     void setEndto(std::string _endto);
     bool hasEndto();
     void removeEndto();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct Visualoffset2VoMixIn {
-    Visualoffset2VoMixIn(BaseMeiElement *b);
-    virtual ~Visualoffset2VoMixIn() {};
-    
+class Visualoffset2VoMixIn {
+    public:
+        Visualoffset2VoMixIn(MeiElement *b);
+        virtual ~Visualoffset2VoMixIn() {};
+        
     /** \brief   records a vertical adjustment of a feature's programmatically-determined start
     * point.
     */
 
-    string getStartvoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getStartvo() throw (AttributeNotFoundException);
+    MeiAttribute* getStartvo();
     void setStartvo(std::string _startvo);
     bool hasStartvo();
     void removeStartvo();
@@ -3008,21 +2920,21 @@ struct Visualoffset2VoMixIn {
     * point.
     */
 
-    string getEndvoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getEndvo() throw (AttributeNotFoundException);
+    MeiAttribute* getEndvo();
     void setEndvo(std::string _endvo);
     bool hasEndvo();
     void removeEndvo();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct WidthMixIn {
-    WidthMixIn(BaseMeiElement *b);
-    virtual ~WidthMixIn() {};
-    
+class WidthMixIn {
+    public:
+        WidthMixIn(MeiElement *b);
+        virtual ~WidthMixIn() {};
+        
     /** \brief   measurement of the horizontal dimension of an entity. This value can only be
     * interpreted meaningfully in combination with the units attribute. The width
     * attribute may be used to capture measure width data for interchange with music
@@ -3030,28 +2942,27 @@ struct WidthMixIn {
     * width attribute captures the width of the preceding measure.
     */
 
-    string getWidthValue() throw (AttributeNotFoundException);
-    MeiAttribute* getWidth() throw (AttributeNotFoundException);
+    MeiAttribute* getWidth();
     void setWidth(std::string _width);
     bool hasWidth();
     void removeWidth();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct XyMixIn {
-    XyMixIn(BaseMeiElement *b);
-    virtual ~XyMixIn() {};
-    
+class XyMixIn {
+    public:
+        XyMixIn(MeiElement *b);
+        virtual ~XyMixIn() {};
+        
     /** \brief   encodes an x coordinate for a feature in an output coordinate system. When it is
     * necessary to record the placement of a feature in a facsimile image, use the
     * facs attribute.
     */
 
-    string getXValue() throw (AttributeNotFoundException);
-    MeiAttribute* getX() throw (AttributeNotFoundException);
+    MeiAttribute* getX();
     void setX(std::string _x);
     bool hasX();
     void removeX();
@@ -3061,26 +2972,25 @@ struct XyMixIn {
     * facs attribute.
     */
 
-    string getYValue() throw (AttributeNotFoundException);
-    MeiAttribute* getY() throw (AttributeNotFoundException);
+    MeiAttribute* getY();
     void setY(std::string _y);
     bool hasY();
     void removeY();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct Xy2MixIn {
-    Xy2MixIn(BaseMeiElement *b);
-    virtual ~Xy2MixIn() {};
-    
+class Xy2MixIn {
+    public:
+        Xy2MixIn(MeiElement *b);
+        virtual ~Xy2MixIn() {};
+        
     /** \brief   encodes the optional 2nd x coordinate.
     */
 
-    string getX2Value() throw (AttributeNotFoundException);
-    MeiAttribute* getX2() throw (AttributeNotFoundException);
+    MeiAttribute* getX2();
     void setX2(std::string _x2);
     bool hasX2();
     void removeX2();
@@ -3088,15 +2998,15 @@ struct Xy2MixIn {
     /** \brief   encodes the optional 2nd y coordinate.
     */
 
-    string getY2Value() throw (AttributeNotFoundException);
-    MeiAttribute* getY2() throw (AttributeNotFoundException);
+    MeiAttribute* getY2();
     void setY2(std::string _y2);
     bool hasY2();
     void removeY2();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // SHAREDMIXIN_H_

@@ -34,7 +34,8 @@
 #include "linkalignmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   arpeggiation ― Indicates that the notes of a chord are to be performed
     * successively rather than simultaneously, usually from lowest to highest.
     * Sometimes called a "roll". The modern symbol is a vertical wavy line preceding
@@ -50,11 +51,12 @@
     * attribute.
     */
 
-struct Arpeg : public BaseMeiElement {
-    Arpeg();
-    virtual ~Arpeg() {};
-    
-    
+class Arpeg : public MeiElement {
+    public:
+        Arpeg();
+        virtual ~Arpeg() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ArpegLogMixIn    m_ArpegLog;
@@ -72,7 +74,7 @@ struct Arpeg : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Arpeg);
+        REGISTER_DECLARATION(Arpeg);
 };
 
 
@@ -89,11 +91,12 @@ struct Arpeg : public BaseMeiElement {
     * 5.
     */
 
-struct Btrem : public BaseMeiElement {
-    Btrem();
-    virtual ~Btrem() {};
-    
-    
+class Btrem : public MeiElement {
+    public:
+        Btrem();
+        virtual ~Btrem() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     BtremLogMixIn    m_BtremLog;
@@ -107,7 +110,7 @@ struct Btrem : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Btrem);
+        REGISTER_DECLARATION(Btrem);
 };
 
 
@@ -119,11 +122,12 @@ struct Btrem : public BaseMeiElement {
     * section by using the beam.group and beam.rests attributes on these elements.
     */
 
-struct Beam : public BaseMeiElement {
-    Beam();
-    virtual ~Beam() {};
-    
-    
+class Beam : public MeiElement {
+    public:
+        Beam();
+        virtual ~Beam() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -135,7 +139,7 @@ struct Beam : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Beam);
+        REGISTER_DECLARATION(Beam);
 };
 
 
@@ -146,11 +150,12 @@ struct Beam : public BaseMeiElement {
     * not to specify one starting and one ending type of attribute.
     */
 
-struct Beamspan : public BaseMeiElement {
-    Beamspan();
-    virtual ~Beamspan() {};
-    
-    
+class Beamspan : public MeiElement {
+    public:
+        Beamspan();
+        virtual ~Beamspan() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -167,7 +172,7 @@ struct Beamspan : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Beamspan);
+        REGISTER_DECLARATION(Beamspan);
 };
 
 
@@ -177,11 +182,12 @@ struct Beamspan : public BaseMeiElement {
     * however, note elements with appropriately-shaped note heads should be employed.
     */
 
-struct Beatrpt : public BaseMeiElement {
-    Beatrpt();
-    virtual ~Beatrpt() {};
-    
-    
+class Beatrpt : public MeiElement {
+    public:
+        Beatrpt();
+        virtual ~Beatrpt() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -195,7 +201,7 @@ struct Beatrpt : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Beatrpt);
+        REGISTER_DECLARATION(Beatrpt);
 };
 
 
@@ -210,11 +216,12 @@ struct Beatrpt : public BaseMeiElement {
     * specify a starting attribute.
     */
 
-struct Bend : public BaseMeiElement {
-    Bend();
-    virtual ~Bend() {};
-    
-    
+class Bend : public MeiElement {
+    public:
+        Bend();
+        virtual ~Bend() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -239,7 +246,7 @@ struct Bend : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Bend);
+        REGISTER_DECLARATION(Bend);
 };
 
 
@@ -253,11 +260,12 @@ struct Bend : public BaseMeiElement {
     * to specify a starting point attribute.
     */
 
-struct Breath : public BaseMeiElement {
-    Breath();
-    virtual ~Breath() {};
-    
-    
+class Breath : public MeiElement {
+    public:
+        Breath();
+        virtual ~Breath() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -277,7 +285,7 @@ struct Breath : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Breath);
+        REGISTER_DECLARATION(Breath);
 };
 
 
@@ -289,11 +297,12 @@ struct Breath : public BaseMeiElement {
     * 8ths=1, 16ths=2, 32nds=3, 64ths=4, 128ths=5, 256ths=6.
     */
 
-struct Ftrem : public BaseMeiElement {
-    Ftrem();
-    virtual ~Ftrem() {};
-    
-    
+class Ftrem : public MeiElement {
+    public:
+        Ftrem();
+        virtual ~Ftrem() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -305,7 +314,7 @@ struct Ftrem : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Ftrem);
+        REGISTER_DECLARATION(Ftrem);
 };
 
 
@@ -321,11 +330,12 @@ struct Ftrem : public BaseMeiElement {
     * starting point attribute.
     */
 
-struct Fermata : public BaseMeiElement {
-    Fermata();
-    virtual ~Fermata() {};
-    
-    
+class Fermata : public MeiElement {
+    public:
+        Fermata();
+        virtual ~Fermata() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -347,7 +357,7 @@ struct Fermata : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Fermata);
+        REGISTER_DECLARATION(Fermata);
 };
 
 
@@ -363,11 +373,12 @@ struct Fermata : public BaseMeiElement {
     * is a semantic error not to specify a starting point attribute.
     */
 
-struct Gliss : public BaseMeiElement {
-    Gliss();
-    virtual ~Gliss() {};
-    
-    
+class Gliss : public MeiElement {
+    public:
+        Gliss();
+        virtual ~Gliss() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -391,7 +402,7 @@ struct Gliss : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Gliss);
+        REGISTER_DECLARATION(Gliss);
 };
 
 
@@ -404,11 +415,12 @@ struct Gliss : public BaseMeiElement {
     * rather a time stamp for the end point of the hairpin.
     */
 
-struct Hairpin : public BaseMeiElement {
-    Hairpin();
-    virtual ~Hairpin() {};
-    
-    
+class Hairpin : public MeiElement {
+    public:
+        Hairpin();
+        virtual ~Hairpin() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     HairpinLogMixIn    m_HairpinLog;
@@ -435,18 +447,19 @@ struct Hairpin : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Hairpin);
+        REGISTER_DECLARATION(Hairpin);
 };
 
 
 /** \brief   half-measure repeat ― A half-measure repeat in any meter.
     */
 
-struct Halfmrpt : public BaseMeiElement {
-    Halfmrpt();
-    virtual ~Halfmrpt() {};
-    
-    
+class Halfmrpt : public MeiElement {
+    public:
+        Halfmrpt();
+        virtual ~Halfmrpt() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -463,7 +476,7 @@ struct Halfmrpt : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Halfmrpt);
+        REGISTER_DECLARATION(Halfmrpt);
 };
 
 
@@ -472,11 +485,12 @@ struct Halfmrpt : public BaseMeiElement {
     * attribute. It is a semantic error not to specify a starting point attribute.
     */
 
-struct Harppedal : public BaseMeiElement {
-    Harppedal();
-    virtual ~Harppedal() {};
-    
-    
+class Harppedal : public MeiElement {
+    public:
+        Harppedal();
+        virtual ~Harppedal() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     HarppedalLogMixIn    m_HarppedalLog;
@@ -497,7 +511,7 @@ struct Harppedal : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Harppedal);
+        REGISTER_DECLARATION(Harppedal);
 };
 
 
@@ -506,11 +520,12 @@ struct Harppedal : public BaseMeiElement {
     * controlled via the multi.number attribute on the scoreDef or staffDef elements.
     */
 
-struct Mrest : public BaseMeiElement {
-    Mrest();
-    virtual ~Mrest() {};
-    
-    
+class Mrest : public MeiElement {
+    public:
+        Mrest();
+        virtual ~Mrest() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -532,7 +547,7 @@ struct Mrest : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mrest);
+        REGISTER_DECLARATION(Mrest);
 };
 
 
@@ -541,11 +556,12 @@ struct Mrest : public BaseMeiElement {
     * the multi.number attribute on the scoreDef or staffDef elements.
     */
 
-struct Mrpt : public BaseMeiElement {
-    Mrpt();
-    virtual ~Mrpt() {};
-    
-    
+class Mrpt : public MeiElement {
+    public:
+        Mrpt();
+        virtual ~Mrpt() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -558,7 +574,7 @@ struct Mrpt : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mrpt);
+        REGISTER_DECLARATION(Mrpt);
 };
 
 
@@ -566,11 +582,12 @@ struct Mrpt : public BaseMeiElement {
     * repeated.
     */
 
-struct Mrpt2 : public BaseMeiElement {
-    Mrpt2();
-    virtual ~Mrpt2() {};
-    
-    
+class Mrpt2 : public MeiElement {
+    public:
+        Mrpt2();
+        virtual ~Mrpt2() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -583,7 +600,7 @@ struct Mrpt2 : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mrpt2);
+        REGISTER_DECLARATION(Mrpt2);
 };
 
 
@@ -592,11 +609,12 @@ struct Mrpt2 : public BaseMeiElement {
     * multi.number attribute on the scoreDef or staffDef elements.
     */
 
-struct Mspace : public BaseMeiElement {
-    Mspace();
-    virtual ~Mspace() {};
-    
-    
+class Mspace : public MeiElement {
+    public:
+        Mspace();
+        virtual ~Mspace() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -614,7 +632,7 @@ struct Mspace : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mspace);
+        REGISTER_DECLARATION(Mspace);
 };
 
 
@@ -626,11 +644,12 @@ struct Mspace : public BaseMeiElement {
     * external electronic object or to another location within the MEI instance.
     */
 
-struct Measure : public BaseMeiElement {
-    Measure();
-    virtual ~Measure() {};
-    
-    
+class Measure : public MeiElement {
+    public:
+        Measure();
+        virtual ~Measure() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     FacsimileMixIn    m_Facsimile;
@@ -648,7 +667,7 @@ struct Measure : public BaseMeiElement {
     AlignmentMixIn    m_Alignment;
     JoinedMixIn    m_Joined;
     private:
-        //REGISTER_DECLARATION(Measure);
+        REGISTER_DECLARATION(Measure);
 };
 
 
@@ -657,11 +676,12 @@ struct Measure : public BaseMeiElement {
     * number to be rendered along with the note. See Read, p. 102-105.
     */
 
-struct Multirest : public BaseMeiElement {
-    Multirest();
-    virtual ~Multirest() {};
-    
-    
+class Multirest : public MeiElement {
+    public:
+        Multirest();
+        virtual ~Multirest() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -676,7 +696,7 @@ struct Multirest : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Multirest);
+        REGISTER_DECLARATION(Multirest);
 };
 
 
@@ -686,11 +706,12 @@ struct Multirest : public BaseMeiElement {
     * manuscript. The num attribute records the number of measures to be repeated.
     */
 
-struct Multirpt : public BaseMeiElement {
-    Multirpt();
-    virtual ~Multirpt() {};
-    
-    
+class Multirpt : public MeiElement {
+    public:
+        Multirpt();
+        virtual ~Multirpt() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TimestampMusicalMixIn    m_TimestampMusical;
@@ -703,7 +724,7 @@ struct Multirpt : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Multirpt);
+        REGISTER_DECLARATION(Multirpt);
 };
 
 
@@ -720,11 +741,12 @@ struct Multirpt : public BaseMeiElement {
     * required because the octave displacement can be visually instantaneous.
     */
 
-struct Octave : public BaseMeiElement {
-    Octave();
-    virtual ~Octave() {};
-    
-    
+class Octave : public MeiElement {
+    public:
+        Octave();
+        virtual ~Octave() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     OctaveLogMixIn    m_OctaveLog;
@@ -748,7 +770,7 @@ struct Octave : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Octave);
+        REGISTER_DECLARATION(Octave);
 };
 
 
@@ -761,17 +783,18 @@ struct Octave : public BaseMeiElement {
     * the alternative material is often rendered in small-sized notation.
     */
 
-struct Ossia : public BaseMeiElement {
-    Ossia();
-    virtual ~Ossia() {};
-    
-    
+class Ossia : public MeiElement {
+    public:
+        Ossia();
+        virtual ~Ossia() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Ossia);
+        REGISTER_DECLARATION(Ossia);
 };
 
 
@@ -780,11 +803,12 @@ struct Ossia : public BaseMeiElement {
     * attribute. It is a semantic error not to specify a starting point attribute.
     */
 
-struct Pedal : public BaseMeiElement {
-    Pedal();
-    virtual ~Pedal() {};
-    
-    
+class Pedal : public MeiElement {
+    public:
+        Pedal();
+        virtual ~Pedal() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     PedalLogMixIn    m_PedalLog;
@@ -805,7 +829,7 @@ struct Pedal : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Pedal);
+        REGISTER_DECLARATION(Pedal);
 };
 
 
@@ -816,11 +840,12 @@ struct Pedal : public BaseMeiElement {
     * model.textphraseLike.limited.
     */
 
-struct Reh : public BaseMeiElement {
-    Reh();
-    virtual ~Reh() {};
-    
-    
+class Reh : public MeiElement {
+    public:
+        Reh();
+        virtual ~Reh() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     StaffidentMixIn    m_Staffident;
@@ -837,7 +862,7 @@ struct Reh : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Reh);
+        REGISTER_DECLARATION(Reh);
 };
 
 
@@ -859,11 +884,12 @@ struct Reh : public BaseMeiElement {
     * duration, but rather a time stamp for the end point of the slur.
     */
 
-struct Slur : public BaseMeiElement {
-    Slur();
-    virtual ~Slur() {};
-    
-    
+class Slur : public MeiElement {
+    public:
+        Slur();
+        virtual ~Slur() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TypedMixIn    m_Typed;
@@ -891,7 +917,7 @@ struct Slur : public BaseMeiElement {
     AlignmentMixIn    m_Alignment;
     JoinedMixIn    m_Joined;
     private:
-        //REGISTER_DECLARATION(Slur);
+        REGISTER_DECLARATION(Slur);
 };
 
 
@@ -900,11 +926,12 @@ struct Slur : public BaseMeiElement {
     * connecting the two notes. See Read, p. 110-111, 122.
     */
 
-struct Tie : public BaseMeiElement {
-    Tie();
-    virtual ~Tie() {};
-    
-    
+class Tie : public MeiElement {
+    public:
+        Tie();
+        virtual ~Tie() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TypedMixIn    m_Typed;
@@ -930,7 +957,7 @@ struct Tie : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Tie);
+        REGISTER_DECLARATION(Tie);
 };
 
 
@@ -951,11 +978,12 @@ struct Tie : public BaseMeiElement {
     * class.
     */
 
-struct Tuplet : public BaseMeiElement {
-    Tuplet();
-    virtual ~Tuplet() {};
-    
-    
+class Tuplet : public MeiElement {
+    public:
+        Tuplet();
+        virtual ~Tuplet() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TupletLogMixIn    m_TupletLog;
@@ -974,7 +1002,7 @@ struct Tuplet : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Tuplet);
+        REGISTER_DECLARATION(Tuplet);
 };
 
 
@@ -986,11 +1014,12 @@ struct Tuplet : public BaseMeiElement {
     * attribute.
     */
 
-struct Tupletspan : public BaseMeiElement {
-    Tupletspan();
-    virtual ~Tupletspan() {};
-    
-    
+class Tupletspan : public MeiElement {
+    public:
+        Tupletspan();
+        virtual ~Tupletspan() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TupletspanLogMixIn    m_TupletspanLog;
@@ -1010,8 +1039,9 @@ struct Tupletspan : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Tupletspan);
+        REGISTER_DECLARATION(Tupletspan);
 };
 
 
+}
 #endif // CMN_H_

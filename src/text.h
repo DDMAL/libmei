@@ -31,23 +31,25 @@
 #include "facsimilemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   back ― Back matter such as indexes, advertisements, etc. following the main
     * part of a text. This element is modelled on an element in the Text Encoding
     * Initiative (TEI).
     */
 
-struct Back : public BaseMeiElement {
-    Back();
-    virtual ~Back() {};
-    
-    
+class Back : public MeiElement {
+    public:
+        Back();
+        virtual ~Back() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Back);
+        REGISTER_DECLARATION(Back);
 };
 
 
@@ -56,18 +58,19 @@ struct Back : public BaseMeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Div : public BaseMeiElement {
-    Div();
-    virtual ~Div() {};
-    
-    
+class Div : public MeiElement {
+    public:
+        Div();
+        virtual ~Div() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Div);
+        REGISTER_DECLARATION(Div);
 };
 
 
@@ -81,17 +84,18 @@ struct Div : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Front : public BaseMeiElement {
-    Front();
-    virtual ~Front() {};
-    
-    
+class Front : public MeiElement {
+    public:
+        Front();
+        virtual ~Front() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Front);
+        REGISTER_DECLARATION(Front);
 };
 
 
@@ -102,17 +106,18 @@ struct Front : public BaseMeiElement {
     * and HTML.
     */
 
-struct Head : public BaseMeiElement {
-    Head();
-    virtual ~Head() {};
-    
-    
+class Head : public MeiElement {
+    public:
+        Head();
+        virtual ~Head() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Head);
+        REGISTER_DECLARATION(Head);
 };
 
 
@@ -120,15 +125,16 @@ struct Head : public BaseMeiElement {
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
 
-struct Item : public BaseMeiElement {
-    Item();
-    virtual ~Item() {};
-    
-    
+class Item : public MeiElement {
+    public:
+        Item();
+        virtual ~Item() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(Item);
+        REGISTER_DECLARATION(Item);
 };
 
 
@@ -139,16 +145,17 @@ struct Item : public BaseMeiElement {
     * elements in the Text Encoding Initiative (TEI).
     */
 
-struct L : public BaseMeiElement {
-    L();
-    virtual ~L() {};
-    
-    
+class L : public MeiElement {
+    public:
+        L();
+        virtual ~L() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(L);
+        REGISTER_DECLARATION(L);
 };
 
 
@@ -157,18 +164,19 @@ struct L : public BaseMeiElement {
     * (TEI).
     */
 
-struct Lg : public BaseMeiElement {
-    Lg();
-    virtual ~Lg() {};
-    
-    
+class Lg : public MeiElement {
+    public:
+        Lg();
+        virtual ~Lg() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Lg);
+        REGISTER_DECLARATION(Lg);
 };
 
 
@@ -178,25 +186,25 @@ struct Lg : public BaseMeiElement {
     * Initiative (TEI), and HTML.
     */
 
-struct List : public BaseMeiElement {
-    List();
-    virtual ~List() {};
-    
+class List : public MeiElement {
+    public:
+        List();
+        virtual ~List() {};
+        
     /** \brief   records the function of the dot.
     */
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
 
-    
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(List);
+        REGISTER_DECLARATION(List);
 };
 
 
@@ -209,18 +217,20 @@ struct List : public BaseMeiElement {
     * found in HTML, TEI, and EAD.
     */
 
-struct Quote : public BaseMeiElement {
-    Quote();
-    virtual ~Quote() {};
-    
-    
+class Quote : public MeiElement {
+    public:
+        Quote();
+        virtual ~Quote() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Quote);
+        REGISTER_DECLARATION(Quote);
 };
 
 
+}
 #endif // TEXT_H_

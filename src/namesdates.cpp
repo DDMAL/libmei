@@ -2,35 +2,105 @@
 
 #include "namesdates.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Corpname::Corpname() : m_Bibl(this), m_Common(this), m_Datable(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Lang(this), m_Name(this), m_Authorized(this), m_Canonical(this), m_Typed(this) {
-    m_Base.setName("corpName");
+mei::Corpname::Corpname() : 
+    MeiElement("corpName"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Name(this),
+    m_Authorized(this),
+    m_Canonical(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Corpname, "corpName");
 
 
 
-Geogname::Geogname() : m_Bibl(this), m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Lang(this), m_Name(this), m_Authorized(this), m_Canonical(this), m_Typed(this) {
-    m_Base.setName("geogName");
+mei::Geogname::Geogname() : 
+    MeiElement("geogName"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Name(this),
+    m_Authorized(this),
+    m_Canonical(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Geogname, "geogName");
 
 
 
-Periodname::Periodname() : m_Bibl(this), m_Common(this), m_Datable(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Lang(this), m_Name(this), m_Authorized(this), m_Canonical(this), m_Typed(this) {
-    m_Base.setName("periodName");
+mei::Periodname::Periodname() : 
+    MeiElement("periodName"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Name(this),
+    m_Authorized(this),
+    m_Canonical(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Periodname, "periodName");
 
 
 
-Persname::Persname() : m_Bibl(this), m_Common(this), m_Datable(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Lang(this), m_Name(this), m_Authorized(this), m_Canonical(this), m_Typed(this) {
-    m_Base.setName("persName");
+mei::Persname::Persname() : 
+    MeiElement("persName"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Name(this),
+    m_Authorized(this),
+    m_Canonical(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Persname, "persName");
 
 
 
-Stylename::Stylename() : m_Bibl(this), m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Lang(this), m_Name(this), m_Authorized(this), m_Canonical(this), m_Typed(this) {
-    m_Base.setName("styleName");
+mei::Stylename::Stylename() : 
+    MeiElement("styleName"),
+    m_Bibl(this),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Name(this),
+    m_Authorized(this),
+    m_Canonical(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Stylename, "styleName");
 
 
 

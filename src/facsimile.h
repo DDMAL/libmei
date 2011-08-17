@@ -30,7 +30,8 @@
 #include "sharedmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   facsimile ― Contains a representation of some written source in the form of a
     * set of images rather than as transcribed or encoded text. The decls attribute
     * may be used to link the collection of images with a particular source described
@@ -38,15 +39,16 @@
     * Initiative (TEI).
     */
 
-struct Facsimile : public BaseMeiElement {
-    Facsimile();
-    virtual ~Facsimile() {};
-    
-    
+class Facsimile : public MeiElement {
+    public:
+        Facsimile();
+        virtual ~Facsimile() {};
+        
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     private:
-        //REGISTER_DECLARATION(Facsimile);
+        REGISTER_DECLARATION(Facsimile);
 };
 
 
@@ -57,18 +59,19 @@ struct Facsimile : public BaseMeiElement {
     * is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Surface : public BaseMeiElement {
-    Surface();
-    virtual ~Surface() {};
-    
-    
+class Surface : public MeiElement {
+    public:
+        Surface();
+        virtual ~Surface() {};
+        
+        
     CommonMixIn    m_Common;
     CoordinatedMixIn    m_Coordinated;
     DatapointingMixIn    m_Datapointing;
     DeclaringMixIn    m_Declaring;
     StartidMixIn    m_Startid;
     private:
-        //REGISTER_DECLARATION(Surface);
+        REGISTER_DECLARATION(Surface);
 };
 
 
@@ -76,17 +79,19 @@ struct Surface : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Zone : public BaseMeiElement {
-    Zone();
-    virtual ~Zone() {};
-    
-    
+class Zone : public MeiElement {
+    public:
+        Zone();
+        virtual ~Zone() {};
+        
+        
     CommonMixIn    m_Common;
     CoordinatedMixIn    m_Coordinated;
     DatapointingMixIn    m_Datapointing;
     private:
-        //REGISTER_DECLARATION(Zone);
+        REGISTER_DECLARATION(Zone);
 };
 
 
+}
 #endif // FACSIMILE_H_

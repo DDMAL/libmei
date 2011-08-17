@@ -29,54 +29,55 @@
 #include "exceptions.h"
 
 
-
-struct FretlocationMixIn {
-    FretlocationMixIn(BaseMeiElement *b);
-    virtual ~FretlocationMixIn() {};
+namespace mei {
     
+class FretlocationMixIn {
+    public:
+        FretlocationMixIn(MeiElement *b);
+        virtual ~FretlocationMixIn() {};
+        
     /** \brief   records the location at which a string should be stopped against a fret.
     */
 
-    string getFretValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFret() throw (AttributeNotFoundException);
+    MeiAttribute* getFret();
     void setFret(std::string _fret);
     bool hasFret();
     void removeFret();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct HarmLogMixIn {
-    HarmLogMixIn(BaseMeiElement *b);
-    virtual ~HarmLogMixIn() {};
-    
+class HarmLogMixIn {
+    public:
+        HarmLogMixIn(MeiElement *b);
+        virtual ~HarmLogMixIn() {};
+        
     /** \brief   contains a reference to a <chordDef> element elsewhere in the document.
     */
 
-    string getChordrefValue() throw (AttributeNotFoundException);
-    MeiAttribute* getChordref() throw (AttributeNotFoundException);
+    MeiAttribute* getChordref();
     void setChordref(std::string _chordref);
     bool hasChordref();
     void removeChordref();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct HarmVisMixIn {
-    HarmVisMixIn(BaseMeiElement *b);
-    virtual ~HarmVisMixIn() {};
-    
+class HarmVisMixIn {
+    public:
+        HarmVisMixIn(MeiElement *b);
+        virtual ~HarmVisMixIn() {};
+        
     /** \brief   indicates the presence of an extension symbol, typically a dash or underscore,
     * drawn from the end of the harmonic indication to the point indicated by the dur
     * attribute.
     */
 
-    string getExtenderValue() throw (AttributeNotFoundException);
-    MeiAttribute* getExtender() throw (AttributeNotFoundException);
+    MeiAttribute* getExtender();
     void setExtender(std::string _extender);
     bool hasExtender();
     void removeExtender();
@@ -84,15 +85,15 @@ struct HarmVisMixIn {
     /** \brief   describes how the harmonic indication should be rendered.
     */
 
-    string getRendgridValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRendgrid() throw (AttributeNotFoundException);
+    MeiAttribute* getRendgrid();
     void setRendgrid(std::string _rendgrid);
     bool hasRendgrid();
     void removeRendgrid();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // HARMONYMIXIN_H_

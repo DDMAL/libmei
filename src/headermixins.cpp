@@ -2,39 +2,34 @@
 
 #include "headermixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-RegularmethodMixIn::RegularmethodMixIn(BaseMeiElement *b) {
+mei::RegularmethodMixIn::RegularmethodMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string RegularmethodMixIn::getMethodValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("method")) {
+MeiAttribute* mei::RegularmethodMixIn::getMethod() {
+    if (!b->hasAttribute("method")) {
         throw AttributeNotFoundException("method");
     }
-    return b->m_Base.getAttributeValue("method");
+    return b->getAttribute("method");
 };
 
-MeiAttribute* RegularmethodMixIn::getMethod() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("method")) {
-        throw AttributeNotFoundException("method");
-    }
-    return b->m_Base.getAttribute("method");
-};
-
-void RegularmethodMixIn::setMethod(std::string _method) {
-    if (!b->m_Base.hasAttribute("method")) {
+void mei::RegularmethodMixIn::setMethod(std::string _method) {
+    if (!b->hasAttribute("method")) {
         MeiAttribute *a = new MeiAttribute("method", _method);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool RegularmethodMixIn::hasMethod() {
-    return b->m_Base.hasAttribute("method");
+bool mei::RegularmethodMixIn::hasMethod() {
+    return b->hasAttribute("method");
 };
 
-void RegularmethodMixIn::removeMethod() {
-    b->m_Base.removeAttribute("method");
+void mei::RegularmethodMixIn::removeMethod() {
+    b->removeAttribute("method");
 };
 
 

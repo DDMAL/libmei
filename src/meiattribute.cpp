@@ -27,38 +27,38 @@
 #include <iostream>
 #include <string>
 
-MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
+mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
 	this->name = attrname;
 	this->value = attrvalue;
 	this->prefix = "";
 }
 
-bool MeiAttribute::operator==(const MeiAttribute &other) const {
+bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
 	return (this->name == other.name && this->value == other.value && this->prefix == other.prefix);
 }
 
-string MeiAttribute::getName() {
+string mei::MeiAttribute::getName() {
 	return this->name;
 }
 
-void MeiAttribute::setName(string attrname)
+void mei::MeiAttribute::setName(string attrname)
 {
     this->name = attrname;
 }
 
-string MeiAttribute::getValue() {
+string mei::MeiAttribute::getValue() {
 	return this->value;
 }
 
-void MeiAttribute::setValue(string attrvalue) {
+void mei::MeiAttribute::setValue(string attrvalue) {
 	this->value = attrvalue;
 }
 
-string MeiAttribute::getPrefix() {
+string mei::MeiAttribute::getPrefix() {
     return this->prefix;
 }
 
-void MeiAttribute::setPrefix(string prfx) {
+void mei::MeiAttribute::setPrefix(string prfx) {
     this->prefix = prfx;
 }
 

@@ -2,263 +2,328 @@
 
 #include "edittrans.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Add::Add() : m_Common(this), m_Facsimile(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Handident(this), m_Sequence(this) {
-    m_Base.setName("add");
+mei::Add::Add() : 
+    MeiElement("add"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Handident(this),
+    m_Sequence(this) 
+{
 };
+REGISTER_DEFINITION(mei::Add, "add");
 
 
 
-Choice::Choice() : m_Common(this) {
-    m_Base.setName("choice");
+mei::Choice::Choice() : 
+    MeiElement("choice"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Choice, "choice");
 
 
 
-Corr::Corr() : m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Handident(this), m_Sequence(this) {
-    m_Base.setName("corr");
+mei::Corr::Corr() : 
+    MeiElement("corr"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Handident(this),
+    m_Sequence(this) 
+{
 };
+REGISTER_DEFINITION(mei::Corr, "corr");
 
 
 
-Damage::Damage() : m_Agentident(this), m_Common(this), m_Extent(this), m_Facsimile(this), m_Handident(this), m_Typed(this) {
-    m_Base.setName("damage");
+mei::Damage::Damage() : 
+    MeiElement("damage"),
+    m_Agentident(this),
+    m_Common(this),
+    m_Extent(this),
+    m_Facsimile(this),
+    m_Handident(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Damage, "damage");
 
 
-string Damage::getDegreeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("degree")) {
+MeiAttribute* mei::Damage::getDegree() {
+    if (!hasAttribute("degree")) {
         throw AttributeNotFoundException("degree");
     }
-    return m_Base.getAttributeValue("degree");
+    return getAttribute("degree");
 };
 
-MeiAttribute* Damage::getDegree() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("degree")) {
-        throw AttributeNotFoundException("degree");
-    }
-    return m_Base.getAttribute("degree");
-};
-
-void Damage::setDegree(std::string _degree) {
-    if (!m_Base.hasAttribute("degree")) {
+void mei::Damage::setDegree(std::string _degree) {
+    if (!hasAttribute("degree")) {
         MeiAttribute *a = new MeiAttribute("degree", _degree);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Damage::hasDegree() {
-    return m_Base.hasAttribute("degree");
+bool mei::Damage::hasDegree() {
+    return hasAttribute("degree");
 };
 
-void Damage::removeDegree() {
-    m_Base.removeAttribute("degree");
-};
-
-
-Del::Del() : m_Common(this), m_Facsimile(this), m_Handident(this), m_Sequence(this) {
-    m_Base.setName("del");
+void mei::Damage::removeDegree() {
+    removeAttribute("degree");
 };
 
 
-string Del::getRendValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("rend")) {
+mei::Del::Del() : 
+    MeiElement("del"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Handident(this),
+    m_Sequence(this) 
+{
+};
+REGISTER_DEFINITION(mei::Del, "del");
+
+
+MeiAttribute* mei::Del::getRend() {
+    if (!hasAttribute("rend")) {
         throw AttributeNotFoundException("rend");
     }
-    return m_Base.getAttributeValue("rend");
+    return getAttribute("rend");
 };
 
-MeiAttribute* Del::getRend() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("rend")) {
-        throw AttributeNotFoundException("rend");
-    }
-    return m_Base.getAttribute("rend");
-};
-
-void Del::setRend(std::string _rend) {
-    if (!m_Base.hasAttribute("rend")) {
+void mei::Del::setRend(std::string _rend) {
+    if (!hasAttribute("rend")) {
         MeiAttribute *a = new MeiAttribute("rend", _rend);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Del::hasRend() {
-    return m_Base.hasAttribute("rend");
+bool mei::Del::hasRend() {
+    return hasAttribute("rend");
 };
 
-void Del::removeRend() {
-    m_Base.removeAttribute("rend");
-};
-
-
-Gap::Gap() : m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Extent(this), m_Handident(this), m_Measurement(this), m_Reasonident(this) {
-    m_Base.setName("gap");
+void mei::Del::removeRend() {
+    removeAttribute("rend");
 };
 
 
-
-Handshift::Handshift() : m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Medium(this) {
-    m_Base.setName("handShift");
+mei::Gap::Gap() : 
+    MeiElement("gap"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Extent(this),
+    m_Handident(this),
+    m_Measurement(this),
+    m_Reasonident(this) 
+{
 };
+REGISTER_DEFINITION(mei::Gap, "gap");
 
 
-string Handshift::getCharacterValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("character")) {
+
+mei::Handshift::Handshift() : 
+    MeiElement("handShift"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Medium(this) 
+{
+};
+REGISTER_DEFINITION(mei::Handshift, "handShift");
+
+
+MeiAttribute* mei::Handshift::getCharacter() {
+    if (!hasAttribute("character")) {
         throw AttributeNotFoundException("character");
     }
-    return m_Base.getAttributeValue("character");
+    return getAttribute("character");
 };
 
-MeiAttribute* Handshift::getCharacter() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("character")) {
-        throw AttributeNotFoundException("character");
-    }
-    return m_Base.getAttribute("character");
-};
-
-void Handshift::setCharacter(std::string _character) {
-    if (!m_Base.hasAttribute("character")) {
+void mei::Handshift::setCharacter(std::string _character) {
+    if (!hasAttribute("character")) {
         MeiAttribute *a = new MeiAttribute("character", _character);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Handshift::hasCharacter() {
-    return m_Base.hasAttribute("character");
+bool mei::Handshift::hasCharacter() {
+    return hasAttribute("character");
 };
 
-void Handshift::removeCharacter() {
-    m_Base.removeAttribute("character");
+void mei::Handshift::removeCharacter() {
+    removeAttribute("character");
 };
 
-string Handshift::getNewValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("new")) {
+MeiAttribute* mei::Handshift::getNew() {
+    if (!hasAttribute("new")) {
         throw AttributeNotFoundException("new");
     }
-    return m_Base.getAttributeValue("new");
+    return getAttribute("new");
 };
 
-MeiAttribute* Handshift::getNew() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("new")) {
-        throw AttributeNotFoundException("new");
-    }
-    return m_Base.getAttribute("new");
-};
-
-void Handshift::setNew(std::string _new) {
-    if (!m_Base.hasAttribute("new")) {
+void mei::Handshift::setNew(std::string _new) {
+    if (!hasAttribute("new")) {
         MeiAttribute *a = new MeiAttribute("new", _new);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Handshift::hasNew() {
-    return m_Base.hasAttribute("new");
+bool mei::Handshift::hasNew() {
+    return hasAttribute("new");
 };
 
-void Handshift::removeNew() {
-    m_Base.removeAttribute("new");
+void mei::Handshift::removeNew() {
+    removeAttribute("new");
 };
 
-string Handshift::getOldValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("old")) {
+MeiAttribute* mei::Handshift::getOld() {
+    if (!hasAttribute("old")) {
         throw AttributeNotFoundException("old");
     }
-    return m_Base.getAttributeValue("old");
+    return getAttribute("old");
 };
 
-MeiAttribute* Handshift::getOld() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("old")) {
-        throw AttributeNotFoundException("old");
-    }
-    return m_Base.getAttribute("old");
-};
-
-void Handshift::setOld(std::string _old) {
-    if (!m_Base.hasAttribute("old")) {
+void mei::Handshift::setOld(std::string _old) {
+    if (!hasAttribute("old")) {
         MeiAttribute *a = new MeiAttribute("old", _old);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Handshift::hasOld() {
-    return m_Base.hasAttribute("old");
+bool mei::Handshift::hasOld() {
+    return hasAttribute("old");
 };
 
-void Handshift::removeOld() {
-    m_Base.removeAttribute("old");
-};
-
-
-Orig::Orig() : m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Typed(this) {
-    m_Base.setName("orig");
+void mei::Handshift::removeOld() {
+    removeAttribute("old");
 };
 
 
-
-Reg::Reg() : m_Common(this), m_Authorized(this), m_Edit(this), m_Responsibility(this), m_Source(this) {
-    m_Base.setName("reg");
+mei::Orig::Orig() : 
+    MeiElement("orig"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Orig, "orig");
 
 
 
-Restore::Restore() : m_Common(this), m_Facsimile(this), m_Handident(this), m_Sequence(this), m_Typed(this) {
-    m_Base.setName("restore");
+mei::Reg::Reg() : 
+    MeiElement("reg"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this) 
+{
 };
+REGISTER_DEFINITION(mei::Reg, "reg");
 
 
-string Restore::getDescValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("desc")) {
+
+mei::Restore::Restore() : 
+    MeiElement("restore"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Handident(this),
+    m_Sequence(this),
+    m_Typed(this) 
+{
+};
+REGISTER_DEFINITION(mei::Restore, "restore");
+
+
+MeiAttribute* mei::Restore::getDesc() {
+    if (!hasAttribute("desc")) {
         throw AttributeNotFoundException("desc");
     }
-    return m_Base.getAttributeValue("desc");
+    return getAttribute("desc");
 };
 
-MeiAttribute* Restore::getDesc() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("desc")) {
-        throw AttributeNotFoundException("desc");
-    }
-    return m_Base.getAttribute("desc");
-};
-
-void Restore::setDesc(std::string _desc) {
-    if (!m_Base.hasAttribute("desc")) {
+void mei::Restore::setDesc(std::string _desc) {
+    if (!hasAttribute("desc")) {
         MeiAttribute *a = new MeiAttribute("desc", _desc);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Restore::hasDesc() {
-    return m_Base.hasAttribute("desc");
+bool mei::Restore::hasDesc() {
+    return hasAttribute("desc");
 };
 
-void Restore::removeDesc() {
-    m_Base.removeAttribute("desc");
-};
-
-
-Sic::Sic() : m_Common(this), m_Facsimile(this) {
-    m_Base.setName("sic");
+void mei::Restore::removeDesc() {
+    removeAttribute("desc");
 };
 
 
-
-Subst::Subst() : m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Handident(this), m_Sequence(this) {
-    m_Base.setName("subst");
+mei::Sic::Sic() : 
+    MeiElement("sic"),
+    m_Common(this),
+    m_Facsimile(this) 
+{
 };
+REGISTER_DEFINITION(mei::Sic, "sic");
 
 
 
-Supplied::Supplied() : m_Agentident(this), m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Reasonident(this) {
-    m_Base.setName("supplied");
+mei::Subst::Subst() : 
+    MeiElement("subst"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Handident(this),
+    m_Sequence(this) 
+{
 };
+REGISTER_DEFINITION(mei::Subst, "subst");
 
 
 
-Unclear::Unclear() : m_Agentident(this), m_Common(this), m_Edit(this), m_Responsibility(this), m_Source(this), m_Facsimile(this), m_Handident(this), m_Reasonident(this) {
-    m_Base.setName("unclear");
+mei::Supplied::Supplied() : 
+    MeiElement("supplied"),
+    m_Agentident(this),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Reasonident(this) 
+{
 };
+REGISTER_DEFINITION(mei::Supplied, "supplied");
+
+
+
+mei::Unclear::Unclear() : 
+    MeiElement("unclear"),
+    m_Agentident(this),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Handident(this),
+    m_Reasonident(this) 
+{
+};
+REGISTER_DEFINITION(mei::Unclear, "unclear");
 
 
 

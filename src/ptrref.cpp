@@ -2,29 +2,55 @@
 
 #include "ptrref.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Extptr::Extptr() : m_Common(this), m_Internetmedia(this), m_LinkCommon(this), m_LinkExternal(this) {
-    m_Base.setName("extptr");
+mei::Extptr::Extptr() : 
+    MeiElement("extptr"),
+    m_Common(this),
+    m_Internetmedia(this),
+    m_LinkCommon(this),
+    m_LinkExternal(this) 
+{
 };
+REGISTER_DEFINITION(mei::Extptr, "extptr");
 
 
 
-Extref::Extref() : m_Common(this), m_Internetmedia(this), m_Lang(this), m_LinkCommon(this), m_LinkExternal(this) {
-    m_Base.setName("extref");
+mei::Extref::Extref() : 
+    MeiElement("extref"),
+    m_Common(this),
+    m_Internetmedia(this),
+    m_Lang(this),
+    m_LinkCommon(this),
+    m_LinkExternal(this) 
+{
 };
+REGISTER_DEFINITION(mei::Extref, "extref");
 
 
 
-Ptr::Ptr() : m_Common(this), m_LinkCommon(this), m_Participantident(this) {
-    m_Base.setName("ptr");
+mei::Ptr::Ptr() : 
+    MeiElement("ptr"),
+    m_Common(this),
+    m_LinkCommon(this),
+    m_Participantident(this) 
+{
 };
+REGISTER_DEFINITION(mei::Ptr, "ptr");
 
 
 
-Ref::Ref() : m_Common(this), m_Lang(this), m_LinkCommon(this), m_Participantident(this) {
-    m_Base.setName("ref");
+mei::Ref::Ref() : 
+    MeiElement("ref"),
+    m_Common(this),
+    m_Lang(this),
+    m_LinkCommon(this),
+    m_Participantident(this) 
+{
 };
+REGISTER_DEFINITION(mei::Ref, "ref");
 
 
 

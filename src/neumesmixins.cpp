@@ -2,131 +2,105 @@
 
 #include "neumesmixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-IneumeLogMixIn::IneumeLogMixIn(BaseMeiElement *b) {
+mei::IneumeLogMixIn::IneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string IneumeLogMixIn::getFormValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
+MeiAttribute* mei::IneumeLogMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return b->m_Base.getAttributeValue("form");
+    return b->getAttribute("form");
 };
 
-MeiAttribute* IneumeLogMixIn::getForm() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return b->m_Base.getAttribute("form");
-};
-
-void IneumeLogMixIn::setForm(std::string _form) {
-    if (!b->m_Base.hasAttribute("form")) {
+void mei::IneumeLogMixIn::setForm(std::string _form) {
+    if (!b->hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool IneumeLogMixIn::hasForm() {
-    return b->m_Base.hasAttribute("form");
+bool mei::IneumeLogMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void IneumeLogMixIn::removeForm() {
-    b->m_Base.removeAttribute("form");
+void mei::IneumeLogMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
-string IneumeLogMixIn::getNameValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("name")) {
+MeiAttribute* mei::IneumeLogMixIn::getName() {
+    if (!b->hasAttribute("name")) {
         throw AttributeNotFoundException("name");
     }
-    return b->m_Base.getAttributeValue("name");
+    return b->getAttribute("name");
 };
 
-MeiAttribute* IneumeLogMixIn::getName() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("name")) {
-        throw AttributeNotFoundException("name");
-    }
-    return b->m_Base.getAttribute("name");
-};
-
-void IneumeLogMixIn::setName(std::string _name) {
-    if (!b->m_Base.hasAttribute("name")) {
+void mei::IneumeLogMixIn::setName(std::string _name) {
+    if (!b->hasAttribute("name")) {
         MeiAttribute *a = new MeiAttribute("name", _name);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool IneumeLogMixIn::hasName() {
-    return b->m_Base.hasAttribute("name");
+bool mei::IneumeLogMixIn::hasName() {
+    return b->hasAttribute("name");
 };
 
-void IneumeLogMixIn::removeName() {
-    b->m_Base.removeAttribute("name");
+void mei::IneumeLogMixIn::removeName() {
+    b->removeAttribute("name");
 };
 
 
-UneumeLogMixIn::UneumeLogMixIn(BaseMeiElement *b) {
+mei::UneumeLogMixIn::UneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string UneumeLogMixIn::getFormValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
+MeiAttribute* mei::UneumeLogMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return b->m_Base.getAttributeValue("form");
+    return b->getAttribute("form");
 };
 
-MeiAttribute* UneumeLogMixIn::getForm() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return b->m_Base.getAttribute("form");
-};
-
-void UneumeLogMixIn::setForm(std::string _form) {
-    if (!b->m_Base.hasAttribute("form")) {
+void mei::UneumeLogMixIn::setForm(std::string _form) {
+    if (!b->hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool UneumeLogMixIn::hasForm() {
-    return b->m_Base.hasAttribute("form");
+bool mei::UneumeLogMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void UneumeLogMixIn::removeForm() {
-    b->m_Base.removeAttribute("form");
+void mei::UneumeLogMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
-string UneumeLogMixIn::getNameValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("name")) {
+MeiAttribute* mei::UneumeLogMixIn::getName() {
+    if (!b->hasAttribute("name")) {
         throw AttributeNotFoundException("name");
     }
-    return b->m_Base.getAttributeValue("name");
+    return b->getAttribute("name");
 };
 
-MeiAttribute* UneumeLogMixIn::getName() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("name")) {
-        throw AttributeNotFoundException("name");
-    }
-    return b->m_Base.getAttribute("name");
-};
-
-void UneumeLogMixIn::setName(std::string _name) {
-    if (!b->m_Base.hasAttribute("name")) {
+void mei::UneumeLogMixIn::setName(std::string _name) {
+    if (!b->hasAttribute("name")) {
         MeiAttribute *a = new MeiAttribute("name", _name);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool UneumeLogMixIn::hasName() {
-    return b->m_Base.hasAttribute("name");
+bool mei::UneumeLogMixIn::hasName() {
+    return b->hasAttribute("name");
 };
 
-void UneumeLogMixIn::removeName() {
-    b->m_Base.removeAttribute("name");
+void mei::UneumeLogMixIn::removeName() {
+    b->removeAttribute("name");
 };
 
 

@@ -34,7 +34,8 @@
 #include "facsimilemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   access restriction ― Describes the conditions that affect the accessibility of
     * material. May indicate the nature of restrictions or the lack of restrictions.
     * Do not confuse this element with <useRestrict> (usage restrictions), which
@@ -43,16 +44,17 @@
     * Archival Description (EAD).
     */
 
-struct Accessrestrict : public BaseMeiElement {
-    Accessrestrict();
-    virtual ~Accessrestrict() {};
-    
-    
+class Accessrestrict : public MeiElement {
+    public:
+        Accessrestrict();
+        virtual ~Accessrestrict() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Accessrestrict);
+        REGISTER_DECLARATION(Accessrestrict);
 };
 
 
@@ -62,16 +64,17 @@ struct Accessrestrict : public BaseMeiElement {
     * (EAD).
     */
 
-struct Acqsource : public BaseMeiElement {
-    Acqsource();
-    virtual ~Acqsource() {};
-    
-    
+class Acqsource : public MeiElement {
+    public:
+        Acqsource();
+        virtual ~Acqsource() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Acqsource);
+        REGISTER_DECLARATION(Acqsource);
 };
 
 
@@ -82,16 +85,17 @@ struct Acqsource : public BaseMeiElement {
     * applicable.
     */
 
-struct Altid : public BaseMeiElement {
-    Altid();
-    virtual ~Altid() {};
-    
-    
+class Altid : public MeiElement {
+    public:
+        Altid();
+        virtual ~Altid() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Altid);
+        REGISTER_DECLARATION(Altid);
 };
 
 
@@ -102,14 +106,15 @@ struct Altid : public BaseMeiElement {
     * (TEI).
     */
 
-struct Appinfo : public BaseMeiElement {
-    Appinfo();
-    virtual ~Appinfo() {};
-    
-    
+class Appinfo : public MeiElement {
+    public:
+        Appinfo();
+        virtual ~Appinfo() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Appinfo);
+        REGISTER_DECLARATION(Appinfo);
 };
 
 
@@ -118,25 +123,25 @@ struct Appinfo : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Application : public BaseMeiElement {
-    Application();
-    virtual ~Application() {};
-    
+class Application : public MeiElement {
+    public:
+        Application();
+        virtual ~Application() {};
+        
     /** \brief   supplies a version number for an application, independent of its identifier or
     * display name.
     */
-    string getVersionValue() throw (AttributeNotFoundException);
-    MeiAttribute* getVersion() throw (AttributeNotFoundException);
+    MeiAttribute* getVersion();
     void setVersion(std::string _version);
     bool hasVersion();
     void removeVersion();
 
-    
+        
     CommonMixIn    m_Common;
     DatableMixIn    m_Datable;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Application);
+        REGISTER_DECLARATION(Application);
 };
 
 
@@ -146,16 +151,17 @@ struct Application : public BaseMeiElement {
     * an element in Encoded Archival Description (EAD).
     */
 
-struct Availability : public BaseMeiElement {
-    Availability();
-    virtual ~Availability() {};
-    
-    
+class Availability : public MeiElement {
+    public:
+        Availability();
+        virtual ~Availability() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     DatapointingMixIn    m_Datapointing;
     private:
-        //REGISTER_DECLARATION(Availability);
+        REGISTER_DECLARATION(Availability);
 };
 
 
@@ -170,31 +176,33 @@ struct Availability : public BaseMeiElement {
     * modelled on an element in Encoded Archival Description (EAD).
     */
 
-struct Change : public BaseMeiElement {
-    Change();
-    virtual ~Change() {};
-    
-    
+class Change : public MeiElement {
+    public:
+        Change();
+        virtual ~Change() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Change);
+        REGISTER_DECLARATION(Change);
 };
 
 
 /** \brief   change description ― Description of a revision of the MEI file.
     */
 
-struct Changedesc : public BaseMeiElement {
-    Changedesc();
-    virtual ~Changedesc() {};
-    
-    
+class Changedesc : public MeiElement {
+    public:
+        Changedesc();
+        virtual ~Changedesc() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Changedesc);
+        REGISTER_DECLARATION(Changedesc);
 };
 
 
@@ -206,16 +214,17 @@ struct Changedesc : public BaseMeiElement {
     * additional markup is needed.
     */
 
-struct Classcode : public BaseMeiElement {
-    Classcode();
-    virtual ~Classcode() {};
-    
-    
+class Classcode : public MeiElement {
+    public:
+        Classcode();
+        virtual ~Classcode() {};
+        
+        
     CommonMixIn    m_Common;
     AuthorizedMixIn    m_Authorized;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Classcode);
+        REGISTER_DECLARATION(Classcode);
 };
 
 
@@ -227,16 +236,17 @@ struct Classcode : public BaseMeiElement {
     * from many institutions.
     */
 
-struct Classification : public BaseMeiElement {
-    Classification();
-    virtual ~Classification() {};
-    
-    
+class Classification : public MeiElement {
+    public:
+        Classification();
+        virtual ~Classification() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     private:
-        //REGISTER_DECLARATION(Classification);
+        REGISTER_DECLARATION(Classification);
 };
 
 
@@ -248,31 +258,33 @@ struct Classification : public BaseMeiElement {
     * (EAD).
     */
 
-struct Condition : public BaseMeiElement {
-    Condition();
-    virtual ~Condition() {};
-    
-    
+class Condition : public MeiElement {
+    public:
+        Condition();
+        virtual ~Condition() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Condition);
+        REGISTER_DECLARATION(Condition);
 };
 
 
 /** \brief   content item ― Contains a single entry within a content description element.
     */
 
-struct Contentitem : public BaseMeiElement {
-    Contentitem();
-    virtual ~Contentitem() {};
-    
-    
+class Contentitem : public MeiElement {
+    public:
+        Contentitem();
+        virtual ~Contentitem() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Contentitem);
+        REGISTER_DECLARATION(Contentitem);
 };
 
 
@@ -286,16 +298,17 @@ struct Contentitem : public BaseMeiElement {
     * type="constituent" attribute instead of <contents>.
     */
 
-struct Contents : public BaseMeiElement {
-    Contents();
-    virtual ~Contents() {};
-    
-    
+class Contents : public MeiElement {
+    public:
+        Contents();
+        virtual ~Contents() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LinkExternalMixIn    m_LinkExternal;
     private:
-        //REGISTER_DECLARATION(Contents);
+        REGISTER_DECLARATION(Contents);
 };
 
 
@@ -304,26 +317,26 @@ struct Contents : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Correction : public BaseMeiElement {
-    Correction();
-    virtual ~Correction() {};
-    
+class Correction : public MeiElement {
+    public:
+        Correction();
+        virtual ~Correction() {};
+        
     /** \brief   indicates the degree of correction applied to the text.
     */
-    string getCorrlevelValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCorrlevel() throw (AttributeNotFoundException);
+    MeiAttribute* getCorrlevel();
     void setCorrlevel(std::string _corrlevel);
     bool hasCorrlevel();
     void removeCorrlevel();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     RegularmethodMixIn    m_Regularmethod;
     private:
-        //REGISTER_DECLARATION(Correction);
+        REGISTER_DECLARATION(Correction);
 };
 
 
@@ -333,16 +346,17 @@ struct Correction : public BaseMeiElement {
     * an element in the Text Encoding Initiative (TEI).
     */
 
-struct Creation : public BaseMeiElement {
-    Creation();
-    virtual ~Creation() {};
-    
-    
+class Creation : public MeiElement {
+    public:
+        Creation();
+        virtual ~Creation() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Creation);
+        REGISTER_DECLARATION(Creation);
 };
 
 
@@ -355,16 +369,17 @@ struct Creation : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Dimensions : public BaseMeiElement {
-    Dimensions();
-    virtual ~Dimensions() {};
-    
-    
+class Dimensions : public MeiElement {
+    public:
+        Dimensions();
+        virtual ~Dimensions() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     MeasurementMixIn    m_Measurement;
     private:
-        //REGISTER_DECLARATION(Dimensions);
+        REGISTER_DECLARATION(Dimensions);
 };
 
 
@@ -373,16 +388,17 @@ struct Dimensions : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Editionstmt : public BaseMeiElement {
-    Editionstmt();
-    virtual ~Editionstmt() {};
-    
-    
+class Editionstmt : public MeiElement {
+    public:
+        Editionstmt();
+        virtual ~Editionstmt() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Editionstmt);
+        REGISTER_DECLARATION(Editionstmt);
 };
 
 
@@ -391,17 +407,18 @@ struct Editionstmt : public BaseMeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Editorialdecl : public BaseMeiElement {
-    Editorialdecl();
-    virtual ~Editorialdecl() {};
-    
-    
+class Editorialdecl : public MeiElement {
+    public:
+        Editorialdecl();
+        virtual ~Editorialdecl() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Editorialdecl);
+        REGISTER_DECLARATION(Editorialdecl);
 };
 
 
@@ -411,15 +428,16 @@ struct Editorialdecl : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Encodingdesc : public BaseMeiElement {
-    Encodingdesc();
-    virtual ~Encodingdesc() {};
-    
-    
+class Encodingdesc : public MeiElement {
+    public:
+        Encodingdesc();
+        virtual ~Encodingdesc() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Encodingdesc);
+        REGISTER_DECLARATION(Encodingdesc);
 };
 
 
@@ -430,15 +448,16 @@ struct Encodingdesc : public BaseMeiElement {
     * performance Codes List or the MARC Instruments and Voices Code List.
     */
 
-struct Ensemble : public BaseMeiElement {
-    Ensemble();
-    virtual ~Ensemble() {};
-    
-    
+class Ensemble : public MeiElement {
+    public:
+        Ensemble();
+        virtual ~Ensemble() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Ensemble);
+        REGISTER_DECLARATION(Ensemble);
 };
 
 
@@ -450,11 +469,12 @@ struct Ensemble : public BaseMeiElement {
     * accommodate structured content.
     */
 
-struct Event : public BaseMeiElement {
-    Event();
-    virtual ~Event() {};
-    
-    
+class Event : public MeiElement {
+    public:
+        Event();
+        virtual ~Event() {};
+        
+        
     BiblMixIn    m_Bibl;
     CalendaredMixIn    m_Calendared;
     CommonMixIn    m_Common;
@@ -464,7 +484,7 @@ struct Event : public BaseMeiElement {
     SourceMixIn    m_Source;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Event);
+        REGISTER_DECLARATION(Event);
 };
 
 
@@ -479,16 +499,17 @@ struct Event : public BaseMeiElement {
     * events in the compositional process and a list of performance dates.
     */
 
-struct Eventlist : public BaseMeiElement {
-    Eventlist();
-    virtual ~Eventlist() {};
-    
-    
+class Eventlist : public MeiElement {
+    public:
+        Eventlist();
+        virtual ~Eventlist() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Eventlist);
+        REGISTER_DECLARATION(Eventlist);
 };
 
 
@@ -497,16 +518,17 @@ struct Eventlist : public BaseMeiElement {
     * (EAD).
     */
 
-struct Exhibhist : public BaseMeiElement {
-    Exhibhist();
-    virtual ~Exhibhist() {};
-    
-    
+class Exhibhist : public MeiElement {
+    public:
+        Exhibhist();
+        virtual ~Exhibhist() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Exhibhist);
+        REGISTER_DECLARATION(Exhibhist);
 };
 
 
@@ -518,16 +540,17 @@ struct Exhibhist : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Extent : public BaseMeiElement {
-    Extent();
-    virtual ~Extent() {};
-    
-    
+class Extent : public MeiElement {
+    public:
+        Extent();
+        virtual ~Extent() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     MeasurementMixIn    m_Measurement;
     private:
-        //REGISTER_DECLARATION(Extent);
+        REGISTER_DECLARATION(Extent);
 };
 
 
@@ -536,15 +559,16 @@ struct Extent : public BaseMeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-struct Filedesc : public BaseMeiElement {
-    Filedesc();
-    virtual ~Filedesc() {};
-    
-    
+class Filedesc : public MeiElement {
+    public:
+        Filedesc();
+        virtual ~Filedesc() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Filedesc);
+        REGISTER_DECLARATION(Filedesc);
 };
 
 
@@ -554,15 +578,16 @@ struct Filedesc : public BaseMeiElement {
     * item, such as an MEI file, however, the fingerprint should be a checksum.
     */
 
-struct Fingerprint : public BaseMeiElement {
-    Fingerprint();
-    virtual ~Fingerprint() {};
-    
-    
+class Fingerprint : public MeiElement {
+    public:
+        Fingerprint();
+        virtual ~Fingerprint() {};
+        
+        
     CommonMixIn    m_Common;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Fingerprint);
+        REGISTER_DECLARATION(Fingerprint);
 };
 
 
@@ -577,26 +602,26 @@ struct Fingerprint : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Hand : public BaseMeiElement {
-    Hand();
-    virtual ~Hand() {};
-    
+class Hand : public MeiElement {
+    public:
+        Hand();
+        virtual ~Hand() {};
+        
     /** \brief   marks this hand as the first one of the document.
     */
-    string getInitialValue() throw (AttributeNotFoundException);
-    MeiAttribute* getInitial() throw (AttributeNotFoundException);
+    MeiAttribute* getInitial();
     void setInitial(std::string _initial);
     bool hasInitial();
     void removeInitial();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     MediumMixIn    m_Medium;
     ResponsibilityMixIn    m_Responsibility;
     private:
-        //REGISTER_DECLARATION(Hand);
+        REGISTER_DECLARATION(Hand);
 };
 
 
@@ -604,15 +629,16 @@ struct Hand : public BaseMeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Handlist : public BaseMeiElement {
-    Handlist();
-    virtual ~Handlist() {};
-    
-    
+class Handlist : public MeiElement {
+    public:
+        Handlist();
+        virtual ~Handlist() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Handlist);
+        REGISTER_DECLARATION(Handlist);
 };
 
 
@@ -620,15 +646,16 @@ struct Handlist : public BaseMeiElement {
     * history of a resource.
     */
 
-struct History : public BaseMeiElement {
-    History();
-    virtual ~History() {};
-    
-    
+class History : public MeiElement {
+    public:
+        History();
+        virtual ~History() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(History);
+        REGISTER_DECLARATION(History);
 };
 
 
@@ -636,35 +663,34 @@ struct History : public BaseMeiElement {
     * & Easie.
     */
 
-struct Incipcode : public BaseMeiElement {
-    Incipcode();
-    virtual ~Incipcode() {};
-    
+class Incipcode : public MeiElement {
+    public:
+        Incipcode();
+        virtual ~Incipcode() {};
+        
     /** \brief   identifies the language of the element's content. The values for this attribute
     * are language 'tags' as defined in BCP 47. All language tags that make use of
     * private use sub-tags must be documented in a corresponding language element in
     * the MEI header whose id attribute is the same as the language tag's value.
     */
-    string getSpaceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSpace() throw (AttributeNotFoundException);
+    MeiAttribute* getSpace();
     void setSpace(std::string _space);
     bool hasSpace();
     void removeSpace();
 
     /** \brief   records the function of the dot.
     */
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     InternetmediaMixIn    m_Internetmedia;
     private:
-        //REGISTER_DECLARATION(Incipcode);
+        REGISTER_DECLARATION(Incipcode);
 };
 
 
@@ -672,31 +698,32 @@ struct Incipcode : public BaseMeiElement {
     * designating the item as a gift, and/or the author's signature.
     */
 
-struct Inscription : public BaseMeiElement {
-    Inscription();
-    virtual ~Inscription() {};
-    
-    
+class Inscription : public MeiElement {
+    public:
+        Inscription();
+        virtual ~Inscription() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Inscription);
+        REGISTER_DECLARATION(Inscription);
 };
 
 
 /** \brief   
     */
 
-struct Instrvoice : public BaseMeiElement {
-    Instrvoice();
-    virtual ~Instrvoice() {};
-    
+class Instrvoice : public MeiElement {
+    public:
+        Instrvoice();
+        virtual ~Instrvoice() {};
+        
     /** \brief   indicates the number of parts or performers, e.g., in a composition for 2
     * flutes.
     */
-    string getCountValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCount() throw (AttributeNotFoundException);
+    MeiAttribute* getCount();
     void setCount(std::string _count);
     bool hasCount();
     void removeCount();
@@ -704,19 +731,18 @@ struct Instrvoice : public BaseMeiElement {
     /** \brief   marks this instrument or vocal part as a soloist. Do not use this attribute for
     * a solo instrument which is not accompanied.
     */
-    string getSoloValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSolo() throw (AttributeNotFoundException);
+    MeiAttribute* getSolo();
     void setSolo(std::string _solo);
     bool hasSolo();
     void removeSolo();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     AuthorizedMixIn    m_Authorized;
     RegularizedMixIn    m_Regularized;
     private:
-        //REGISTER_DECLARATION(Instrvoice);
+        REGISTER_DECLARATION(Instrvoice);
 };
 
 
@@ -725,17 +751,18 @@ struct Instrvoice : public BaseMeiElement {
     * an element in the Text Encoding Initiative (TEI).
     */
 
-struct Interpretation : public BaseMeiElement {
-    Interpretation();
-    virtual ~Interpretation() {};
-    
-    
+class Interpretation : public MeiElement {
+    public:
+        Interpretation();
+        virtual ~Interpretation() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Interpretation);
+        REGISTER_DECLARATION(Interpretation);
 };
 
 
@@ -744,25 +771,25 @@ struct Interpretation : public BaseMeiElement {
     * <keySig>, which is used within the body of an MEI file to record this data.
     */
 
-struct Key : public BaseMeiElement {
-    Key();
-    virtual ~Key() {};
-    
+class Key : public MeiElement {
+    public:
+        Key();
+        virtual ~Key() {};
+        
     /** \brief   indicates major, minor, or other tonality.
     */
-    string getModeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMode() throw (AttributeNotFoundException);
+    MeiAttribute* getMode();
     void setMode(std::string _mode);
     bool hasMode();
     void removeMode();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     AccidentalPerformedMixIn    m_AccidentalPerformed;
     PitchMixIn    m_Pitch;
     private:
-        //REGISTER_DECLARATION(Key);
+        REGISTER_DECLARATION(Key);
 };
 
 
@@ -771,16 +798,17 @@ struct Key : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Langusage : public BaseMeiElement {
-    Langusage();
-    virtual ~Langusage() {};
-    
-    
+class Langusage : public MeiElement {
+    public:
+        Langusage();
+        virtual ~Langusage() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     private:
-        //REGISTER_DECLARATION(Langusage);
+        REGISTER_DECLARATION(Langusage);
 };
 
 
@@ -792,16 +820,17 @@ struct Langusage : public BaseMeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-struct Language : public BaseMeiElement {
-    Language();
-    virtual ~Language() {};
-    
-    
+class Language : public MeiElement {
+    public:
+        Language();
+        virtual ~Language() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     AuthorizedMixIn    m_Authorized;
     private:
-        //REGISTER_DECLARATION(Language);
+        REGISTER_DECLARATION(Language);
 };
 
 
@@ -820,26 +849,26 @@ struct Language : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Meihead : public BaseMeiElement {
-    Meihead();
-    virtual ~Meihead() {};
-    
+class Meihead : public MeiElement {
+    public:
+        Meihead();
+        virtual ~Meihead() {};
+        
     /** \brief   characterizes the element in some sense, using any convenient classification
     * scheme or typology.
     */
-    string getTypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getType() throw (AttributeNotFoundException);
+    MeiAttribute* getType();
     void setType(std::string _type);
     bool hasType();
     void removeType();
 
-    
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     LangMixIn    m_Lang;
     MeiversionMixIn    m_Meiversion;
     private:
-        //REGISTER_DECLARATION(Meihead);
+        REGISTER_DECLARATION(Meihead);
 };
 
 
@@ -848,18 +877,19 @@ struct Meihead : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Normalization : public BaseMeiElement {
-    Normalization();
-    virtual ~Normalization() {};
-    
-    
+class Normalization : public MeiElement {
+    public:
+        Normalization();
+        virtual ~Normalization() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     RegularmethodMixIn    m_Regularmethod;
     private:
-        //REGISTER_DECLARATION(Normalization);
+        REGISTER_DECLARATION(Normalization);
 };
 
 
@@ -870,15 +900,16 @@ struct Normalization : public BaseMeiElement {
     * in the Text Encoding Initiative (TEI).
     */
 
-struct Notesstmt : public BaseMeiElement {
-    Notesstmt();
-    virtual ~Notesstmt() {};
-    
-    
+class Notesstmt : public MeiElement {
+    public:
+        Notesstmt();
+        virtual ~Notesstmt() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Notesstmt);
+        REGISTER_DECLARATION(Notesstmt);
 };
 
 
@@ -889,16 +920,17 @@ struct Notesstmt : public BaseMeiElement {
     * original medium.
     */
 
-struct Perfmedium : public BaseMeiElement {
-    Perfmedium();
-    virtual ~Perfmedium() {};
-    
-    
+class Perfmedium : public MeiElement {
+    public:
+        Perfmedium();
+        virtual ~Perfmedium() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     AuthorizedMixIn    m_Authorized;
     private:
-        //REGISTER_DECLARATION(Perfmedium);
+        REGISTER_DECLARATION(Perfmedium);
 };
 
 
@@ -912,15 +944,16 @@ struct Perfmedium : public BaseMeiElement {
     * narrator.
     */
 
-struct Performer : public BaseMeiElement {
-    Performer();
-    virtual ~Performer() {};
-    
-    
+class Performer : public MeiElement {
+    public:
+        Performer();
+        virtual ~Performer() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Performer);
+        REGISTER_DECLARATION(Performer);
 };
 
 
@@ -933,15 +966,16 @@ struct Performer : public BaseMeiElement {
     * Encoded Archival Description (EAD).
     */
 
-struct Physdesc : public BaseMeiElement {
-    Physdesc();
-    virtual ~Physdesc() {};
-    
-    
+class Physdesc : public MeiElement {
+    public:
+        Physdesc();
+        virtual ~Physdesc() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Physdesc);
+        REGISTER_DECLARATION(Physdesc);
 };
 
 
@@ -950,15 +984,16 @@ struct Physdesc : public BaseMeiElement {
     * Encoded Archival Description (EAD).
     */
 
-struct Physloc : public BaseMeiElement {
-    Physloc();
-    virtual ~Physloc() {};
-    
-    
+class Physloc : public MeiElement {
+    public:
+        Physloc();
+        virtual ~Physloc() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Physloc);
+        REGISTER_DECLARATION(Physloc);
 };
 
 
@@ -968,17 +1003,18 @@ struct Physloc : public BaseMeiElement {
     * on an element in Encoded Archival Description (EAD).
     */
 
-struct Physmedium : public BaseMeiElement {
-    Physmedium();
-    virtual ~Physmedium() {};
-    
-    
+class Physmedium : public MeiElement {
+    public:
+        Physmedium();
+        virtual ~Physmedium() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     AuthorizedMixIn    m_Authorized;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Physmedium);
+        REGISTER_DECLARATION(Physmedium);
 };
 
 
@@ -989,32 +1025,34 @@ struct Physmedium : public BaseMeiElement {
     * plate number in a facsimile image.
     */
 
-struct Platenum : public BaseMeiElement {
-    Platenum();
-    virtual ~Platenum() {};
-    
-    
+class Platenum : public MeiElement {
+    public:
+        Platenum();
+        virtual ~Platenum() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(Platenum);
+        REGISTER_DECLARATION(Platenum);
 };
 
 
 /** \brief   price ― The cost of access to a bibliographic item.
     */
 
-struct Price : public BaseMeiElement {
-    Price();
-    virtual ~Price() {};
-    
-    
+class Price : public MeiElement {
+    public:
+        Price();
+        virtual ~Price() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     MeasurementMixIn    m_Measurement;
     private:
-        //REGISTER_DECLARATION(Price);
+        REGISTER_DECLARATION(Price);
 };
 
 
@@ -1025,17 +1063,18 @@ struct Price : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Projectdesc : public BaseMeiElement {
-    Projectdesc();
-    virtual ~Projectdesc() {};
-    
-    
+class Projectdesc : public MeiElement {
+    public:
+        Projectdesc();
+        virtual ~Projectdesc() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Projectdesc);
+        REGISTER_DECLARATION(Projectdesc);
 };
 
 
@@ -1044,16 +1083,17 @@ struct Projectdesc : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Provenance : public BaseMeiElement {
-    Provenance();
-    virtual ~Provenance() {};
-    
-    
+class Provenance : public MeiElement {
+    public:
+        Provenance();
+        virtual ~Provenance() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Provenance);
+        REGISTER_DECLARATION(Provenance);
 };
 
 
@@ -1064,15 +1104,16 @@ struct Provenance : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Pubstmt : public BaseMeiElement {
-    Pubstmt();
-    virtual ~Pubstmt() {};
-    
-    
+class Pubstmt : public MeiElement {
+    public:
+        Pubstmt();
+        virtual ~Pubstmt() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Pubstmt);
+        REGISTER_DECLARATION(Pubstmt);
 };
 
 
@@ -1083,10 +1124,11 @@ struct Pubstmt : public BaseMeiElement {
     * relatedItem element in the Text Encoding Initiative (TEI) and MODS schemas.
     */
 
-struct Relateditem : public BaseMeiElement {
-    Relateditem();
-    virtual ~Relateditem() {};
-    
+class Relateditem : public MeiElement {
+    public:
+        Relateditem();
+        virtual ~Relateditem() {};
+        
     /** \brief   describes the relationship between the <relatedItem> and the resource described
     * in the parent element, i.e. <source> or <relatedItem>. "preceding" indicates a
     * predecessor to the resource; "succeeding" applies to a successor to the
@@ -1100,18 +1142,17 @@ struct Relateditem : public BaseMeiElement {
     * resource cited or referred to in the resource. These values are based on MODS
     * version 3.4.
     */
-    string getRelValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRel() throw (AttributeNotFoundException);
+    MeiAttribute* getRel();
     void setRel(std::string _rel);
     bool hasRel();
     void removeRel();
 
-    
+        
     DatapointingMixIn    m_Datapointing;
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Relateditem);
+        REGISTER_DECLARATION(Relateditem);
 };
 
 
@@ -1121,14 +1162,15 @@ struct Relateditem : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Resp : public BaseMeiElement {
-    Resp();
-    virtual ~Resp() {};
-    
-    
+class Resp : public MeiElement {
+    public:
+        Resp();
+        virtual ~Resp() {};
+        
+        
     AuthorizedMixIn    m_Authorized;
     private:
-        //REGISTER_DECLARATION(Resp);
+        REGISTER_DECLARATION(Resp);
 };
 
 
@@ -1138,15 +1180,16 @@ struct Resp : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Respstmt : public BaseMeiElement {
-    Respstmt();
-    virtual ~Respstmt() {};
-    
-    
+class Respstmt : public MeiElement {
+    public:
+        Respstmt();
+        virtual ~Respstmt() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Respstmt);
+        REGISTER_DECLARATION(Respstmt);
 };
 
 
@@ -1156,15 +1199,16 @@ struct Respstmt : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Revisiondesc : public BaseMeiElement {
-    Revisiondesc();
-    virtual ~Revisiondesc() {};
-    
-    
+class Revisiondesc : public MeiElement {
+    public:
+        Revisiondesc();
+        virtual ~Revisiondesc() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Revisiondesc);
+        REGISTER_DECLARATION(Revisiondesc);
 };
 
 
@@ -1173,17 +1217,18 @@ struct Revisiondesc : public BaseMeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Samplingdecl : public BaseMeiElement {
-    Samplingdecl();
-    virtual ~Samplingdecl() {};
-    
-    
+class Samplingdecl : public MeiElement {
+    public:
+        Samplingdecl();
+        virtual ~Samplingdecl() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Samplingdecl);
+        REGISTER_DECLARATION(Samplingdecl);
 };
 
 
@@ -1192,17 +1237,18 @@ struct Samplingdecl : public BaseMeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Segmentation : public BaseMeiElement {
-    Segmentation();
-    virtual ~Segmentation() {};
-    
-    
+class Segmentation : public MeiElement {
+    public:
+        Segmentation();
+        virtual ~Segmentation() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Segmentation);
+        REGISTER_DECLARATION(Segmentation);
 };
 
 
@@ -1216,15 +1262,16 @@ struct Segmentation : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Seriesstmt : public BaseMeiElement {
-    Seriesstmt();
-    virtual ~Seriesstmt() {};
-    
-    
+class Seriesstmt : public MeiElement {
+    public:
+        Seriesstmt();
+        virtual ~Seriesstmt() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Seriesstmt);
+        REGISTER_DECLARATION(Seriesstmt);
 };
 
 
@@ -1236,16 +1283,17 @@ struct Seriesstmt : public BaseMeiElement {
     * is modelled on the sourceDesc element in the Text Encoding Initiative (TEI).
     */
 
-struct Source : public BaseMeiElement {
-    Source();
-    virtual ~Source() {};
-    
-    
+class Source : public MeiElement {
+    public:
+        Source();
+        virtual ~Source() {};
+        
+        
     DatapointingMixIn    m_Datapointing;
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Source);
+        REGISTER_DECLARATION(Source);
 };
 
 
@@ -1255,14 +1303,15 @@ struct Source : public BaseMeiElement {
     * originally created in MEI form.
     */
 
-struct Sourcedesc : public BaseMeiElement {
-    Sourcedesc();
-    virtual ~Sourcedesc() {};
-    
-    
+class Sourcedesc : public MeiElement {
+    public:
+        Sourcedesc();
+        virtual ~Sourcedesc() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Sourcedesc);
+        REGISTER_DECLARATION(Sourcedesc);
 };
 
 
@@ -1271,33 +1320,35 @@ struct Sourcedesc : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Stdvals : public BaseMeiElement {
-    Stdvals();
-    virtual ~Stdvals() {};
-    
-    
+class Stdvals : public MeiElement {
+    public:
+        Stdvals();
+        virtual ~Stdvals() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     DatapointingMixIn    m_Datapointing;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Stdvals);
+        REGISTER_DECLARATION(Stdvals);
 };
 
 
 /** \brief   system requirements ― System requirements for using the electronic item.
     */
 
-struct Sysreq : public BaseMeiElement {
-    Sysreq();
-    virtual ~Sysreq() {};
-    
-    
+class Sysreq : public MeiElement {
+    public:
+        Sysreq();
+        virtual ~Sysreq() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Sysreq);
+        REGISTER_DECLARATION(Sysreq);
 };
 
 
@@ -1309,25 +1360,25 @@ struct Sysreq : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Term : public BaseMeiElement {
-    Term();
-    virtual ~Term() {};
-    
+class Term : public MeiElement {
+    public:
+        Term();
+        virtual ~Term() {};
+        
     /** \brief   contains a reference to the controlled vocabulary from which the terms are
     * drawn. The value must match the value of an ID attribute on a classCode element
     * given elsewhere in the document.
     */
-    string getClasscodeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClasscode() throw (AttributeNotFoundException);
+    MeiAttribute* getClasscode();
     void setClasscode(std::string _classcode);
     bool hasClasscode();
     void removeClasscode();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Term);
+        REGISTER_DECLARATION(Term);
 };
 
 
@@ -1335,25 +1386,25 @@ struct Term : public BaseMeiElement {
     * document.
     */
 
-struct Termlist : public BaseMeiElement {
-    Termlist();
-    virtual ~Termlist() {};
-    
+class Termlist : public MeiElement {
+    public:
+        Termlist();
+        virtual ~Termlist() {};
+        
     /** \brief   contains a reference to the controlled vocabulary from which the terms are
     * drawn. The value must match the value of an ID attribute on a classCode element
     * given elsewhere in the document.
     */
-    string getClasscodeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getClasscode() throw (AttributeNotFoundException);
+    MeiAttribute* getClasscode();
     void setClasscode(std::string _classcode);
     bool hasClasscode();
     void removeClasscode();
 
-    
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Termlist);
+        REGISTER_DECLARATION(Termlist);
 };
 
 
@@ -1361,15 +1412,16 @@ struct Termlist : public BaseMeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Titlestmt : public BaseMeiElement {
-    Titlestmt();
-    virtual ~Titlestmt() {};
-    
-    
+class Titlestmt : public MeiElement {
+    public:
+        Titlestmt();
+        virtual ~Titlestmt() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Titlestmt);
+        REGISTER_DECLARATION(Titlestmt);
 };
 
 
@@ -1380,15 +1432,16 @@ struct Titlestmt : public BaseMeiElement {
     * element in Encoded Archival Description (EAD).
     */
 
-struct Treathist : public BaseMeiElement {
-    Treathist();
-    virtual ~Treathist() {};
-    
-    
+class Treathist : public MeiElement {
+    public:
+        Treathist();
+        virtual ~Treathist() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Treathist);
+        REGISTER_DECLARATION(Treathist);
 };
 
 
@@ -1397,15 +1450,16 @@ struct Treathist : public BaseMeiElement {
     * Description (EAD).
     */
 
-struct Treatsched : public BaseMeiElement {
-    Treatsched();
-    virtual ~Treatsched() {};
-    
-    
+class Treatsched : public MeiElement {
+    public:
+        Treatsched();
+        virtual ~Treatsched() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Treatsched);
+        REGISTER_DECLARATION(Treatsched);
 };
 
 
@@ -1414,15 +1468,16 @@ struct Treatsched : public BaseMeiElement {
     * unpublished status may be given as the element's content.
     */
 
-struct Unpub : public BaseMeiElement {
-    Unpub();
-    virtual ~Unpub() {};
-    
-    
+class Unpub : public MeiElement {
+    public:
+        Unpub();
+        virtual ~Unpub() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Unpub);
+        REGISTER_DECLARATION(Unpub);
 };
 
 
@@ -1437,15 +1492,16 @@ struct Unpub : public BaseMeiElement {
     * Archival Description (EAD).
     */
 
-struct Userestrict : public BaseMeiElement {
-    Userestrict();
-    virtual ~Userestrict() {};
-    
-    
+class Userestrict : public MeiElement {
+    public:
+        Userestrict();
+        virtual ~Userestrict() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Userestrict);
+        REGISTER_DECLARATION(Userestrict);
 };
 
 
@@ -1455,32 +1511,34 @@ struct Userestrict : public BaseMeiElement {
     * (TEI).
     */
 
-struct Watermark : public BaseMeiElement {
-    Watermark();
-    virtual ~Watermark() {};
-    
-    
+class Watermark : public MeiElement {
+    public:
+        Watermark();
+        virtual ~Watermark() {};
+        
+        
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(Watermark);
+        REGISTER_DECLARATION(Watermark);
 };
 
 
 /** \brief   
     */
 
-struct Work : public BaseMeiElement {
-    Work();
-    virtual ~Work() {};
-    
-    
+class Work : public MeiElement {
+    public:
+        Work();
+        virtual ~Work() {};
+        
+        
     DatapointingMixIn    m_Datapointing;
     CommonMixIn    m_Common;
     BiblMixIn    m_Bibl;
     private:
-        //REGISTER_DECLARATION(Work);
+        REGISTER_DECLARATION(Work);
 };
 
 
@@ -1488,15 +1546,17 @@ struct Work : public BaseMeiElement {
     * creation of the electronic file.
     */
 
-struct Workdesc : public BaseMeiElement {
-    Workdesc();
-    virtual ~Workdesc() {};
-    
-    
+class Workdesc : public MeiElement {
+    public:
+        Workdesc();
+        virtual ~Workdesc() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Workdesc);
+        REGISTER_DECLARATION(Workdesc);
 };
 
 
+}
 #endif // HEADER_H_

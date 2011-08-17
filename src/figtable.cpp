@@ -2,76 +2,118 @@
 
 #include "figtable.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Fig::Fig() : m_Common(this), m_Facsimile(this), m_LinkCommon(this), m_LinkExternal(this), m_Xy(this) {
-    m_Base.setName("fig");
+mei::Fig::Fig() : 
+    MeiElement("fig"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_LinkCommon(this),
+    m_LinkExternal(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::Fig, "fig");
 
 
 
-Figdesc::Figdesc() : m_Common(this), m_Lang(this) {
-    m_Base.setName("figDesc");
+mei::Figdesc::Figdesc() : 
+    MeiElement("figDesc"),
+    m_Common(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Figdesc, "figDesc");
 
 
 
-Graphic::Graphic() : m_Common(this), m_Declaring(this), m_Internetmedia(this), m_Facsimile(this), m_LinkExternal(this), m_Measurement(this), m_Typed(this), m_Width(this) {
-    m_Base.setName("graphic");
+mei::Graphic::Graphic() : 
+    MeiElement("graphic"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Internetmedia(this),
+    m_Facsimile(this),
+    m_LinkExternal(this),
+    m_Measurement(this),
+    m_Typed(this),
+    m_Width(this) 
+{
 };
+REGISTER_DEFINITION(mei::Graphic, "graphic");
 
 
-string Graphic::getHeightValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("height")) {
+MeiAttribute* mei::Graphic::getHeight() {
+    if (!hasAttribute("height")) {
         throw AttributeNotFoundException("height");
     }
-    return m_Base.getAttributeValue("height");
+    return getAttribute("height");
 };
 
-MeiAttribute* Graphic::getHeight() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("height")) {
-        throw AttributeNotFoundException("height");
-    }
-    return m_Base.getAttribute("height");
-};
-
-void Graphic::setHeight(std::string _height) {
-    if (!m_Base.hasAttribute("height")) {
+void mei::Graphic::setHeight(std::string _height) {
+    if (!hasAttribute("height")) {
         MeiAttribute *a = new MeiAttribute("height", _height);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Graphic::hasHeight() {
-    return m_Base.hasAttribute("height");
+bool mei::Graphic::hasHeight() {
+    return hasAttribute("height");
 };
 
-void Graphic::removeHeight() {
-    m_Base.removeAttribute("height");
-};
-
-
-Table::Table() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("table");
+void mei::Graphic::removeHeight() {
+    removeAttribute("height");
 };
 
 
-
-Td::Td() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this), m_Tabular(this) {
-    m_Base.setName("td");
+mei::Table::Table() : 
+    MeiElement("table"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::Table, "table");
 
 
 
-Th::Th() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this), m_Tabular(this) {
-    m_Base.setName("th");
+mei::Td::Td() : 
+    MeiElement("td"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this),
+    m_Tabular(this) 
+{
 };
+REGISTER_DEFINITION(mei::Td, "td");
 
 
 
-Tr::Tr() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("tr");
+mei::Th::Th() : 
+    MeiElement("th"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this),
+    m_Tabular(this) 
+{
 };
+REGISTER_DEFINITION(mei::Th, "th");
+
+
+
+mei::Tr::Tr() : 
+    MeiElement("tr"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
+};
+REGISTER_DEFINITION(mei::Tr, "tr");
 
 
 

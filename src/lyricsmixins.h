@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct VerseLogMixIn {
-    VerseLogMixIn(BaseMeiElement *b);
-    virtual ~VerseLogMixIn() {};
+namespace mei {
     
+class VerseLogMixIn {
+    public:
+        VerseLogMixIn(MeiElement *b);
+        virtual ~VerseLogMixIn() {};
+        
     /** \brief   used to indicate a common, usually centered, refrain (Mup User's Guide, p. 44).
     */
 
-    string getRefrainValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRefrain() throw (AttributeNotFoundException);
+    MeiAttribute* getRefrain();
     void setRefrain(std::string _refrain);
     bool hasRefrain();
     void removeRefrain();
@@ -47,15 +48,15 @@ struct VerseLogMixIn {
     * notes on the staff, e.g. '4,4,4,4' when the rhythm of the notes is '4.,8,4.,8'.
     */
 
-    string getRhythmValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRhythm() throw (AttributeNotFoundException);
+    MeiAttribute* getRhythm();
     void setRhythm(std::string _rhythm);
     bool hasRhythm();
     void removeRhythm();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // LYRICSMIXIN_H_

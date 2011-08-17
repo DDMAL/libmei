@@ -2,23 +2,41 @@
 
 #include "facsimile.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Facsimile::Facsimile() : m_Common(this), m_Declaring(this) {
-    m_Base.setName("facsimile");
+mei::Facsimile::Facsimile() : 
+    MeiElement("facsimile"),
+    m_Common(this),
+    m_Declaring(this) 
+{
 };
+REGISTER_DEFINITION(mei::Facsimile, "facsimile");
 
 
 
-Surface::Surface() : m_Common(this), m_Coordinated(this), m_Datapointing(this), m_Declaring(this), m_Startid(this) {
-    m_Base.setName("surface");
+mei::Surface::Surface() : 
+    MeiElement("surface"),
+    m_Common(this),
+    m_Coordinated(this),
+    m_Datapointing(this),
+    m_Declaring(this),
+    m_Startid(this) 
+{
 };
+REGISTER_DEFINITION(mei::Surface, "surface");
 
 
 
-Zone::Zone() : m_Common(this), m_Coordinated(this), m_Datapointing(this) {
-    m_Base.setName("zone");
+mei::Zone::Zone() : 
+    MeiElement("zone"),
+    m_Common(this),
+    m_Coordinated(this),
+    m_Datapointing(this) 
+{
 };
+REGISTER_DEFINITION(mei::Zone, "zone");
 
 
 

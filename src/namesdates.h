@@ -33,7 +33,8 @@
 #include "facsimilemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   corporate name ― Identifies an organization or group of people that acts as a
     * single entity. Examples include names of associations, institutions, business
     * firms, non-profit enterprises, governments, government agencies, projects,
@@ -44,11 +45,12 @@
     * on an element in Encoded Archival Description (EAD).
     */
 
-struct Corpname : public BaseMeiElement {
-    Corpname();
-    virtual ~Corpname() {};
-    
-    
+class Corpname : public MeiElement {
+    public:
+        Corpname();
+        virtual ~Corpname() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     DatableMixIn    m_Datable;
@@ -62,7 +64,7 @@ struct Corpname : public BaseMeiElement {
     CanonicalMixIn    m_Canonical;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Corpname);
+        REGISTER_DECLARATION(Corpname);
 };
 
 
@@ -75,11 +77,12 @@ struct Corpname : public BaseMeiElement {
     * Description (EAD).
     */
 
-struct Geogname : public BaseMeiElement {
-    Geogname();
-    virtual ~Geogname() {};
-    
-    
+class Geogname : public MeiElement {
+    public:
+        Geogname();
+        virtual ~Geogname() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
@@ -92,7 +95,7 @@ struct Geogname : public BaseMeiElement {
     CanonicalMixIn    m_Canonical;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Geogname);
+        REGISTER_DECLARATION(Geogname);
 };
 
 
@@ -101,11 +104,12 @@ struct Geogname : public BaseMeiElement {
     * may be recorded using the authority attribute.
     */
 
-struct Periodname : public BaseMeiElement {
-    Periodname();
-    virtual ~Periodname() {};
-    
-    
+class Periodname : public MeiElement {
+    public:
+        Periodname();
+        virtual ~Periodname() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     DatableMixIn    m_Datable;
@@ -119,7 +123,7 @@ struct Periodname : public BaseMeiElement {
     CanonicalMixIn    m_Canonical;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Periodname);
+        REGISTER_DECLARATION(Periodname);
 };
 
 
@@ -130,11 +134,12 @@ struct Periodname : public BaseMeiElement {
     * This element is modelled on an element in Encoded Archival Description (EAD).
     */
 
-struct Persname : public BaseMeiElement {
-    Persname();
-    virtual ~Persname() {};
-    
-    
+class Persname : public MeiElement {
+    public:
+        Persname();
+        virtual ~Persname() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     DatableMixIn    m_Datable;
@@ -148,7 +153,7 @@ struct Persname : public BaseMeiElement {
     CanonicalMixIn    m_Canonical;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Persname);
+        REGISTER_DECLARATION(Persname);
 };
 
 
@@ -158,11 +163,12 @@ struct Persname : public BaseMeiElement {
     * taken may be recorded using the authority attribute.
     */
 
-struct Stylename : public BaseMeiElement {
-    Stylename();
-    virtual ~Stylename() {};
-    
-    
+class Stylename : public MeiElement {
+    public:
+        Stylename();
+        virtual ~Stylename() {};
+        
+        
     BiblMixIn    m_Bibl;
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
@@ -175,8 +181,9 @@ struct Stylename : public BaseMeiElement {
     CanonicalMixIn    m_Canonical;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Stylename);
+        REGISTER_DECLARATION(Stylename);
 };
 
 
+}
 #endif // NAMESDATES_H_

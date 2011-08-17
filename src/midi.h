@@ -33,17 +33,19 @@
 #include "midimixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   control change ― MIDI parameter/control change. The num attribute specifies
     * parameter number, while val contains the parameter value. Each must fall in the
     * range 0-127.
     */
 
-struct Cc : public BaseMeiElement {
-    Cc();
-    virtual ~Cc() {};
-    
-    
+class Cc : public MeiElement {
+    public:
+        Cc();
+        virtual ~Cc() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -53,27 +55,27 @@ struct Cc : public BaseMeiElement {
     MidinumberMixIn    m_Midinumber;
     MidivalueMixIn    m_Midivalue;
     private:
-        //REGISTER_DECLARATION(Cc);
+        REGISTER_DECLARATION(Cc);
 };
 
 
 /** \brief   channel ― MIDI channel assignment.
     */
 
-struct Chan : public BaseMeiElement {
-    Chan();
-    virtual ~Chan() {};
-    
+class Chan : public MeiElement {
+    public:
+        Chan();
+        virtual ~Chan() {};
+        
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
     */
-    string getNumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNum() throw (AttributeNotFoundException);
+    MeiAttribute* getNum();
     void setNum(std::string _num);
     bool hasNum();
     void removeNum();
 
-    
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -81,7 +83,7 @@ struct Chan : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Chan);
+        REGISTER_DECLARATION(Chan);
 };
 
 
@@ -89,11 +91,12 @@ struct Chan : public BaseMeiElement {
     * attribute must be in the range 0-127.
     */
 
-struct Chanpr : public BaseMeiElement {
-    Chanpr();
-    virtual ~Chanpr() {};
-    
-    
+class Chanpr : public MeiElement {
+    public:
+        Chanpr();
+        virtual ~Chanpr() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -102,18 +105,19 @@ struct Chanpr : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Chanpr);
+        REGISTER_DECLARATION(Chanpr);
 };
 
 
 /** \brief   cue ― MIDI cue point.
     */
 
-struct Cue : public BaseMeiElement {
-    Cue();
-    virtual ~Cue() {};
-    
-    
+class Cue : public MeiElement {
+    public:
+        Cue();
+        virtual ~Cue() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -121,7 +125,7 @@ struct Cue : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Cue);
+        REGISTER_DECLARATION(Cue);
 };
 
 
@@ -129,11 +133,12 @@ struct Cue : public BaseMeiElement {
     * wrapped in a CDATA section to avoid parsing errors.
     */
 
-struct Hex : public BaseMeiElement {
-    Hex();
-    virtual ~Hex() {};
-    
-    
+class Hex : public MeiElement {
+    public:
+        Hex();
+        virtual ~Hex() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -141,18 +146,19 @@ struct Hex : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Hex);
+        REGISTER_DECLARATION(Hex);
 };
 
 
 /** \brief   marker ― MIDI marker meta-event.
     */
 
-struct Marker : public BaseMeiElement {
-    Marker();
-    virtual ~Marker() {};
-    
-    
+class Marker : public MeiElement {
+    public:
+        Marker();
+        virtual ~Marker() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -160,18 +166,19 @@ struct Marker : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Marker);
+        REGISTER_DECLARATION(Marker);
 };
 
 
 /** \brief   meta text ― MIDI text meta-event.
     */
 
-struct Metatext : public BaseMeiElement {
-    Metatext();
-    virtual ~Metatext() {};
-    
-    
+class Metatext : public MeiElement {
+    public:
+        Metatext();
+        virtual ~Metatext() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -179,7 +186,7 @@ struct Metatext : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Metatext);
+        REGISTER_DECLARATION(Metatext);
 };
 
 
@@ -189,29 +196,31 @@ struct Metatext : public BaseMeiElement {
     * etc.
     */
 
-struct Midi : public BaseMeiElement {
-    Midi();
-    virtual ~Midi() {};
-    
-    
+class Midi : public MeiElement {
+    public:
+        Midi();
+        virtual ~Midi() {};
+        
+        
     CommonMixIn    m_Common;
     StaffidentMixIn    m_Staffident;
     LayeridentMixIn    m_Layerident;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Midi);
+        REGISTER_DECLARATION(Midi);
 };
 
 
 /** \brief   note-off ― MIDI note-off event.
     */
 
-struct Noteoff : public BaseMeiElement {
-    Noteoff();
-    virtual ~Noteoff() {};
-    
-    
+class Noteoff : public MeiElement {
+    public:
+        Noteoff();
+        virtual ~Noteoff() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -220,18 +229,19 @@ struct Noteoff : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Noteoff);
+        REGISTER_DECLARATION(Noteoff);
 };
 
 
 /** \brief   note-on ― MIDI note-on event.
     */
 
-struct Noteon : public BaseMeiElement {
-    Noteon();
-    virtual ~Noteon() {};
-    
-    
+class Noteon : public MeiElement {
+    public:
+        Noteon();
+        virtual ~Noteon() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -240,18 +250,19 @@ struct Noteon : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Noteon);
+        REGISTER_DECLARATION(Noteon);
 };
 
 
 /** \brief   port ― MIDI port. The num attribute must be in the range 0-127.
     */
 
-struct Port : public BaseMeiElement {
-    Port();
-    virtual ~Port() {};
-    
-    
+class Port : public MeiElement {
+    public:
+        Port();
+        virtual ~Port() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -260,18 +271,19 @@ struct Port : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Port);
+        REGISTER_DECLARATION(Port);
 };
 
 
 /** \brief   program ― MIDI program change. The num attribute must be in the range 0-127.
     */
 
-struct Prog : public BaseMeiElement {
-    Prog();
-    virtual ~Prog() {};
-    
-    
+class Prog : public MeiElement {
+    public:
+        Prog();
+        virtual ~Prog() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -280,27 +292,27 @@ struct Prog : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Prog);
+        REGISTER_DECLARATION(Prog);
 };
 
 
 /** \brief   sequence number ― MIDI sequence number.
     */
 
-struct Seqnum : public BaseMeiElement {
-    Seqnum();
-    virtual ~Seqnum() {};
-    
+class Seqnum : public MeiElement {
+    public:
+        Seqnum();
+        virtual ~Seqnum() {};
+        
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
     */
-    string getNumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNum() throw (AttributeNotFoundException);
+    MeiAttribute* getNum();
     void setNum(std::string _num);
     bool hasNum();
     void removeNum();
 
-    
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -308,18 +320,19 @@ struct Seqnum : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Seqnum);
+        REGISTER_DECLARATION(Seqnum);
 };
 
 
 /** \brief   track name ― MIDI track/sequence name.
     */
 
-struct Trkname : public BaseMeiElement {
-    Trkname();
-    virtual ~Trkname() {};
-    
-    
+class Trkname : public MeiElement {
+    public:
+        Trkname();
+        virtual ~Trkname() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -327,7 +340,7 @@ struct Trkname : public BaseMeiElement {
     LayeridentMixIn    m_Layerident;
     TimestampMusicalMixIn    m_TimestampMusical;
     private:
-        //REGISTER_DECLARATION(Trkname);
+        REGISTER_DECLARATION(Trkname);
 };
 
 
@@ -335,19 +348,19 @@ struct Trkname : public BaseMeiElement {
     * 0-127.
     */
 
-struct Vel : public BaseMeiElement {
-    Vel();
-    virtual ~Vel() {};
-    
+class Vel : public MeiElement {
+    public:
+        Vel();
+        virtual ~Vel() {};
+        
     /** \brief   records the function of the dot.
     */
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
 
-    
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -356,8 +369,9 @@ struct Vel : public BaseMeiElement {
     TimestampMusicalMixIn    m_TimestampMusical;
     MidinumberMixIn    m_Midinumber;
     private:
-        //REGISTER_DECLARATION(Vel);
+        REGISTER_DECLARATION(Vel);
 };
 
 
+}
 #endif // MIDI_H_

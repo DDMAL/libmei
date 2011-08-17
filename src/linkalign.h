@@ -30,7 +30,8 @@
 #include "sharedmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   timeline ― Provides a set of ordered points in time to which musical elements
     * can be linked in order to create a temporal alignment of those elements. The
     * origin attribute designates the origin of the timeline, i.e., the time at which
@@ -40,15 +41,15 @@
     * Text Encoding Initiative (TEI).
     */
 
-struct Timeline : public BaseMeiElement {
-    Timeline();
-    virtual ~Timeline() {};
-    
+class Timeline : public MeiElement {
+    public:
+        Timeline();
+        virtual ~Timeline() {};
+        
     /** \brief   holds the xml:id of an <avFile> element that references an external digital
     * media.
     */
-    string getAvrefValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAvref() throw (AttributeNotFoundException);
+    MeiAttribute* getAvref();
     void setAvref(std::string _avref);
     bool hasAvref();
     void removeAvref();
@@ -56,16 +57,15 @@ struct Timeline : public BaseMeiElement {
     /** \brief   designates the origin of the timeline, i.e. the <when> element associated with
     * the beginning of the timeline.
     */
-    string getOriginValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOrigin() throw (AttributeNotFoundException);
+    MeiAttribute* getOrigin();
     void setOrigin(std::string _origin);
     bool hasOrigin();
     void removeOrigin();
 
-    
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Timeline);
+        REGISTER_DECLARATION(Timeline);
 };
 
 
@@ -76,16 +76,16 @@ struct Timeline : public BaseMeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-struct When : public BaseMeiElement {
-    When();
-    virtual ~When() {};
-    
+class When : public MeiElement {
+    public:
+        When();
+        virtual ~When() {};
+        
     /** \brief   provides an absolute value for the time associated with a point on a timeline.
     * This attribute is required for the element designated as the origin by the
     * parent timeline.
     */
-    string getAbsoluteValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAbsolute() throw (AttributeNotFoundException);
+    MeiAttribute* getAbsolute();
     void setAbsolute(std::string _absolute);
     bool hasAbsolute();
     void removeAbsolute();
@@ -94,16 +94,14 @@ struct When : public BaseMeiElement {
     * the since attribute. This attribute can only be interpreted meaningfully in
     * conjunction with the inttype attribute.
     */
-    string getIntervalValue() throw (AttributeNotFoundException);
-    MeiAttribute* getInterval() throw (AttributeNotFoundException);
+    MeiAttribute* getInterval();
     void setInterval(std::string _interval);
     bool hasInterval();
     void removeInterval();
 
     /** \brief   specifies the kind of values used in the interval attribute.
     */
-    string getInttypeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getInttype() throw (AttributeNotFoundException);
+    MeiAttribute* getInttype();
     void setInttype(std::string _inttype);
     bool hasInttype();
     void removeInttype();
@@ -115,18 +113,18 @@ struct When : public BaseMeiElement {
     * then the reference point is understood to be the immediately preceding when
     * element.
     */
-    string getSinceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSince() throw (AttributeNotFoundException);
+    MeiAttribute* getSince();
     void setSince(std::string _since);
     bool hasSince();
     void removeSince();
 
-    
+        
     CommonMixIn    m_Common;
     DatapointingMixIn    m_Datapointing;
     private:
-        //REGISTER_DECLARATION(When);
+        REGISTER_DECLARATION(When);
 };
 
 
+}
 #endif // LINKALIGN_H_

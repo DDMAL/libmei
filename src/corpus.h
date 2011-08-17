@@ -30,7 +30,8 @@
 #include "sharedmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   meiCorpus ― The document element for a group of related MEI documents, each
     * with its own complete header, contains a header for the group, and one or more
     * <mei> elements. The group may be related in a number of ways, for example, by
@@ -40,16 +41,18 @@
     * the Text Encoding Initiative (TEI).
     */
 
-struct Meicorpus : public BaseMeiElement {
-    Meicorpus();
-    virtual ~Meicorpus() {};
-    
-    
+class Meicorpus : public MeiElement {
+    public:
+        Meicorpus();
+        virtual ~Meicorpus() {};
+        
+        
     CommonMixIn    m_Common;
     MeiversionMixIn    m_Meiversion;
     private:
-        //REGISTER_DECLARATION(Meicorpus);
+        REGISTER_DECLARATION(Meicorpus);
 };
 
 
+}
 #endif // CORPUS_H_

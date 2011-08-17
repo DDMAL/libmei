@@ -12,6 +12,8 @@
 #include <exception>
 #include <stdexcept>
 
+namespace mei {
+    
 class MeiException : public std::runtime_error {
 private:
     std::string message;
@@ -51,6 +53,6 @@ public:
     explicit FooBarException(const std::string &what) : MeiException("blahblah") {}
     ~FooBarException() throw() {};
 };
-
+}
 #endif
 

@@ -29,44 +29,46 @@
 #include "exceptions.h"
 
 
-
-struct CritMixIn {
-    CritMixIn(BaseMeiElement *b);
-    virtual ~CritMixIn() {};
+namespace mei {
     
+class CritMixIn {
+    public:
+        CritMixIn(MeiElement *b);
+        virtual ~CritMixIn() {};
+        
     /** \brief   classifies the cause for the variant reading, according to any appropriate
     * typology of possible origins.
     */
 
-    string getCauseValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCause() throw (AttributeNotFoundException);
+    MeiAttribute* getCause();
     void setCause(std::string _cause);
     bool hasCause();
     void removeCause();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SourceMixIn {
-    SourceMixIn(BaseMeiElement *b);
-    virtual ~SourceMixIn() {};
-    
+class SourceMixIn {
+    public:
+        SourceMixIn(MeiElement *b);
+        virtual ~SourceMixIn() {};
+        
     /** \brief   contains a list of one or more pointers indicating the sources which attest to a
     * given reading. Each value should correspond to the ID of a <source> element
     * located in the document header.
     */
 
-    string getSourceValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSource() throw (AttributeNotFoundException);
+    MeiAttribute* getSource();
     void setSource(std::string _source);
     bool hasSource();
     void removeSource();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // CRITAPPMIXIN_H_

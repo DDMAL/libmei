@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct ChannelizedMixIn {
-    ChannelizedMixIn(BaseMeiElement *b);
-    virtual ~ChannelizedMixIn() {};
+namespace mei {
     
+class ChannelizedMixIn {
+    public:
+        ChannelizedMixIn(MeiElement *b);
+        virtual ~ChannelizedMixIn() {};
+        
     /** \brief   records a MIDI channel value.
     */
 
-    string getMidiChannelValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiChannel() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiChannel();
     void setMidiChannel(std::string _midichannel);
     bool hasMidiChannel();
     void removeMidiChannel();
@@ -46,8 +47,7 @@ struct ChannelizedMixIn {
     /** \brief   specifies the 'on' part of the duty cycle as a percentage of a note's duration.
     */
 
-    string getMidiDutyValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiDuty() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiDuty();
     void setMidiDuty(std::string _mididuty);
     bool hasMidiDuty();
     void removeMidiDuty();
@@ -55,8 +55,7 @@ struct ChannelizedMixIn {
     /** \brief   sets the MIDI port value.
     */
 
-    string getMidiPortValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiPort() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiPort();
     void setMidiPort(std::string _midiport);
     bool hasMidiPort();
     void removeMidiPort();
@@ -64,26 +63,25 @@ struct ChannelizedMixIn {
     /** \brief   sets the MIDI track.
     */
 
-    string getMidiTrackValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiTrack() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiTrack();
     void setMidiTrack(std::string _miditrack);
     bool hasMidiTrack();
     void removeMidiTrack();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MidiinstrumentMixIn {
-    MidiinstrumentMixIn(BaseMeiElement *b);
-    virtual ~MidiinstrumentMixIn() {};
-    
+class MidiinstrumentMixIn {
+    public:
+        MidiinstrumentMixIn(MeiElement *b);
+        virtual ~MidiinstrumentMixIn() {};
+        
     /** \brief   sets the MIDI instrument number.
     */
 
-    string getMidiInstrnumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiInstrnum() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiInstrnum();
     void setMidiInstrnum(std::string _midiinstrnum);
     bool hasMidiInstrnum();
     void removeMidiInstrnum();
@@ -91,91 +89,91 @@ struct MidiinstrumentMixIn {
     /** \brief   provides a General MIDI label for the MIDI instrument.
     */
 
-    string getMidiInstrnameValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiInstrname() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiInstrname();
     void setMidiInstrname(std::string _midiinstrname);
     bool hasMidiInstrname();
     void removeMidiInstrname();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MidinumberMixIn {
-    MidinumberMixIn(BaseMeiElement *b);
-    virtual ~MidinumberMixIn() {};
-    
+class MidinumberMixIn {
+    public:
+        MidinumberMixIn(MeiElement *b);
+        virtual ~MidinumberMixIn() {};
+        
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
     */
 
-    string getNumValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNum() throw (AttributeNotFoundException);
+    MeiAttribute* getNum();
     void setNum(std::string _num);
     bool hasNum();
     void removeNum();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MiditempoMixIn {
-    MiditempoMixIn(BaseMeiElement *b);
-    virtual ~MiditempoMixIn() {};
-    
+class MiditempoMixIn {
+    public:
+        MiditempoMixIn(MeiElement *b);
+        virtual ~MiditempoMixIn() {};
+        
     /** \brief   contains a MIDI value, that is, the number of quarter notes per minute in the
     * range from 10 to 1000.
     */
 
-    string getMidiTempoValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMidiTempo() throw (AttributeNotFoundException);
+    MeiAttribute* getMidiTempo();
     void setMidiTempo(std::string _miditempo);
     bool hasMidiTempo();
     void removeMidiTempo();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MidivalueMixIn {
-    MidivalueMixIn(BaseMeiElement *b);
-    virtual ~MidivalueMixIn() {};
-    
+class MidivalueMixIn {
+    public:
+        MidivalueMixIn(MeiElement *b);
+        virtual ~MidivalueMixIn() {};
+        
     /** \brief   MIDI number
     */
 
-    string getValValue() throw (AttributeNotFoundException);
-    MeiAttribute* getVal() throw (AttributeNotFoundException);
+    MeiAttribute* getVal();
     void setVal(std::string _val);
     bool hasVal();
     void removeVal();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TimebaseMixIn {
-    TimebaseMixIn(BaseMeiElement *b);
-    virtual ~TimebaseMixIn() {};
-    
+class TimebaseMixIn {
+    public:
+        TimebaseMixIn(MeiElement *b);
+        virtual ~TimebaseMixIn() {};
+        
     /** \brief   indicates the number of pulses (sometimes referred to as ticks or divisions) per
     * quarter note. Unlike MIDI, MEI permits different values for a score and
     * individual staves.
     */
 
-    string getPpqValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPpq() throw (AttributeNotFoundException);
+    MeiAttribute* getPpq();
     void setPpq(std::string _ppq);
     bool hasPpq();
     void removePpq();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // MIDIMIXIN_H_

@@ -33,7 +33,8 @@
 #include "facsimilemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   anchored text ― Container for text that is fixed to a particular location,
     * regardless of changes made to the layout of the measures around it. This element
     * may be used where semantic markup of the text is neither possible nor desirable,
@@ -46,11 +47,12 @@
     * coordinates or from the location of the referenced element.
     */
 
-struct Anchoredtext : public BaseMeiElement {
-    Anchoredtext();
-    virtual ~Anchoredtext() {};
-    
-    
+class Anchoredtext : public MeiElement {
+    public:
+        Anchoredtext();
+        virtual ~Anchoredtext() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     CommonMixIn    m_Common;
@@ -63,7 +65,7 @@ struct Anchoredtext : public BaseMeiElement {
     VisualoffsetVoMixIn    m_VisualoffsetVo;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Anchoredtext);
+        REGISTER_DECLARATION(Anchoredtext);
 };
 
 
@@ -85,11 +87,12 @@ struct Anchoredtext : public BaseMeiElement {
     * of the NUMBER datatype. The rend attribute captures the appearance of the curve.
     */
 
-struct Curve : public BaseMeiElement {
-    Curve();
-    virtual ~Curve() {};
-    
-    
+class Curve : public MeiElement {
+    public:
+        Curve();
+        virtual ~Curve() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     ColorMixIn    m_Color;
@@ -109,7 +112,7 @@ struct Curve : public BaseMeiElement {
     CurvatureMixIn    m_Curvature;
     CurverendMixIn    m_Curverend;
     private:
-        //REGISTER_DECLARATION(Curve);
+        REGISTER_DECLARATION(Curve);
 };
 
 
@@ -127,11 +130,12 @@ struct Curve : public BaseMeiElement {
     * attribute.
     */
 
-struct Line : public BaseMeiElement {
-    Line();
-    virtual ~Line() {};
-    
-    
+class Line : public MeiElement {
+    public:
+        Line();
+        virtual ~Line() {};
+        
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     ColorMixIn    m_Color;
@@ -150,7 +154,7 @@ struct Line : public BaseMeiElement {
     Xy2MixIn    m_Xy2;
     LinerendMixIn    m_Linerend;
     private:
-        //REGISTER_DECLARATION(Line);
+        REGISTER_DECLARATION(Line);
 };
 
 
@@ -164,19 +168,19 @@ struct Line : public BaseMeiElement {
     * scaled by the specified percentage.
     */
 
-struct Symbol : public BaseMeiElement {
-    Symbol();
-    virtual ~Symbol() {};
-    
+class Symbol : public MeiElement {
+    public:
+        Symbol();
+        virtual ~Symbol() {};
+        
     /** \brief   contains a reference to a previously-declared user-defined symbol.
     */
-    string getRefValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRef() throw (AttributeNotFoundException);
+    MeiAttribute* getRef();
     void setRef(std::string _ref);
     bool hasRef();
     void removeRef();
 
-    
+        
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     ColorMixIn    m_Color;
@@ -190,21 +194,22 @@ struct Symbol : public BaseMeiElement {
     VisualoffsetVoMixIn    m_VisualoffsetVo;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Symbol);
+        REGISTER_DECLARATION(Symbol);
 };
 
 
 /** \brief   symbol definition ― Declaration of an individual symbol in a symbolTable.
     */
 
-struct Symboldef : public BaseMeiElement {
-    Symboldef();
-    virtual ~Symboldef() {};
-    
-    
+class Symboldef : public MeiElement {
+    public:
+        Symboldef();
+        virtual ~Symboldef() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Symboldef);
+        REGISTER_DECLARATION(Symboldef);
 };
 
 
@@ -213,15 +218,17 @@ struct Symboldef : public BaseMeiElement {
     * parsed entity containing the symbolTable to be shared.
     */
 
-struct Symboltable : public BaseMeiElement {
-    Symboltable();
-    virtual ~Symboltable() {};
-    
-    
+class Symboltable : public MeiElement {
+    public:
+        Symboltable();
+        virtual ~Symboltable() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Symboltable);
+        REGISTER_DECLARATION(Symboltable);
 };
 
 
+}
 #endif // USERSYMBOLS_H_

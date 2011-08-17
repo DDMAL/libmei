@@ -2,136 +2,110 @@
 
 #include "harmonymixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-FretlocationMixIn::FretlocationMixIn(BaseMeiElement *b) {
+mei::FretlocationMixIn::FretlocationMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string FretlocationMixIn::getFretValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("fret")) {
+MeiAttribute* mei::FretlocationMixIn::getFret() {
+    if (!b->hasAttribute("fret")) {
         throw AttributeNotFoundException("fret");
     }
-    return b->m_Base.getAttributeValue("fret");
+    return b->getAttribute("fret");
 };
 
-MeiAttribute* FretlocationMixIn::getFret() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("fret")) {
-        throw AttributeNotFoundException("fret");
-    }
-    return b->m_Base.getAttribute("fret");
-};
-
-void FretlocationMixIn::setFret(std::string _fret) {
-    if (!b->m_Base.hasAttribute("fret")) {
+void mei::FretlocationMixIn::setFret(std::string _fret) {
+    if (!b->hasAttribute("fret")) {
         MeiAttribute *a = new MeiAttribute("fret", _fret);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool FretlocationMixIn::hasFret() {
-    return b->m_Base.hasAttribute("fret");
+bool mei::FretlocationMixIn::hasFret() {
+    return b->hasAttribute("fret");
 };
 
-void FretlocationMixIn::removeFret() {
-    b->m_Base.removeAttribute("fret");
+void mei::FretlocationMixIn::removeFret() {
+    b->removeAttribute("fret");
 };
 
 
-HarmLogMixIn::HarmLogMixIn(BaseMeiElement *b) {
+mei::HarmLogMixIn::HarmLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string HarmLogMixIn::getChordrefValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("chordref")) {
+MeiAttribute* mei::HarmLogMixIn::getChordref() {
+    if (!b->hasAttribute("chordref")) {
         throw AttributeNotFoundException("chordref");
     }
-    return b->m_Base.getAttributeValue("chordref");
+    return b->getAttribute("chordref");
 };
 
-MeiAttribute* HarmLogMixIn::getChordref() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("chordref")) {
-        throw AttributeNotFoundException("chordref");
-    }
-    return b->m_Base.getAttribute("chordref");
-};
-
-void HarmLogMixIn::setChordref(std::string _chordref) {
-    if (!b->m_Base.hasAttribute("chordref")) {
+void mei::HarmLogMixIn::setChordref(std::string _chordref) {
+    if (!b->hasAttribute("chordref")) {
         MeiAttribute *a = new MeiAttribute("chordref", _chordref);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool HarmLogMixIn::hasChordref() {
-    return b->m_Base.hasAttribute("chordref");
+bool mei::HarmLogMixIn::hasChordref() {
+    return b->hasAttribute("chordref");
 };
 
-void HarmLogMixIn::removeChordref() {
-    b->m_Base.removeAttribute("chordref");
+void mei::HarmLogMixIn::removeChordref() {
+    b->removeAttribute("chordref");
 };
 
 
-HarmVisMixIn::HarmVisMixIn(BaseMeiElement *b) {
+mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string HarmVisMixIn::getExtenderValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("extender")) {
+MeiAttribute* mei::HarmVisMixIn::getExtender() {
+    if (!b->hasAttribute("extender")) {
         throw AttributeNotFoundException("extender");
     }
-    return b->m_Base.getAttributeValue("extender");
+    return b->getAttribute("extender");
 };
 
-MeiAttribute* HarmVisMixIn::getExtender() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("extender")) {
-        throw AttributeNotFoundException("extender");
-    }
-    return b->m_Base.getAttribute("extender");
-};
-
-void HarmVisMixIn::setExtender(std::string _extender) {
-    if (!b->m_Base.hasAttribute("extender")) {
+void mei::HarmVisMixIn::setExtender(std::string _extender) {
+    if (!b->hasAttribute("extender")) {
         MeiAttribute *a = new MeiAttribute("extender", _extender);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool HarmVisMixIn::hasExtender() {
-    return b->m_Base.hasAttribute("extender");
+bool mei::HarmVisMixIn::hasExtender() {
+    return b->hasAttribute("extender");
 };
 
-void HarmVisMixIn::removeExtender() {
-    b->m_Base.removeAttribute("extender");
+void mei::HarmVisMixIn::removeExtender() {
+    b->removeAttribute("extender");
 };
 
-string HarmVisMixIn::getRendgridValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("rendgrid")) {
+MeiAttribute* mei::HarmVisMixIn::getRendgrid() {
+    if (!b->hasAttribute("rendgrid")) {
         throw AttributeNotFoundException("rendgrid");
     }
-    return b->m_Base.getAttributeValue("rendgrid");
+    return b->getAttribute("rendgrid");
 };
 
-MeiAttribute* HarmVisMixIn::getRendgrid() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("rendgrid")) {
-        throw AttributeNotFoundException("rendgrid");
-    }
-    return b->m_Base.getAttribute("rendgrid");
-};
-
-void HarmVisMixIn::setRendgrid(std::string _rendgrid) {
-    if (!b->m_Base.hasAttribute("rendgrid")) {
+void mei::HarmVisMixIn::setRendgrid(std::string _rendgrid) {
+    if (!b->hasAttribute("rendgrid")) {
         MeiAttribute *a = new MeiAttribute("rendgrid", _rendgrid);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool HarmVisMixIn::hasRendgrid() {
-    return b->m_Base.hasAttribute("rendgrid");
+bool mei::HarmVisMixIn::hasRendgrid() {
+    return b->hasAttribute("rendgrid");
 };
 
-void HarmVisMixIn::removeRendgrid() {
-    b->m_Base.removeAttribute("rendgrid");
+void mei::HarmVisMixIn::removeRendgrid() {
+    b->removeAttribute("rendgrid");
 };
 
 

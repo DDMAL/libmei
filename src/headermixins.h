@@ -29,23 +29,25 @@
 #include "exceptions.h"
 
 
-
-struct RegularmethodMixIn {
-    RegularmethodMixIn(BaseMeiElement *b);
-    virtual ~RegularmethodMixIn() {};
+namespace mei {
     
+class RegularmethodMixIn {
+    public:
+        RegularmethodMixIn(MeiElement *b);
+        virtual ~RegularmethodMixIn() {};
+        
     /** \brief   indicates the method employed to mark corrections and normalizations.
     */
 
-    string getMethodValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMethod() throw (AttributeNotFoundException);
+    MeiAttribute* getMethod();
     void setMethod(std::string _method);
     bool hasMethod();
     void removeMethod();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // HEADERMIXIN_H_

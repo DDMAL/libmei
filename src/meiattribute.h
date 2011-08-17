@@ -29,7 +29,9 @@
 
 using std::string;
 
-struct MeiElement;
+namespace mei {
+
+class MeiElement; // forward declare MeiElement
 
 /** \brief  A representation of an attribute associated to an element in the MEI schema, 
  *          attributes describe the properties of the Mei Element. 
@@ -80,8 +82,7 @@ class MeiAttribute
 		string value;
 		string prefix;
 	};
-
-
+}
 
 
 

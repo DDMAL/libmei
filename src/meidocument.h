@@ -38,6 +38,7 @@
 using std::string;
 using std::map;
 
+namespace mei {
 /** \brief The entity which will contains all the elements and attributes 
  *         storing a musical piece in the MEI schema. 
  * 
@@ -89,5 +90,5 @@ class MeiDocument
 		MeiElement* root;
         map<string,MeiElement*> *idmap;
 	};
-
+}
 #endif // MEIDOCUMENT_H_

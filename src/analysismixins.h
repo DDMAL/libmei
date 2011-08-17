@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct CommonAnlMixIn {
-    CommonAnlMixIn(BaseMeiElement *b);
-    virtual ~CommonAnlMixIn() {};
+namespace mei {
     
+class CommonAnlMixIn {
+    public:
+        CommonAnlMixIn(MeiElement *b);
+        virtual ~CommonAnlMixIn() {};
+        
     /** \brief   points to an element of which the current element is a copy.
     */
 
-    string getCopyofValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCopyof() throw (AttributeNotFoundException);
+    MeiAttribute* getCopyof();
     void setCopyof(std::string _copyof);
     bool hasCopyof();
     void removeCopyof();
@@ -47,8 +48,7 @@ struct CommonAnlMixIn {
     * fashion.
     */
 
-    string getCorrespValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCorresp() throw (AttributeNotFoundException);
+    MeiAttribute* getCorresp();
     void setCorresp(std::string _corresp);
     bool hasCorresp();
     void removeCorresp();
@@ -56,8 +56,7 @@ struct CommonAnlMixIn {
     /** \brief   used to point to the next event(s) in a user-defined collection.
     */
 
-    string getNextValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNext() throw (AttributeNotFoundException);
+    MeiAttribute* getNext();
     void setNext(std::string _next);
     bool hasNext();
     void removeNext();
@@ -65,8 +64,7 @@ struct CommonAnlMixIn {
     /** \brief   points to the previous event(s) in a user-defined collection.
     */
 
-    string getPrevValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPrev() throw (AttributeNotFoundException);
+    MeiAttribute* getPrev();
     void setPrev(std::string _prev);
     bool hasPrev();
     void removePrev();
@@ -75,8 +73,7 @@ struct CommonAnlMixIn {
     * literal copy of the current element.
     */
 
-    string getSameasValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSameas() throw (AttributeNotFoundException);
+    MeiAttribute* getSameas();
     void setSameas(std::string _sameas);
     bool hasSameas();
     void removeSameas();
@@ -84,126 +81,126 @@ struct CommonAnlMixIn {
     /** \brief   points to elements that are synchronous with the current element.
     */
 
-    string getSynchValue() throw (AttributeNotFoundException);
-    MeiAttribute* getSynch() throw (AttributeNotFoundException);
+    MeiAttribute* getSynch();
     void setSynch(std::string _synch);
     bool hasSynch();
     void removeSynch();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct HarmonicfunctionMixIn {
-    HarmonicfunctionMixIn(BaseMeiElement *b);
-    virtual ~HarmonicfunctionMixIn() {};
-    
+class HarmonicfunctionMixIn {
+    public:
+        HarmonicfunctionMixIn(MeiElement *b);
+        virtual ~HarmonicfunctionMixIn() {};
+        
     /** \brief   describes harmonic function in any convenient typology.
     */
 
-    string getHfuncValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHfunc() throw (AttributeNotFoundException);
+    MeiAttribute* getHfunc();
     void setHfunc(std::string _hfunc);
     bool hasHfunc();
     void removeHfunc();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct IntervalharmonicMixIn {
-    IntervalharmonicMixIn(BaseMeiElement *b);
-    virtual ~IntervalharmonicMixIn() {};
-    
+class IntervalharmonicMixIn {
+    public:
+        IntervalharmonicMixIn(MeiElement *b);
+        virtual ~IntervalharmonicMixIn() {};
+        
     /** \brief   encodes the harmonic interval between this note and other pitches occurring at
     * the same time.
     */
 
-    string getInthValue() throw (AttributeNotFoundException);
-    MeiAttribute* getInth() throw (AttributeNotFoundException);
+    MeiAttribute* getInth();
     void setInth(std::string _inth);
     bool hasInth();
     void removeInth();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct IntervallicdescMixIn {
-    IntervallicdescMixIn(BaseMeiElement *b);
-    virtual ~IntervallicdescMixIn() {};
-    
+class IntervallicdescMixIn {
+    public:
+        IntervallicdescMixIn(MeiElement *b);
+        virtual ~IntervallicdescMixIn() {};
+        
     /** \brief   encodes the melodic interval from the previous pitch. The value may be a general
     * directional indication (u, d, s) or a precise numeric value in half steps.
     */
 
-    string getIntmValue() throw (AttributeNotFoundException);
-    MeiAttribute* getIntm() throw (AttributeNotFoundException);
+    MeiAttribute* getIntm();
     void setIntm(std::string _intm);
     bool hasIntm();
     void removeIntm();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct MelodicfunctionMixIn {
-    MelodicfunctionMixIn(BaseMeiElement *b);
-    virtual ~MelodicfunctionMixIn() {};
-    
+class MelodicfunctionMixIn {
+    public:
+        MelodicfunctionMixIn(MeiElement *b);
+        virtual ~MelodicfunctionMixIn() {};
+        
     /** \brief   describes melodic function in any convenient typology.
     */
 
-    string getMfuncValue() throw (AttributeNotFoundException);
-    MeiAttribute* getMfunc() throw (AttributeNotFoundException);
+    MeiAttribute* getMfunc();
     void setMfunc(std::string _mfunc);
     bool hasMfunc();
     void removeMfunc();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct PitchclassMixIn {
-    PitchclassMixIn(BaseMeiElement *b);
-    virtual ~PitchclassMixIn() {};
-    
+class PitchclassMixIn {
+    public:
+        PitchclassMixIn(MeiElement *b);
+        virtual ~PitchclassMixIn() {};
+        
     /** \brief   holds pitch class information.
     */
 
-    string getPclassValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPclass() throw (AttributeNotFoundException);
+    MeiAttribute* getPclass();
     void setPclass(std::string _pclass);
     bool hasPclass();
     void removePclass();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct SolfaMixIn {
-    SolfaMixIn(BaseMeiElement *b);
-    virtual ~SolfaMixIn() {};
-    
+class SolfaMixIn {
+    public:
+        SolfaMixIn(MeiElement *b);
+        virtual ~SolfaMixIn() {};
+        
     /** \brief   contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
     * movable Do system.
     */
 
-    string getPsolfaValue() throw (AttributeNotFoundException);
-    MeiAttribute* getPsolfa() throw (AttributeNotFoundException);
+    MeiAttribute* getPsolfa();
     void setPsolfa(std::string _psolfa);
     bool hasPsolfa();
     void removePsolfa();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // ANALYSISMIXIN_H_

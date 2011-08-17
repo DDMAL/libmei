@@ -34,7 +34,8 @@
 #include "linkalignmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   mordent ― An ornament indicating rapid alternation of the main note with a
     * secondary note, usually a step below, but sometimes a step above. See Read, p.
     * 245-246. Events may be contained within <mordent> in order to record precise
@@ -43,11 +44,12 @@
     * to specify a starting point attribute.
     */
 
-struct Mordent : public BaseMeiElement {
-    Mordent();
-    virtual ~Mordent() {};
-    
-    
+class Mordent : public MeiElement {
+    public:
+        Mordent();
+        virtual ~Mordent() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     MordentLogMixIn    m_MordentLog;
@@ -67,7 +69,7 @@ struct Mordent : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mordent);
+        REGISTER_DECLARATION(Mordent);
 };
 
 
@@ -83,11 +85,12 @@ struct Mordent : public BaseMeiElement {
     * a true duration, but rather a time stamp for the end point of the trill.
     */
 
-struct Trill : public BaseMeiElement {
-    Trill();
-    virtual ~Trill() {};
-    
-    
+class Trill : public MeiElement {
+    public:
+        Trill();
+        virtual ~Trill() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     ParticipantidentMixIn    m_Participantident;
@@ -111,7 +114,7 @@ struct Trill : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Trill);
+        REGISTER_DECLARATION(Trill);
 };
 
 
@@ -123,11 +126,12 @@ struct Trill : public BaseMeiElement {
     * beat, unaccented ones do not.
     */
 
-struct Turn : public BaseMeiElement {
-    Turn();
-    virtual ~Turn() {};
-    
-    
+class Turn : public MeiElement {
+    public:
+        Turn();
+        virtual ~Turn() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     TurnLogMixIn    m_TurnLog;
@@ -147,8 +151,9 @@ struct Turn : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Turn);
+        REGISTER_DECLARATION(Turn);
 };
 
 
+}
 #endif // CMNORNAMENTS_H_

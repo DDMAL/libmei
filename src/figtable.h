@@ -32,24 +32,26 @@
 #include "figtablemixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   figure ― groups elements representing or containing graphic information such
     * as an illustration or figure. This element is modelled on the figure element in
     * the Text Encoding Initiative (TEI).
     */
 
-struct Fig : public BaseMeiElement {
-    Fig();
-    virtual ~Fig() {};
-    
-    
+class Fig : public MeiElement {
+    public:
+        Fig();
+        virtual ~Fig() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LinkCommonMixIn    m_LinkCommon;
     LinkExternalMixIn    m_LinkExternal;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Fig);
+        REGISTER_DECLARATION(Fig);
 };
 
 
@@ -62,15 +64,16 @@ struct Fig : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Figdesc : public BaseMeiElement {
-    Figdesc();
-    virtual ~Figdesc() {};
-    
-    
+class Figdesc : public MeiElement {
+    public:
+        Figdesc();
+        virtual ~Figdesc() {};
+        
+        
     CommonMixIn    m_Common;
     LangMixIn    m_Lang;
     private:
-        //REGISTER_DECLARATION(Figdesc);
+        REGISTER_DECLARATION(Figdesc);
 };
 
 
@@ -79,19 +82,19 @@ struct Figdesc : public BaseMeiElement {
     * (TEI).
     */
 
-struct Graphic : public BaseMeiElement {
-    Graphic();
-    virtual ~Graphic() {};
-    
+class Graphic : public MeiElement {
+    public:
+        Graphic();
+        virtual ~Graphic() {};
+        
     /** \brief   measurement of the vertical dimension of an image.
     */
-    string getHeightValue() throw (AttributeNotFoundException);
-    MeiAttribute* getHeight() throw (AttributeNotFoundException);
+    MeiAttribute* getHeight();
     void setHeight(std::string _height);
     bool hasHeight();
     void removeHeight();
 
-    
+        
     CommonMixIn    m_Common;
     DeclaringMixIn    m_Declaring;
     InternetmediaMixIn    m_Internetmedia;
@@ -101,7 +104,7 @@ struct Graphic : public BaseMeiElement {
     TypedMixIn    m_Typed;
     WidthMixIn    m_Width;
     private:
-        //REGISTER_DECLARATION(Graphic);
+        REGISTER_DECLARATION(Graphic);
 };
 
 
@@ -109,17 +112,18 @@ struct Graphic : public BaseMeiElement {
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
 
-struct Table : public BaseMeiElement {
-    Table();
-    virtual ~Table() {};
-    
-    
+class Table : public MeiElement {
+    public:
+        Table();
+        virtual ~Table() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Table);
+        REGISTER_DECLARATION(Table);
 };
 
 
@@ -129,18 +133,19 @@ struct Table : public BaseMeiElement {
     * element in HTML.
     */
 
-struct Td : public BaseMeiElement {
-    Td();
-    virtual ~Td() {};
-    
-    
+class Td : public MeiElement {
+    public:
+        Td();
+        virtual ~Td() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     TabularMixIn    m_Tabular;
     private:
-        //REGISTER_DECLARATION(Td);
+        REGISTER_DECLARATION(Td);
 };
 
 
@@ -150,18 +155,19 @@ struct Td : public BaseMeiElement {
     * element in HTML.
     */
 
-struct Th : public BaseMeiElement {
-    Th();
-    virtual ~Th() {};
-    
-    
+class Th : public MeiElement {
+    public:
+        Th();
+        virtual ~Th() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     TabularMixIn    m_Tabular;
     private:
-        //REGISTER_DECLARATION(Th);
+        REGISTER_DECLARATION(Th);
 };
 
 
@@ -171,18 +177,20 @@ struct Th : public BaseMeiElement {
     * sheet. This element is modelled on an element in HTML.
     */
 
-struct Tr : public BaseMeiElement {
-    Tr();
-    virtual ~Tr() {};
-    
-    
+class Tr : public MeiElement {
+    public:
+        Tr();
+        virtual ~Tr() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
     XyMixIn    m_Xy;
     private:
-        //REGISTER_DECLARATION(Tr);
+        REGISTER_DECLARATION(Tr);
 };
 
 
+}
 #endif // FIGTABLE_H_

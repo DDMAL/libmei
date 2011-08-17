@@ -29,16 +29,17 @@
 #include "exceptions.h"
 
 
-
-struct MordentLogMixIn {
-    MordentLogMixIn(BaseMeiElement *b);
-    virtual ~MordentLogMixIn() {};
+namespace mei {
     
+class MordentLogMixIn {
+    public:
+        MordentLogMixIn(MeiElement *b);
+        virtual ~MordentLogMixIn() {};
+        
     /** \brief   records the function of the dot.
     */
 
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
@@ -47,26 +48,25 @@ struct MordentLogMixIn {
     * 5 notes, is indicated.
     */
 
-    string getLongValue() throw (AttributeNotFoundException);
-    MeiAttribute* getLong() throw (AttributeNotFoundException);
+    MeiAttribute* getLong();
     void setLong(std::string _long);
     bool hasLong();
     void removeLong();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct OrnamentaccidMixIn {
-    OrnamentaccidMixIn(BaseMeiElement *b);
-    virtual ~OrnamentaccidMixIn() {};
-    
+class OrnamentaccidMixIn {
+    public:
+        OrnamentaccidMixIn(MeiElement *b);
+        virtual ~OrnamentaccidMixIn() {};
+        
     /** \brief   records the written accidental associated with an upper neighboring note.
     */
 
-    string getAccidupperValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAccidupper() throw (AttributeNotFoundException);
+    MeiAttribute* getAccidupper();
     void setAccidupper(std::string _accidupper);
     bool hasAccidupper();
     void removeAccidupper();
@@ -74,27 +74,26 @@ struct OrnamentaccidMixIn {
     /** \brief   records the written accidental associated with a lower neighboring note.
     */
 
-    string getAccidlowerValue() throw (AttributeNotFoundException);
-    MeiAttribute* getAccidlower() throw (AttributeNotFoundException);
+    MeiAttribute* getAccidlower();
     void setAccidlower(std::string _accidlower);
     bool hasAccidlower();
     void removeAccidlower();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
-struct TurnLogMixIn {
-    TurnLogMixIn(BaseMeiElement *b);
-    virtual ~TurnLogMixIn() {};
-    
+class TurnLogMixIn {
+    public:
+        TurnLogMixIn(MeiElement *b);
+        virtual ~TurnLogMixIn() {};
+        
     /** \brief   When the delayed attribute is set to 'true', the turn begins on the second half
     * of the beat. See Read, p. 246.
     */
 
-    string getDelayedValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDelayed() throw (AttributeNotFoundException);
+    MeiAttribute* getDelayed();
     void setDelayed(std::string _delayed);
     bool hasDelayed();
     void removeDelayed();
@@ -102,15 +101,15 @@ struct TurnLogMixIn {
     /** \brief   records the function of the dot.
     */
 
-    string getFormValue() throw (AttributeNotFoundException);
-    MeiAttribute* getForm() throw (AttributeNotFoundException);
+    MeiAttribute* getForm();
     void setForm(std::string _form);
     bool hasForm();
     void removeForm();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // CMNORNAMENTSMIXIN_H_

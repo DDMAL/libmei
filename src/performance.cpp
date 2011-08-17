@@ -2,203 +2,185 @@
 
 #include "performance.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Avfile::Avfile() : m_Common(this), m_Declaring(this), m_Internetmedia(this), m_Facsimile(this), m_LinkExternal(this), m_Typed(this) {
-    m_Base.setName("avFile");
+mei::Avfile::Avfile() : 
+    MeiElement("avFile"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Internetmedia(this),
+    m_Facsimile(this),
+    m_LinkExternal(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Avfile, "avFile");
 
 
 
-Clip::Clip() : m_Common(this), m_Declaring(this), m_Startid(this) {
-    m_Base.setName("clip");
+mei::Clip::Clip() : 
+    MeiElement("clip"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Startid(this) 
+{
 };
+REGISTER_DEFINITION(mei::Clip, "clip");
 
 
-string Clip::getBeginValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("begin")) {
+MeiAttribute* mei::Clip::getBegin() {
+    if (!hasAttribute("begin")) {
         throw AttributeNotFoundException("begin");
     }
-    return m_Base.getAttributeValue("begin");
+    return getAttribute("begin");
 };
 
-MeiAttribute* Clip::getBegin() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("begin")) {
-        throw AttributeNotFoundException("begin");
-    }
-    return m_Base.getAttribute("begin");
-};
-
-void Clip::setBegin(std::string _begin) {
-    if (!m_Base.hasAttribute("begin")) {
+void mei::Clip::setBegin(std::string _begin) {
+    if (!hasAttribute("begin")) {
         MeiAttribute *a = new MeiAttribute("begin", _begin);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Clip::hasBegin() {
-    return m_Base.hasAttribute("begin");
+bool mei::Clip::hasBegin() {
+    return hasAttribute("begin");
 };
 
-void Clip::removeBegin() {
-    m_Base.removeAttribute("begin");
+void mei::Clip::removeBegin() {
+    removeAttribute("begin");
 };
 
-string Clip::getEndValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("end")) {
+MeiAttribute* mei::Clip::getEnd() {
+    if (!hasAttribute("end")) {
         throw AttributeNotFoundException("end");
     }
-    return m_Base.getAttributeValue("end");
+    return getAttribute("end");
 };
 
-MeiAttribute* Clip::getEnd() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("end")) {
-        throw AttributeNotFoundException("end");
-    }
-    return m_Base.getAttribute("end");
-};
-
-void Clip::setEnd(std::string _end) {
-    if (!m_Base.hasAttribute("end")) {
+void mei::Clip::setEnd(std::string _end) {
+    if (!hasAttribute("end")) {
         MeiAttribute *a = new MeiAttribute("end", _end);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Clip::hasEnd() {
-    return m_Base.hasAttribute("end");
+bool mei::Clip::hasEnd() {
+    return hasAttribute("end");
 };
 
-void Clip::removeEnd() {
-    m_Base.removeAttribute("end");
+void mei::Clip::removeEnd() {
+    removeAttribute("end");
 };
 
-string Clip::getBetypeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("betype")) {
+MeiAttribute* mei::Clip::getBetype() {
+    if (!hasAttribute("betype")) {
         throw AttributeNotFoundException("betype");
     }
-    return m_Base.getAttributeValue("betype");
+    return getAttribute("betype");
 };
 
-MeiAttribute* Clip::getBetype() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("betype")) {
-        throw AttributeNotFoundException("betype");
-    }
-    return m_Base.getAttribute("betype");
-};
-
-void Clip::setBetype(std::string _betype) {
-    if (!m_Base.hasAttribute("betype")) {
+void mei::Clip::setBetype(std::string _betype) {
+    if (!hasAttribute("betype")) {
         MeiAttribute *a = new MeiAttribute("betype", _betype);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Clip::hasBetype() {
-    return m_Base.hasAttribute("betype");
+bool mei::Clip::hasBetype() {
+    return hasAttribute("betype");
 };
 
-void Clip::removeBetype() {
-    m_Base.removeAttribute("betype");
-};
-
-
-Performance::Performance() : m_Common(this), m_Declaring(this) {
-    m_Base.setName("performance");
+void mei::Clip::removeBetype() {
+    removeAttribute("betype");
 };
 
 
-
-Recording::Recording() : m_Common(this), m_Declaring(this), m_Startid(this) {
-    m_Base.setName("recording");
+mei::Performance::Performance() : 
+    MeiElement("performance"),
+    m_Common(this),
+    m_Declaring(this) 
+{
 };
+REGISTER_DEFINITION(mei::Performance, "performance");
 
 
-string Recording::getBeginValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("begin")) {
+
+mei::Recording::Recording() : 
+    MeiElement("recording"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Startid(this) 
+{
+};
+REGISTER_DEFINITION(mei::Recording, "recording");
+
+
+MeiAttribute* mei::Recording::getBegin() {
+    if (!hasAttribute("begin")) {
         throw AttributeNotFoundException("begin");
     }
-    return m_Base.getAttributeValue("begin");
+    return getAttribute("begin");
 };
 
-MeiAttribute* Recording::getBegin() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("begin")) {
-        throw AttributeNotFoundException("begin");
-    }
-    return m_Base.getAttribute("begin");
-};
-
-void Recording::setBegin(std::string _begin) {
-    if (!m_Base.hasAttribute("begin")) {
+void mei::Recording::setBegin(std::string _begin) {
+    if (!hasAttribute("begin")) {
         MeiAttribute *a = new MeiAttribute("begin", _begin);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Recording::hasBegin() {
-    return m_Base.hasAttribute("begin");
+bool mei::Recording::hasBegin() {
+    return hasAttribute("begin");
 };
 
-void Recording::removeBegin() {
-    m_Base.removeAttribute("begin");
+void mei::Recording::removeBegin() {
+    removeAttribute("begin");
 };
 
-string Recording::getEndValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("end")) {
+MeiAttribute* mei::Recording::getEnd() {
+    if (!hasAttribute("end")) {
         throw AttributeNotFoundException("end");
     }
-    return m_Base.getAttributeValue("end");
+    return getAttribute("end");
 };
 
-MeiAttribute* Recording::getEnd() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("end")) {
-        throw AttributeNotFoundException("end");
-    }
-    return m_Base.getAttribute("end");
-};
-
-void Recording::setEnd(std::string _end) {
-    if (!m_Base.hasAttribute("end")) {
+void mei::Recording::setEnd(std::string _end) {
+    if (!hasAttribute("end")) {
         MeiAttribute *a = new MeiAttribute("end", _end);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Recording::hasEnd() {
-    return m_Base.hasAttribute("end");
+bool mei::Recording::hasEnd() {
+    return hasAttribute("end");
 };
 
-void Recording::removeEnd() {
-    m_Base.removeAttribute("end");
+void mei::Recording::removeEnd() {
+    removeAttribute("end");
 };
 
-string Recording::getBetypeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("betype")) {
+MeiAttribute* mei::Recording::getBetype() {
+    if (!hasAttribute("betype")) {
         throw AttributeNotFoundException("betype");
     }
-    return m_Base.getAttributeValue("betype");
+    return getAttribute("betype");
 };
 
-MeiAttribute* Recording::getBetype() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("betype")) {
-        throw AttributeNotFoundException("betype");
-    }
-    return m_Base.getAttribute("betype");
-};
-
-void Recording::setBetype(std::string _betype) {
-    if (!m_Base.hasAttribute("betype")) {
+void mei::Recording::setBetype(std::string _betype) {
+    if (!hasAttribute("betype")) {
         MeiAttribute *a = new MeiAttribute("betype", _betype);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Recording::hasBetype() {
-    return m_Base.hasAttribute("betype");
+bool mei::Recording::hasBetype() {
+    return hasAttribute("betype");
 };
 
-void Recording::removeBetype() {
-    m_Base.removeAttribute("betype");
+void mei::Recording::removeBetype() {
+    removeAttribute("betype");
 };
 
 

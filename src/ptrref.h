@@ -30,7 +30,8 @@
 #include "sharedmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   external pointer ― An empty linking element that uses attributes to connect
     * the MEI document to an external electronic object. Either the entityref or href
     * attribute may be used to identify the external object. Don't confuse this
@@ -39,17 +40,18 @@
     * modelled on an element in Encoded Archival Description (EAD).
     */
 
-struct Extptr : public BaseMeiElement {
-    Extptr();
-    virtual ~Extptr() {};
-    
-    
+class Extptr : public MeiElement {
+    public:
+        Extptr();
+        virtual ~Extptr() {};
+        
+        
     CommonMixIn    m_Common;
     InternetmediaMixIn    m_Internetmedia;
     LinkCommonMixIn    m_LinkCommon;
     LinkExternalMixIn    m_LinkExternal;
     private:
-        //REGISTER_DECLARATION(Extptr);
+        REGISTER_DECLARATION(Extptr);
 };
 
 
@@ -62,18 +64,19 @@ struct Extptr : public BaseMeiElement {
     * Description (EAD).
     */
 
-struct Extref : public BaseMeiElement {
-    Extref();
-    virtual ~Extref() {};
-    
-    
+class Extref : public MeiElement {
+    public:
+        Extref();
+        virtual ~Extref() {};
+        
+        
     CommonMixIn    m_Common;
     InternetmediaMixIn    m_Internetmedia;
     LangMixIn    m_Lang;
     LinkCommonMixIn    m_LinkCommon;
     LinkExternalMixIn    m_LinkExternal;
     private:
-        //REGISTER_DECLARATION(Extref);
+        REGISTER_DECLARATION(Extref);
 };
 
 
@@ -85,16 +88,17 @@ struct Extref : public BaseMeiElement {
     * element is modelled on an element in Encoded Archival Description (EAD).
     */
 
-struct Ptr : public BaseMeiElement {
-    Ptr();
-    virtual ~Ptr() {};
-    
-    
+class Ptr : public MeiElement {
+    public:
+        Ptr();
+        virtual ~Ptr() {};
+        
+        
     CommonMixIn    m_Common;
     LinkCommonMixIn    m_LinkCommon;
     ParticipantidentMixIn    m_Participantident;
     private:
-        //REGISTER_DECLARATION(Ptr);
+        REGISTER_DECLARATION(Ptr);
 };
 
 
@@ -106,18 +110,20 @@ struct Ptr : public BaseMeiElement {
     * on an element in Encoded Archival Description (EAD).
     */
 
-struct Ref : public BaseMeiElement {
-    Ref();
-    virtual ~Ref() {};
-    
-    
+class Ref : public MeiElement {
+    public:
+        Ref();
+        virtual ~Ref() {};
+        
+        
     CommonMixIn    m_Common;
     LangMixIn    m_Lang;
     LinkCommonMixIn    m_LinkCommon;
     ParticipantidentMixIn    m_Participantident;
     private:
-        //REGISTER_DECLARATION(Ref);
+        REGISTER_DECLARATION(Ref);
 };
 
 
+}
 #endif // PTRREF_H_

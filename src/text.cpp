@@ -2,88 +2,136 @@
 
 #include "text.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Back::Back() : m_Common(this), m_Declaring(this), m_Facsimile(this), m_Lang(this) {
-    m_Base.setName("back");
+mei::Back::Back() : 
+    MeiElement("back"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Facsimile(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Back, "back");
 
 
 
-Div::Div() : m_Common(this), m_Declaring(this), m_Facsimile(this), m_Lang(this), m_Typed(this) {
-    m_Base.setName("div");
+mei::Div::Div() : 
+    MeiElement("div"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Typed(this) 
+{
 };
+REGISTER_DEFINITION(mei::Div, "div");
 
 
 
-Front::Front() : m_Common(this), m_Declaring(this), m_Facsimile(this), m_Lang(this) {
-    m_Base.setName("front");
+mei::Front::Front() : 
+    MeiElement("front"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Facsimile(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::Front, "front");
 
 
 
-Head::Head() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("head");
+mei::Head::Head() : 
+    MeiElement("head"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::Head, "head");
 
 
 
-Item::Item() : m_Common(this), m_Facsimile(this) {
-    m_Base.setName("item");
+mei::Item::Item() : 
+    MeiElement("item"),
+    m_Common(this),
+    m_Facsimile(this) 
+{
 };
+REGISTER_DEFINITION(mei::Item, "item");
 
 
 
-L::L() : m_Common(this), m_Facsimile(this), m_Lang(this) {
-    m_Base.setName("l");
+mei::L::L() : 
+    MeiElement("l"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this) 
+{
 };
+REGISTER_DEFINITION(mei::L, "l");
 
 
 
-Lg::Lg() : m_Common(this), m_Declaring(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("lg");
+mei::Lg::Lg() : 
+    MeiElement("lg"),
+    m_Common(this),
+    m_Declaring(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::Lg, "lg");
 
 
 
-List::List() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("list");
+mei::List::List() : 
+    MeiElement("list"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::List, "list");
 
 
-string List::getFormValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
+MeiAttribute* mei::List::getForm() {
+    if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return m_Base.getAttributeValue("form");
+    return getAttribute("form");
 };
 
-MeiAttribute* List::getForm() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return m_Base.getAttribute("form");
-};
-
-void List::setForm(std::string _form) {
-    if (!m_Base.hasAttribute("form")) {
+void mei::List::setForm(std::string _form) {
+    if (!hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool List::hasForm() {
-    return m_Base.hasAttribute("form");
+bool mei::List::hasForm() {
+    return hasAttribute("form");
 };
 
-void List::removeForm() {
-    m_Base.removeAttribute("form");
+void mei::List::removeForm() {
+    removeAttribute("form");
 };
 
 
-Quote::Quote() : m_Common(this), m_Facsimile(this), m_Lang(this), m_Xy(this) {
-    m_Base.setName("quote");
+mei::Quote::Quote() : 
+    MeiElement("quote"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Xy(this) 
+{
 };
+REGISTER_DEFINITION(mei::Quote, "quote");
 
 
 

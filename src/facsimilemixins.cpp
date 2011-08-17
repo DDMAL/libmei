@@ -2,39 +2,34 @@
 
 #include "facsimilemixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-FacsimileMixIn::FacsimileMixIn(BaseMeiElement *b) {
+mei::FacsimileMixIn::FacsimileMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string FacsimileMixIn::getFacsValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("facs")) {
+MeiAttribute* mei::FacsimileMixIn::getFacs() {
+    if (!b->hasAttribute("facs")) {
         throw AttributeNotFoundException("facs");
     }
-    return b->m_Base.getAttributeValue("facs");
+    return b->getAttribute("facs");
 };
 
-MeiAttribute* FacsimileMixIn::getFacs() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("facs")) {
-        throw AttributeNotFoundException("facs");
-    }
-    return b->m_Base.getAttribute("facs");
-};
-
-void FacsimileMixIn::setFacs(std::string _facs) {
-    if (!b->m_Base.hasAttribute("facs")) {
+void mei::FacsimileMixIn::setFacs(std::string _facs) {
+    if (!b->hasAttribute("facs")) {
         MeiAttribute *a = new MeiAttribute("facs", _facs);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool FacsimileMixIn::hasFacs() {
-    return b->m_Base.hasAttribute("facs");
+bool mei::FacsimileMixIn::hasFacs() {
+    return b->hasAttribute("facs");
 };
 
-void FacsimileMixIn::removeFacs() {
-    b->m_Base.removeAttribute("facs");
+void mei::FacsimileMixIn::removeFacs() {
+    b->removeAttribute("facs");
 };
 
 

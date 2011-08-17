@@ -7,56 +7,65 @@
 //
 
 #include <iostream>
-#include <mei/meielement.h>
-#include <mei/exceptions.h>
 
-#include <exception>
-#include <stdexcept>
+using std::string;
 
-#include <stdio.h>
-#include <execinfo.h>
-#include <signal.h>
-#include <stdlib.h>
-
-using namespace std;
-
-void handler(int sig) {
-    void *array[10];
-    size_t size;
+class CoolMixIn {
+public:
+    CoolMixIn(ParentClass *b);
+    virtual ~CoolMixIn() {};
     
-    // get void*'s for all entries on the stack
-    size = backtrace(array, 10);
+    string getCoolness();
+private:
+    ParentClass *b;
+}
+
+CoolMixIn::CoolMixIn(ParentClass *b) {
+    this->b = b;
+}
+
+string CoolMixIn::getCoolness() {
+    return this->b.getName();
+}
+
+
+class ParentClass {
+public:
+    ParentClass(string name);
+    virtual ~ParentClass();
     
-    // print out all the frames to stderr
-    fprintf(stderr, "Error: signal %d:\n", sig);
-    backtrace_symbols_fd(array, size, 2);
-    exit(1);
+    string getName() {
+        return this->name;
+    }
+    
+private:
+    string name;
+}
+
+class ChildClass : public ParentClass {
+public:
+    ChildClass();
+    virtual ~ChildClass() {};
+    
+    CoolMixIn m_Cool;
+private:
+}
+
+ChildClass::ChildClass() :
+    ParentClass("so cool"),
+    m_Cool(this)
+{
+    
 }
 
 int main(int argc, char **argv) {
-    signal(SIGSEGV, handler);
     
-    MeiElement * p = new MeiElement("note");
+    ParentClass *p = new ChildClass();
     
-    MeiAttribute * attr1 = new MeiAttribute("pname", "c");
-    MeiAttribute * attr2 = new MeiAttribute("stem.dir", "down");
+    string coolness = dynamic_cast<ChildClass*>(p)->getCoolness();
     
-    vector<MeiAttribute*> attrs;
-    attrs.push_back(attr1);
-    attrs.push_back(attr2);
-    p->setAttributes(attrs);
+    cout << "how cool? " << coolness << "\n";
     
-    string n = p->getAttributeValue("pname");
-    
-    cout << "Pname: " << n << "\n";
-
-    try {
-        p->getAttribute("color");
-    } catch (AttributeNotFoundException) {
-        cout << "exceptions!!!" << "\n";
-    }
-
-    cout << "done." << "\n";
     
     return 0;
 }

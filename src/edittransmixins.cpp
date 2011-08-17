@@ -2,170 +2,137 @@
 
 #include "edittransmixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-AgentidentMixIn::AgentidentMixIn(BaseMeiElement *b) {
+mei::AgentidentMixIn::AgentidentMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string AgentidentMixIn::getAgentValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("agent")) {
+MeiAttribute* mei::AgentidentMixIn::getAgent() {
+    if (!b->hasAttribute("agent")) {
         throw AttributeNotFoundException("agent");
     }
-    return b->m_Base.getAttributeValue("agent");
+    return b->getAttribute("agent");
 };
 
-MeiAttribute* AgentidentMixIn::getAgent() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("agent")) {
-        throw AttributeNotFoundException("agent");
-    }
-    return b->m_Base.getAttribute("agent");
-};
-
-void AgentidentMixIn::setAgent(std::string _agent) {
-    if (!b->m_Base.hasAttribute("agent")) {
+void mei::AgentidentMixIn::setAgent(std::string _agent) {
+    if (!b->hasAttribute("agent")) {
         MeiAttribute *a = new MeiAttribute("agent", _agent);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool AgentidentMixIn::hasAgent() {
-    return b->m_Base.hasAttribute("agent");
+bool mei::AgentidentMixIn::hasAgent() {
+    return b->hasAttribute("agent");
 };
 
-void AgentidentMixIn::removeAgent() {
-    b->m_Base.removeAttribute("agent");
+void mei::AgentidentMixIn::removeAgent() {
+    b->removeAttribute("agent");
 };
 
 
-EditMixIn::EditMixIn(BaseMeiElement *b) {
+mei::EditMixIn::EditMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string EditMixIn::getCertValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("cert")) {
+MeiAttribute* mei::EditMixIn::getCert() {
+    if (!b->hasAttribute("cert")) {
         throw AttributeNotFoundException("cert");
     }
-    return b->m_Base.getAttributeValue("cert");
+    return b->getAttribute("cert");
 };
 
-MeiAttribute* EditMixIn::getCert() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("cert")) {
-        throw AttributeNotFoundException("cert");
-    }
-    return b->m_Base.getAttribute("cert");
-};
-
-void EditMixIn::setCert(std::string _cert) {
-    if (!b->m_Base.hasAttribute("cert")) {
+void mei::EditMixIn::setCert(std::string _cert) {
+    if (!b->hasAttribute("cert")) {
         MeiAttribute *a = new MeiAttribute("cert", _cert);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool EditMixIn::hasCert() {
-    return b->m_Base.hasAttribute("cert");
+bool mei::EditMixIn::hasCert() {
+    return b->hasAttribute("cert");
 };
 
-void EditMixIn::removeCert() {
-    b->m_Base.removeAttribute("cert");
+void mei::EditMixIn::removeCert() {
+    b->removeAttribute("cert");
 };
 
-string EditMixIn::getEvidenceValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("evidence")) {
+MeiAttribute* mei::EditMixIn::getEvidence() {
+    if (!b->hasAttribute("evidence")) {
         throw AttributeNotFoundException("evidence");
     }
-    return b->m_Base.getAttributeValue("evidence");
+    return b->getAttribute("evidence");
 };
 
-MeiAttribute* EditMixIn::getEvidence() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("evidence")) {
-        throw AttributeNotFoundException("evidence");
-    }
-    return b->m_Base.getAttribute("evidence");
-};
-
-void EditMixIn::setEvidence(std::string _evidence) {
-    if (!b->m_Base.hasAttribute("evidence")) {
+void mei::EditMixIn::setEvidence(std::string _evidence) {
+    if (!b->hasAttribute("evidence")) {
         MeiAttribute *a = new MeiAttribute("evidence", _evidence);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool EditMixIn::hasEvidence() {
-    return b->m_Base.hasAttribute("evidence");
+bool mei::EditMixIn::hasEvidence() {
+    return b->hasAttribute("evidence");
 };
 
-void EditMixIn::removeEvidence() {
-    b->m_Base.removeAttribute("evidence");
+void mei::EditMixIn::removeEvidence() {
+    b->removeAttribute("evidence");
 };
 
 
-ExtentMixIn::ExtentMixIn(BaseMeiElement *b) {
+mei::ExtentMixIn::ExtentMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string ExtentMixIn::getExtentValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("extent")) {
+MeiAttribute* mei::ExtentMixIn::getExtent() {
+    if (!b->hasAttribute("extent")) {
         throw AttributeNotFoundException("extent");
     }
-    return b->m_Base.getAttributeValue("extent");
+    return b->getAttribute("extent");
 };
 
-MeiAttribute* ExtentMixIn::getExtent() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("extent")) {
-        throw AttributeNotFoundException("extent");
-    }
-    return b->m_Base.getAttribute("extent");
-};
-
-void ExtentMixIn::setExtent(std::string _extent) {
-    if (!b->m_Base.hasAttribute("extent")) {
+void mei::ExtentMixIn::setExtent(std::string _extent) {
+    if (!b->hasAttribute("extent")) {
         MeiAttribute *a = new MeiAttribute("extent", _extent);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ExtentMixIn::hasExtent() {
-    return b->m_Base.hasAttribute("extent");
+bool mei::ExtentMixIn::hasExtent() {
+    return b->hasAttribute("extent");
 };
 
-void ExtentMixIn::removeExtent() {
-    b->m_Base.removeAttribute("extent");
+void mei::ExtentMixIn::removeExtent() {
+    b->removeAttribute("extent");
 };
 
 
-ReasonidentMixIn::ReasonidentMixIn(BaseMeiElement *b) {
+mei::ReasonidentMixIn::ReasonidentMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string ReasonidentMixIn::getReasonValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("reason")) {
+MeiAttribute* mei::ReasonidentMixIn::getReason() {
+    if (!b->hasAttribute("reason")) {
         throw AttributeNotFoundException("reason");
     }
-    return b->m_Base.getAttributeValue("reason");
+    return b->getAttribute("reason");
 };
 
-MeiAttribute* ReasonidentMixIn::getReason() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("reason")) {
-        throw AttributeNotFoundException("reason");
-    }
-    return b->m_Base.getAttribute("reason");
-};
-
-void ReasonidentMixIn::setReason(std::string _reason) {
-    if (!b->m_Base.hasAttribute("reason")) {
+void mei::ReasonidentMixIn::setReason(std::string _reason) {
+    if (!b->hasAttribute("reason")) {
         MeiAttribute *a = new MeiAttribute("reason", _reason);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ReasonidentMixIn::hasReason() {
-    return b->m_Base.hasAttribute("reason");
+bool mei::ReasonidentMixIn::hasReason() {
+    return b->hasAttribute("reason");
 };
 
-void ReasonidentMixIn::removeReason() {
-    b->m_Base.removeAttribute("reason");
+void mei::ReasonidentMixIn::removeReason() {
+    b->removeAttribute("reason");
 };
 
 

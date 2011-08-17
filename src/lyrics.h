@@ -34,7 +34,8 @@
 #include "lyricsmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   lyrics ― Vocally performed 'text' of a musical composition, such as a song or
     * opera. The staff attribute gives the staff to which the lyrics are attached. If
     * there is more than one layer on that staff, the layer attribute may be used to
@@ -44,11 +45,12 @@
     * attribute of the parent verse element.
     */
 
-struct Lyrics : public BaseMeiElement {
-    Lyrics();
-    virtual ~Lyrics() {};
-    
-    
+class Lyrics : public MeiElement {
+    public:
+        Lyrics();
+        virtual ~Lyrics() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
@@ -59,7 +61,7 @@ struct Lyrics : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Lyrics);
+        REGISTER_DECLARATION(Lyrics);
 };
 
 
@@ -68,11 +70,12 @@ struct Lyrics : public BaseMeiElement {
     * line ends from line group ends for these applications.
     */
 
-struct Verse : public BaseMeiElement {
-    Verse();
-    virtual ~Verse() {};
-    
-    
+class Verse : public MeiElement {
+    public:
+        Verse();
+        virtual ~Verse() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LangMixIn    m_Lang;
@@ -84,8 +87,9 @@ struct Verse : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Verse);
+        REGISTER_DECLARATION(Verse);
 };
 
 
+}
 #endif // LYRICS_H_

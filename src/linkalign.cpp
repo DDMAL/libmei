@@ -2,191 +2,158 @@
 
 #include "linkalign.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Timeline::Timeline() : m_Common(this) {
-    m_Base.setName("timeline");
+mei::Timeline::Timeline() : 
+    MeiElement("timeline"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Timeline, "timeline");
 
 
-string Timeline::getAvrefValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("avref")) {
+MeiAttribute* mei::Timeline::getAvref() {
+    if (!hasAttribute("avref")) {
         throw AttributeNotFoundException("avref");
     }
-    return m_Base.getAttributeValue("avref");
+    return getAttribute("avref");
 };
 
-MeiAttribute* Timeline::getAvref() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("avref")) {
-        throw AttributeNotFoundException("avref");
-    }
-    return m_Base.getAttribute("avref");
-};
-
-void Timeline::setAvref(std::string _avref) {
-    if (!m_Base.hasAttribute("avref")) {
+void mei::Timeline::setAvref(std::string _avref) {
+    if (!hasAttribute("avref")) {
         MeiAttribute *a = new MeiAttribute("avref", _avref);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Timeline::hasAvref() {
-    return m_Base.hasAttribute("avref");
+bool mei::Timeline::hasAvref() {
+    return hasAttribute("avref");
 };
 
-void Timeline::removeAvref() {
-    m_Base.removeAttribute("avref");
+void mei::Timeline::removeAvref() {
+    removeAttribute("avref");
 };
 
-string Timeline::getOriginValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("origin")) {
+MeiAttribute* mei::Timeline::getOrigin() {
+    if (!hasAttribute("origin")) {
         throw AttributeNotFoundException("origin");
     }
-    return m_Base.getAttributeValue("origin");
+    return getAttribute("origin");
 };
 
-MeiAttribute* Timeline::getOrigin() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("origin")) {
-        throw AttributeNotFoundException("origin");
-    }
-    return m_Base.getAttribute("origin");
-};
-
-void Timeline::setOrigin(std::string _origin) {
-    if (!m_Base.hasAttribute("origin")) {
+void mei::Timeline::setOrigin(std::string _origin) {
+    if (!hasAttribute("origin")) {
         MeiAttribute *a = new MeiAttribute("origin", _origin);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Timeline::hasOrigin() {
-    return m_Base.hasAttribute("origin");
+bool mei::Timeline::hasOrigin() {
+    return hasAttribute("origin");
 };
 
-void Timeline::removeOrigin() {
-    m_Base.removeAttribute("origin");
-};
-
-
-When::When() : m_Common(this), m_Datapointing(this) {
-    m_Base.setName("when");
+void mei::Timeline::removeOrigin() {
+    removeAttribute("origin");
 };
 
 
-string When::getAbsoluteValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("absolute")) {
+mei::When::When() : 
+    MeiElement("when"),
+    m_Common(this),
+    m_Datapointing(this) 
+{
+};
+REGISTER_DEFINITION(mei::When, "when");
+
+
+MeiAttribute* mei::When::getAbsolute() {
+    if (!hasAttribute("absolute")) {
         throw AttributeNotFoundException("absolute");
     }
-    return m_Base.getAttributeValue("absolute");
+    return getAttribute("absolute");
 };
 
-MeiAttribute* When::getAbsolute() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("absolute")) {
-        throw AttributeNotFoundException("absolute");
-    }
-    return m_Base.getAttribute("absolute");
-};
-
-void When::setAbsolute(std::string _absolute) {
-    if (!m_Base.hasAttribute("absolute")) {
+void mei::When::setAbsolute(std::string _absolute) {
+    if (!hasAttribute("absolute")) {
         MeiAttribute *a = new MeiAttribute("absolute", _absolute);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool When::hasAbsolute() {
-    return m_Base.hasAttribute("absolute");
+bool mei::When::hasAbsolute() {
+    return hasAttribute("absolute");
 };
 
-void When::removeAbsolute() {
-    m_Base.removeAttribute("absolute");
+void mei::When::removeAbsolute() {
+    removeAttribute("absolute");
 };
 
-string When::getIntervalValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("interval")) {
+MeiAttribute* mei::When::getInterval() {
+    if (!hasAttribute("interval")) {
         throw AttributeNotFoundException("interval");
     }
-    return m_Base.getAttributeValue("interval");
+    return getAttribute("interval");
 };
 
-MeiAttribute* When::getInterval() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("interval")) {
-        throw AttributeNotFoundException("interval");
-    }
-    return m_Base.getAttribute("interval");
-};
-
-void When::setInterval(std::string _interval) {
-    if (!m_Base.hasAttribute("interval")) {
+void mei::When::setInterval(std::string _interval) {
+    if (!hasAttribute("interval")) {
         MeiAttribute *a = new MeiAttribute("interval", _interval);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool When::hasInterval() {
-    return m_Base.hasAttribute("interval");
+bool mei::When::hasInterval() {
+    return hasAttribute("interval");
 };
 
-void When::removeInterval() {
-    m_Base.removeAttribute("interval");
+void mei::When::removeInterval() {
+    removeAttribute("interval");
 };
 
-string When::getInttypeValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("inttype")) {
+MeiAttribute* mei::When::getInttype() {
+    if (!hasAttribute("inttype")) {
         throw AttributeNotFoundException("inttype");
     }
-    return m_Base.getAttributeValue("inttype");
+    return getAttribute("inttype");
 };
 
-MeiAttribute* When::getInttype() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("inttype")) {
-        throw AttributeNotFoundException("inttype");
-    }
-    return m_Base.getAttribute("inttype");
-};
-
-void When::setInttype(std::string _inttype) {
-    if (!m_Base.hasAttribute("inttype")) {
+void mei::When::setInttype(std::string _inttype) {
+    if (!hasAttribute("inttype")) {
         MeiAttribute *a = new MeiAttribute("inttype", _inttype);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool When::hasInttype() {
-    return m_Base.hasAttribute("inttype");
+bool mei::When::hasInttype() {
+    return hasAttribute("inttype");
 };
 
-void When::removeInttype() {
-    m_Base.removeAttribute("inttype");
+void mei::When::removeInttype() {
+    removeAttribute("inttype");
 };
 
-string When::getSinceValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("since")) {
+MeiAttribute* mei::When::getSince() {
+    if (!hasAttribute("since")) {
         throw AttributeNotFoundException("since");
     }
-    return m_Base.getAttributeValue("since");
+    return getAttribute("since");
 };
 
-MeiAttribute* When::getSince() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("since")) {
-        throw AttributeNotFoundException("since");
-    }
-    return m_Base.getAttribute("since");
-};
-
-void When::setSince(std::string _since) {
-    if (!m_Base.hasAttribute("since")) {
+void mei::When::setSince(std::string _since) {
+    if (!hasAttribute("since")) {
         MeiAttribute *a = new MeiAttribute("since", _since);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool When::hasSince() {
-    return m_Base.hasAttribute("since");
+bool mei::When::hasSince() {
+    return hasAttribute("since");
 };
 
-void When::removeSince() {
-    m_Base.removeAttribute("since");
+void mei::When::removeSince() {
+    removeAttribute("since");
 };
 
 

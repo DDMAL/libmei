@@ -2,102 +2,83 @@
 
 #include "tablaturemixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-NoteGesTablatureMixIn::NoteGesTablatureMixIn(BaseMeiElement *b) {
+mei::NoteGesTablatureMixIn::NoteGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string NoteGesTablatureMixIn::getTabFretValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.fret")) {
+MeiAttribute* mei::NoteGesTablatureMixIn::getTabFret() {
+    if (!b->hasAttribute("tab.fret")) {
         throw AttributeNotFoundException("tab.fret");
     }
-    return b->m_Base.getAttributeValue("tab.fret");
+    return b->getAttribute("tab.fret");
 };
 
-MeiAttribute* NoteGesTablatureMixIn::getTabFret() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.fret")) {
-        throw AttributeNotFoundException("tab.fret");
-    }
-    return b->m_Base.getAttribute("tab.fret");
-};
-
-void NoteGesTablatureMixIn::setTabFret(std::string _tabfret) {
-    if (!b->m_Base.hasAttribute("tab.fret")) {
+void mei::NoteGesTablatureMixIn::setTabFret(std::string _tabfret) {
+    if (!b->hasAttribute("tab.fret")) {
         MeiAttribute *a = new MeiAttribute("tab.fret", _tabfret);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool NoteGesTablatureMixIn::hasTabFret() {
-    return b->m_Base.hasAttribute("tab.fret");
+bool mei::NoteGesTablatureMixIn::hasTabFret() {
+    return b->hasAttribute("tab.fret");
 };
 
-void NoteGesTablatureMixIn::removeTabFret() {
-    b->m_Base.removeAttribute("tab.fret");
+void mei::NoteGesTablatureMixIn::removeTabFret() {
+    b->removeAttribute("tab.fret");
 };
 
-string NoteGesTablatureMixIn::getTabStringValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.string")) {
+MeiAttribute* mei::NoteGesTablatureMixIn::getTabString() {
+    if (!b->hasAttribute("tab.string")) {
         throw AttributeNotFoundException("tab.string");
     }
-    return b->m_Base.getAttributeValue("tab.string");
+    return b->getAttribute("tab.string");
 };
 
-MeiAttribute* NoteGesTablatureMixIn::getTabString() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.string")) {
-        throw AttributeNotFoundException("tab.string");
-    }
-    return b->m_Base.getAttribute("tab.string");
-};
-
-void NoteGesTablatureMixIn::setTabString(std::string _tabstring) {
-    if (!b->m_Base.hasAttribute("tab.string")) {
+void mei::NoteGesTablatureMixIn::setTabString(std::string _tabstring) {
+    if (!b->hasAttribute("tab.string")) {
         MeiAttribute *a = new MeiAttribute("tab.string", _tabstring);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool NoteGesTablatureMixIn::hasTabString() {
-    return b->m_Base.hasAttribute("tab.string");
+bool mei::NoteGesTablatureMixIn::hasTabString() {
+    return b->hasAttribute("tab.string");
 };
 
-void NoteGesTablatureMixIn::removeTabString() {
-    b->m_Base.removeAttribute("tab.string");
+void mei::NoteGesTablatureMixIn::removeTabString() {
+    b->removeAttribute("tab.string");
 };
 
 
-StaffdefGesTablatureMixIn::StaffdefGesTablatureMixIn(BaseMeiElement *b) {
+mei::StaffdefGesTablatureMixIn::StaffdefGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string StaffdefGesTablatureMixIn::getTabStringsValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.strings")) {
+MeiAttribute* mei::StaffdefGesTablatureMixIn::getTabStrings() {
+    if (!b->hasAttribute("tab.strings")) {
         throw AttributeNotFoundException("tab.strings");
     }
-    return b->m_Base.getAttributeValue("tab.strings");
+    return b->getAttribute("tab.strings");
 };
 
-MeiAttribute* StaffdefGesTablatureMixIn::getTabStrings() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tab.strings")) {
-        throw AttributeNotFoundException("tab.strings");
-    }
-    return b->m_Base.getAttribute("tab.strings");
-};
-
-void StaffdefGesTablatureMixIn::setTabStrings(std::string _tabstrings) {
-    if (!b->m_Base.hasAttribute("tab.strings")) {
+void mei::StaffdefGesTablatureMixIn::setTabStrings(std::string _tabstrings) {
+    if (!b->hasAttribute("tab.strings")) {
         MeiAttribute *a = new MeiAttribute("tab.strings", _tabstrings);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool StaffdefGesTablatureMixIn::hasTabStrings() {
-    return b->m_Base.hasAttribute("tab.strings");
+bool mei::StaffdefGesTablatureMixIn::hasTabStrings() {
+    return b->hasAttribute("tab.strings");
 };
 
-void StaffdefGesTablatureMixIn::removeTabStrings() {
-    b->m_Base.removeAttribute("tab.strings");
+void mei::StaffdefGesTablatureMixIn::removeTabStrings() {
+    b->removeAttribute("tab.strings");
 };
 
 

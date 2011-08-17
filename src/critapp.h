@@ -33,7 +33,8 @@
 #include "linkalignmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   apparatus ― Contains one or more alternative encodings. The alternatives may
     * be thought of as exclusive or as parallel. The type attribute may contain any
     * convenient descriptive word, describing the extent of the variation (e.g. note,
@@ -43,15 +44,16 @@
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct App : public BaseMeiElement {
-    App();
-    virtual ~App() {};
-    
-    
+class App : public MeiElement {
+    public:
+        App();
+        virtual ~App() {};
+        
+        
     CommonMixIn    m_Common;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(App);
+        REGISTER_DECLARATION(App);
 };
 
 
@@ -67,11 +69,12 @@ struct App : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Lem : public BaseMeiElement {
-    Lem();
-    virtual ~Lem() {};
-    
-    
+class Lem : public MeiElement {
+    public:
+        Lem();
+        virtual ~Lem() {};
+        
+        
     CommonMixIn    m_Common;
     CritMixIn    m_Crit;
     HandidentMixIn    m_Handident;
@@ -85,7 +88,7 @@ struct Lem : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Lem);
+        REGISTER_DECLARATION(Lem);
 };
 
 
@@ -96,11 +99,12 @@ struct Lem : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Rdg : public BaseMeiElement {
-    Rdg();
-    virtual ~Rdg() {};
-    
-    
+class Rdg : public MeiElement {
+    public:
+        Rdg();
+        virtual ~Rdg() {};
+        
+        
     CommonMixIn    m_Common;
     CritMixIn    m_Crit;
     HandidentMixIn    m_Handident;
@@ -114,8 +118,9 @@ struct Rdg : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Rdg);
+        REGISTER_DECLARATION(Rdg);
 };
 
 
+}
 #endif // CRITAPP_H_

@@ -2,134 +2,172 @@
 
 #include "harmony.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Barre::Barre() : m_Common(this), m_Fretlocation(this), m_Startendid(this), m_Startid(this) {
-    m_Base.setName("barre");
+mei::Barre::Barre() : 
+    MeiElement("barre"),
+    m_Common(this),
+    m_Fretlocation(this),
+    m_Startendid(this),
+    m_Startid(this) 
+{
 };
+REGISTER_DEFINITION(mei::Barre, "barre");
 
 
 
-Chorddef::Chorddef() : m_Common(this) {
-    m_Base.setName("chordDef");
+mei::Chorddef::Chorddef() : 
+    MeiElement("chordDef"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Chorddef, "chordDef");
 
 
-string Chorddef::getPosValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("pos")) {
+MeiAttribute* mei::Chorddef::getPos() {
+    if (!hasAttribute("pos")) {
         throw AttributeNotFoundException("pos");
     }
-    return m_Base.getAttributeValue("pos");
+    return getAttribute("pos");
 };
 
-MeiAttribute* Chorddef::getPos() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("pos")) {
-        throw AttributeNotFoundException("pos");
-    }
-    return m_Base.getAttribute("pos");
-};
-
-void Chorddef::setPos(std::string _pos) {
-    if (!m_Base.hasAttribute("pos")) {
+void mei::Chorddef::setPos(std::string _pos) {
+    if (!hasAttribute("pos")) {
         MeiAttribute *a = new MeiAttribute("pos", _pos);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Chorddef::hasPos() {
-    return m_Base.hasAttribute("pos");
+bool mei::Chorddef::hasPos() {
+    return hasAttribute("pos");
 };
 
-void Chorddef::removePos() {
-    m_Base.removeAttribute("pos");
-};
-
-
-Chordmember::Chordmember() : m_Common(this), m_AccidentalPerformed(this), m_Fretlocation(this), m_Intervalharmonic(this), m_Pitch(this), m_Octave(this) {
-    m_Base.setName("chordMember");
+void mei::Chorddef::removePos() {
+    removeAttribute("pos");
 };
 
 
-string Chordmember::getFingValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("fing")) {
+mei::Chordmember::Chordmember() : 
+    MeiElement("chordMember"),
+    m_Common(this),
+    m_AccidentalPerformed(this),
+    m_Fretlocation(this),
+    m_Intervalharmonic(this),
+    m_Pitch(this),
+    m_Octave(this) 
+{
+};
+REGISTER_DEFINITION(mei::Chordmember, "chordMember");
+
+
+MeiAttribute* mei::Chordmember::getFing() {
+    if (!hasAttribute("fing")) {
         throw AttributeNotFoundException("fing");
     }
-    return m_Base.getAttributeValue("fing");
+    return getAttribute("fing");
 };
 
-MeiAttribute* Chordmember::getFing() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("fing")) {
-        throw AttributeNotFoundException("fing");
-    }
-    return m_Base.getAttribute("fing");
-};
-
-void Chordmember::setFing(std::string _fing) {
-    if (!m_Base.hasAttribute("fing")) {
+void mei::Chordmember::setFing(std::string _fing) {
+    if (!hasAttribute("fing")) {
         MeiAttribute *a = new MeiAttribute("fing", _fing);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Chordmember::hasFing() {
-    return m_Base.hasAttribute("fing");
+bool mei::Chordmember::hasFing() {
+    return hasAttribute("fing");
 };
 
-void Chordmember::removeFing() {
-    m_Base.removeAttribute("fing");
-};
-
-
-Chordtable::Chordtable() : m_Common(this) {
-    m_Base.setName("chordTable");
+void mei::Chordmember::removeFing() {
+    removeAttribute("fing");
 };
 
 
-
-F::F() : m_Common(this), m_CommonAnl(this), m_Alignment(this), m_Altsym(this), m_Facsimile(this) {
-    m_Base.setName("f");
+mei::Chordtable::Chordtable() : 
+    MeiElement("chordTable"),
+    m_Common(this) 
+{
 };
+REGISTER_DEFINITION(mei::Chordtable, "chordTable");
 
 
-string F::getExtenderValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("extender")) {
+
+mei::F::F() : 
+    MeiElement("f"),
+    m_Common(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Altsym(this),
+    m_Facsimile(this) 
+{
+};
+REGISTER_DEFINITION(mei::F, "f");
+
+
+MeiAttribute* mei::F::getExtender() {
+    if (!hasAttribute("extender")) {
         throw AttributeNotFoundException("extender");
     }
-    return m_Base.getAttributeValue("extender");
+    return getAttribute("extender");
 };
 
-MeiAttribute* F::getExtender() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("extender")) {
-        throw AttributeNotFoundException("extender");
-    }
-    return m_Base.getAttribute("extender");
-};
-
-void F::setExtender(std::string _extender) {
-    if (!m_Base.hasAttribute("extender")) {
+void mei::F::setExtender(std::string _extender) {
+    if (!hasAttribute("extender")) {
         MeiAttribute *a = new MeiAttribute("extender", _extender);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool F::hasExtender() {
-    return m_Base.hasAttribute("extender");
+bool mei::F::hasExtender() {
+    return hasAttribute("extender");
 };
 
-void F::removeExtender() {
-    m_Base.removeAttribute("extender");
-};
-
-
-Fb::Fb() : m_Common(this), m_CommonAnl(this), m_Alignment(this), m_Facsimile(this) {
-    m_Base.setName("fb");
+void mei::F::removeExtender() {
+    removeAttribute("extender");
 };
 
 
-
-Harm::Harm() : m_Common(this), m_Facsimile(this), m_HarmLog(this), m_Participantident(this), m_TimestampMusical(this), m_TimestampPerformed(this), m_Staffident(this), m_Layerident(this), m_Startendid(this), m_Startid(this), m_DurationTimestamp(this), m_HarmVis(this), m_Placement(this), m_VisualoffsetHo(this), m_VisualoffsetTo(this), m_VisualoffsetVo(this), m_Visualoffset2Ho(this), m_Visualoffset2To(this), m_Xy(this), m_DurationPerformed(this), m_CommonAnl(this), m_Alignment(this) {
-    m_Base.setName("harm");
+mei::Fb::Fb() : 
+    MeiElement("fb"),
+    m_Common(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Facsimile(this) 
+{
 };
+REGISTER_DEFINITION(mei::Fb, "fb");
+
+
+
+mei::Harm::Harm() : 
+    MeiElement("harm"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_HarmLog(this),
+    m_Participantident(this),
+    m_TimestampMusical(this),
+    m_TimestampPerformed(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_Startendid(this),
+    m_Startid(this),
+    m_DurationTimestamp(this),
+    m_HarmVis(this),
+    m_Placement(this),
+    m_VisualoffsetHo(this),
+    m_VisualoffsetTo(this),
+    m_VisualoffsetVo(this),
+    m_Visualoffset2Ho(this),
+    m_Visualoffset2To(this),
+    m_Xy(this),
+    m_DurationPerformed(this),
+    m_CommonAnl(this),
+    m_Alignment(this) 
+{
+};
+REGISTER_DEFINITION(mei::Harm, "harm");
 
 
 

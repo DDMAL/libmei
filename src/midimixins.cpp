@@ -2,325 +2,257 @@
 
 #include "midimixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-ChannelizedMixIn::ChannelizedMixIn(BaseMeiElement *b) {
+mei::ChannelizedMixIn::ChannelizedMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string ChannelizedMixIn::getMidiChannelValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.channel")) {
+MeiAttribute* mei::ChannelizedMixIn::getMidiChannel() {
+    if (!b->hasAttribute("midi.channel")) {
         throw AttributeNotFoundException("midi.channel");
     }
-    return b->m_Base.getAttributeValue("midi.channel");
+    return b->getAttribute("midi.channel");
 };
 
-MeiAttribute* ChannelizedMixIn::getMidiChannel() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.channel")) {
-        throw AttributeNotFoundException("midi.channel");
-    }
-    return b->m_Base.getAttribute("midi.channel");
-};
-
-void ChannelizedMixIn::setMidiChannel(std::string _midichannel) {
-    if (!b->m_Base.hasAttribute("midi.channel")) {
+void mei::ChannelizedMixIn::setMidiChannel(std::string _midichannel) {
+    if (!b->hasAttribute("midi.channel")) {
         MeiAttribute *a = new MeiAttribute("midi.channel", _midichannel);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ChannelizedMixIn::hasMidiChannel() {
-    return b->m_Base.hasAttribute("midi.channel");
+bool mei::ChannelizedMixIn::hasMidiChannel() {
+    return b->hasAttribute("midi.channel");
 };
 
-void ChannelizedMixIn::removeMidiChannel() {
-    b->m_Base.removeAttribute("midi.channel");
+void mei::ChannelizedMixIn::removeMidiChannel() {
+    b->removeAttribute("midi.channel");
 };
 
-string ChannelizedMixIn::getMidiDutyValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.duty")) {
+MeiAttribute* mei::ChannelizedMixIn::getMidiDuty() {
+    if (!b->hasAttribute("midi.duty")) {
         throw AttributeNotFoundException("midi.duty");
     }
-    return b->m_Base.getAttributeValue("midi.duty");
+    return b->getAttribute("midi.duty");
 };
 
-MeiAttribute* ChannelizedMixIn::getMidiDuty() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.duty")) {
-        throw AttributeNotFoundException("midi.duty");
-    }
-    return b->m_Base.getAttribute("midi.duty");
-};
-
-void ChannelizedMixIn::setMidiDuty(std::string _mididuty) {
-    if (!b->m_Base.hasAttribute("midi.duty")) {
+void mei::ChannelizedMixIn::setMidiDuty(std::string _mididuty) {
+    if (!b->hasAttribute("midi.duty")) {
         MeiAttribute *a = new MeiAttribute("midi.duty", _mididuty);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ChannelizedMixIn::hasMidiDuty() {
-    return b->m_Base.hasAttribute("midi.duty");
+bool mei::ChannelizedMixIn::hasMidiDuty() {
+    return b->hasAttribute("midi.duty");
 };
 
-void ChannelizedMixIn::removeMidiDuty() {
-    b->m_Base.removeAttribute("midi.duty");
+void mei::ChannelizedMixIn::removeMidiDuty() {
+    b->removeAttribute("midi.duty");
 };
 
-string ChannelizedMixIn::getMidiPortValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.port")) {
+MeiAttribute* mei::ChannelizedMixIn::getMidiPort() {
+    if (!b->hasAttribute("midi.port")) {
         throw AttributeNotFoundException("midi.port");
     }
-    return b->m_Base.getAttributeValue("midi.port");
+    return b->getAttribute("midi.port");
 };
 
-MeiAttribute* ChannelizedMixIn::getMidiPort() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.port")) {
-        throw AttributeNotFoundException("midi.port");
-    }
-    return b->m_Base.getAttribute("midi.port");
-};
-
-void ChannelizedMixIn::setMidiPort(std::string _midiport) {
-    if (!b->m_Base.hasAttribute("midi.port")) {
+void mei::ChannelizedMixIn::setMidiPort(std::string _midiport) {
+    if (!b->hasAttribute("midi.port")) {
         MeiAttribute *a = new MeiAttribute("midi.port", _midiport);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ChannelizedMixIn::hasMidiPort() {
-    return b->m_Base.hasAttribute("midi.port");
+bool mei::ChannelizedMixIn::hasMidiPort() {
+    return b->hasAttribute("midi.port");
 };
 
-void ChannelizedMixIn::removeMidiPort() {
-    b->m_Base.removeAttribute("midi.port");
+void mei::ChannelizedMixIn::removeMidiPort() {
+    b->removeAttribute("midi.port");
 };
 
-string ChannelizedMixIn::getMidiTrackValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.track")) {
+MeiAttribute* mei::ChannelizedMixIn::getMidiTrack() {
+    if (!b->hasAttribute("midi.track")) {
         throw AttributeNotFoundException("midi.track");
     }
-    return b->m_Base.getAttributeValue("midi.track");
+    return b->getAttribute("midi.track");
 };
 
-MeiAttribute* ChannelizedMixIn::getMidiTrack() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.track")) {
-        throw AttributeNotFoundException("midi.track");
-    }
-    return b->m_Base.getAttribute("midi.track");
-};
-
-void ChannelizedMixIn::setMidiTrack(std::string _miditrack) {
-    if (!b->m_Base.hasAttribute("midi.track")) {
+void mei::ChannelizedMixIn::setMidiTrack(std::string _miditrack) {
+    if (!b->hasAttribute("midi.track")) {
         MeiAttribute *a = new MeiAttribute("midi.track", _miditrack);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool ChannelizedMixIn::hasMidiTrack() {
-    return b->m_Base.hasAttribute("midi.track");
+bool mei::ChannelizedMixIn::hasMidiTrack() {
+    return b->hasAttribute("midi.track");
 };
 
-void ChannelizedMixIn::removeMidiTrack() {
-    b->m_Base.removeAttribute("midi.track");
+void mei::ChannelizedMixIn::removeMidiTrack() {
+    b->removeAttribute("midi.track");
 };
 
 
-MidiinstrumentMixIn::MidiinstrumentMixIn(BaseMeiElement *b) {
+mei::MidiinstrumentMixIn::MidiinstrumentMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MidiinstrumentMixIn::getMidiInstrnumValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.instrnum")) {
+MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrnum() {
+    if (!b->hasAttribute("midi.instrnum")) {
         throw AttributeNotFoundException("midi.instrnum");
     }
-    return b->m_Base.getAttributeValue("midi.instrnum");
+    return b->getAttribute("midi.instrnum");
 };
 
-MeiAttribute* MidiinstrumentMixIn::getMidiInstrnum() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.instrnum")) {
-        throw AttributeNotFoundException("midi.instrnum");
-    }
-    return b->m_Base.getAttribute("midi.instrnum");
-};
-
-void MidiinstrumentMixIn::setMidiInstrnum(std::string _midiinstrnum) {
-    if (!b->m_Base.hasAttribute("midi.instrnum")) {
+void mei::MidiinstrumentMixIn::setMidiInstrnum(std::string _midiinstrnum) {
+    if (!b->hasAttribute("midi.instrnum")) {
         MeiAttribute *a = new MeiAttribute("midi.instrnum", _midiinstrnum);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MidiinstrumentMixIn::hasMidiInstrnum() {
-    return b->m_Base.hasAttribute("midi.instrnum");
+bool mei::MidiinstrumentMixIn::hasMidiInstrnum() {
+    return b->hasAttribute("midi.instrnum");
 };
 
-void MidiinstrumentMixIn::removeMidiInstrnum() {
-    b->m_Base.removeAttribute("midi.instrnum");
+void mei::MidiinstrumentMixIn::removeMidiInstrnum() {
+    b->removeAttribute("midi.instrnum");
 };
 
-string MidiinstrumentMixIn::getMidiInstrnameValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.instrname")) {
+MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrname() {
+    if (!b->hasAttribute("midi.instrname")) {
         throw AttributeNotFoundException("midi.instrname");
     }
-    return b->m_Base.getAttributeValue("midi.instrname");
+    return b->getAttribute("midi.instrname");
 };
 
-MeiAttribute* MidiinstrumentMixIn::getMidiInstrname() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.instrname")) {
-        throw AttributeNotFoundException("midi.instrname");
-    }
-    return b->m_Base.getAttribute("midi.instrname");
-};
-
-void MidiinstrumentMixIn::setMidiInstrname(std::string _midiinstrname) {
-    if (!b->m_Base.hasAttribute("midi.instrname")) {
+void mei::MidiinstrumentMixIn::setMidiInstrname(std::string _midiinstrname) {
+    if (!b->hasAttribute("midi.instrname")) {
         MeiAttribute *a = new MeiAttribute("midi.instrname", _midiinstrname);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MidiinstrumentMixIn::hasMidiInstrname() {
-    return b->m_Base.hasAttribute("midi.instrname");
+bool mei::MidiinstrumentMixIn::hasMidiInstrname() {
+    return b->hasAttribute("midi.instrname");
 };
 
-void MidiinstrumentMixIn::removeMidiInstrname() {
-    b->m_Base.removeAttribute("midi.instrname");
+void mei::MidiinstrumentMixIn::removeMidiInstrname() {
+    b->removeAttribute("midi.instrname");
 };
 
 
-MidinumberMixIn::MidinumberMixIn(BaseMeiElement *b) {
+mei::MidinumberMixIn::MidinumberMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MidinumberMixIn::getNumValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("num")) {
+MeiAttribute* mei::MidinumberMixIn::getNum() {
+    if (!b->hasAttribute("num")) {
         throw AttributeNotFoundException("num");
     }
-    return b->m_Base.getAttributeValue("num");
+    return b->getAttribute("num");
 };
 
-MeiAttribute* MidinumberMixIn::getNum() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
-    }
-    return b->m_Base.getAttribute("num");
-};
-
-void MidinumberMixIn::setNum(std::string _num) {
-    if (!b->m_Base.hasAttribute("num")) {
+void mei::MidinumberMixIn::setNum(std::string _num) {
+    if (!b->hasAttribute("num")) {
         MeiAttribute *a = new MeiAttribute("num", _num);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MidinumberMixIn::hasNum() {
-    return b->m_Base.hasAttribute("num");
+bool mei::MidinumberMixIn::hasNum() {
+    return b->hasAttribute("num");
 };
 
-void MidinumberMixIn::removeNum() {
-    b->m_Base.removeAttribute("num");
+void mei::MidinumberMixIn::removeNum() {
+    b->removeAttribute("num");
 };
 
 
-MiditempoMixIn::MiditempoMixIn(BaseMeiElement *b) {
+mei::MiditempoMixIn::MiditempoMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MiditempoMixIn::getMidiTempoValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.tempo")) {
+MeiAttribute* mei::MiditempoMixIn::getMidiTempo() {
+    if (!b->hasAttribute("midi.tempo")) {
         throw AttributeNotFoundException("midi.tempo");
     }
-    return b->m_Base.getAttributeValue("midi.tempo");
+    return b->getAttribute("midi.tempo");
 };
 
-MeiAttribute* MiditempoMixIn::getMidiTempo() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("midi.tempo")) {
-        throw AttributeNotFoundException("midi.tempo");
-    }
-    return b->m_Base.getAttribute("midi.tempo");
-};
-
-void MiditempoMixIn::setMidiTempo(std::string _miditempo) {
-    if (!b->m_Base.hasAttribute("midi.tempo")) {
+void mei::MiditempoMixIn::setMidiTempo(std::string _miditempo) {
+    if (!b->hasAttribute("midi.tempo")) {
         MeiAttribute *a = new MeiAttribute("midi.tempo", _miditempo);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MiditempoMixIn::hasMidiTempo() {
-    return b->m_Base.hasAttribute("midi.tempo");
+bool mei::MiditempoMixIn::hasMidiTempo() {
+    return b->hasAttribute("midi.tempo");
 };
 
-void MiditempoMixIn::removeMidiTempo() {
-    b->m_Base.removeAttribute("midi.tempo");
+void mei::MiditempoMixIn::removeMidiTempo() {
+    b->removeAttribute("midi.tempo");
 };
 
 
-MidivalueMixIn::MidivalueMixIn(BaseMeiElement *b) {
+mei::MidivalueMixIn::MidivalueMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MidivalueMixIn::getValValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("val")) {
+MeiAttribute* mei::MidivalueMixIn::getVal() {
+    if (!b->hasAttribute("val")) {
         throw AttributeNotFoundException("val");
     }
-    return b->m_Base.getAttributeValue("val");
+    return b->getAttribute("val");
 };
 
-MeiAttribute* MidivalueMixIn::getVal() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("val")) {
-        throw AttributeNotFoundException("val");
-    }
-    return b->m_Base.getAttribute("val");
-};
-
-void MidivalueMixIn::setVal(std::string _val) {
-    if (!b->m_Base.hasAttribute("val")) {
+void mei::MidivalueMixIn::setVal(std::string _val) {
+    if (!b->hasAttribute("val")) {
         MeiAttribute *a = new MeiAttribute("val", _val);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MidivalueMixIn::hasVal() {
-    return b->m_Base.hasAttribute("val");
+bool mei::MidivalueMixIn::hasVal() {
+    return b->hasAttribute("val");
 };
 
-void MidivalueMixIn::removeVal() {
-    b->m_Base.removeAttribute("val");
+void mei::MidivalueMixIn::removeVal() {
+    b->removeAttribute("val");
 };
 
 
-TimebaseMixIn::TimebaseMixIn(BaseMeiElement *b) {
+mei::TimebaseMixIn::TimebaseMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string TimebaseMixIn::getPpqValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("ppq")) {
+MeiAttribute* mei::TimebaseMixIn::getPpq() {
+    if (!b->hasAttribute("ppq")) {
         throw AttributeNotFoundException("ppq");
     }
-    return b->m_Base.getAttributeValue("ppq");
+    return b->getAttribute("ppq");
 };
 
-MeiAttribute* TimebaseMixIn::getPpq() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("ppq")) {
-        throw AttributeNotFoundException("ppq");
-    }
-    return b->m_Base.getAttribute("ppq");
-};
-
-void TimebaseMixIn::setPpq(std::string _ppq) {
-    if (!b->m_Base.hasAttribute("ppq")) {
+void mei::TimebaseMixIn::setPpq(std::string _ppq) {
+    if (!b->hasAttribute("ppq")) {
         MeiAttribute *a = new MeiAttribute("ppq", _ppq);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool TimebaseMixIn::hasPpq() {
-    return b->m_Base.hasAttribute("ppq");
+bool mei::TimebaseMixIn::hasPpq() {
+    return b->hasAttribute("ppq");
 };
 
-void TimebaseMixIn::removePpq() {
-    b->m_Base.removeAttribute("ppq");
+void mei::TimebaseMixIn::removePpq() {
+    b->removeAttribute("ppq");
 };
 
 

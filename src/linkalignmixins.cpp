@@ -2,39 +2,34 @@
 
 #include "linkalignmixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-AlignmentMixIn::AlignmentMixIn(BaseMeiElement *b) {
+mei::AlignmentMixIn::AlignmentMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string AlignmentMixIn::getWhenValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("when")) {
+MeiAttribute* mei::AlignmentMixIn::getWhen() {
+    if (!b->hasAttribute("when")) {
         throw AttributeNotFoundException("when");
     }
-    return b->m_Base.getAttributeValue("when");
+    return b->getAttribute("when");
 };
 
-MeiAttribute* AlignmentMixIn::getWhen() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("when")) {
-        throw AttributeNotFoundException("when");
-    }
-    return b->m_Base.getAttribute("when");
-};
-
-void AlignmentMixIn::setWhen(std::string _when) {
-    if (!b->m_Base.hasAttribute("when")) {
+void mei::AlignmentMixIn::setWhen(std::string _when) {
+    if (!b->hasAttribute("when")) {
         MeiAttribute *a = new MeiAttribute("when", _when);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool AlignmentMixIn::hasWhen() {
-    return b->m_Base.hasAttribute("when");
+bool mei::AlignmentMixIn::hasWhen() {
+    return b->hasAttribute("when");
 };
 
-void AlignmentMixIn::removeWhen() {
-    b->m_Base.removeAttribute("when");
+void mei::AlignmentMixIn::removeWhen() {
+    b->removeAttribute("when");
 };
 
 

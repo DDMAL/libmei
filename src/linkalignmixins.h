@@ -29,24 +29,26 @@
 #include "exceptions.h"
 
 
-
-struct AlignmentMixIn {
-    AlignmentMixIn(BaseMeiElement *b);
-    virtual ~AlignmentMixIn() {};
+namespace mei {
     
+class AlignmentMixIn {
+    public:
+        AlignmentMixIn(MeiElement *b);
+        virtual ~AlignmentMixIn() {};
+        
     /** \brief   indicates the point of occurrence of this feature along a time line. Its value
     * must be the ID of a <when> element.
     */
 
-    string getWhenValue() throw (AttributeNotFoundException);
-    MeiAttribute* getWhen() throw (AttributeNotFoundException);
+    MeiAttribute* getWhen();
     void setWhen(std::string _when);
     bool hasWhen();
     void removeWhen();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // LINKALIGNMIXIN_H_

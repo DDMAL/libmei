@@ -2,625 +2,487 @@
 
 #include "mensuralmixins.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-LigatureLogMixIn::LigatureLogMixIn(BaseMeiElement *b) {
+mei::LigatureLogMixIn::LigatureLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string LigatureLogMixIn::getFormValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
+MeiAttribute* mei::LigatureLogMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return b->m_Base.getAttributeValue("form");
+    return b->getAttribute("form");
 };
 
-MeiAttribute* LigatureLogMixIn::getForm() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return b->m_Base.getAttribute("form");
-};
-
-void LigatureLogMixIn::setForm(std::string _form) {
-    if (!b->m_Base.hasAttribute("form")) {
+void mei::LigatureLogMixIn::setForm(std::string _form) {
+    if (!b->hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool LigatureLogMixIn::hasForm() {
-    return b->m_Base.hasAttribute("form");
+bool mei::LigatureLogMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void LigatureLogMixIn::removeForm() {
-    b->m_Base.removeAttribute("form");
+void mei::LigatureLogMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
 
-MensurLogMixIn::MensurLogMixIn(BaseMeiElement *b) {
+mei::MensurLogMixIn::MensurLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MensurLogMixIn::getModusmaiorValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("modusmaior")) {
+MeiAttribute* mei::MensurLogMixIn::getModusmaior() {
+    if (!b->hasAttribute("modusmaior")) {
         throw AttributeNotFoundException("modusmaior");
     }
-    return b->m_Base.getAttributeValue("modusmaior");
+    return b->getAttribute("modusmaior");
 };
 
-MeiAttribute* MensurLogMixIn::getModusmaior() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("modusmaior")) {
-        throw AttributeNotFoundException("modusmaior");
-    }
-    return b->m_Base.getAttribute("modusmaior");
-};
-
-void MensurLogMixIn::setModusmaior(std::string _modusmaior) {
-    if (!b->m_Base.hasAttribute("modusmaior")) {
+void mei::MensurLogMixIn::setModusmaior(std::string _modusmaior) {
+    if (!b->hasAttribute("modusmaior")) {
         MeiAttribute *a = new MeiAttribute("modusmaior", _modusmaior);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurLogMixIn::hasModusmaior() {
-    return b->m_Base.hasAttribute("modusmaior");
+bool mei::MensurLogMixIn::hasModusmaior() {
+    return b->hasAttribute("modusmaior");
 };
 
-void MensurLogMixIn::removeModusmaior() {
-    b->m_Base.removeAttribute("modusmaior");
+void mei::MensurLogMixIn::removeModusmaior() {
+    b->removeAttribute("modusmaior");
 };
 
-string MensurLogMixIn::getModusminorValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("modusminor")) {
+MeiAttribute* mei::MensurLogMixIn::getModusminor() {
+    if (!b->hasAttribute("modusminor")) {
         throw AttributeNotFoundException("modusminor");
     }
-    return b->m_Base.getAttributeValue("modusminor");
+    return b->getAttribute("modusminor");
 };
 
-MeiAttribute* MensurLogMixIn::getModusminor() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("modusminor")) {
-        throw AttributeNotFoundException("modusminor");
-    }
-    return b->m_Base.getAttribute("modusminor");
-};
-
-void MensurLogMixIn::setModusminor(std::string _modusminor) {
-    if (!b->m_Base.hasAttribute("modusminor")) {
+void mei::MensurLogMixIn::setModusminor(std::string _modusminor) {
+    if (!b->hasAttribute("modusminor")) {
         MeiAttribute *a = new MeiAttribute("modusminor", _modusminor);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurLogMixIn::hasModusminor() {
-    return b->m_Base.hasAttribute("modusminor");
+bool mei::MensurLogMixIn::hasModusminor() {
+    return b->hasAttribute("modusminor");
 };
 
-void MensurLogMixIn::removeModusminor() {
-    b->m_Base.removeAttribute("modusminor");
+void mei::MensurLogMixIn::removeModusminor() {
+    b->removeAttribute("modusminor");
 };
 
-string MensurLogMixIn::getProlatioValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("prolatio")) {
+MeiAttribute* mei::MensurLogMixIn::getProlatio() {
+    if (!b->hasAttribute("prolatio")) {
         throw AttributeNotFoundException("prolatio");
     }
-    return b->m_Base.getAttributeValue("prolatio");
+    return b->getAttribute("prolatio");
 };
 
-MeiAttribute* MensurLogMixIn::getProlatio() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("prolatio")) {
-        throw AttributeNotFoundException("prolatio");
-    }
-    return b->m_Base.getAttribute("prolatio");
-};
-
-void MensurLogMixIn::setProlatio(std::string _prolatio) {
-    if (!b->m_Base.hasAttribute("prolatio")) {
+void mei::MensurLogMixIn::setProlatio(std::string _prolatio) {
+    if (!b->hasAttribute("prolatio")) {
         MeiAttribute *a = new MeiAttribute("prolatio", _prolatio);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurLogMixIn::hasProlatio() {
-    return b->m_Base.hasAttribute("prolatio");
+bool mei::MensurLogMixIn::hasProlatio() {
+    return b->hasAttribute("prolatio");
 };
 
-void MensurLogMixIn::removeProlatio() {
-    b->m_Base.removeAttribute("prolatio");
+void mei::MensurLogMixIn::removeProlatio() {
+    b->removeAttribute("prolatio");
 };
 
-string MensurLogMixIn::getTempusValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tempus")) {
+MeiAttribute* mei::MensurLogMixIn::getTempus() {
+    if (!b->hasAttribute("tempus")) {
         throw AttributeNotFoundException("tempus");
     }
-    return b->m_Base.getAttributeValue("tempus");
+    return b->getAttribute("tempus");
 };
 
-MeiAttribute* MensurLogMixIn::getTempus() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("tempus")) {
-        throw AttributeNotFoundException("tempus");
-    }
-    return b->m_Base.getAttribute("tempus");
-};
-
-void MensurLogMixIn::setTempus(std::string _tempus) {
-    if (!b->m_Base.hasAttribute("tempus")) {
+void mei::MensurLogMixIn::setTempus(std::string _tempus) {
+    if (!b->hasAttribute("tempus")) {
         MeiAttribute *a = new MeiAttribute("tempus", _tempus);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurLogMixIn::hasTempus() {
-    return b->m_Base.hasAttribute("tempus");
+bool mei::MensurLogMixIn::hasTempus() {
+    return b->hasAttribute("tempus");
 };
 
-void MensurLogMixIn::removeTempus() {
-    b->m_Base.removeAttribute("tempus");
+void mei::MensurLogMixIn::removeTempus() {
+    b->removeAttribute("tempus");
 };
 
 
-MensurVisMixIn::MensurVisMixIn(BaseMeiElement *b) {
+mei::MensurVisMixIn::MensurVisMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MensurVisMixIn::getDotValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("dot")) {
+MeiAttribute* mei::MensurVisMixIn::getDot() {
+    if (!b->hasAttribute("dot")) {
         throw AttributeNotFoundException("dot");
     }
-    return b->m_Base.getAttributeValue("dot");
+    return b->getAttribute("dot");
 };
 
-MeiAttribute* MensurVisMixIn::getDot() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("dot")) {
-        throw AttributeNotFoundException("dot");
-    }
-    return b->m_Base.getAttribute("dot");
-};
-
-void MensurVisMixIn::setDot(std::string _dot) {
-    if (!b->m_Base.hasAttribute("dot")) {
+void mei::MensurVisMixIn::setDot(std::string _dot) {
+    if (!b->hasAttribute("dot")) {
         MeiAttribute *a = new MeiAttribute("dot", _dot);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurVisMixIn::hasDot() {
-    return b->m_Base.hasAttribute("dot");
+bool mei::MensurVisMixIn::hasDot() {
+    return b->hasAttribute("dot");
 };
 
-void MensurVisMixIn::removeDot() {
-    b->m_Base.removeAttribute("dot");
+void mei::MensurVisMixIn::removeDot() {
+    b->removeAttribute("dot");
 };
 
-string MensurVisMixIn::getFormValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
+MeiAttribute* mei::MensurVisMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return b->m_Base.getAttributeValue("form");
+    return b->getAttribute("form");
 };
 
-MeiAttribute* MensurVisMixIn::getForm() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return b->m_Base.getAttribute("form");
-};
-
-void MensurVisMixIn::setForm(std::string _form) {
-    if (!b->m_Base.hasAttribute("form")) {
+void mei::MensurVisMixIn::setForm(std::string _form) {
+    if (!b->hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurVisMixIn::hasForm() {
-    return b->m_Base.hasAttribute("form");
+bool mei::MensurVisMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void MensurVisMixIn::removeForm() {
-    b->m_Base.removeAttribute("form");
+void mei::MensurVisMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
-string MensurVisMixIn::getOrientValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("orient")) {
+MeiAttribute* mei::MensurVisMixIn::getOrient() {
+    if (!b->hasAttribute("orient")) {
         throw AttributeNotFoundException("orient");
     }
-    return b->m_Base.getAttributeValue("orient");
+    return b->getAttribute("orient");
 };
 
-MeiAttribute* MensurVisMixIn::getOrient() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("orient")) {
-        throw AttributeNotFoundException("orient");
-    }
-    return b->m_Base.getAttribute("orient");
-};
-
-void MensurVisMixIn::setOrient(std::string _orient) {
-    if (!b->m_Base.hasAttribute("orient")) {
+void mei::MensurVisMixIn::setOrient(std::string _orient) {
+    if (!b->hasAttribute("orient")) {
         MeiAttribute *a = new MeiAttribute("orient", _orient);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurVisMixIn::hasOrient() {
-    return b->m_Base.hasAttribute("orient");
+bool mei::MensurVisMixIn::hasOrient() {
+    return b->hasAttribute("orient");
 };
 
-void MensurVisMixIn::removeOrient() {
-    b->m_Base.removeAttribute("orient");
+void mei::MensurVisMixIn::removeOrient() {
+    b->removeAttribute("orient");
 };
 
-string MensurVisMixIn::getSignValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("sign")) {
+MeiAttribute* mei::MensurVisMixIn::getSign() {
+    if (!b->hasAttribute("sign")) {
         throw AttributeNotFoundException("sign");
     }
-    return b->m_Base.getAttributeValue("sign");
+    return b->getAttribute("sign");
 };
 
-MeiAttribute* MensurVisMixIn::getSign() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("sign")) {
-        throw AttributeNotFoundException("sign");
-    }
-    return b->m_Base.getAttribute("sign");
-};
-
-void MensurVisMixIn::setSign(std::string _sign) {
-    if (!b->m_Base.hasAttribute("sign")) {
+void mei::MensurVisMixIn::setSign(std::string _sign) {
+    if (!b->hasAttribute("sign")) {
         MeiAttribute *a = new MeiAttribute("sign", _sign);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurVisMixIn::hasSign() {
-    return b->m_Base.hasAttribute("sign");
+bool mei::MensurVisMixIn::hasSign() {
+    return b->hasAttribute("sign");
 };
 
-void MensurVisMixIn::removeSign() {
-    b->m_Base.removeAttribute("sign");
+void mei::MensurVisMixIn::removeSign() {
+    b->removeAttribute("sign");
 };
 
 
-MensurationLogMixIn::MensurationLogMixIn(BaseMeiElement *b) {
+mei::MensurationLogMixIn::MensurationLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MensurationLogMixIn::getMensurDotValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.dot")) {
+MeiAttribute* mei::MensurationLogMixIn::getMensurDot() {
+    if (!b->hasAttribute("mensur.dot")) {
         throw AttributeNotFoundException("mensur.dot");
     }
-    return b->m_Base.getAttributeValue("mensur.dot");
+    return b->getAttribute("mensur.dot");
 };
 
-MeiAttribute* MensurationLogMixIn::getMensurDot() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.dot")) {
-        throw AttributeNotFoundException("mensur.dot");
-    }
-    return b->m_Base.getAttribute("mensur.dot");
-};
-
-void MensurationLogMixIn::setMensurDot(std::string _mensurdot) {
-    if (!b->m_Base.hasAttribute("mensur.dot")) {
+void mei::MensurationLogMixIn::setMensurDot(std::string _mensurdot) {
+    if (!b->hasAttribute("mensur.dot")) {
         MeiAttribute *a = new MeiAttribute("mensur.dot", _mensurdot);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationLogMixIn::hasMensurDot() {
-    return b->m_Base.hasAttribute("mensur.dot");
+bool mei::MensurationLogMixIn::hasMensurDot() {
+    return b->hasAttribute("mensur.dot");
 };
 
-void MensurationLogMixIn::removeMensurDot() {
-    b->m_Base.removeAttribute("mensur.dot");
+void mei::MensurationLogMixIn::removeMensurDot() {
+    b->removeAttribute("mensur.dot");
 };
 
-string MensurationLogMixIn::getMensurOrientValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.orient")) {
+MeiAttribute* mei::MensurationLogMixIn::getMensurOrient() {
+    if (!b->hasAttribute("mensur.orient")) {
         throw AttributeNotFoundException("mensur.orient");
     }
-    return b->m_Base.getAttributeValue("mensur.orient");
+    return b->getAttribute("mensur.orient");
 };
 
-MeiAttribute* MensurationLogMixIn::getMensurOrient() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.orient")) {
-        throw AttributeNotFoundException("mensur.orient");
-    }
-    return b->m_Base.getAttribute("mensur.orient");
-};
-
-void MensurationLogMixIn::setMensurOrient(std::string _mensurorient) {
-    if (!b->m_Base.hasAttribute("mensur.orient")) {
+void mei::MensurationLogMixIn::setMensurOrient(std::string _mensurorient) {
+    if (!b->hasAttribute("mensur.orient")) {
         MeiAttribute *a = new MeiAttribute("mensur.orient", _mensurorient);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationLogMixIn::hasMensurOrient() {
-    return b->m_Base.hasAttribute("mensur.orient");
+bool mei::MensurationLogMixIn::hasMensurOrient() {
+    return b->hasAttribute("mensur.orient");
 };
 
-void MensurationLogMixIn::removeMensurOrient() {
-    b->m_Base.removeAttribute("mensur.orient");
+void mei::MensurationLogMixIn::removeMensurOrient() {
+    b->removeAttribute("mensur.orient");
 };
 
-string MensurationLogMixIn::getMensurSignValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.sign")) {
+MeiAttribute* mei::MensurationLogMixIn::getMensurSign() {
+    if (!b->hasAttribute("mensur.sign")) {
         throw AttributeNotFoundException("mensur.sign");
     }
-    return b->m_Base.getAttributeValue("mensur.sign");
+    return b->getAttribute("mensur.sign");
 };
 
-MeiAttribute* MensurationLogMixIn::getMensurSign() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.sign")) {
-        throw AttributeNotFoundException("mensur.sign");
-    }
-    return b->m_Base.getAttribute("mensur.sign");
-};
-
-void MensurationLogMixIn::setMensurSign(std::string _mensursign) {
-    if (!b->m_Base.hasAttribute("mensur.sign")) {
+void mei::MensurationLogMixIn::setMensurSign(std::string _mensursign) {
+    if (!b->hasAttribute("mensur.sign")) {
         MeiAttribute *a = new MeiAttribute("mensur.sign", _mensursign);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationLogMixIn::hasMensurSign() {
-    return b->m_Base.hasAttribute("mensur.sign");
+bool mei::MensurationLogMixIn::hasMensurSign() {
+    return b->hasAttribute("mensur.sign");
 };
 
-void MensurationLogMixIn::removeMensurSign() {
-    b->m_Base.removeAttribute("mensur.sign");
+void mei::MensurationLogMixIn::removeMensurSign() {
+    b->removeAttribute("mensur.sign");
 };
 
-string MensurationLogMixIn::getMensurSlashValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.slash")) {
+MeiAttribute* mei::MensurationLogMixIn::getMensurSlash() {
+    if (!b->hasAttribute("mensur.slash")) {
         throw AttributeNotFoundException("mensur.slash");
     }
-    return b->m_Base.getAttributeValue("mensur.slash");
+    return b->getAttribute("mensur.slash");
 };
 
-MeiAttribute* MensurationLogMixIn::getMensurSlash() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.slash")) {
-        throw AttributeNotFoundException("mensur.slash");
-    }
-    return b->m_Base.getAttribute("mensur.slash");
-};
-
-void MensurationLogMixIn::setMensurSlash(std::string _mensurslash) {
-    if (!b->m_Base.hasAttribute("mensur.slash")) {
+void mei::MensurationLogMixIn::setMensurSlash(std::string _mensurslash) {
+    if (!b->hasAttribute("mensur.slash")) {
         MeiAttribute *a = new MeiAttribute("mensur.slash", _mensurslash);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationLogMixIn::hasMensurSlash() {
-    return b->m_Base.hasAttribute("mensur.slash");
+bool mei::MensurationLogMixIn::hasMensurSlash() {
+    return b->hasAttribute("mensur.slash");
 };
 
-void MensurationLogMixIn::removeMensurSlash() {
-    b->m_Base.removeAttribute("mensur.slash");
+void mei::MensurationLogMixIn::removeMensurSlash() {
+    b->removeAttribute("mensur.slash");
 };
 
 
-MensurationVisMixIn::MensurationVisMixIn(BaseMeiElement *b) {
+mei::MensurationVisMixIn::MensurationVisMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string MensurationVisMixIn::getMensurFormValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.form")) {
+MeiAttribute* mei::MensurationVisMixIn::getMensurForm() {
+    if (!b->hasAttribute("mensur.form")) {
         throw AttributeNotFoundException("mensur.form");
     }
-    return b->m_Base.getAttributeValue("mensur.form");
+    return b->getAttribute("mensur.form");
 };
 
-MeiAttribute* MensurationVisMixIn::getMensurForm() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.form")) {
-        throw AttributeNotFoundException("mensur.form");
-    }
-    return b->m_Base.getAttribute("mensur.form");
-};
-
-void MensurationVisMixIn::setMensurForm(std::string _mensurform) {
-    if (!b->m_Base.hasAttribute("mensur.form")) {
+void mei::MensurationVisMixIn::setMensurForm(std::string _mensurform) {
+    if (!b->hasAttribute("mensur.form")) {
         MeiAttribute *a = new MeiAttribute("mensur.form", _mensurform);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationVisMixIn::hasMensurForm() {
-    return b->m_Base.hasAttribute("mensur.form");
+bool mei::MensurationVisMixIn::hasMensurForm() {
+    return b->hasAttribute("mensur.form");
 };
 
-void MensurationVisMixIn::removeMensurForm() {
-    b->m_Base.removeAttribute("mensur.form");
+void mei::MensurationVisMixIn::removeMensurForm() {
+    b->removeAttribute("mensur.form");
 };
 
-string MensurationVisMixIn::getMensurLocValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.loc")) {
+MeiAttribute* mei::MensurationVisMixIn::getMensurLoc() {
+    if (!b->hasAttribute("mensur.loc")) {
         throw AttributeNotFoundException("mensur.loc");
     }
-    return b->m_Base.getAttributeValue("mensur.loc");
+    return b->getAttribute("mensur.loc");
 };
 
-MeiAttribute* MensurationVisMixIn::getMensurLoc() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.loc")) {
-        throw AttributeNotFoundException("mensur.loc");
-    }
-    return b->m_Base.getAttribute("mensur.loc");
-};
-
-void MensurationVisMixIn::setMensurLoc(std::string _mensurloc) {
-    if (!b->m_Base.hasAttribute("mensur.loc")) {
+void mei::MensurationVisMixIn::setMensurLoc(std::string _mensurloc) {
+    if (!b->hasAttribute("mensur.loc")) {
         MeiAttribute *a = new MeiAttribute("mensur.loc", _mensurloc);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationVisMixIn::hasMensurLoc() {
-    return b->m_Base.hasAttribute("mensur.loc");
+bool mei::MensurationVisMixIn::hasMensurLoc() {
+    return b->hasAttribute("mensur.loc");
 };
 
-void MensurationVisMixIn::removeMensurLoc() {
-    b->m_Base.removeAttribute("mensur.loc");
+void mei::MensurationVisMixIn::removeMensurLoc() {
+    b->removeAttribute("mensur.loc");
 };
 
-string MensurationVisMixIn::getMensurSizeValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.size")) {
+MeiAttribute* mei::MensurationVisMixIn::getMensurSize() {
+    if (!b->hasAttribute("mensur.size")) {
         throw AttributeNotFoundException("mensur.size");
     }
-    return b->m_Base.getAttributeValue("mensur.size");
+    return b->getAttribute("mensur.size");
 };
 
-MeiAttribute* MensurationVisMixIn::getMensurSize() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("mensur.size")) {
-        throw AttributeNotFoundException("mensur.size");
-    }
-    return b->m_Base.getAttribute("mensur.size");
-};
-
-void MensurationVisMixIn::setMensurSize(std::string _mensursize) {
-    if (!b->m_Base.hasAttribute("mensur.size")) {
+void mei::MensurationVisMixIn::setMensurSize(std::string _mensursize) {
+    if (!b->hasAttribute("mensur.size")) {
         MeiAttribute *a = new MeiAttribute("mensur.size", _mensursize);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool MensurationVisMixIn::hasMensurSize() {
-    return b->m_Base.hasAttribute("mensur.size");
+bool mei::MensurationVisMixIn::hasMensurSize() {
+    return b->hasAttribute("mensur.size");
 };
 
-void MensurationVisMixIn::removeMensurSize() {
-    b->m_Base.removeAttribute("mensur.size");
+void mei::MensurationVisMixIn::removeMensurSize() {
+    b->removeAttribute("mensur.size");
 };
 
 
-NoteLogMensuralMixIn::NoteLogMensuralMixIn(BaseMeiElement *b) {
+mei::NoteLogMensuralMixIn::NoteLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string NoteLogMensuralMixIn::getLigValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("lig")) {
+MeiAttribute* mei::NoteLogMensuralMixIn::getLig() {
+    if (!b->hasAttribute("lig")) {
         throw AttributeNotFoundException("lig");
     }
-    return b->m_Base.getAttributeValue("lig");
+    return b->getAttribute("lig");
 };
 
-MeiAttribute* NoteLogMensuralMixIn::getLig() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("lig")) {
-        throw AttributeNotFoundException("lig");
-    }
-    return b->m_Base.getAttribute("lig");
-};
-
-void NoteLogMensuralMixIn::setLig(std::string _lig) {
-    if (!b->m_Base.hasAttribute("lig")) {
+void mei::NoteLogMensuralMixIn::setLig(std::string _lig) {
+    if (!b->hasAttribute("lig")) {
         MeiAttribute *a = new MeiAttribute("lig", _lig);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool NoteLogMensuralMixIn::hasLig() {
-    return b->m_Base.hasAttribute("lig");
+bool mei::NoteLogMensuralMixIn::hasLig() {
+    return b->hasAttribute("lig");
 };
 
-void NoteLogMensuralMixIn::removeLig() {
-    b->m_Base.removeAttribute("lig");
+void mei::NoteLogMensuralMixIn::removeLig() {
+    b->removeAttribute("lig");
 };
 
 
-RestVisMensuralMixIn::RestVisMensuralMixIn(BaseMeiElement *b) {
+mei::RestVisMensuralMixIn::RestVisMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string RestVisMensuralMixIn::getSpacesValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("spaces")) {
+MeiAttribute* mei::RestVisMensuralMixIn::getSpaces() {
+    if (!b->hasAttribute("spaces")) {
         throw AttributeNotFoundException("spaces");
     }
-    return b->m_Base.getAttributeValue("spaces");
+    return b->getAttribute("spaces");
 };
 
-MeiAttribute* RestVisMensuralMixIn::getSpaces() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("spaces")) {
-        throw AttributeNotFoundException("spaces");
-    }
-    return b->m_Base.getAttribute("spaces");
-};
-
-void RestVisMensuralMixIn::setSpaces(std::string _spaces) {
-    if (!b->m_Base.hasAttribute("spaces")) {
+void mei::RestVisMensuralMixIn::setSpaces(std::string _spaces) {
+    if (!b->hasAttribute("spaces")) {
         MeiAttribute *a = new MeiAttribute("spaces", _spaces);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool RestVisMensuralMixIn::hasSpaces() {
-    return b->m_Base.hasAttribute("spaces");
+bool mei::RestVisMensuralMixIn::hasSpaces() {
+    return b->hasAttribute("spaces");
 };
 
-void RestVisMensuralMixIn::removeSpaces() {
-    b->m_Base.removeAttribute("spaces");
+void mei::RestVisMensuralMixIn::removeSpaces() {
+    b->removeAttribute("spaces");
 };
 
 
-StaffdefLogMensuralMixIn::StaffdefLogMensuralMixIn(BaseMeiElement *b) {
+mei::StaffdefLogMensuralMixIn::StaffdefLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
 
-string StaffdefLogMensuralMixIn::getProportNumValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("proport.num")) {
+MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNum() {
+    if (!b->hasAttribute("proport.num")) {
         throw AttributeNotFoundException("proport.num");
     }
-    return b->m_Base.getAttributeValue("proport.num");
+    return b->getAttribute("proport.num");
 };
 
-MeiAttribute* StaffdefLogMensuralMixIn::getProportNum() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("proport.num")) {
-        throw AttributeNotFoundException("proport.num");
-    }
-    return b->m_Base.getAttribute("proport.num");
-};
-
-void StaffdefLogMensuralMixIn::setProportNum(std::string _proportnum) {
-    if (!b->m_Base.hasAttribute("proport.num")) {
+void mei::StaffdefLogMensuralMixIn::setProportNum(std::string _proportnum) {
+    if (!b->hasAttribute("proport.num")) {
         MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool StaffdefLogMensuralMixIn::hasProportNum() {
-    return b->m_Base.hasAttribute("proport.num");
+bool mei::StaffdefLogMensuralMixIn::hasProportNum() {
+    return b->hasAttribute("proport.num");
 };
 
-void StaffdefLogMensuralMixIn::removeProportNum() {
-    b->m_Base.removeAttribute("proport.num");
+void mei::StaffdefLogMensuralMixIn::removeProportNum() {
+    b->removeAttribute("proport.num");
 };
 
-string StaffdefLogMensuralMixIn::getProportNumbaseValue() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("proport.numbase")) {
+MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNumbase() {
+    if (!b->hasAttribute("proport.numbase")) {
         throw AttributeNotFoundException("proport.numbase");
     }
-    return b->m_Base.getAttributeValue("proport.numbase");
+    return b->getAttribute("proport.numbase");
 };
 
-MeiAttribute* StaffdefLogMensuralMixIn::getProportNumbase() throw (AttributeNotFoundException) {
-    if (!b->m_Base.hasAttribute("proport.numbase")) {
-        throw AttributeNotFoundException("proport.numbase");
-    }
-    return b->m_Base.getAttribute("proport.numbase");
-};
-
-void StaffdefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
-    if (!b->m_Base.hasAttribute("proport.numbase")) {
+void mei::StaffdefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
+    if (!b->hasAttribute("proport.numbase")) {
         MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
-        b->m_Base.addAttribute(a);
+        b->addAttribute(a);
     }
 };
 
-bool StaffdefLogMensuralMixIn::hasProportNumbase() {
-    return b->m_Base.hasAttribute("proport.numbase");
+bool mei::StaffdefLogMensuralMixIn::hasProportNumbase() {
+    return b->hasAttribute("proport.numbase");
 };
 
-void StaffdefLogMensuralMixIn::removeProportNumbase() {
-    b->m_Base.removeAttribute("proport.numbase");
+void mei::StaffdefLogMensuralMixIn::removeProportNumbase() {
+    b->removeAttribute("proport.numbase");
 };
 
 

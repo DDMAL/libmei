@@ -33,7 +33,8 @@
 #include "critappmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   addition ― Marks an addition to the text. The add element contains material
     * inserted by an author, scribe, annotator, or corrector. The agent responsible
     * for the addition may be encoded using the hand attribute, while the resp
@@ -46,11 +47,12 @@
     * (TEI).
     */
 
-struct Add : public BaseMeiElement {
-    Add();
-    virtual ~Add() {};
-    
-    
+class Add : public MeiElement {
+    public:
+        Add();
+        virtual ~Add() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     EditMixIn    m_Edit;
@@ -59,7 +61,7 @@ struct Add : public BaseMeiElement {
     HandidentMixIn    m_Handident;
     SequenceMixIn    m_Sequence;
     private:
-        //REGISTER_DECLARATION(Add);
+        REGISTER_DECLARATION(Add);
 };
 
 
@@ -72,14 +74,15 @@ struct Add : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Choice : public BaseMeiElement {
-    Choice();
-    virtual ~Choice() {};
-    
-    
+class Choice : public MeiElement {
+    public:
+        Choice();
+        virtual ~Choice() {};
+        
+        
     CommonMixIn    m_Common;
     private:
-        //REGISTER_DECLARATION(Choice);
+        REGISTER_DECLARATION(Choice);
 };
 
 
@@ -93,11 +96,12 @@ struct Choice : public BaseMeiElement {
     * is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Corr : public BaseMeiElement {
-    Corr();
-    virtual ~Corr() {};
-    
-    
+class Corr : public MeiElement {
+    public:
+        Corr();
+        virtual ~Corr() {};
+        
+        
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
@@ -105,7 +109,7 @@ struct Corr : public BaseMeiElement {
     HandidentMixIn    m_Handident;
     SequenceMixIn    m_Sequence;
     private:
-        //REGISTER_DECLARATION(Corr);
+        REGISTER_DECLARATION(Corr);
 };
 
 
@@ -124,19 +128,19 @@ struct Corr : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Damage : public BaseMeiElement {
-    Damage();
-    virtual ~Damage() {};
-    
+class Damage : public MeiElement {
+    public:
+        Damage();
+        virtual ~Damage() {};
+        
     /** \brief   records the degree of damage.
     */
-    string getDegreeValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDegree() throw (AttributeNotFoundException);
+    MeiAttribute* getDegree();
     void setDegree(std::string _degree);
     bool hasDegree();
     void removeDegree();
 
-    
+        
     AgentidentMixIn    m_Agentident;
     CommonMixIn    m_Common;
     ExtentMixIn    m_Extent;
@@ -144,7 +148,7 @@ struct Damage : public BaseMeiElement {
     HandidentMixIn    m_Handident;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Damage);
+        REGISTER_DECLARATION(Damage);
 };
 
 
@@ -161,25 +165,25 @@ struct Damage : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Del : public BaseMeiElement {
-    Del();
-    virtual ~Del() {};
-    
+class Del : public MeiElement {
+    public:
+        Del();
+        virtual ~Del() {};
+        
     /** \brief   describes the line style of the curve.
     */
-    string getRendValue() throw (AttributeNotFoundException);
-    MeiAttribute* getRend() throw (AttributeNotFoundException);
+    MeiAttribute* getRend();
     void setRend(std::string _rend);
     bool hasRend();
     void removeRend();
 
-    
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     HandidentMixIn    m_Handident;
     SequenceMixIn    m_Sequence;
     private:
-        //REGISTER_DECLARATION(Del);
+        REGISTER_DECLARATION(Del);
 };
 
 
@@ -204,11 +208,12 @@ struct Del : public BaseMeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-struct Gap : public BaseMeiElement {
-    Gap();
-    virtual ~Gap() {};
-    
-    
+class Gap : public MeiElement {
+    public:
+        Gap();
+        virtual ~Gap() {};
+        
+        
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
@@ -218,7 +223,7 @@ struct Gap : public BaseMeiElement {
     MeasurementMixIn    m_Measurement;
     ReasonidentMixIn    m_Reasonident;
     private:
-        //REGISTER_DECLARATION(Gap);
+        REGISTER_DECLARATION(Gap);
 };
 
 
@@ -236,14 +241,14 @@ struct Gap : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Handshift : public BaseMeiElement {
-    Handshift();
-    virtual ~Handshift() {};
-    
+class Handshift : public MeiElement {
+    public:
+        Handshift();
+        virtual ~Handshift() {};
+        
     /** \brief   describes the character of the new hand.
     */
-    string getCharacterValue() throw (AttributeNotFoundException);
-    MeiAttribute* getCharacter() throw (AttributeNotFoundException);
+    MeiAttribute* getCharacter();
     void setCharacter(std::string _character);
     bool hasCharacter();
     void removeCharacter();
@@ -251,8 +256,7 @@ struct Handshift : public BaseMeiElement {
     /** \brief   identifies the new hand. The value must contain the ID of a hand element given
     * elsewhere in the document.
     */
-    string getNewValue() throw (AttributeNotFoundException);
-    MeiAttribute* getNew() throw (AttributeNotFoundException);
+    MeiAttribute* getNew();
     void setNew(std::string _new);
     bool hasNew();
     void removeNew();
@@ -260,13 +264,12 @@ struct Handshift : public BaseMeiElement {
     /** \brief   identifies the old hand. The value must contain the ID of a hand element given
     * elsewhere in the document.
     */
-    string getOldValue() throw (AttributeNotFoundException);
-    MeiAttribute* getOld() throw (AttributeNotFoundException);
+    MeiAttribute* getOld();
     void setOld(std::string _old);
     bool hasOld();
     void removeOld();
 
-    
+        
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
@@ -274,7 +277,7 @@ struct Handshift : public BaseMeiElement {
     FacsimileMixIn    m_Facsimile;
     MediumMixIn    m_Medium;
     private:
-        //REGISTER_DECLARATION(Handshift);
+        REGISTER_DECLARATION(Handshift);
 };
 
 
@@ -288,11 +291,12 @@ struct Handshift : public BaseMeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-struct Orig : public BaseMeiElement {
-    Orig();
-    virtual ~Orig() {};
-    
-    
+class Orig : public MeiElement {
+    public:
+        Orig();
+        virtual ~Orig() {};
+        
+        
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
@@ -300,7 +304,7 @@ struct Orig : public BaseMeiElement {
     FacsimileMixIn    m_Facsimile;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Orig);
+        REGISTER_DECLARATION(Orig);
 };
 
 
@@ -314,18 +318,19 @@ struct Orig : public BaseMeiElement {
     * This element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-struct Reg : public BaseMeiElement {
-    Reg();
-    virtual ~Reg() {};
-    
-    
+class Reg : public MeiElement {
+    public:
+        Reg();
+        virtual ~Reg() {};
+        
+        
     CommonMixIn    m_Common;
     AuthorizedMixIn    m_Authorized;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
     SourceMixIn    m_Source;
     private:
-        //REGISTER_DECLARATION(Reg);
+        REGISTER_DECLARATION(Reg);
 };
 
 
@@ -342,26 +347,26 @@ struct Reg : public BaseMeiElement {
     * Initiative (TEI).
     */
 
-struct Restore : public BaseMeiElement {
-    Restore();
-    virtual ~Restore() {};
-    
+class Restore : public MeiElement {
+    public:
+        Restore();
+        virtual ~Restore() {};
+        
     /** \brief   provides a description of the means of restoration.
     */
-    string getDescValue() throw (AttributeNotFoundException);
-    MeiAttribute* getDesc() throw (AttributeNotFoundException);
+    MeiAttribute* getDesc();
     void setDesc(std::string _desc);
     bool hasDesc();
     void removeDesc();
 
-    
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     HandidentMixIn    m_Handident;
     SequenceMixIn    m_Sequence;
     TypedMixIn    m_Typed;
     private:
-        //REGISTER_DECLARATION(Restore);
+        REGISTER_DECLARATION(Restore);
 };
 
 
@@ -371,15 +376,16 @@ struct Restore : public BaseMeiElement {
     * Encoding Initiative (TEI).
     */
 
-struct Sic : public BaseMeiElement {
-    Sic();
-    virtual ~Sic() {};
-    
-    
+class Sic : public MeiElement {
+    public:
+        Sic();
+        virtual ~Sic() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     private:
-        //REGISTER_DECLARATION(Sic);
+        REGISTER_DECLARATION(Sic);
 };
 
 
@@ -388,11 +394,12 @@ struct Sic : public BaseMeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-struct Subst : public BaseMeiElement {
-    Subst();
-    virtual ~Subst() {};
-    
-    
+class Subst : public MeiElement {
+    public:
+        Subst();
+        virtual ~Subst() {};
+        
+        
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
     ResponsibilityMixIn    m_Responsibility;
@@ -400,7 +407,7 @@ struct Subst : public BaseMeiElement {
     HandidentMixIn    m_Handident;
     SequenceMixIn    m_Sequence;
     private:
-        //REGISTER_DECLARATION(Subst);
+        REGISTER_DECLARATION(Subst);
 };
 
 
@@ -420,11 +427,12 @@ struct Subst : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Supplied : public BaseMeiElement {
-    Supplied();
-    virtual ~Supplied() {};
-    
-    
+class Supplied : public MeiElement {
+    public:
+        Supplied();
+        virtual ~Supplied() {};
+        
+        
     AgentidentMixIn    m_Agentident;
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
@@ -433,7 +441,7 @@ struct Supplied : public BaseMeiElement {
     FacsimileMixIn    m_Facsimile;
     ReasonidentMixIn    m_Reasonident;
     private:
-        //REGISTER_DECLARATION(Supplied);
+        REGISTER_DECLARATION(Supplied);
 };
 
 
@@ -452,11 +460,12 @@ struct Supplied : public BaseMeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-struct Unclear : public BaseMeiElement {
-    Unclear();
-    virtual ~Unclear() {};
-    
-    
+class Unclear : public MeiElement {
+    public:
+        Unclear();
+        virtual ~Unclear() {};
+        
+        
     AgentidentMixIn    m_Agentident;
     CommonMixIn    m_Common;
     EditMixIn    m_Edit;
@@ -466,8 +475,9 @@ struct Unclear : public BaseMeiElement {
     HandidentMixIn    m_Handident;
     ReasonidentMixIn    m_Reasonident;
     private:
-        //REGISTER_DECLARATION(Unclear);
+        REGISTER_DECLARATION(Unclear);
 };
 
 
+}
 #endif // EDITTRANS_H_

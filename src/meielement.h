@@ -36,19 +36,16 @@
 #include "exceptions.h"
 
 #define REGISTER_DECLARATION(NAME) \
-static NodeDerivedRegister<NAME> nodereg
+static DerivedRegister<NAME> nodereg
 
-#define REGISTER_DEFINITION(NAME,s) \
-NodeDerivedRegister<NAME> NAME::nodereg(s)
+// This is namespaced because it appears in the implementation files.
+#define REGISTER_DEFINITION(NAME, s) \
+mei::DerivedRegister<NAME> NAME::nodereg(s)
 
 using std::string;
 using std::vector;
 
-struct MeiNs {
-    string prefix;
-    string href;
-};
-
+namespace mei {
 /** \brief  A representation of an MEI tag refering to an element in an MEI tree, 
  *          the element may contain attributes and child elements. 
  * 
@@ -59,7 +56,7 @@ struct MeiNs {
  * Each element will need a name to exist and can contain a value and attributes as options to further define it.
  */
 
-struct BaseMeiElement
+class MeiElement
 	{
 	public:
         /** \brief overloading the == operator to allow comparison of two MeiElements.
@@ -68,19 +65,19 @@ struct BaseMeiElement
 		
 		/** \brief The MeiElement Constructor, requires the element name (MEI tag name)
          */
-		BaseMeiElement(string name);
+		MeiElement(string name);
         
         /** \brief The MeiElement Constructor, taking in the element name and the associated XML prefix
          */
-        BaseMeiElement(string _name, string _value);
+        MeiElement(string name, string value);
         
-        BaseMeiElement(string _name, string _value, string _prefix, string _ns, MeiElement * parent);
+        MeiElement(string name, string value, string prefix, string ns, MeiElement * parent);
 		
-		virtual ~BaseMeiElement();
+		virtual ~MeiElement();
         
         
         string getId();
-        void setId(string _id);
+        void setId(string id);
         bool hasId();
         
 		/** \brief Return the name of the Mei Element
@@ -89,15 +86,15 @@ struct BaseMeiElement
 		
 		/** \brief Set the name of the Mei Element
 		 */
-		void setName(string _name);
+		void setName(string name);
         
         /** \brief Return the namespace associated with the Mei Element
          */
         string getNs();
-		void setNs(string _ns);
+		void setNs(string ns);
         
         string getPrefix();
-        void setPrefix(string _prefix);
+        void setPrefix(string prefix);
         
         /** \brief get the xml tail of an Mei Element
          * 
@@ -128,14 +125,14 @@ struct BaseMeiElement
         
         
         vector<MeiAttribute*>& getAttributes();
-        void setAttributes(vector<MeiAttribute*> _attrs);
-        MeiAttribute* getAttribute(string _name) throw (AttributeNotFoundException);
-        string getAttributeValue(string _name) throw (AttributeNotFoundException);
-        void addAttribute(MeiAttribute *_attribute) throw (DuplicateAttributeException);
+        void setAttributes(vector<MeiAttribute*> attrs);
+        MeiAttribute* getAttribute(string name) throw (AttributeNotFoundException);
+        string getAttributeValue(string name) throw (AttributeNotFoundException);
+        void addAttribute(MeiAttribute *attribute) throw (DuplicateAttributeException);
 		
-        void removeAttribute(string _name);
+        void removeAttribute(string name);
 		
-        bool hasAttribute(string _name);
+        bool hasAttribute(string name);
         
         /** \brief Determine whether the element has a parent element
 		 *
@@ -149,14 +146,14 @@ struct BaseMeiElement
 		
 		/** \brief sets the element's parent to the given Mei element
 		 */
-		void setParent(MeiElement *_parent);
+		void setParent(MeiElement *parent);
 		
 		void removeParent();
         
         void addChild(MeiElement *child);
         void setChildren(vector<MeiElement*> children);
         vector<MeiElement*> getChildren();
-        vector<MeiElement*> getChildrenByName(string _name) throw (ChildNotFoundException);
+        vector<MeiElement*> getChildrenByName(string name) throw (ChildNotFoundException);
         MeiElement* getChildById(string cid) throw(ChildNotFoundException);
         void deleteAllChildren();
         void removeChildren(string cname);
@@ -180,57 +177,77 @@ struct BaseMeiElement
 		void print(int l);
 					
     protected:
-        BaseMeiElement();
+        MeiElement();
         
 	private:
-        string id_;
-		string name_;
-		string value_;
-		string tail_;
-		string ns_;
-        string prefix_;
+        string id;
+		string name;
+		string value;
+		string tail;
+		string ns;
+        string prefix;
         
-		vector<MeiAttribute*> attributes_;
-		vector<MeiElement*> children_;
-		MeiElement *parent_;
+		vector<MeiAttribute*> attributes;
+		vector<MeiElement*> children;
+		MeiElement *parent;
         
 
 	};
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 
-//template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
-//template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(); }
-//struct MeiFactory {
-//    typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
-//
-//    static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
-//        node_map::iterator it = getNodeMap()->find(s);
-//        if(it == getNodeMap()->end())
-//            return NULL;
-//        return it->second(node);
-//    }
-//
-//protected:
-//    static node_map * getNodeMap() {
-//        // never delete'ed. (exist until program termination)
-//        // because we can't guarantee correct destruction order 
-//        if(!nodemap) { nodemap = new node_map; } 
-//        return nodemap; 
-//    }
-//private:
-//    static node_map * nodemap;
-//};
-//
-//template<typename T>
-//struct NodeDerivedRegister : MeiFactory {
-//	NodeDerivedRegister(std::string const& s) {
-//		getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
-//	}
-//};
-
-struct MeiElement : public BaseMeiElement {
-    BaseMeiElement    m_Base;
-};
-
+    //template<typename T> MeiElement* createTFromNode(xmlNode* node) { return new T(node); }
+    template<typename T> MeiElement* createT() { return new T(); }
+    
+    struct MeiFactory {
+        //typedef std::map<std::string, MeiElement*(*)(xmlNode*)> node_map;
+        typedef std::map<std::string, MeiElement*(*)()> default_map;
+        
+       // static MeiElement* createInstanceFromNode(std::string const& s, xmlNode* node) {
+       //     node_map::iterator it = getNodeMap()->find(s);
+       //     if(it == getNodeMap()->end())
+       //         return NULL;
+       //     return it->second(node);
+       // }
+        
+        static MeiElement* createInstance(std::string const& s) {
+            
+            default_map::iterator it = getMap()->find(s);
+            if(it == getMap()->end())
+                return NULL;
+            return it->second();
+        }
+        
+    protected:
+        // static node_map * getNodeMap() {
+        //     // never delete'ed. (exist until program termination)
+        //     // because we can't guarantee correct destruction order 
+        //     if(!nodemap) { nodemap = new node_map; } 
+        //     return nodemap; 
+        // }
+        static default_map * getMap() {
+            if(!defaultmap) { defaultmap = new default_map; }
+            return defaultmap;
+        }
+        
+    private:
+        // static node_map * nodemap;
+        static default_map * defaultmap;
+    };
+    
+    template<typename T>
+    struct DerivedRegister : MeiFactory { 
+        DerivedRegister(std::string const& s) { 
+            getMap()->insert(std::make_pair(s, &createT<T>));
+        }
+    };
+    
+    // template<typename T>
+    // struct NodeDerivedRegister : MeiFactory {
+    //     NodeDerivedRegister(std::string const& s) {
+    //         getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
+    //     }
+    // };
+    
+}
 #endif // MEIELEMENT_H_

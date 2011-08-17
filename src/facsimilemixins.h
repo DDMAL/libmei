@@ -29,24 +29,26 @@
 #include "exceptions.h"
 
 
-
-struct FacsimileMixIn {
-    FacsimileMixIn(BaseMeiElement *b);
-    virtual ~FacsimileMixIn() {};
+namespace mei {
     
+class FacsimileMixIn {
+    public:
+        FacsimileMixIn(MeiElement *b);
+        virtual ~FacsimileMixIn() {};
+        
     /** \brief   permits the current element to reference a facsimile image or image zone which
     * corresponds to it.
     */
 
-    string getFacsValue() throw (AttributeNotFoundException);
-    MeiAttribute* getFacs() throw (AttributeNotFoundException);
+    MeiAttribute* getFacs();
     void setFacs(std::string _facs);
     bool hasFacs();
     void removeFacs();
 
     private:
-        BaseMeiElement *b;
+        MeiElement *b;
 };
 
 
+}
 #endif // FACSIMILEMIXIN_H_

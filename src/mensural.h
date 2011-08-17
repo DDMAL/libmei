@@ -34,7 +34,8 @@
 #include "linkalignmixins.h"
 
 
-
+namespace mei {
+    
 /** \brief   ligature ― A mensural notation symbol that combines two or more notes into a
     * single sign. The rhythmic meaning of the components of a ligature is typically
     * contextual, not absolute; therefore, an interpretative duration may be encoded
@@ -44,18 +45,19 @@
     * original source.
     */
 
-struct Ligature : public BaseMeiElement {
-    Ligature();
-    virtual ~Ligature() {};
-    
-    
+class Ligature : public MeiElement {
+    public:
+        Ligature();
+        virtual ~Ligature() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     LigatureLogMixIn    m_LigatureLog;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Ligature);
+        REGISTER_DECLARATION(Ligature);
 };
 
 
@@ -66,11 +68,12 @@ struct Ligature : public BaseMeiElement {
     * one slash is added for what we now call 'alla breve'.
     */
 
-struct Mensur : public BaseMeiElement {
-    Mensur();
-    virtual ~Mensur() {};
-    
-    
+class Mensur : public MeiElement {
+    public:
+        Mensur();
+        virtual ~Mensur() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     MensurLogMixIn    m_MensurLog;
@@ -83,7 +86,7 @@ struct Mensur : public BaseMeiElement {
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Mensur);
+        REGISTER_DECLARATION(Mensur);
 };
 
 
@@ -93,19 +96,21 @@ struct Mensur : public BaseMeiElement {
     * proportion affects the relations of the note durations to the tactus.
     */
 
-struct Proport : public BaseMeiElement {
-    Proport();
-    virtual ~Proport() {};
-    
-    
+class Proport : public MeiElement {
+    public:
+        Proport();
+        virtual ~Proport() {};
+        
+        
     CommonMixIn    m_Common;
     FacsimileMixIn    m_Facsimile;
     DurationRatioMixIn    m_DurationRatio;
     CommonAnlMixIn    m_CommonAnl;
     AlignmentMixIn    m_Alignment;
     private:
-        //REGISTER_DECLARATION(Proport);
+        REGISTER_DECLARATION(Proport);
 };
 
 
+}
 #endif // MENSURAL_H_

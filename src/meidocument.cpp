@@ -24,36 +24,38 @@
 
 #include "meidocument.h"
 #include "meielement.h"
+#include <map>
 
 using std::map;
+using mei::MeiElement;
 
-MeiDocument::MeiDocument(string docname, string encoding) {
+mei::MeiDocument::MeiDocument(string docname, string encoding) {
 	this->docname = docname;
 	this->encoding = encoding;
     this->root = NULL;
 }
 
-string MeiDocument::getDocName() {
+string mei::MeiDocument::getDocName() {
 	return docname;
 }
 
-void MeiDocument::setDocName(string docname) {
+void mei::MeiDocument::setDocName(string docname) {
     this->docname = docname;
 }
 
-string MeiDocument::getEncoding() {
+string mei::MeiDocument::getEncoding() {
 	return encoding;
 }
 
-void MeiDocument::setEncoding(string encoding) {
+void mei::MeiDocument::setEncoding(string encoding) {
 	this->encoding = encoding;
 }
 
-MeiElement* MeiDocument::getRootElement() {
+MeiElement* mei::MeiDocument::getRootElement() {
 	return root;
 }
 
-void MeiDocument::setRootElement(MeiElement* root) {
+void mei::MeiDocument::setRootElement(MeiElement* root) {
     if (root->getNs() == "") {
         string ns = root->getNs();
         ns = MEI_NS;
@@ -63,7 +65,7 @@ void MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
 }
 
-MeiElement* MeiDocument::getElementById(string id) {
+MeiElement* mei::MeiDocument::getElementById(string id) {
     map<string,MeiElement*>::iterator it = getMap()->find(id);
     if (it != getMap()->end()) {
         return it->second;
@@ -71,7 +73,7 @@ MeiElement* MeiDocument::getElementById(string id) {
     return NULL;
 } 
 
-map<string,MeiElement*> *MeiDocument::getMap() {
+map<string,MeiElement*> *mei::MeiDocument::getMap() {
     if (!idmap) {
         idmap = new map<string,MeiElement*>;
         FillMap(root);
@@ -79,7 +81,7 @@ map<string,MeiElement*> *MeiDocument::getMap() {
     return idmap;
 }
 
-void MeiDocument::FillMap(MeiElement* element) {
+void mei::MeiDocument::FillMap(MeiElement* element) {
     MeiAttribute *idattr = element->getAttribute("id");
     if (idattr) {
         getMap()->insert(std::make_pair(idattr->getValue(),element));

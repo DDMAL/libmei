@@ -2,182 +2,290 @@
 
 #include "midi.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 
-Cc::Cc() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this), m_Midivalue(this) {
-    m_Base.setName("cc");
+mei::Cc::Cc() : 
+    MeiElement("cc"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this),
+    m_Midivalue(this) 
+{
 };
+REGISTER_DEFINITION(mei::Cc, "cc");
 
 
 
-Chan::Chan() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("chan");
+mei::Chan::Chan() : 
+    MeiElement("chan"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Chan, "chan");
 
 
-string Chan::getNumValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("num")) {
+MeiAttribute* mei::Chan::getNum() {
+    if (!hasAttribute("num")) {
         throw AttributeNotFoundException("num");
     }
-    return m_Base.getAttributeValue("num");
+    return getAttribute("num");
 };
 
-MeiAttribute* Chan::getNum() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
-    }
-    return m_Base.getAttribute("num");
-};
-
-void Chan::setNum(std::string _num) {
-    if (!m_Base.hasAttribute("num")) {
+void mei::Chan::setNum(std::string _num) {
+    if (!hasAttribute("num")) {
         MeiAttribute *a = new MeiAttribute("num", _num);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Chan::hasNum() {
-    return m_Base.hasAttribute("num");
+bool mei::Chan::hasNum() {
+    return hasAttribute("num");
 };
 
-void Chan::removeNum() {
-    m_Base.removeAttribute("num");
-};
-
-
-Chanpr::Chanpr() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("chanPr");
+void mei::Chan::removeNum() {
+    removeAttribute("num");
 };
 
 
-
-Cue::Cue() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("cue");
+mei::Chanpr::Chanpr() : 
+    MeiElement("chanPr"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
 };
+REGISTER_DEFINITION(mei::Chanpr, "chanPr");
 
 
 
-Hex::Hex() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("hex");
+mei::Cue::Cue() : 
+    MeiElement("cue"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Cue, "cue");
 
 
 
-Marker::Marker() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("marker");
+mei::Hex::Hex() : 
+    MeiElement("hex"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Hex, "hex");
 
 
 
-Metatext::Metatext() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("metaText");
+mei::Marker::Marker() : 
+    MeiElement("marker"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Marker, "marker");
 
 
 
-Midi::Midi() : m_Common(this), m_Staffident(this), m_Layerident(this), m_CommonAnl(this), m_Alignment(this) {
-    m_Base.setName("midi");
+mei::Metatext::Metatext() : 
+    MeiElement("metaText"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Metatext, "metaText");
 
 
 
-Noteoff::Noteoff() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("noteOff");
+mei::Midi::Midi() : 
+    MeiElement("midi"),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_CommonAnl(this),
+    m_Alignment(this) 
+{
 };
+REGISTER_DEFINITION(mei::Midi, "midi");
 
 
 
-Noteon::Noteon() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("noteOn");
+mei::Noteoff::Noteoff() : 
+    MeiElement("noteOff"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
 };
+REGISTER_DEFINITION(mei::Noteoff, "noteOff");
 
 
 
-Port::Port() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("port");
+mei::Noteon::Noteon() : 
+    MeiElement("noteOn"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
 };
+REGISTER_DEFINITION(mei::Noteon, "noteOn");
 
 
 
-Prog::Prog() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("prog");
+mei::Port::Port() : 
+    MeiElement("port"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
 };
+REGISTER_DEFINITION(mei::Port, "port");
 
 
 
-Seqnum::Seqnum() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("seqNum");
+mei::Prog::Prog() : 
+    MeiElement("prog"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
 };
+REGISTER_DEFINITION(mei::Prog, "prog");
 
 
-string Seqnum::getNumValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("num")) {
+
+mei::Seqnum::Seqnum() : 
+    MeiElement("seqNum"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
+};
+REGISTER_DEFINITION(mei::Seqnum, "seqNum");
+
+
+MeiAttribute* mei::Seqnum::getNum() {
+    if (!hasAttribute("num")) {
         throw AttributeNotFoundException("num");
     }
-    return m_Base.getAttributeValue("num");
+    return getAttribute("num");
 };
 
-MeiAttribute* Seqnum::getNum() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
-    }
-    return m_Base.getAttribute("num");
-};
-
-void Seqnum::setNum(std::string _num) {
-    if (!m_Base.hasAttribute("num")) {
+void mei::Seqnum::setNum(std::string _num) {
+    if (!hasAttribute("num")) {
         MeiAttribute *a = new MeiAttribute("num", _num);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Seqnum::hasNum() {
-    return m_Base.hasAttribute("num");
+bool mei::Seqnum::hasNum() {
+    return hasAttribute("num");
 };
 
-void Seqnum::removeNum() {
-    m_Base.removeAttribute("num");
-};
-
-
-Trkname::Trkname() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this) {
-    m_Base.setName("trkName");
+void mei::Seqnum::removeNum() {
+    removeAttribute("num");
 };
 
 
-
-Vel::Vel() : m_CommonAnl(this), m_Alignment(this), m_Common(this), m_Staffident(this), m_Layerident(this), m_TimestampMusical(this), m_Midinumber(this) {
-    m_Base.setName("vel");
+mei::Trkname::Trkname() : 
+    MeiElement("trkName"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this) 
+{
 };
+REGISTER_DEFINITION(mei::Trkname, "trkName");
 
 
-string Vel::getFormValue() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
+
+mei::Vel::Vel() : 
+    MeiElement("vel"),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this) 
+{
+};
+REGISTER_DEFINITION(mei::Vel, "vel");
+
+
+MeiAttribute* mei::Vel::getForm() {
+    if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
-    return m_Base.getAttributeValue("form");
+    return getAttribute("form");
 };
 
-MeiAttribute* Vel::getForm() throw (AttributeNotFoundException) {
-    if (!m_Base.hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
-    }
-    return m_Base.getAttribute("form");
-};
-
-void Vel::setForm(std::string _form) {
-    if (!m_Base.hasAttribute("form")) {
+void mei::Vel::setForm(std::string _form) {
+    if (!hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
-        m_Base.addAttribute(a);
+        addAttribute(a);
     }
 };
 
-bool Vel::hasForm() {
-    return m_Base.hasAttribute("form");
+bool mei::Vel::hasForm() {
+    return hasAttribute("form");
 };
 
-void Vel::removeForm() {
-    m_Base.removeAttribute("form");
+void mei::Vel::removeForm() {
+    removeAttribute("form");
 };
 
 
