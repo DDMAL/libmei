@@ -29,7 +29,7 @@
 
 using std::string;
 
-class MeiElement;
+struct MeiElement;
 
 /** \brief  A representation of an attribute associated to an element in the MEI schema, 
  *          attributes describe the properties of the Mei Element. 
