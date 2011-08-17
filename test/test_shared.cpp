@@ -10,13 +10,18 @@
 #include <gtest/gtest.h>
 #include <mei/shared.h>
 #include <mei/meielement.h>
+using mei::MeiAttribute;
+using mei::MeiElement;
+using mei::Note;
+using mei::Accid;
+using mei::Layer;
 
 
 // Testing the shared module, since it's the biggest of them all. If this works, the others should too...
 TEST(MeiShared, NoteConstructorTest) {
     Note * n = new Note();
     
-    ASSERT_EQ("note", n->m_Base.getName());
+    ASSERT_EQ("note", n->getName());
 };
 
 TEST(MeiShared, NoteDefinedMethodsTest) {
@@ -29,7 +34,7 @@ TEST(MeiShared, NoteDefinedMethodsTest) {
     
     ASSERT_TRUE(n->m_NoteVis.hasHeadshape());
     
-    ASSERT_EQ("diamond", n->m_NoteVis.getHeadshapeValue());
+    ASSERT_EQ("diamond", n->m_NoteVis.getHeadshape()->getValue());
     
     MeiAttribute* v = n->m_NoteVis.getHeadshape();
     ASSERT_EQ("diamond", v->getValue());
@@ -42,13 +47,13 @@ TEST(MeiShared, NoteDefinedBaseMethodsTest) {
     //test the interaction between the defined methods and the base methods.
     Note * n = new Note();
     
-    ASSERT_FALSE(n->m_Base.hasAttribute("headshape"));
+    ASSERT_FALSE(n->hasAttribute("headshape"));
     
     n->m_NoteVis.setHeadshape("diamond");
     
-    ASSERT_TRUE(n->m_Base.hasAttribute("headshape"));
+    ASSERT_TRUE(n->hasAttribute("headshape"));
     
-    n->m_Base.removeAttribute("headshape");
+    n->removeAttribute("headshape");
     
     ASSERT_FALSE(n->m_NoteVis.hasHeadshape());
 }
@@ -60,7 +65,7 @@ TEST(MeiShared, NoteMixinMethodsTest) {
     
     n->m_Color.setColor("black");
     
-    ASSERT_EQ("black", n->m_Color.getColorValue());
+    ASSERT_EQ("black", n->m_Color.getColor()->getValue());
     
     ASSERT_TRUE(n->m_Color.hasColor());
 }
@@ -72,9 +77,9 @@ TEST(MEiShared, NoteMixinBaseMethodsTest) {
     
     n->m_Color.setColor("black");
     
-    ASSERT_TRUE(n->m_Base.hasAttribute("color"));
+    ASSERT_TRUE(n->hasAttribute("color"));
     
-    n->m_Base.removeAttribute("color");
+    n->removeAttribute("color");
     
     ASSERT_FALSE(n->m_Color.hasColor());
 }

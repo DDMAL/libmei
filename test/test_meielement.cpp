@@ -8,6 +8,7 @@
 
 #include <mei/meielement.h>
 #include <mei/mei.h>
+#include <mei/shared.h>
 #include <mei/exceptions.h>
 
 #include <gtest/gtest.h>
@@ -21,6 +22,13 @@
 #include <signal.h>
 #include <stdlib.h>
 
+using mei::MeiElement;
+using mei::MeiAttribute;
+using mei::Staff;
+using mei::Layer;
+using mei::Accid;
+using mei::Note;
+
 TEST(MeiElementTest, TestBasicConstructor) {
     MeiElement * m = new MeiElement("note");
     ASSERT_EQ("note", m->getName());
@@ -32,8 +40,8 @@ TEST(MeiElementTest, TestValueConstructor) {
 }
 
 TEST(MeiElementTest, TestFullConstructor) {
-    MeiElement * p = new MeiElement("staff");
-    MeiElement * m = new MeiElement("note", "", MEI_PREFIX, MEI_NS, p);
+    MeiElement * layer = new Layer();
+    MeiElement * m = new MeiElement("note", "", MEI_PREFIX, MEI_NS, layer);
     ASSERT_EQ("note", m->getName());
 }
 
@@ -83,8 +91,8 @@ TEST(MeiElementTest, TestRemoveAttribute) {
 
 TEST(MeiElementTest, TestGetSetHasChildren) {
     MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new MeiElement("accid");
-    MeiElement * c2 = new MeiElement("accid");
+    MeiElement * c1 = new Accid();
+    MeiElement * c2 = new Accid();
     c2->setId("1234");
     
     ASSERT_EQ((unsigned int)0, p->getChildren().size());
@@ -104,7 +112,7 @@ TEST(MeiElementTest, TestGetSetHasChildren) {
 
 TEST(MeiElementTest, TestAddRemoveChild) {
     MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new MeiElement("accid");
+    MeiElement * c1 = new Accid();
     
     p->addChild(c1);
     ASSERT_TRUE(p->hasChild(c1));
@@ -117,9 +125,9 @@ TEST(MeiElementTest, TestAddRemoveChild) {
 
 TEST(MeiElementTest, TestAddRemoveChildren) {
     MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new MeiElement("accid");
-    MeiElement * c2 = new MeiElement("accid");
-    MeiElement * c3 = new MeiElement("note");
+    MeiElement * c1 = new Accid();
+    MeiElement * c2 = new Accid();
+    MeiElement * c3 = new Note();
     
     vector<MeiElement*> chn;
     chn.push_back(c1);
@@ -144,13 +152,13 @@ TEST(MeiElementTest, TestGetDescendentsById) {
 }
 
 TEST(MeiElementTest, TestGetSetParent) {
-    MeiElement * s = new MeiElement("staff");
-    MeiElement * n = new MeiElement("note");
+    MeiElement * s = new Staff();
+    MeiElement * n = new Note();
     
     n->setParent(s);
     ASSERT_EQ(n->getParent()->getName(), "staff");
     
-    MeiElement * ns = new MeiElement("layer");
+    MeiElement * ns = new Layer();
     n->setParent(ns);
     ASSERT_EQ(n->getParent()->getName(), "layer");
 }
