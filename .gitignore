@@ -1,6 +1,7 @@
 .DS_Store
 *.swp
 *~.nib
+*.pyc
 
 build/
 
@@ -9,3 +10,10 @@ build/
 *.perspectivev3
 *.mode1v3
 *.mode2v3
+
+/tools/langs/__init__.pyc
+/libmei.xcodeproj/project.xcworkspace
+/libmei.xcodeproj/xcuserdata
+/tools/autogen
+/tools/mei-customization.xml
+/tools/mei-source.xml

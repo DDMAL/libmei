@@ -25,17 +25,17 @@ TEST(MeiShared, NoteDefinedMethodsTest) {
     
     Note * n = new Note();
     
-    n->setHeadshape("diamond");
+    n->m_NoteVis.setHeadshape("diamond");
     
-    ASSERT_TRUE(n->hasHeadshape());
+    ASSERT_TRUE(n->m_NoteVis.hasHeadshape());
     
-    ASSERT_EQ("diamond", n->getHeadshapeValue());
+    ASSERT_EQ("diamond", n->m_NoteVis.getHeadshapeValue());
     
-    MeiAttribute* v = n->getHeadshape();
+    MeiAttribute* v = n->m_NoteVis.getHeadshape();
     ASSERT_EQ("diamond", v->getValue());
     ASSERT_EQ("headshape", v->getName());
     
-    ASSERT_FALSE(n->hasLig());
+    ASSERT_FALSE(n->m_NoteLogMensural.hasLig());
 }
 
 TEST(MeiShared, NoteDefinedBaseMethodsTest) {
@@ -44,13 +44,13 @@ TEST(MeiShared, NoteDefinedBaseMethodsTest) {
     
     ASSERT_FALSE(n->m_Base.hasAttribute("headshape"));
     
-    n->setHeadshape("diamond");
+    n->m_NoteVis.setHeadshape("diamond");
     
     ASSERT_TRUE(n->m_Base.hasAttribute("headshape"));
     
     n->m_Base.removeAttribute("headshape");
     
-    ASSERT_FALSE(n->hasHeadshape());
+    ASSERT_FALSE(n->m_NoteVis.hasHeadshape());
 }
 
 TEST(MeiShared, NoteMixinMethodsTest) {

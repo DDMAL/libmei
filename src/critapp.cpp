@@ -1,19 +1,25 @@
-#include "critapp.h"
-using namespace std;
 
-App::App() : m_Common(this), m_Typed(this){
+
+#include "critapp.h"
+using std::string;
+
+
+App::App() : m_Common(this), m_Typed(this) {
     m_Base.setName("app");
 };
-//REGISTER_DEFINITION(App, "app");
 
-Lem::Lem() : m_Common(this), m_LinkCommon(this), m_LinkExternal(this), m_Typed(this), m_LinkInternal(this), 
-m_RdgGes(this), m_RdgLog(this), m_RdgVis(this), m_RdgAnl(this), m_Crit(this){
+
+
+Lem::Lem() : m_Common(this), m_Crit(this), m_Handident(this), m_Responsibility(this), m_Sequence(this), m_Source(this), m_Typed(this), m_LinkCommon(this), m_LinkExternal(this), m_Participantident(this), m_CommonAnl(this), m_Alignment(this) {
     m_Base.setName("lem");
 };
-//REGISTER_DEFINITION(Lem, "lem");
 
-Rdg::Rdg() : m_Common(this), m_LinkCommon(this), m_LinkExternal(this), m_Typed(this), m_LinkInternal(this), 
-m_RdgGes(this), m_RdgLog(this), m_RdgVis(this), m_RdgAnl(this), m_Crit(this){
+
+
+Rdg::Rdg() : m_Common(this), m_Crit(this), m_Handident(this), m_Responsibility(this), m_Sequence(this), m_Source(this), m_Typed(this), m_LinkCommon(this), m_LinkExternal(this), m_Participantident(this), m_CommonAnl(this), m_Alignment(this) {
     m_Base.setName("rdg");
 };
-//REGISTER_DEFINITION(Rdg, "rdg");
+
+
+
+

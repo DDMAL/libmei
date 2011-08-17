@@ -1,0 +1,1 @@
+AVAILABLE_LANGS = ["C++", "Python"]

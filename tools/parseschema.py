@@ -8,8 +8,13 @@ from optparse import OptionParser
 import pdb
 
 
-tei_ns = {"tei":"http://www.tei-c.org/ns/1.0"}
-tei_rng_ns = {"tei":"http://www.tei-c.org/ns/1.0","rng":"http://relaxng.org/ns/structure/1.0"}
+# globals
+
+TEI_NS = {"tei":"http://www.tei-c.org/ns/1.0"}
+tei_ns = TEI_NS # legacy...
+
+TEI_RNG_NS = {"tei":"http://www.tei-c.org/ns/1.0","rng":"http://relaxng.org/ns/structure/1.0"}
+tei_rng_ns = TEI_RNG_NS # legacy...
 
 LICENSE = """/*
     Copyright (c) 2011 Jamie Klassen, Alastair Porter, Mahtab Ghamsari-Esfahani, Andrew Hankinson
@@ -34,40 +39,85 @@ LICENSE = """/*
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
     """
-
-
-def modules(file):
-    tree = etree.parse(file)
-    modules = []
-    for element in tree.xpath('//tei:moduleSpec',namespaces=tei_ns):
-        modules.append(element.get("ident"))
-    
-    for m in modules:
-        print m
-        for element in tree.xpath('//tei:elementSpec[@module=$name]',name=m,namespaces=tei_ns):
-            print " ", element.get("ident")
-
-def attributes(file):
-    tree = etree.parse(file)
-    attributes = []
-    for element in tree.xpath('//tei:classSpec[@type=$name]',name="atts",namespaces=tei_ns):
-        attributes.append(element)
-    
-    for a in attributes:
-        print a.get("ident")
-        for result in a.xpath('.//tei:memberOf',namespaces=tei_ns):
-            print " ", result.get("key")
-        
-def elements(file):
-    tree = etree.parse(file)
+class module_(object):
+    name = None
     elements = []
-    for element in tree.xpath('//tei:elementSpec',namespaces=tei_ns):
-        elements.append(element)
+    attrclasses = []
+    datatypes = []
+    models = []
+    def __init__(self,nname):
+        self.name = nname
+        self.attrclasses = []
+        self.elements = []
+        self.datatypes = []
+        self.models = []
+
+class datatype(object):
+    name = None
+    desc = None
+    values = []
+    def __init__(self,nname):
+        self.name = nname
+        self.desc = None
+        self.values = []
+
+class attrclass(object):
+    name = None
+    desc = None
+    attrclasses = []
+    attributes = []
+    elements = []
+    parents = None
+    def __init__(self,nname):
+        self.name = nname
+        self.elements = []
+        self.attributes = []
+        self.attrclasses = []
+        self.parents = 0
+
+class model(object):
+    name = None
+    models = []
+    elements = []
+    def __init__(self,nname):
+        self.name = nname
+        self.elements = []
+
+class macro(object):
+    pass
+
+class attribute(object):
+    name = None
+    desc = None
+    usage = None
+    datatype = None
+    values = []
+    def __init__(self,nname):
+        self.name = nname
+        self.datatype = None
+        self.values = []
+
+class element(object):
+    name = None
+    desc = None
+    attributes = []
+    constructargs = []
+    def __init__(self,nname):
+        self.name = nname
+        self.attributes = []
+        self.constructargs = []
+
+def modules(etree):
+    return [m for m in etree.xpath("//tei:moduleSpec", namespaces=TEI_NS)]
     
-    for e in elements:
-        print e.get("ident")
-        for result in e.xpath('.//tei:memberOf',namespaces=tei_ns):
-            print " ", result.get("key")
+def attributes(etree):
+    return [a for a in etree.xpath("//tei:classSpec[@type=$name]", name="atts", namespaces=TEI_NS)]
+    
+def elements(etree):
+    return [e for e in etree.xpath("//tei:elementSpec", namespaces=TEI_NS)]
+    
+def models(etree):
+    return 
 
 def cleanup(attrs,elems):
     found = False
@@ -102,6 +152,7 @@ def cleanup(attrs,elems):
         for at in attrs:
             if set(sorted(at[-1]))==set(sorted(a[-1])) and at[0].get("ident") != a[0].get("ident"):
                 found = True
+                print ">>>>> CLEANUP >>>> "
                 print at[0].get("ident"), "same as", a[0].get("ident")
                 a[len(a)-2].append(at[0].get("ident"))
                 attrs.remove(at)
@@ -110,75 +161,7 @@ def cleanup(attrs,elems):
         
     #if the sets of children of two classes are identical, merge them!
 
-class module_(object):
-    name = None
-    elements = []
-    attrclasses = []
-    datatypes = []
-    models = []
-    def __init__(self,nname):
-        self.name = nname
-        self.attrclasses = []
-        self.elements = []
-        self.datatypes = []
-        self.models = []
-
-class datatype(object):
-    name = None
-    desc = None
-    values = []
-    def __init__(self,nname):
-        self.name = nname
-        self.desc = None
-        self.values = []
-    
-class attrclass(object):
-    name = None
-    desc = None
-    attrclasses = []
-    attributes = []
-    elements = []
-    parents = None
-    def __init__(self,nname):
-        self.name = nname
-        self.elements = []
-        self.attributes = []
-        self.attrclasses = []
-        self.parents = 0
-    
-class model(object):
-    name = None
-    models = []
-    elements = []
-    def __init__(self,nname):
-        self.name = nname
-        self.elements = []
-    
-class macro(object):
-    pass
-    
-class attribute(object):
-    name = None
-    desc = None
-    usage = None
-    datatype = None
-    values = []
-    def __init__(self,nname):
-        self.name = nname
-        self.datatype = None
-        self.values = []
-    
-class element(object):
-    name = None
-    desc = None
-    attributes = []
-    constructargs = []
-    def __init__(self,nname):
-        self.name = nname
-        self.attributes = []
-        self.constructargs = []
-
-def trivial_elements(a,attrclasses,elements):
+def trivial_elements(a, attrclasses, elements):
     if len(a[1].elements)==1 and len(a[1].attrclasses)==0:
         print "found trivial attribute class", a[1].name+". Merging with child element", a[1].elements[0][1].name
         el = None
@@ -195,8 +178,8 @@ def trivial_elements(a,attrclasses,elements):
         return True
     else:
         return False
-            
-def trivial_classes(a,attrclasses):
+
+def trivial_classes(a, attrclasses):
     if len(a[1].attrclasses)==1 and len(a[1].elements)==0:
         print "found trivial attribute class", a[1].name+". Merging with child class", a[1].attrclasses[0][1].name
         att = None
@@ -214,24 +197,45 @@ def trivial_classes(a,attrclasses):
     else:
         return False
 
-def identical_classes(a,attrclasses):
+def identical_classes(a, attrclasses):
     for at in attrclasses:
-        if set([att[1].name for att in a[1].attrclasses])==set([att[1].name for att in at[1].attrclasses]) and a != at and len(a[1].attrclasses) != 0:
+        
+        # pdb.set_trace()
+        
+        if set([att[1].name for att in a[1].attrclasses]) == set([att[1].name for att in at[1].attrclasses]) and a != at and len(a[1].attrclasses) != 0:
+            
+            # x = [att[1].name for att in a[1].attrclasses]
+            # print "A: {0}".format(x)
+            # 
+            # y = [att[1].name for att in at[1].attrclasses]
+            # print "at: {0}".format(y)
+            # 
+            # pdb.set_trace()
+            
+            print ">>>>>> CASE 1 >>>>>>>"
+            
             print at[1].name, "same as", a[1].name
+            
             aname = ""
             for i in a[1].name.split("."):
                 if i != a[1].name.split(".")[0]:
                     aname += "."+i
+                    
             at[1].name += aname
             at[1].elements.extend(a[1].elements)
             at[1].attributes.extend(a[1].attributes)
+            
             for att in attrclasses:
                 for index, item in enumerate(att[1].attrclasses):
                     if item[1].name==a[1].name:
                         att[1].attrclasses[index] = at
+                
             attrclasses.remove(a)
+            
             return True
+            
         elif set([el[1].name for el in a[1].elements])==set([el[1].name for el in at[1].elements]) and a != at and len(a[1].elements) != 0:
+            print ">>>>>> CASE 2 >>>>>>>"
             print at[1].name, "same as", a[1].name
             aname = ""
             for i in a[1].name.split("."):
@@ -260,16 +264,16 @@ def passdown(attribute):
 
 def classcleanup(attrclasses,elements):
     for a in attrclasses:
-        if trivial_elements(a,attrclasses,elements):
+        if trivial_elements(a, attrclasses, elements):
             classcleanup(attrclasses,elements)
-        elif trivial_classes(a,attrclasses):
+        elif trivial_classes(a, attrclasses):
             classcleanup(attrclasses,elements)
-        elif identical_classes(a,attrclasses):
+        elif identical_classes(a, attrclasses):
             classcleanup(attrclasses,elements)
 
-def classes(file, outputdir):
+def classes(file, outputdir, active_modules=None):
     modules = []
-    models = []
+    t_models = []
     attrclasses = []
     elements = []
     datatypes = []
@@ -285,49 +289,55 @@ def classes(file, outputdir):
     tree = etree.parse(file)
     
     #find datatypes
-    for dt in tree.xpath('//tei:macroSpec[@type=$data]',data="dt",namespaces=tei_ns):
+    for dt in tree.xpath('//tei:macroSpec[@type=$data]', data="dt", namespaces=TEI_NS):
         #print "parsing", dt.get("ident")
         dtype = datatype(dt.get("ident"))
-        #dtype.content = dt.xpath('.//rng:data',namespaces=tei_rng_ns)[0]
-        dtype.desc = dt.xpath('.//tei:desc',namespaces=tei_ns)[0]
+        #dtype.content = dt.xpath('.//rng:data',namespaces=TEI_RNG_NS)[0]
+        dtype.desc = dt.xpath('.//tei:desc',namespaces=TEI_NS)[0]
         datatypes.append([dt,dtype])
-    
+        
     #find models
-    for modl in tree.xpath('//tei:classSpec[@type=$model]',model="model",namespaces=tei_ns):
+    for modl in tree.xpath('//tei:classSpec[@type=$model]', model="model", namespaces=TEI_NS):
         mod = model(modl.get("ident"))
-        models.append([modl,mod])
+        models.append([modl, mod])
 
     #link together models
     for modl in models:
-        for memberof in modl[0].xpath('./tei:classes/tei:memberOf',namespaces=tei_ns):
+        for memberof in modl[0].xpath('./tei:classes/tei:memberOf', namespaces=TEI_NS):
             for mod in attrclasses:
                 if mod[1].name==memberof.get("key"):
                     at[1].models.append(attr)
 
     #find attrclasses and their attributes, assigning datatypes
-    for attr in tree.xpath('//tei:classSpec[@type=$name2]',name2="atts",namespaces=tei_ns):
+    for attr in tree.xpath('//tei:classSpec[@type=$name2]', name2="atts", namespaces=TEI_NS):
         #print "parsing", attr.get("ident")
         at = attrclass(attr.get("ident"))
-        at.desc = attr.xpath('.//tei:desc/text()',namespaces=tei_ns)[0]
-        if len(attr.xpath('.//tei:desc/text()',namespaces=tei_ns)) > 0:
-            at.desc = attr.xpath('.//tei:desc/text()',namespaces=tei_ns)[0]
-        for attdef in attr.xpath('./tei:attList/tei:attDef',namespaces=tei_ns):
+        at.desc = attr.xpath('.//tei:desc/text()',namespaces=TEI_NS)[0]
+        
+        if len(attr.xpath('.//tei:desc/text()',namespaces=TEI_NS)) > 0:
+            at.desc = attr.xpath('.//tei:desc/text()',namespaces=TEI_NS)[0]
+            
+        for attdef in attr.xpath('./tei:attList/tei:attDef',namespaces=TEI_NS):
             #print "    has attribute", attdef.get("ident")
             att = attribute(attdef.get("ident"))
             att.usage = attdef.get("usage")
             att.desc = attdef.xpath('.//tei:desc/text()',namespaces=tei_ns)[0]
             dt = ""
+            
             if len(attdef.xpath('./tei:datatype/rng:ref',namespaces=tei_rng_ns)) > 0:
                 dt = attdef.xpath('./tei:datatype/rng:ref',namespaces=tei_rng_ns)[0].get("name")
                 dt = "".join(dt.split(".")[1:])
             elif len(attdef.xpath('./tei:datatype/rng:data',namespaces=tei_rng_ns)) > 0:
                 dt = attdef.xpath('./tei:datatype/rng:data',namespaces=tei_rng_ns)[0].get("type")
+                
             dtype = datatype(dt)
             att.datatype = dtype
+            
             if len(attdef.xpath('./tei:valList',namespaces=tei_ns)) > 0:
                 vallist = attdef.xpath('./tei:valList',namespaces=tei_ns)[0]
                 for valitem in vallist.xpath('./tei:valItem',namespaces=tei_ns):
                     att.values.append(valitem.get("ident"))
+            
             at.attributes.append([attdef,att])
         attrclasses.append([attr,at])
         
@@ -335,6 +345,7 @@ def classes(file, outputdir):
     for elem in tree.xpath('//tei:elementSpec',namespaces=tei_ns):
         #print "parsing", elem.get("ident")
         el = element(elem.get("ident"))
+        
         if len(elem.xpath('.//tei:desc/text()',namespaces=tei_ns)) > 0:
             el.desc = elem.xpath('.//tei:desc/text()',namespaces=tei_ns)[0]
         for attdef in elem.xpath('./tei:attList/tei:attDef',namespaces=tei_ns):
@@ -355,7 +366,9 @@ def classes(file, outputdir):
                     att.values.append(valitem.get("ident"))
             el.attributes.append([attdef,att])
         elements.append([elem,el])
+        
         index = elements.index([elem,el])
+        
         for memberof in elem.xpath('.//tei:memberOf',namespaces=tei_ns):
             for at in attrclasses:
                 if at[1].name==memberof.get("key"):
@@ -378,7 +391,7 @@ def classes(file, outputdir):
     classcleanup(attrclasses,elements)
     
     #find modules
-    for mod in tree.xpath('//tei:moduleSpec',namespaces=tei_ns):
+    for mod in tree.xpath('//tei:moduleSpec',namespaces=TEI_NS):
         modul = module_(mod.get("ident"))
         modules.append(modul)
 
@@ -446,6 +459,7 @@ def _create_mixins_module(m, mt, outdir):
                     if mod != m:
                         includes.append(mod.name.split(".")[-1]+"mixins.h")
                     a.parents += 1
+    
     for i in set(includes):
         output += "#include \"{0}\"\n".format(i)
     output += "using namespace std;\n\n"
@@ -455,7 +469,7 @@ def _create_mixins_module(m, mt, outdir):
     for a in m.attrclasses:
         aname = "{0}MixIn".format("".join(string.capwords(a.name,".").split(".")[1:]))
         if a.desc != None:
-            output += "/** \\brief   "+"\n *           ".join(textwrap.wrap(((a.desc).encode('utf-8')),80))+"\n */\n"
+            output += "/** \\brief   "+"\n * ".join(textwrap.wrap(((a.desc).encode('utf-8')),80))+"\n */\n"
         output += "struct {0}".format(aname)
         # linkedto = False
         # for at in m.attrclasses:
@@ -501,7 +515,7 @@ def _create_mixins_module(m, mt, outdir):
             
             # has
             has = "has{0}".format(funcname)
-            output += "    bool {0}();\n".format(has, )
+            output += "    bool {0}();\n".format(has)
             output += "\n"
         # output += "\n    protected:\n"
         # output += "        {0}();\n".format(aname)
@@ -742,7 +756,6 @@ def _create_classes_module(m, mt, outdir):
             column_line += "m_{0}(this)".format(c.replace("MixIn", ""))
             if c != classdetail[-1]:
                 column_line += ", "
-            print len(column_line)
             if len(column_line) >= 80:
                 column_line += "\n"
                 output += column_line
@@ -828,6 +841,13 @@ bool {an}::has{fn}() {{
     fc.write(output)
     fc.close()
 
+def parse_modification_file(modfile):
+    f = open(modfile, 'r')
+    t = etree.parse(f)
+    f.close()
+    return [m.get('key').split(".")[-1] for m in tree.xpath('//tei:moduleRef',name="atts",namespaces=tei_ns)]
+    
+
 def cleanupdir(o):
     for dp, dn, fn in os.walk(o):
         for f in fn:
@@ -838,6 +858,8 @@ def main(*args, **kw):
     m = kw['m']
     f = kw['f']
     o = kw['o']
+    mf = kw['mf']
+    
     print args
     if m=="modules":
         modules(f)
@@ -850,6 +872,9 @@ def main(*args, **kw):
     elif m=="elemgraph":
         elemgraph(f)
     elif m=="classes":
+        if mf:
+            active_modules = parse_modification_file(mf)
+            classes(f,o, active_modules)
         classes(f, o)
     elif m=="cleanup":
         cleanupdir(o)
@@ -857,17 +882,19 @@ def main(*args, **kw):
 if __name__=="__main__":
     usage = "%prog odd_schema method"
     p = OptionParser()
+    p.add_option("-m", "--modfile", help="parse an ODD modification file")
     (options, args) = p.parse_args()
     
-    # output_dir = os.path.join(os.getcwd(), "autogen")
-    output_dir = "/Volumes/Eomer/ahankins/Documents/code/git/libmei/src"
+    output_dir = os.path.join(os.getcwd(), "autogen")
+    # output_dir = "/Volumes/Eomer/ahankins/Documents/code/git/libmei/src"
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     
     a = {
         'f': args[0],
         'm': args[1],
-        'o': output_dir
+        'o': output_dir,
+        'mf': options.modfile
     }
     
     main(**a)

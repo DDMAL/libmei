@@ -1,6 +1,7 @@
-/*
-    Copyright (c) 2011 Jamie Klassen, Alastair Porter, Mahtab Ghamsari-Esfahani, Andrew Hankinson
 
+/*
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +9,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-
+    
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-
+    
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -20,28 +21,32 @@
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-    
-#ifndef FACSIMILEMIXINS_H_
-#define FACSIMILEMIXINS_H_
+
+#ifndef FACSIMILEMIXIN_H_
+#define FACSIMILEMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
-using namespace std;
 
-/** \brief   Attributes that associate a feature corresponding with all or part of an image
- */
+
+
 struct FacsimileMixIn {
-
     FacsimileMixIn(BaseMeiElement *b);
+    virtual ~FacsimileMixIn() {};
+    
+    /** \brief   permits the current element to reference a facsimile image or image zone which
+    * corresponds to it.
+    */
 
     string getFacsValue() throw (AttributeNotFoundException);
     MeiAttribute* getFacs() throw (AttributeNotFoundException);
-    void setFacs(string _facs);
+    void setFacs(std::string _facs);
     bool hasFacs();
-
+    void removeFacs();
 
     private:
-         BaseMeiElement *b;
+        BaseMeiElement *b;
 };
 
-#endif // FACSIMILEMIXINS_H_
+
+#endif // FACSIMILEMIXIN_H_
