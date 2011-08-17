@@ -14,41 +14,33 @@ AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esf
 
 METHODS_HEADER_TEMPLATE = """
     {documentation}
-    string get{attNameUpper}Value() throw (AttributeNotFoundException);
-    MeiAttribute* get{attNameUpper}() throw (AttributeNotFoundException);
+    MeiAttribute* get{attNameUpper}();
     void set{attNameUpper}(std::string _{attNameLowerJoined});
     bool has{attNameUpper}();
     void remove{attNameUpper}();
 """
 
 METHODS_IMPL_TEMPLATE = """
-string {className}::get{attNameUpper}Value() throw (AttributeNotFoundException) {{
-    if (!{accessor}m_Base.hasAttribute("{attNameLower}")) {{
+MeiAttribute* mei::{className}::get{attNameUpper}() {{
+    if (!{accessor}hasAttribute("{attNameLower}")) {{
         throw AttributeNotFoundException("{attNameLower}");
     }}
-    return {accessor}m_Base.getAttributeValue("{attNameLower}");
+    return {accessor}getAttribute("{attNameLower}");
 }};
 
-MeiAttribute* {className}::get{attNameUpper}() throw (AttributeNotFoundException) {{
-    if (!{accessor}m_Base.hasAttribute("{attNameLower}")) {{
-        throw AttributeNotFoundException("{attNameLower}");
-    }}
-    return {accessor}m_Base.getAttribute("{attNameLower}");
-}};
-
-void {className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
-    if (!{accessor}m_Base.hasAttribute("{attNameLower}")) {{
+void mei::{className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
+    if (!{accessor}hasAttribute("{attNameLower}")) {{
         MeiAttribute *a = new MeiAttribute("{attNameLower}", _{attNameLowerJoined});
-        {accessor}m_Base.addAttribute(a);
+        {accessor}addAttribute(a);
     }}
 }};
 
-bool {className}::has{attNameUpper}() {{
-    return {accessor}m_Base.hasAttribute("{attNameLower}");
+bool mei::{className}::has{attNameUpper}() {{
+    return {accessor}hasAttribute("{attNameLower}");
 }};
 
-void {className}::remove{attNameUpper}() {{
-    {accessor}m_Base.removeAttribute("{attNameLower}");
+void mei::{className}::remove{attNameUpper}() {{
+    {accessor}removeAttribute("{attNameLower}");
 }};
 """
 
@@ -56,6 +48,8 @@ CLASSES_IMPL_TEMPLATE = """
 
 #include "{moduleNameLower}.h"
 using std::string;
+using mei::MeiAttribute;
+using mei::AttributeNotFoundException;
 
 {elements}
 
@@ -70,36 +64,41 @@ CLASSES_HEAD_TEMPLATE = """
 #include "exceptions.h"
 {includes}
 
-{elements}
+namespace mei {{
+    {elements}
+}}
 #endif // {moduleNameCaps}_H_
 """
 
 ELEMENT_CLASS_HEAD_TEMPLATE = """
 {documentation}
-struct {elementNameUpper} : public MeiElement {{
-    {elementNameUpper}();
-    virtual ~{elementNameUpper}() {{}};
-    {methods}
-    {mixIns}
+class {elementNameUpper} : public MeiElement {{
+    public:
+        {elementNameUpper}();
+        virtual ~{elementNameUpper}() {{}};
+        {methods}
+        {mixIns}
     private:
-        //REGISTER_DECLARATION({elementNameUpper});
+        REGISTER_DECLARATION({elementNameUpper});
 }};
 
 """
 
 ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """
-{elementNameUpper}::{elementNameUpper}() : {mixIns} {{
-    m_Base.setName("{elementNameLower}");
+mei::{elementNameUpper}::{elementNameUpper}() : {mixIns} 
+{{
 }};
+REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 
 {methods}
 """
 
 MIXIN_CLASS_HEAD_TEMPLATE = """
-struct {attGroupNameUpper}MixIn {{
-    {attGroupNameUpper}MixIn(MeiElement *b);
-    virtual ~{attGroupNameUpper}MixIn() {{}};
-    {methods}
+class {attGroupNameUpper}MixIn {{
+    public:
+        {attGroupNameUpper}MixIn(MeiElement *b);
+        virtual ~{attGroupNameUpper}MixIn() {{}};
+        {methods}
     private:
         MeiElement *b;
 }};
@@ -107,7 +106,7 @@ struct {attGroupNameUpper}MixIn {{
 """
 
 MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
-{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
+mei::{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
     this->b = b;
 }};
 {methods}
@@ -316,7 +315,7 @@ def __create_element_classes(schema):
         
         for element, atgroups in sorted(elements.iteritems()):
             attribute_methods = ""
-            element_mixins = ""
+            element_mixins = "\n    MeiElement(\"{0}\"),\n".format(element)
             for attribute in atgroups:
                 if isinstance(attribute, types.ListType):
                     for sda in attribute:
@@ -331,8 +330,8 @@ def __create_element_classes(schema):
                         }
                         attribute_methods += METHODS_IMPL_TEMPLATE.format(**methstr)
                 else:
-                    element_mixins += "m_{0}(this), ".format(schema.cc(schema.strpatt(attribute)))
-            element_mixins = element_mixins.rstrip(", ")
+                    element_mixins += "    m_{0}(this),\n".format(schema.cc(schema.strpatt(attribute)))
+            element_mixins = element_mixins.rstrip(",\n")
             
             consvars = {
                 'elementNameUpper': schema.cc(element),
