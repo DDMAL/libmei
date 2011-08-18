@@ -285,6 +285,7 @@ def __create_element_classes(schema):
             element_output += ELEMENT_CLASS_HEAD_TEMPLATE.format(**elvars)
             
         incl_output = ""
+        incl_output += "#include \"mei.h\"\n"
         for incl in includes:
             incl_output += "#include \"{0}mixins.h\"\n".format(incl.lower())
         
