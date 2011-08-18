@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "mensuralmixins.h"
@@ -45,7 +46,7 @@ namespace mei {
     * original source.
     */
 
-class Ligature : public MeiElement {
+class MEI_EXPORT Ligature : public MeiElement {
     public:
         Ligature();
         virtual ~Ligature() {};
@@ -68,7 +69,7 @@ class Ligature : public MeiElement {
     * one slash is added for what we now call 'alla breve'.
     */
 
-class Mensur : public MeiElement {
+class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
         virtual ~Mensur() {};
@@ -96,7 +97,7 @@ class Mensur : public MeiElement {
     * proportion affects the relations of the note durations to the tactus.
     */
 
-class Proport : public MeiElement {
+class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();
         virtual ~Proport() {};

@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "figtablemixins.h"
@@ -39,7 +40,7 @@ namespace mei {
     * the Text Encoding Initiative (TEI).
     */
 
-class Fig : public MeiElement {
+class MEI_EXPORT Fig : public MeiElement {
     public:
         Fig();
         virtual ~Fig() {};
@@ -64,7 +65,7 @@ class Fig : public MeiElement {
     * Initiative (TEI).
     */
 
-class Figdesc : public MeiElement {
+class MEI_EXPORT Figdesc : public MeiElement {
     public:
         Figdesc();
         virtual ~Figdesc() {};
@@ -82,7 +83,7 @@ class Figdesc : public MeiElement {
     * (TEI).
     */
 
-class Graphic : public MeiElement {
+class MEI_EXPORT Graphic : public MeiElement {
     public:
         Graphic();
         virtual ~Graphic() {};
@@ -112,7 +113,7 @@ class Graphic : public MeiElement {
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
 
-class Table : public MeiElement {
+class MEI_EXPORT Table : public MeiElement {
     public:
         Table();
         virtual ~Table() {};
@@ -133,7 +134,7 @@ class Table : public MeiElement {
     * element in HTML.
     */
 
-class Td : public MeiElement {
+class MEI_EXPORT Td : public MeiElement {
     public:
         Td();
         virtual ~Td() {};
@@ -155,7 +156,7 @@ class Td : public MeiElement {
     * element in HTML.
     */
 
-class Th : public MeiElement {
+class MEI_EXPORT Th : public MeiElement {
     public:
         Th();
         virtual ~Th() {};
@@ -177,7 +178,7 @@ class Th : public MeiElement {
     * sheet. This element is modelled on an element in HTML.
     */
 
-class Tr : public MeiElement {
+class MEI_EXPORT Tr : public MeiElement {
     public:
         Tr();
         virtual ~Tr() {};

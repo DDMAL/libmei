@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 
 
@@ -40,7 +41,7 @@ namespace mei {
     * modelled on an element in Encoded Archival Description (EAD).
     */
 
-class Extptr : public MeiElement {
+class MEI_EXPORT Extptr : public MeiElement {
     public:
         Extptr();
         virtual ~Extptr() {};
@@ -64,7 +65,7 @@ class Extptr : public MeiElement {
     * Description (EAD).
     */
 
-class Extref : public MeiElement {
+class MEI_EXPORT Extref : public MeiElement {
     public:
         Extref();
         virtual ~Extref() {};
@@ -88,7 +89,7 @@ class Extref : public MeiElement {
     * element is modelled on an element in Encoded Archival Description (EAD).
     */
 
-class Ptr : public MeiElement {
+class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
         virtual ~Ptr() {};
@@ -110,7 +111,7 @@ class Ptr : public MeiElement {
     * on an element in Encoded Archival Description (EAD).
     */
 
-class Ref : public MeiElement {
+class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
         virtual ~Ref() {};

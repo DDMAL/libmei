@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "critappmixins.h"
 #include "analysismixins.h"
@@ -44,7 +45,7 @@ namespace mei {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class App : public MeiElement {
+class MEI_EXPORT App : public MeiElement {
     public:
         App();
         virtual ~App() {};
@@ -69,7 +70,7 @@ class App : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Lem : public MeiElement {
+class MEI_EXPORT Lem : public MeiElement {
     public:
         Lem();
         virtual ~Lem() {};
@@ -99,7 +100,7 @@ class Lem : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Rdg : public MeiElement {
+class MEI_EXPORT Rdg : public MeiElement {
     public:
         Rdg();
         virtual ~Rdg() {};

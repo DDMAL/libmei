@@ -9,6 +9,8 @@
 #ifndef MEIEXCEPTION_H_
 #define MEIEXCEPTION_H_
 
+#include "mei.h"
+
 #include <exception>
 #include <stdexcept>
 

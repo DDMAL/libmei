@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 
@@ -37,7 +38,7 @@ namespace mei {
     * analogous to the <graphic> element in the figtable module.
     */
 
-class Avfile : public MeiElement {
+class MEI_EXPORT Avfile : public MeiElement {
     public:
         Avfile();
         virtual ~Avfile() {};
@@ -59,7 +60,7 @@ class Avfile : public MeiElement {
     * module.
     */
 
-class Clip : public MeiElement {
+class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
         virtual ~Clip() {};
@@ -101,7 +102,7 @@ class Clip : public MeiElement {
     * module.
     */
 
-class Performance : public MeiElement {
+class MEI_EXPORT Performance : public MeiElement {
     public:
         Performance();
         virtual ~Performance() {};
@@ -120,7 +121,7 @@ class Performance : public MeiElement {
     * analogous to the <surface> element in the facsimile module.
     */
 
-class Recording : public MeiElement {
+class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
         virtual ~Recording() {};

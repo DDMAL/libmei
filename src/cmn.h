@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "cmnmixins.h"
@@ -51,7 +52,7 @@ namespace mei {
     * attribute.
     */
 
-class Arpeg : public MeiElement {
+class MEI_EXPORT Arpeg : public MeiElement {
     public:
         Arpeg();
         virtual ~Arpeg() {};
@@ -91,7 +92,7 @@ class Arpeg : public MeiElement {
     * 5.
     */
 
-class Btrem : public MeiElement {
+class MEI_EXPORT Btrem : public MeiElement {
     public:
         Btrem();
         virtual ~Btrem() {};
@@ -122,7 +123,7 @@ class Btrem : public MeiElement {
     * section by using the beam.group and beam.rests attributes on these elements.
     */
 
-class Beam : public MeiElement {
+class MEI_EXPORT Beam : public MeiElement {
     public:
         Beam();
         virtual ~Beam() {};
@@ -150,7 +151,7 @@ class Beam : public MeiElement {
     * not to specify one starting and one ending type of attribute.
     */
 
-class Beamspan : public MeiElement {
+class MEI_EXPORT Beamspan : public MeiElement {
     public:
         Beamspan();
         virtual ~Beamspan() {};
@@ -182,7 +183,7 @@ class Beamspan : public MeiElement {
     * however, note elements with appropriately-shaped note heads should be employed.
     */
 
-class Beatrpt : public MeiElement {
+class MEI_EXPORT Beatrpt : public MeiElement {
     public:
         Beatrpt();
         virtual ~Beatrpt() {};
@@ -216,7 +217,7 @@ class Beatrpt : public MeiElement {
     * specify a starting attribute.
     */
 
-class Bend : public MeiElement {
+class MEI_EXPORT Bend : public MeiElement {
     public:
         Bend();
         virtual ~Bend() {};
@@ -260,7 +261,7 @@ class Bend : public MeiElement {
     * to specify a starting point attribute.
     */
 
-class Breath : public MeiElement {
+class MEI_EXPORT Breath : public MeiElement {
     public:
         Breath();
         virtual ~Breath() {};
@@ -297,7 +298,7 @@ class Breath : public MeiElement {
     * 8ths=1, 16ths=2, 32nds=3, 64ths=4, 128ths=5, 256ths=6.
     */
 
-class Ftrem : public MeiElement {
+class MEI_EXPORT Ftrem : public MeiElement {
     public:
         Ftrem();
         virtual ~Ftrem() {};
@@ -330,7 +331,7 @@ class Ftrem : public MeiElement {
     * starting point attribute.
     */
 
-class Fermata : public MeiElement {
+class MEI_EXPORT Fermata : public MeiElement {
     public:
         Fermata();
         virtual ~Fermata() {};
@@ -373,7 +374,7 @@ class Fermata : public MeiElement {
     * is a semantic error not to specify a starting point attribute.
     */
 
-class Gliss : public MeiElement {
+class MEI_EXPORT Gliss : public MeiElement {
     public:
         Gliss();
         virtual ~Gliss() {};
@@ -415,7 +416,7 @@ class Gliss : public MeiElement {
     * rather a time stamp for the end point of the hairpin.
     */
 
-class Hairpin : public MeiElement {
+class MEI_EXPORT Hairpin : public MeiElement {
     public:
         Hairpin();
         virtual ~Hairpin() {};
@@ -454,7 +455,7 @@ class Hairpin : public MeiElement {
 /** \brief   half-measure repeat ― A half-measure repeat in any meter.
     */
 
-class Halfmrpt : public MeiElement {
+class MEI_EXPORT Halfmrpt : public MeiElement {
     public:
         Halfmrpt();
         virtual ~Halfmrpt() {};
@@ -485,7 +486,7 @@ class Halfmrpt : public MeiElement {
     * attribute. It is a semantic error not to specify a starting point attribute.
     */
 
-class Harppedal : public MeiElement {
+class MEI_EXPORT Harppedal : public MeiElement {
     public:
         Harppedal();
         virtual ~Harppedal() {};
@@ -520,7 +521,7 @@ class Harppedal : public MeiElement {
     * controlled via the multi.number attribute on the scoreDef or staffDef elements.
     */
 
-class Mrest : public MeiElement {
+class MEI_EXPORT Mrest : public MeiElement {
     public:
         Mrest();
         virtual ~Mrest() {};
@@ -556,7 +557,7 @@ class Mrest : public MeiElement {
     * the multi.number attribute on the scoreDef or staffDef elements.
     */
 
-class Mrpt : public MeiElement {
+class MEI_EXPORT Mrpt : public MeiElement {
     public:
         Mrpt();
         virtual ~Mrpt() {};
@@ -582,7 +583,7 @@ class Mrpt : public MeiElement {
     * repeated.
     */
 
-class Mrpt2 : public MeiElement {
+class MEI_EXPORT Mrpt2 : public MeiElement {
     public:
         Mrpt2();
         virtual ~Mrpt2() {};
@@ -609,7 +610,7 @@ class Mrpt2 : public MeiElement {
     * multi.number attribute on the scoreDef or staffDef elements.
     */
 
-class Mspace : public MeiElement {
+class MEI_EXPORT Mspace : public MeiElement {
     public:
         Mspace();
         virtual ~Mspace() {};
@@ -644,7 +645,7 @@ class Mspace : public MeiElement {
     * external electronic object or to another location within the MEI instance.
     */
 
-class Measure : public MeiElement {
+class MEI_EXPORT Measure : public MeiElement {
     public:
         Measure();
         virtual ~Measure() {};
@@ -676,7 +677,7 @@ class Measure : public MeiElement {
     * number to be rendered along with the note. See Read, p. 102-105.
     */
 
-class Multirest : public MeiElement {
+class MEI_EXPORT Multirest : public MeiElement {
     public:
         Multirest();
         virtual ~Multirest() {};
@@ -706,7 +707,7 @@ class Multirest : public MeiElement {
     * manuscript. The num attribute records the number of measures to be repeated.
     */
 
-class Multirpt : public MeiElement {
+class MEI_EXPORT Multirpt : public MeiElement {
     public:
         Multirpt();
         virtual ~Multirpt() {};
@@ -741,7 +742,7 @@ class Multirpt : public MeiElement {
     * required because the octave displacement can be visually instantaneous.
     */
 
-class Octave : public MeiElement {
+class MEI_EXPORT Octave : public MeiElement {
     public:
         Octave();
         virtual ~Octave() {};
@@ -783,7 +784,7 @@ class Octave : public MeiElement {
     * the alternative material is often rendered in small-sized notation.
     */
 
-class Ossia : public MeiElement {
+class MEI_EXPORT Ossia : public MeiElement {
     public:
         Ossia();
         virtual ~Ossia() {};
@@ -803,7 +804,7 @@ class Ossia : public MeiElement {
     * attribute. It is a semantic error not to specify a starting point attribute.
     */
 
-class Pedal : public MeiElement {
+class MEI_EXPORT Pedal : public MeiElement {
     public:
         Pedal();
         virtual ~Pedal() {};
@@ -840,7 +841,7 @@ class Pedal : public MeiElement {
     * model.textphraseLike.limited.
     */
 
-class Reh : public MeiElement {
+class MEI_EXPORT Reh : public MeiElement {
     public:
         Reh();
         virtual ~Reh() {};
@@ -884,7 +885,7 @@ class Reh : public MeiElement {
     * duration, but rather a time stamp for the end point of the slur.
     */
 
-class Slur : public MeiElement {
+class MEI_EXPORT Slur : public MeiElement {
     public:
         Slur();
         virtual ~Slur() {};
@@ -926,7 +927,7 @@ class Slur : public MeiElement {
     * connecting the two notes. See Read, p. 110-111, 122.
     */
 
-class Tie : public MeiElement {
+class MEI_EXPORT Tie : public MeiElement {
     public:
         Tie();
         virtual ~Tie() {};
@@ -978,7 +979,7 @@ class Tie : public MeiElement {
     * class.
     */
 
-class Tuplet : public MeiElement {
+class MEI_EXPORT Tuplet : public MeiElement {
     public:
         Tuplet();
         virtual ~Tuplet() {};
@@ -1014,7 +1015,7 @@ class Tuplet : public MeiElement {
     * attribute.
     */
 
-class Tupletspan : public MeiElement {
+class MEI_EXPORT Tupletspan : public MeiElement {
     public:
         Tupletspan();
         virtual ~Tupletspan() {};

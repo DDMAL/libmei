@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "harmonymixins.h"
 #include "analysismixins.h"
@@ -42,7 +43,7 @@ namespace mei {
     * created is recorded by the fret attribute.
     */
 
-class Barre : public MeiElement {
+class MEI_EXPORT Barre : public MeiElement {
     public:
         Barre();
         virtual ~Barre() {};
@@ -65,7 +66,7 @@ class Barre : public MeiElement {
     * single finger is used to stop multiple strings.
     */
 
-class Chorddef : public MeiElement {
+class MEI_EXPORT Chorddef : public MeiElement {
     public:
         Chorddef();
         virtual ~Chorddef() {};
@@ -92,7 +93,7 @@ class Chorddef : public MeiElement {
     * The fret at which a finger should be placed is recorded in the fret attribute.
     */
 
-class Chordmember : public MeiElement {
+class MEI_EXPORT Chordmember : public MeiElement {
     public:
         Chordmember();
         virtual ~Chordmember() {};
@@ -122,7 +123,7 @@ class Chordmember : public MeiElement {
     * table to be shared.
     */
 
-class Chordtable : public MeiElement {
+class MEI_EXPORT Chordtable : public MeiElement {
     public:
         Chordtable();
         virtual ~Chordtable() {};
@@ -137,7 +138,7 @@ class Chordtable : public MeiElement {
 /** \brief   Figure (figured bass) ― Single element of a figured bass indication.
     */
 
-class F : public MeiElement {
+class MEI_EXPORT F : public MeiElement {
     public:
         F();
         virtual ~F() {};
@@ -165,7 +166,7 @@ class F : public MeiElement {
 /** \brief   Figured Bass ―
     */
 
-class Fb : public MeiElement {
+class MEI_EXPORT Fb : public MeiElement {
     public:
         Fb();
         virtual ~Fb() {};
@@ -190,7 +191,7 @@ class Fb : public MeiElement {
     * for the end point of the harmony.
     */
 
-class Harm : public MeiElement {
+class MEI_EXPORT Harm : public MeiElement {
     public:
         Harm();
         virtual ~Harm() {};

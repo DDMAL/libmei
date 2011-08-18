@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"
@@ -45,7 +46,7 @@ namespace mei {
     * on an element in Encoded Archival Description (EAD).
     */
 
-class Corpname : public MeiElement {
+class MEI_EXPORT Corpname : public MeiElement {
     public:
         Corpname();
         virtual ~Corpname() {};
@@ -77,7 +78,7 @@ class Corpname : public MeiElement {
     * Description (EAD).
     */
 
-class Geogname : public MeiElement {
+class MEI_EXPORT Geogname : public MeiElement {
     public:
         Geogname();
         virtual ~Geogname() {};
@@ -104,7 +105,7 @@ class Geogname : public MeiElement {
     * may be recorded using the authority attribute.
     */
 
-class Periodname : public MeiElement {
+class MEI_EXPORT Periodname : public MeiElement {
     public:
         Periodname();
         virtual ~Periodname() {};
@@ -134,7 +135,7 @@ class Periodname : public MeiElement {
     * This element is modelled on an element in Encoded Archival Description (EAD).
     */
 
-class Persname : public MeiElement {
+class MEI_EXPORT Persname : public MeiElement {
     public:
         Persname();
         virtual ~Persname() {};
@@ -163,7 +164,7 @@ class Persname : public MeiElement {
     * taken may be recorded using the authority attribute.
     */
 
-class Stylename : public MeiElement {
+class MEI_EXPORT Stylename : public MeiElement {
     public:
         Stylename();
         virtual ~Stylename() {};

@@ -25,6 +25,7 @@
 #ifndef MEIATTRIBUTE_H_
 #define MEIATTRIBUTE_H_
 
+#include "mei.h"
 #include <string>
 
 using std::string;

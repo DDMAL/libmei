@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 
 
@@ -41,7 +42,7 @@ namespace mei {
     * the Text Encoding Initiative (TEI).
     */
 
-class Meicorpus : public MeiElement {
+class MEI_EXPORT Meicorpus : public MeiElement {
     public:
         Meicorpus();
         virtual ~Meicorpus() {};

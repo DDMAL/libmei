@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "cmnornamentsmixins.h"
@@ -44,7 +45,7 @@ namespace mei {
     * to specify a starting point attribute.
     */
 
-class Mordent : public MeiElement {
+class MEI_EXPORT Mordent : public MeiElement {
     public:
         Mordent();
         virtual ~Mordent() {};
@@ -85,7 +86,7 @@ class Mordent : public MeiElement {
     * a true duration, but rather a time stamp for the end point of the trill.
     */
 
-class Trill : public MeiElement {
+class MEI_EXPORT Trill : public MeiElement {
     public:
         Trill();
         virtual ~Trill() {};
@@ -126,7 +127,7 @@ class Trill : public MeiElement {
     * beat, unaccented ones do not.
     */
 
-class Turn : public MeiElement {
+class MEI_EXPORT Turn : public MeiElement {
     public:
         Turn();
         virtual ~Turn() {};

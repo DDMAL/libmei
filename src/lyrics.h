@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "analysismixins.h"
@@ -45,7 +46,7 @@ namespace mei {
     * attribute of the parent verse element.
     */
 
-class Lyrics : public MeiElement {
+class MEI_EXPORT Lyrics : public MeiElement {
     public:
         Lyrics();
         virtual ~Lyrics() {};
@@ -70,7 +71,7 @@ class Lyrics : public MeiElement {
     * line ends from line group ends for these applications.
     */
 
-class Verse : public MeiElement {
+class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
         virtual ~Verse() {};

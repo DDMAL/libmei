@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "analysismixins.h"
 #include "linkalignmixins.h"
 #include "sharedmixins.h"
@@ -40,7 +41,7 @@ namespace mei {
     * range 0-127.
     */
 
-class Cc : public MeiElement {
+class MEI_EXPORT Cc : public MeiElement {
     public:
         Cc();
         virtual ~Cc() {};
@@ -62,7 +63,7 @@ class Cc : public MeiElement {
 /** \brief   channel ― MIDI channel assignment.
     */
 
-class Chan : public MeiElement {
+class MEI_EXPORT Chan : public MeiElement {
     public:
         Chan();
         virtual ~Chan() {};
@@ -91,7 +92,7 @@ class Chan : public MeiElement {
     * attribute must be in the range 0-127.
     */
 
-class Chanpr : public MeiElement {
+class MEI_EXPORT Chanpr : public MeiElement {
     public:
         Chanpr();
         virtual ~Chanpr() {};
@@ -112,7 +113,7 @@ class Chanpr : public MeiElement {
 /** \brief   cue ― MIDI cue point.
     */
 
-class Cue : public MeiElement {
+class MEI_EXPORT Cue : public MeiElement {
     public:
         Cue();
         virtual ~Cue() {};
@@ -133,7 +134,7 @@ class Cue : public MeiElement {
     * wrapped in a CDATA section to avoid parsing errors.
     */
 
-class Hex : public MeiElement {
+class MEI_EXPORT Hex : public MeiElement {
     public:
         Hex();
         virtual ~Hex() {};
@@ -153,7 +154,7 @@ class Hex : public MeiElement {
 /** \brief   marker ― MIDI marker meta-event.
     */
 
-class Marker : public MeiElement {
+class MEI_EXPORT Marker : public MeiElement {
     public:
         Marker();
         virtual ~Marker() {};
@@ -173,7 +174,7 @@ class Marker : public MeiElement {
 /** \brief   meta text ― MIDI text meta-event.
     */
 
-class Metatext : public MeiElement {
+class MEI_EXPORT Metatext : public MeiElement {
     public:
         Metatext();
         virtual ~Metatext() {};
@@ -196,7 +197,7 @@ class Metatext : public MeiElement {
     * etc.
     */
 
-class Midi : public MeiElement {
+class MEI_EXPORT Midi : public MeiElement {
     public:
         Midi();
         virtual ~Midi() {};
@@ -215,7 +216,7 @@ class Midi : public MeiElement {
 /** \brief   note-off ― MIDI note-off event.
     */
 
-class Noteoff : public MeiElement {
+class MEI_EXPORT Noteoff : public MeiElement {
     public:
         Noteoff();
         virtual ~Noteoff() {};
@@ -236,7 +237,7 @@ class Noteoff : public MeiElement {
 /** \brief   note-on ― MIDI note-on event.
     */
 
-class Noteon : public MeiElement {
+class MEI_EXPORT Noteon : public MeiElement {
     public:
         Noteon();
         virtual ~Noteon() {};
@@ -257,7 +258,7 @@ class Noteon : public MeiElement {
 /** \brief   port ― MIDI port. The num attribute must be in the range 0-127.
     */
 
-class Port : public MeiElement {
+class MEI_EXPORT Port : public MeiElement {
     public:
         Port();
         virtual ~Port() {};
@@ -278,7 +279,7 @@ class Port : public MeiElement {
 /** \brief   program ― MIDI program change. The num attribute must be in the range 0-127.
     */
 
-class Prog : public MeiElement {
+class MEI_EXPORT Prog : public MeiElement {
     public:
         Prog();
         virtual ~Prog() {};
@@ -299,7 +300,7 @@ class Prog : public MeiElement {
 /** \brief   sequence number ― MIDI sequence number.
     */
 
-class Seqnum : public MeiElement {
+class MEI_EXPORT Seqnum : public MeiElement {
     public:
         Seqnum();
         virtual ~Seqnum() {};
@@ -327,7 +328,7 @@ class Seqnum : public MeiElement {
 /** \brief   track name ― MIDI track/sequence name.
     */
 
-class Trkname : public MeiElement {
+class MEI_EXPORT Trkname : public MeiElement {
     public:
         Trkname();
         virtual ~Trkname() {};
@@ -348,7 +349,7 @@ class Trkname : public MeiElement {
     * 0-127.
     */
 
-class Vel : public MeiElement {
+class MEI_EXPORT Vel : public MeiElement {
     public:
         Vel();
         virtual ~Vel() {};

@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "analysismixins.h"
 #include "linkalignmixins.h"
 #include "sharedmixins.h"
@@ -47,7 +48,7 @@ namespace mei {
     * coordinates or from the location of the referenced element.
     */
 
-class Anchoredtext : public MeiElement {
+class MEI_EXPORT Anchoredtext : public MeiElement {
     public:
         Anchoredtext();
         virtual ~Anchoredtext() {};
@@ -87,7 +88,7 @@ class Anchoredtext : public MeiElement {
     * of the NUMBER datatype. The rend attribute captures the appearance of the curve.
     */
 
-class Curve : public MeiElement {
+class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
         virtual ~Curve() {};
@@ -130,7 +131,7 @@ class Curve : public MeiElement {
     * attribute.
     */
 
-class Line : public MeiElement {
+class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
         virtual ~Line() {};
@@ -168,7 +169,7 @@ class Line : public MeiElement {
     * scaled by the specified percentage.
     */
 
-class Symbol : public MeiElement {
+class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
         virtual ~Symbol() {};
@@ -201,7 +202,7 @@ class Symbol : public MeiElement {
 /** \brief   symbol definition ― Declaration of an individual symbol in a symbolTable.
     */
 
-class Symboldef : public MeiElement {
+class MEI_EXPORT Symboldef : public MeiElement {
     public:
         Symboldef();
         virtual ~Symboldef() {};
@@ -218,7 +219,7 @@ class Symboldef : public MeiElement {
     * parsed entity containing the symbolTable to be shared.
     */
 
-class Symboltable : public MeiElement {
+class MEI_EXPORT Symboltable : public MeiElement {
     public:
         Symboltable();
         virtual ~Symboltable() {};

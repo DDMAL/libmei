@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"
@@ -67,7 +68,7 @@ namespace mei {
     * Initiative (TEI).
     */
 
-class Abbr : public MeiElement {
+class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
         virtual ~Abbr() {};
@@ -104,7 +105,7 @@ class Abbr : public MeiElement {
     * as 'cautionary' or 'editorial'.
     */
 
-class Accid : public MeiElement {
+class MEI_EXPORT Accid : public MeiElement {
     public:
         Accid();
         virtual ~Accid() {};
@@ -137,7 +138,7 @@ class Accid : public MeiElement {
 /** \brief   actor ― Name of an actor appearing within a cast list.
     */
 
-class Actor : public MeiElement {
+class MEI_EXPORT Actor : public MeiElement {
     public:
         Actor();
         virtual ~Actor() {};
@@ -157,7 +158,7 @@ class Actor : public MeiElement {
     * Initiative (TEI).
     */
 
-class Addrline : public MeiElement {
+class MEI_EXPORT Addrline : public MeiElement {
     public:
         Addrline();
         virtual ~Addrline() {};
@@ -176,7 +177,7 @@ class Addrline : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Address : public MeiElement {
+class MEI_EXPORT Address : public MeiElement {
     public:
         Address();
         virtual ~Address() {};
@@ -212,7 +213,7 @@ class Address : public MeiElement {
     * the editor(s) responsible for identifying or creating the annotation.
     */
 
-class Annot : public MeiElement {
+class MEI_EXPORT Annot : public MeiElement {
     public:
         Annot();
         virtual ~Annot() {};
@@ -251,7 +252,7 @@ class Annot : public MeiElement {
     * articulation marks occur on a single note or chord.
     */
 
-class Artic : public MeiElement {
+class MEI_EXPORT Artic : public MeiElement {
     public:
         Artic();
         virtual ~Artic() {};
@@ -289,7 +290,7 @@ class Artic : public MeiElement {
     * necessary within measure elements in CMN.
     */
 
-class Barline : public MeiElement {
+class MEI_EXPORT Barline : public MeiElement {
     public:
         Barline();
         virtual ~Barline() {};
@@ -322,7 +323,7 @@ class Barline : public MeiElement {
     * place in the same document.
     */
 
-class Bibl : public MeiElement {
+class MEI_EXPORT Bibl : public MeiElement {
     public:
         Bibl();
         virtual ~Bibl() {};
@@ -346,7 +347,7 @@ class Bibl : public MeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-class Body : public MeiElement {
+class MEI_EXPORT Body : public MeiElement {
     public:
         Body();
         virtual ~Body() {};
@@ -362,7 +363,7 @@ class Body : public MeiElement {
 /** \brief   caption ― A label which accompanies an illustration or a table.
     */
 
-class Caption : public MeiElement {
+class MEI_EXPORT Caption : public MeiElement {
     public:
         Caption();
         virtual ~Caption() {};
@@ -380,7 +381,7 @@ class Caption : public MeiElement {
     * cast list.
     */
 
-class Castgrp : public MeiElement {
+class MEI_EXPORT Castgrp : public MeiElement {
     public:
         Castgrp();
         virtual ~Castgrp() {};
@@ -398,7 +399,7 @@ class Castgrp : public MeiElement {
     * a single role or a list of non-speaking roles.
     */
 
-class Castitem : public MeiElement {
+class MEI_EXPORT Castitem : public MeiElement {
     public:
         Castitem();
         virtual ~Castitem() {};
@@ -415,7 +416,7 @@ class Castitem : public MeiElement {
 /** \brief   cast list ― Contains a single cast list or dramatis personae.
     */
 
-class Castlist : public MeiElement {
+class MEI_EXPORT Castlist : public MeiElement {
     public:
         Castlist();
         virtual ~Castlist() {};
@@ -433,7 +434,7 @@ class Castlist : public MeiElement {
     * the same duration*.
     */
 
-class Chord : public MeiElement {
+class MEI_EXPORT Chord : public MeiElement {
     public:
         Chord();
         virtual ~Chord() {};
@@ -485,7 +486,7 @@ class Chord : public MeiElement {
     * simultaneous clefs occur on a single staff.
     */
 
-class Clef : public MeiElement {
+class MEI_EXPORT Clef : public MeiElement {
     public:
         Clef();
         virtual ~Clef() {};
@@ -509,7 +510,7 @@ class Clef : public MeiElement {
 /** \brief   clef change ― A temporary change of clef.
     */
 
-class Clefchange : public MeiElement {
+class MEI_EXPORT Clefchange : public MeiElement {
     public:
         Clefchange();
         virtual ~Clefchange() {};
@@ -541,7 +542,7 @@ class Clefchange : public MeiElement {
     * where the custos appears.
     */
 
-class Custos : public MeiElement {
+class MEI_EXPORT Custos : public MeiElement {
     public:
         Custos();
         virtual ~Custos() {};
@@ -570,7 +571,7 @@ class Custos : public MeiElement {
     * This element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Date : public MeiElement {
+class MEI_EXPORT Date : public MeiElement {
     public:
         Date();
         virtual ~Date() {};
@@ -609,7 +610,7 @@ class Date : public MeiElement {
     * point attribute.
     */
 
-class Dir : public MeiElement {
+class MEI_EXPORT Dir : public MeiElement {
     public:
         Dir();
         virtual ~Dir() {};
@@ -648,7 +649,7 @@ class Dir : public MeiElement {
     * This element may also be used for dots of division in the mensural repertoire.
     */
 
-class Dot : public MeiElement {
+class MEI_EXPORT Dot : public MeiElement {
     public:
         Dot();
         virtual ~Dot() {};
@@ -687,7 +688,7 @@ class Dot : public MeiElement {
     * attribute.
     */
 
-class Dynam : public MeiElement {
+class MEI_EXPORT Dynam : public MeiElement {
     public:
         Dynam();
         virtual ~Dynam() {};
@@ -728,7 +729,7 @@ class Dynam : public MeiElement {
     * This element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Edition : public MeiElement {
+class MEI_EXPORT Edition : public MeiElement {
     public:
         Edition();
         virtual ~Edition() {};
@@ -749,7 +750,7 @@ class Edition : public MeiElement {
     * may *not* contain other ending elements.
     */
 
-class Ending : public MeiElement {
+class MEI_EXPORT Ending : public MeiElement {
     public:
         Ending();
         virtual ~Ending() {};
@@ -785,7 +786,7 @@ class Ending : public MeiElement {
     * (TEI).
     */
 
-class Expan : public MeiElement {
+class MEI_EXPORT Expan : public MeiElement {
     public:
         Expan();
         virtual ~Expan() {};
@@ -820,7 +821,7 @@ class Expan : public MeiElement {
     * the ending labelled 'End2'.
     */
 
-class Expansion : public MeiElement {
+class MEI_EXPORT Expansion : public MeiElement {
     public:
         Expansion();
         virtual ~Expansion() {};
@@ -841,7 +842,7 @@ class Expansion : public MeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-class Fw : public MeiElement {
+class MEI_EXPORT Fw : public MeiElement {
     public:
         Fw();
         virtual ~Fw() {};
@@ -862,7 +863,7 @@ class Fw : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Group : public MeiElement {
+class MEI_EXPORT Group : public MeiElement {
     public:
         Group();
         virtual ~Group() {};
@@ -881,7 +882,7 @@ class Group : public MeiElement {
     * grouping symbol must be recorded.
     */
 
-class Grpsym : public MeiElement {
+class MEI_EXPORT Grpsym : public MeiElement {
     public:
         Grpsym();
         virtual ~Grpsym() {};
@@ -908,7 +909,7 @@ class Grpsym : public MeiElement {
     * used to indicate the system from which the identifier was derived.
     */
 
-class Identifier : public MeiElement {
+class MEI_EXPORT Identifier : public MeiElement {
     public:
         Identifier();
         virtual ~Identifier() {};
@@ -930,7 +931,7 @@ class Identifier : public MeiElement {
     * element.
     */
 
-class Incip : public MeiElement {
+class MEI_EXPORT Incip : public MeiElement {
     public:
         Incip();
         virtual ~Incip() {};
@@ -949,7 +950,7 @@ class Incip : public MeiElement {
     * layer. MIDI prog elements may then change the instrument as necessary.
     */
 
-class Instrdef : public MeiElement {
+class MEI_EXPORT Instrdef : public MeiElement {
     public:
         Instrdef();
         virtual ~Instrdef() {};
@@ -966,7 +967,7 @@ class Instrdef : public MeiElement {
 /** \brief   instrument group ― Collects MIDI instrument definitions.
     */
 
-class Instrgrp : public MeiElement {
+class MEI_EXPORT Instrgrp : public MeiElement {
     public:
         Instrgrp();
         virtual ~Instrgrp() {};
@@ -982,7 +983,7 @@ class Instrgrp : public MeiElement {
     * provide either the x and y pair of attributes or the staffloc attribute.
     */
 
-class Keyaccid : public MeiElement {
+class MEI_EXPORT Keyaccid : public MeiElement {
     public:
         Keyaccid();
         virtual ~Keyaccid() {};
@@ -1012,7 +1013,7 @@ class Keyaccid : public MeiElement {
     * attributes (especially key.sig.mixed) on scoreDef and staffDef.
     */
 
-class Keysig : public MeiElement {
+class MEI_EXPORT Keysig : public MeiElement {
     public:
         Keysig();
         virtual ~Keysig() {};
@@ -1037,7 +1038,7 @@ class Keysig : public MeiElement {
 /** \brief   label ― A text string that identifies a staff or staff group.
     */
 
-class Label : public MeiElement {
+class MEI_EXPORT Label : public MeiElement {
     public:
         Label();
         virtual ~Label() {};
@@ -1058,7 +1059,7 @@ class Label : public MeiElement {
     * appropriate layerDef element.
     */
 
-class Layer : public MeiElement {
+class MEI_EXPORT Layer : public MeiElement {
     public:
         Layer();
         virtual ~Layer() {};
@@ -1079,7 +1080,7 @@ class Layer : public MeiElement {
 /** \brief   layer definition ― Container for layer meta-information.
     */
 
-class Layerdef : public MeiElement {
+class MEI_EXPORT Layerdef : public MeiElement {
     public:
         Layerdef();
         virtual ~Layerdef() {};
@@ -1108,7 +1109,7 @@ class Layerdef : public MeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-class Lb : public MeiElement {
+class MEI_EXPORT Lb : public MeiElement {
     public:
         Lb();
         virtual ~Lb() {};
@@ -1146,7 +1147,7 @@ class Lb : public MeiElement {
     * <mdiv> <- scene ii </mdiv> </mdiv>
     */
 
-class Mdiv : public MeiElement {
+class MEI_EXPORT Mdiv : public MeiElement {
     public:
         Mdiv();
         virtual ~Mdiv() {};
@@ -1167,7 +1168,7 @@ class Mdiv : public MeiElement {
     * assure an absolute minimum level of MEI compliance.
     */
 
-class Mei : public MeiElement {
+class MEI_EXPORT Mei : public MeiElement {
     public:
         Mei();
         virtual ~Mei() {};
@@ -1182,7 +1183,7 @@ class Mei : public MeiElement {
 /** \brief   music ― Container for everything else in the document apart from the header.
     */
 
-class Music : public MeiElement {
+class MEI_EXPORT Music : public MeiElement {
     public:
         Music();
         virtual ~Music() {};
@@ -1215,7 +1216,7 @@ class Music : public MeiElement {
     * element in Encoded Archival Description (EAD).
     */
 
-class Name : public MeiElement {
+class MEI_EXPORT Name : public MeiElement {
     public:
         Name();
         virtual ~Name() {};
@@ -1249,7 +1250,7 @@ class Name : public MeiElement {
     * visual color.
     */
 
-class Note : public MeiElement {
+class MEI_EXPORT Note : public MeiElement {
     public:
         Note();
         virtual ~Note() {};
@@ -1315,7 +1316,7 @@ class Note : public MeiElement {
     * attribute.
     */
 
-class Num : public MeiElement {
+class MEI_EXPORT Num : public MeiElement {
     public:
         Num();
         virtual ~Num() {};
@@ -1337,7 +1338,7 @@ class Num : public MeiElement {
     * Encoding Initiative (TEI), and HTML.
     */
 
-class P : public MeiElement {
+class MEI_EXPORT P : public MeiElement {
     public:
         P();
         virtual ~P() {};
@@ -1356,7 +1357,7 @@ class P : public MeiElement {
 /** \brief   pad ― An indication of extra visual space between notational elements.
     */
 
-class Pad : public MeiElement {
+class MEI_EXPORT Pad : public MeiElement {
     public:
         Pad();
         virtual ~Pad() {};
@@ -1386,7 +1387,7 @@ class Pad : public MeiElement {
     * controlling'.
     */
 
-class Part : public MeiElement {
+class MEI_EXPORT Part : public MeiElement {
     public:
         Part();
         virtual ~Part() {};
@@ -1405,7 +1406,7 @@ class Part : public MeiElement {
 /** \brief   parts ― Gathers performers' parts.
     */
 
-class Parts : public MeiElement {
+class MEI_EXPORT Parts : public MeiElement {
     public:
         Parts();
         virtual ~Parts() {};
@@ -1428,7 +1429,7 @@ class Parts : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Pb : public MeiElement {
+class MEI_EXPORT Pb : public MeiElement {
     public:
         Pb();
         virtual ~Pb() {};
@@ -1454,7 +1455,7 @@ class Pb : public MeiElement {
     * may not function as a description of the illustration.
     */
 
-class Pgdesc : public MeiElement {
+class MEI_EXPORT Pgdesc : public MeiElement {
     public:
         Pgdesc();
         virtual ~Pgdesc() {};
@@ -1473,7 +1474,7 @@ class Pgdesc : public MeiElement {
     * used to encode textual notes/annotations.
     */
 
-class Pgfoot : public MeiElement {
+class MEI_EXPORT Pgfoot : public MeiElement {
     public:
         Pgfoot();
         virtual ~Pgfoot() {};
@@ -1493,7 +1494,7 @@ class Pgfoot : public MeiElement {
     * should *not* be used to encode textual notes/annotations.
     */
 
-class Pgfoot2 : public MeiElement {
+class MEI_EXPORT Pgfoot2 : public MeiElement {
     public:
         Pgfoot2();
         virtual ~Pgfoot2() {};
@@ -1515,7 +1516,7 @@ class Pgfoot2 : public MeiElement {
     * generated page numbers may be indicated with a processing instruction.
     */
 
-class Pghead : public MeiElement {
+class MEI_EXPORT Pghead : public MeiElement {
     public:
         Pghead();
         virtual ~Pghead() {};
@@ -1535,7 +1536,7 @@ class Pghead : public MeiElement {
     * generated page numbers may be indicated with a processing instruction.
     */
 
-class Pghead2 : public MeiElement {
+class MEI_EXPORT Pghead2 : public MeiElement {
     public:
         Pghead2();
         virtual ~Pghead2() {};
@@ -1565,7 +1566,7 @@ class Pghead2 : public MeiElement {
     * end point of the phrase mark.
     */
 
-class Phrase : public MeiElement {
+class MEI_EXPORT Phrase : public MeiElement {
     public:
         Phrase();
         virtual ~Phrase() {};
@@ -1607,7 +1608,7 @@ class Phrase : public MeiElement {
     * element.
     */
 
-class Rend : public MeiElement {
+class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
         virtual ~Rend() {};
@@ -1660,7 +1661,7 @@ class Rend : public MeiElement {
     * Description (EAD).
     */
 
-class Repository : public MeiElement {
+class MEI_EXPORT Repository : public MeiElement {
     public:
         Repository();
         virtual ~Repository() {};
@@ -1684,7 +1685,7 @@ class Repository : public MeiElement {
     * aid for visual alignment.
     */
 
-class Rest : public MeiElement {
+class MEI_EXPORT Rest : public MeiElement {
     public:
         Rest();
         virtual ~Rest() {};
@@ -1723,7 +1724,7 @@ class Rest : public MeiElement {
 /** \brief   role ― Name of a dramatic role, as given in a cast list.
     */
 
-class Role : public MeiElement {
+class MEI_EXPORT Role : public MeiElement {
     public:
         Role();
         virtual ~Role() {};
@@ -1740,7 +1741,7 @@ class Role : public MeiElement {
 /** \brief   role description ― Describes a character's role in a drama.
     */
 
-class Roledesc : public MeiElement {
+class MEI_EXPORT Roledesc : public MeiElement {
     public:
         Roledesc();
         virtual ~Roledesc() {};
@@ -1759,7 +1760,7 @@ class Roledesc : public MeiElement {
     * similar function in prose.
     */
 
-class Sb : public MeiElement {
+class MEI_EXPORT Sb : public MeiElement {
     public:
         Sb();
         virtual ~Sb() {};
@@ -1782,7 +1783,7 @@ class Sb : public MeiElement {
     * to accommodate blocks of explanatory text.
     */
 
-class Score : public MeiElement {
+class MEI_EXPORT Score : public MeiElement {
     public:
         Score();
         virtual ~Score() {};
@@ -1801,7 +1802,7 @@ class Score : public MeiElement {
 /** \brief   score definition ― Container for score meta-information.
     */
 
-class Scoredef : public MeiElement {
+class MEI_EXPORT Scoredef : public MeiElement {
     public:
         Scoredef();
         virtual ~Scoredef() {};
@@ -1850,7 +1851,7 @@ class Scoredef : public MeiElement {
     * related internal elements, such as annotations.
     */
 
-class Section : public MeiElement {
+class MEI_EXPORT Section : public MeiElement {
     public:
         Section();
         virtual ~Section() {};
@@ -1876,7 +1877,7 @@ class Section : public MeiElement {
     * the measure.
     */
 
-class Space : public MeiElement {
+class MEI_EXPORT Space : public MeiElement {
     public:
         Space();
         virtual ~Space() {};
@@ -1905,7 +1906,7 @@ class Space : public MeiElement {
 /** \brief   stacked text ― An inline table with a single column.
     */
 
-class Stack : public MeiElement {
+class MEI_EXPORT Stack : public MeiElement {
     public:
         Stack();
         virtual ~Stack() {};
@@ -1945,7 +1946,7 @@ class Stack : public MeiElement {
     * attribute must be supplied.
     */
 
-class Staff : public MeiElement {
+class MEI_EXPORT Staff : public MeiElement {
     public:
         Staff();
         virtual ~Staff() {};
@@ -1966,7 +1967,7 @@ class Staff : public MeiElement {
 /** \brief   staff definition ― Container for staff meta-information.
     */
 
-class Staffdef : public MeiElement {
+class MEI_EXPORT Staffdef : public MeiElement {
     public:
         Staffdef();
         virtual ~Staffdef() {};
@@ -2017,7 +2018,7 @@ class Staffdef : public MeiElement {
     * (Read, p. 37-38).
     */
 
-class Staffgrp : public MeiElement {
+class MEI_EXPORT Staffgrp : public MeiElement {
     public:
         Staffgrp();
         virtual ~Staffgrp() {};
@@ -2041,7 +2042,7 @@ class Staffgrp : public MeiElement {
     * syllable with respect to the note to which it is attached.
     */
 
-class Syl : public MeiElement {
+class MEI_EXPORT Syl : public MeiElement {
     public:
         Syl();
         virtual ~Syl() {};
@@ -2071,7 +2072,7 @@ class Syl : public MeiElement {
     * duration, but rather a time stamp for the end point of the directive.
     */
 
-class Tempo : public MeiElement {
+class MEI_EXPORT Tempo : public MeiElement {
     public:
         Tempo();
         virtual ~Tempo() {};
@@ -2117,7 +2118,7 @@ class Tempo : public MeiElement {
     * Initiative (TEI).
     */
 
-class Title : public MeiElement {
+class MEI_EXPORT Title : public MeiElement {
     public:
         Title();
         virtual ~Title() {};
@@ -2147,7 +2148,7 @@ class Title : public MeiElement {
     * element is modelled on an element in Encoded Archival Description (EAD).
     */
 
-class Titlepage : public MeiElement {
+class MEI_EXPORT Titlepage : public MeiElement {
     public:
         Titlepage();
         virtual ~Titlepage() {};

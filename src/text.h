@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 
@@ -38,7 +39,7 @@ namespace mei {
     * Initiative (TEI).
     */
 
-class Back : public MeiElement {
+class MEI_EXPORT Back : public MeiElement {
     public:
         Back();
         virtual ~Back() {};
@@ -58,7 +59,7 @@ class Back : public MeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Div : public MeiElement {
+class MEI_EXPORT Div : public MeiElement {
     public:
         Div();
         virtual ~Div() {};
@@ -84,7 +85,7 @@ class Div : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Front : public MeiElement {
+class MEI_EXPORT Front : public MeiElement {
     public:
         Front();
         virtual ~Front() {};
@@ -106,7 +107,7 @@ class Front : public MeiElement {
     * and HTML.
     */
 
-class Head : public MeiElement {
+class MEI_EXPORT Head : public MeiElement {
     public:
         Head();
         virtual ~Head() {};
@@ -125,7 +126,7 @@ class Head : public MeiElement {
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
 
-class Item : public MeiElement {
+class MEI_EXPORT Item : public MeiElement {
     public:
         Item();
         virtual ~Item() {};
@@ -145,7 +146,7 @@ class Item : public MeiElement {
     * elements in the Text Encoding Initiative (TEI).
     */
 
-class L : public MeiElement {
+class MEI_EXPORT L : public MeiElement {
     public:
         L();
         virtual ~L() {};
@@ -164,7 +165,7 @@ class L : public MeiElement {
     * (TEI).
     */
 
-class Lg : public MeiElement {
+class MEI_EXPORT Lg : public MeiElement {
     public:
         Lg();
         virtual ~Lg() {};
@@ -186,7 +187,7 @@ class Lg : public MeiElement {
     * Initiative (TEI), and HTML.
     */
 
-class List : public MeiElement {
+class MEI_EXPORT List : public MeiElement {
     public:
         List();
         virtual ~List() {};
@@ -217,7 +218,7 @@ class List : public MeiElement {
     * found in HTML, TEI, and EAD.
     */
 
-class Quote : public MeiElement {
+class MEI_EXPORT Quote : public MeiElement {
     public:
         Quote();
         virtual ~Quote() {};

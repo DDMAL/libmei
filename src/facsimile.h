@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 
 
@@ -39,7 +40,7 @@ namespace mei {
     * Initiative (TEI).
     */
 
-class Facsimile : public MeiElement {
+class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
         virtual ~Facsimile() {};
@@ -59,7 +60,7 @@ class Facsimile : public MeiElement {
     * is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Surface : public MeiElement {
+class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
         virtual ~Surface() {};
@@ -79,7 +80,7 @@ class Surface : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Zone : public MeiElement {
+class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
         virtual ~Zone() {};

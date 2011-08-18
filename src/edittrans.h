@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "edittransmixins.h"
@@ -47,7 +48,7 @@ namespace mei {
     * (TEI).
     */
 
-class Add : public MeiElement {
+class MEI_EXPORT Add : public MeiElement {
     public:
         Add();
         virtual ~Add() {};
@@ -74,7 +75,7 @@ class Add : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Choice : public MeiElement {
+class MEI_EXPORT Choice : public MeiElement {
     public:
         Choice();
         virtual ~Choice() {};
@@ -96,7 +97,7 @@ class Choice : public MeiElement {
     * is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Corr : public MeiElement {
+class MEI_EXPORT Corr : public MeiElement {
     public:
         Corr();
         virtual ~Corr() {};
@@ -128,7 +129,7 @@ class Corr : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Damage : public MeiElement {
+class MEI_EXPORT Damage : public MeiElement {
     public:
         Damage();
         virtual ~Damage() {};
@@ -165,7 +166,7 @@ class Damage : public MeiElement {
     * Initiative (TEI).
     */
 
-class Del : public MeiElement {
+class MEI_EXPORT Del : public MeiElement {
     public:
         Del();
         virtual ~Del() {};
@@ -208,7 +209,7 @@ class Del : public MeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-class Gap : public MeiElement {
+class MEI_EXPORT Gap : public MeiElement {
     public:
         Gap();
         virtual ~Gap() {};
@@ -241,7 +242,7 @@ class Gap : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Handshift : public MeiElement {
+class MEI_EXPORT Handshift : public MeiElement {
     public:
         Handshift();
         virtual ~Handshift() {};
@@ -291,7 +292,7 @@ class Handshift : public MeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-class Orig : public MeiElement {
+class MEI_EXPORT Orig : public MeiElement {
     public:
         Orig();
         virtual ~Orig() {};
@@ -318,7 +319,7 @@ class Orig : public MeiElement {
     * This element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Reg : public MeiElement {
+class MEI_EXPORT Reg : public MeiElement {
     public:
         Reg();
         virtual ~Reg() {};
@@ -347,7 +348,7 @@ class Reg : public MeiElement {
     * Initiative (TEI).
     */
 
-class Restore : public MeiElement {
+class MEI_EXPORT Restore : public MeiElement {
     public:
         Restore();
         virtual ~Restore() {};
@@ -376,7 +377,7 @@ class Restore : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Sic : public MeiElement {
+class MEI_EXPORT Sic : public MeiElement {
     public:
         Sic();
         virtual ~Sic() {};
@@ -394,7 +395,7 @@ class Sic : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Subst : public MeiElement {
+class MEI_EXPORT Subst : public MeiElement {
     public:
         Subst();
         virtual ~Subst() {};
@@ -427,7 +428,7 @@ class Subst : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Supplied : public MeiElement {
+class MEI_EXPORT Supplied : public MeiElement {
     public:
         Supplied();
         virtual ~Supplied() {};
@@ -460,7 +461,7 @@ class Supplied : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Unclear : public MeiElement {
+class MEI_EXPORT Unclear : public MeiElement {
     public:
         Unclear();
         virtual ~Unclear() {};

@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "headermixins.h"
 #include "edittransmixins.h"
@@ -44,7 +45,7 @@ namespace mei {
     * Archival Description (EAD).
     */
 
-class Accessrestrict : public MeiElement {
+class MEI_EXPORT Accessrestrict : public MeiElement {
     public:
         Accessrestrict();
         virtual ~Accessrestrict() {};
@@ -64,7 +65,7 @@ class Accessrestrict : public MeiElement {
     * (EAD).
     */
 
-class Acqsource : public MeiElement {
+class MEI_EXPORT Acqsource : public MeiElement {
     public:
         Acqsource();
         virtual ~Acqsource() {};
@@ -85,7 +86,7 @@ class Acqsource : public MeiElement {
     * applicable.
     */
 
-class Altid : public MeiElement {
+class MEI_EXPORT Altid : public MeiElement {
     public:
         Altid();
         virtual ~Altid() {};
@@ -106,7 +107,7 @@ class Altid : public MeiElement {
     * (TEI).
     */
 
-class Appinfo : public MeiElement {
+class MEI_EXPORT Appinfo : public MeiElement {
     public:
         Appinfo();
         virtual ~Appinfo() {};
@@ -123,7 +124,7 @@ class Appinfo : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Application : public MeiElement {
+class MEI_EXPORT Application : public MeiElement {
     public:
         Application();
         virtual ~Application() {};
@@ -151,7 +152,7 @@ class Application : public MeiElement {
     * an element in Encoded Archival Description (EAD).
     */
 
-class Availability : public MeiElement {
+class MEI_EXPORT Availability : public MeiElement {
     public:
         Availability();
         virtual ~Availability() {};
@@ -176,7 +177,7 @@ class Availability : public MeiElement {
     * modelled on an element in Encoded Archival Description (EAD).
     */
 
-class Change : public MeiElement {
+class MEI_EXPORT Change : public MeiElement {
     public:
         Change();
         virtual ~Change() {};
@@ -192,7 +193,7 @@ class Change : public MeiElement {
 /** \brief   change description ― Description of a revision of the MEI file.
     */
 
-class Changedesc : public MeiElement {
+class MEI_EXPORT Changedesc : public MeiElement {
     public:
         Changedesc();
         virtual ~Changedesc() {};
@@ -214,7 +215,7 @@ class Changedesc : public MeiElement {
     * additional markup is needed.
     */
 
-class Classcode : public MeiElement {
+class MEI_EXPORT Classcode : public MeiElement {
     public:
         Classcode();
         virtual ~Classcode() {};
@@ -236,7 +237,7 @@ class Classcode : public MeiElement {
     * from many institutions.
     */
 
-class Classification : public MeiElement {
+class MEI_EXPORT Classification : public MeiElement {
     public:
         Classification();
         virtual ~Classification() {};
@@ -258,7 +259,7 @@ class Classification : public MeiElement {
     * (EAD).
     */
 
-class Condition : public MeiElement {
+class MEI_EXPORT Condition : public MeiElement {
     public:
         Condition();
         virtual ~Condition() {};
@@ -275,7 +276,7 @@ class Condition : public MeiElement {
 /** \brief   content item ― Contains a single entry within a content description element.
     */
 
-class Contentitem : public MeiElement {
+class MEI_EXPORT Contentitem : public MeiElement {
     public:
         Contentitem();
         virtual ~Contentitem() {};
@@ -298,7 +299,7 @@ class Contentitem : public MeiElement {
     * type="constituent" attribute instead of <contents>.
     */
 
-class Contents : public MeiElement {
+class MEI_EXPORT Contents : public MeiElement {
     public:
         Contents();
         virtual ~Contents() {};
@@ -317,7 +318,7 @@ class Contents : public MeiElement {
     * Initiative (TEI).
     */
 
-class Correction : public MeiElement {
+class MEI_EXPORT Correction : public MeiElement {
     public:
         Correction();
         virtual ~Correction() {};
@@ -346,7 +347,7 @@ class Correction : public MeiElement {
     * an element in the Text Encoding Initiative (TEI).
     */
 
-class Creation : public MeiElement {
+class MEI_EXPORT Creation : public MeiElement {
     public:
         Creation();
         virtual ~Creation() {};
@@ -369,7 +370,7 @@ class Creation : public MeiElement {
     * Initiative (TEI).
     */
 
-class Dimensions : public MeiElement {
+class MEI_EXPORT Dimensions : public MeiElement {
     public:
         Dimensions();
         virtual ~Dimensions() {};
@@ -388,7 +389,7 @@ class Dimensions : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Editionstmt : public MeiElement {
+class MEI_EXPORT Editionstmt : public MeiElement {
     public:
         Editionstmt();
         virtual ~Editionstmt() {};
@@ -407,7 +408,7 @@ class Editionstmt : public MeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-class Editorialdecl : public MeiElement {
+class MEI_EXPORT Editorialdecl : public MeiElement {
     public:
         Editorialdecl();
         virtual ~Editorialdecl() {};
@@ -428,7 +429,7 @@ class Editorialdecl : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Encodingdesc : public MeiElement {
+class MEI_EXPORT Encodingdesc : public MeiElement {
     public:
         Encodingdesc();
         virtual ~Encodingdesc() {};
@@ -448,7 +449,7 @@ class Encodingdesc : public MeiElement {
     * performance Codes List or the MARC Instruments and Voices Code List.
     */
 
-class Ensemble : public MeiElement {
+class MEI_EXPORT Ensemble : public MeiElement {
     public:
         Ensemble();
         virtual ~Ensemble() {};
@@ -469,7 +470,7 @@ class Ensemble : public MeiElement {
     * accommodate structured content.
     */
 
-class Event : public MeiElement {
+class MEI_EXPORT Event : public MeiElement {
     public:
         Event();
         virtual ~Event() {};
@@ -499,7 +500,7 @@ class Event : public MeiElement {
     * events in the compositional process and a list of performance dates.
     */
 
-class Eventlist : public MeiElement {
+class MEI_EXPORT Eventlist : public MeiElement {
     public:
         Eventlist();
         virtual ~Eventlist() {};
@@ -518,7 +519,7 @@ class Eventlist : public MeiElement {
     * (EAD).
     */
 
-class Exhibhist : public MeiElement {
+class MEI_EXPORT Exhibhist : public MeiElement {
     public:
         Exhibhist();
         virtual ~Exhibhist() {};
@@ -540,7 +541,7 @@ class Exhibhist : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Extent : public MeiElement {
+class MEI_EXPORT Extent : public MeiElement {
     public:
         Extent();
         virtual ~Extent() {};
@@ -559,7 +560,7 @@ class Extent : public MeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-class Filedesc : public MeiElement {
+class MEI_EXPORT Filedesc : public MeiElement {
     public:
         Filedesc();
         virtual ~Filedesc() {};
@@ -578,7 +579,7 @@ class Filedesc : public MeiElement {
     * item, such as an MEI file, however, the fingerprint should be a checksum.
     */
 
-class Fingerprint : public MeiElement {
+class MEI_EXPORT Fingerprint : public MeiElement {
     public:
         Fingerprint();
         virtual ~Fingerprint() {};
@@ -602,7 +603,7 @@ class Fingerprint : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Hand : public MeiElement {
+class MEI_EXPORT Hand : public MeiElement {
     public:
         Hand();
         virtual ~Hand() {};
@@ -629,7 +630,7 @@ class Hand : public MeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-class Handlist : public MeiElement {
+class MEI_EXPORT Handlist : public MeiElement {
     public:
         Handlist();
         virtual ~Handlist() {};
@@ -646,7 +647,7 @@ class Handlist : public MeiElement {
     * history of a resource.
     */
 
-class History : public MeiElement {
+class MEI_EXPORT History : public MeiElement {
     public:
         History();
         virtual ~History() {};
@@ -663,7 +664,7 @@ class History : public MeiElement {
     * & Easie.
     */
 
-class Incipcode : public MeiElement {
+class MEI_EXPORT Incipcode : public MeiElement {
     public:
         Incipcode();
         virtual ~Incipcode() {};
@@ -698,7 +699,7 @@ class Incipcode : public MeiElement {
     * designating the item as a gift, and/or the author's signature.
     */
 
-class Inscription : public MeiElement {
+class MEI_EXPORT Inscription : public MeiElement {
     public:
         Inscription();
         virtual ~Inscription() {};
@@ -715,7 +716,7 @@ class Inscription : public MeiElement {
 /** \brief   
     */
 
-class Instrvoice : public MeiElement {
+class MEI_EXPORT Instrvoice : public MeiElement {
     public:
         Instrvoice();
         virtual ~Instrvoice() {};
@@ -751,7 +752,7 @@ class Instrvoice : public MeiElement {
     * an element in the Text Encoding Initiative (TEI).
     */
 
-class Interpretation : public MeiElement {
+class MEI_EXPORT Interpretation : public MeiElement {
     public:
         Interpretation();
         virtual ~Interpretation() {};
@@ -771,7 +772,7 @@ class Interpretation : public MeiElement {
     * <keySig>, which is used within the body of an MEI file to record this data.
     */
 
-class Key : public MeiElement {
+class MEI_EXPORT Key : public MeiElement {
     public:
         Key();
         virtual ~Key() {};
@@ -798,7 +799,7 @@ class Key : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Langusage : public MeiElement {
+class MEI_EXPORT Langusage : public MeiElement {
     public:
         Langusage();
         virtual ~Langusage() {};
@@ -820,7 +821,7 @@ class Langusage : public MeiElement {
     * the Text Encoding Initiative (TEI).
     */
 
-class Language : public MeiElement {
+class MEI_EXPORT Language : public MeiElement {
     public:
         Language();
         virtual ~Language() {};
@@ -849,7 +850,7 @@ class Language : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Meihead : public MeiElement {
+class MEI_EXPORT Meihead : public MeiElement {
     public:
         Meihead();
         virtual ~Meihead() {};
@@ -877,7 +878,7 @@ class Meihead : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Normalization : public MeiElement {
+class MEI_EXPORT Normalization : public MeiElement {
     public:
         Normalization();
         virtual ~Normalization() {};
@@ -900,7 +901,7 @@ class Normalization : public MeiElement {
     * in the Text Encoding Initiative (TEI).
     */
 
-class Notesstmt : public MeiElement {
+class MEI_EXPORT Notesstmt : public MeiElement {
     public:
         Notesstmt();
         virtual ~Notesstmt() {};
@@ -920,7 +921,7 @@ class Notesstmt : public MeiElement {
     * original medium.
     */
 
-class Perfmedium : public MeiElement {
+class MEI_EXPORT Perfmedium : public MeiElement {
     public:
         Perfmedium();
         virtual ~Perfmedium() {};
@@ -944,7 +945,7 @@ class Perfmedium : public MeiElement {
     * narrator.
     */
 
-class Performer : public MeiElement {
+class MEI_EXPORT Performer : public MeiElement {
     public:
         Performer();
         virtual ~Performer() {};
@@ -966,7 +967,7 @@ class Performer : public MeiElement {
     * Encoded Archival Description (EAD).
     */
 
-class Physdesc : public MeiElement {
+class MEI_EXPORT Physdesc : public MeiElement {
     public:
         Physdesc();
         virtual ~Physdesc() {};
@@ -984,7 +985,7 @@ class Physdesc : public MeiElement {
     * Encoded Archival Description (EAD).
     */
 
-class Physloc : public MeiElement {
+class MEI_EXPORT Physloc : public MeiElement {
     public:
         Physloc();
         virtual ~Physloc() {};
@@ -1003,7 +1004,7 @@ class Physloc : public MeiElement {
     * on an element in Encoded Archival Description (EAD).
     */
 
-class Physmedium : public MeiElement {
+class MEI_EXPORT Physmedium : public MeiElement {
     public:
         Physmedium();
         virtual ~Physmedium() {};
@@ -1025,7 +1026,7 @@ class Physmedium : public MeiElement {
     * plate number in a facsimile image.
     */
 
-class Platenum : public MeiElement {
+class MEI_EXPORT Platenum : public MeiElement {
     public:
         Platenum();
         virtual ~Platenum() {};
@@ -1042,7 +1043,7 @@ class Platenum : public MeiElement {
 /** \brief   price ― The cost of access to a bibliographic item.
     */
 
-class Price : public MeiElement {
+class MEI_EXPORT Price : public MeiElement {
     public:
         Price();
         virtual ~Price() {};
@@ -1063,7 +1064,7 @@ class Price : public MeiElement {
     * Initiative (TEI).
     */
 
-class Projectdesc : public MeiElement {
+class MEI_EXPORT Projectdesc : public MeiElement {
     public:
         Projectdesc();
         virtual ~Projectdesc() {};
@@ -1083,7 +1084,7 @@ class Projectdesc : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Provenance : public MeiElement {
+class MEI_EXPORT Provenance : public MeiElement {
     public:
         Provenance();
         virtual ~Provenance() {};
@@ -1104,7 +1105,7 @@ class Provenance : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Pubstmt : public MeiElement {
+class MEI_EXPORT Pubstmt : public MeiElement {
     public:
         Pubstmt();
         virtual ~Pubstmt() {};
@@ -1124,7 +1125,7 @@ class Pubstmt : public MeiElement {
     * relatedItem element in the Text Encoding Initiative (TEI) and MODS schemas.
     */
 
-class Relateditem : public MeiElement {
+class MEI_EXPORT Relateditem : public MeiElement {
     public:
         Relateditem();
         virtual ~Relateditem() {};
@@ -1162,7 +1163,7 @@ class Relateditem : public MeiElement {
     * element in the Text Encoding Initiative (TEI).
     */
 
-class Resp : public MeiElement {
+class MEI_EXPORT Resp : public MeiElement {
     public:
         Resp();
         virtual ~Resp() {};
@@ -1180,7 +1181,7 @@ class Resp : public MeiElement {
     * Text Encoding Initiative (TEI).
     */
 
-class Respstmt : public MeiElement {
+class MEI_EXPORT Respstmt : public MeiElement {
     public:
         Respstmt();
         virtual ~Respstmt() {};
@@ -1199,7 +1200,7 @@ class Respstmt : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Revisiondesc : public MeiElement {
+class MEI_EXPORT Revisiondesc : public MeiElement {
     public:
         Revisiondesc();
         virtual ~Revisiondesc() {};
@@ -1217,7 +1218,7 @@ class Revisiondesc : public MeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Samplingdecl : public MeiElement {
+class MEI_EXPORT Samplingdecl : public MeiElement {
     public:
         Samplingdecl();
         virtual ~Samplingdecl() {};
@@ -1237,7 +1238,7 @@ class Samplingdecl : public MeiElement {
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Segmentation : public MeiElement {
+class MEI_EXPORT Segmentation : public MeiElement {
     public:
         Segmentation();
         virtual ~Segmentation() {};
@@ -1262,7 +1263,7 @@ class Segmentation : public MeiElement {
     * Initiative (TEI).
     */
 
-class Seriesstmt : public MeiElement {
+class MEI_EXPORT Seriesstmt : public MeiElement {
     public:
         Seriesstmt();
         virtual ~Seriesstmt() {};
@@ -1283,7 +1284,7 @@ class Seriesstmt : public MeiElement {
     * is modelled on the sourceDesc element in the Text Encoding Initiative (TEI).
     */
 
-class Source : public MeiElement {
+class MEI_EXPORT Source : public MeiElement {
     public:
         Source();
         virtual ~Source() {};
@@ -1303,7 +1304,7 @@ class Source : public MeiElement {
     * originally created in MEI form.
     */
 
-class Sourcedesc : public MeiElement {
+class MEI_EXPORT Sourcedesc : public MeiElement {
     public:
         Sourcedesc();
         virtual ~Sourcedesc() {};
@@ -1320,7 +1321,7 @@ class Sourcedesc : public MeiElement {
     * Initiative (TEI).
     */
 
-class Stdvals : public MeiElement {
+class MEI_EXPORT Stdvals : public MeiElement {
     public:
         Stdvals();
         virtual ~Stdvals() {};
@@ -1338,7 +1339,7 @@ class Stdvals : public MeiElement {
 /** \brief   system requirements ― System requirements for using the electronic item.
     */
 
-class Sysreq : public MeiElement {
+class MEI_EXPORT Sysreq : public MeiElement {
     public:
         Sysreq();
         virtual ~Sysreq() {};
@@ -1360,7 +1361,7 @@ class Sysreq : public MeiElement {
     * Encoding Initiative (TEI).
     */
 
-class Term : public MeiElement {
+class MEI_EXPORT Term : public MeiElement {
     public:
         Term();
         virtual ~Term() {};
@@ -1386,7 +1387,7 @@ class Term : public MeiElement {
     * document.
     */
 
-class Termlist : public MeiElement {
+class MEI_EXPORT Termlist : public MeiElement {
     public:
         Termlist();
         virtual ~Termlist() {};
@@ -1412,7 +1413,7 @@ class Termlist : public MeiElement {
     * element is modelled on an element in the Text Encoding Initiative (TEI).
     */
 
-class Titlestmt : public MeiElement {
+class MEI_EXPORT Titlestmt : public MeiElement {
     public:
         Titlestmt();
         virtual ~Titlestmt() {};
@@ -1432,7 +1433,7 @@ class Titlestmt : public MeiElement {
     * element in Encoded Archival Description (EAD).
     */
 
-class Treathist : public MeiElement {
+class MEI_EXPORT Treathist : public MeiElement {
     public:
         Treathist();
         virtual ~Treathist() {};
@@ -1450,7 +1451,7 @@ class Treathist : public MeiElement {
     * Description (EAD).
     */
 
-class Treatsched : public MeiElement {
+class MEI_EXPORT Treatsched : public MeiElement {
     public:
         Treatsched();
         virtual ~Treatsched() {};
@@ -1468,7 +1469,7 @@ class Treatsched : public MeiElement {
     * unpublished status may be given as the element's content.
     */
 
-class Unpub : public MeiElement {
+class MEI_EXPORT Unpub : public MeiElement {
     public:
         Unpub();
         virtual ~Unpub() {};
@@ -1492,7 +1493,7 @@ class Unpub : public MeiElement {
     * Archival Description (EAD).
     */
 
-class Userestrict : public MeiElement {
+class MEI_EXPORT Userestrict : public MeiElement {
     public:
         Userestrict();
         virtual ~Userestrict() {};
@@ -1511,7 +1512,7 @@ class Userestrict : public MeiElement {
     * (TEI).
     */
 
-class Watermark : public MeiElement {
+class MEI_EXPORT Watermark : public MeiElement {
     public:
         Watermark();
         virtual ~Watermark() {};
@@ -1528,7 +1529,7 @@ class Watermark : public MeiElement {
 /** \brief   
     */
 
-class Work : public MeiElement {
+class MEI_EXPORT Work : public MeiElement {
     public:
         Work();
         virtual ~Work() {};
@@ -1546,7 +1547,7 @@ class Work : public MeiElement {
     * creation of the electronic file.
     */
 
-class Workdesc : public MeiElement {
+class MEI_EXPORT Workdesc : public MeiElement {
     public:
         Workdesc();
         virtual ~Workdesc() {};

@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 
 
@@ -41,7 +42,7 @@ namespace mei {
     * Text Encoding Initiative (TEI).
     */
 
-class Timeline : public MeiElement {
+class MEI_EXPORT Timeline : public MeiElement {
     public:
         Timeline();
         virtual ~Timeline() {};
@@ -76,7 +77,7 @@ class Timeline : public MeiElement {
     * on an element in the Text Encoding Initiative (TEI).
     */
 
-class When : public MeiElement {
+class MEI_EXPORT When : public MeiElement {
     public:
         When();
         virtual ~When() {};

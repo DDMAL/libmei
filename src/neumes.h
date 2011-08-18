@@ -27,6 +27,7 @@
 
 #include "meielement.h"
 #include "exceptions.h"
+#include "mei.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "neumesmixins.h"
@@ -41,7 +42,7 @@ namespace mei {
     * signs may be encoded using ineume and uneume sub-elements.
     */
 
-class Ineume : public MeiElement {
+class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
         virtual ~Ineume() {};
@@ -63,7 +64,7 @@ class Ineume : public MeiElement {
     * syllable element provides high-level organization in this repertoire.
     */
 
-class Syllable : public MeiElement {
+class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
         virtual ~Syllable() {};
@@ -81,7 +82,7 @@ class Syllable : public MeiElement {
     * neume is a meaningful construct.
     */
 
-class Uneume : public MeiElement {
+class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
         virtual ~Uneume() {};

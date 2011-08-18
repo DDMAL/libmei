@@ -28,6 +28,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "mei.h"
 #include "meielement.h"
 
 #define MEI_VERSION "2011-05"
