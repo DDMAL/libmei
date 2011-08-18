@@ -56,7 +56,7 @@ namespace mei {
  * Each element will need a name to exist and can contain a value and attributes as options to further define it.
  */
 
-class MeiElement
+class MEI_EXPORT MeiElement
 	{
 	public:
         /** \brief overloading the == operator to allow comparison of two MeiElements.

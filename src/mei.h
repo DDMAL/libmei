@@ -8,11 +8,24 @@
 
 #include <string>
 
-using std::string;
+#if defined _WIN32 || defined __CYGWIN__
+    #ifdef BUILDING_DLL
+        #define MEI_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
+    #else
+        #define MEI_EXPORT __declspec(dllimport) // Note: actually gcc seems to also supports this syntax.
+    #endif
+#else
+    #if __GNUC__ >= 4
+        #define MEI_EXPORT __attribute__ ((visibility ("default")))
+    #else
+        #define MEI_EXPORT
+    #endif
+#endif
 
-const string MEI_VERSION = "2011-05";
-const string MEI_NS = "http://www.music-encoding.org/ns/mei";
-const string MEI_PREFIX = "mei";
-const string MEI_ENCODING = "UTF-8";
+
+const std::string MEI_VERSION = "2011-05";
+const std::string MEI_NS = "http://www.music-encoding.org/ns/mei";
+const std::string MEI_PREFIX = "mei";
+const std::string MEI_ENCODING = "UTF-8";
 
 #endif

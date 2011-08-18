@@ -14,7 +14,7 @@
 
 namespace mei {
     
-class MeiException : public std::runtime_error {
+class MEI_EXPORT MeiException : public std::runtime_error {
 private:
     std::string message;
 public:
@@ -29,26 +29,26 @@ public:
     ~MeiException() throw() {}
 };
 
-class DuplicateAttributeException : public MeiException {
+class MEI_EXPORT DuplicateAttributeException : public MeiException {
 public:
     explicit DuplicateAttributeException(const std::string &what) : MeiException("Attribute " + what + " is already present on this object.") {}
     ~DuplicateAttributeException() throw() {};
 };
 
-class AttributeNotFoundException : public MeiException {
+class MEI_EXPORT AttributeNotFoundException : public MeiException {
 public:
     explicit AttributeNotFoundException(const std::string &what) : MeiException("The attribute " + what + " was not found on this object.") {}
     ~AttributeNotFoundException() throw() {};
 };
 
-class ChildNotFoundException : public MeiException {
+class MEI_EXPORT ChildNotFoundException : public MeiException {
 public:
     explicit ChildNotFoundException(const std::string &what) : MeiException("The child " + what + " was not found on this object.") {}
     ~ChildNotFoundException() throw() {};
 };
 
 
-class FooBarException : public MeiException {
+class MEI_EXPORT FooBarException : public MeiException {
 public:
     explicit FooBarException(const std::string &what) : MeiException("blahblah") {}
     ~FooBarException() throw() {};

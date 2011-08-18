@@ -48,7 +48,7 @@ namespace mei {
  * MeiDocuments can be written to and Read from XML.
  */
 
-class MeiDocument
+class MEI_EXPORT MeiDocument
 	{
 	public:
         /** \brief The MeiDocument Constructor, requires the document name and encoding
