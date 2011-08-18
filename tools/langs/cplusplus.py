@@ -72,7 +72,7 @@ namespace mei {{
 
 ELEMENT_CLASS_HEAD_TEMPLATE = """
 {documentation}
-class {elementNameUpper} : public MeiElement {{
+class MEI_EXPORT {elementNameUpper} : public MeiElement {{
     public:
         {elementNameUpper}();
         virtual ~{elementNameUpper}() {{}};
