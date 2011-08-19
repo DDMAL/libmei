@@ -194,6 +194,7 @@
 		0514A68E13FD6D6000310111 /* usersymbols.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbols.cpp; path = src/modules/usersymbols.cpp; sourceTree = "<group>"; };
 		0514A68F13FD6D6000310111 /* usersymbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = usersymbols.h; path = src/modules/usersymbols.h; sourceTree = "<group>"; };
 		0514A69013FDAAF500310111 /* test_xmlinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmlinput.cpp; path = test/test_xmlinput.cpp; sourceTree = "<group>"; };
+		0550E41313FE18B30005B735 /* beethoven.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = beethoven.mei; path = test/beethoven.mei; sourceTree = "<group>"; };
 		0583585713F96F7900919769 /* types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = types.cpp; path = src/types.cpp; sourceTree = "<group>"; };
 		0583585813F96F7900919769 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = src/types.h; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
@@ -347,6 +348,7 @@
 		617B42F113044EE600EBBE7F /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				0550E41313FE18B30005B735 /* beethoven.mei */,
 				058359E613FB2F8700919769 /* test_meielement.cpp */,
 				058359E713FB2F8700919769 /* test_shared.cpp */,
 				61DBCD401312DDF500B46918 /* gtest_main.cc */,
