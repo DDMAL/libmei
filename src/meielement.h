@@ -216,8 +216,9 @@ class MEI_EXPORT MeiElement
             if(it == getMap()->end())
                 return NULL;
             return it->second();
+            
         }
-        
+            
     protected:
         // static node_map * getNodeMap() {
         //     // never delete'ed. (exist until program termination)
