@@ -47,15 +47,23 @@ FILE(GLOB src_files "src/*.cpp")
 FILE(GLOB module_files "src/modules/*.cpp")
 FILE(GLOB src_headers "src/*.h")
 FILE(GLOB module_headers "src/modules/*.h")
+FILE(GLOB export_headers "src/export/*.h")
+FILE(GLOB export_files "src/export/*.cpp")
+FILE(GLOB import_headers "src/import/*.h")
+FILE(GLOB import_files "src/import/*.cpp")
 
 set( LIBMEI_SRC
 	${src_files}
 	${module_files}
+	${import_files}
+	${export_files}
 )
 
 set( LIBMEI_H
 	${src_headers}
 	${module_headers}
+	${import_headers}
+	${export_headers}
 )
 
 if (CMAKE_COMPILER_IS_GNUCXX)
