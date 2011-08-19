@@ -74,7 +74,7 @@ ELEMENT_CLASS_HEAD_TEMPLATE = """
 class MEI_EXPORT {elementNameUpper} : public MeiElement {{
     public:
         {elementNameUpper}();
-        virtual ~{elementNameUpper}() {{}}
+        virtual ~{elementNameUpper}();
         {methods}
         {mixIns}
     private:
@@ -87,6 +87,7 @@ mei::{elementNameUpper}::{elementNameUpper}() : {mixIns}
 {{
 }};
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
+mei::{elementNameUpper}::~{elementNameUpper}() {{}};
 
 {methods}
 """
@@ -95,7 +96,7 @@ MIXIN_CLASS_HEAD_TEMPLATE = """
 class {attGroupNameUpper}MixIn {{
     public:
         explicit {attGroupNameUpper}MixIn(MeiElement *b);
-        virtual ~{attGroupNameUpper}MixIn() {{}}
+        virtual ~{attGroupNameUpper}MixIn();
         {methods}
     private:
         MeiElement *b;
@@ -107,6 +108,7 @@ MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
 mei::{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
     this->b = b;
 }};
+mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}};
 {methods}
 """
 
