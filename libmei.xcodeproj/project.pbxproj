@@ -215,8 +215,6 @@
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
 		7D1F9E7913CCD5C900E95E7F /* iomeixml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iomeixml.h; path = src/iomeixml.h; sourceTree = "<group>"; };
 		7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iomeixml.cpp; path = src/iomeixml.cpp; sourceTree = "<group>"; };
-		7D5F31D313C8CA940037636E /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = src/types.h; sourceTree = "<group>"; };
-		7D5F31D413C8CA940037636E /* types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = types.cpp; path = src/types.cpp; sourceTree = "<group>"; };
 		9B2EE931133117D700C94712 /* exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = exceptions.h; path = src/exceptions.h; sourceTree = "<group>"; };
 		9B3CB63A13214C430054C2DC /* meiattribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meiattribute.h; path = src/meiattribute.h; sourceTree = "<group>"; };
 		9B3CB63B13214C430054C2DC /* meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meiattribute.cpp; path = src/meiattribute.cpp; sourceTree = "<group>"; };
@@ -330,8 +328,6 @@
 				9BDC6437132A90430062255E /* meidocument.h */,
 				9BDC6438132A90430062255E /* meidocument.cpp */,
 				9B2EE931133117D700C94712 /* exceptions.h */,
-				7D5F31D313C8CA940037636E /* types.h */,
-				7D5F31D413C8CA940037636E /* types.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
