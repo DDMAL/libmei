@@ -45,8 +45,11 @@ _MeiXml::_MeiXml(xmlDoc *d) {
     this->xmlMeiDocument = d;
     this->rootXmlNode = xmlDocGetRootElement(d);
     
-//    this->rootMeiElement = new MeiElement(string((const char*)this->rootXmlNode->name));
-    this->xmlNodeToMeiElement(this->rootXmlNode);
+    this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
+    
+    MeiDocument *doc = new MeiDocument("test", "UTF-8");
+    doc->setRootElement(this->rootMeiElement);    
+    this->meiDocument = doc;
 }
 
 _MeiXml::~_MeiXml() {
@@ -76,26 +79,14 @@ MeiDocument* _MeiXml::getMeiDocument() {
 //
 
 MeiElement* _MeiXml::xmlNodeToMeiElement(xmlNode *el) {
-//    xmlNode* attrvalue = NULL;
-    
-    MeiElement *obj;
-    
-    xmlNode *cur_node = NULL;
-    for (cur_node = el; cur_node; (cur_node = cur_node->next)) {
-        xmlNode* parent = cur_node->parent;
-        cout << "Parent: " << parent->name << endl;
+    MeiElement *obj = new MeiElement(string((const char*)el->name));
+    xmlNodePtr child = el->children;
+    while (child != NULL) {
         
-        if (!MeiFactory::inMap(string((const char* )cur_node->name))) {
-            cout << "Skipping " << cur_node->name << ": " << cur_node->content << endl;
-            continue;
-        }
-        if (cur_node->type == XML_ELEMENT_NODE) {
-            obj = MeiFactory::createInstance(string((const char*)cur_node->name));
-            cout << "MeiElement " << endl; 
-            obj->print(4);
-            cout << endl;
-        }
-        xmlNodeToMeiElement(cur_node->children);
+        MeiElement* ch = xmlNodeToMeiElement(child);
+        obj->addChild(ch);
+        
+        child = child->next;
     }
     return obj;
 }
