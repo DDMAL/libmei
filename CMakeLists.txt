@@ -44,9 +44,9 @@ ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 FILE(GLOB src_files "src/*.cpp")
-FILE(GLOB module_files "src/Modules/*.cpp")
+FILE(GLOB module_files "src/modules/*.cpp")
 FILE(GLOB src_headers "src/*.h")
-FILE(GLOB module_headers "src/Modules/*.h")
+FILE(GLOB module_headers "src/modules/*.h")
 
 set( LIBMEI_SRC
 	${src_files}
@@ -100,7 +100,7 @@ if( MEI_BUILD_TESTS )
 	    add_test(${_name}-test ${EXECUTABLE_OUTPUT_PATH}/${_name})
 	endmacro(add_mei_test)
 
-    file(GLOB files "test/*_test.cpp")
+    file(GLOB files "test/test_*.cpp")
     foreach(file ${files})
       add_mei_test(${file})
     endforeach()
