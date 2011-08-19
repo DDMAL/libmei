@@ -45,7 +45,6 @@ void mei::{className}::remove{attNameUpper}() {{
 """
 
 CLASSES_IMPL_TEMPLATE = """
-
 #include "{moduleNameLower}.h"
 using std::string;
 using mei::MeiAttribute;
@@ -75,13 +74,12 @@ ELEMENT_CLASS_HEAD_TEMPLATE = """
 class MEI_EXPORT {elementNameUpper} : public MeiElement {{
     public:
         {elementNameUpper}();
-        virtual ~{elementNameUpper}() {{}};
+        virtual ~{elementNameUpper}() {{}}
         {methods}
         {mixIns}
     private:
         REGISTER_DECLARATION({elementNameUpper});
 }};
-
 """
 
 ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """
@@ -96,8 +94,8 @@ REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 MIXIN_CLASS_HEAD_TEMPLATE = """
 class {attGroupNameUpper}MixIn {{
     public:
-        {attGroupNameUpper}MixIn(MeiElement *b);
-        virtual ~{attGroupNameUpper}MixIn() {{}};
+        explicit {attGroupNameUpper}MixIn(MeiElement *b);
+        virtual ~{attGroupNameUpper}MixIn() {{}}
         {methods}
     private:
         MeiElement *b;
