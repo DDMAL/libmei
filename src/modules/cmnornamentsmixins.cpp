@@ -1,6 +1,6 @@
 
 
-#include "cmnOrnamentsmixins.h"
+#include "cmnornamentsmixins.h"
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
