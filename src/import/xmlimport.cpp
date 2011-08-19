@@ -19,44 +19,46 @@ using std::endl;
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiFactory;
-using mei::XmlImport::_MeiXml;
+using mei::XmlImport;
 
-MeiDocument* mei::XmlImport::File(const char* filename) {
+MeiDocument* mei::XmlImport::documentFromFile(const char* filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
-    _MeiXml *mfile = new _MeiXml(doc);
+    XmlImport *mfile = new XmlImport(doc);
     return mfile->getMeiDocument();
 }
 
-//MeiDocument* mei::XmlImport::Stream(string xmlstream) {
+//MeiDocument* XmlImport::documentFromStream(string xmlstream) {
 //  MeiDocument* mdoc;
 //
 //  return mdoc;
 //}
 //
-//MeiDocument* mei::XmlImport::Text(string text) {
+//MeiDocument* XmlImport::documentFromText(string text) {
 //  MeiDocument* mdoc;
 //
 //  return mdoc;
 //}
 
-_MeiXml::_MeiXml(xmlDoc *d) {
+XmlImport::XmlImport(xmlDoc *d) {
     // at construction time parse the xmlNode out into the MeiDocument.
     this->xmlMeiDocument = d;
-    this->rootXmlNode = xmlDocGetRootElement(d);
-    
-    this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
-    
-    MeiDocument *doc = new MeiDocument("test", "UTF-8");
-    doc->setRootElement(this->rootMeiElement);    
-    this->meiDocument = doc;
+    this->init();
 }
 
-_MeiXml::~_MeiXml() {
+void XmlImport::init() {
+    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
+    this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
+    MeiDocument *doc = new MeiDocument("test", "UTF-8");
+    doc->setRootElement(this->rootMeiElement);    
+    this->meiDocument = doc; 
+}
+
+mei::XmlImport::~XmlImport() {
     xmlCleanupParser();
 }
 
-MeiDocument* _MeiXml::getMeiDocument() {
+MeiDocument* XmlImport::getMeiDocument() {
     return this->meiDocument;
 }
 
@@ -78,7 +80,7 @@ MeiDocument* _MeiXml::getMeiDocument() {
 //}
 //
 
-MeiElement* _MeiXml::xmlNodeToMeiElement(xmlNode *el) {
+MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
     MeiElement *obj = new MeiElement(string((const char*)el->name));
     xmlNodePtr child = el->children;
     while (child != NULL) {
