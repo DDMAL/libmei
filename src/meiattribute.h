@@ -85,7 +85,5 @@ class MeiAttribute
     };
 }
 
-
-
-
 #endif // MEIATTRIBUTE_H_
+

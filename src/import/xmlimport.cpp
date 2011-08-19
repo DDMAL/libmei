@@ -99,3 +99,4 @@ MeiElement* _MeiXml::xmlNodeToMeiElement(xmlNode *el) {
     }
     return obj;
 }
+

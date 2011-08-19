@@ -62,4 +62,3 @@ void mei::MeiAttribute::setPrefix(string prfx) {
     this->prefix = prfx;
 }
 
-

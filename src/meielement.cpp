@@ -34,7 +34,9 @@ mei::MeiElement::MeiElement(string name, string value) {
     this->parent = NULL;
 }
 
-mei::MeiElement::MeiElement(string name, string value, string prefix, string ns, MeiElement * parent) {
+mei::MeiElement::MeiElement(string name, string value, 
+                            string prefix, string ns, 
+                            MeiElement * parent) {
     this->name = name;
     this->value = value;
     this->ns = ns;
@@ -119,7 +121,7 @@ MeiElement::MeiElement(xmlNode* node) {
 */
 mei::MeiElement::~MeiElement() {}
 
-//currently fails to compare children vectors
+// currently fails to compare children vectors
 /*
 bool MeiElement::operator==(const MeiElement &other) const {
     if (!this->children.empty() && !other.children_.empty()) {
@@ -136,7 +138,7 @@ bool MeiElement::operator==(const MeiElement &other) const {
         
 }*/
 
-// TODO: make sure that this is kept in sync with the xml:id MeiAttribute!
+// TODO(ahankinson): make sure that this is kept in sync with the xml:id MeiAttribute!
 string mei::MeiElement::getId() {
     return this->id;
 }
@@ -158,7 +160,7 @@ string mei::MeiElement::getName() {
     return this->name;
 }
 
-//need a name setter for editing MEI files
+// need a name setter for editing MEI files
 void mei::MeiElement::setName(string name) {
     this->name = name;
 }
@@ -203,9 +205,9 @@ void mei::MeiElement::setAttributes(vector<MeiAttribute*> attrs) {
     this->attributes = attrs;
 }
 
-MeiAttribute* mei::MeiElement::getAttribute(string name) throw (AttributeNotFoundException) {
-    
-    if(!this->hasAttribute(name)) {
+MeiAttribute* mei::MeiElement::getAttribute(string name) 
+                        throw (AttributeNotFoundException) {
+    if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
     
@@ -218,7 +220,6 @@ MeiAttribute* mei::MeiElement::getAttribute(string name) throw (AttributeNotFoun
 }
 
 string mei::MeiElement::getAttributeValue(string name) throw (AttributeNotFoundException) {
-    
     if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
@@ -433,3 +434,4 @@ vector<MeiElement*>& MeiElement::getPeers() {
     return parent->getChildren();
 }
 */
+
