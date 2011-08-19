@@ -40,12 +40,12 @@ using std::string;
 using std::map;
 
 namespace mei {
-/** \brief The entity which will contains all the elements and attributes 
- *         storing a musical piece in the MEI schema. 
- * 
- * An MeiDocument is the first entity created or used when reading and writing MEI files. 
- * All musical information for a piece is stored as a tree of MeiElements within the MeiDocument. 
- * The document itself contains a name and an encoding, both of which are needed to identify it. 
+/** \brief The entity which will contains all the elements and attributes
+ *         storing a musical piece in the MEI schema.
+ *
+ * An MeiDocument is the first entity created or used when reading and writing MEI files.
+ * All musical information for a piece is stored as a tree of MeiElements within the MeiDocument.
+ * The document itself contains a name and an encoding, both of which are needed to identify it.
  * MeiDocuments can be written to and Read from XML.
  */
 
@@ -55,37 +55,37 @@ class MEI_EXPORT MeiDocument
         /** \brief The MeiDocument Constructor, requires the document name and encoding
          */
         MeiDocument(string docname, string encoding);
-        
+
         /** \brief Get the name of the document
-         *  
-         *  Each document is initially creating with a name and encoding thus a document 
+         *
+         *  Each document is initially creating with a name and encoding thus a document
          *  name must exist if a valid Mei document exists
          *  \return The document name
          */
         string getDocName();
-        
+
         /** \brief Set/change the name of the Mei document */
         void setDocName(string docname);
-        
+
         /** \brief Get the string indicating the Mei document encoding*/
         string getEncoding();
-        
+
         /** \brief Set/change the encoding of the Mei document*/
         void setEncoding(string encoding);
-        
+
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
-        
+
         /** \brief Make an Mei element the Root element of a document*/
         void setRootElement(MeiElement* root);
-        
+
         /** \return The Mei element with the given id. */
         MeiElement* getElementById(string id);
-        
+
     private:
         map<string,MeiElement*> *getMap();
         void FillMap(MeiElement* element);
-        
+
         string docname;
         string encoding;
         MeiElement* root;

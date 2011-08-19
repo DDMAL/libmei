@@ -34,8 +34,8 @@ mei::MeiElement::MeiElement(string name, string value) {
     this->parent = NULL;
 }
 
-mei::MeiElement::MeiElement(string name, string value, 
-                            string prefix, string ns, 
+mei::MeiElement::MeiElement(string name, string value,
+                            string prefix, string ns,
                             MeiElement * parent) {
     this->name = name;
     this->value = value;
@@ -56,7 +56,7 @@ MeiElement::MeiElement(xmlNode* node) {
     const xmlChar* attrprefix;
     xmlNode* attrvalue = NULL;
     xmlNs* xmlns = NULL;
-    
+
     if (node && node->type == XML_ELEMENT_NODE) {
         xmlns = node->ns;
         const xmlChar* childhref = xmlns->href;
@@ -68,10 +68,10 @@ MeiElement::MeiElement(xmlNode* node) {
         if (childprefix != NULL) {
             ns.prefix = (const char*)childprefix;
         }
-        
+
         this->ns = ns;
         this->name_ = (const char*)node->name;
-        
+
         if (node->nsDef != NULL) {
             if (node->nsDef->href != NULL && node->nsDef->prefix != NULL) {
                 string prefix = (const char*)(node->nsDef->prefix);
@@ -81,8 +81,8 @@ MeiElement::MeiElement(xmlNode* node) {
                 addAttribute(attribute);
             }
         }
-        
-        if (node->properties) {                
+
+        if (node->properties) {
             for (curattr = node->properties; curattr; curattr = curattr->next) {
                 if (curattr->type == XML_ATTRIBUTE_NODE) {
                     attrname = curattr->name;
@@ -106,10 +106,10 @@ MeiElement::MeiElement(xmlNode* node) {
                             addAttribute(idattr);
                         }
                     }
-                }                   
+                }
             }
         }
-        
+
         for (curnode = node->children; curnode; curnode = curnode->next) {
             if ( curnode->type == XML_TEXT_NODE) {
                 setValue((const char *)curnode->content);
@@ -130,12 +130,12 @@ bool MeiElement::operator==(const MeiElement &other) const {
                 && this->children == other.children self-referentiality? && this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
     } else if (this->children.empty() && other.children.empty()) {
         return (this->name == other.name && this->parent == other.parent
-                && this->value == other.value && this->tail == other.tail && this->attributes == other.attributes 
+                && this->value == other.value && this->tail == other.tail && this->attributes == other.attributes
                 && this->ns.prefix == other.ns.prefix && this->ns.href == other.ns.href);
     } else {
         return false;
     }
-        
+
 }*/
 
 // TODO(ahankinson): make sure that this is kept in sync with the xml:id MeiAttribute!
@@ -205,12 +205,12 @@ void mei::MeiElement::setAttributes(vector<MeiAttribute*> attrs) {
     this->attributes = attrs;
 }
 
-MeiAttribute* mei::MeiElement::getAttribute(string name) 
+MeiAttribute* mei::MeiElement::getAttribute(string name)
                         throw (AttributeNotFoundException) {
     if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
-    
+
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         if ((*iter)->getName() == name) {
             return *iter;
@@ -223,7 +223,7 @@ string mei::MeiElement::getAttributeValue(string name) throw (AttributeNotFoundE
     if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
-    
+
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         if ((*iter)->getName() == name) return (*iter)->getValue();
     }
@@ -358,17 +358,17 @@ void mei::MeiElement::print() {
 
 void mei::MeiElement::print(int level) {
     printf("%*s ", level + (int)getName().length(), getName().c_str());
-    
+
     if (this->getNs().size()>0) {
         printf("%s:%s ", this->getPrefix().c_str(), this->getNs().c_str());
     }
-    
+
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
-    
+
     printf("\n");
-        
+
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         (*iter)->print(level+2);
@@ -392,7 +392,7 @@ vector<MeiElement*> MeiElement::getDescendantsByName(string _name) {
     }
     return result;
 }
-    
+
 
 MeiElement* MeiElement::getDescendantById(string _uuid) {
     vector<MeiElement*>::iterator i = children.begin();

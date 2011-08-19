@@ -71,7 +71,7 @@ MeiElement* mei::MeiDocument::getElementById(string id) {
         return it->second;
     }
     return NULL;
-} 
+}
 
 map<string,MeiElement*> *mei::MeiDocument::getMap() {
     if (!idmap) {
