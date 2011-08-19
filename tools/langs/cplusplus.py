@@ -227,7 +227,7 @@ def __create_mixin_classes(schema):
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
             
         tplvars = {
-            "moduleNameLower": "{0}mixins".format(module),
+            "moduleNameLower": "{0}mixins".format(module.lower()),
             "elements": classes
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**tplvars)
