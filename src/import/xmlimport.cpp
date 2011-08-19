@@ -22,25 +22,25 @@ using mei::MeiFactory;
 using mei::XmlImport::_MeiXml;
 
 MeiDocument* mei::XmlImport::File(const char* filename) {
-	MeiDocument* mdoc;
+    MeiDocument* mdoc;
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
     _MeiXml *mfile = new _MeiXml(doc);
     mdoc = mfile->getMeiDocument();
     
-	return mdoc;
+    return mdoc;
 }
 
 //MeiDocument* mei::XmlImport::Stream(string xmlstream) {
-//	MeiDocument* mdoc;
+//  MeiDocument* mdoc;
 //
-//	return mdoc;
+//  return mdoc;
 //}
 //
 //MeiDocument* mei::XmlImport::Text(string text) {
-//	MeiDocument* mdoc;
+//  MeiDocument* mdoc;
 //
-//	return mdoc;
+//  return mdoc;
 //}
 
 _MeiXml::_MeiXml(xmlDoc *d) {
@@ -62,7 +62,7 @@ MeiDocument* _MeiXml::getMeiDocument() {
 
 
 //static void XmlNodeToMei(xmlNode* node, MeiElement *parent) {
-//	xmlNode* curnode = NULL;	
+//  xmlNode* curnode = NULL;    
 //    for (curnode = node; curnode; curnode = curnode->next) {
 //        if (curnode->type == XML_ELEMENT_NODE) {
 //            MeiElement* child = MeiFactory::createInstanceFromNode(string((const char*)curnode->name),curnode);
@@ -74,7 +74,7 @@ MeiDocument* _MeiXml::getMeiDocument() {
 //                throw message;
 //            }            
 //        }
-//	}
+//  }
 //}
 //
 

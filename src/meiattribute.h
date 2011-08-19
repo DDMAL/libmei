@@ -44,21 +44,21 @@ class MEI_EXPORT MeiElement; // forward declare MeiElement
  * 
  */
 class MeiAttribute
-	{
-	public:
+    {
+    public:
         /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
-		MeiAttribute(string attrname, string attrvalue);
-		
-		virtual ~MeiAttribute() {}
-		
+        MeiAttribute(string attrname, string attrvalue);
+        
+        virtual ~MeiAttribute() {}
+        
         bool operator==(const MeiAttribute &other) const;
-		
-		/** \brief Get the name of the attribute.
+        
+        /** \brief Get the name of the attribute.
          *
          *  Each attribute is created with a name and value, the attribute cannot exist without a name
          *  \return string containing the attribute name.
          */
-		string getName();
+        string getName();
         
         /** \brief Set/Change the name of an attribute*/
         void setName(string attrname);
@@ -66,10 +66,10 @@ class MeiAttribute
         /** \brief Get the value of the attribute.
          *  \return A string indicating the attribute value
          */
-		string getValue();
+        string getValue();
 
         /** \brief Set/change the value of an attribute*/
-		void setValue(string attrvalue);
+        void setValue(string attrvalue);
         
         /** \brief Get the prefix associated with an attribute
          */
@@ -77,12 +77,12 @@ class MeiAttribute
 
         /** \brief Set/change the prefix associated with an attribute*/
         void setPrefix(string prfx);
-		
-	private:
-		string name;
-		string value;
-		string prefix;
-	};
+        
+    private:
+        string name;
+        string value;
+        string prefix;
+    };
 }
 
 

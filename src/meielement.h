@@ -57,41 +57,41 @@ namespace mei {
  */
 
 class MEI_EXPORT MeiElement
-	{
-	public:
+    {
+    public:
         /** \brief overloading the == operator to allow comparison of two MeiElements.
-		 */
-		bool operator==(const MeiElement &other) const;
-		
-		/** \brief The MeiElement Constructor, requires the element name (MEI tag name)
          */
-		MeiElement(string name);
+        bool operator==(const MeiElement &other) const;
+        
+        /** \brief The MeiElement Constructor, requires the element name (MEI tag name)
+         */
+        MeiElement(string name);
         
         /** \brief The MeiElement Constructor, taking in the element name and the associated XML prefix
          */
         MeiElement(string name, string value);
         
         MeiElement(string name, string value, string prefix, string ns, MeiElement * parent);
-		
-		virtual ~MeiElement();
+        
+        virtual ~MeiElement();
         
         
         string getId();
         void setId(string id);
         bool hasId();
         
-		/** \brief Return the name of the Mei Element
+        /** \brief Return the name of the Mei Element
          */
-		string getName();
-		
-		/** \brief Set the name of the Mei Element
-		 */
-		void setName(string name);
+        string getName();
+        
+        /** \brief Set the name of the Mei Element
+         */
+        void setName(string name);
         
         /** \brief Return the namespace associated with the Mei Element
          */
         string getNs();
-		void setNs(string ns);
+        void setNs(string ns);
         
         string getPrefix();
         void setPrefix(string prefix);
@@ -101,10 +101,10 @@ class MEI_EXPORT MeiElement
          *  \return The xml tail associated with the Mei Element or
          *          an empty string if the Mei Element has no tail
          */
-		string getTail();
+        string getTail();
         
         /** \brief Set the xml tail associated with the Mei Element */
-		void setTail(string tail);
+        void setTail(string tail);
         
         /** \brief Get the value associated with the Mei Element
          * \return A string indicating the value of the Mei Element or
@@ -113,7 +113,7 @@ class MEI_EXPORT MeiElement
         string getValue();
         
         /** \brief Set the value associated with the Mei Element */
-		void setValue(string value);
+        void setValue(string value);
         
         /** \brief Get a list of all the attributes associated with an Mei Element
          *  \return A vector of Mei Attributes describing the element or NULL if the element has no attributes
@@ -121,7 +121,7 @@ class MEI_EXPORT MeiElement
         
         /** \brief Compare two Mei Elements, 
          */
-		bool meiCompare(MeiElement element1, MeiElement element2);
+        bool meiCompare(MeiElement element1, MeiElement element2);
         
         
         vector<MeiAttribute*>& getAttributes();
@@ -129,26 +129,26 @@ class MEI_EXPORT MeiElement
         MeiAttribute* getAttribute(string name) throw (AttributeNotFoundException);
         string getAttributeValue(string name) throw (AttributeNotFoundException);
         void addAttribute(MeiAttribute *attribute) throw (DuplicateAttributeException);
-		
+        
         void removeAttribute(string name);
-		
+        
         bool hasAttribute(string name);
         
         /** \brief Determine whether the element has a parent element
-		 *
-		 *	\return True if it does, False if it does not
-		 */
-		bool hasParent();
-		
-		/** \return the element's parent, if it exists.
-		 */
-		MeiElement *getParent();
-		
-		/** \brief sets the element's parent to the given Mei element
-		 */
-		void setParent(MeiElement *parent);
-		
-		void removeParent();
+         *
+         *  \return True if it does, False if it does not
+         */
+        bool hasParent();
+        
+        /** \return the element's parent, if it exists.
+         */
+        MeiElement *getParent();
+        
+        /** \brief sets the element's parent to the given Mei element
+         */
+        void setParent(MeiElement *parent);
+        
+        void removeParent();
         
         void addChild(MeiElement *child);
         void setChildren(vector<MeiElement*> children);
@@ -164,35 +164,35 @@ class MEI_EXPORT MeiElement
 //        /** \brief Make the Mei element c the child of another Mei element, 
 //         *         c is added to the list of children associated with the Mei element. 
 //         */
-//		template<class T>
-//		void addChild(T* c) {
-//			dynamic_cast<MeiElement*>(c)->setParent(this);
-//			children_.push_back( dynamic_cast<MeiElement*>(c) );
-//		}
+//      template<class T>
+//      void addChild(T* c) {
+//          dynamic_cast<MeiElement*>(c)->setParent(this);
+//          children_.push_back( dynamic_cast<MeiElement*>(c) );
+//      }
         
         /** \brief Print the current Mei tree*/
-		void print();
+        void print();
         
         /** \brief Print the current Mei tree given an indentation*/
-		void print(int l);
-					
+        void print(int l);
+                    
     protected:
         MeiElement();
         
-	private:
+    private:
         string id;
-		string name;
-		string value;
-		string tail;
-		string ns;
+        string name;
+        string value;
+        string tail;
+        string ns;
         string prefix;
         
-		vector<MeiAttribute*> attributes;
-		vector<MeiElement*> children;
-		MeiElement *parent;
+        vector<MeiAttribute*> attributes;
+        vector<MeiElement*> children;
+        MeiElement *parent;
         
 
-	};
+    };
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 

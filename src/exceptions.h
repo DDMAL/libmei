@@ -25,9 +25,9 @@ public:
     }
     
     virtual const char* what() const throw()
-	{
-		return message.c_str();
-	}
+    {
+        return message.c_str();
+    }
     ~MeiException() throw() {}
 };
 

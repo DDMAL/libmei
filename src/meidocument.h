@@ -50,46 +50,46 @@ namespace mei {
  */
 
 class MEI_EXPORT MeiDocument
-	{
-	public:
+    {
+    public:
         /** \brief The MeiDocument Constructor, requires the document name and encoding
          */
-		MeiDocument(string docname, string encoding);
-		
+        MeiDocument(string docname, string encoding);
+        
         /** \brief Get the name of the document
          *  
          *  Each document is initially creating with a name and encoding thus a document 
          *  name must exist if a valid Mei document exists
          *  \return The document name
          */
-		string getDocName();
+        string getDocName();
         
         /** \brief Set/change the name of the Mei document */
         void setDocName(string docname);
         
         /** \brief Get the string indicating the Mei document encoding*/
-		string getEncoding();
-		
+        string getEncoding();
+        
         /** \brief Set/change the encoding of the Mei document*/
-		void setEncoding(string encoding);
+        void setEncoding(string encoding);
         
         /** \brief Find the root element of the tree structure in the Mei document*/
-		MeiElement* getRootElement();
-		
+        MeiElement* getRootElement();
+        
         /** \brief Make an Mei element the Root element of a document*/
         void setRootElement(MeiElement* root);
         
         /** \return The Mei element with the given id. */
         MeiElement* getElementById(string id);
-		
-	private:
+        
+    private:
         map<string,MeiElement*> *getMap();
         void FillMap(MeiElement* element);
         
-		string docname;
-		string encoding;
-		MeiElement* root;
+        string docname;
+        string encoding;
+        MeiElement* root;
         map<string,MeiElement*> *idmap;
-	};
+    };
 }
 #endif // MEIDOCUMENT_H_

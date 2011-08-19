@@ -30,13 +30,13 @@ using std::map;
 using mei::MeiElement;
 
 mei::MeiDocument::MeiDocument(string docname, string encoding) {
-	this->docname = docname;
-	this->encoding = encoding;
+    this->docname = docname;
+    this->encoding = encoding;
     this->root = NULL;
 }
 
 string mei::MeiDocument::getDocName() {
-	return docname;
+    return docname;
 }
 
 void mei::MeiDocument::setDocName(string docname) {
@@ -44,15 +44,15 @@ void mei::MeiDocument::setDocName(string docname) {
 }
 
 string mei::MeiDocument::getEncoding() {
-	return encoding;
+    return encoding;
 }
 
 void mei::MeiDocument::setEncoding(string encoding) {
-	this->encoding = encoding;
+    this->encoding = encoding;
 }
 
 MeiElement* mei::MeiDocument::getRootElement() {
-	return root;
+    return root;
 }
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
