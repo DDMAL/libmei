@@ -362,7 +362,7 @@ void mei::MeiElement::print(int level) {
         printf("%s:%s ", this->getPrefix().c_str(), this->getNs().c_str());
     }
     
-    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); iter++) {
+    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
     
