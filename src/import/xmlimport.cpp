@@ -22,12 +22,10 @@ using mei::MeiFactory;
 using mei::XmlImport::_MeiXml;
 
 MeiDocument* mei::XmlImport::File(const char* filename) {
-    MeiDocument* mdoc;
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
     _MeiXml *mfile = new _MeiXml(doc);
-    mdoc = mfile->getMeiDocument();
-    return mdoc;
+    return mfile->getMeiDocument();
 }
 
 //MeiDocument* mei::XmlImport::Stream(string xmlstream) {
