@@ -1,5 +1,4 @@
 
-
 #include "cmnornaments.h"
 using std::string;
 using mei::MeiAttribute;

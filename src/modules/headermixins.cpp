@@ -1,5 +1,4 @@
 
-
 #include "headermixins.h"
 using std::string;
 using mei::MeiAttribute;

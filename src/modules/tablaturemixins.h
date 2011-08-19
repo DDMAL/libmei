@@ -33,8 +33,8 @@ namespace mei {
     
 class NoteGesTablatureMixIn {
     public:
-        NoteGesTablatureMixIn(MeiElement *b);
-        virtual ~NoteGesTablatureMixIn() {};
+        explicit NoteGesTablatureMixIn(MeiElement *b);
+        virtual ~NoteGesTablatureMixIn() {}
         
     /** \brief   records the fret at which a string should be stopped.
     */
@@ -59,8 +59,8 @@ class NoteGesTablatureMixIn {
 
 class StaffdefGesTablatureMixIn {
     public:
-        StaffdefGesTablatureMixIn(MeiElement *b);
-        virtual ~StaffdefGesTablatureMixIn() {};
+        explicit StaffdefGesTablatureMixIn(MeiElement *b);
+        virtual ~StaffdefGesTablatureMixIn() {}
         
     /** \brief   provides a written pitch and octave for each open string, e.g. "e3 a3 d4 g4 b4
     * e5" for standard guitar tuning. It should contain the number of tokens indicated

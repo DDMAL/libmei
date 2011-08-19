@@ -42,7 +42,7 @@ namespace mei {
 class MEI_EXPORT Back : public MeiElement {
     public:
         Back();
-        virtual ~Back() {};
+        virtual ~Back() {}
         
         
     CommonMixIn    m_Common;
@@ -53,7 +53,6 @@ class MEI_EXPORT Back : public MeiElement {
         REGISTER_DECLARATION(Back);
 };
 
-
 /** \brief   division ― Major structural division of text, such as a preface, chapter or
     * section. Often, the <head> sub-element identifies the <div>'s purpose. This
     * element is modelled on an element in the Text Encoding Initiative (TEI).
@@ -62,7 +61,7 @@ class MEI_EXPORT Back : public MeiElement {
 class MEI_EXPORT Div : public MeiElement {
     public:
         Div();
-        virtual ~Div() {};
+        virtual ~Div() {}
         
         
     CommonMixIn    m_Common;
@@ -73,7 +72,6 @@ class MEI_EXPORT Div : public MeiElement {
     private:
         REGISTER_DECLARATION(Div);
 };
-
 
 /** \brief   front ― Bundles prefatory text found before the start of the musical text.
     * <titlePage> may be used to transcribe the item's title page. Other front matter
@@ -88,7 +86,7 @@ class MEI_EXPORT Div : public MeiElement {
 class MEI_EXPORT Front : public MeiElement {
     public:
         Front();
-        virtual ~Front() {};
+        virtual ~Front() {}
         
         
     CommonMixIn    m_Common;
@@ -98,7 +96,6 @@ class MEI_EXPORT Front : public MeiElement {
     private:
         REGISTER_DECLARATION(Front);
 };
-
 
 /** \brief   heading ― Contains any heading, for example, the title of a section of text,
     * or the heading of a list. When <head> is used, it should be the first sub-
@@ -110,7 +107,7 @@ class MEI_EXPORT Front : public MeiElement {
 class MEI_EXPORT Head : public MeiElement {
     public:
         Head();
-        virtual ~Head() {};
+        virtual ~Head() {}
         
         
     CommonMixIn    m_Common;
@@ -121,7 +118,6 @@ class MEI_EXPORT Head : public MeiElement {
         REGISTER_DECLARATION(Head);
 };
 
-
 /** \brief   item ― Single item in a <list>. This element is modelled on elements in
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
@@ -129,7 +125,7 @@ class MEI_EXPORT Head : public MeiElement {
 class MEI_EXPORT Item : public MeiElement {
     public:
         Item();
-        virtual ~Item() {};
+        virtual ~Item() {}
         
         
     CommonMixIn    m_Common;
@@ -137,7 +133,6 @@ class MEI_EXPORT Item : public MeiElement {
     private:
         REGISTER_DECLARATION(Item);
 };
-
 
 /** \brief   line of text ― Contains a single line of text within a line group. The n
     * attribute should be used to record a label for the line, i.e., most likely a
@@ -149,7 +144,7 @@ class MEI_EXPORT Item : public MeiElement {
 class MEI_EXPORT L : public MeiElement {
     public:
         L();
-        virtual ~L() {};
+        virtual ~L() {}
         
         
     CommonMixIn    m_Common;
@@ -159,7 +154,6 @@ class MEI_EXPORT L : public MeiElement {
         REGISTER_DECLARATION(L);
 };
 
-
 /** \brief   line group ― May be used for any section of text that is organized as a group
     * of lines. This element is modelled on an element in the Text Encoding Initiative
     * (TEI).
@@ -168,7 +162,7 @@ class MEI_EXPORT L : public MeiElement {
 class MEI_EXPORT Lg : public MeiElement {
     public:
         Lg();
-        virtual ~Lg() {};
+        virtual ~Lg() {}
         
         
     CommonMixIn    m_Common;
@@ -180,7 +174,6 @@ class MEI_EXPORT Lg : public MeiElement {
         REGISTER_DECLARATION(Lg);
 };
 
-
 /** \brief   list ― A formatting element that contains a series of items separated from one
     * another and arranged in a linear, often vertical, sequence. This element is
     * modelled on elements in Encoded Archival Description (EAD), Text Encoding
@@ -190,7 +183,7 @@ class MEI_EXPORT Lg : public MeiElement {
 class MEI_EXPORT List : public MeiElement {
     public:
         List();
-        virtual ~List() {};
+        virtual ~List() {}
         
     /** \brief   records the function of the dot.
     */
@@ -208,7 +201,6 @@ class MEI_EXPORT List : public MeiElement {
         REGISTER_DECLARATION(List);
 };
 
-
 /** \brief   quote ― A formatting element that designates an extended quotation; that is, a
     * passage attributed to a source external to the text. The quotation is normally
     * set off from the text by spacing or other typographic distinction. The source
@@ -221,7 +213,7 @@ class MEI_EXPORT List : public MeiElement {
 class MEI_EXPORT Quote : public MeiElement {
     public:
         Quote();
-        virtual ~Quote() {};
+        virtual ~Quote() {}
         
         
     CommonMixIn    m_Common;
@@ -231,7 +223,6 @@ class MEI_EXPORT Quote : public MeiElement {
     private:
         REGISTER_DECLARATION(Quote);
 };
-
 
 }
 #endif // TEXT_H_

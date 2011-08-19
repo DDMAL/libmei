@@ -44,7 +44,7 @@ namespace mei {
 class MEI_EXPORT Extptr : public MeiElement {
     public:
         Extptr();
-        virtual ~Extptr() {};
+        virtual ~Extptr() {}
         
         
     CommonMixIn    m_Common;
@@ -54,7 +54,6 @@ class MEI_EXPORT Extptr : public MeiElement {
     private:
         REGISTER_DECLARATION(Extptr);
 };
-
 
 /** \brief   external reference ― A linking element that can include text and sub-elements
     * as part of its reference to an electronic object that is external to the MEI
@@ -68,7 +67,7 @@ class MEI_EXPORT Extptr : public MeiElement {
 class MEI_EXPORT Extref : public MeiElement {
     public:
         Extref();
-        virtual ~Extref() {};
+        virtual ~Extref() {}
         
         
     CommonMixIn    m_Common;
@@ -79,7 +78,6 @@ class MEI_EXPORT Extref : public MeiElement {
     private:
         REGISTER_DECLARATION(Extref);
 };
-
 
 /** \brief   pointer ― An empty internal linking element that uses attributes to provide
     * for movement from one place in an MEI document to another place in the same
@@ -92,7 +90,7 @@ class MEI_EXPORT Extref : public MeiElement {
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
-        virtual ~Ptr() {};
+        virtual ~Ptr() {}
         
         
     CommonMixIn    m_Common;
@@ -101,7 +99,6 @@ class MEI_EXPORT Ptr : public MeiElement {
     private:
         REGISTER_DECLARATION(Ptr);
 };
-
 
 /** \brief   reference ― An internal linking element that provides for movement from one
     * place in a MEI document to another point in the same document. Unlike the <ptr>
@@ -114,7 +111,7 @@ class MEI_EXPORT Ptr : public MeiElement {
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
-        virtual ~Ref() {};
+        virtual ~Ref() {}
         
         
     CommonMixIn    m_Common;
@@ -124,7 +121,6 @@ class MEI_EXPORT Ref : public MeiElement {
     private:
         REGISTER_DECLARATION(Ref);
 };
-
 
 }
 #endif // PTRREF_H_

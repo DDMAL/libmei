@@ -1,5 +1,4 @@
 
-
 #include "critapp.h"
 using std::string;
 using mei::MeiAttribute;

@@ -1,5 +1,4 @@
 
-
 #include "mensuralmixins.h"
 using std::string;
 using mei::MeiAttribute;

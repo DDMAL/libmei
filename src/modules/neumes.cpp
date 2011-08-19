@@ -1,5 +1,4 @@
 
-
 #include "neumes.h"
 using std::string;
 using mei::MeiAttribute;

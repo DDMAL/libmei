@@ -1,5 +1,4 @@
 
-
 #include "cmnornamentsmixins.h"
 using std::string;
 using mei::MeiAttribute;

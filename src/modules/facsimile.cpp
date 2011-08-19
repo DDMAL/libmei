@@ -1,5 +1,4 @@
 
-
 #include "facsimile.h"
 using std::string;
 using mei::MeiAttribute;

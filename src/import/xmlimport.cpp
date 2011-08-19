@@ -27,7 +27,6 @@ MeiDocument* mei::XmlImport::File(const char* filename) {
     doc = xmlReadFile(filename, NULL, 0);
     _MeiXml *mfile = new _MeiXml(doc);
     mdoc = mfile->getMeiDocument();
-    
     return mdoc;
 }
 

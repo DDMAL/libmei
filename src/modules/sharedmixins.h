@@ -33,8 +33,8 @@ namespace mei {
     
 class AccidLogMixIn {
     public:
-        AccidLogMixIn(MeiElement *b);
-        virtual ~AccidLogMixIn() {};
+        explicit AccidLogMixIn(MeiElement *b);
+        virtual ~AccidLogMixIn() {}
         
     /** \brief   records the function of an accidental.
     */
@@ -51,8 +51,8 @@ class AccidLogMixIn {
 
 class AccidVisMixIn {
     public:
-        AccidVisMixIn(MeiElement *b);
-        virtual ~AccidVisMixIn() {};
+        explicit AccidVisMixIn(MeiElement *b);
+        virtual ~AccidVisMixIn() {}
         
     /** \brief   captures the placement of the item with respect to the staff with which it is
     * associated.
@@ -70,8 +70,8 @@ class AccidVisMixIn {
 
 class AccidentalMixIn {
     public:
-        AccidentalMixIn(MeiElement *b);
-        virtual ~AccidentalMixIn() {};
+        explicit AccidentalMixIn(MeiElement *b);
+        virtual ~AccidentalMixIn() {}
         
     /** \brief   captures a written accidental.
     */
@@ -88,8 +88,8 @@ class AccidentalMixIn {
 
 class AccidentalPerformedMixIn {
     public:
-        AccidentalPerformedMixIn(MeiElement *b);
-        virtual ~AccidentalPerformedMixIn() {};
+        explicit AccidentalPerformedMixIn(MeiElement *b);
+        virtual ~AccidentalPerformedMixIn() {}
         
     /** \brief   records the performed pitch inflection when it differs from the written
     * accidental.
@@ -107,8 +107,8 @@ class AccidentalPerformedMixIn {
 
 class AltsymMixIn {
     public:
-        AltsymMixIn(MeiElement *b);
-        virtual ~AltsymMixIn() {};
+        explicit AltsymMixIn(MeiElement *b);
+        virtual ~AltsymMixIn() {}
         
     /** \brief   provides a way of pointing to a user-defined symbol. It must contain an ID of a
     * <symbolDef> element elsewhere in the document.
@@ -126,8 +126,8 @@ class AltsymMixIn {
 
 class ArticulationMixIn {
     public:
-        ArticulationMixIn(MeiElement *b);
-        virtual ~ArticulationMixIn() {};
+        explicit ArticulationMixIn(MeiElement *b);
+        virtual ~ArticulationMixIn() {}
         
     /** \brief   encodes the written articulation(s). Articulations are normally encoded in order
     * from the note head outward; that is, away from the stem. See additional notes at
@@ -147,8 +147,8 @@ class ArticulationMixIn {
 
 class ArticulationPerformedMixIn {
     public:
-        ArticulationPerformedMixIn(MeiElement *b);
-        virtual ~ArticulationPerformedMixIn() {};
+        explicit ArticulationPerformedMixIn(MeiElement *b);
+        virtual ~ArticulationPerformedMixIn() {}
         
     /** \brief   records performed articulation that differs from the written value.
     */
@@ -165,8 +165,8 @@ class ArticulationPerformedMixIn {
 
 class AugmentdotsMixIn {
     public:
-        AugmentdotsMixIn(MeiElement *b);
-        virtual ~AugmentdotsMixIn() {};
+        explicit AugmentdotsMixIn(MeiElement *b);
+        virtual ~AugmentdotsMixIn() {}
         
     /** \brief   records the number of augmentation dots required by a dotted duration.
     */
@@ -183,8 +183,8 @@ class AugmentdotsMixIn {
 
 class AuthorizedMixIn {
     public:
-        AuthorizedMixIn(MeiElement *b);
-        virtual ~AuthorizedMixIn() {};
+        explicit AuthorizedMixIn(MeiElement *b);
+        virtual ~AuthorizedMixIn() {}
         
     /** \brief   a name or label associated with the controlled vocabulary from which the value
     * is taken.
@@ -211,8 +211,8 @@ class AuthorizedMixIn {
 
 class BarlineLogMixIn {
     public:
-        BarlineLogMixIn(MeiElement *b);
-        virtual ~BarlineLogMixIn() {};
+        explicit BarlineLogMixIn(MeiElement *b);
+        virtual ~BarlineLogMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -229,8 +229,8 @@ class BarlineLogMixIn {
 
 class BarplacementMixIn {
     public:
-        BarplacementMixIn(MeiElement *b);
-        virtual ~BarplacementMixIn() {};
+        explicit BarplacementMixIn(MeiElement *b);
+        virtual ~BarplacementMixIn() {}
         
     /** \brief   records the location of a bar line.
     */
@@ -262,8 +262,8 @@ class BarplacementMixIn {
 
 class BeamingVisMixIn {
     public:
-        BeamingVisMixIn(MeiElement *b);
-        virtual ~BeamingVisMixIn() {};
+        explicit BeamingVisMixIn(MeiElement *b);
+        virtual ~BeamingVisMixIn() {}
         
     /** \brief   encodes whether a beam is "feathered" and in which direction.
     */
@@ -288,8 +288,8 @@ class BeamingVisMixIn {
 
 class BiblMixIn {
     public:
-        BiblMixIn(MeiElement *b);
-        virtual ~BiblMixIn() {};
+        explicit BiblMixIn(MeiElement *b);
+        virtual ~BiblMixIn() {}
         
     /** \brief   contains a reference to a field or element in another descriptive encoding
     * system to which this MEI element is comparable. Mapping elements from one system
@@ -311,8 +311,8 @@ class BiblMixIn {
 
 class CalendaredMixIn {
     public:
-        CalendaredMixIn(MeiElement *b);
-        virtual ~CalendaredMixIn() {};
+        explicit CalendaredMixIn(MeiElement *b);
+        virtual ~CalendaredMixIn() {}
         
     /** \brief   indicates the calendar system to which a date belongs, for example, Gregorian,
     * Julian, Roman, Mosaic, Revolutionary, Islamic, etc.
@@ -330,8 +330,8 @@ class CalendaredMixIn {
 
 class CanonicalMixIn {
     public:
-        CanonicalMixIn(MeiElement *b);
-        virtual ~CanonicalMixIn() {};
+        explicit CanonicalMixIn(MeiElement *b);
+        virtual ~CanonicalMixIn() {}
         
     /** \brief   used to record a value which serves as a primary key in an external database.
     */
@@ -348,8 +348,8 @@ class CanonicalMixIn {
 
 class ChordVisMixIn {
     public:
-        ChordVisMixIn(MeiElement *b);
-        virtual ~ChordVisMixIn() {};
+        explicit ChordVisMixIn(MeiElement *b);
+        virtual ~ChordVisMixIn() {}
         
     /** \brief   indicates a single alternative note head should be displayed instead of
     * individual note heads. See Read, p. 320-321, re: tone clusters.
@@ -367,8 +367,8 @@ class ChordVisMixIn {
 
 class CleffingLogMixIn {
     public:
-        CleffingLogMixIn(MeiElement *b);
-        virtual ~CleffingLogMixIn() {};
+        explicit CleffingLogMixIn(MeiElement *b);
+        virtual ~CleffingLogMixIn() {}
         
     /** \brief   encodes a value for the clef symbol.
     */
@@ -411,8 +411,8 @@ class CleffingLogMixIn {
 
 class CleffingVisMixIn {
     public:
-        CleffingVisMixIn(MeiElement *b);
-        virtual ~CleffingVisMixIn() {};
+        explicit CleffingVisMixIn(MeiElement *b);
+        virtual ~CleffingVisMixIn() {}
         
     /** \brief   describes the color of the clef.
     */
@@ -437,8 +437,8 @@ class CleffingVisMixIn {
 
 class ClefshapeMixIn {
     public:
-        ClefshapeMixIn(MeiElement *b);
-        virtual ~ClefshapeMixIn() {};
+        explicit ClefshapeMixIn(MeiElement *b);
+        virtual ~ClefshapeMixIn() {}
         
     /** \brief   describes a clef's shape.
     */
@@ -455,8 +455,8 @@ class ClefshapeMixIn {
 
 class ColorMixIn {
     public:
-        ColorMixIn(MeiElement *b);
-        virtual ~ColorMixIn() {};
+        explicit ColorMixIn(MeiElement *b);
+        virtual ~ColorMixIn() {}
         
     /** \brief   used to indicate visual appearance. Do not confuse this with the musical term
     * 'color' as used in pre-CMN notation.
@@ -474,8 +474,8 @@ class ColorMixIn {
 
 class ColorationMixIn {
     public:
-        ColorationMixIn(MeiElement *b);
-        virtual ~ColorationMixIn() {};
+        explicit ColorationMixIn(MeiElement *b);
+        virtual ~ColorationMixIn() {}
         
     /** \brief   indicates this feature is 'colored'; that is, it is a participant in a change in
     * rhythmic values. In mensural notation, coloration is indicated by colored notes
@@ -496,8 +496,8 @@ class ColorationMixIn {
 
 class CommonMixIn {
     public:
-        CommonMixIn(MeiElement *b);
-        virtual ~CommonMixIn() {};
+        explicit CommonMixIn(MeiElement *b);
+        virtual ~CommonMixIn() {}
         
     /** \brief   regularizes the naming of an element and thus facilitates building links between
     * it and other resources. Each id attribute within a document must have a unique
@@ -542,8 +542,8 @@ class CommonMixIn {
 
 class CoordinatedMixIn {
     public:
-        CoordinatedMixIn(MeiElement *b);
-        virtual ~CoordinatedMixIn() {};
+        explicit CoordinatedMixIn(MeiElement *b);
+        virtual ~CoordinatedMixIn() {}
         
     /** \brief   indicates the upper-left corner x coordinate.
     */
@@ -584,8 +584,8 @@ class CoordinatedMixIn {
 
 class CurvatureMixIn {
     public:
-        CurvatureMixIn(MeiElement *b);
-        virtual ~CurvatureMixIn() {};
+        explicit CurvatureMixIn(MeiElement *b);
+        virtual ~CurvatureMixIn() {}
         
     /** \brief   records the placement of Bezier control points as a series of space-separated xy
     * coordinates, e.g., 19 45 -32 118.
@@ -621,8 +621,8 @@ class CurvatureMixIn {
 
 class CurverendMixIn {
     public:
-        CurverendMixIn(MeiElement *b);
-        virtual ~CurverendMixIn() {};
+        explicit CurverendMixIn(MeiElement *b);
+        virtual ~CurverendMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -639,8 +639,8 @@ class CurverendMixIn {
 
 class CustosLogMixIn {
     public:
-        CustosLogMixIn(MeiElement *b);
-        virtual ~CustosLogMixIn() {};
+        explicit CustosLogMixIn(MeiElement *b);
+        virtual ~CustosLogMixIn() {}
         
     /** \brief   encodes the target note when its pitch differs from the pitch at which the
     * custos appears.
@@ -658,8 +658,8 @@ class CustosLogMixIn {
 
 class DatableMixIn {
     public:
-        DatableMixIn(MeiElement *b);
-        virtual ~DatableMixIn() {};
+        explicit DatableMixIn(MeiElement *b);
+        virtual ~DatableMixIn() {}
         
     /** \brief   contains the end point of a date range.
     */
@@ -700,8 +700,8 @@ class DatableMixIn {
 
 class DatapointingMixIn {
     public:
-        DatapointingMixIn(MeiElement *b);
-        virtual ~DatapointingMixIn() {};
+        explicit DatapointingMixIn(MeiElement *b);
+        virtual ~DatapointingMixIn() {}
         
     /** \brief   used to link metadata elements to one or more data-containing elements.
     */
@@ -718,8 +718,8 @@ class DatapointingMixIn {
 
 class DeclaringMixIn {
     public:
-        DeclaringMixIn(MeiElement *b);
-        virtual ~DeclaringMixIn() {};
+        explicit DeclaringMixIn(MeiElement *b);
+        virtual ~DeclaringMixIn() {}
         
     /** \brief   identifies one or more metadata elements within the header, which are understood
     * to apply to the element bearing this attribute and its content.
@@ -737,8 +737,8 @@ class DeclaringMixIn {
 
 class DistancesMixIn {
     public:
-        DistancesMixIn(MeiElement *b);
-        virtual ~DistancesMixIn() {};
+        explicit DistancesMixIn(MeiElement *b);
+        virtual ~DistancesMixIn() {}
         
     /** \brief   records the distance from the staff for dynamic marks in 1/2 inter-line units.
     */
@@ -772,8 +772,8 @@ class DistancesMixIn {
 
 class DotLogMixIn {
     public:
-        DotLogMixIn(MeiElement *b);
-        virtual ~DotLogMixIn() {};
+        explicit DotLogMixIn(MeiElement *b);
+        virtual ~DotLogMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -790,8 +790,8 @@ class DotLogMixIn {
 
 class DurationDefaultMixIn {
     public:
-        DurationDefaultMixIn(MeiElement *b);
-        virtual ~DurationDefaultMixIn() {};
+        explicit DurationDefaultMixIn(MeiElement *b);
+        virtual ~DurationDefaultMixIn() {}
         
     /** \brief   contains a default duration in those situations when the first note, rest,
     * chord, etc. in a measure does not have a duration specified.
@@ -809,8 +809,8 @@ class DurationDefaultMixIn {
 
 class DurationMusicalMixIn {
     public:
-        DurationMusicalMixIn(MeiElement *b);
-        virtual ~DurationMusicalMixIn() {};
+        explicit DurationMusicalMixIn(MeiElement *b);
+        virtual ~DurationMusicalMixIn() {}
         
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.
@@ -828,8 +828,8 @@ class DurationMusicalMixIn {
 
 class DurationPerformedMixIn {
     public:
-        DurationPerformedMixIn(MeiElement *b);
-        virtual ~DurationPerformedMixIn() {};
+        explicit DurationPerformedMixIn(MeiElement *b);
+        virtual ~DurationPerformedMixIn() {}
         
     /** \brief   records performed duration information that differs from written duration. Its
     * value may be expressed in any convenient form, such as measures[s]+
@@ -849,8 +849,8 @@ class DurationPerformedMixIn {
 
 class DurationRatioMixIn {
     public:
-        DurationRatioMixIn(MeiElement *b);
-        virtual ~DurationRatioMixIn() {};
+        explicit DurationRatioMixIn(MeiElement *b);
+        virtual ~DurationRatioMixIn() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -877,8 +877,8 @@ class DurationRatioMixIn {
 
 class DurationTimestampMixIn {
     public:
-        DurationTimestampMixIn(MeiElement *b);
-        virtual ~DurationTimestampMixIn() {};
+        explicit DurationTimestampMixIn(MeiElement *b);
+        virtual ~DurationTimestampMixIn() {}
         
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.
@@ -896,8 +896,8 @@ class DurationTimestampMixIn {
 
 class EnclosingcharsMixIn {
     public:
-        EnclosingcharsMixIn(MeiElement *b);
-        virtual ~EnclosingcharsMixIn() {};
+        explicit EnclosingcharsMixIn(MeiElement *b);
+        virtual ~EnclosingcharsMixIn() {}
         
     /** \brief   records the characters often used to mark accidentals, articulations, and
     * sometimes notes as having a cautionary or editorial function. For an example of
@@ -916,8 +916,8 @@ class EnclosingcharsMixIn {
 
 class FermatapresentMixIn {
     public:
-        FermatapresentMixIn(MeiElement *b);
-        virtual ~FermatapresentMixIn() {};
+        explicit FermatapresentMixIn(MeiElement *b);
+        virtual ~FermatapresentMixIn() {}
         
     /** \brief   indicates the attachment of a fermata to this element. If visual information
     * about the fermata needs to be recorded, then a <fermata> element should be
@@ -936,8 +936,8 @@ class FermatapresentMixIn {
 
 class HandidentMixIn {
     public:
-        HandidentMixIn(MeiElement *b);
-        virtual ~HandidentMixIn() {};
+        explicit HandidentMixIn(MeiElement *b);
+        virtual ~HandidentMixIn() {}
         
     /** \brief   signifies the hand responsible for an action. The value must be the ID of a
     * <hand> element declared in the header.
@@ -955,8 +955,8 @@ class HandidentMixIn {
 
 class HorizontalalignMixIn {
     public:
-        HorizontalalignMixIn(MeiElement *b);
-        virtual ~HorizontalalignMixIn() {};
+        explicit HorizontalalignMixIn(MeiElement *b);
+        virtual ~HorizontalalignMixIn() {}
         
     /** \brief   records horizontal alignment.
     */
@@ -973,8 +973,8 @@ class HorizontalalignMixIn {
 
 class InstrumentidentMixIn {
     public:
-        InstrumentidentMixIn(MeiElement *b);
-        virtual ~InstrumentidentMixIn() {};
+        explicit InstrumentidentMixIn(MeiElement *b);
+        virtual ~InstrumentidentMixIn() {}
         
     /** \brief   provides a way of pointing to a MIDI instrument definition. It must contain the
     * ID of an <instrDef> element elsewhere in the document.
@@ -992,8 +992,8 @@ class InstrumentidentMixIn {
 
 class InternetmediaMixIn {
     public:
-        InternetmediaMixIn(MeiElement *b);
-        virtual ~InternetmediaMixIn() {};
+        explicit InternetmediaMixIn(MeiElement *b);
+        virtual ~InternetmediaMixIn() {}
         
     /** \brief   specifies the applicable MIME (multimedia internet mail extension) type. The
     * value should be a valid MIME media type defined by the Internet Engineering Task
@@ -1012,8 +1012,8 @@ class InternetmediaMixIn {
 
 class JoinedMixIn {
     public:
-        JoinedMixIn(MeiElement *b);
-        virtual ~JoinedMixIn() {};
+        explicit JoinedMixIn(MeiElement *b);
+        virtual ~JoinedMixIn() {}
         
     /** \brief   used for linking visually separate slurs, sometimes necessary due to system
     * breaks, that form a single musical phrase. Also used to indicate a measure which
@@ -1033,8 +1033,8 @@ class JoinedMixIn {
 
 class KeysigsLogMixIn {
     public:
-        KeysigsLogMixIn(MeiElement *b);
-        virtual ~KeysigsLogMixIn() {};
+        explicit KeysigsLogMixIn(MeiElement *b);
+        virtual ~KeysigsLogMixIn() {}
         
     /** \brief   contains an accidental for the tonic key, if one is required, e.g., if key.pname
     * equals 'c' and key.accid equals 's', then a tonic of C# is indicated.
@@ -1091,8 +1091,8 @@ class KeysigsLogMixIn {
 
 class KeysigsVisMixIn {
     public:
-        KeysigsVisMixIn(MeiElement *b);
-        virtual ~KeysigsVisMixIn() {};
+        explicit KeysigsVisMixIn(MeiElement *b);
+        virtual ~KeysigsVisMixIn() {}
         
     /** \brief   indicates whether the key signature should be displayed.
     */
@@ -1117,8 +1117,8 @@ class KeysigsVisMixIn {
 
 class LabelsAddlMixIn {
     public:
-        LabelsAddlMixIn(MeiElement *b);
-        virtual ~LabelsAddlMixIn() {};
+        explicit LabelsAddlMixIn(MeiElement *b);
+        virtual ~LabelsAddlMixIn() {}
         
     /** \brief   provides a label for a group of staves on pages after the first page. Usually,
     * this label takes an abbreviated form.
@@ -1136,8 +1136,8 @@ class LabelsAddlMixIn {
 
 class LangMixIn {
     public:
-        LangMixIn(MeiElement *b);
-        virtual ~LangMixIn() {};
+        explicit LangMixIn(MeiElement *b);
+        virtual ~LangMixIn() {}
         
     /** \brief   identifies the language of the element's content. The values for this attribute
     * are language 'tags' as defined in BCP 47. All language tags that make use of
@@ -1157,8 +1157,8 @@ class LangMixIn {
 
 class LayeridentMixIn {
     public:
-        LayeridentMixIn(MeiElement *b);
-        virtual ~LayeridentMixIn() {};
+        explicit LayeridentMixIn(MeiElement *b);
+        virtual ~LayeridentMixIn() {}
         
     /** \brief   identifies the layer to which a feature applies.
     */
@@ -1175,8 +1175,8 @@ class LayeridentMixIn {
 
 class LinelocMixIn {
     public:
-        LinelocMixIn(MeiElement *b);
-        virtual ~LinelocMixIn() {};
+        explicit LinelocMixIn(MeiElement *b);
+        virtual ~LinelocMixIn() {}
         
     /** \brief   indicates the line upon which a feature stands. The value must be in the range
     * between 1 and the number of lines on the staff. The numbering of lines starts
@@ -1195,8 +1195,8 @@ class LinelocMixIn {
 
 class LinerendMixIn {
     public:
-        LinerendMixIn(MeiElement *b);
-        virtual ~LinerendMixIn() {};
+        explicit LinerendMixIn(MeiElement *b);
+        virtual ~LinerendMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -1213,8 +1213,8 @@ class LinerendMixIn {
 
 class LinkCommonMixIn {
     public:
-        LinkCommonMixIn(MeiElement *b);
-        virtual ~LinkCommonMixIn() {};
+        explicit LinkCommonMixIn(MeiElement *b);
+        virtual ~LinkCommonMixIn() {}
         
     /** \brief   defines whether a link occurs automatically or must be requested by the user. It
     * is used in conjunction with the show attribute to determine link behavior.
@@ -1275,8 +1275,8 @@ class LinkCommonMixIn {
 
 class LinkExternalMixIn {
     public:
-        LinkExternalMixIn(MeiElement *b);
-        virtual ~LinkExternalMixIn() {};
+        explicit LinkExternalMixIn(MeiElement *b);
+        virtual ~LinkExternalMixIn() {}
         
     /** \brief   allows the use of an previously-undeclared URI to identify an external
     * electronic object.
@@ -1294,8 +1294,8 @@ class LinkExternalMixIn {
 
 class LyricstyleMixIn {
     public:
-        LyricstyleMixIn(MeiElement *b);
-        virtual ~LyricstyleMixIn() {};
+        explicit LyricstyleMixIn(MeiElement *b);
+        virtual ~LyricstyleMixIn() {}
         
     /** \brief   describes the alignment of lyric syllables associated with a note or chord.
     */
@@ -1352,8 +1352,8 @@ class LyricstyleMixIn {
 
 class MeasureLogMixIn {
     public:
-        MeasureLogMixIn(MeiElement *b);
-        virtual ~MeasureLogMixIn() {};
+        explicit MeasureLogMixIn(MeiElement *b);
+        virtual ~MeasureLogMixIn() {}
         
     /** \brief   indicates the visual rendition of the left bar line. It is present here only for
     * facilitation of translation from legacy encodings which use it. Usually, it can
@@ -1380,8 +1380,8 @@ class MeasureLogMixIn {
 
 class MeasurementMixIn {
     public:
-        MeasurementMixIn(MeiElement *b);
-        virtual ~MeasurementMixIn() {};
+        explicit MeasurementMixIn(MeiElement *b);
+        virtual ~MeasurementMixIn() {}
         
     /** \brief   indicates the units used for a measurement, usually using the standard symbol
     * for the desired unit.
@@ -1399,8 +1399,8 @@ class MeasurementMixIn {
 
 class MediumMixIn {
     public:
-        MediumMixIn(MeiElement *b);
-        virtual ~MediumMixIn() {};
+        explicit MediumMixIn(MeiElement *b);
+        virtual ~MediumMixIn() {}
         
     /** \brief   describes the writing medium.
     */
@@ -1417,8 +1417,8 @@ class MediumMixIn {
 
 class MeiversionMixIn {
     public:
-        MeiversionMixIn(MeiElement *b);
-        virtual ~MeiversionMixIn() {};
+        explicit MeiversionMixIn(MeiElement *b);
+        virtual ~MeiversionMixIn() {}
         
     /** \brief   records the version of MEI used by the file.
     */
@@ -1435,8 +1435,8 @@ class MeiversionMixIn {
 
 class MeterconformanceMixIn {
     public:
-        MeterconformanceMixIn(MeiElement *b);
-        virtual ~MeterconformanceMixIn() {};
+        explicit MeterconformanceMixIn(MeiElement *b);
+        virtual ~MeterconformanceMixIn() {}
         
     /** \brief   indicates the relationship between the content of a staff or layer and the
     * prevailing meter
@@ -1454,8 +1454,8 @@ class MeterconformanceMixIn {
 
 class MeterconformanceBarMixIn {
     public:
-        MeterconformanceBarMixIn(MeiElement *b);
-        virtual ~MeterconformanceBarMixIn() {};
+        explicit MeterconformanceBarMixIn(MeiElement *b);
+        virtual ~MeterconformanceBarMixIn() {}
         
     /** \brief   indicates the relationship between the content of a staff or layer and the
     * prevailing meter
@@ -1485,8 +1485,8 @@ class MeterconformanceBarMixIn {
 
 class MetersLogMixIn {
     public:
-        MetersLogMixIn(MeiElement *b);
-        virtual ~MetersLogMixIn() {};
+        explicit MetersLogMixIn(MeiElement *b);
+        virtual ~MetersLogMixIn() {}
         
     /** \brief   captures the number of beats in a measure, that is, the top number of the meter
     * signature.
@@ -1513,8 +1513,8 @@ class MetersLogMixIn {
 
 class MetersVisMixIn {
     public:
-        MetersVisMixIn(MeiElement *b);
-        virtual ~MetersVisMixIn() {};
+        explicit MetersVisMixIn(MeiElement *b);
+        virtual ~MetersVisMixIn() {}
         
     /** \brief   contains an indication of how the meter signature should be rendered.
     */
@@ -1549,8 +1549,8 @@ class MetersVisMixIn {
 
 class MmtempoMixIn {
     public:
-        MmtempoMixIn(MeiElement *b);
-        virtual ~MmtempoMixIn() {};
+        explicit MmtempoMixIn(MeiElement *b);
+        virtual ~MmtempoMixIn() {}
         
     /** \brief   used to describe tempo in terms of beats (meter signature denominator) per
     * minute, ala M.M. (Maezel's Metronome).
@@ -1568,8 +1568,8 @@ class MmtempoMixIn {
 
 class MultinummeasuresMixIn {
     public:
-        MultinummeasuresMixIn(MeiElement *b);
-        virtual ~MultinummeasuresMixIn() {};
+        explicit MultinummeasuresMixIn(MeiElement *b);
+        virtual ~MultinummeasuresMixIn() {}
         
     /** \brief   indicates whether programmatically calculated counts of multiple measures of
     * rest (mRest) and whole measure repeats (mRpt) in parts should be rendered.
@@ -1587,8 +1587,8 @@ class MultinummeasuresMixIn {
 
 class NameMixIn {
     public:
-        NameMixIn(MeiElement *b);
-        virtual ~NameMixIn() {};
+        explicit NameMixIn(MeiElement *b);
+        virtual ~NameMixIn() {}
         
     /** \brief   used to record a pointer to the regularized form of the name elsewhere in the
     * document.
@@ -1618,8 +1618,8 @@ class NameMixIn {
 
 class NoteGesMixIn {
     public:
-        NoteGesMixIn(MeiElement *b);
-        virtual ~NoteGesMixIn() {};
+        explicit NoteGesMixIn(MeiElement *b);
+        virtual ~NoteGesMixIn() {}
         
     /** \brief   records performed octave information that differs from the written value.
     */
@@ -1652,8 +1652,8 @@ class NoteGesMixIn {
 
 class NoteVisMixIn {
     public:
-        NoteVisMixIn(MeiElement *b);
-        virtual ~NoteVisMixIn() {};
+        explicit NoteVisMixIn(MeiElement *b);
+        virtual ~NoteVisMixIn() {}
         
     /** \brief   used to override the head shape normally used for the given duration.
     */
@@ -1670,8 +1670,8 @@ class NoteVisMixIn {
 
 class OctaveMixIn {
     public:
-        OctaveMixIn(MeiElement *b);
-        virtual ~OctaveMixIn() {};
+        explicit OctaveMixIn(MeiElement *b);
+        virtual ~OctaveMixIn() {}
         
     /** \brief   captures written octave information.
     */
@@ -1688,8 +1688,8 @@ class OctaveMixIn {
 
 class OctavedefaultMixIn {
     public:
-        OctavedefaultMixIn(MeiElement *b);
-        virtual ~OctavedefaultMixIn() {};
+        explicit OctavedefaultMixIn(MeiElement *b);
+        virtual ~OctavedefaultMixIn() {}
         
     /** \brief   contains a default octave specification for use when the first note, rest,
     * chord, etc. in a measure does not have an octave value specified.
@@ -1707,8 +1707,8 @@ class OctavedefaultMixIn {
 
 class OctavedisplacementMixIn {
     public:
-        OctavedisplacementMixIn(MeiElement *b);
-        virtual ~OctavedisplacementMixIn() {};
+        explicit OctavedisplacementMixIn(MeiElement *b);
+        virtual ~OctavedisplacementMixIn() {}
         
     /** \brief   records the amount of octave displacement.
     */
@@ -1733,8 +1733,8 @@ class OctavedisplacementMixIn {
 
 class OnelinestaffMixIn {
     public:
-        OnelinestaffMixIn(MeiElement *b);
-        virtual ~OnelinestaffMixIn() {};
+        explicit OnelinestaffMixIn(MeiElement *b);
+        virtual ~OnelinestaffMixIn() {}
         
     /** \brief   determines the placement of notes on a 1-line staff. A value of 'true' places
     * all notes on the line, while a value of 'false' places stems-up notes above the
@@ -1753,8 +1753,8 @@ class OnelinestaffMixIn {
 
 class PadLogMixIn {
     public:
-        PadLogMixIn(MeiElement *b);
-        virtual ~PadLogMixIn() {};
+        explicit PadLogMixIn(MeiElement *b);
+        virtual ~PadLogMixIn() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -1772,8 +1772,8 @@ class PadLogMixIn {
 
 class ParticipantidentMixIn {
     public:
-        ParticipantidentMixIn(MeiElement *b);
-        virtual ~ParticipantidentMixIn() {};
+        explicit ParticipantidentMixIn(MeiElement *b);
+        virtual ~ParticipantidentMixIn() {}
         
     /** \brief   contains a space separated list of ID references that identify logical events
     * that participate in a collection, such as notes under a phrase mark.
@@ -1791,8 +1791,8 @@ class ParticipantidentMixIn {
 
 class PbVisMixIn {
     public:
-        PbVisMixIn(MeiElement *b);
-        virtual ~PbVisMixIn() {};
+        explicit PbVisMixIn(MeiElement *b);
+        virtual ~PbVisMixIn() {}
         
     /** \brief   records the function of an accidental.
     */
@@ -1809,8 +1809,8 @@ class PbVisMixIn {
 
 class PitchMixIn {
     public:
-        PitchMixIn(MeiElement *b);
-        virtual ~PitchMixIn() {};
+        explicit PitchMixIn(MeiElement *b);
+        virtual ~PitchMixIn() {}
         
     /** \brief   contains a written pitch name.
     */
@@ -1827,8 +1827,8 @@ class PitchMixIn {
 
 class PlacementMixIn {
     public:
-        PlacementMixIn(MeiElement *b);
-        virtual ~PlacementMixIn() {};
+        explicit PlacementMixIn(MeiElement *b);
+        virtual ~PlacementMixIn() {}
         
     /** \brief   captures the placement of the item with respect to the staff with which it is
     * associated.
@@ -1846,8 +1846,8 @@ class PlacementMixIn {
 
 class RegularizedMixIn {
     public:
-        RegularizedMixIn(MeiElement *b);
-        virtual ~RegularizedMixIn() {};
+        explicit RegularizedMixIn(MeiElement *b);
+        virtual ~RegularizedMixIn() {}
         
     /** \brief   provides a regularized, authorized value.
     */
@@ -1864,8 +1864,8 @@ class RegularizedMixIn {
 
 class RelativesizeMixIn {
     public:
-        RelativesizeMixIn(MeiElement *b);
-        virtual ~RelativesizeMixIn() {};
+        explicit RelativesizeMixIn(MeiElement *b);
+        virtual ~RelativesizeMixIn() {}
         
     /** \brief   describes the relative size of a feature.
     */
@@ -1882,8 +1882,8 @@ class RelativesizeMixIn {
 
 class ResponsibilityMixIn {
     public:
-        ResponsibilityMixIn(MeiElement *b);
-        virtual ~ResponsibilityMixIn() {};
+        explicit ResponsibilityMixIn(MeiElement *b);
+        virtual ~ResponsibilityMixIn() {}
         
     /** \brief   captures information regarding responsibility for some aspect of the text's
     * creation, transcription, editing, or encoding. Its value must point to one or
@@ -1902,8 +1902,8 @@ class ResponsibilityMixIn {
 
 class SbVisMixIn {
     public:
-        SbVisMixIn(MeiElement *b);
-        virtual ~SbVisMixIn() {};
+        explicit SbVisMixIn(MeiElement *b);
+        virtual ~SbVisMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -1920,8 +1920,8 @@ class SbVisMixIn {
 
 class ScalableMixIn {
     public:
-        ScalableMixIn(MeiElement *b);
-        virtual ~ScalableMixIn() {};
+        explicit ScalableMixIn(MeiElement *b);
+        virtual ~ScalableMixIn() {}
         
     /** \brief   scale factor to be applied to the feature to make it the desired display size.
     */
@@ -1938,8 +1938,8 @@ class ScalableMixIn {
 
 class ScoredefGesMixIn {
     public:
-        ScoredefGesMixIn(MeiElement *b);
-        virtual ~ScoredefGesMixIn() {};
+        explicit ScoredefGesMixIn(MeiElement *b);
+        virtual ~ScoredefGesMixIn() {}
         
     /** \brief   holds the pitch name of a tuning reference pitch.
     */
@@ -1972,8 +1972,8 @@ class ScoredefGesMixIn {
 
 class ScoredefVisMixIn {
     public:
-        ScoredefVisMixIn(MeiElement *b);
-        virtual ~ScoredefVisMixIn() {};
+        explicit ScoredefVisMixIn(MeiElement *b);
+        virtual ~ScoredefVisMixIn() {}
         
     /** \brief   describes where ending marks should be displayed.
     */
@@ -2156,8 +2156,8 @@ class ScoredefVisMixIn {
 
 class SectionVisMixIn {
     public:
-        SectionVisMixIn(MeiElement *b);
-        virtual ~SectionVisMixIn() {};
+        explicit SectionVisMixIn(MeiElement *b);
+        virtual ~SectionVisMixIn() {}
         
     /** \brief   indicates that staves begin again with this section.
     */
@@ -2174,8 +2174,8 @@ class SectionVisMixIn {
 
 class SequenceMixIn {
     public:
-        SequenceMixIn(MeiElement *b);
-        virtual ~SequenceMixIn() {};
+        explicit SequenceMixIn(MeiElement *b);
+        virtual ~SequenceMixIn() {}
         
     /** \brief   used to assign a sequence number related to the order in which the encoded
     * features carrying this attribute are believed to have occurred.
@@ -2193,8 +2193,8 @@ class SequenceMixIn {
 
 class SlashcountMixIn {
     public:
-        SlashcountMixIn(MeiElement *b);
-        virtual ~SlashcountMixIn() {};
+        explicit SlashcountMixIn(MeiElement *b);
+        virtual ~SlashcountMixIn() {}
         
     /** \brief   indicates the number of slashes to be rendered along with the feature.
     */
@@ -2211,8 +2211,8 @@ class SlashcountMixIn {
 
 class SlurpresentMixIn {
     public:
-        SlurpresentMixIn(MeiElement *b);
-        virtual ~SlurpresentMixIn() {};
+        explicit SlurpresentMixIn(MeiElement *b);
+        virtual ~SlurpresentMixIn() {}
         
     /** \brief   indicates that this element participates in a slur. If visual information about
     * the slur needs to be recorded, then a <slur> element should be employed.
@@ -2230,8 +2230,8 @@ class SlurpresentMixIn {
 
 class SpaceVisMixIn {
     public:
-        SpaceVisMixIn(MeiElement *b);
-        virtual ~SpaceVisMixIn() {};
+        explicit SpaceVisMixIn(MeiElement *b);
+        virtual ~SpaceVisMixIn() {}
         
     /** \brief   indicates whether a space is 'compressible', i.e., if it may be removed at the
     * discretion of processing software.
@@ -2249,8 +2249,8 @@ class SpaceVisMixIn {
 
 class StaffdefVisMixIn {
     public:
-        StaffdefVisMixIn(MeiElement *b);
-        virtual ~StaffdefVisMixIn() {};
+        explicit StaffdefVisMixIn(MeiElement *b);
+        virtual ~StaffdefVisMixIn() {}
         
     /** \brief   determines whether to display guitar chord grids.
     */
@@ -2313,8 +2313,8 @@ class StaffdefVisMixIn {
 
 class StaffgrpVisMixIn {
     public:
-        StaffgrpVisMixIn(MeiElement *b);
-        virtual ~StaffgrpVisMixIn() {};
+        explicit StaffgrpVisMixIn(MeiElement *b);
+        virtual ~StaffgrpVisMixIn() {}
         
     /** \brief   indicates whether bar lines go across the space between staves (true) or are
     * only drawn across the lines of each staff (false).
@@ -2332,8 +2332,8 @@ class StaffgrpVisMixIn {
 
 class StaffgroupingsymMixIn {
     public:
-        StaffgroupingsymMixIn(MeiElement *b);
-        virtual ~StaffgroupingsymMixIn() {};
+        explicit StaffgroupingsymMixIn(MeiElement *b);
+        virtual ~StaffgroupingsymMixIn() {}
         
     /** \brief   specifies the symbol used to group a set of staves.
     */
@@ -2350,8 +2350,8 @@ class StaffgroupingsymMixIn {
 
 class StaffidentMixIn {
     public:
-        StaffidentMixIn(MeiElement *b);
-        virtual ~StaffidentMixIn() {};
+        explicit StaffidentMixIn(MeiElement *b);
+        virtual ~StaffidentMixIn() {}
         
     /** \brief   signifies the staff on which a notated event occurs or to which a control event
     * applies. Mandatory when applicable.
@@ -2369,8 +2369,8 @@ class StaffidentMixIn {
 
 class StafflocMixIn {
     public:
-        StafflocMixIn(MeiElement *b);
-        virtual ~StafflocMixIn() {};
+        explicit StafflocMixIn(MeiElement *b);
+        virtual ~StafflocMixIn() {}
         
     /** \brief   holds the staff location of the feature.
     */
@@ -2387,8 +2387,8 @@ class StafflocMixIn {
 
 class StartendidMixIn {
     public:
-        StartendidMixIn(MeiElement *b);
-        virtual ~StartendidMixIn() {};
+        explicit StartendidMixIn(MeiElement *b);
+        virtual ~StartendidMixIn() {}
         
     /** \brief   indicates the final element in a sequence of events to which the feature
     * applies.
@@ -2406,8 +2406,8 @@ class StartendidMixIn {
 
 class StartidMixIn {
     public:
-        StartidMixIn(MeiElement *b);
-        virtual ~StartidMixIn() {};
+        explicit StartidMixIn(MeiElement *b);
+        virtual ~StartidMixIn() {}
         
     /** \brief   holds a reference to the first element in a sequence of events to which the
     * feature applies.
@@ -2425,8 +2425,8 @@ class StartidMixIn {
 
 class StemmedMixIn {
     public:
-        StemmedMixIn(MeiElement *b);
-        virtual ~StemmedMixIn() {};
+        explicit StemmedMixIn(MeiElement *b);
+        virtual ~StemmedMixIn() {}
         
     /** \brief   describes the direction of a stem.
     */
@@ -2475,8 +2475,8 @@ class StemmedMixIn {
 
 class SylLogMixIn {
     public:
-        SylLogMixIn(MeiElement *b);
-        virtual ~SylLogMixIn() {};
+        explicit SylLogMixIn(MeiElement *b);
+        virtual ~SylLogMixIn() {}
         
     /** \brief   describes the symbols typically used to indicate breaks between syllables and
     * their functions.
@@ -2502,8 +2502,8 @@ class SylLogMixIn {
 
 class SyltextMixIn {
     public:
-        SyltextMixIn(MeiElement *b);
-        virtual ~SyltextMixIn() {};
+        explicit SyltextMixIn(MeiElement *b);
+        virtual ~SyltextMixIn() {}
         
     /** \brief   holds an associated sung text syllable.
     */
@@ -2520,8 +2520,8 @@ class SyltextMixIn {
 
 class TextstyleMixIn {
     public:
-        TextstyleMixIn(MeiElement *b);
-        virtual ~TextstyleMixIn() {};
+        explicit TextstyleMixIn(MeiElement *b);
+        virtual ~TextstyleMixIn() {}
         
     /** \brief   provides a default value for the font family name of text (other than lyrics)
     * when this information is not provided on the individual elements.
@@ -2575,8 +2575,8 @@ class TextstyleMixIn {
 
 class TiepresentMixIn {
     public:
-        TiepresentMixIn(MeiElement *b);
-        virtual ~TiepresentMixIn() {};
+        explicit TiepresentMixIn(MeiElement *b);
+        virtual ~TiepresentMixIn() {}
         
     /** \brief   indicates that this element participates in a tie. If visual information about
     * the tie needs to be recorded, then a <tie> element should be employed.
@@ -2594,8 +2594,8 @@ class TiepresentMixIn {
 
 class TimestampMusicalMixIn {
     public:
-        TimestampMusicalMixIn(MeiElement *b);
-        virtual ~TimestampMusicalMixIn() {};
+        explicit TimestampMusicalMixIn(MeiElement *b);
+        virtual ~TimestampMusicalMixIn() {}
         
     /** \brief   encodes the onset time in terms of musical time, i.e.,
     * beats[.fractional_beat_part]
@@ -2613,8 +2613,8 @@ class TimestampMusicalMixIn {
 
 class TimestampPerformedMixIn {
     public:
-        TimestampPerformedMixIn(MeiElement *b);
-        virtual ~TimestampPerformedMixIn() {};
+        explicit TimestampPerformedMixIn(MeiElement *b);
+        virtual ~TimestampPerformedMixIn() {}
         
     /** \brief   used to record the onset time in pulses per quarter note (ppq, MusicXML
     * divisions, or MIDI clicks) since the start of the file.
@@ -2640,8 +2640,8 @@ class TimestampPerformedMixIn {
 
 class TranspositionMixIn {
     public:
-        TranspositionMixIn(MeiElement *b);
-        virtual ~TranspositionMixIn() {};
+        explicit TranspositionMixIn(MeiElement *b);
+        virtual ~TranspositionMixIn() {}
         
     /** \brief   records the amount of diatonic pitch shift, e.g. C to C♯ = 0, C to D♭ = 1.
     * Transposition requires both trans.diat and trans.semi attributes in order to
@@ -2672,8 +2672,8 @@ class TranspositionMixIn {
 
 class TupletpresentMixIn {
     public:
-        TupletpresentMixIn(MeiElement *b);
-        virtual ~TupletpresentMixIn() {};
+        explicit TupletpresentMixIn(MeiElement *b);
+        virtual ~TupletpresentMixIn() {}
         
     /** \brief   indicates that this feature participates in a tuplet. If visual information
     * about the tuplet needs to be recorded, then a <tuplet> element should be
@@ -2692,8 +2692,8 @@ class TupletpresentMixIn {
 
 class TypedMixIn {
     public:
-        TypedMixIn(MeiElement *b);
-        virtual ~TypedMixIn() {};
+        explicit TypedMixIn(MeiElement *b);
+        virtual ~TypedMixIn() {}
         
     /** \brief   characterizes the element in some sense, using any convenient classification
     * scheme or typology.
@@ -2720,8 +2720,8 @@ class TypedMixIn {
 
 class TypographyMixIn {
     public:
-        TypographyMixIn(MeiElement *b);
-        virtual ~TypographyMixIn() {};
+        explicit TypographyMixIn(MeiElement *b);
+        virtual ~TypographyMixIn() {}
         
     /** \brief   contains the name of a font-family.
     */
@@ -2770,8 +2770,8 @@ class TypographyMixIn {
 
 class VisibilityMixIn {
     public:
-        VisibilityMixIn(MeiElement *b);
-        virtual ~VisibilityMixIn() {};
+        explicit VisibilityMixIn(MeiElement *b);
+        virtual ~VisibilityMixIn() {}
         
     /** \brief   indicates if a feature should be rendered when the notation is presented
     * graphically or sounded when it is presented in an aural form.
@@ -2789,8 +2789,8 @@ class VisibilityMixIn {
 
 class VisualoffsetHoMixIn {
     public:
-        VisualoffsetHoMixIn(MeiElement *b);
-        virtual ~VisualoffsetHoMixIn() {};
+        explicit VisualoffsetHoMixIn(MeiElement *b);
+        virtual ~VisualoffsetHoMixIn() {}
         
     /** \brief   records a horizontal adjustment to a feature's programmatically-determined
     * location in terms of staff interline distance; that is, in units of 1/2 the
@@ -2809,8 +2809,8 @@ class VisualoffsetHoMixIn {
 
 class VisualoffsetToMixIn {
     public:
-        VisualoffsetToMixIn(MeiElement *b);
-        virtual ~VisualoffsetToMixIn() {};
+        explicit VisualoffsetToMixIn(MeiElement *b);
+        virtual ~VisualoffsetToMixIn() {}
         
     /** \brief   records a timestamp adjustment of a feature's programmatically-determined
     * location in terms of musical time; that is, beats.
@@ -2828,8 +2828,8 @@ class VisualoffsetToMixIn {
 
 class VisualoffsetVoMixIn {
     public:
-        VisualoffsetVoMixIn(MeiElement *b);
-        virtual ~VisualoffsetVoMixIn() {};
+        explicit VisualoffsetVoMixIn(MeiElement *b);
+        virtual ~VisualoffsetVoMixIn() {}
         
     /** \brief   records the vertical adjustment of a feature's programmatically-determined
     * location in terms of staff interline distance; that is, in units of 1/2 the
@@ -2848,8 +2848,8 @@ class VisualoffsetVoMixIn {
 
 class Visualoffset2HoMixIn {
     public:
-        Visualoffset2HoMixIn(MeiElement *b);
-        virtual ~Visualoffset2HoMixIn() {};
+        explicit Visualoffset2HoMixIn(MeiElement *b);
+        virtual ~Visualoffset2HoMixIn() {}
         
     /** \brief   records the horizontal adjustment of a feature's programmatically-determined
     * start point.
@@ -2876,8 +2876,8 @@ class Visualoffset2HoMixIn {
 
 class Visualoffset2ToMixIn {
     public:
-        Visualoffset2ToMixIn(MeiElement *b);
-        virtual ~Visualoffset2ToMixIn() {};
+        explicit Visualoffset2ToMixIn(MeiElement *b);
+        virtual ~Visualoffset2ToMixIn() {}
         
     /** \brief   records a timestamp adjustment of a feature's programmatically-determined start
     * point.
@@ -2904,8 +2904,8 @@ class Visualoffset2ToMixIn {
 
 class Visualoffset2VoMixIn {
     public:
-        Visualoffset2VoMixIn(MeiElement *b);
-        virtual ~Visualoffset2VoMixIn() {};
+        explicit Visualoffset2VoMixIn(MeiElement *b);
+        virtual ~Visualoffset2VoMixIn() {}
         
     /** \brief   records a vertical adjustment of a feature's programmatically-determined start
     * point.
@@ -2932,8 +2932,8 @@ class Visualoffset2VoMixIn {
 
 class WidthMixIn {
     public:
-        WidthMixIn(MeiElement *b);
-        virtual ~WidthMixIn() {};
+        explicit WidthMixIn(MeiElement *b);
+        virtual ~WidthMixIn() {}
         
     /** \brief   measurement of the horizontal dimension of an entity. This value can only be
     * interpreted meaningfully in combination with the units attribute. The width
@@ -2954,8 +2954,8 @@ class WidthMixIn {
 
 class XyMixIn {
     public:
-        XyMixIn(MeiElement *b);
-        virtual ~XyMixIn() {};
+        explicit XyMixIn(MeiElement *b);
+        virtual ~XyMixIn() {}
         
     /** \brief   encodes an x coordinate for a feature in an output coordinate system. When it is
     * necessary to record the placement of a feature in a facsimile image, use the
@@ -2984,8 +2984,8 @@ class XyMixIn {
 
 class Xy2MixIn {
     public:
-        Xy2MixIn(MeiElement *b);
-        virtual ~Xy2MixIn() {};
+        explicit Xy2MixIn(MeiElement *b);
+        virtual ~Xy2MixIn() {}
         
     /** \brief   encodes the optional 2nd x coordinate.
     */

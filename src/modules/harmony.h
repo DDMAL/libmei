@@ -46,7 +46,7 @@ namespace mei {
 class MEI_EXPORT Barre : public MeiElement {
     public:
         Barre();
-        virtual ~Barre() {};
+        virtual ~Barre() {}
         
         
     CommonMixIn    m_Common;
@@ -56,7 +56,6 @@ class MEI_EXPORT Barre : public MeiElement {
     private:
         REGISTER_DECLARATION(Barre);
 };
-
 
 /** \brief   chord definition ― Chord tablature definition. An id attribute, while not
     * required by the schema, is needed so that <harm> elements can reference a
@@ -69,7 +68,7 @@ class MEI_EXPORT Barre : public MeiElement {
 class MEI_EXPORT Chorddef : public MeiElement {
     public:
         Chorddef();
-        virtual ~Chorddef() {};
+        virtual ~Chorddef() {}
         
     /** \brief   records the fret position at which the chord tablature is to be played.
     */
@@ -84,7 +83,6 @@ class MEI_EXPORT Chorddef : public MeiElement {
         REGISTER_DECLARATION(Chorddef);
 };
 
-
 /** \brief   chord member ― An individual pitch in a chord defined by a <chordDef> element.
     * The fing and fret attributes are provided in order to create displayable chord
     * tablature grids. The inth (harmonic interval) attribute may be used to
@@ -96,7 +94,7 @@ class MEI_EXPORT Chorddef : public MeiElement {
 class MEI_EXPORT Chordmember : public MeiElement {
     public:
         Chordmember();
-        virtual ~Chordmember() {};
+        virtual ~Chordmember() {}
         
     /** \brief   indicates which finger, if any, should be used to play an individual string. The
     * values 'x' and 'o' indicated muffled and open strings, respectively.
@@ -117,7 +115,6 @@ class MEI_EXPORT Chordmember : public MeiElement {
         REGISTER_DECLARATION(Chordmember);
 };
 
-
 /** \brief   chord table ― Chord/tablature look-up table. A table may be shared between MEI
     * instances through the use of an external parsed entity containing the look-up
     * table to be shared.
@@ -126,7 +123,7 @@ class MEI_EXPORT Chordmember : public MeiElement {
 class MEI_EXPORT Chordtable : public MeiElement {
     public:
         Chordtable();
-        virtual ~Chordtable() {};
+        virtual ~Chordtable() {}
         
         
     CommonMixIn    m_Common;
@@ -134,14 +131,13 @@ class MEI_EXPORT Chordtable : public MeiElement {
         REGISTER_DECLARATION(Chordtable);
 };
 
-
 /** \brief   Figure (figured bass) ― Single element of a figured bass indication.
     */
 
 class MEI_EXPORT F : public MeiElement {
     public:
         F();
-        virtual ~F() {};
+        virtual ~F() {}
         
     /** \brief   indicates the presence of an extension symbol, typically a dash or underscore,
     * drawn from the end of the harmonic indication to the point indicated by the dur
@@ -162,14 +158,13 @@ class MEI_EXPORT F : public MeiElement {
         REGISTER_DECLARATION(F);
 };
 
-
 /** \brief   Figured Bass ―
     */
 
 class MEI_EXPORT Fb : public MeiElement {
     public:
         Fb();
-        virtual ~Fb() {};
+        virtual ~Fb() {}
         
         
     CommonMixIn    m_Common;
@@ -179,7 +174,6 @@ class MEI_EXPORT Fb : public MeiElement {
     private:
         REGISTER_DECLARATION(Fb);
 };
-
 
 /** \brief   harmony ― An indication of harmony, e.g., chord names, tablature grids,
     * harmonic analysis, figured bass. The starting point of the harmony may be
@@ -194,7 +188,7 @@ class MEI_EXPORT Fb : public MeiElement {
 class MEI_EXPORT Harm : public MeiElement {
     public:
         Harm();
-        virtual ~Harm() {};
+        virtual ~Harm() {}
         
         
     CommonMixIn    m_Common;
@@ -222,7 +216,6 @@ class MEI_EXPORT Harm : public MeiElement {
     private:
         REGISTER_DECLARATION(Harm);
 };
-
 
 }
 #endif // HARMONY_H_

@@ -1,5 +1,4 @@
 
-
 #include "linkalign.h"
 using std::string;
 using mei::MeiAttribute;

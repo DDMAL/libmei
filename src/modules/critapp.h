@@ -48,7 +48,7 @@ namespace mei {
 class MEI_EXPORT App : public MeiElement {
     public:
         App();
-        virtual ~App() {};
+        virtual ~App() {}
         
         
     CommonMixIn    m_Common;
@@ -56,7 +56,6 @@ class MEI_EXPORT App : public MeiElement {
     private:
         REGISTER_DECLARATION(App);
 };
-
 
 /** \brief   lemma ― Contains the lemma, or base text, of a textual variation. The lem
     * element may also be used, under some circumstances, to record the base text of
@@ -73,7 +72,7 @@ class MEI_EXPORT App : public MeiElement {
 class MEI_EXPORT Lem : public MeiElement {
     public:
         Lem();
-        virtual ~Lem() {};
+        virtual ~Lem() {}
         
         
     CommonMixIn    m_Common;
@@ -92,7 +91,6 @@ class MEI_EXPORT Lem : public MeiElement {
         REGISTER_DECLARATION(Lem);
 };
 
-
 /** \brief   reading ― Since a reading can be a multi-measure section, the scoreDef element
     * is allowed so that a reading may have its own meta-data without incurring the
     * overhead of child <section> elements. The app sub-element is permitted in order
@@ -103,7 +101,7 @@ class MEI_EXPORT Lem : public MeiElement {
 class MEI_EXPORT Rdg : public MeiElement {
     public:
         Rdg();
-        virtual ~Rdg() {};
+        virtual ~Rdg() {}
         
         
     CommonMixIn    m_Common;
@@ -121,7 +119,6 @@ class MEI_EXPORT Rdg : public MeiElement {
     private:
         REGISTER_DECLARATION(Rdg);
 };
-
 
 }
 #endif // CRITAPP_H_

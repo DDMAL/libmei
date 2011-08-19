@@ -1,5 +1,4 @@
 
-
 #include "header.h"
 using std::string;
 using mei::MeiAttribute;

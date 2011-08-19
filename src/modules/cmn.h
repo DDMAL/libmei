@@ -55,7 +55,7 @@ namespace mei {
 class MEI_EXPORT Arpeg : public MeiElement {
     public:
         Arpeg();
-        virtual ~Arpeg() {};
+        virtual ~Arpeg() {}
         
         
     CommonMixIn    m_Common;
@@ -78,7 +78,6 @@ class MEI_EXPORT Arpeg : public MeiElement {
         REGISTER_DECLARATION(Arpeg);
 };
 
-
 /** \brief   bowed tremolo ― A rapid alternation on a single pitch or chord. This element
     * should also be used for wind double and triple tonguing and for flutter tonguing
     * when these are expressed as tremolandi. For alternation between a pair of notes
@@ -95,7 +94,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
 class MEI_EXPORT Btrem : public MeiElement {
     public:
         Btrem();
-        virtual ~Btrem() {};
+        virtual ~Btrem() {}
         
         
     CommonMixIn    m_Common;
@@ -114,7 +113,6 @@ class MEI_EXPORT Btrem : public MeiElement {
         REGISTER_DECLARATION(Btrem);
 };
 
-
 /** \brief   beam ― A container for a series of explicitly beamed events that begins and
     * ends entirely within a measure. For beams that cross the bar line, use the
     * beamSpan element. Secondary beams may be broken explicitly using the breaksec
@@ -126,7 +124,7 @@ class MEI_EXPORT Btrem : public MeiElement {
 class MEI_EXPORT Beam : public MeiElement {
     public:
         Beam();
-        virtual ~Beam() {};
+        virtual ~Beam() {}
         
         
     CommonMixIn    m_Common;
@@ -143,7 +141,6 @@ class MEI_EXPORT Beam : public MeiElement {
         REGISTER_DECLARATION(Beam);
 };
 
-
 /** \brief   beam span ― Alternative element for explicitly encoding beams which extend
     * across bar lines. The starting point of the beam may be indicated by either a
     * tstamp, tstamp.ges, tstamp.real or startid attribute, while the ending point may
@@ -154,7 +151,7 @@ class MEI_EXPORT Beam : public MeiElement {
 class MEI_EXPORT Beamspan : public MeiElement {
     public:
         Beamspan();
-        virtual ~Beamspan() {};
+        virtual ~Beamspan() {}
         
         
     CommonMixIn    m_Common;
@@ -176,7 +173,6 @@ class MEI_EXPORT Beamspan : public MeiElement {
         REGISTER_DECLARATION(Beamspan);
 };
 
-
 /** \brief   beat repeat ― An indication that material on a preceding beat should be
     * repeated. It is also used in guitar or rhythm parts to indicate where chord
     * changes occur. When these parts require durations longer or shorter than a beat,
@@ -186,7 +182,7 @@ class MEI_EXPORT Beamspan : public MeiElement {
 class MEI_EXPORT Beatrpt : public MeiElement {
     public:
         Beatrpt();
-        virtual ~Beatrpt() {};
+        virtual ~Beatrpt() {}
         
         
     CommonMixIn    m_Common;
@@ -205,7 +201,6 @@ class MEI_EXPORT Beatrpt : public MeiElement {
         REGISTER_DECLARATION(Beatrpt);
 };
 
-
 /** \brief   bend ― A variation in pitch (often micro-tonal) upwards or downwards during
     * the course of a note. Typically, the performer attacks the note at "true" pitch,
     * bends the intonation, then returns to true pitch. The bend element can also be
@@ -220,7 +215,7 @@ class MEI_EXPORT Beatrpt : public MeiElement {
 class MEI_EXPORT Bend : public MeiElement {
     public:
         Bend();
-        virtual ~Bend() {};
+        virtual ~Bend() {}
         
         
     CommonMixIn    m_Common;
@@ -250,7 +245,6 @@ class MEI_EXPORT Bend : public MeiElement {
         REGISTER_DECLARATION(Bend);
 };
 
-
 /** \brief   breath mark ― A indication of a point at which the performer on an instrument
     * requiring breath (including the voice) may breathe. It also may indicate a short
     * pause or break for instruments *not* requiring breath. Therefore, it often
@@ -264,7 +258,7 @@ class MEI_EXPORT Bend : public MeiElement {
 class MEI_EXPORT Breath : public MeiElement {
     public:
         Breath();
-        virtual ~Breath() {};
+        virtual ~Breath() {}
         
         
     CommonMixIn    m_Common;
@@ -289,7 +283,6 @@ class MEI_EXPORT Breath : public MeiElement {
         REGISTER_DECLARATION(Breath);
 };
 
-
 /** \brief   fingered tremolo ― A rapid alternation between a pair of notes (or chords or
     * perhaps between a note and a chord) that are (usually) farther apart than a
     * major second. For rapid alternation between notes on the same pitch (bowed
@@ -301,7 +294,7 @@ class MEI_EXPORT Breath : public MeiElement {
 class MEI_EXPORT Ftrem : public MeiElement {
     public:
         Ftrem();
-        virtual ~Ftrem() {};
+        virtual ~Ftrem() {}
         
         
     CommonMixIn    m_Common;
@@ -318,7 +311,6 @@ class MEI_EXPORT Ftrem : public MeiElement {
         REGISTER_DECLARATION(Ftrem);
 };
 
-
 /** \brief   fermata ― An indication placed over a note or rest to indicate that it should
     * be held longer than its written value. May also occur over a bar line to
     * indicate the end of a phrase or section. Sometimes called a 'hold' or 'pause'.
@@ -334,7 +326,7 @@ class MEI_EXPORT Ftrem : public MeiElement {
 class MEI_EXPORT Fermata : public MeiElement {
     public:
         Fermata();
-        virtual ~Fermata() {};
+        virtual ~Fermata() {}
         
         
     CommonMixIn    m_Common;
@@ -361,7 +353,6 @@ class MEI_EXPORT Fermata : public MeiElement {
         REGISTER_DECLARATION(Fermata);
 };
 
-
 /** \brief   glissando ― A continuous or sliding movement from one pitch to another,
     * usually indicated by a straight or wavy line. Commonly also called a 'slide'.
     * The term 'glissando' is frequently used to indicate both the case where distinct
@@ -377,7 +368,7 @@ class MEI_EXPORT Fermata : public MeiElement {
 class MEI_EXPORT Gliss : public MeiElement {
     public:
         Gliss();
-        virtual ~Gliss() {};
+        virtual ~Gliss() {}
         
         
     CommonMixIn    m_Common;
@@ -406,7 +397,6 @@ class MEI_EXPORT Gliss : public MeiElement {
         REGISTER_DECLARATION(Gliss);
 };
 
-
 /** \brief   hairpin ― Indicates continuous dynamics expressed on the score as wedge-shaped
     * graphics, e.g. < and >. The starting point of the hairpin may be indicated by
     * either a tstamp, tstamp.ges, tstamp.real or startid attribute, while the ending
@@ -419,7 +409,7 @@ class MEI_EXPORT Gliss : public MeiElement {
 class MEI_EXPORT Hairpin : public MeiElement {
     public:
         Hairpin();
-        virtual ~Hairpin() {};
+        virtual ~Hairpin() {}
         
         
     CommonMixIn    m_Common;
@@ -451,14 +441,13 @@ class MEI_EXPORT Hairpin : public MeiElement {
         REGISTER_DECLARATION(Hairpin);
 };
 
-
 /** \brief   half-measure repeat ― A half-measure repeat in any meter.
     */
 
 class MEI_EXPORT Halfmrpt : public MeiElement {
     public:
         Halfmrpt();
-        virtual ~Halfmrpt() {};
+        virtual ~Halfmrpt() {}
         
         
     CommonMixIn    m_Common;
@@ -480,7 +469,6 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
         REGISTER_DECLARATION(Halfmrpt);
 };
 
-
 /** \brief   harp pedal ― Harp pedal diagram. The starting point of the harp pedal diagram
     * may be indicated by either a tstamp, tstamp.ges, tstamp.real or startid
     * attribute. It is a semantic error not to specify a starting point attribute.
@@ -489,7 +477,7 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
 class MEI_EXPORT Harppedal : public MeiElement {
     public:
         Harppedal();
-        virtual ~Harppedal() {};
+        virtual ~Harppedal() {}
         
         
     CommonMixIn    m_Common;
@@ -515,7 +503,6 @@ class MEI_EXPORT Harppedal : public MeiElement {
         REGISTER_DECLARATION(Harppedal);
 };
 
-
 /** \brief   measure rest ― Complete measure rest in any meter (Read, p. 97-98).
     * Automatically-generated numbering of consecutive measures of rest may be
     * controlled via the multi.number attribute on the scoreDef or staffDef elements.
@@ -524,7 +511,7 @@ class MEI_EXPORT Harppedal : public MeiElement {
 class MEI_EXPORT Mrest : public MeiElement {
     public:
         Mrest();
-        virtual ~Mrest() {};
+        virtual ~Mrest() {}
         
         
     CommonMixIn    m_Common;
@@ -551,7 +538,6 @@ class MEI_EXPORT Mrest : public MeiElement {
         REGISTER_DECLARATION(Mrest);
 };
 
-
 /** \brief   measure repeat ― An indication that the previous measure should be repeated.
     * The automated numbering of consecutive measures of rest may be controlled via
     * the multi.number attribute on the scoreDef or staffDef elements.
@@ -560,7 +546,7 @@ class MEI_EXPORT Mrest : public MeiElement {
 class MEI_EXPORT Mrpt : public MeiElement {
     public:
         Mrpt();
-        virtual ~Mrpt() {};
+        virtual ~Mrpt() {}
         
         
     CommonMixIn    m_Common;
@@ -578,7 +564,6 @@ class MEI_EXPORT Mrpt : public MeiElement {
         REGISTER_DECLARATION(Mrpt);
 };
 
-
 /** \brief   2-measure repeat ― An indication that the previous two measures should be
     * repeated.
     */
@@ -586,7 +571,7 @@ class MEI_EXPORT Mrpt : public MeiElement {
 class MEI_EXPORT Mrpt2 : public MeiElement {
     public:
         Mrpt2();
-        virtual ~Mrpt2() {};
+        virtual ~Mrpt2() {}
         
         
     CommonMixIn    m_Common;
@@ -604,7 +589,6 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
         REGISTER_DECLARATION(Mrpt2);
 };
 
-
 /** \brief   measure space ― Complete measure consisting of empty space in any meter. The
     * automated numbering of consecutive measures of space may be controlled via the
     * multi.number attribute on the scoreDef or staffDef elements.
@@ -613,7 +597,7 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
 class MEI_EXPORT Mspace : public MeiElement {
     public:
         Mspace();
-        virtual ~Mspace() {};
+        virtual ~Mspace() {}
         
         
     CommonMixIn    m_Common;
@@ -636,7 +620,6 @@ class MEI_EXPORT Mspace : public MeiElement {
         REGISTER_DECLARATION(Mspace);
 };
 
-
 /** \brief   measure ― "Unit of musical time consisting of a fixed number of note-values of
     * a given type, as determined by the prevailing meter, and delimited in musical
     * notation by two bar lines." (New Harvard Dictionary of Music) In MEI, the
@@ -648,7 +631,7 @@ class MEI_EXPORT Mspace : public MeiElement {
 class MEI_EXPORT Measure : public MeiElement {
     public:
         Measure();
-        virtual ~Measure() {};
+        virtual ~Measure() {}
         
         
     CommonMixIn    m_Common;
@@ -671,7 +654,6 @@ class MEI_EXPORT Measure : public MeiElement {
         REGISTER_DECLARATION(Measure);
 };
 
-
 /** \brief   multi-rest ― Multiple measures of rest compressed into a single symbol,
     * frequently found in performer parts. The num attribute can used to store a
     * number to be rendered along with the note. See Read, p. 102-105.
@@ -680,7 +662,7 @@ class MEI_EXPORT Measure : public MeiElement {
 class MEI_EXPORT Multirest : public MeiElement {
     public:
         Multirest();
-        virtual ~Multirest() {};
+        virtual ~Multirest() {}
         
         
     CommonMixIn    m_Common;
@@ -700,7 +682,6 @@ class MEI_EXPORT Multirest : public MeiElement {
         REGISTER_DECLARATION(Multirest);
 };
 
-
 /** \brief   multi-repeat ― Multiple repeated measures. In modern publishing practice,
     * repeats of more than two measures should be written out using repeat signs. This
     * element, however, is provided for handling non-standard practices often found in
@@ -710,7 +691,7 @@ class MEI_EXPORT Multirest : public MeiElement {
 class MEI_EXPORT Multirpt : public MeiElement {
     public:
         Multirpt();
-        virtual ~Multirpt() {};
+        virtual ~Multirpt() {}
         
         
     CommonMixIn    m_Common;
@@ -728,7 +709,6 @@ class MEI_EXPORT Multirpt : public MeiElement {
         REGISTER_DECLARATION(Multirpt);
 };
 
-
 /** \brief   octave ― An indication that a passage should be performed one or more octaves
     * above or below its written pitch. The dis and dis.place attributes record the
     * amount and direction of displacement, respectively. The rend attribute captures
@@ -745,7 +725,7 @@ class MEI_EXPORT Multirpt : public MeiElement {
 class MEI_EXPORT Octave : public MeiElement {
     public:
         Octave();
-        virtual ~Octave() {};
+        virtual ~Octave() {}
         
         
     CommonMixIn    m_Common;
@@ -774,7 +754,6 @@ class MEI_EXPORT Octave : public MeiElement {
         REGISTER_DECLARATION(Octave);
 };
 
-
 /** \brief   ossia ― An alternate notational version *present in the source being
     * transcribed*. The alternative material often provides a simpler, easier to
     * perform option, while at other times the alternate material provides indications
@@ -787,7 +766,7 @@ class MEI_EXPORT Octave : public MeiElement {
 class MEI_EXPORT Ossia : public MeiElement {
     public:
         Ossia();
-        virtual ~Ossia() {};
+        virtual ~Ossia() {}
         
         
     CommonMixIn    m_Common;
@@ -798,7 +777,6 @@ class MEI_EXPORT Ossia : public MeiElement {
         REGISTER_DECLARATION(Ossia);
 };
 
-
 /** \brief   pedal ― Piano pedal mark (Read, p. 317-318). The starting point of the pedal
     * mark may be indicated by either a tstamp, tstamp.ges, tstamp.real or startid
     * attribute. It is a semantic error not to specify a starting point attribute.
@@ -807,7 +785,7 @@ class MEI_EXPORT Ossia : public MeiElement {
 class MEI_EXPORT Pedal : public MeiElement {
     public:
         Pedal();
-        virtual ~Pedal() {};
+        virtual ~Pedal() {}
         
         
     CommonMixIn    m_Common;
@@ -833,7 +811,6 @@ class MEI_EXPORT Pedal : public MeiElement {
         REGISTER_DECLARATION(Pedal);
 };
 
-
 /** \brief   rehearsal mark ― In an orchestral score and its corresponding parts, a mark
     * indicating a convenient point from which to resume rehearsal after a break. It
     * may also be called a rehearsal figure, or when numbers are used instead of
@@ -844,7 +821,7 @@ class MEI_EXPORT Pedal : public MeiElement {
 class MEI_EXPORT Reh : public MeiElement {
     public:
         Reh();
-        virtual ~Reh() {};
+        virtual ~Reh() {}
         
         
     CommonMixIn    m_Common;
@@ -865,7 +842,6 @@ class MEI_EXPORT Reh : public MeiElement {
     private:
         REGISTER_DECLARATION(Reh);
 };
-
 
 /** \brief   slur ― Historically, the term "slur" indicated two notes performed legato,
     * while the term "phrase" was used for a "unified melodic idea". Nowadays,
@@ -888,7 +864,7 @@ class MEI_EXPORT Reh : public MeiElement {
 class MEI_EXPORT Slur : public MeiElement {
     public:
         Slur();
-        virtual ~Slur() {};
+        virtual ~Slur() {}
         
         
     CommonMixIn    m_Common;
@@ -921,7 +897,6 @@ class MEI_EXPORT Slur : public MeiElement {
         REGISTER_DECLARATION(Slur);
 };
 
-
 /** \brief   tie ― An indication that two notes of the same pitch form a single note with
     * their combined rhythmic values. Most often it is rendered as a curved line
     * connecting the two notes. See Read, p. 110-111, 122.
@@ -930,7 +905,7 @@ class MEI_EXPORT Slur : public MeiElement {
 class MEI_EXPORT Tie : public MeiElement {
     public:
         Tie();
-        virtual ~Tie() {};
+        virtual ~Tie() {}
         
         
     CommonMixIn    m_Common;
@@ -961,7 +936,6 @@ class MEI_EXPORT Tie : public MeiElement {
         REGISTER_DECLARATION(Tie);
 };
 
-
 /** \brief   tuplet ― A group of notes with "irregular" (sometimes called "irrational")
     * rhythmic values, for example, three notes in the time normally occupied by two
     * or nine in the time of five. The beam sub-element is allowed so that custom
@@ -982,7 +956,7 @@ class MEI_EXPORT Tie : public MeiElement {
 class MEI_EXPORT Tuplet : public MeiElement {
     public:
         Tuplet();
-        virtual ~Tuplet() {};
+        virtual ~Tuplet() {}
         
         
     CommonMixIn    m_Common;
@@ -1006,7 +980,6 @@ class MEI_EXPORT Tuplet : public MeiElement {
         REGISTER_DECLARATION(Tuplet);
 };
 
-
 /** \brief   tuplet span ― Alternative element for encoding tuplets, especially useful for
     * tuplets that extend across bar lines. The starting point of the tuplet may be
     * indicated by either a tstamp, tstamp.ges, tstamp.real or startid attribute,
@@ -1018,7 +991,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
 class MEI_EXPORT Tupletspan : public MeiElement {
     public:
         Tupletspan();
-        virtual ~Tupletspan() {};
+        virtual ~Tupletspan() {}
         
         
     CommonMixIn    m_Common;
@@ -1042,7 +1015,6 @@ class MEI_EXPORT Tupletspan : public MeiElement {
     private:
         REGISTER_DECLARATION(Tupletspan);
 };
-
 
 }
 #endif // CMN_H_

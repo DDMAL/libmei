@@ -51,7 +51,7 @@ namespace mei {
 class MEI_EXPORT Add : public MeiElement {
     public:
         Add();
-        virtual ~Add() {};
+        virtual ~Add() {}
         
         
     CommonMixIn    m_Common;
@@ -65,7 +65,6 @@ class MEI_EXPORT Add : public MeiElement {
         REGISTER_DECLARATION(Add);
 };
 
-
 /** \brief   choice ― Groups a number of alternative encodings for the same point in a
     * text. Because the children of a choice element all represent alternative ways of
     * encoding the same sequence, it is natural to think of them as mutually
@@ -78,14 +77,13 @@ class MEI_EXPORT Add : public MeiElement {
 class MEI_EXPORT Choice : public MeiElement {
     public:
         Choice();
-        virtual ~Choice() {};
+        virtual ~Choice() {}
         
         
     CommonMixIn    m_Common;
     private:
         REGISTER_DECLARATION(Choice);
 };
-
 
 /** \brief   correction ― Contains the correct form of an apparent erroneous passage. The
     * cert attribute signifies the degree of certainty ascribed to correction. The
@@ -100,7 +98,7 @@ class MEI_EXPORT Choice : public MeiElement {
 class MEI_EXPORT Corr : public MeiElement {
     public:
         Corr();
-        virtual ~Corr() {};
+        virtual ~Corr() {}
         
         
     CommonMixIn    m_Common;
@@ -112,7 +110,6 @@ class MEI_EXPORT Corr : public MeiElement {
     private:
         REGISTER_DECLARATION(Corr);
 };
-
 
 /** \brief   damage ― Contains an area of damage to the carrier. In the case of damage
     * resulting from an identifiable cause, the agent attribute signifies the
@@ -132,7 +129,7 @@ class MEI_EXPORT Corr : public MeiElement {
 class MEI_EXPORT Damage : public MeiElement {
     public:
         Damage();
-        virtual ~Damage() {};
+        virtual ~Damage() {}
         
     /** \brief   records the degree of damage.
     */
@@ -152,7 +149,6 @@ class MEI_EXPORT Damage : public MeiElement {
         REGISTER_DECLARATION(Damage);
 };
 
-
 /** \brief   deletion ― Contains information deleted, marked as deleted, or otherwise
     * indicated as superfluous or spurious in the copy text by an author, scribe,
     * annotator, or corrector. The resp attribute contains an ID reference to an
@@ -169,7 +165,7 @@ class MEI_EXPORT Damage : public MeiElement {
 class MEI_EXPORT Del : public MeiElement {
     public:
         Del();
-        virtual ~Del() {};
+        virtual ~Del() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -186,7 +182,6 @@ class MEI_EXPORT Del : public MeiElement {
     private:
         REGISTER_DECLARATION(Del);
 };
-
 
 /** \brief   gap ― Indicates a point where material has been omitted in a transcription,
     * whether as part of sampling practice or for editorial reasons described in the
@@ -212,7 +207,7 @@ class MEI_EXPORT Del : public MeiElement {
 class MEI_EXPORT Gap : public MeiElement {
     public:
         Gap();
-        virtual ~Gap() {};
+        virtual ~Gap() {}
         
         
     CommonMixIn    m_Common;
@@ -226,7 +221,6 @@ class MEI_EXPORT Gap : public MeiElement {
     private:
         REGISTER_DECLARATION(Gap);
 };
-
 
 /** \brief   hand shift ― Marks the beginning of a passage written in a new hand, or of a
     * change in the scribe, writing style, ink or character of the document hand. The
@@ -245,7 +239,7 @@ class MEI_EXPORT Gap : public MeiElement {
 class MEI_EXPORT Handshift : public MeiElement {
     public:
         Handshift();
-        virtual ~Handshift() {};
+        virtual ~Handshift() {}
         
     /** \brief   describes the character of the new hand.
     */
@@ -281,7 +275,6 @@ class MEI_EXPORT Handshift : public MeiElement {
         REGISTER_DECLARATION(Handshift);
 };
 
-
 /** \brief   original ― Contains a reading which is marked as following the original,
     * rather than being normalized or corrected. This element will often be combined
     * with a regularized form within a choice element. The editor(s) responsible for
@@ -295,7 +288,7 @@ class MEI_EXPORT Handshift : public MeiElement {
 class MEI_EXPORT Orig : public MeiElement {
     public:
         Orig();
-        virtual ~Orig() {};
+        virtual ~Orig() {}
         
         
     CommonMixIn    m_Common;
@@ -307,7 +300,6 @@ class MEI_EXPORT Orig : public MeiElement {
     private:
         REGISTER_DECLARATION(Orig);
 };
-
 
 /** \brief   regularization ― Contains a reading which has been regularized or normalized
     * in some sense. It is possible to identify the individual responsible for the
@@ -322,7 +314,7 @@ class MEI_EXPORT Orig : public MeiElement {
 class MEI_EXPORT Reg : public MeiElement {
     public:
         Reg();
-        virtual ~Reg() {};
+        virtual ~Reg() {}
         
         
     CommonMixIn    m_Common;
@@ -333,7 +325,6 @@ class MEI_EXPORT Reg : public MeiElement {
     private:
         REGISTER_DECLARATION(Reg);
 };
-
 
 /** \brief   restore ― Indicates restoration of musical material to an earlier state by
     * cancellation of an editorial or authorial marking or instruction. The desc
@@ -351,7 +342,7 @@ class MEI_EXPORT Reg : public MeiElement {
 class MEI_EXPORT Restore : public MeiElement {
     public:
         Restore();
-        virtual ~Restore() {};
+        virtual ~Restore() {}
         
     /** \brief   provides a description of the means of restoration.
     */
@@ -370,7 +361,6 @@ class MEI_EXPORT Restore : public MeiElement {
         REGISTER_DECLARATION(Restore);
 };
 
-
 /** \brief   sic ― Contains apparently incorrect or inaccurate musical material. A
     * correction for the apparent error may be given in an accompanying child or
     * sibling corr element. This element is modelled on an element in the Text
@@ -380,7 +370,7 @@ class MEI_EXPORT Restore : public MeiElement {
 class MEI_EXPORT Sic : public MeiElement {
     public:
         Sic();
-        virtual ~Sic() {};
+        virtual ~Sic() {}
         
         
     CommonMixIn    m_Common;
@@ -388,7 +378,6 @@ class MEI_EXPORT Sic : public MeiElement {
     private:
         REGISTER_DECLARATION(Sic);
 };
-
 
 /** \brief   substitution ― Groups transcriptional elements when the combination is to be
     * regarded as a single intervention in the text. This element is modelled on an
@@ -398,7 +387,7 @@ class MEI_EXPORT Sic : public MeiElement {
 class MEI_EXPORT Subst : public MeiElement {
     public:
         Subst();
-        virtual ~Subst() {};
+        virtual ~Subst() {}
         
         
     CommonMixIn    m_Common;
@@ -410,7 +399,6 @@ class MEI_EXPORT Subst : public MeiElement {
     private:
         REGISTER_DECLARATION(Subst);
 };
-
 
 /** \brief   supplied ― Contains musical material supplied by the transcriber or editor in
     * place of text which cannot be read, either because of physical damage or loss in
@@ -431,7 +419,7 @@ class MEI_EXPORT Subst : public MeiElement {
 class MEI_EXPORT Supplied : public MeiElement {
     public:
         Supplied();
-        virtual ~Supplied() {};
+        virtual ~Supplied() {}
         
         
     AgentidentMixIn    m_Agentident;
@@ -444,7 +432,6 @@ class MEI_EXPORT Supplied : public MeiElement {
     private:
         REGISTER_DECLARATION(Supplied);
 };
-
 
 /** \brief   unclear ― Contains musical material that cannot be transcribed with certainty
     * because it is illegible or inaudible in the source. Where the difficulty in
@@ -464,7 +451,7 @@ class MEI_EXPORT Supplied : public MeiElement {
 class MEI_EXPORT Unclear : public MeiElement {
     public:
         Unclear();
-        virtual ~Unclear() {};
+        virtual ~Unclear() {}
         
         
     AgentidentMixIn    m_Agentident;
@@ -478,7 +465,6 @@ class MEI_EXPORT Unclear : public MeiElement {
     private:
         REGISTER_DECLARATION(Unclear);
 };
-
 
 }
 #endif // EDITTRANS_H_

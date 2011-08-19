@@ -45,7 +45,7 @@ namespace mei {
 class MEI_EXPORT Meicorpus : public MeiElement {
     public:
         Meicorpus();
-        virtual ~Meicorpus() {};
+        virtual ~Meicorpus() {}
         
         
     CommonMixIn    m_Common;
@@ -53,7 +53,6 @@ class MEI_EXPORT Meicorpus : public MeiElement {
     private:
         REGISTER_DECLARATION(Meicorpus);
 };
-
 
 }
 #endif // CORPUS_H_

@@ -49,7 +49,7 @@ namespace mei {
 class MEI_EXPORT Ligature : public MeiElement {
     public:
         Ligature();
-        virtual ~Ligature() {};
+        virtual ~Ligature() {}
         
         
     CommonMixIn    m_Common;
@@ -61,7 +61,6 @@ class MEI_EXPORT Ligature : public MeiElement {
         REGISTER_DECLARATION(Ligature);
 };
 
-
 /** \brief   mensuration ― The <mensur> element is provided for the encoding of mensural
     * notation. It collects information about the metrical relationship between a note
     * value and the next smaller value; that is, either triple or duple. The slash
@@ -72,7 +71,7 @@ class MEI_EXPORT Ligature : public MeiElement {
 class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
-        virtual ~Mensur() {};
+        virtual ~Mensur() {}
         
         
     CommonMixIn    m_Common;
@@ -90,7 +89,6 @@ class MEI_EXPORT Mensur : public MeiElement {
         REGISTER_DECLARATION(Mensur);
 };
 
-
 /** \brief   proportion ― The <proportion> element is provided for the encoding of mensural
     * notation. It allows the description of note durations as arithmetic ratios.
     * While mensuration refers to the normal relationships between note durations,
@@ -100,7 +98,7 @@ class MEI_EXPORT Mensur : public MeiElement {
 class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();
-        virtual ~Proport() {};
+        virtual ~Proport() {}
         
         
     CommonMixIn    m_Common;
@@ -111,7 +109,6 @@ class MEI_EXPORT Proport : public MeiElement {
     private:
         REGISTER_DECLARATION(Proport);
 };
-
 
 }
 #endif // MENSURAL_H_

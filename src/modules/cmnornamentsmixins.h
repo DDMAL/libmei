@@ -33,8 +33,8 @@ namespace mei {
     
 class MordentLogMixIn {
     public:
-        MordentLogMixIn(MeiElement *b);
-        virtual ~MordentLogMixIn() {};
+        explicit MordentLogMixIn(MeiElement *b);
+        virtual ~MordentLogMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -60,8 +60,8 @@ class MordentLogMixIn {
 
 class OrnamentaccidMixIn {
     public:
-        OrnamentaccidMixIn(MeiElement *b);
-        virtual ~OrnamentaccidMixIn() {};
+        explicit OrnamentaccidMixIn(MeiElement *b);
+        virtual ~OrnamentaccidMixIn() {}
         
     /** \brief   records the written accidental associated with an upper neighboring note.
     */
@@ -86,8 +86,8 @@ class OrnamentaccidMixIn {
 
 class TurnLogMixIn {
     public:
-        TurnLogMixIn(MeiElement *b);
-        virtual ~TurnLogMixIn() {};
+        explicit TurnLogMixIn(MeiElement *b);
+        virtual ~TurnLogMixIn() {}
         
     /** \brief   When the delayed attribute is set to 'true', the turn begins on the second half
     * of the beat. See Read, p. 246.

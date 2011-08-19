@@ -1,5 +1,4 @@
 
-
 #include "harmony.h"
 using std::string;
 using mei::MeiAttribute;

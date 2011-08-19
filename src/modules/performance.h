@@ -41,7 +41,7 @@ namespace mei {
 class MEI_EXPORT Avfile : public MeiElement {
     public:
         Avfile();
-        virtual ~Avfile() {};
+        virtual ~Avfile() {}
         
         
     CommonMixIn    m_Common;
@@ -54,7 +54,6 @@ class MEI_EXPORT Avfile : public MeiElement {
         REGISTER_DECLARATION(Avfile);
 };
 
-
 /** \brief   clip ― Defines a time segment of interest within a digital audio or video
     * recording. This element is analogous to the <zone> element in the facsimile
     * module.
@@ -63,7 +62,7 @@ class MEI_EXPORT Avfile : public MeiElement {
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
-        virtual ~Clip() {};
+        virtual ~Clip() {}
         
     /** \brief   indication of the absolute start time.
     */
@@ -95,7 +94,6 @@ class MEI_EXPORT Clip : public MeiElement {
         REGISTER_DECLARATION(Clip);
 };
 
-
 /** \brief   performance ― Groups one or more recorded performances. The decls attribute
     * may be used to link the collection with a particular source described in the
     * header. This element is analogous to the <facsimile> element in the facsimile
@@ -105,7 +103,7 @@ class MEI_EXPORT Clip : public MeiElement {
 class MEI_EXPORT Performance : public MeiElement {
     public:
         Performance();
-        virtual ~Performance() {};
+        virtual ~Performance() {}
         
         
     CommonMixIn    m_Common;
@@ -113,7 +111,6 @@ class MEI_EXPORT Performance : public MeiElement {
     private:
         REGISTER_DECLARATION(Performance);
 };
-
 
 /** \brief   recording ― Defines a performance in terms of a group of one or more digital
     * audio or video representations. The startid attribute may be used to hold a
@@ -124,7 +121,7 @@ class MEI_EXPORT Performance : public MeiElement {
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
-        virtual ~Recording() {};
+        virtual ~Recording() {}
         
     /** \brief   indication of the absolute start time.
     */
@@ -155,7 +152,6 @@ class MEI_EXPORT Recording : public MeiElement {
     private:
         REGISTER_DECLARATION(Recording);
 };
-
 
 }
 #endif // PERFORMANCE_H_

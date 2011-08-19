@@ -1,5 +1,4 @@
 
-
 #include "lyrics.h"
 using std::string;
 using mei::MeiAttribute;

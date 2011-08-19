@@ -1,5 +1,4 @@
 
-
 #include "analysismixins.h"
 using std::string;
 using mei::MeiAttribute;

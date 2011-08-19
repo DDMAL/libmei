@@ -45,7 +45,7 @@ namespace mei {
 class MEI_EXPORT Timeline : public MeiElement {
     public:
         Timeline();
-        virtual ~Timeline() {};
+        virtual ~Timeline() {}
         
     /** \brief   holds the xml:id of an <avFile> element that references an external digital
     * media.
@@ -69,7 +69,6 @@ class MEI_EXPORT Timeline : public MeiElement {
         REGISTER_DECLARATION(Timeline);
 };
 
-
 /** \brief   when ― Indicates a point in time either absolutely (using the absolute
     * attribute), or relative to other elements in the same timeline element (using
     * the interval and since attributes). The data attribute may be used to reference
@@ -80,7 +79,7 @@ class MEI_EXPORT Timeline : public MeiElement {
 class MEI_EXPORT When : public MeiElement {
     public:
         When();
-        virtual ~When() {};
+        virtual ~When() {}
         
     /** \brief   provides an absolute value for the time associated with a point on a timeline.
     * This attribute is required for the element designated as the origin by the
@@ -125,7 +124,6 @@ class MEI_EXPORT When : public MeiElement {
     private:
         REGISTER_DECLARATION(When);
 };
-
 
 }
 #endif // LINKALIGN_H_

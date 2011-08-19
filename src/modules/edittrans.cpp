@@ -1,5 +1,4 @@
 
-
 #include "edittrans.h"
 using std::string;
 using mei::MeiAttribute;

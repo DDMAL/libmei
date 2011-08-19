@@ -49,7 +49,7 @@ namespace mei {
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
         Lyrics();
-        virtual ~Lyrics() {};
+        virtual ~Lyrics() {}
         
         
     CommonMixIn    m_Common;
@@ -65,7 +65,6 @@ class MEI_EXPORT Lyrics : public MeiElement {
         REGISTER_DECLARATION(Lyrics);
 };
 
-
 /** \brief   verse ― Lyric verse. The lb element is allowed here in order to facilitate
     * karaoke applications. The func attribute on lb may be used to distinguish true
     * line ends from line group ends for these applications.
@@ -74,7 +73,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
 class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
-        virtual ~Verse() {};
+        virtual ~Verse() {}
         
         
     CommonMixIn    m_Common;
@@ -90,7 +89,6 @@ class MEI_EXPORT Verse : public MeiElement {
     private:
         REGISTER_DECLARATION(Verse);
 };
-
 
 }
 #endif // LYRICS_H_

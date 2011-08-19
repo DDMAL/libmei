@@ -45,7 +45,7 @@ namespace mei {
 class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
-        virtual ~Ineume() {};
+        virtual ~Ineume() {}
         
         
     CommonMixIn    m_Common;
@@ -59,7 +59,6 @@ class MEI_EXPORT Ineume : public MeiElement {
         REGISTER_DECLARATION(Ineume);
 };
 
-
 /** \brief   syllable ― Neume notation can be thought of as "neumed text". Therefore, the
     * syllable element provides high-level organization in this repertoire.
     */
@@ -67,14 +66,13 @@ class MEI_EXPORT Ineume : public MeiElement {
 class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
-        virtual ~Syllable() {};
+        virtual ~Syllable() {}
         
         
     CommonMixIn    m_Common;
     private:
         REGISTER_DECLARATION(Syllable);
 };
-
 
 /** \brief   uninterrupted neume ― A graphically-uninterrupted neume sign. While ineume is
     * allowed as a sub-element of uneume here as part of the model.eventLike.neume
@@ -85,7 +83,7 @@ class MEI_EXPORT Syllable : public MeiElement {
 class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
-        virtual ~Uneume() {};
+        virtual ~Uneume() {}
         
         
     CommonMixIn    m_Common;
@@ -113,7 +111,6 @@ class MEI_EXPORT Uneume : public MeiElement {
     private:
         REGISTER_DECLARATION(Uneume);
 };
-
 
 }
 #endif // NEUMES_H_

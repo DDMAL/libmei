@@ -1,5 +1,4 @@
 
-
 #include "sharedmixins.h"
 using std::string;
 using mei::MeiAttribute;

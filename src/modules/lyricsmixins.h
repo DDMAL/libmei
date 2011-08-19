@@ -33,8 +33,8 @@ namespace mei {
     
 class VerseLogMixIn {
     public:
-        VerseLogMixIn(MeiElement *b);
-        virtual ~VerseLogMixIn() {};
+        explicit VerseLogMixIn(MeiElement *b);
+        virtual ~VerseLogMixIn() {}
         
     /** \brief   used to indicate a common, usually centered, refrain (Mup User's Guide, p. 44).
     */

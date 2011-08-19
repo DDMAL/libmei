@@ -43,7 +43,7 @@ namespace mei {
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
-        virtual ~Facsimile() {};
+        virtual ~Facsimile() {}
         
         
     CommonMixIn    m_Common;
@@ -51,7 +51,6 @@ class MEI_EXPORT Facsimile : public MeiElement {
     private:
         REGISTER_DECLARATION(Facsimile);
 };
-
 
 /** \brief   surface ― Defines a written surface in terms of a rectangular coordinate
     * space, optionally grouping one or more graphic representations of that space,
@@ -63,7 +62,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
 class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
-        virtual ~Surface() {};
+        virtual ~Surface() {}
         
         
     CommonMixIn    m_Common;
@@ -75,7 +74,6 @@ class MEI_EXPORT Surface : public MeiElement {
         REGISTER_DECLARATION(Surface);
 };
 
-
 /** \brief   zone ― Defines a rectangular area contained within a surface. This element is
     * modelled on an element in the Text Encoding Initiative (TEI).
     */
@@ -83,7 +81,7 @@ class MEI_EXPORT Surface : public MeiElement {
 class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
-        virtual ~Zone() {};
+        virtual ~Zone() {}
         
         
     CommonMixIn    m_Common;
@@ -92,7 +90,6 @@ class MEI_EXPORT Zone : public MeiElement {
     private:
         REGISTER_DECLARATION(Zone);
 };
-
 
 }
 #endif // FACSIMILE_H_

@@ -1,5 +1,4 @@
 
-
 #include "namesdates.h"
 using std::string;
 using mei::MeiAttribute;

@@ -1,5 +1,4 @@
 
-
 #include "cmn.h"
 using std::string;
 using mei::MeiAttribute;

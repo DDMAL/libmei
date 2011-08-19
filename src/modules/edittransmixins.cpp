@@ -1,5 +1,4 @@
 
-
 #include "edittransmixins.h"
 using std::string;
 using mei::MeiAttribute;

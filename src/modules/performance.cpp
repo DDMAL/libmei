@@ -1,5 +1,4 @@
 
-
 #include "performance.h"
 using std::string;
 using mei::MeiAttribute;

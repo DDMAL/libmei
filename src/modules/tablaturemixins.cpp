@@ -1,5 +1,4 @@
 
-
 #include "tablaturemixins.h"
 using std::string;
 using mei::MeiAttribute;

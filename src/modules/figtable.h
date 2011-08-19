@@ -43,7 +43,7 @@ namespace mei {
 class MEI_EXPORT Fig : public MeiElement {
     public:
         Fig();
-        virtual ~Fig() {};
+        virtual ~Fig() {}
         
         
     CommonMixIn    m_Common;
@@ -54,7 +54,6 @@ class MEI_EXPORT Fig : public MeiElement {
     private:
         REGISTER_DECLARATION(Fig);
 };
-
 
 /** \brief   figure description ― Contains a brief prose description of the appearance or
     * content of a graphic figure, for use when documenting an image without
@@ -68,7 +67,7 @@ class MEI_EXPORT Fig : public MeiElement {
 class MEI_EXPORT Figdesc : public MeiElement {
     public:
         Figdesc();
-        virtual ~Figdesc() {};
+        virtual ~Figdesc() {}
         
         
     CommonMixIn    m_Common;
@@ -76,7 +75,6 @@ class MEI_EXPORT Figdesc : public MeiElement {
     private:
         REGISTER_DECLARATION(Figdesc);
 };
-
 
 /** \brief   graphic ― Indicates the location of an inline graphic, illustration, or
     * figure. This element is modelled on an element in the Text Encoding Initiative
@@ -86,7 +84,7 @@ class MEI_EXPORT Figdesc : public MeiElement {
 class MEI_EXPORT Graphic : public MeiElement {
     public:
         Graphic();
-        virtual ~Graphic() {};
+        virtual ~Graphic() {}
         
     /** \brief   measurement of the vertical dimension of an image.
     */
@@ -108,7 +106,6 @@ class MEI_EXPORT Graphic : public MeiElement {
         REGISTER_DECLARATION(Graphic);
 };
 
-
 /** \brief   table ― Visual layout in tabular form. This element is modelled on elements in
     * Encoded Archival Description (EAD), Text Encoding Initiative (TEI), and HTML.
     */
@@ -116,7 +113,7 @@ class MEI_EXPORT Graphic : public MeiElement {
 class MEI_EXPORT Table : public MeiElement {
     public:
         Table();
-        virtual ~Table() {};
+        virtual ~Table() {}
         
         
     CommonMixIn    m_Common;
@@ -127,7 +124,6 @@ class MEI_EXPORT Table : public MeiElement {
         REGISTER_DECLARATION(Table);
 };
 
-
 /** \brief   table data ― Designates a table cell that contains data as opposed to a cell
     * that contains column or row heading information. The colspan and rowspan
     * attributes tabular display rendering information. This element is modelled on an
@@ -137,7 +133,7 @@ class MEI_EXPORT Table : public MeiElement {
 class MEI_EXPORT Td : public MeiElement {
     public:
         Td();
-        virtual ~Td() {};
+        virtual ~Td() {}
         
         
     CommonMixIn    m_Common;
@@ -149,7 +145,6 @@ class MEI_EXPORT Td : public MeiElement {
         REGISTER_DECLARATION(Td);
 };
 
-
 /** \brief   table header ― Designates a table cell containing column or row heading
     * information as opposed to one containing data. The colspan and rowspan
     * attributes tabular display rendering information. This element is modelled on an
@@ -159,7 +154,7 @@ class MEI_EXPORT Td : public MeiElement {
 class MEI_EXPORT Th : public MeiElement {
     public:
         Th();
-        virtual ~Th() {};
+        virtual ~Th() {}
         
         
     CommonMixIn    m_Common;
@@ -171,7 +166,6 @@ class MEI_EXPORT Th : public MeiElement {
         REGISTER_DECLARATION(Th);
 };
 
-
 /** \brief   table row ― A formatting element that contains one or more <td> or <th>
     * elements (cells) in a <table>. A cell is the intersection of a row and a column.
     * The precise rendition of the table and its cells should be specified in a style
@@ -181,7 +175,7 @@ class MEI_EXPORT Th : public MeiElement {
 class MEI_EXPORT Tr : public MeiElement {
     public:
         Tr();
-        virtual ~Tr() {};
+        virtual ~Tr() {}
         
         
     CommonMixIn    m_Common;
@@ -191,7 +185,6 @@ class MEI_EXPORT Tr : public MeiElement {
     private:
         REGISTER_DECLARATION(Tr);
 };
-
 
 }
 #endif // FIGTABLE_H_

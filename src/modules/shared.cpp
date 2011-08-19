@@ -1,5 +1,4 @@
 
-
 #include "shared.h"
 using std::string;
 using mei::MeiAttribute;

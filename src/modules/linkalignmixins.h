@@ -33,8 +33,8 @@ namespace mei {
     
 class AlignmentMixIn {
     public:
-        AlignmentMixIn(MeiElement *b);
-        virtual ~AlignmentMixIn() {};
+        explicit AlignmentMixIn(MeiElement *b);
+        virtual ~AlignmentMixIn() {}
         
     /** \brief   indicates the point of occurrence of this feature along a time line. Its value
     * must be the ID of a <when> element.

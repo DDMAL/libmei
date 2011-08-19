@@ -1,5 +1,4 @@
 
-
 #include "usersymbols.h"
 using std::string;
 using mei::MeiAttribute;

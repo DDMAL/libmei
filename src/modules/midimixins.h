@@ -33,8 +33,8 @@ namespace mei {
     
 class ChannelizedMixIn {
     public:
-        ChannelizedMixIn(MeiElement *b);
-        virtual ~ChannelizedMixIn() {};
+        explicit ChannelizedMixIn(MeiElement *b);
+        virtual ~ChannelizedMixIn() {}
         
     /** \brief   records a MIDI channel value.
     */
@@ -75,8 +75,8 @@ class ChannelizedMixIn {
 
 class MidiinstrumentMixIn {
     public:
-        MidiinstrumentMixIn(MeiElement *b);
-        virtual ~MidiinstrumentMixIn() {};
+        explicit MidiinstrumentMixIn(MeiElement *b);
+        virtual ~MidiinstrumentMixIn() {}
         
     /** \brief   sets the MIDI instrument number.
     */
@@ -101,8 +101,8 @@ class MidiinstrumentMixIn {
 
 class MidinumberMixIn {
     public:
-        MidinumberMixIn(MeiElement *b);
-        virtual ~MidinumberMixIn() {};
+        explicit MidinumberMixIn(MeiElement *b);
+        virtual ~MidinumberMixIn() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -120,8 +120,8 @@ class MidinumberMixIn {
 
 class MiditempoMixIn {
     public:
-        MiditempoMixIn(MeiElement *b);
-        virtual ~MiditempoMixIn() {};
+        explicit MiditempoMixIn(MeiElement *b);
+        virtual ~MiditempoMixIn() {}
         
     /** \brief   contains a MIDI value, that is, the number of quarter notes per minute in the
     * range from 10 to 1000.
@@ -139,8 +139,8 @@ class MiditempoMixIn {
 
 class MidivalueMixIn {
     public:
-        MidivalueMixIn(MeiElement *b);
-        virtual ~MidivalueMixIn() {};
+        explicit MidivalueMixIn(MeiElement *b);
+        virtual ~MidivalueMixIn() {}
         
     /** \brief   MIDI number
     */
@@ -157,8 +157,8 @@ class MidivalueMixIn {
 
 class TimebaseMixIn {
     public:
-        TimebaseMixIn(MeiElement *b);
-        virtual ~TimebaseMixIn() {};
+        explicit TimebaseMixIn(MeiElement *b);
+        virtual ~TimebaseMixIn() {}
         
     /** \brief   indicates the number of pulses (sometimes referred to as ticks or divisions) per
     * quarter note. Unlike MIDI, MEI permits different values for a score and

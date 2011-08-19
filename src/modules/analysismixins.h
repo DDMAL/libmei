@@ -33,8 +33,8 @@ namespace mei {
     
 class CommonAnlMixIn {
     public:
-        CommonAnlMixIn(MeiElement *b);
-        virtual ~CommonAnlMixIn() {};
+        explicit CommonAnlMixIn(MeiElement *b);
+        virtual ~CommonAnlMixIn() {}
         
     /** \brief   points to an element of which the current element is a copy.
     */
@@ -93,8 +93,8 @@ class CommonAnlMixIn {
 
 class HarmonicfunctionMixIn {
     public:
-        HarmonicfunctionMixIn(MeiElement *b);
-        virtual ~HarmonicfunctionMixIn() {};
+        explicit HarmonicfunctionMixIn(MeiElement *b);
+        virtual ~HarmonicfunctionMixIn() {}
         
     /** \brief   describes harmonic function in any convenient typology.
     */
@@ -111,8 +111,8 @@ class HarmonicfunctionMixIn {
 
 class IntervalharmonicMixIn {
     public:
-        IntervalharmonicMixIn(MeiElement *b);
-        virtual ~IntervalharmonicMixIn() {};
+        explicit IntervalharmonicMixIn(MeiElement *b);
+        virtual ~IntervalharmonicMixIn() {}
         
     /** \brief   encodes the harmonic interval between this note and other pitches occurring at
     * the same time.
@@ -130,8 +130,8 @@ class IntervalharmonicMixIn {
 
 class IntervallicdescMixIn {
     public:
-        IntervallicdescMixIn(MeiElement *b);
-        virtual ~IntervallicdescMixIn() {};
+        explicit IntervallicdescMixIn(MeiElement *b);
+        virtual ~IntervallicdescMixIn() {}
         
     /** \brief   encodes the melodic interval from the previous pitch. The value may be a general
     * directional indication (u, d, s) or a precise numeric value in half steps.
@@ -149,8 +149,8 @@ class IntervallicdescMixIn {
 
 class MelodicfunctionMixIn {
     public:
-        MelodicfunctionMixIn(MeiElement *b);
-        virtual ~MelodicfunctionMixIn() {};
+        explicit MelodicfunctionMixIn(MeiElement *b);
+        virtual ~MelodicfunctionMixIn() {}
         
     /** \brief   describes melodic function in any convenient typology.
     */
@@ -167,8 +167,8 @@ class MelodicfunctionMixIn {
 
 class PitchclassMixIn {
     public:
-        PitchclassMixIn(MeiElement *b);
-        virtual ~PitchclassMixIn() {};
+        explicit PitchclassMixIn(MeiElement *b);
+        virtual ~PitchclassMixIn() {}
         
     /** \brief   holds pitch class information.
     */
@@ -185,8 +185,8 @@ class PitchclassMixIn {
 
 class SolfaMixIn {
     public:
-        SolfaMixIn(MeiElement *b);
-        virtual ~SolfaMixIn() {};
+        explicit SolfaMixIn(MeiElement *b);
+        virtual ~SolfaMixIn() {}
         
     /** \brief   contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
     * movable Do system.

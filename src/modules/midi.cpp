@@ -1,5 +1,4 @@
 
-
 #include "midi.h"
 using std::string;
 using mei::MeiAttribute;

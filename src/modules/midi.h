@@ -44,7 +44,7 @@ namespace mei {
 class MEI_EXPORT Cc : public MeiElement {
     public:
         Cc();
-        virtual ~Cc() {};
+        virtual ~Cc() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -59,14 +59,13 @@ class MEI_EXPORT Cc : public MeiElement {
         REGISTER_DECLARATION(Cc);
 };
 
-
 /** \brief   channel ― MIDI channel assignment.
     */
 
 class MEI_EXPORT Chan : public MeiElement {
     public:
         Chan();
-        virtual ~Chan() {};
+        virtual ~Chan() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -87,7 +86,6 @@ class MEI_EXPORT Chan : public MeiElement {
         REGISTER_DECLARATION(Chan);
 };
 
-
 /** \brief   channel pressure ― MIDI channel pressure/after touch. The value of the num
     * attribute must be in the range 0-127.
     */
@@ -95,7 +93,7 @@ class MEI_EXPORT Chan : public MeiElement {
 class MEI_EXPORT Chanpr : public MeiElement {
     public:
         Chanpr();
-        virtual ~Chanpr() {};
+        virtual ~Chanpr() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -109,14 +107,13 @@ class MEI_EXPORT Chanpr : public MeiElement {
         REGISTER_DECLARATION(Chanpr);
 };
 
-
 /** \brief   cue ― MIDI cue point.
     */
 
 class MEI_EXPORT Cue : public MeiElement {
     public:
         Cue();
-        virtual ~Cue() {};
+        virtual ~Cue() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -129,7 +126,6 @@ class MEI_EXPORT Cue : public MeiElement {
         REGISTER_DECLARATION(Cue);
 };
 
-
 /** \brief   hex ― Arbitrary MIDI data in hexadecimal form. The element's content must be
     * wrapped in a CDATA section to avoid parsing errors.
     */
@@ -137,7 +133,7 @@ class MEI_EXPORT Cue : public MeiElement {
 class MEI_EXPORT Hex : public MeiElement {
     public:
         Hex();
-        virtual ~Hex() {};
+        virtual ~Hex() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -150,14 +146,13 @@ class MEI_EXPORT Hex : public MeiElement {
         REGISTER_DECLARATION(Hex);
 };
 
-
 /** \brief   marker ― MIDI marker meta-event.
     */
 
 class MEI_EXPORT Marker : public MeiElement {
     public:
         Marker();
-        virtual ~Marker() {};
+        virtual ~Marker() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -170,14 +165,13 @@ class MEI_EXPORT Marker : public MeiElement {
         REGISTER_DECLARATION(Marker);
 };
 
-
 /** \brief   meta text ― MIDI text meta-event.
     */
 
 class MEI_EXPORT Metatext : public MeiElement {
     public:
         Metatext();
-        virtual ~Metatext() {};
+        virtual ~Metatext() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -190,7 +184,6 @@ class MEI_EXPORT Metatext : public MeiElement {
         REGISTER_DECLARATION(Metatext);
 };
 
-
 /** \brief   midi ― Container for elements that contain information useful when generating
     * MIDI output. The n attribute can be used to differentiate between multiple MIDI
     * data streams, e.g. quantized/unquantized, straight/swing, ornamented/as notated,
@@ -200,7 +193,7 @@ class MEI_EXPORT Metatext : public MeiElement {
 class MEI_EXPORT Midi : public MeiElement {
     public:
         Midi();
-        virtual ~Midi() {};
+        virtual ~Midi() {}
         
         
     CommonMixIn    m_Common;
@@ -212,14 +205,13 @@ class MEI_EXPORT Midi : public MeiElement {
         REGISTER_DECLARATION(Midi);
 };
 
-
 /** \brief   note-off ― MIDI note-off event.
     */
 
 class MEI_EXPORT Noteoff : public MeiElement {
     public:
         Noteoff();
-        virtual ~Noteoff() {};
+        virtual ~Noteoff() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -233,14 +225,13 @@ class MEI_EXPORT Noteoff : public MeiElement {
         REGISTER_DECLARATION(Noteoff);
 };
 
-
 /** \brief   note-on ― MIDI note-on event.
     */
 
 class MEI_EXPORT Noteon : public MeiElement {
     public:
         Noteon();
-        virtual ~Noteon() {};
+        virtual ~Noteon() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -254,14 +245,13 @@ class MEI_EXPORT Noteon : public MeiElement {
         REGISTER_DECLARATION(Noteon);
 };
 
-
 /** \brief   port ― MIDI port. The num attribute must be in the range 0-127.
     */
 
 class MEI_EXPORT Port : public MeiElement {
     public:
         Port();
-        virtual ~Port() {};
+        virtual ~Port() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -275,14 +265,13 @@ class MEI_EXPORT Port : public MeiElement {
         REGISTER_DECLARATION(Port);
 };
 
-
 /** \brief   program ― MIDI program change. The num attribute must be in the range 0-127.
     */
 
 class MEI_EXPORT Prog : public MeiElement {
     public:
         Prog();
-        virtual ~Prog() {};
+        virtual ~Prog() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -296,14 +285,13 @@ class MEI_EXPORT Prog : public MeiElement {
         REGISTER_DECLARATION(Prog);
 };
 
-
 /** \brief   sequence number ― MIDI sequence number.
     */
 
 class MEI_EXPORT Seqnum : public MeiElement {
     public:
         Seqnum();
-        virtual ~Seqnum() {};
+        virtual ~Seqnum() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -324,14 +312,13 @@ class MEI_EXPORT Seqnum : public MeiElement {
         REGISTER_DECLARATION(Seqnum);
 };
 
-
 /** \brief   track name ― MIDI track/sequence name.
     */
 
 class MEI_EXPORT Trkname : public MeiElement {
     public:
         Trkname();
-        virtual ~Trkname() {};
+        virtual ~Trkname() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -344,7 +331,6 @@ class MEI_EXPORT Trkname : public MeiElement {
         REGISTER_DECLARATION(Trkname);
 };
 
-
 /** \brief   velocity ― MIDI Note-on/off velocity. The num attribute must be in the range
     * 0-127.
     */
@@ -352,7 +338,7 @@ class MEI_EXPORT Trkname : public MeiElement {
 class MEI_EXPORT Vel : public MeiElement {
     public:
         Vel();
-        virtual ~Vel() {};
+        virtual ~Vel() {}
         
     /** \brief   records the function of the dot.
     */
@@ -372,7 +358,6 @@ class MEI_EXPORT Vel : public MeiElement {
     private:
         REGISTER_DECLARATION(Vel);
 };
-
 
 }
 #endif // MIDI_H_

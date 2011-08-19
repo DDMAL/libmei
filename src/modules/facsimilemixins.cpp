@@ -1,5 +1,4 @@
 
-
 #include "facsimilemixins.h"
 using std::string;
 using mei::MeiAttribute;

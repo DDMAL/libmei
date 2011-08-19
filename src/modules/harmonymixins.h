@@ -33,8 +33,8 @@ namespace mei {
     
 class FretlocationMixIn {
     public:
-        FretlocationMixIn(MeiElement *b);
-        virtual ~FretlocationMixIn() {};
+        explicit FretlocationMixIn(MeiElement *b);
+        virtual ~FretlocationMixIn() {}
         
     /** \brief   records the location at which a string should be stopped against a fret.
     */
@@ -51,8 +51,8 @@ class FretlocationMixIn {
 
 class HarmLogMixIn {
     public:
-        HarmLogMixIn(MeiElement *b);
-        virtual ~HarmLogMixIn() {};
+        explicit HarmLogMixIn(MeiElement *b);
+        virtual ~HarmLogMixIn() {}
         
     /** \brief   contains a reference to a <chordDef> element elsewhere in the document.
     */
@@ -69,8 +69,8 @@ class HarmLogMixIn {
 
 class HarmVisMixIn {
     public:
-        HarmVisMixIn(MeiElement *b);
-        virtual ~HarmVisMixIn() {};
+        explicit HarmVisMixIn(MeiElement *b);
+        virtual ~HarmVisMixIn() {}
         
     /** \brief   indicates the presence of an extension symbol, typically a dash or underscore,
     * drawn from the end of the harmonic indication to the point indicated by the dur

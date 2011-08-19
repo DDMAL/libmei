@@ -48,7 +48,7 @@ namespace mei {
 class MEI_EXPORT Mordent : public MeiElement {
     public:
         Mordent();
-        virtual ~Mordent() {};
+        virtual ~Mordent() {}
         
         
     CommonMixIn    m_Common;
@@ -73,7 +73,6 @@ class MEI_EXPORT Mordent : public MeiElement {
         REGISTER_DECLARATION(Mordent);
 };
 
-
 /** \brief   trill ― Rapid alternation of a note with one (usually at the interval of a
     * second) above. Usually, the interval is understood to be diatonic unless altered
     * by an accidental. The starting note of the trill; i.e., the written one or the
@@ -89,7 +88,7 @@ class MEI_EXPORT Mordent : public MeiElement {
 class MEI_EXPORT Trill : public MeiElement {
     public:
         Trill();
-        virtual ~Trill() {};
+        virtual ~Trill() {}
         
         
     CommonMixIn    m_Common;
@@ -118,7 +117,6 @@ class MEI_EXPORT Trill : public MeiElement {
         REGISTER_DECLARATION(Trill);
 };
 
-
 /** \brief   turn ― An ornament consisting of four notes — the upper neighbor of the
     * written note, the written note, the lower neighbor, and the written note. See
     * Read, p. 246-247. Events may be contained within <turn> in order to record
@@ -130,7 +128,7 @@ class MEI_EXPORT Trill : public MeiElement {
 class MEI_EXPORT Turn : public MeiElement {
     public:
         Turn();
-        virtual ~Turn() {};
+        virtual ~Turn() {}
         
         
     CommonMixIn    m_Common;
@@ -154,7 +152,6 @@ class MEI_EXPORT Turn : public MeiElement {
     private:
         REGISTER_DECLARATION(Turn);
 };
-
 
 }
 #endif // CMNORNAMENTS_H_

@@ -1,5 +1,4 @@
 
-
 #include "lyricsmixins.h"
 using std::string;
 using mei::MeiAttribute;

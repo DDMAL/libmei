@@ -1,5 +1,4 @@
 
-
 #include "text.h"
 using std::string;
 using mei::MeiAttribute;

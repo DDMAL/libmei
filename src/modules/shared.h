@@ -71,7 +71,7 @@ namespace mei {
 class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
-        virtual ~Abbr() {};
+        virtual ~Abbr() {}
         
     /** \brief   records the expansion of a text abbreviation.
     */
@@ -94,7 +94,6 @@ class MEI_EXPORT Abbr : public MeiElement {
         REGISTER_DECLARATION(Abbr);
 };
 
-
 /** \brief   accidental ― Records a temporary alteration to the pitch of a note. An
     * accidental may raise a pitch by one or two semitones or it may cancel a previous
     * accidental or part of a key signature. This element provides an alternative to
@@ -108,7 +107,7 @@ class MEI_EXPORT Abbr : public MeiElement {
 class MEI_EXPORT Accid : public MeiElement {
     public:
         Accid();
-        virtual ~Accid() {};
+        virtual ~Accid() {}
         
         
     CommonMixIn    m_Common;
@@ -134,14 +133,13 @@ class MEI_EXPORT Accid : public MeiElement {
         REGISTER_DECLARATION(Accid);
 };
 
-
 /** \brief   actor ― Name of an actor appearing within a cast list.
     */
 
 class MEI_EXPORT Actor : public MeiElement {
     public:
         Actor();
-        virtual ~Actor() {};
+        virtual ~Actor() {}
         
         
     CommonMixIn    m_Common;
@@ -150,7 +148,6 @@ class MEI_EXPORT Actor : public MeiElement {
     private:
         REGISTER_DECLARATION(Actor);
 };
-
 
 /** \brief   addrLine ― Single line of a postal address. This element may be repeated as
     * many times as necessary to enter all lines of an address. This element is
@@ -161,7 +158,7 @@ class MEI_EXPORT Actor : public MeiElement {
 class MEI_EXPORT Addrline : public MeiElement {
     public:
         Addrline();
-        virtual ~Addrline() {};
+        virtual ~Addrline() {}
         
         
     CommonMixIn    m_Common;
@@ -171,7 +168,6 @@ class MEI_EXPORT Addrline : public MeiElement {
         REGISTER_DECLARATION(Addrline);
 };
 
-
 /** \brief   address ― Contains a postal address, for example of a publisher, an
     * organization, or an individual. This element is modelled on an element in the
     * Text Encoding Initiative (TEI).
@@ -180,7 +176,7 @@ class MEI_EXPORT Addrline : public MeiElement {
 class MEI_EXPORT Address : public MeiElement {
     public:
         Address();
-        virtual ~Address() {};
+        virtual ~Address() {}
         
         
     CommonMixIn    m_Common;
@@ -189,7 +185,6 @@ class MEI_EXPORT Address : public MeiElement {
     private:
         REGISTER_DECLARATION(Address);
 };
-
 
 /** \brief   annotation ― Provides a short statement explaining the text or indicating the
     * basis for an assertion. It is used for both general comments and for an
@@ -216,7 +211,7 @@ class MEI_EXPORT Address : public MeiElement {
 class MEI_EXPORT Annot : public MeiElement {
     public:
         Annot();
-        virtual ~Annot() {};
+        virtual ~Annot() {}
         
         
     BiblMixIn    m_Bibl;
@@ -243,7 +238,6 @@ class MEI_EXPORT Annot : public MeiElement {
         REGISTER_DECLARATION(Annot);
 };
 
-
 /** \brief   articulation ― An indication of how to play a note or chord. Articulations
     * typically affect duration, such as staccato marks, or the force of attack, such
     * as accents. This element provides an alternative to the artic attributes on the
@@ -255,7 +249,7 @@ class MEI_EXPORT Annot : public MeiElement {
 class MEI_EXPORT Artic : public MeiElement {
     public:
         Artic();
-        virtual ~Artic() {};
+        virtual ~Artic() {}
         
         
     CommonMixIn    m_Common;
@@ -281,7 +275,6 @@ class MEI_EXPORT Artic : public MeiElement {
         REGISTER_DECLARATION(Artic);
 };
 
-
 /** \brief   bar line ― Vertical line drawn through one or more staves that divides musical
     * notation into metrical units. This element is provided for repertoires, such as
     * mensural notation, that lack measures. Because the barLine element's attributes,
@@ -293,7 +286,7 @@ class MEI_EXPORT Artic : public MeiElement {
 class MEI_EXPORT Barline : public MeiElement {
     public:
         Barline();
-        virtual ~Barline() {};
+        virtual ~Barline() {}
         
         
     CommonMixIn    m_Common;
@@ -314,7 +307,6 @@ class MEI_EXPORT Barline : public MeiElement {
         REGISTER_DECLARATION(Barline);
 };
 
-
 /** \brief   bibliographic reference ― Provides a citation for a published work. <bibref>
     * may contain a mix of text and more specific elements such as <title>, <edition>,
     * <persName>, and <corpName>. This element may also function as a hypertext
@@ -326,7 +318,7 @@ class MEI_EXPORT Barline : public MeiElement {
 class MEI_EXPORT Bibl : public MeiElement {
     public:
         Bibl();
-        virtual ~Bibl() {};
+        virtual ~Bibl() {}
         
         
     CommonMixIn    m_Common;
@@ -337,7 +329,6 @@ class MEI_EXPORT Bibl : public MeiElement {
     private:
         REGISTER_DECLARATION(Bibl);
 };
-
 
 /** \brief   body ― This element contains the actual music data of the MEI encoding, as
     * opposed to the header, front, and back elements, which do not. When the music
@@ -350,7 +341,7 @@ class MEI_EXPORT Bibl : public MeiElement {
 class MEI_EXPORT Body : public MeiElement {
     public:
         Body();
-        virtual ~Body() {};
+        virtual ~Body() {}
         
         
     CommonMixIn    m_Common;
@@ -359,14 +350,13 @@ class MEI_EXPORT Body : public MeiElement {
         REGISTER_DECLARATION(Body);
 };
 
-
 /** \brief   caption ― A label which accompanies an illustration or a table.
     */
 
 class MEI_EXPORT Caption : public MeiElement {
     public:
         Caption();
-        virtual ~Caption() {};
+        virtual ~Caption() {}
         
         
     CommonMixIn    m_Common;
@@ -376,7 +366,6 @@ class MEI_EXPORT Caption : public MeiElement {
         REGISTER_DECLARATION(Caption);
 };
 
-
 /** \brief   cast list group ― Groups one or more individual castItem elements within a
     * cast list.
     */
@@ -384,7 +373,7 @@ class MEI_EXPORT Caption : public MeiElement {
 class MEI_EXPORT Castgrp : public MeiElement {
     public:
         Castgrp();
-        virtual ~Castgrp() {};
+        virtual ~Castgrp() {}
         
         
     CommonMixIn    m_Common;
@@ -394,7 +383,6 @@ class MEI_EXPORT Castgrp : public MeiElement {
         REGISTER_DECLARATION(Castgrp);
 };
 
-
 /** \brief   cast list item ― Contains a single entry within a cast list, describing either
     * a single role or a list of non-speaking roles.
     */
@@ -402,7 +390,7 @@ class MEI_EXPORT Castgrp : public MeiElement {
 class MEI_EXPORT Castitem : public MeiElement {
     public:
         Castitem();
-        virtual ~Castitem() {};
+        virtual ~Castitem() {}
         
         
     CommonMixIn    m_Common;
@@ -412,14 +400,13 @@ class MEI_EXPORT Castitem : public MeiElement {
         REGISTER_DECLARATION(Castitem);
 };
 
-
 /** \brief   cast list ― Contains a single cast list or dramatis personae.
     */
 
 class MEI_EXPORT Castlist : public MeiElement {
     public:
         Castlist();
-        virtual ~Castlist() {};
+        virtual ~Castlist() {}
         
         
     CommonMixIn    m_Common;
@@ -429,7 +416,6 @@ class MEI_EXPORT Castlist : public MeiElement {
         REGISTER_DECLARATION(Castlist);
 };
 
-
 /** \brief   chord ― A simultaneous sounding of two or more notes in the same layer *with
     * the same duration*.
     */
@@ -437,7 +423,7 @@ class MEI_EXPORT Castlist : public MeiElement {
 class MEI_EXPORT Chord : public MeiElement {
     public:
         Chord();
-        virtual ~Chord() {};
+        virtual ~Chord() {}
         
         
     CommonMixIn    m_Common;
@@ -478,7 +464,6 @@ class MEI_EXPORT Chord : public MeiElement {
         REGISTER_DECLARATION(Chord);
 };
 
-
 /** \brief   clef ― Indication of the exact location of a particular note on the staff and,
     * therefore, the other notes as well. This element provides an alternative to the
     * staff element's clef.* attributes. It should be used when specific display info,
@@ -489,7 +474,7 @@ class MEI_EXPORT Chord : public MeiElement {
 class MEI_EXPORT Clef : public MeiElement {
     public:
         Clef();
-        virtual ~Clef() {};
+        virtual ~Clef() {}
         
         
     CommonMixIn    m_Common;
@@ -506,14 +491,13 @@ class MEI_EXPORT Clef : public MeiElement {
         REGISTER_DECLARATION(Clef);
 };
 
-
 /** \brief   clef change ― A temporary change of clef.
     */
 
 class MEI_EXPORT Clefchange : public MeiElement {
     public:
         Clefchange();
-        virtual ~Clefchange() {};
+        virtual ~Clefchange() {}
         
         
     CommonMixIn    m_Common;
@@ -534,7 +518,6 @@ class MEI_EXPORT Clefchange : public MeiElement {
         REGISTER_DECLARATION(Clefchange);
 };
 
-
 /** \brief   custos ― Symbol placed at the end of a line of music to indicate the first
     * note of the next line. Sometimes called a "direct". The most common visual form
     * is a sign resembling a mordent. Other graphical forms may be indicated by the
@@ -545,7 +528,7 @@ class MEI_EXPORT Clefchange : public MeiElement {
 class MEI_EXPORT Custos : public MeiElement {
     public:
         Custos();
-        virtual ~Custos() {};
+        virtual ~Custos() {}
         
         
     CommonMixIn    m_Common;
@@ -562,7 +545,6 @@ class MEI_EXPORT Custos : public MeiElement {
         REGISTER_DECLARATION(Custos);
 };
 
-
 /** \brief   date ― A date in any format, including a date range. A date range may be
     * expressed either as textual content, e.g., <date>March 1-21, 1812</date>, or
     * using date sub-elements, possibly combined with text, e.g., <date> <date>March
@@ -574,7 +556,7 @@ class MEI_EXPORT Custos : public MeiElement {
 class MEI_EXPORT Date : public MeiElement {
     public:
         Date();
-        virtual ~Date() {};
+        virtual ~Date() {}
         
     /** \brief   provides a regularized, authorized value.
     */
@@ -597,7 +579,6 @@ class MEI_EXPORT Date : public MeiElement {
         REGISTER_DECLARATION(Date);
 };
 
-
 /** \brief   directive ― A text expression that is on the score (typically above, below, or
     * between staves, but not on the staff) not encoded elsewhere in more specific
     * elements, such as <tempo> or <dynam>. Examples include text strings, such as
@@ -613,7 +594,7 @@ class MEI_EXPORT Date : public MeiElement {
 class MEI_EXPORT Dir : public MeiElement {
     public:
         Dir();
-        virtual ~Dir() {};
+        virtual ~Dir() {}
         
         
     CommonMixIn    m_Common;
@@ -642,7 +623,6 @@ class MEI_EXPORT Dir : public MeiElement {
         REGISTER_DECLARATION(Dir);
 };
 
-
 /** \brief   dot ― This element provides an alternative to the dots attribute on chord,
     * note, rest, space, tuplet, and tupletSpan elements. It should be used when
     * specific display info, such as size or color, needs to be recorded for the dot.
@@ -652,7 +632,7 @@ class MEI_EXPORT Dir : public MeiElement {
 class MEI_EXPORT Dot : public MeiElement {
     public:
         Dot();
-        virtual ~Dot() {};
+        virtual ~Dot() {}
         
         
     CommonMixIn    m_Common;
@@ -674,7 +654,6 @@ class MEI_EXPORT Dot : public MeiElement {
         REGISTER_DECLARATION(Dot);
 };
 
-
 /** \brief   dynamic ― Indication of the volume of a note, phrase, or section of music.
     * This element may be used for instantaneous or continuous textual dynamics, e.g.
     * 'p', 'mf', or 'cresc. poco a poco'. The <hairpin> element should be used for
@@ -691,7 +670,7 @@ class MEI_EXPORT Dot : public MeiElement {
 class MEI_EXPORT Dynam : public MeiElement {
     public:
         Dynam();
-        virtual ~Dynam() {};
+        virtual ~Dynam() {}
         
         
     CommonMixIn    m_Common;
@@ -720,7 +699,6 @@ class MEI_EXPORT Dynam : public MeiElement {
         REGISTER_DECLARATION(Dynam);
 };
 
-
 /** \brief   edition designation ― A word or text phrase that indicates a difference in
     * either content or form between the item being described and a related item
     * previously issued by the same publisher/distributor (e.g. 2nd edition, version
@@ -732,7 +710,7 @@ class MEI_EXPORT Dynam : public MeiElement {
 class MEI_EXPORT Edition : public MeiElement {
     public:
         Edition();
-        virtual ~Edition() {};
+        virtual ~Edition() {}
         
         
     CommonMixIn    m_Common;
@@ -740,7 +718,6 @@ class MEI_EXPORT Edition : public MeiElement {
     private:
         REGISTER_DECLARATION(Edition);
 };
-
 
 /** \brief   ending ― Alternative ending for a repeated passage of music; i.e., prima
     * volta, seconda volta, etc. The scoreDef element is allowed as a sub-element so
@@ -753,7 +730,7 @@ class MEI_EXPORT Edition : public MeiElement {
 class MEI_EXPORT Ending : public MeiElement {
     public:
         Ending();
-        virtual ~Ending() {};
+        virtual ~Ending() {}
         
         
     CommonMixIn    m_Common;
@@ -767,7 +744,6 @@ class MEI_EXPORT Ending : public MeiElement {
     private:
         REGISTER_DECLARATION(Ending);
 };
-
 
 /** \brief   expansion ― Contains the expansion of an abbreviation. The type attribute may
     * be used to classify the abbreviation according to some convenient typology. This
@@ -789,7 +765,7 @@ class MEI_EXPORT Ending : public MeiElement {
 class MEI_EXPORT Expan : public MeiElement {
     public:
         Expan();
-        virtual ~Expan() {};
+        virtual ~Expan() {}
         
     /** \brief   captures the unabbreviated form of the text.
     */
@@ -812,7 +788,6 @@ class MEI_EXPORT Expan : public MeiElement {
         REGISTER_DECLARATION(Expan);
 };
 
-
 /** \brief   expansion ― Indicates how a section may be programmatically expanded into its
     * 'through-composed' form. The plist attribute contains an ordered list of IDs of
     * descendant <section>, <ending>, <lem>, or <rdg> elements. For example, the
@@ -824,7 +799,7 @@ class MEI_EXPORT Expan : public MeiElement {
 class MEI_EXPORT Expansion : public MeiElement {
     public:
         Expansion();
-        virtual ~Expansion() {};
+        virtual ~Expansion() {}
         
         
     CommonMixIn    m_Common;
@@ -835,7 +810,6 @@ class MEI_EXPORT Expansion : public MeiElement {
         REGISTER_DECLARATION(Expansion);
 };
 
-
 /** \brief   forme work ― This element is intended for capture of header/footer material
     * that is non-repeating; that is, it occurs on isolated pages. For recurring
     * headers and footers use pgHead* and pgFoot* elements. This element is modelled
@@ -845,7 +819,7 @@ class MEI_EXPORT Expansion : public MeiElement {
 class MEI_EXPORT Fw : public MeiElement {
     public:
         Fw();
-        virtual ~Fw() {};
+        virtual ~Fw() {}
         
         
     CommonMixIn    m_Common;
@@ -856,7 +830,6 @@ class MEI_EXPORT Fw : public MeiElement {
         REGISTER_DECLARATION(Fw);
 };
 
-
 /** \brief   group ― Enables the gathering of multiple documents into a single file.
     * Because its model contains the music element, each of the documents can have its
     * own front and back matter. This element is modelled on an element in the Text
@@ -866,7 +839,7 @@ class MEI_EXPORT Fw : public MeiElement {
 class MEI_EXPORT Group : public MeiElement {
     public:
         Group();
-        virtual ~Group() {};
+        virtual ~Group() {}
         
         
     CommonMixIn    m_Common;
@@ -874,7 +847,6 @@ class MEI_EXPORT Group : public MeiElement {
     private:
         REGISTER_DECLARATION(Group);
 };
-
 
 /** \brief   group symbol ― A brace or bracket used to group two or more staves of a score
     * or part. This element provides an alternative to the staffGrp element's symbol
@@ -885,7 +857,7 @@ class MEI_EXPORT Group : public MeiElement {
 class MEI_EXPORT Grpsym : public MeiElement {
     public:
         Grpsym();
-        virtual ~Grpsym() {};
+        virtual ~Grpsym() {}
         
         
     CommonMixIn    m_Common;
@@ -901,7 +873,6 @@ class MEI_EXPORT Grpsym : public MeiElement {
         REGISTER_DECLARATION(Grpsym);
 };
 
-
 /** \brief   identifier ― An alpha-numeric string that establishes the identity of the
     * described material, such as an International Standard Book/Music Number, Library
     * of Congress Control Number, publisher's number, a personal identification
@@ -912,7 +883,7 @@ class MEI_EXPORT Grpsym : public MeiElement {
 class MEI_EXPORT Identifier : public MeiElement {
     public:
         Identifier();
-        virtual ~Identifier() {};
+        virtual ~Identifier() {}
         
         
     BiblMixIn    m_Bibl;
@@ -922,7 +893,6 @@ class MEI_EXPORT Identifier : public MeiElement {
     private:
         REGISTER_DECLARATION(Identifier);
 };
-
 
 /** \brief   incipit ― The opening words or music of a composition. The <p> and <lg>
     * elements are permitted in order to accommodate a text incipit, while <score> is
@@ -934,7 +904,7 @@ class MEI_EXPORT Identifier : public MeiElement {
 class MEI_EXPORT Incip : public MeiElement {
     public:
         Incip();
-        virtual ~Incip() {};
+        virtual ~Incip() {}
         
         
     CommonMixIn    m_Common;
@@ -944,7 +914,6 @@ class MEI_EXPORT Incip : public MeiElement {
         REGISTER_DECLARATION(Incip);
 };
 
-
 /** \brief   instrument definition ― MIDI instrument declaration. This element provides a
     * starting or default instrument declaration for a staff, a group of staves, or a
     * layer. MIDI prog elements may then change the instrument as necessary.
@@ -953,7 +922,7 @@ class MEI_EXPORT Incip : public MeiElement {
 class MEI_EXPORT Instrdef : public MeiElement {
     public:
         Instrdef();
-        virtual ~Instrdef() {};
+        virtual ~Instrdef() {}
         
         
     CommonMixIn    m_Common;
@@ -963,21 +932,19 @@ class MEI_EXPORT Instrdef : public MeiElement {
         REGISTER_DECLARATION(Instrdef);
 };
 
-
 /** \brief   instrument group ― Collects MIDI instrument definitions.
     */
 
 class MEI_EXPORT Instrgrp : public MeiElement {
     public:
         Instrgrp();
-        virtual ~Instrgrp() {};
+        virtual ~Instrgrp() {}
         
         
     CommonMixIn    m_Common;
     private:
         REGISTER_DECLARATION(Instrgrp);
 };
-
 
 /** \brief   key accidental ― Accidental in a key signature. It is a semantic error not to
     * provide either the x and y pair of attributes or the staffloc attribute.
@@ -986,7 +953,7 @@ class MEI_EXPORT Instrgrp : public MeiElement {
 class MEI_EXPORT Keyaccid : public MeiElement {
     public:
         Keyaccid();
-        virtual ~Keyaccid() {};
+        virtual ~Keyaccid() {}
         
     /** \brief   records the function of the dot.
     */
@@ -1008,7 +975,6 @@ class MEI_EXPORT Keyaccid : public MeiElement {
         REGISTER_DECLARATION(Keyaccid);
 };
 
-
 /** \brief   key signature ― This element may be used as an alternative to the key.*
     * attributes (especially key.sig.mixed) on scoreDef and staffDef.
     */
@@ -1016,7 +982,7 @@ class MEI_EXPORT Keyaccid : public MeiElement {
 class MEI_EXPORT Keysig : public MeiElement {
     public:
         Keysig();
-        virtual ~Keysig() {};
+        virtual ~Keysig() {}
         
     /** \brief   indicates major, minor, or other tonality.
     */
@@ -1034,14 +1000,13 @@ class MEI_EXPORT Keysig : public MeiElement {
         REGISTER_DECLARATION(Keysig);
 };
 
-
 /** \brief   label ― A text string that identifies a staff or staff group.
     */
 
 class MEI_EXPORT Label : public MeiElement {
     public:
         Label();
-        virtual ~Label() {};
+        virtual ~Label() {}
         
         
     CommonMixIn    m_Common;
@@ -1052,7 +1017,6 @@ class MEI_EXPORT Label : public MeiElement {
         REGISTER_DECLARATION(Label);
 };
 
-
 /** \brief   layer ― An independent stream of events on a staff. The term 'layer' is used
     * instead of 'voice' in order to avoid confusion between 'voice' and 'voice
     * leading'. The n attribute is used to establish a connection back to the
@@ -1062,7 +1026,7 @@ class MEI_EXPORT Label : public MeiElement {
 class MEI_EXPORT Layer : public MeiElement {
     public:
         Layer();
-        virtual ~Layer() {};
+        virtual ~Layer() {}
         
         
     CommonMixIn    m_Common;
@@ -1076,14 +1040,13 @@ class MEI_EXPORT Layer : public MeiElement {
         REGISTER_DECLARATION(Layer);
 };
 
-
 /** \brief   layer definition ― Container for layer meta-information.
     */
 
 class MEI_EXPORT Layerdef : public MeiElement {
     public:
         Layerdef();
-        virtual ~Layerdef() {};
+        virtual ~Layerdef() {}
         
         
     CommonMixIn    m_Common;
@@ -1100,7 +1063,6 @@ class MEI_EXPORT Layerdef : public MeiElement {
         REGISTER_DECLARATION(Layerdef);
 };
 
-
 /** \brief   line break ― An empty formatting element that forces text to begin on a new
     * line. The n attribute should be used to record a label for the line, i.e., most
     * likely a line number. See comment on <verse> element for description of func
@@ -1112,7 +1074,7 @@ class MEI_EXPORT Layerdef : public MeiElement {
 class MEI_EXPORT Lb : public MeiElement {
     public:
         Lb();
-        virtual ~Lb() {};
+        virtual ~Lb() {}
         
     /** \brief   records the function of an accidental.
     */
@@ -1129,7 +1091,6 @@ class MEI_EXPORT Lb : public MeiElement {
     private:
         REGISTER_DECLARATION(Lb);
 };
-
 
 /** \brief   musical division ― The mdiv element may contain one or both of 2 possible
     * views of the music. The score view is the traditional full and open score while
@@ -1150,7 +1111,7 @@ class MEI_EXPORT Lb : public MeiElement {
 class MEI_EXPORT Mdiv : public MeiElement {
     public:
         Mdiv();
-        virtual ~Mdiv() {};
+        virtual ~Mdiv() {}
         
         
     CommonMixIn    m_Common;
@@ -1161,7 +1122,6 @@ class MEI_EXPORT Mdiv : public MeiElement {
         REGISTER_DECLARATION(Mdiv);
 };
 
-
 /** \brief   mei ― The document element for a single document, containing a header and
     * data. The <mei> element defines a particular instance of a document encoded with
     * the MEI schema. The name of this element should not be changed in order to
@@ -1171,7 +1131,7 @@ class MEI_EXPORT Mdiv : public MeiElement {
 class MEI_EXPORT Mei : public MeiElement {
     public:
         Mei();
-        virtual ~Mei() {};
+        virtual ~Mei() {}
         
         
     MeiversionMixIn    m_Meiversion;
@@ -1179,14 +1139,13 @@ class MEI_EXPORT Mei : public MeiElement {
         REGISTER_DECLARATION(Mei);
 };
 
-
 /** \brief   music ― Container for everything else in the document apart from the header.
     */
 
 class MEI_EXPORT Music : public MeiElement {
     public:
         Music();
-        virtual ~Music() {};
+        virtual ~Music() {}
         
         
     CommonMixIn    m_Common;
@@ -1195,7 +1154,6 @@ class MEI_EXPORT Music : public MeiElement {
     private:
         REGISTER_DECLARATION(Music);
 };
-
 
 /** \brief   name ― Contains the name of an entity that is difficult to tag more
     * specifically as a <corpName>, <geogName>, <persName>, or <title>. The <name>
@@ -1219,7 +1177,7 @@ class MEI_EXPORT Music : public MeiElement {
 class MEI_EXPORT Name : public MeiElement {
     public:
         Name();
-        virtual ~Name() {};
+        virtual ~Name() {}
         
         
     BiblMixIn    m_Bibl;
@@ -1233,7 +1191,6 @@ class MEI_EXPORT Name : public MeiElement {
     private:
         REGISTER_DECLARATION(Name);
 };
-
 
 /** \brief   note ― A single pitched event. (Read, p. 63) The note element is allowed to
     * contain other events for situations where a single (usually ornamented) written
@@ -1253,7 +1210,7 @@ class MEI_EXPORT Name : public MeiElement {
 class MEI_EXPORT Note : public MeiElement {
     public:
         Note();
-        virtual ~Note() {};
+        virtual ~Note() {}
         
         
     CommonMixIn    m_Common;
@@ -1310,7 +1267,6 @@ class MEI_EXPORT Note : public MeiElement {
         REGISTER_DECLARATION(Note);
 };
 
-
 /** \brief   number ― Numeric information in any form. This element is used only when it is
     * necessary to display a number in a special way or to identify it with a type
     * attribute.
@@ -1319,7 +1275,7 @@ class MEI_EXPORT Note : public MeiElement {
 class MEI_EXPORT Num : public MeiElement {
     public:
         Num();
-        virtual ~Num() {};
+        virtual ~Num() {}
         
         
     CommonMixIn    m_Common;
@@ -1329,7 +1285,6 @@ class MEI_EXPORT Num : public MeiElement {
     private:
         REGISTER_DECLARATION(Num);
 };
-
 
 /** \brief   paragraph ― One or more text phrases that form a logical prose passage. A
     * paragraph is usually typographically distinct: The text usually begins on a new
@@ -1341,7 +1296,7 @@ class MEI_EXPORT Num : public MeiElement {
 class MEI_EXPORT P : public MeiElement {
     public:
         P();
-        virtual ~P() {};
+        virtual ~P() {}
         
         
     CommonMixIn    m_Common;
@@ -1353,14 +1308,13 @@ class MEI_EXPORT P : public MeiElement {
         REGISTER_DECLARATION(P);
 };
 
-
 /** \brief   pad ― An indication of extra visual space between notational elements.
     */
 
 class MEI_EXPORT Pad : public MeiElement {
     public:
         Pad();
-        virtual ~Pad() {};
+        virtual ~Pad() {}
         
         
     CommonMixIn    m_Common;
@@ -1372,7 +1326,6 @@ class MEI_EXPORT Pad : public MeiElement {
     private:
         REGISTER_DECLARATION(Pad);
 };
-
 
 /** \brief   part ― An alternative visual rendition of the score from a particular
     * performer's point of view. Part elements are not used in the score to indicate
@@ -1390,7 +1343,7 @@ class MEI_EXPORT Pad : public MeiElement {
 class MEI_EXPORT Part : public MeiElement {
     public:
         Part();
-        virtual ~Part() {};
+        virtual ~Part() {}
         
         
     CommonMixIn    m_Common;
@@ -1402,14 +1355,13 @@ class MEI_EXPORT Part : public MeiElement {
         REGISTER_DECLARATION(Part);
 };
 
-
 /** \brief   parts ― Gathers performers' parts.
     */
 
 class MEI_EXPORT Parts : public MeiElement {
     public:
         Parts();
-        virtual ~Parts() {};
+        virtual ~Parts() {}
         
         
     CommonMixIn    m_Common;
@@ -1421,7 +1373,6 @@ class MEI_EXPORT Parts : public MeiElement {
         REGISTER_DECLARATION(Parts);
 };
 
-
 /** \brief   page break ― The n attribute records the page number in the source. It need
     * not be an integer, e.g. 'iv', or 'p17-3'. The logical page number can be
     * calculated by counting previous <pb> ancestor elements. When used in a score
@@ -1432,7 +1383,7 @@ class MEI_EXPORT Parts : public MeiElement {
 class MEI_EXPORT Pb : public MeiElement {
     public:
         Pb();
-        virtual ~Pb() {};
+        virtual ~Pb() {}
         
         
     CommonMixIn    m_Common;
@@ -1447,7 +1398,6 @@ class MEI_EXPORT Pb : public MeiElement {
         REGISTER_DECLARATION(Pb);
 };
 
-
 /** \brief   page description ― Contains a brief prose description of the appearance or
     * description of the content of a physical page. Best practice suggests the use of
     * controlled vocabulary. Don't confuse this element with a figure caption. A
@@ -1458,7 +1408,7 @@ class MEI_EXPORT Pb : public MeiElement {
 class MEI_EXPORT Pgdesc : public MeiElement {
     public:
         Pgdesc();
-        virtual ~Pgdesc() {};
+        virtual ~Pgdesc() {}
         
         
     CommonMixIn    m_Common;
@@ -1466,7 +1416,6 @@ class MEI_EXPORT Pgdesc : public MeiElement {
     private:
         REGISTER_DECLARATION(Pgdesc);
 };
-
 
 /** \brief   page footer ― A running footer on the first page. This element is a
     * specialized form of the fw element. Auto-generated page numbers may be indicated
@@ -1477,7 +1426,7 @@ class MEI_EXPORT Pgdesc : public MeiElement {
 class MEI_EXPORT Pgfoot : public MeiElement {
     public:
         Pgfoot();
-        virtual ~Pgfoot() {};
+        virtual ~Pgfoot() {}
         
         
     CommonMixIn    m_Common;
@@ -1486,7 +1435,6 @@ class MEI_EXPORT Pgfoot : public MeiElement {
     private:
         REGISTER_DECLARATION(Pgfoot);
 };
-
 
 /** \brief   page footer 2 ― A running header on the pages following the first. This
     * element is a specialized form of the fw element. Auto-generated page numbers may
@@ -1497,7 +1445,7 @@ class MEI_EXPORT Pgfoot : public MeiElement {
 class MEI_EXPORT Pgfoot2 : public MeiElement {
     public:
         Pgfoot2();
-        virtual ~Pgfoot2() {};
+        virtual ~Pgfoot2() {}
         
         
     CommonMixIn    m_Common;
@@ -1506,7 +1454,6 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
     private:
         REGISTER_DECLARATION(Pgfoot2);
 };
-
 
 /** \brief   page header ― A running header on the first page. This element is a
     * specialized form of the fw element for capturing the table-formatted textual
@@ -1519,7 +1466,7 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
 class MEI_EXPORT Pghead : public MeiElement {
     public:
         Pghead();
-        virtual ~Pghead() {};
+        virtual ~Pghead() {}
         
         
     CommonMixIn    m_Common;
@@ -1528,7 +1475,6 @@ class MEI_EXPORT Pghead : public MeiElement {
     private:
         REGISTER_DECLARATION(Pghead);
 };
-
 
 /** \brief   page header 2 ― A running header on the pages following the first. This
     * element is a specialized form of the fw element. The pgHead* and pgFoot*
@@ -1539,7 +1485,7 @@ class MEI_EXPORT Pghead : public MeiElement {
 class MEI_EXPORT Pghead2 : public MeiElement {
     public:
         Pghead2();
-        virtual ~Pghead2() {};
+        virtual ~Pghead2() {}
         
         
     CommonMixIn    m_Common;
@@ -1548,7 +1494,6 @@ class MEI_EXPORT Pghead2 : public MeiElement {
     private:
         REGISTER_DECLARATION(Pghead2);
 };
-
 
 /** \brief   phrase ― Historically, a phrase mark indicated a "unified melodic idea", while
     * the term "slur" was used for two-note legato patterns. (Read, p. 265). Nowadays,
@@ -1569,7 +1514,7 @@ class MEI_EXPORT Pghead2 : public MeiElement {
 class MEI_EXPORT Phrase : public MeiElement {
     public:
         Phrase();
-        virtual ~Phrase() {};
+        virtual ~Phrase() {}
         
         
     CommonMixIn    m_Common;
@@ -1601,7 +1546,6 @@ class MEI_EXPORT Phrase : public MeiElement {
         REGISTER_DECLARATION(Phrase);
 };
 
-
 /** \brief   rend ― A formatting element indicating special visual rendering, e.g., bold or
     * italicized, of a text word or phrase. When an entire element should be rendered
     * in a special way, a style sheet function should be used instead of the <rend>
@@ -1611,7 +1555,7 @@ class MEI_EXPORT Phrase : public MeiElement {
 class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
-        virtual ~Rend() {};
+        virtual ~Rend() {}
         
     /** \brief   used to extend the values of the rend attribute.
     */
@@ -1653,7 +1597,6 @@ class MEI_EXPORT Rend : public MeiElement {
         REGISTER_DECLARATION(Rend);
 };
 
-
 /** \brief   repository ― Institution or agency which holds a bibliographic item. Sub-units
     * of the institution may be marked with <repository> sub-elements. The name of the
     * list from which a controlled value is taken may be recorded using the authority
@@ -1664,7 +1607,7 @@ class MEI_EXPORT Rend : public MeiElement {
 class MEI_EXPORT Repository : public MeiElement {
     public:
         Repository();
-        virtual ~Repository() {};
+        virtual ~Repository() {}
         
         
     BiblMixIn    m_Bibl;
@@ -1679,7 +1622,6 @@ class MEI_EXPORT Repository : public MeiElement {
         REGISTER_DECLARATION(Repository);
 };
 
-
 /** \brief   rest ― A non-sounding event found in the source being transcribed (Read, p.
     * 96-102). Do not confuse this element with the space element, which is used as an
     * aid for visual alignment.
@@ -1688,7 +1630,7 @@ class MEI_EXPORT Repository : public MeiElement {
 class MEI_EXPORT Rest : public MeiElement {
     public:
         Rest();
-        virtual ~Rest() {};
+        virtual ~Rest() {}
         
         
     CommonMixIn    m_Common;
@@ -1720,14 +1662,13 @@ class MEI_EXPORT Rest : public MeiElement {
         REGISTER_DECLARATION(Rest);
 };
 
-
 /** \brief   role ― Name of a dramatic role, as given in a cast list.
     */
 
 class MEI_EXPORT Role : public MeiElement {
     public:
         Role();
-        virtual ~Role() {};
+        virtual ~Role() {}
         
         
     CommonMixIn    m_Common;
@@ -1737,14 +1678,13 @@ class MEI_EXPORT Role : public MeiElement {
         REGISTER_DECLARATION(Role);
 };
 
-
 /** \brief   role description ― Describes a character's role in a drama.
     */
 
 class MEI_EXPORT Roledesc : public MeiElement {
     public:
         Roledesc();
-        virtual ~Roledesc() {};
+        virtual ~Roledesc() {}
         
         
     CommonMixIn    m_Common;
@@ -1754,7 +1694,6 @@ class MEI_EXPORT Roledesc : public MeiElement {
         REGISTER_DECLARATION(Roledesc);
 };
 
-
 /** \brief   system break ― An empty formatting element that forces notation to begin on a
     * new line. Do not confuse this element with the <lb> element, which performs a
     * similar function in prose.
@@ -1763,7 +1702,7 @@ class MEI_EXPORT Roledesc : public MeiElement {
 class MEI_EXPORT Sb : public MeiElement {
     public:
         Sb();
-        virtual ~Sb() {};
+        virtual ~Sb() {}
         
         
     CommonMixIn    m_Common;
@@ -1776,7 +1715,6 @@ class MEI_EXPORT Sb : public MeiElement {
         REGISTER_DECLARATION(Sb);
 };
 
-
 /** \brief   score ― Full score view of the mdiv. Since the measure element is optional, a
     * score may consist entirely of pagebreaks, each of which points to a page image.
     * Div elements are allowed preceding and following sections of music data in order
@@ -1786,7 +1724,7 @@ class MEI_EXPORT Sb : public MeiElement {
 class MEI_EXPORT Score : public MeiElement {
     public:
         Score();
-        virtual ~Score() {};
+        virtual ~Score() {}
         
         
     CommonMixIn    m_Common;
@@ -1798,14 +1736,13 @@ class MEI_EXPORT Score : public MeiElement {
         REGISTER_DECLARATION(Score);
 };
 
-
 /** \brief   score definition ― Container for score meta-information.
     */
 
 class MEI_EXPORT Scoredef : public MeiElement {
     public:
         Scoredef();
-        virtual ~Scoredef() {};
+        virtual ~Scoredef() {}
         
         
     CommonMixIn    m_Common;
@@ -1845,7 +1782,6 @@ class MEI_EXPORT Scoredef : public MeiElement {
         REGISTER_DECLARATION(Scoredef);
 };
 
-
 /** \brief   section ― Container for actual music data. The linking attributes are
     * available here so that this element can point to external media objects or to
     * related internal elements, such as annotations.
@@ -1854,7 +1790,7 @@ class MEI_EXPORT Scoredef : public MeiElement {
 class MEI_EXPORT Section : public MeiElement {
     public:
         Section();
-        virtual ~Section() {};
+        virtual ~Section() {}
         
         
     CommonMixIn    m_Common;
@@ -1871,7 +1807,6 @@ class MEI_EXPORT Section : public MeiElement {
         REGISTER_DECLARATION(Section);
 };
 
-
 /** \brief   space ― A placeholder used to fill an incomplete measure, layer, etc. most
     * often so that the combined duration of the events equals the number of beats in
     * the measure.
@@ -1880,7 +1815,7 @@ class MEI_EXPORT Section : public MeiElement {
 class MEI_EXPORT Space : public MeiElement {
     public:
         Space();
-        virtual ~Space() {};
+        virtual ~Space() {}
         
         
     CommonMixIn    m_Common;
@@ -1902,14 +1837,13 @@ class MEI_EXPORT Space : public MeiElement {
         REGISTER_DECLARATION(Space);
 };
 
-
 /** \brief   stacked text ― An inline table with a single column.
     */
 
 class MEI_EXPORT Stack : public MeiElement {
     public:
         Stack();
-        virtual ~Stack() {};
+        virtual ~Stack() {}
         
     /** \brief   indicates the delimiter used to mark the portions of text that are to be
     * stacked.
@@ -1934,7 +1868,6 @@ class MEI_EXPORT Stack : public MeiElement {
         REGISTER_DECLARATION(Stack);
 };
 
-
 /** \brief   staff ― A group of equidistant horizontal lines on which notes are placed in
     * order to represent pitch. In MEI, however, <staff> is a grouping element for
     * individual 'strands' of notes, rests, etc. that may or may not be rendered on
@@ -1949,7 +1882,7 @@ class MEI_EXPORT Stack : public MeiElement {
 class MEI_EXPORT Staff : public MeiElement {
     public:
         Staff();
-        virtual ~Staff() {};
+        virtual ~Staff() {}
         
         
     CommonMixIn    m_Common;
@@ -1963,14 +1896,13 @@ class MEI_EXPORT Staff : public MeiElement {
         REGISTER_DECLARATION(Staff);
 };
 
-
 /** \brief   staff definition ― Container for staff meta-information.
     */
 
 class MEI_EXPORT Staffdef : public MeiElement {
     public:
         Staffdef();
-        virtual ~Staffdef() {};
+        virtual ~Staffdef() {}
         
         
     CommonMixIn    m_Common;
@@ -2011,7 +1943,6 @@ class MEI_EXPORT Staffdef : public MeiElement {
         REGISTER_DECLARATION(Staffdef);
 };
 
-
 /** \brief   staff group ― A group of bracketed or braced staves. Bracketed staff groups
     * may contain other bracketed or braced staff groups or single staves. See Read,
     * p. 35-38, examples p. 434, 438. System is the more proper name for this concept
@@ -2021,7 +1952,7 @@ class MEI_EXPORT Staffdef : public MeiElement {
 class MEI_EXPORT Staffgrp : public MeiElement {
     public:
         Staffgrp();
-        virtual ~Staffgrp() {};
+        virtual ~Staffgrp() {}
         
         
     CommonMixIn    m_Common;
@@ -2036,7 +1967,6 @@ class MEI_EXPORT Staffgrp : public MeiElement {
         REGISTER_DECLARATION(Staffgrp);
 };
 
-
 /** \brief   syllable ― Individual lyric syllable. Do not confuse this element with the
     * syllable element. The align attribute indicates the horizontal alignment of the
     * syllable with respect to the note to which it is attached.
@@ -2045,7 +1975,7 @@ class MEI_EXPORT Staffgrp : public MeiElement {
 class MEI_EXPORT Syl : public MeiElement {
     public:
         Syl();
-        virtual ~Syl() {};
+        virtual ~Syl() {}
         
         
     CommonMixIn    m_Common;
@@ -2063,7 +1993,6 @@ class MEI_EXPORT Syl : public MeiElement {
         REGISTER_DECLARATION(Syl);
 };
 
-
 /** \brief   tempo ― Text and symbols descriptive of tempo, mood, or style, e.g.,
     * "allarg.", "a tempo", "cantabile", "Moderato", "[qtrnote]=60", "Moderato
     * [qtrnote] =60"). Both instantaneous and continuous tempo markings may be encoded
@@ -2075,7 +2004,7 @@ class MEI_EXPORT Syl : public MeiElement {
 class MEI_EXPORT Tempo : public MeiElement {
     public:
         Tempo();
-        virtual ~Tempo() {};
+        virtual ~Tempo() {}
         
         
     CommonMixIn    m_Common;
@@ -2102,7 +2031,6 @@ class MEI_EXPORT Tempo : public MeiElement {
         REGISTER_DECLARATION(Tempo);
 };
 
-
 /** \brief   title ― Title of a bibliographic entity. The type attribute may be used to
     * classify the title according to some convenient typology. Sample values include:
     * main (main title), subordinate (subtitle, title of part), abbreviated
@@ -2121,7 +2049,7 @@ class MEI_EXPORT Tempo : public MeiElement {
 class MEI_EXPORT Title : public MeiElement {
     public:
         Title();
-        virtual ~Title() {};
+        virtual ~Title() {}
         
     /** \brief   indicates the bibliographic level for a title.
     */
@@ -2142,7 +2070,6 @@ class MEI_EXPORT Title : public MeiElement {
         REGISTER_DECLARATION(Title);
 };
 
-
 /** \brief   title page ― Contains a transcription of the title page of a text. It may be
     * used within the physDesc element when no other transcription is provided. This
     * element is modelled on an element in Encoded Archival Description (EAD).
@@ -2151,7 +2078,7 @@ class MEI_EXPORT Title : public MeiElement {
 class MEI_EXPORT Titlepage : public MeiElement {
     public:
         Titlepage();
-        virtual ~Titlepage() {};
+        virtual ~Titlepage() {}
         
         
     CommonMixIn    m_Common;
@@ -2160,7 +2087,6 @@ class MEI_EXPORT Titlepage : public MeiElement {
     private:
         REGISTER_DECLARATION(Titlepage);
 };
-
 
 }
 #endif // SHARED_H_

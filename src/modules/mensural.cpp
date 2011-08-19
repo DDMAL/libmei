@@ -1,5 +1,4 @@
 
-
 #include "mensural.h"
 using std::string;
 using mei::MeiAttribute;

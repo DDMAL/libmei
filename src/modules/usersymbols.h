@@ -51,7 +51,7 @@ namespace mei {
 class MEI_EXPORT Anchoredtext : public MeiElement {
     public:
         Anchoredtext();
-        virtual ~Anchoredtext() {};
+        virtual ~Anchoredtext() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -68,7 +68,6 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
     private:
         REGISTER_DECLARATION(Anchoredtext);
 };
-
 
 /** \brief   curve ― A curved line that cannot be represented by a more specific element,
     * such as a <slur>. The starting point of the curve may be identified in absolute
@@ -91,7 +90,7 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
 class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
-        virtual ~Curve() {};
+        virtual ~Curve() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -116,7 +115,6 @@ class MEI_EXPORT Curve : public MeiElement {
         REGISTER_DECLARATION(Curve);
 };
 
-
 /** \brief   line ― A line that cannot be represented by a more specific element. The
     * starting point of the line may be identified in absolute output coordinate terms
     * using the x1 and y1 attributes or relative to the location of another element
@@ -134,7 +132,7 @@ class MEI_EXPORT Curve : public MeiElement {
 class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
-        virtual ~Line() {};
+        virtual ~Line() {}
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -158,7 +156,6 @@ class MEI_EXPORT Line : public MeiElement {
         REGISTER_DECLARATION(Line);
 };
 
-
 /** \brief   symbol ― A reference to a previously defined symbol. The starting point, e.g.
     * "hotspot", of the symbol may be identified in absolute output coordinate terms
     * using the x and y attributes or relative to another element using the startid
@@ -172,7 +169,7 @@ class MEI_EXPORT Line : public MeiElement {
 class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
-        virtual ~Symbol() {};
+        virtual ~Symbol() {}
         
     /** \brief   contains a reference to a previously-declared user-defined symbol.
     */
@@ -198,21 +195,19 @@ class MEI_EXPORT Symbol : public MeiElement {
         REGISTER_DECLARATION(Symbol);
 };
 
-
 /** \brief   symbol definition ― Declaration of an individual symbol in a symbolTable.
     */
 
 class MEI_EXPORT Symboldef : public MeiElement {
     public:
         Symboldef();
-        virtual ~Symboldef() {};
+        virtual ~Symboldef() {}
         
         
     CommonMixIn    m_Common;
     private:
         REGISTER_DECLARATION(Symboldef);
 };
-
 
 /** \brief   symbol table ― Contains individual, user-defined symbols. Like a chord table,
     * a symbolTable may be shared between mei instances through the use of an external
@@ -222,14 +217,13 @@ class MEI_EXPORT Symboldef : public MeiElement {
 class MEI_EXPORT Symboltable : public MeiElement {
     public:
         Symboltable();
-        virtual ~Symboltable() {};
+        virtual ~Symboltable() {}
         
         
     CommonMixIn    m_Common;
     private:
         REGISTER_DECLARATION(Symboltable);
 };
-
 
 }
 #endif // USERSYMBOLS_H_

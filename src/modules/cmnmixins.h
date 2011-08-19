@@ -33,8 +33,8 @@ namespace mei {
     
 class ArpegLogMixIn {
     public:
-        ArpegLogMixIn(MeiElement *b);
-        virtual ~ArpegLogMixIn() {};
+        explicit ArpegLogMixIn(MeiElement *b);
+        virtual ~ArpegLogMixIn() {}
         
     /** \brief   describes the direction in which an arpeggio is to be performed.
     */
@@ -51,8 +51,8 @@ class ArpegLogMixIn {
 
 class ArpegVisMixIn {
     public:
-        ArpegVisMixIn(MeiElement *b);
-        virtual ~ArpegVisMixIn() {};
+        explicit ArpegVisMixIn(MeiElement *b);
+        virtual ~ArpegVisMixIn() {}
         
     /** \brief   indicates if an arrowhead is to be drawn as part of the arpeggiation symbol.
     */
@@ -69,8 +69,8 @@ class ArpegVisMixIn {
 
 class BtremLogMixIn {
     public:
-        BtremLogMixIn(MeiElement *b);
-        virtual ~BtremLogMixIn() {};
+        explicit BtremLogMixIn(MeiElement *b);
+        virtual ~BtremLogMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -87,8 +87,8 @@ class BtremLogMixIn {
 
 class BeamedMixIn {
     public:
-        BeamedMixIn(MeiElement *b);
-        virtual ~BeamedMixIn() {};
+        explicit BeamedMixIn(MeiElement *b);
+        virtual ~BeamedMixIn() {}
         
     /** \brief   indicates that this event is "under a beam".
     */
@@ -105,8 +105,8 @@ class BeamedMixIn {
 
 class BeamedwithMixIn {
     public:
-        BeamedwithMixIn(MeiElement *b);
-        virtual ~BeamedwithMixIn() {};
+        explicit BeamedwithMixIn(MeiElement *b);
+        virtual ~BeamedwithMixIn() {}
         
     /** \brief   In the case of cross-staff beams, the beam.with attribute is used to indicate
     * which staff the beam is connected to; that is, the staff above or the staff
@@ -125,8 +125,8 @@ class BeamedwithMixIn {
 
 class BeamingLogMixIn {
     public:
-        BeamingLogMixIn(MeiElement *b);
-        virtual ~BeamingLogMixIn() {};
+        explicit BeamingLogMixIn(MeiElement *b);
+        virtual ~BeamingLogMixIn() {}
         
     /** \brief   provides an example of how automated beaming (including secondary beams) is to
     * be performed. It can be used to set a default beaming pattern to be used when no
@@ -164,8 +164,8 @@ class BeamingLogMixIn {
 
 class BeamrendMixIn {
     public:
-        BeamrendMixIn(MeiElement *b);
-        virtual ~BeamrendMixIn() {};
+        explicit BeamrendMixIn(MeiElement *b);
+        virtual ~BeamrendMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -190,8 +190,8 @@ class BeamrendMixIn {
 
 class BeamsecondaryMixIn {
     public:
-        BeamsecondaryMixIn(MeiElement *b);
-        virtual ~BeamsecondaryMixIn() {};
+        explicit BeamsecondaryMixIn(MeiElement *b);
+        virtual ~BeamsecondaryMixIn() {}
         
     /** \brief   presence of this attribute indicates that the secondary beam should be broken
     * following this note/chord. The value of the attribute records the number of
@@ -210,8 +210,8 @@ class BeamsecondaryMixIn {
 
 class BeatrptVisMixIn {
     public:
-        BeatrptVisMixIn(MeiElement *b);
-        virtual ~BeatrptVisMixIn() {};
+        explicit BeatrptVisMixIn(MeiElement *b);
+        virtual ~BeatrptVisMixIn() {}
         
     /** \brief   describes the line style of the curve.
     */
@@ -228,8 +228,8 @@ class BeatrptVisMixIn {
 
 class BendGesMixIn {
     public:
-        BendGesMixIn(MeiElement *b);
-        virtual ~BendGesMixIn() {};
+        explicit BendGesMixIn(MeiElement *b);
+        virtual ~BendGesMixIn() {}
         
     /** \brief   records the amount of detuning. The decimal values should be rendered as a
     * fraction (or an integer plus a fraction) along with the bend symbol.
@@ -247,8 +247,8 @@ class BendGesMixIn {
 
 class CutoutMixIn {
     public:
-        CutoutMixIn(MeiElement *b);
-        virtual ~CutoutMixIn() {};
+        explicit CutoutMixIn(MeiElement *b);
+        virtual ~CutoutMixIn() {}
         
     /** \brief   "Cut-out" style indicated for this measure.
     */
@@ -265,8 +265,8 @@ class CutoutMixIn {
 
 class ExpandableMixIn {
     public:
-        ExpandableMixIn(MeiElement *b);
-        virtual ~ExpandableMixIn() {};
+        explicit ExpandableMixIn(MeiElement *b);
+        virtual ~ExpandableMixIn() {}
         
     /** \brief   indicates whether to render a repeat symbol or the source material to which it
     * refers. A value of 'true' renders the source material, while 'false' displays
@@ -285,8 +285,8 @@ class ExpandableMixIn {
 
 class FtremGesMixIn {
     public:
-        FtremGesMixIn(MeiElement *b);
-        virtual ~FtremGesMixIn() {};
+        explicit FtremGesMixIn(MeiElement *b);
+        virtual ~FtremGesMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -303,8 +303,8 @@ class FtremGesMixIn {
 
 class FermataVisMixIn {
     public:
-        FermataVisMixIn(MeiElement *b);
-        virtual ~FermataVisMixIn() {};
+        explicit FermataVisMixIn(MeiElement *b);
+        virtual ~FermataVisMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -329,8 +329,8 @@ class FermataVisMixIn {
 
 class GlissVisMixIn {
     public:
-        GlissVisMixIn(MeiElement *b);
-        virtual ~GlissVisMixIn() {};
+        explicit GlissVisMixIn(MeiElement *b);
+        virtual ~GlissVisMixIn() {}
         
     /** \brief   records a text string, such as 'gliss', that accompanies the glissando mark.
     */
@@ -347,8 +347,8 @@ class GlissVisMixIn {
 
 class GracedMixIn {
     public:
-        GracedMixIn(MeiElement *b);
-        virtual ~GracedMixIn() {};
+        explicit GracedMixIn(MeiElement *b);
+        virtual ~GracedMixIn() {}
         
     /** \brief   marks a note or chord as a "grace" (without a definitive written duration) and
     * records from which other note/chord it should "steal" time.
@@ -374,8 +374,8 @@ class GracedMixIn {
 
 class HairpinLogMixIn {
     public:
-        HairpinLogMixIn(MeiElement *b);
-        virtual ~HairpinLogMixIn() {};
+        explicit HairpinLogMixIn(MeiElement *b);
+        virtual ~HairpinLogMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -392,8 +392,8 @@ class HairpinLogMixIn {
 
 class HairpinVisMixIn {
     public:
-        HairpinVisMixIn(MeiElement *b);
-        virtual ~HairpinVisMixIn() {};
+        explicit HairpinVisMixIn(MeiElement *b);
+        virtual ~HairpinVisMixIn() {}
         
     /** \brief   specifies the distance between the points of the open end of a hairpin dynamic
     * mark.
@@ -411,8 +411,8 @@ class HairpinVisMixIn {
 
 class HarppedalLogMixIn {
     public:
-        HarppedalLogMixIn(MeiElement *b);
-        virtual ~HarppedalLogMixIn() {};
+        explicit HarppedalLogMixIn(MeiElement *b);
+        virtual ~HarppedalLogMixIn() {}
         
     /** \brief   indicates the pedal setting for the harp's C strings.
     */
@@ -477,8 +477,8 @@ class HarppedalLogMixIn {
 
 class LvpresentMixIn {
     public:
-        LvpresentMixIn(MeiElement *b);
-        virtual ~LvpresentMixIn() {};
+        explicit LvpresentMixIn(MeiElement *b);
+        virtual ~LvpresentMixIn() {}
         
     /** \brief   indicates the attachment of an l.v. (laissez vibrer) sign to this element.
     */
@@ -495,8 +495,8 @@ class LvpresentMixIn {
 
 class MultirestVisMixIn {
     public:
-        MultirestVisMixIn(MeiElement *b);
-        virtual ~MultirestVisMixIn() {};
+        explicit MultirestVisMixIn(MeiElement *b);
+        virtual ~MultirestVisMixIn() {}
         
     /** \brief   When the block attribute is used, combinations of the 1, 2, and 4 measure rest
     * forms (Read, p. 104) should be rendered instead of the modern form or an
@@ -515,8 +515,8 @@ class MultirestVisMixIn {
 
 class NoteGesCmnMixIn {
     public:
-        NoteGesCmnMixIn(MeiElement *b);
-        virtual ~NoteGesCmnMixIn() {};
+        explicit NoteGesCmnMixIn(MeiElement *b);
+        virtual ~NoteGesCmnMixIn() {}
         
     /** \brief   indicates that this element participates in a glissando.
     */
@@ -533,8 +533,8 @@ class NoteGesCmnMixIn {
 
 class NumberedMixIn {
     public:
-        NumberedMixIn(MeiElement *b);
-        virtual ~NumberedMixIn() {};
+        explicit NumberedMixIn(MeiElement *b);
+        virtual ~NumberedMixIn() {}
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -552,8 +552,8 @@ class NumberedMixIn {
 
 class NumberplacementMixIn {
     public:
-        NumberplacementMixIn(MeiElement *b);
-        virtual ~NumberplacementMixIn() {};
+        explicit NumberplacementMixIn(MeiElement *b);
+        virtual ~NumberplacementMixIn() {}
         
     /** \brief   states where the tuplet number will be placed in relation to the note heads.
     */
@@ -578,8 +578,8 @@ class NumberplacementMixIn {
 
 class OctaveLogMixIn {
     public:
-        OctaveLogMixIn(MeiElement *b);
-        virtual ~OctaveLogMixIn() {};
+        explicit OctaveLogMixIn(MeiElement *b);
+        virtual ~OctaveLogMixIn() {}
         
     /** \brief   indicates whether the octave displacement should be performed simultaneously
     * with the written notes, i.e., "coll' ottava". Unlike other octave signs which
@@ -600,8 +600,8 @@ class OctaveLogMixIn {
 
 class PedalLogMixIn {
     public:
-        PedalLogMixIn(MeiElement *b);
-        virtual ~PedalLogMixIn() {};
+        explicit PedalLogMixIn(MeiElement *b);
+        virtual ~PedalLogMixIn() {}
         
     /** \brief   records the position of the piano damper pedal.
     */
@@ -618,8 +618,8 @@ class PedalLogMixIn {
 
 class PedalVisMixIn {
     public:
-        PedalVisMixIn(MeiElement *b);
-        virtual ~PedalVisMixIn() {};
+        explicit PedalVisMixIn(MeiElement *b);
+        virtual ~PedalVisMixIn() {}
         
     /** \brief   determines whether piano pedal marks should be rendered as lines or as terms.
     */
@@ -636,8 +636,8 @@ class PedalVisMixIn {
 
 class PianopedalsMixIn {
     public:
-        PianopedalsMixIn(MeiElement *b);
-        virtual ~PianopedalsMixIn() {};
+        explicit PianopedalsMixIn(MeiElement *b);
+        virtual ~PianopedalsMixIn() {}
         
     /** \brief   determines whether piano pedal marks should be rendered as lines or as terms.
     */
@@ -654,8 +654,8 @@ class PianopedalsMixIn {
 
 class RehearsalMixIn {
     public:
-        RehearsalMixIn(MeiElement *b);
-        virtual ~RehearsalMixIn() {};
+        explicit RehearsalMixIn(MeiElement *b);
+        virtual ~RehearsalMixIn() {}
         
     /** \brief   describes the enclosing shape for rehearsal marks.
     */
@@ -672,8 +672,8 @@ class RehearsalMixIn {
 
 class ScoredefVisCmnMixIn {
     public:
-        ScoredefVisCmnMixIn(MeiElement *b);
-        virtual ~ScoredefVisCmnMixIn() {};
+        explicit ScoredefVisCmnMixIn(MeiElement *b);
+        virtual ~ScoredefVisCmnMixIn() {}
         
     /** \brief   determines whether to display guitar chord grids.
     */
@@ -690,8 +690,8 @@ class ScoredefVisCmnMixIn {
 
 class SlurrendMixIn {
     public:
-        SlurrendMixIn(MeiElement *b);
-        virtual ~SlurrendMixIn() {};
+        explicit SlurrendMixIn(MeiElement *b);
+        virtual ~SlurrendMixIn() {}
         
     /** \brief   describes the line style of the slur.
     */
@@ -708,8 +708,8 @@ class SlurrendMixIn {
 
 class StemmedCmnMixIn {
     public:
-        StemmedCmnMixIn(MeiElement *b);
-        virtual ~StemmedCmnMixIn() {};
+        explicit StemmedCmnMixIn(MeiElement *b);
+        virtual ~StemmedCmnMixIn() {}
         
     /** \brief   encodes any stem "modifiers"; that is, symbols rendered on the stem, such as
     * tremolo or Sprechstimme indicators.
@@ -737,8 +737,8 @@ class StemmedCmnMixIn {
 
 class TierendMixIn {
     public:
-        TierendMixIn(MeiElement *b);
-        virtual ~TierendMixIn() {};
+        explicit TierendMixIn(MeiElement *b);
+        virtual ~TierendMixIn() {}
         
     /** \brief   describes the line style of the tie
     */
@@ -755,8 +755,8 @@ class TierendMixIn {
 
 class TupletLogMixIn {
     public:
-        TupletLogMixIn(MeiElement *b);
-        virtual ~TupletLogMixIn() {};
+        explicit TupletLogMixIn(MeiElement *b);
+        virtual ~TupletLogMixIn() {}
         
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.
@@ -774,8 +774,8 @@ class TupletLogMixIn {
 
 class TupletVisMixIn {
     public:
-        TupletVisMixIn(MeiElement *b);
-        virtual ~TupletVisMixIn() {};
+        explicit TupletVisMixIn(MeiElement *b);
+        virtual ~TupletVisMixIn() {}
         
     /** \brief   used to state where a tuplet bracket will be placed in relation to the note
     * heads.
@@ -817,8 +817,8 @@ class TupletVisMixIn {
 
 class TupletspanLogMixIn {
     public:
-        TupletspanLogMixIn(MeiElement *b);
-        virtual ~TupletspanLogMixIn() {};
+        explicit TupletspanLogMixIn(MeiElement *b);
+        virtual ~TupletspanLogMixIn() {}
         
     /** \brief   records the duration of a feature using the relative durational values provided
     * by the data.DURATION datatype.

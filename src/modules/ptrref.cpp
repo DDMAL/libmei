@@ -1,5 +1,4 @@
 
-
 #include "ptrref.h"
 using std::string;
 using mei::MeiAttribute;

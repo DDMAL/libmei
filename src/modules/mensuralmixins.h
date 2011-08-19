@@ -33,8 +33,8 @@ namespace mei {
     
 class LigatureLogMixIn {
     public:
-        LigatureLogMixIn(MeiElement *b);
-        virtual ~LigatureLogMixIn() {};
+        explicit LigatureLogMixIn(MeiElement *b);
+        virtual ~LigatureLogMixIn() {}
         
     /** \brief   records the function of the dot.
     */
@@ -51,8 +51,8 @@ class LigatureLogMixIn {
 
 class MensurLogMixIn {
     public:
-        MensurLogMixIn(MeiElement *b);
-        virtual ~MensurLogMixIn() {};
+        explicit MensurLogMixIn(MeiElement *b);
+        virtual ~MensurLogMixIn() {}
         
     /** \brief   describes the maxima-long relationship.
     */
@@ -93,8 +93,8 @@ class MensurLogMixIn {
 
 class MensurVisMixIn {
     public:
-        MensurVisMixIn(MeiElement *b);
-        virtual ~MensurVisMixIn() {};
+        explicit MensurVisMixIn(MeiElement *b);
+        virtual ~MensurVisMixIn() {}
         
     /** \brief   specifies whether a dot is to be added to the base symbol.
     */
@@ -135,8 +135,8 @@ class MensurVisMixIn {
 
 class MensurationLogMixIn {
     public:
-        MensurationLogMixIn(MeiElement *b);
-        virtual ~MensurationLogMixIn() {};
+        explicit MensurationLogMixIn(MeiElement *b);
+        virtual ~MensurationLogMixIn() {}
         
     /** \brief   determines if a dot is to be added to the base symbol.
     */
@@ -178,8 +178,8 @@ class MensurationLogMixIn {
 
 class MensurationVisMixIn {
     public:
-        MensurationVisMixIn(MeiElement *b);
-        virtual ~MensurationVisMixIn() {};
+        explicit MensurationVisMixIn(MeiElement *b);
+        virtual ~MensurationVisMixIn() {}
         
     /** \brief   indicates whether the base symbol is written vertically or horizontally.
     */
@@ -212,8 +212,8 @@ class MensurationVisMixIn {
 
 class NoteLogMensuralMixIn {
     public:
-        NoteLogMensuralMixIn(MeiElement *b);
-        virtual ~NoteLogMensuralMixIn() {};
+        explicit NoteLogMensuralMixIn(MeiElement *b);
+        virtual ~NoteLogMensuralMixIn() {}
         
     /** \brief   indicates this element's participation in a ligature.
     */
@@ -230,8 +230,8 @@ class NoteLogMensuralMixIn {
 
 class RestVisMensuralMixIn {
     public:
-        RestVisMensuralMixIn(MeiElement *b);
-        virtual ~RestVisMensuralMixIn() {};
+        explicit RestVisMensuralMixIn(MeiElement *b);
+        virtual ~RestVisMensuralMixIn() {}
         
     /** \brief   states how many spaces are covered by the rest.
     */
@@ -248,8 +248,8 @@ class RestVisMensuralMixIn {
 
 class StaffdefLogMensuralMixIn {
     public:
-        StaffdefLogMensuralMixIn(MeiElement *b);
-        virtual ~StaffdefLogMensuralMixIn() {};
+        explicit StaffdefLogMensuralMixIn(MeiElement *b);
+        virtual ~StaffdefLogMensuralMixIn() {}
         
     /** \brief   Together, proport.num and proport.numbase specify a proportional change as a
     * ratio, e.g., 1:3. Proport.num is for the first value in the ratio.
