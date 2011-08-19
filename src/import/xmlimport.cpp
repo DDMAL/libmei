@@ -48,7 +48,7 @@ _MeiXml::_MeiXml(xmlDoc *d) {
     this->xmlMeiDocument = d;
     this->rootXmlNode = xmlDocGetRootElement(d);
     
-    this->rootMeiElement = new MeiElement(string((const char*)this->rootXmlNode->name));
+//    this->rootMeiElement = new MeiElement(string((const char*)this->rootXmlNode->name));
     this->xmlNodeToMeiElement(this->rootXmlNode);
 }
 
@@ -78,15 +78,27 @@ MeiDocument* _MeiXml::getMeiDocument() {
 //}
 //
 
-void _MeiXml::xmlNodeToMeiElement(xmlNode *node, MeiElement *parent) {
+MeiElement* _MeiXml::xmlNodeToMeiElement(xmlNode *el) {
 //    xmlNode* attrvalue = NULL;
-   	xmlNode* currnode = NULL;
-    for (currnode = node; currnode; currnode = currnode->next) {
-        if (currnode->type == XML_ELEMENT_NODE) {
-            cout << "hi there! " << currnode->name << endl;
-            MeiElement* child = MeiFactory::createInstance(string((const char*)currnode->name));
-            parent->addChild(child);
-            xmlNodeToMeiElement(currnode->children);
+    
+    MeiElement *obj;
+    
+    xmlNode *cur_node = NULL;
+    for (cur_node = el; cur_node; (cur_node = cur_node->next)) {
+        xmlNode* parent = cur_node->parent;
+        cout << "Parent: " << parent->name << endl;
+        
+        if (!MeiFactory::inMap(string((const char* )cur_node->name))) {
+            cout << "Skipping " << cur_node->name << ": " << cur_node->content << endl;
+            continue;
         }
+        if (cur_node->type == XML_ELEMENT_NODE) {
+            obj = MeiFactory::createInstance(string((const char*)cur_node->name));
+            cout << "MeiElement " << endl; 
+            obj->print(4);
+            cout << endl;
+        }
+        xmlNodeToMeiElement(cur_node->children);
     }
+    return obj;
 }

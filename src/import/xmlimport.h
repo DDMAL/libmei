@@ -30,7 +30,7 @@ namespace mei {
                 MeiDocument* getMeiDocument();
                 
             private:
-                static void xmlNodeToMeiElement(xmlNode *n);
+                MeiElement* xmlNodeToMeiElement(xmlNode *el);
                 
                 xmlNode* rootXmlNode;
                 xmlDoc* xmlMeiDocument;
