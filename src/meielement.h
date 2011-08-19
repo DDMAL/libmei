@@ -218,7 +218,14 @@ class MEI_EXPORT MeiElement
             return it->second();
             
         }
-            
+        
+        static bool inMap(std::string const& query) {
+            default_map::iterator it = getMap()->find(query);
+            if(it == getMap()->end())
+                return false;
+            return true;
+        }
+        
     protected:
         // static node_map * getNodeMap() {
         //     // never delete'ed. (exist until program termination)
