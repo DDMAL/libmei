@@ -16,6 +16,6 @@ using mei::MeiDocument;
 
 
 TEST(TestMeiXmlImport, ReadFileIn) {
-    MeiDocument* docf = mei::XmlImport::File("/Volumes/Eomer/ahankins/Documents/code/git/libmei/test/beethoven.mei");
-    
+    MeiDocument* docf = mei::XmlImport::File("beethoven.mei");
+    ASSERT_NE((MeiDocument*)NULL, docf);
 }
