@@ -1,8 +1,11 @@
 # -- coding: utf-8 --
 
+import sys
+if sys.version_info < (2, 7):
+    raise Exception("requires python 2.7")
+
 from lxml import etree
 import os
-import sys
 import textwrap
 import string
 import codecs
