@@ -23,10 +23,17 @@
 
 
 #include "meidocument.h"
-#include "meielement.h"
+
 #include <map>
+#include <string>
+#include <vector>
+
+#include "meielement.h"
 
 using std::map;
+using std::string;
+using std::vector;
+
 using mei::MeiElement;
 
 mei::MeiDocument::MeiDocument(string docname, string encoding) {
@@ -61,21 +68,21 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
         ns = MEI_NS;
         root->setNs(ns);
     }
-    root->addAttribute(new MeiAttribute("meiversion",MEI_VERSION));
+    root->addAttribute(new MeiAttribute("meiversion", MEI_VERSION));
     this->root = root;
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {
-    map<string,MeiElement*>::iterator it = getMap()->find(id);
+    map<string, MeiElement*>::iterator it = getMap()->find(id);
     if (it != getMap()->end()) {
         return it->second;
     }
     return NULL;
-} 
+}
 
-map<string,MeiElement*> *mei::MeiDocument::getMap() {
+map<string, MeiElement*> *mei::MeiDocument::getMap() {
     if (!idmap) {
-        idmap = new map<string,MeiElement*>;
+        idmap = new map<string, MeiElement*>;
         FillMap(root);
     }
     return idmap;
@@ -84,7 +91,7 @@ map<string,MeiElement*> *mei::MeiDocument::getMap() {
 void mei::MeiDocument::FillMap(MeiElement* element) {
     MeiAttribute *idattr = element->getAttribute("id");
     if (idattr) {
-        getMap()->insert(std::make_pair(idattr->getValue(),element));
+        getMap()->insert(std::make_pair(idattr->getValue(), element));
     }
     for (vector<MeiElement*>::iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
         FillMap(*i);
