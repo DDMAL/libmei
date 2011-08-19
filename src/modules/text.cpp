@@ -14,6 +14,7 @@ mei::Back::Back() :
 {
 };
 REGISTER_DEFINITION(mei::Back, "back");
+mei::Back::~Back() {};
 
 
 
@@ -27,6 +28,7 @@ mei::Div::Div() :
 {
 };
 REGISTER_DEFINITION(mei::Div, "div");
+mei::Div::~Div() {};
 
 
 
@@ -39,6 +41,7 @@ mei::Front::Front() :
 {
 };
 REGISTER_DEFINITION(mei::Front, "front");
+mei::Front::~Front() {};
 
 
 
@@ -51,6 +54,7 @@ mei::Head::Head() :
 {
 };
 REGISTER_DEFINITION(mei::Head, "head");
+mei::Head::~Head() {};
 
 
 
@@ -61,6 +65,7 @@ mei::Item::Item() :
 {
 };
 REGISTER_DEFINITION(mei::Item, "item");
+mei::Item::~Item() {};
 
 
 
@@ -72,6 +77,7 @@ mei::L::L() :
 {
 };
 REGISTER_DEFINITION(mei::L, "l");
+mei::L::~L() {};
 
 
 
@@ -85,6 +91,7 @@ mei::Lg::Lg() :
 {
 };
 REGISTER_DEFINITION(mei::Lg, "lg");
+mei::Lg::~Lg() {};
 
 
 
@@ -97,6 +104,7 @@ mei::List::List() :
 {
 };
 REGISTER_DEFINITION(mei::List, "list");
+mei::List::~List() {};
 
 
 MeiAttribute* mei::List::getForm() {
@@ -131,6 +139,7 @@ mei::Quote::Quote() :
 {
 };
 REGISTER_DEFINITION(mei::Quote, "quote");
+mei::Quote::~Quote() {};
 
 
 

@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::NoteGesTablatureMixIn::NoteGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::NoteGesTablatureMixIn::~NoteGesTablatureMixIn() {};
 
 MeiAttribute* mei::NoteGesTablatureMixIn::getTabFret() {
     if (!b->hasAttribute("tab.fret")) {
@@ -57,6 +58,7 @@ void mei::NoteGesTablatureMixIn::removeTabString() {
 mei::StaffdefGesTablatureMixIn::StaffdefGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::StaffdefGesTablatureMixIn::~StaffdefGesTablatureMixIn() {};
 
 MeiAttribute* mei::StaffdefGesTablatureMixIn::getTabStrings() {
     if (!b->hasAttribute("tab.strings")) {

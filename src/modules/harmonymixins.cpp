@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::FretlocationMixIn::FretlocationMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::FretlocationMixIn::~FretlocationMixIn() {};
 
 MeiAttribute* mei::FretlocationMixIn::getFret() {
     if (!b->hasAttribute("fret")) {
@@ -35,6 +36,7 @@ void mei::FretlocationMixIn::removeFret() {
 mei::HarmLogMixIn::HarmLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HarmLogMixIn::~HarmLogMixIn() {};
 
 MeiAttribute* mei::HarmLogMixIn::getChordref() {
     if (!b->hasAttribute("chordref")) {
@@ -62,6 +64,7 @@ void mei::HarmLogMixIn::removeChordref() {
 mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HarmVisMixIn::~HarmVisMixIn() {};
 
 MeiAttribute* mei::HarmVisMixIn::getExtender() {
     if (!b->hasAttribute("extender")) {

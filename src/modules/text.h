@@ -42,7 +42,7 @@ namespace mei {
 class MEI_EXPORT Back : public MeiElement {
     public:
         Back();
-        virtual ~Back() {}
+        virtual ~Back();
         
         
     CommonMixIn    m_Common;
@@ -61,7 +61,7 @@ class MEI_EXPORT Back : public MeiElement {
 class MEI_EXPORT Div : public MeiElement {
     public:
         Div();
-        virtual ~Div() {}
+        virtual ~Div();
         
         
     CommonMixIn    m_Common;
@@ -86,7 +86,7 @@ class MEI_EXPORT Div : public MeiElement {
 class MEI_EXPORT Front : public MeiElement {
     public:
         Front();
-        virtual ~Front() {}
+        virtual ~Front();
         
         
     CommonMixIn    m_Common;
@@ -107,7 +107,7 @@ class MEI_EXPORT Front : public MeiElement {
 class MEI_EXPORT Head : public MeiElement {
     public:
         Head();
-        virtual ~Head() {}
+        virtual ~Head();
         
         
     CommonMixIn    m_Common;
@@ -125,7 +125,7 @@ class MEI_EXPORT Head : public MeiElement {
 class MEI_EXPORT Item : public MeiElement {
     public:
         Item();
-        virtual ~Item() {}
+        virtual ~Item();
         
         
     CommonMixIn    m_Common;
@@ -144,7 +144,7 @@ class MEI_EXPORT Item : public MeiElement {
 class MEI_EXPORT L : public MeiElement {
     public:
         L();
-        virtual ~L() {}
+        virtual ~L();
         
         
     CommonMixIn    m_Common;
@@ -162,7 +162,7 @@ class MEI_EXPORT L : public MeiElement {
 class MEI_EXPORT Lg : public MeiElement {
     public:
         Lg();
-        virtual ~Lg() {}
+        virtual ~Lg();
         
         
     CommonMixIn    m_Common;
@@ -183,7 +183,7 @@ class MEI_EXPORT Lg : public MeiElement {
 class MEI_EXPORT List : public MeiElement {
     public:
         List();
-        virtual ~List() {}
+        virtual ~List();
         
     /** \brief   records the function of the dot.
     */
@@ -213,7 +213,7 @@ class MEI_EXPORT List : public MeiElement {
 class MEI_EXPORT Quote : public MeiElement {
     public:
         Quote();
-        virtual ~Quote() {}
+        virtual ~Quote();
         
         
     CommonMixIn    m_Common;

@@ -18,6 +18,7 @@ mei::Cc::Cc() :
 {
 };
 REGISTER_DEFINITION(mei::Cc, "cc");
+mei::Cc::~Cc() {};
 
 
 
@@ -32,6 +33,7 @@ mei::Chan::Chan() :
 {
 };
 REGISTER_DEFINITION(mei::Chan, "chan");
+mei::Chan::~Chan() {};
 
 
 MeiAttribute* mei::Chan::getNum() {
@@ -69,6 +71,7 @@ mei::Chanpr::Chanpr() :
 {
 };
 REGISTER_DEFINITION(mei::Chanpr, "chanPr");
+mei::Chanpr::~Chanpr() {};
 
 
 
@@ -83,6 +86,7 @@ mei::Cue::Cue() :
 {
 };
 REGISTER_DEFINITION(mei::Cue, "cue");
+mei::Cue::~Cue() {};
 
 
 
@@ -97,6 +101,7 @@ mei::Hex::Hex() :
 {
 };
 REGISTER_DEFINITION(mei::Hex, "hex");
+mei::Hex::~Hex() {};
 
 
 
@@ -111,6 +116,7 @@ mei::Marker::Marker() :
 {
 };
 REGISTER_DEFINITION(mei::Marker, "marker");
+mei::Marker::~Marker() {};
 
 
 
@@ -125,6 +131,7 @@ mei::Metatext::Metatext() :
 {
 };
 REGISTER_DEFINITION(mei::Metatext, "metaText");
+mei::Metatext::~Metatext() {};
 
 
 
@@ -138,6 +145,7 @@ mei::Midi::Midi() :
 {
 };
 REGISTER_DEFINITION(mei::Midi, "midi");
+mei::Midi::~Midi() {};
 
 
 
@@ -153,6 +161,7 @@ mei::Noteoff::Noteoff() :
 {
 };
 REGISTER_DEFINITION(mei::Noteoff, "noteOff");
+mei::Noteoff::~Noteoff() {};
 
 
 
@@ -168,6 +177,7 @@ mei::Noteon::Noteon() :
 {
 };
 REGISTER_DEFINITION(mei::Noteon, "noteOn");
+mei::Noteon::~Noteon() {};
 
 
 
@@ -183,6 +193,7 @@ mei::Port::Port() :
 {
 };
 REGISTER_DEFINITION(mei::Port, "port");
+mei::Port::~Port() {};
 
 
 
@@ -198,6 +209,7 @@ mei::Prog::Prog() :
 {
 };
 REGISTER_DEFINITION(mei::Prog, "prog");
+mei::Prog::~Prog() {};
 
 
 
@@ -212,6 +224,7 @@ mei::Seqnum::Seqnum() :
 {
 };
 REGISTER_DEFINITION(mei::Seqnum, "seqNum");
+mei::Seqnum::~Seqnum() {};
 
 
 MeiAttribute* mei::Seqnum::getNum() {
@@ -248,6 +261,7 @@ mei::Trkname::Trkname() :
 {
 };
 REGISTER_DEFINITION(mei::Trkname, "trkName");
+mei::Trkname::~Trkname() {};
 
 
 
@@ -263,6 +277,7 @@ mei::Vel::Vel() :
 {
 };
 REGISTER_DEFINITION(mei::Vel, "vel");
+mei::Vel::~Vel() {};
 
 
 MeiAttribute* mei::Vel::getForm() {

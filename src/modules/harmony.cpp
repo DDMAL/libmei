@@ -14,6 +14,7 @@ mei::Barre::Barre() :
 {
 };
 REGISTER_DEFINITION(mei::Barre, "barre");
+mei::Barre::~Barre() {};
 
 
 
@@ -23,6 +24,7 @@ mei::Chorddef::Chorddef() :
 {
 };
 REGISTER_DEFINITION(mei::Chorddef, "chordDef");
+mei::Chorddef::~Chorddef() {};
 
 
 MeiAttribute* mei::Chorddef::getPos() {
@@ -59,6 +61,7 @@ mei::Chordmember::Chordmember() :
 {
 };
 REGISTER_DEFINITION(mei::Chordmember, "chordMember");
+mei::Chordmember::~Chordmember() {};
 
 
 MeiAttribute* mei::Chordmember::getFing() {
@@ -90,6 +93,7 @@ mei::Chordtable::Chordtable() :
 {
 };
 REGISTER_DEFINITION(mei::Chordtable, "chordTable");
+mei::Chordtable::~Chordtable() {};
 
 
 
@@ -103,6 +107,7 @@ mei::F::F() :
 {
 };
 REGISTER_DEFINITION(mei::F, "f");
+mei::F::~F() {};
 
 
 MeiAttribute* mei::F::getExtender() {
@@ -137,6 +142,7 @@ mei::Fb::Fb() :
 {
 };
 REGISTER_DEFINITION(mei::Fb, "fb");
+mei::Fb::~Fb() {};
 
 
 
@@ -167,6 +173,7 @@ mei::Harm::Harm() :
 {
 };
 REGISTER_DEFINITION(mei::Harm, "harm");
+mei::Harm::~Harm() {};
 
 
 

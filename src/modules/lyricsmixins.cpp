@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::VerseLogMixIn::VerseLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::VerseLogMixIn::~VerseLogMixIn() {};
 
 MeiAttribute* mei::VerseLogMixIn::getRefrain() {
     if (!b->hasAttribute("refrain")) {

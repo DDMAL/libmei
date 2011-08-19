@@ -17,6 +17,7 @@ mei::Ineume::Ineume() :
 {
 };
 REGISTER_DEFINITION(mei::Ineume, "ineume");
+mei::Ineume::~Ineume() {};
 
 
 
@@ -26,6 +27,7 @@ mei::Syllable::Syllable() :
 {
 };
 REGISTER_DEFINITION(mei::Syllable, "syllable");
+mei::Syllable::~Syllable() {};
 
 
 
@@ -56,6 +58,7 @@ mei::Uneume::Uneume() :
 {
 };
 REGISTER_DEFINITION(mei::Uneume, "uneume");
+mei::Uneume::~Uneume() {};
 
 
 

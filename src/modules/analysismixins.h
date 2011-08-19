@@ -34,7 +34,7 @@ namespace mei {
 class CommonAnlMixIn {
     public:
         explicit CommonAnlMixIn(MeiElement *b);
-        virtual ~CommonAnlMixIn() {}
+        virtual ~CommonAnlMixIn();
         
     /** \brief   points to an element of which the current element is a copy.
     */
@@ -94,7 +94,7 @@ class CommonAnlMixIn {
 class HarmonicfunctionMixIn {
     public:
         explicit HarmonicfunctionMixIn(MeiElement *b);
-        virtual ~HarmonicfunctionMixIn() {}
+        virtual ~HarmonicfunctionMixIn();
         
     /** \brief   describes harmonic function in any convenient typology.
     */
@@ -112,7 +112,7 @@ class HarmonicfunctionMixIn {
 class IntervalharmonicMixIn {
     public:
         explicit IntervalharmonicMixIn(MeiElement *b);
-        virtual ~IntervalharmonicMixIn() {}
+        virtual ~IntervalharmonicMixIn();
         
     /** \brief   encodes the harmonic interval between this note and other pitches occurring at
     * the same time.
@@ -131,7 +131,7 @@ class IntervalharmonicMixIn {
 class IntervallicdescMixIn {
     public:
         explicit IntervallicdescMixIn(MeiElement *b);
-        virtual ~IntervallicdescMixIn() {}
+        virtual ~IntervallicdescMixIn();
         
     /** \brief   encodes the melodic interval from the previous pitch. The value may be a general
     * directional indication (u, d, s) or a precise numeric value in half steps.
@@ -150,7 +150,7 @@ class IntervallicdescMixIn {
 class MelodicfunctionMixIn {
     public:
         explicit MelodicfunctionMixIn(MeiElement *b);
-        virtual ~MelodicfunctionMixIn() {}
+        virtual ~MelodicfunctionMixIn();
         
     /** \brief   describes melodic function in any convenient typology.
     */
@@ -168,7 +168,7 @@ class MelodicfunctionMixIn {
 class PitchclassMixIn {
     public:
         explicit PitchclassMixIn(MeiElement *b);
-        virtual ~PitchclassMixIn() {}
+        virtual ~PitchclassMixIn();
         
     /** \brief   holds pitch class information.
     */
@@ -186,7 +186,7 @@ class PitchclassMixIn {
 class SolfaMixIn {
     public:
         explicit SolfaMixIn(MeiElement *b);
-        virtual ~SolfaMixIn() {}
+        virtual ~SolfaMixIn();
         
     /** \brief   contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
     * movable Do system.

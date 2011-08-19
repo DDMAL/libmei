@@ -49,7 +49,7 @@ namespace mei {
 class MEI_EXPORT Corpname : public MeiElement {
     public:
         Corpname();
-        virtual ~Corpname() {}
+        virtual ~Corpname();
         
         
     BiblMixIn    m_Bibl;
@@ -80,7 +80,7 @@ class MEI_EXPORT Corpname : public MeiElement {
 class MEI_EXPORT Geogname : public MeiElement {
     public:
         Geogname();
-        virtual ~Geogname() {}
+        virtual ~Geogname();
         
         
     BiblMixIn    m_Bibl;
@@ -106,7 +106,7 @@ class MEI_EXPORT Geogname : public MeiElement {
 class MEI_EXPORT Periodname : public MeiElement {
     public:
         Periodname();
-        virtual ~Periodname() {}
+        virtual ~Periodname();
         
         
     BiblMixIn    m_Bibl;
@@ -135,7 +135,7 @@ class MEI_EXPORT Periodname : public MeiElement {
 class MEI_EXPORT Persname : public MeiElement {
     public:
         Persname();
-        virtual ~Persname() {}
+        virtual ~Persname();
         
         
     BiblMixIn    m_Bibl;
@@ -163,7 +163,7 @@ class MEI_EXPORT Persname : public MeiElement {
 class MEI_EXPORT Stylename : public MeiElement {
     public:
         Stylename();
-        virtual ~Stylename() {}
+        virtual ~Stylename();
         
         
     BiblMixIn    m_Bibl;

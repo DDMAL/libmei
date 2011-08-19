@@ -19,6 +19,7 @@ mei::Lyrics::Lyrics() :
 {
 };
 REGISTER_DEFINITION(mei::Lyrics, "lyrics");
+mei::Lyrics::~Lyrics() {};
 
 
 
@@ -37,6 +38,7 @@ mei::Verse::Verse() :
 {
 };
 REGISTER_DEFINITION(mei::Verse, "verse");
+mei::Verse::~Verse() {};
 
 
 

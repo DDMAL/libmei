@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::ArpegLogMixIn::ArpegLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ArpegLogMixIn::~ArpegLogMixIn() {};
 
 MeiAttribute* mei::ArpegLogMixIn::getOrder() {
     if (!b->hasAttribute("order")) {
@@ -35,6 +36,7 @@ void mei::ArpegLogMixIn::removeOrder() {
 mei::ArpegVisMixIn::ArpegVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ArpegVisMixIn::~ArpegVisMixIn() {};
 
 MeiAttribute* mei::ArpegVisMixIn::getArrow() {
     if (!b->hasAttribute("arrow")) {
@@ -62,6 +64,7 @@ void mei::ArpegVisMixIn::removeArrow() {
 mei::BtremLogMixIn::BtremLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BtremLogMixIn::~BtremLogMixIn() {};
 
 MeiAttribute* mei::BtremLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -89,6 +92,7 @@ void mei::BtremLogMixIn::removeForm() {
 mei::BeamedMixIn::BeamedMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeamedMixIn::~BeamedMixIn() {};
 
 MeiAttribute* mei::BeamedMixIn::getBeam() {
     if (!b->hasAttribute("beam")) {
@@ -116,6 +120,7 @@ void mei::BeamedMixIn::removeBeam() {
 mei::BeamedwithMixIn::BeamedwithMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeamedwithMixIn::~BeamedwithMixIn() {};
 
 MeiAttribute* mei::BeamedwithMixIn::getBeamWith() {
     if (!b->hasAttribute("beam.with")) {
@@ -143,6 +148,7 @@ void mei::BeamedwithMixIn::removeBeamWith() {
 mei::BeamingLogMixIn::BeamingLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeamingLogMixIn::~BeamingLogMixIn() {};
 
 MeiAttribute* mei::BeamingLogMixIn::getBeamGroup() {
     if (!b->hasAttribute("beam.group")) {
@@ -192,6 +198,7 @@ void mei::BeamingLogMixIn::removeBeamRests() {
 mei::BeamrendMixIn::BeamrendMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeamrendMixIn::~BeamrendMixIn() {};
 
 MeiAttribute* mei::BeamrendMixIn::getRend() {
     if (!b->hasAttribute("rend")) {
@@ -241,6 +248,7 @@ void mei::BeamrendMixIn::removeSlope() {
 mei::BeamsecondaryMixIn::BeamsecondaryMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeamsecondaryMixIn::~BeamsecondaryMixIn() {};
 
 MeiAttribute* mei::BeamsecondaryMixIn::getBreaksec() {
     if (!b->hasAttribute("breaksec")) {
@@ -268,6 +276,7 @@ void mei::BeamsecondaryMixIn::removeBreaksec() {
 mei::BeatrptVisMixIn::BeatrptVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BeatrptVisMixIn::~BeatrptVisMixIn() {};
 
 MeiAttribute* mei::BeatrptVisMixIn::getRend() {
     if (!b->hasAttribute("rend")) {
@@ -295,6 +304,7 @@ void mei::BeatrptVisMixIn::removeRend() {
 mei::BendGesMixIn::BendGesMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::BendGesMixIn::~BendGesMixIn() {};
 
 MeiAttribute* mei::BendGesMixIn::getAmount() {
     if (!b->hasAttribute("amount")) {
@@ -322,6 +332,7 @@ void mei::BendGesMixIn::removeAmount() {
 mei::CutoutMixIn::CutoutMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::CutoutMixIn::~CutoutMixIn() {};
 
 MeiAttribute* mei::CutoutMixIn::getCutout() {
     if (!b->hasAttribute("cutout")) {
@@ -349,6 +360,7 @@ void mei::CutoutMixIn::removeCutout() {
 mei::ExpandableMixIn::ExpandableMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ExpandableMixIn::~ExpandableMixIn() {};
 
 MeiAttribute* mei::ExpandableMixIn::getExpand() {
     if (!b->hasAttribute("expand")) {
@@ -376,6 +388,7 @@ void mei::ExpandableMixIn::removeExpand() {
 mei::FtremGesMixIn::FtremGesMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::FtremGesMixIn::~FtremGesMixIn() {};
 
 MeiAttribute* mei::FtremGesMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -403,6 +416,7 @@ void mei::FtremGesMixIn::removeForm() {
 mei::FermataVisMixIn::FermataVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::FermataVisMixIn::~FermataVisMixIn() {};
 
 MeiAttribute* mei::FermataVisMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -452,6 +466,7 @@ void mei::FermataVisMixIn::removeShape() {
 mei::GlissVisMixIn::GlissVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::GlissVisMixIn::~GlissVisMixIn() {};
 
 MeiAttribute* mei::GlissVisMixIn::getText() {
     if (!b->hasAttribute("text")) {
@@ -479,6 +494,7 @@ void mei::GlissVisMixIn::removeText() {
 mei::GracedMixIn::GracedMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::GracedMixIn::~GracedMixIn() {};
 
 MeiAttribute* mei::GracedMixIn::getGrace() {
     if (!b->hasAttribute("grace")) {
@@ -528,6 +544,7 @@ void mei::GracedMixIn::removeGraceTime() {
 mei::HairpinLogMixIn::HairpinLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HairpinLogMixIn::~HairpinLogMixIn() {};
 
 MeiAttribute* mei::HairpinLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -555,6 +572,7 @@ void mei::HairpinLogMixIn::removeForm() {
 mei::HairpinVisMixIn::HairpinVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HairpinVisMixIn::~HairpinVisMixIn() {};
 
 MeiAttribute* mei::HairpinVisMixIn::getOpening() {
     if (!b->hasAttribute("opening")) {
@@ -582,6 +600,7 @@ void mei::HairpinVisMixIn::removeOpening() {
 mei::HarppedalLogMixIn::HarppedalLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HarppedalLogMixIn::~HarppedalLogMixIn() {};
 
 MeiAttribute* mei::HarppedalLogMixIn::getC() {
     if (!b->hasAttribute("c")) {
@@ -741,6 +760,7 @@ void mei::HarppedalLogMixIn::removeB() {
 mei::LvpresentMixIn::LvpresentMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::LvpresentMixIn::~LvpresentMixIn() {};
 
 MeiAttribute* mei::LvpresentMixIn::getLv() {
     if (!b->hasAttribute("lv")) {
@@ -768,6 +788,7 @@ void mei::LvpresentMixIn::removeLv() {
 mei::MultirestVisMixIn::MultirestVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MultirestVisMixIn::~MultirestVisMixIn() {};
 
 MeiAttribute* mei::MultirestVisMixIn::getBlock() {
     if (!b->hasAttribute("block")) {
@@ -795,6 +816,7 @@ void mei::MultirestVisMixIn::removeBlock() {
 mei::NoteGesCmnMixIn::NoteGesCmnMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::NoteGesCmnMixIn::~NoteGesCmnMixIn() {};
 
 MeiAttribute* mei::NoteGesCmnMixIn::getGliss() {
     if (!b->hasAttribute("gliss")) {
@@ -822,6 +844,7 @@ void mei::NoteGesCmnMixIn::removeGliss() {
 mei::NumberedMixIn::NumberedMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::NumberedMixIn::~NumberedMixIn() {};
 
 MeiAttribute* mei::NumberedMixIn::getNum() {
     if (!b->hasAttribute("num")) {
@@ -849,6 +872,7 @@ void mei::NumberedMixIn::removeNum() {
 mei::NumberplacementMixIn::NumberplacementMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::NumberplacementMixIn::~NumberplacementMixIn() {};
 
 MeiAttribute* mei::NumberplacementMixIn::getNumPlace() {
     if (!b->hasAttribute("num.place")) {
@@ -898,6 +922,7 @@ void mei::NumberplacementMixIn::removeNumVisible() {
 mei::OctaveLogMixIn::OctaveLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::OctaveLogMixIn::~OctaveLogMixIn() {};
 
 MeiAttribute* mei::OctaveLogMixIn::getColl() {
     if (!b->hasAttribute("coll")) {
@@ -925,6 +950,7 @@ void mei::OctaveLogMixIn::removeColl() {
 mei::PedalLogMixIn::PedalLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::PedalLogMixIn::~PedalLogMixIn() {};
 
 MeiAttribute* mei::PedalLogMixIn::getDir() {
     if (!b->hasAttribute("dir")) {
@@ -952,6 +978,7 @@ void mei::PedalLogMixIn::removeDir() {
 mei::PedalVisMixIn::PedalVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::PedalVisMixIn::~PedalVisMixIn() {};
 
 MeiAttribute* mei::PedalVisMixIn::getStyle() {
     if (!b->hasAttribute("style")) {
@@ -979,6 +1006,7 @@ void mei::PedalVisMixIn::removeStyle() {
 mei::PianopedalsMixIn::PianopedalsMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::PianopedalsMixIn::~PianopedalsMixIn() {};
 
 MeiAttribute* mei::PianopedalsMixIn::getPedalStyle() {
     if (!b->hasAttribute("pedal.style")) {
@@ -1006,6 +1034,7 @@ void mei::PianopedalsMixIn::removePedalStyle() {
 mei::RehearsalMixIn::RehearsalMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::RehearsalMixIn::~RehearsalMixIn() {};
 
 MeiAttribute* mei::RehearsalMixIn::getRehEnclose() {
     if (!b->hasAttribute("reh.enclose")) {
@@ -1033,6 +1062,7 @@ void mei::RehearsalMixIn::removeRehEnclose() {
 mei::ScoredefVisCmnMixIn::ScoredefVisCmnMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ScoredefVisCmnMixIn::~ScoredefVisCmnMixIn() {};
 
 MeiAttribute* mei::ScoredefVisCmnMixIn::getGridShow() {
     if (!b->hasAttribute("grid.show")) {
@@ -1060,6 +1090,7 @@ void mei::ScoredefVisCmnMixIn::removeGridShow() {
 mei::SlurrendMixIn::SlurrendMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::SlurrendMixIn::~SlurrendMixIn() {};
 
 MeiAttribute* mei::SlurrendMixIn::getSlurRend() {
     if (!b->hasAttribute("slur.rend")) {
@@ -1087,6 +1118,7 @@ void mei::SlurrendMixIn::removeSlurRend() {
 mei::StemmedCmnMixIn::StemmedCmnMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::StemmedCmnMixIn::~StemmedCmnMixIn() {};
 
 MeiAttribute* mei::StemmedCmnMixIn::getStemMod() {
     if (!b->hasAttribute("stem.mod")) {
@@ -1136,6 +1168,7 @@ void mei::StemmedCmnMixIn::removeStemWith() {
 mei::TierendMixIn::TierendMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TierendMixIn::~TierendMixIn() {};
 
 MeiAttribute* mei::TierendMixIn::getTieRend() {
     if (!b->hasAttribute("tie.rend")) {
@@ -1163,6 +1196,7 @@ void mei::TierendMixIn::removeTieRend() {
 mei::TupletLogMixIn::TupletLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TupletLogMixIn::~TupletLogMixIn() {};
 
 MeiAttribute* mei::TupletLogMixIn::getDur() {
     if (!b->hasAttribute("dur")) {
@@ -1190,6 +1224,7 @@ void mei::TupletLogMixIn::removeDur() {
 mei::TupletVisMixIn::TupletVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TupletVisMixIn::~TupletVisMixIn() {};
 
 MeiAttribute* mei::TupletVisMixIn::getBracketPlace() {
     if (!b->hasAttribute("bracket.place")) {
@@ -1283,6 +1318,7 @@ void mei::TupletVisMixIn::removeNumFormat() {
 mei::TupletspanLogMixIn::TupletspanLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TupletspanLogMixIn::~TupletspanLogMixIn() {};
 
 MeiAttribute* mei::TupletspanLogMixIn::getDur() {
     if (!b->hasAttribute("dur")) {

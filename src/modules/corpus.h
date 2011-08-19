@@ -45,7 +45,7 @@ namespace mei {
 class MEI_EXPORT Meicorpus : public MeiElement {
     public:
         Meicorpus();
-        virtual ~Meicorpus() {}
+        virtual ~Meicorpus();
         
         
     CommonMixIn    m_Common;

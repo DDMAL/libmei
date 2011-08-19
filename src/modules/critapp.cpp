@@ -12,6 +12,7 @@ mei::App::App() :
 {
 };
 REGISTER_DEFINITION(mei::App, "app");
+mei::App::~App() {};
 
 
 
@@ -32,6 +33,7 @@ mei::Lem::Lem() :
 {
 };
 REGISTER_DEFINITION(mei::Lem, "lem");
+mei::Lem::~Lem() {};
 
 
 
@@ -52,6 +54,7 @@ mei::Rdg::Rdg() :
 {
 };
 REGISTER_DEFINITION(mei::Rdg, "rdg");
+mei::Rdg::~Rdg() {};
 
 
 

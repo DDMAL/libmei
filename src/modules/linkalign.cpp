@@ -11,6 +11,7 @@ mei::Timeline::Timeline() :
 {
 };
 REGISTER_DEFINITION(mei::Timeline, "timeline");
+mei::Timeline::~Timeline() {};
 
 
 MeiAttribute* mei::Timeline::getAvref() {
@@ -65,6 +66,7 @@ mei::When::When() :
 {
 };
 REGISTER_DEFINITION(mei::When, "when");
+mei::When::~When() {};
 
 
 MeiAttribute* mei::When::getAbsolute() {

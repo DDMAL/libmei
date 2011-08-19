@@ -15,6 +15,7 @@ mei::Ligature::Ligature() :
 {
 };
 REGISTER_DEFINITION(mei::Ligature, "ligature");
+mei::Ligature::~Ligature() {};
 
 
 
@@ -34,6 +35,7 @@ mei::Mensur::Mensur() :
 {
 };
 REGISTER_DEFINITION(mei::Mensur, "mensur");
+mei::Mensur::~Mensur() {};
 
 
 
@@ -47,6 +49,7 @@ mei::Proport::Proport() :
 {
 };
 REGISTER_DEFINITION(mei::Proport, "proport");
+mei::Proport::~Proport() {};
 
 
 

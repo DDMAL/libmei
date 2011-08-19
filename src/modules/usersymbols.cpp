@@ -21,6 +21,7 @@ mei::Anchoredtext::Anchoredtext() :
 {
 };
 REGISTER_DEFINITION(mei::Anchoredtext, "anchoredText");
+mei::Anchoredtext::~Anchoredtext() {};
 
 
 
@@ -47,6 +48,7 @@ mei::Curve::Curve() :
 {
 };
 REGISTER_DEFINITION(mei::Curve, "curve");
+mei::Curve::~Curve() {};
 
 
 
@@ -72,6 +74,7 @@ mei::Line::Line() :
 {
 };
 REGISTER_DEFINITION(mei::Line, "line");
+mei::Line::~Line() {};
 
 
 
@@ -92,6 +95,7 @@ mei::Symbol::Symbol() :
 {
 };
 REGISTER_DEFINITION(mei::Symbol, "symbol");
+mei::Symbol::~Symbol() {};
 
 
 MeiAttribute* mei::Symbol::getRef() {
@@ -123,6 +127,7 @@ mei::Symboldef::Symboldef() :
 {
 };
 REGISTER_DEFINITION(mei::Symboldef, "symbolDef");
+mei::Symboldef::~Symboldef() {};
 
 
 
@@ -132,6 +137,7 @@ mei::Symboltable::Symboltable() :
 {
 };
 REGISTER_DEFINITION(mei::Symboltable, "symbolTable");
+mei::Symboltable::~Symboltable() {};
 
 
 

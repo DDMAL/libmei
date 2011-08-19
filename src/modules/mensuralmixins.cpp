@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::LigatureLogMixIn::LigatureLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::LigatureLogMixIn::~LigatureLogMixIn() {};
 
 MeiAttribute* mei::LigatureLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -35,6 +36,7 @@ void mei::LigatureLogMixIn::removeForm() {
 mei::MensurLogMixIn::MensurLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MensurLogMixIn::~MensurLogMixIn() {};
 
 MeiAttribute* mei::MensurLogMixIn::getModusmaior() {
     if (!b->hasAttribute("modusmaior")) {
@@ -128,6 +130,7 @@ void mei::MensurLogMixIn::removeTempus() {
 mei::MensurVisMixIn::MensurVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MensurVisMixIn::~MensurVisMixIn() {};
 
 MeiAttribute* mei::MensurVisMixIn::getDot() {
     if (!b->hasAttribute("dot")) {
@@ -221,6 +224,7 @@ void mei::MensurVisMixIn::removeSign() {
 mei::MensurationLogMixIn::MensurationLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MensurationLogMixIn::~MensurationLogMixIn() {};
 
 MeiAttribute* mei::MensurationLogMixIn::getMensurDot() {
     if (!b->hasAttribute("mensur.dot")) {
@@ -314,6 +318,7 @@ void mei::MensurationLogMixIn::removeMensurSlash() {
 mei::MensurationVisMixIn::MensurationVisMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MensurationVisMixIn::~MensurationVisMixIn() {};
 
 MeiAttribute* mei::MensurationVisMixIn::getMensurForm() {
     if (!b->hasAttribute("mensur.form")) {
@@ -385,6 +390,7 @@ void mei::MensurationVisMixIn::removeMensurSize() {
 mei::NoteLogMensuralMixIn::NoteLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::NoteLogMensuralMixIn::~NoteLogMensuralMixIn() {};
 
 MeiAttribute* mei::NoteLogMensuralMixIn::getLig() {
     if (!b->hasAttribute("lig")) {
@@ -412,6 +418,7 @@ void mei::NoteLogMensuralMixIn::removeLig() {
 mei::RestVisMensuralMixIn::RestVisMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::RestVisMensuralMixIn::~RestVisMensuralMixIn() {};
 
 MeiAttribute* mei::RestVisMensuralMixIn::getSpaces() {
     if (!b->hasAttribute("spaces")) {
@@ -439,6 +446,7 @@ void mei::RestVisMensuralMixIn::removeSpaces() {
 mei::StaffdefLogMensuralMixIn::StaffdefLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::StaffdefLogMensuralMixIn::~StaffdefLogMensuralMixIn() {};
 
 MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNum() {
     if (!b->hasAttribute("proport.num")) {

@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::IneumeLogMixIn::IneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::IneumeLogMixIn::~IneumeLogMixIn() {};
 
 MeiAttribute* mei::IneumeLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -57,6 +58,7 @@ void mei::IneumeLogMixIn::removeName() {
 mei::UneumeLogMixIn::UneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::UneumeLogMixIn::~UneumeLogMixIn() {};
 
 MeiAttribute* mei::UneumeLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {

@@ -43,7 +43,7 @@ namespace mei {
 class MEI_EXPORT Fig : public MeiElement {
     public:
         Fig();
-        virtual ~Fig() {}
+        virtual ~Fig();
         
         
     CommonMixIn    m_Common;
@@ -67,7 +67,7 @@ class MEI_EXPORT Fig : public MeiElement {
 class MEI_EXPORT Figdesc : public MeiElement {
     public:
         Figdesc();
-        virtual ~Figdesc() {}
+        virtual ~Figdesc();
         
         
     CommonMixIn    m_Common;
@@ -84,7 +84,7 @@ class MEI_EXPORT Figdesc : public MeiElement {
 class MEI_EXPORT Graphic : public MeiElement {
     public:
         Graphic();
-        virtual ~Graphic() {}
+        virtual ~Graphic();
         
     /** \brief   measurement of the vertical dimension of an image.
     */
@@ -113,7 +113,7 @@ class MEI_EXPORT Graphic : public MeiElement {
 class MEI_EXPORT Table : public MeiElement {
     public:
         Table();
-        virtual ~Table() {}
+        virtual ~Table();
         
         
     CommonMixIn    m_Common;
@@ -133,7 +133,7 @@ class MEI_EXPORT Table : public MeiElement {
 class MEI_EXPORT Td : public MeiElement {
     public:
         Td();
-        virtual ~Td() {}
+        virtual ~Td();
         
         
     CommonMixIn    m_Common;
@@ -154,7 +154,7 @@ class MEI_EXPORT Td : public MeiElement {
 class MEI_EXPORT Th : public MeiElement {
     public:
         Th();
-        virtual ~Th() {}
+        virtual ~Th();
         
         
     CommonMixIn    m_Common;
@@ -175,7 +175,7 @@ class MEI_EXPORT Th : public MeiElement {
 class MEI_EXPORT Tr : public MeiElement {
     public:
         Tr();
-        virtual ~Tr() {}
+        virtual ~Tr();
         
         
     CommonMixIn    m_Common;

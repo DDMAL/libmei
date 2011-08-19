@@ -12,6 +12,7 @@ mei::Facsimile::Facsimile() :
 {
 };
 REGISTER_DEFINITION(mei::Facsimile, "facsimile");
+mei::Facsimile::~Facsimile() {};
 
 
 
@@ -25,6 +26,7 @@ mei::Surface::Surface() :
 {
 };
 REGISTER_DEFINITION(mei::Surface, "surface");
+mei::Surface::~Surface() {};
 
 
 
@@ -36,6 +38,7 @@ mei::Zone::Zone() :
 {
 };
 REGISTER_DEFINITION(mei::Zone, "zone");
+mei::Zone::~Zone() {};
 
 
 

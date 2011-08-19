@@ -48,7 +48,7 @@ namespace mei {
 class MEI_EXPORT Mordent : public MeiElement {
     public:
         Mordent();
-        virtual ~Mordent() {}
+        virtual ~Mordent();
         
         
     CommonMixIn    m_Common;
@@ -88,7 +88,7 @@ class MEI_EXPORT Mordent : public MeiElement {
 class MEI_EXPORT Trill : public MeiElement {
     public:
         Trill();
-        virtual ~Trill() {}
+        virtual ~Trill();
         
         
     CommonMixIn    m_Common;
@@ -128,7 +128,7 @@ class MEI_EXPORT Trill : public MeiElement {
 class MEI_EXPORT Turn : public MeiElement {
     public:
         Turn();
-        virtual ~Turn() {}
+        virtual ~Turn();
         
         
     CommonMixIn    m_Common;

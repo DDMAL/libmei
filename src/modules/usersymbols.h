@@ -51,7 +51,7 @@ namespace mei {
 class MEI_EXPORT Anchoredtext : public MeiElement {
     public:
         Anchoredtext();
-        virtual ~Anchoredtext() {}
+        virtual ~Anchoredtext();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -90,7 +90,7 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
 class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
-        virtual ~Curve() {}
+        virtual ~Curve();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -132,7 +132,7 @@ class MEI_EXPORT Curve : public MeiElement {
 class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
-        virtual ~Line() {}
+        virtual ~Line();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -169,7 +169,7 @@ class MEI_EXPORT Line : public MeiElement {
 class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
-        virtual ~Symbol() {}
+        virtual ~Symbol();
         
     /** \brief   contains a reference to a previously-declared user-defined symbol.
     */
@@ -201,7 +201,7 @@ class MEI_EXPORT Symbol : public MeiElement {
 class MEI_EXPORT Symboldef : public MeiElement {
     public:
         Symboldef();
-        virtual ~Symboldef() {}
+        virtual ~Symboldef();
         
         
     CommonMixIn    m_Common;
@@ -217,7 +217,7 @@ class MEI_EXPORT Symboldef : public MeiElement {
 class MEI_EXPORT Symboltable : public MeiElement {
     public:
         Symboltable();
-        virtual ~Symboltable() {}
+        virtual ~Symboltable();
         
         
     CommonMixIn    m_Common;

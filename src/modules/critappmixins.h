@@ -34,7 +34,7 @@ namespace mei {
 class CritMixIn {
     public:
         explicit CritMixIn(MeiElement *b);
-        virtual ~CritMixIn() {}
+        virtual ~CritMixIn();
         
     /** \brief   classifies the cause for the variant reading, according to any appropriate
     * typology of possible origins.
@@ -53,7 +53,7 @@ class CritMixIn {
 class SourceMixIn {
     public:
         explicit SourceMixIn(MeiElement *b);
-        virtual ~SourceMixIn() {}
+        virtual ~SourceMixIn();
         
     /** \brief   contains a list of one or more pointers indicating the sources which attest to a
     * given reading. Each value should correspond to the ID of a <source> element

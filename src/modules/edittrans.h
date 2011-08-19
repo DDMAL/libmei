@@ -51,7 +51,7 @@ namespace mei {
 class MEI_EXPORT Add : public MeiElement {
     public:
         Add();
-        virtual ~Add() {}
+        virtual ~Add();
         
         
     CommonMixIn    m_Common;
@@ -77,7 +77,7 @@ class MEI_EXPORT Add : public MeiElement {
 class MEI_EXPORT Choice : public MeiElement {
     public:
         Choice();
-        virtual ~Choice() {}
+        virtual ~Choice();
         
         
     CommonMixIn    m_Common;
@@ -98,7 +98,7 @@ class MEI_EXPORT Choice : public MeiElement {
 class MEI_EXPORT Corr : public MeiElement {
     public:
         Corr();
-        virtual ~Corr() {}
+        virtual ~Corr();
         
         
     CommonMixIn    m_Common;
@@ -129,7 +129,7 @@ class MEI_EXPORT Corr : public MeiElement {
 class MEI_EXPORT Damage : public MeiElement {
     public:
         Damage();
-        virtual ~Damage() {}
+        virtual ~Damage();
         
     /** \brief   records the degree of damage.
     */
@@ -165,7 +165,7 @@ class MEI_EXPORT Damage : public MeiElement {
 class MEI_EXPORT Del : public MeiElement {
     public:
         Del();
-        virtual ~Del() {}
+        virtual ~Del();
         
     /** \brief   describes the line style of the curve.
     */
@@ -207,7 +207,7 @@ class MEI_EXPORT Del : public MeiElement {
 class MEI_EXPORT Gap : public MeiElement {
     public:
         Gap();
-        virtual ~Gap() {}
+        virtual ~Gap();
         
         
     CommonMixIn    m_Common;
@@ -239,7 +239,7 @@ class MEI_EXPORT Gap : public MeiElement {
 class MEI_EXPORT Handshift : public MeiElement {
     public:
         Handshift();
-        virtual ~Handshift() {}
+        virtual ~Handshift();
         
     /** \brief   describes the character of the new hand.
     */
@@ -288,7 +288,7 @@ class MEI_EXPORT Handshift : public MeiElement {
 class MEI_EXPORT Orig : public MeiElement {
     public:
         Orig();
-        virtual ~Orig() {}
+        virtual ~Orig();
         
         
     CommonMixIn    m_Common;
@@ -314,7 +314,7 @@ class MEI_EXPORT Orig : public MeiElement {
 class MEI_EXPORT Reg : public MeiElement {
     public:
         Reg();
-        virtual ~Reg() {}
+        virtual ~Reg();
         
         
     CommonMixIn    m_Common;
@@ -342,7 +342,7 @@ class MEI_EXPORT Reg : public MeiElement {
 class MEI_EXPORT Restore : public MeiElement {
     public:
         Restore();
-        virtual ~Restore() {}
+        virtual ~Restore();
         
     /** \brief   provides a description of the means of restoration.
     */
@@ -370,7 +370,7 @@ class MEI_EXPORT Restore : public MeiElement {
 class MEI_EXPORT Sic : public MeiElement {
     public:
         Sic();
-        virtual ~Sic() {}
+        virtual ~Sic();
         
         
     CommonMixIn    m_Common;
@@ -387,7 +387,7 @@ class MEI_EXPORT Sic : public MeiElement {
 class MEI_EXPORT Subst : public MeiElement {
     public:
         Subst();
-        virtual ~Subst() {}
+        virtual ~Subst();
         
         
     CommonMixIn    m_Common;
@@ -419,7 +419,7 @@ class MEI_EXPORT Subst : public MeiElement {
 class MEI_EXPORT Supplied : public MeiElement {
     public:
         Supplied();
-        virtual ~Supplied() {}
+        virtual ~Supplied();
         
         
     AgentidentMixIn    m_Agentident;
@@ -451,7 +451,7 @@ class MEI_EXPORT Supplied : public MeiElement {
 class MEI_EXPORT Unclear : public MeiElement {
     public:
         Unclear();
-        virtual ~Unclear() {}
+        virtual ~Unclear();
         
         
     AgentidentMixIn    m_Agentident;

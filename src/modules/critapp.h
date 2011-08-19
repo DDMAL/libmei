@@ -48,7 +48,7 @@ namespace mei {
 class MEI_EXPORT App : public MeiElement {
     public:
         App();
-        virtual ~App() {}
+        virtual ~App();
         
         
     CommonMixIn    m_Common;
@@ -72,7 +72,7 @@ class MEI_EXPORT App : public MeiElement {
 class MEI_EXPORT Lem : public MeiElement {
     public:
         Lem();
-        virtual ~Lem() {}
+        virtual ~Lem();
         
         
     CommonMixIn    m_Common;
@@ -101,7 +101,7 @@ class MEI_EXPORT Lem : public MeiElement {
 class MEI_EXPORT Rdg : public MeiElement {
     public:
         Rdg();
-        virtual ~Rdg() {}
+        virtual ~Rdg();
         
         
     CommonMixIn    m_Common;

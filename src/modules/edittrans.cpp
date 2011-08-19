@@ -17,6 +17,7 @@ mei::Add::Add() :
 {
 };
 REGISTER_DEFINITION(mei::Add, "add");
+mei::Add::~Add() {};
 
 
 
@@ -26,6 +27,7 @@ mei::Choice::Choice() :
 {
 };
 REGISTER_DEFINITION(mei::Choice, "choice");
+mei::Choice::~Choice() {};
 
 
 
@@ -40,6 +42,7 @@ mei::Corr::Corr() :
 {
 };
 REGISTER_DEFINITION(mei::Corr, "corr");
+mei::Corr::~Corr() {};
 
 
 
@@ -54,6 +57,7 @@ mei::Damage::Damage() :
 {
 };
 REGISTER_DEFINITION(mei::Damage, "damage");
+mei::Damage::~Damage() {};
 
 
 MeiAttribute* mei::Damage::getDegree() {
@@ -88,6 +92,7 @@ mei::Del::Del() :
 {
 };
 REGISTER_DEFINITION(mei::Del, "del");
+mei::Del::~Del() {};
 
 
 MeiAttribute* mei::Del::getRend() {
@@ -126,6 +131,7 @@ mei::Gap::Gap() :
 {
 };
 REGISTER_DEFINITION(mei::Gap, "gap");
+mei::Gap::~Gap() {};
 
 
 
@@ -140,6 +146,7 @@ mei::Handshift::Handshift() :
 {
 };
 REGISTER_DEFINITION(mei::Handshift, "handShift");
+mei::Handshift::~Handshift() {};
 
 
 MeiAttribute* mei::Handshift::getCharacter() {
@@ -220,6 +227,7 @@ mei::Orig::Orig() :
 {
 };
 REGISTER_DEFINITION(mei::Orig, "orig");
+mei::Orig::~Orig() {};
 
 
 
@@ -233,6 +241,7 @@ mei::Reg::Reg() :
 {
 };
 REGISTER_DEFINITION(mei::Reg, "reg");
+mei::Reg::~Reg() {};
 
 
 
@@ -246,6 +255,7 @@ mei::Restore::Restore() :
 {
 };
 REGISTER_DEFINITION(mei::Restore, "restore");
+mei::Restore::~Restore() {};
 
 
 MeiAttribute* mei::Restore::getDesc() {
@@ -278,6 +288,7 @@ mei::Sic::Sic() :
 {
 };
 REGISTER_DEFINITION(mei::Sic, "sic");
+mei::Sic::~Sic() {};
 
 
 
@@ -292,6 +303,7 @@ mei::Subst::Subst() :
 {
 };
 REGISTER_DEFINITION(mei::Subst, "subst");
+mei::Subst::~Subst() {};
 
 
 
@@ -307,6 +319,7 @@ mei::Supplied::Supplied() :
 {
 };
 REGISTER_DEFINITION(mei::Supplied, "supplied");
+mei::Supplied::~Supplied() {};
 
 
 
@@ -323,6 +336,7 @@ mei::Unclear::Unclear() :
 {
 };
 REGISTER_DEFINITION(mei::Unclear, "unclear");
+mei::Unclear::~Unclear() {};
 
 
 

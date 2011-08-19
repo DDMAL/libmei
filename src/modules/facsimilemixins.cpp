@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::FacsimileMixIn::FacsimileMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::FacsimileMixIn::~FacsimileMixIn() {};
 
 MeiAttribute* mei::FacsimileMixIn::getFacs() {
     if (!b->hasAttribute("facs")) {

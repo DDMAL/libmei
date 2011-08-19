@@ -26,6 +26,7 @@ mei::Arpeg::Arpeg() :
 {
 };
 REGISTER_DEFINITION(mei::Arpeg, "arpeg");
+mei::Arpeg::~Arpeg() {};
 
 
 
@@ -46,6 +47,7 @@ mei::Btrem::Btrem() :
 {
 };
 REGISTER_DEFINITION(mei::Btrem, "bTrem");
+mei::Btrem::~Btrem() {};
 
 
 
@@ -64,6 +66,7 @@ mei::Beam::Beam() :
 {
 };
 REGISTER_DEFINITION(mei::Beam, "beam");
+mei::Beam::~Beam() {};
 
 
 
@@ -87,6 +90,7 @@ mei::Beamspan::Beamspan() :
 {
 };
 REGISTER_DEFINITION(mei::Beamspan, "beamSpan");
+mei::Beamspan::~Beamspan() {};
 
 
 
@@ -107,6 +111,7 @@ mei::Beatrpt::Beatrpt() :
 {
 };
 REGISTER_DEFINITION(mei::Beatrpt, "beatRpt");
+mei::Beatrpt::~Beatrpt() {};
 
 
 
@@ -138,6 +143,7 @@ mei::Bend::Bend() :
 {
 };
 REGISTER_DEFINITION(mei::Bend, "bend");
+mei::Bend::~Bend() {};
 
 
 
@@ -164,6 +170,7 @@ mei::Breath::Breath() :
 {
 };
 REGISTER_DEFINITION(mei::Breath, "breath");
+mei::Breath::~Breath() {};
 
 
 
@@ -182,6 +189,7 @@ mei::Ftrem::Ftrem() :
 {
 };
 REGISTER_DEFINITION(mei::Ftrem, "fTrem");
+mei::Ftrem::~Ftrem() {};
 
 
 
@@ -210,6 +218,7 @@ mei::Fermata::Fermata() :
 {
 };
 REGISTER_DEFINITION(mei::Fermata, "fermata");
+mei::Fermata::~Fermata() {};
 
 
 
@@ -240,6 +249,7 @@ mei::Gliss::Gliss() :
 {
 };
 REGISTER_DEFINITION(mei::Gliss, "gliss");
+mei::Gliss::~Gliss() {};
 
 
 
@@ -273,6 +283,7 @@ mei::Hairpin::Hairpin() :
 {
 };
 REGISTER_DEFINITION(mei::Hairpin, "hairpin");
+mei::Hairpin::~Hairpin() {};
 
 
 
@@ -296,6 +307,7 @@ mei::Halfmrpt::Halfmrpt() :
 {
 };
 REGISTER_DEFINITION(mei::Halfmrpt, "halfmRpt");
+mei::Halfmrpt::~Halfmrpt() {};
 
 
 
@@ -323,6 +335,7 @@ mei::Harppedal::Harppedal() :
 {
 };
 REGISTER_DEFINITION(mei::Harppedal, "harpPedal");
+mei::Harppedal::~Harppedal() {};
 
 
 
@@ -351,6 +364,7 @@ mei::Mrest::Mrest() :
 {
 };
 REGISTER_DEFINITION(mei::Mrest, "mRest");
+mei::Mrest::~Mrest() {};
 
 
 
@@ -370,6 +384,7 @@ mei::Mrpt::Mrpt() :
 {
 };
 REGISTER_DEFINITION(mei::Mrpt, "mRpt");
+mei::Mrpt::~Mrpt() {};
 
 
 
@@ -389,6 +404,7 @@ mei::Mrpt2::Mrpt2() :
 {
 };
 REGISTER_DEFINITION(mei::Mrpt2, "mRpt2");
+mei::Mrpt2::~Mrpt2() {};
 
 
 
@@ -413,6 +429,7 @@ mei::Mspace::Mspace() :
 {
 };
 REGISTER_DEFINITION(mei::Mspace, "mSpace");
+mei::Mspace::~Mspace() {};
 
 
 
@@ -437,6 +454,7 @@ mei::Measure::Measure() :
 {
 };
 REGISTER_DEFINITION(mei::Measure, "measure");
+mei::Measure::~Measure() {};
 
 
 
@@ -458,6 +476,7 @@ mei::Multirest::Multirest() :
 {
 };
 REGISTER_DEFINITION(mei::Multirest, "multiRest");
+mei::Multirest::~Multirest() {};
 
 
 
@@ -477,6 +496,7 @@ mei::Multirpt::Multirpt() :
 {
 };
 REGISTER_DEFINITION(mei::Multirpt, "multiRpt");
+mei::Multirpt::~Multirpt() {};
 
 
 
@@ -507,6 +527,7 @@ mei::Octave::Octave() :
 {
 };
 REGISTER_DEFINITION(mei::Octave, "octave");
+mei::Octave::~Octave() {};
 
 
 
@@ -519,6 +540,7 @@ mei::Ossia::Ossia() :
 {
 };
 REGISTER_DEFINITION(mei::Ossia, "ossia");
+mei::Ossia::~Ossia() {};
 
 
 
@@ -546,6 +568,7 @@ mei::Pedal::Pedal() :
 {
 };
 REGISTER_DEFINITION(mei::Pedal, "pedal");
+mei::Pedal::~Pedal() {};
 
 
 
@@ -569,6 +592,7 @@ mei::Reh::Reh() :
 {
 };
 REGISTER_DEFINITION(mei::Reh, "reh");
+mei::Reh::~Reh() {};
 
 
 
@@ -603,6 +627,7 @@ mei::Slur::Slur() :
 {
 };
 REGISTER_DEFINITION(mei::Slur, "slur");
+mei::Slur::~Slur() {};
 
 
 
@@ -635,6 +660,7 @@ mei::Tie::Tie() :
 {
 };
 REGISTER_DEFINITION(mei::Tie, "tie");
+mei::Tie::~Tie() {};
 
 
 
@@ -660,6 +686,7 @@ mei::Tuplet::Tuplet() :
 {
 };
 REGISTER_DEFINITION(mei::Tuplet, "tuplet");
+mei::Tuplet::~Tuplet() {};
 
 
 
@@ -686,6 +713,7 @@ mei::Tupletspan::Tupletspan() :
 {
 };
 REGISTER_DEFINITION(mei::Tupletspan, "tupletSpan");
+mei::Tupletspan::~Tupletspan() {};
 
 
 

@@ -45,7 +45,7 @@ namespace mei {
 class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
-        virtual ~Ineume() {}
+        virtual ~Ineume();
         
         
     CommonMixIn    m_Common;
@@ -66,7 +66,7 @@ class MEI_EXPORT Ineume : public MeiElement {
 class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
-        virtual ~Syllable() {}
+        virtual ~Syllable();
         
         
     CommonMixIn    m_Common;
@@ -83,7 +83,7 @@ class MEI_EXPORT Syllable : public MeiElement {
 class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
-        virtual ~Uneume() {}
+        virtual ~Uneume();
         
         
     CommonMixIn    m_Common;

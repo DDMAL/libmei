@@ -44,7 +44,7 @@ namespace mei {
 class MEI_EXPORT Cc : public MeiElement {
     public:
         Cc();
-        virtual ~Cc() {}
+        virtual ~Cc();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -65,7 +65,7 @@ class MEI_EXPORT Cc : public MeiElement {
 class MEI_EXPORT Chan : public MeiElement {
     public:
         Chan();
-        virtual ~Chan() {}
+        virtual ~Chan();
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -93,7 +93,7 @@ class MEI_EXPORT Chan : public MeiElement {
 class MEI_EXPORT Chanpr : public MeiElement {
     public:
         Chanpr();
-        virtual ~Chanpr() {}
+        virtual ~Chanpr();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -113,7 +113,7 @@ class MEI_EXPORT Chanpr : public MeiElement {
 class MEI_EXPORT Cue : public MeiElement {
     public:
         Cue();
-        virtual ~Cue() {}
+        virtual ~Cue();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -133,7 +133,7 @@ class MEI_EXPORT Cue : public MeiElement {
 class MEI_EXPORT Hex : public MeiElement {
     public:
         Hex();
-        virtual ~Hex() {}
+        virtual ~Hex();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -152,7 +152,7 @@ class MEI_EXPORT Hex : public MeiElement {
 class MEI_EXPORT Marker : public MeiElement {
     public:
         Marker();
-        virtual ~Marker() {}
+        virtual ~Marker();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -171,7 +171,7 @@ class MEI_EXPORT Marker : public MeiElement {
 class MEI_EXPORT Metatext : public MeiElement {
     public:
         Metatext();
-        virtual ~Metatext() {}
+        virtual ~Metatext();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -193,7 +193,7 @@ class MEI_EXPORT Metatext : public MeiElement {
 class MEI_EXPORT Midi : public MeiElement {
     public:
         Midi();
-        virtual ~Midi() {}
+        virtual ~Midi();
         
         
     CommonMixIn    m_Common;
@@ -211,7 +211,7 @@ class MEI_EXPORT Midi : public MeiElement {
 class MEI_EXPORT Noteoff : public MeiElement {
     public:
         Noteoff();
-        virtual ~Noteoff() {}
+        virtual ~Noteoff();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -231,7 +231,7 @@ class MEI_EXPORT Noteoff : public MeiElement {
 class MEI_EXPORT Noteon : public MeiElement {
     public:
         Noteon();
-        virtual ~Noteon() {}
+        virtual ~Noteon();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -251,7 +251,7 @@ class MEI_EXPORT Noteon : public MeiElement {
 class MEI_EXPORT Port : public MeiElement {
     public:
         Port();
-        virtual ~Port() {}
+        virtual ~Port();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -271,7 +271,7 @@ class MEI_EXPORT Port : public MeiElement {
 class MEI_EXPORT Prog : public MeiElement {
     public:
         Prog();
-        virtual ~Prog() {}
+        virtual ~Prog();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -291,7 +291,7 @@ class MEI_EXPORT Prog : public MeiElement {
 class MEI_EXPORT Seqnum : public MeiElement {
     public:
         Seqnum();
-        virtual ~Seqnum() {}
+        virtual ~Seqnum();
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -318,7 +318,7 @@ class MEI_EXPORT Seqnum : public MeiElement {
 class MEI_EXPORT Trkname : public MeiElement {
     public:
         Trkname();
-        virtual ~Trkname() {}
+        virtual ~Trkname();
         
         
     CommonAnlMixIn    m_CommonAnl;
@@ -338,7 +338,7 @@ class MEI_EXPORT Trkname : public MeiElement {
 class MEI_EXPORT Vel : public MeiElement {
     public:
         Vel();
-        virtual ~Vel() {}
+        virtual ~Vel();
         
     /** \brief   records the function of the dot.
     */

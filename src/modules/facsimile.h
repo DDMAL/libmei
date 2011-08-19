@@ -43,7 +43,7 @@ namespace mei {
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
-        virtual ~Facsimile() {}
+        virtual ~Facsimile();
         
         
     CommonMixIn    m_Common;
@@ -62,7 +62,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
 class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
-        virtual ~Surface() {}
+        virtual ~Surface();
         
         
     CommonMixIn    m_Common;
@@ -81,7 +81,7 @@ class MEI_EXPORT Surface : public MeiElement {
 class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
-        virtual ~Zone() {}
+        virtual ~Zone();
         
         
     CommonMixIn    m_Common;

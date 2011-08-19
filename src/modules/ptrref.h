@@ -44,7 +44,7 @@ namespace mei {
 class MEI_EXPORT Extptr : public MeiElement {
     public:
         Extptr();
-        virtual ~Extptr() {}
+        virtual ~Extptr();
         
         
     CommonMixIn    m_Common;
@@ -67,7 +67,7 @@ class MEI_EXPORT Extptr : public MeiElement {
 class MEI_EXPORT Extref : public MeiElement {
     public:
         Extref();
-        virtual ~Extref() {}
+        virtual ~Extref();
         
         
     CommonMixIn    m_Common;
@@ -90,7 +90,7 @@ class MEI_EXPORT Extref : public MeiElement {
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
-        virtual ~Ptr() {}
+        virtual ~Ptr();
         
         
     CommonMixIn    m_Common;
@@ -111,7 +111,7 @@ class MEI_EXPORT Ptr : public MeiElement {
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
-        virtual ~Ref() {}
+        virtual ~Ref();
         
         
     CommonMixIn    m_Common;

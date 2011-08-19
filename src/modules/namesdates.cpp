@@ -22,6 +22,7 @@ mei::Corpname::Corpname() :
 {
 };
 REGISTER_DEFINITION(mei::Corpname, "corpName");
+mei::Corpname::~Corpname() {};
 
 
 
@@ -41,6 +42,7 @@ mei::Geogname::Geogname() :
 {
 };
 REGISTER_DEFINITION(mei::Geogname, "geogName");
+mei::Geogname::~Geogname() {};
 
 
 
@@ -61,6 +63,7 @@ mei::Periodname::Periodname() :
 {
 };
 REGISTER_DEFINITION(mei::Periodname, "periodName");
+mei::Periodname::~Periodname() {};
 
 
 
@@ -81,6 +84,7 @@ mei::Persname::Persname() :
 {
 };
 REGISTER_DEFINITION(mei::Persname, "persName");
+mei::Persname::~Persname() {};
 
 
 
@@ -100,6 +104,7 @@ mei::Stylename::Stylename() :
 {
 };
 REGISTER_DEFINITION(mei::Stylename, "styleName");
+mei::Stylename::~Stylename() {};
 
 
 

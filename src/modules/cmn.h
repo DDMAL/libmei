@@ -55,7 +55,7 @@ namespace mei {
 class MEI_EXPORT Arpeg : public MeiElement {
     public:
         Arpeg();
-        virtual ~Arpeg() {}
+        virtual ~Arpeg();
         
         
     CommonMixIn    m_Common;
@@ -94,7 +94,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
 class MEI_EXPORT Btrem : public MeiElement {
     public:
         Btrem();
-        virtual ~Btrem() {}
+        virtual ~Btrem();
         
         
     CommonMixIn    m_Common;
@@ -124,7 +124,7 @@ class MEI_EXPORT Btrem : public MeiElement {
 class MEI_EXPORT Beam : public MeiElement {
     public:
         Beam();
-        virtual ~Beam() {}
+        virtual ~Beam();
         
         
     CommonMixIn    m_Common;
@@ -151,7 +151,7 @@ class MEI_EXPORT Beam : public MeiElement {
 class MEI_EXPORT Beamspan : public MeiElement {
     public:
         Beamspan();
-        virtual ~Beamspan() {}
+        virtual ~Beamspan();
         
         
     CommonMixIn    m_Common;
@@ -182,7 +182,7 @@ class MEI_EXPORT Beamspan : public MeiElement {
 class MEI_EXPORT Beatrpt : public MeiElement {
     public:
         Beatrpt();
-        virtual ~Beatrpt() {}
+        virtual ~Beatrpt();
         
         
     CommonMixIn    m_Common;
@@ -215,7 +215,7 @@ class MEI_EXPORT Beatrpt : public MeiElement {
 class MEI_EXPORT Bend : public MeiElement {
     public:
         Bend();
-        virtual ~Bend() {}
+        virtual ~Bend();
         
         
     CommonMixIn    m_Common;
@@ -258,7 +258,7 @@ class MEI_EXPORT Bend : public MeiElement {
 class MEI_EXPORT Breath : public MeiElement {
     public:
         Breath();
-        virtual ~Breath() {}
+        virtual ~Breath();
         
         
     CommonMixIn    m_Common;
@@ -294,7 +294,7 @@ class MEI_EXPORT Breath : public MeiElement {
 class MEI_EXPORT Ftrem : public MeiElement {
     public:
         Ftrem();
-        virtual ~Ftrem() {}
+        virtual ~Ftrem();
         
         
     CommonMixIn    m_Common;
@@ -326,7 +326,7 @@ class MEI_EXPORT Ftrem : public MeiElement {
 class MEI_EXPORT Fermata : public MeiElement {
     public:
         Fermata();
-        virtual ~Fermata() {}
+        virtual ~Fermata();
         
         
     CommonMixIn    m_Common;
@@ -368,7 +368,7 @@ class MEI_EXPORT Fermata : public MeiElement {
 class MEI_EXPORT Gliss : public MeiElement {
     public:
         Gliss();
-        virtual ~Gliss() {}
+        virtual ~Gliss();
         
         
     CommonMixIn    m_Common;
@@ -409,7 +409,7 @@ class MEI_EXPORT Gliss : public MeiElement {
 class MEI_EXPORT Hairpin : public MeiElement {
     public:
         Hairpin();
-        virtual ~Hairpin() {}
+        virtual ~Hairpin();
         
         
     CommonMixIn    m_Common;
@@ -447,7 +447,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
 class MEI_EXPORT Halfmrpt : public MeiElement {
     public:
         Halfmrpt();
-        virtual ~Halfmrpt() {}
+        virtual ~Halfmrpt();
         
         
     CommonMixIn    m_Common;
@@ -477,7 +477,7 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
 class MEI_EXPORT Harppedal : public MeiElement {
     public:
         Harppedal();
-        virtual ~Harppedal() {}
+        virtual ~Harppedal();
         
         
     CommonMixIn    m_Common;
@@ -511,7 +511,7 @@ class MEI_EXPORT Harppedal : public MeiElement {
 class MEI_EXPORT Mrest : public MeiElement {
     public:
         Mrest();
-        virtual ~Mrest() {}
+        virtual ~Mrest();
         
         
     CommonMixIn    m_Common;
@@ -546,7 +546,7 @@ class MEI_EXPORT Mrest : public MeiElement {
 class MEI_EXPORT Mrpt : public MeiElement {
     public:
         Mrpt();
-        virtual ~Mrpt() {}
+        virtual ~Mrpt();
         
         
     CommonMixIn    m_Common;
@@ -571,7 +571,7 @@ class MEI_EXPORT Mrpt : public MeiElement {
 class MEI_EXPORT Mrpt2 : public MeiElement {
     public:
         Mrpt2();
-        virtual ~Mrpt2() {}
+        virtual ~Mrpt2();
         
         
     CommonMixIn    m_Common;
@@ -597,7 +597,7 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
 class MEI_EXPORT Mspace : public MeiElement {
     public:
         Mspace();
-        virtual ~Mspace() {}
+        virtual ~Mspace();
         
         
     CommonMixIn    m_Common;
@@ -631,7 +631,7 @@ class MEI_EXPORT Mspace : public MeiElement {
 class MEI_EXPORT Measure : public MeiElement {
     public:
         Measure();
-        virtual ~Measure() {}
+        virtual ~Measure();
         
         
     CommonMixIn    m_Common;
@@ -662,7 +662,7 @@ class MEI_EXPORT Measure : public MeiElement {
 class MEI_EXPORT Multirest : public MeiElement {
     public:
         Multirest();
-        virtual ~Multirest() {}
+        virtual ~Multirest();
         
         
     CommonMixIn    m_Common;
@@ -691,7 +691,7 @@ class MEI_EXPORT Multirest : public MeiElement {
 class MEI_EXPORT Multirpt : public MeiElement {
     public:
         Multirpt();
-        virtual ~Multirpt() {}
+        virtual ~Multirpt();
         
         
     CommonMixIn    m_Common;
@@ -725,7 +725,7 @@ class MEI_EXPORT Multirpt : public MeiElement {
 class MEI_EXPORT Octave : public MeiElement {
     public:
         Octave();
-        virtual ~Octave() {}
+        virtual ~Octave();
         
         
     CommonMixIn    m_Common;
@@ -766,7 +766,7 @@ class MEI_EXPORT Octave : public MeiElement {
 class MEI_EXPORT Ossia : public MeiElement {
     public:
         Ossia();
-        virtual ~Ossia() {}
+        virtual ~Ossia();
         
         
     CommonMixIn    m_Common;
@@ -785,7 +785,7 @@ class MEI_EXPORT Ossia : public MeiElement {
 class MEI_EXPORT Pedal : public MeiElement {
     public:
         Pedal();
-        virtual ~Pedal() {}
+        virtual ~Pedal();
         
         
     CommonMixIn    m_Common;
@@ -821,7 +821,7 @@ class MEI_EXPORT Pedal : public MeiElement {
 class MEI_EXPORT Reh : public MeiElement {
     public:
         Reh();
-        virtual ~Reh() {}
+        virtual ~Reh();
         
         
     CommonMixIn    m_Common;
@@ -864,7 +864,7 @@ class MEI_EXPORT Reh : public MeiElement {
 class MEI_EXPORT Slur : public MeiElement {
     public:
         Slur();
-        virtual ~Slur() {}
+        virtual ~Slur();
         
         
     CommonMixIn    m_Common;
@@ -905,7 +905,7 @@ class MEI_EXPORT Slur : public MeiElement {
 class MEI_EXPORT Tie : public MeiElement {
     public:
         Tie();
-        virtual ~Tie() {}
+        virtual ~Tie();
         
         
     CommonMixIn    m_Common;
@@ -956,7 +956,7 @@ class MEI_EXPORT Tie : public MeiElement {
 class MEI_EXPORT Tuplet : public MeiElement {
     public:
         Tuplet();
-        virtual ~Tuplet() {}
+        virtual ~Tuplet();
         
         
     CommonMixIn    m_Common;
@@ -991,7 +991,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
 class MEI_EXPORT Tupletspan : public MeiElement {
     public:
         Tupletspan();
-        virtual ~Tupletspan() {}
+        virtual ~Tupletspan();
         
         
     CommonMixIn    m_Common;

@@ -49,7 +49,7 @@ namespace mei {
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
         Lyrics();
-        virtual ~Lyrics() {}
+        virtual ~Lyrics();
         
         
     CommonMixIn    m_Common;
@@ -73,7 +73,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
 class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
-        virtual ~Verse() {}
+        virtual ~Verse();
         
         
     CommonMixIn    m_Common;

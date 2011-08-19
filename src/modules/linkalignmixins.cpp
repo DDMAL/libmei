@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::AlignmentMixIn::AlignmentMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::AlignmentMixIn::~AlignmentMixIn() {};
 
 MeiAttribute* mei::AlignmentMixIn::getWhen() {
     if (!b->hasAttribute("when")) {

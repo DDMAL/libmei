@@ -49,7 +49,7 @@ namespace mei {
 class MEI_EXPORT Ligature : public MeiElement {
     public:
         Ligature();
-        virtual ~Ligature() {}
+        virtual ~Ligature();
         
         
     CommonMixIn    m_Common;
@@ -71,7 +71,7 @@ class MEI_EXPORT Ligature : public MeiElement {
 class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
-        virtual ~Mensur() {}
+        virtual ~Mensur();
         
         
     CommonMixIn    m_Common;
@@ -98,7 +98,7 @@ class MEI_EXPORT Mensur : public MeiElement {
 class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();
-        virtual ~Proport() {}
+        virtual ~Proport();
         
         
     CommonMixIn    m_Common;

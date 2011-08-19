@@ -46,7 +46,7 @@ namespace mei {
 class MEI_EXPORT Barre : public MeiElement {
     public:
         Barre();
-        virtual ~Barre() {}
+        virtual ~Barre();
         
         
     CommonMixIn    m_Common;
@@ -68,7 +68,7 @@ class MEI_EXPORT Barre : public MeiElement {
 class MEI_EXPORT Chorddef : public MeiElement {
     public:
         Chorddef();
-        virtual ~Chorddef() {}
+        virtual ~Chorddef();
         
     /** \brief   records the fret position at which the chord tablature is to be played.
     */
@@ -94,7 +94,7 @@ class MEI_EXPORT Chorddef : public MeiElement {
 class MEI_EXPORT Chordmember : public MeiElement {
     public:
         Chordmember();
-        virtual ~Chordmember() {}
+        virtual ~Chordmember();
         
     /** \brief   indicates which finger, if any, should be used to play an individual string. The
     * values 'x' and 'o' indicated muffled and open strings, respectively.
@@ -123,7 +123,7 @@ class MEI_EXPORT Chordmember : public MeiElement {
 class MEI_EXPORT Chordtable : public MeiElement {
     public:
         Chordtable();
-        virtual ~Chordtable() {}
+        virtual ~Chordtable();
         
         
     CommonMixIn    m_Common;
@@ -137,7 +137,7 @@ class MEI_EXPORT Chordtable : public MeiElement {
 class MEI_EXPORT F : public MeiElement {
     public:
         F();
-        virtual ~F() {}
+        virtual ~F();
         
     /** \brief   indicates the presence of an extension symbol, typically a dash or underscore,
     * drawn from the end of the harmonic indication to the point indicated by the dur
@@ -164,7 +164,7 @@ class MEI_EXPORT F : public MeiElement {
 class MEI_EXPORT Fb : public MeiElement {
     public:
         Fb();
-        virtual ~Fb() {}
+        virtual ~Fb();
         
         
     CommonMixIn    m_Common;
@@ -188,7 +188,7 @@ class MEI_EXPORT Fb : public MeiElement {
 class MEI_EXPORT Harm : public MeiElement {
     public:
         Harm();
-        virtual ~Harm() {}
+        virtual ~Harm();
         
         
     CommonMixIn    m_Common;

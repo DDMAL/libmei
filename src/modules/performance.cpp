@@ -16,6 +16,7 @@ mei::Avfile::Avfile() :
 {
 };
 REGISTER_DEFINITION(mei::Avfile, "avFile");
+mei::Avfile::~Avfile() {};
 
 
 
@@ -27,6 +28,7 @@ mei::Clip::Clip() :
 {
 };
 REGISTER_DEFINITION(mei::Clip, "clip");
+mei::Clip::~Clip() {};
 
 
 MeiAttribute* mei::Clip::getBegin() {
@@ -103,6 +105,7 @@ mei::Performance::Performance() :
 {
 };
 REGISTER_DEFINITION(mei::Performance, "performance");
+mei::Performance::~Performance() {};
 
 
 
@@ -114,6 +117,7 @@ mei::Recording::Recording() :
 {
 };
 REGISTER_DEFINITION(mei::Recording, "recording");
+mei::Recording::~Recording() {};
 
 
 MeiAttribute* mei::Recording::getBegin() {

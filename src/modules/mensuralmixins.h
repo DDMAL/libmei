@@ -34,7 +34,7 @@ namespace mei {
 class LigatureLogMixIn {
     public:
         explicit LigatureLogMixIn(MeiElement *b);
-        virtual ~LigatureLogMixIn() {}
+        virtual ~LigatureLogMixIn();
         
     /** \brief   records the function of the dot.
     */
@@ -52,7 +52,7 @@ class LigatureLogMixIn {
 class MensurLogMixIn {
     public:
         explicit MensurLogMixIn(MeiElement *b);
-        virtual ~MensurLogMixIn() {}
+        virtual ~MensurLogMixIn();
         
     /** \brief   describes the maxima-long relationship.
     */
@@ -94,7 +94,7 @@ class MensurLogMixIn {
 class MensurVisMixIn {
     public:
         explicit MensurVisMixIn(MeiElement *b);
-        virtual ~MensurVisMixIn() {}
+        virtual ~MensurVisMixIn();
         
     /** \brief   specifies whether a dot is to be added to the base symbol.
     */
@@ -136,7 +136,7 @@ class MensurVisMixIn {
 class MensurationLogMixIn {
     public:
         explicit MensurationLogMixIn(MeiElement *b);
-        virtual ~MensurationLogMixIn() {}
+        virtual ~MensurationLogMixIn();
         
     /** \brief   determines if a dot is to be added to the base symbol.
     */
@@ -179,7 +179,7 @@ class MensurationLogMixIn {
 class MensurationVisMixIn {
     public:
         explicit MensurationVisMixIn(MeiElement *b);
-        virtual ~MensurationVisMixIn() {}
+        virtual ~MensurationVisMixIn();
         
     /** \brief   indicates whether the base symbol is written vertically or horizontally.
     */
@@ -213,7 +213,7 @@ class MensurationVisMixIn {
 class NoteLogMensuralMixIn {
     public:
         explicit NoteLogMensuralMixIn(MeiElement *b);
-        virtual ~NoteLogMensuralMixIn() {}
+        virtual ~NoteLogMensuralMixIn();
         
     /** \brief   indicates this element's participation in a ligature.
     */
@@ -231,7 +231,7 @@ class NoteLogMensuralMixIn {
 class RestVisMensuralMixIn {
     public:
         explicit RestVisMensuralMixIn(MeiElement *b);
-        virtual ~RestVisMensuralMixIn() {}
+        virtual ~RestVisMensuralMixIn();
         
     /** \brief   states how many spaces are covered by the rest.
     */
@@ -249,7 +249,7 @@ class RestVisMensuralMixIn {
 class StaffdefLogMensuralMixIn {
     public:
         explicit StaffdefLogMensuralMixIn(MeiElement *b);
-        virtual ~StaffdefLogMensuralMixIn() {}
+        virtual ~StaffdefLogMensuralMixIn();
         
     /** \brief   Together, proport.num and proport.numbase specify a proportional change as a
     * ratio, e.g., 1:3. Proport.num is for the first value in the ratio.

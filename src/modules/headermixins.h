@@ -34,7 +34,7 @@ namespace mei {
 class RegularmethodMixIn {
     public:
         explicit RegularmethodMixIn(MeiElement *b);
-        virtual ~RegularmethodMixIn() {}
+        virtual ~RegularmethodMixIn();
         
     /** \brief   indicates the method employed to mark corrections and normalizations.
     */

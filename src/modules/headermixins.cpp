@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::RegularmethodMixIn::RegularmethodMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::RegularmethodMixIn::~RegularmethodMixIn() {};
 
 MeiAttribute* mei::RegularmethodMixIn::getMethod() {
     if (!b->hasAttribute("method")) {

@@ -34,7 +34,7 @@ namespace mei {
 class IneumeLogMixIn {
     public:
         explicit IneumeLogMixIn(MeiElement *b);
-        virtual ~IneumeLogMixIn() {}
+        virtual ~IneumeLogMixIn();
         
     /** \brief   records the function of the dot.
     */
@@ -60,7 +60,7 @@ class IneumeLogMixIn {
 class UneumeLogMixIn {
     public:
         explicit UneumeLogMixIn(MeiElement *b);
-        virtual ~UneumeLogMixIn() {}
+        virtual ~UneumeLogMixIn();
         
     /** \brief   records the function of the dot.
     */

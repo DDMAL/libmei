@@ -34,7 +34,7 @@ namespace mei {
 class TabularMixIn {
     public:
         explicit TabularMixIn(MeiElement *b);
-        virtual ~TabularMixIn() {}
+        virtual ~TabularMixIn();
         
     /** \brief   the number of columns spanned by this cell.
     */

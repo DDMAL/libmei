@@ -71,7 +71,7 @@ namespace mei {
 class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
-        virtual ~Abbr() {}
+        virtual ~Abbr();
         
     /** \brief   records the expansion of a text abbreviation.
     */
@@ -107,7 +107,7 @@ class MEI_EXPORT Abbr : public MeiElement {
 class MEI_EXPORT Accid : public MeiElement {
     public:
         Accid();
-        virtual ~Accid() {}
+        virtual ~Accid();
         
         
     CommonMixIn    m_Common;
@@ -139,7 +139,7 @@ class MEI_EXPORT Accid : public MeiElement {
 class MEI_EXPORT Actor : public MeiElement {
     public:
         Actor();
-        virtual ~Actor() {}
+        virtual ~Actor();
         
         
     CommonMixIn    m_Common;
@@ -158,7 +158,7 @@ class MEI_EXPORT Actor : public MeiElement {
 class MEI_EXPORT Addrline : public MeiElement {
     public:
         Addrline();
-        virtual ~Addrline() {}
+        virtual ~Addrline();
         
         
     CommonMixIn    m_Common;
@@ -176,7 +176,7 @@ class MEI_EXPORT Addrline : public MeiElement {
 class MEI_EXPORT Address : public MeiElement {
     public:
         Address();
-        virtual ~Address() {}
+        virtual ~Address();
         
         
     CommonMixIn    m_Common;
@@ -211,7 +211,7 @@ class MEI_EXPORT Address : public MeiElement {
 class MEI_EXPORT Annot : public MeiElement {
     public:
         Annot();
-        virtual ~Annot() {}
+        virtual ~Annot();
         
         
     BiblMixIn    m_Bibl;
@@ -249,7 +249,7 @@ class MEI_EXPORT Annot : public MeiElement {
 class MEI_EXPORT Artic : public MeiElement {
     public:
         Artic();
-        virtual ~Artic() {}
+        virtual ~Artic();
         
         
     CommonMixIn    m_Common;
@@ -286,7 +286,7 @@ class MEI_EXPORT Artic : public MeiElement {
 class MEI_EXPORT Barline : public MeiElement {
     public:
         Barline();
-        virtual ~Barline() {}
+        virtual ~Barline();
         
         
     CommonMixIn    m_Common;
@@ -318,7 +318,7 @@ class MEI_EXPORT Barline : public MeiElement {
 class MEI_EXPORT Bibl : public MeiElement {
     public:
         Bibl();
-        virtual ~Bibl() {}
+        virtual ~Bibl();
         
         
     CommonMixIn    m_Common;
@@ -341,7 +341,7 @@ class MEI_EXPORT Bibl : public MeiElement {
 class MEI_EXPORT Body : public MeiElement {
     public:
         Body();
-        virtual ~Body() {}
+        virtual ~Body();
         
         
     CommonMixIn    m_Common;
@@ -356,7 +356,7 @@ class MEI_EXPORT Body : public MeiElement {
 class MEI_EXPORT Caption : public MeiElement {
     public:
         Caption();
-        virtual ~Caption() {}
+        virtual ~Caption();
         
         
     CommonMixIn    m_Common;
@@ -373,7 +373,7 @@ class MEI_EXPORT Caption : public MeiElement {
 class MEI_EXPORT Castgrp : public MeiElement {
     public:
         Castgrp();
-        virtual ~Castgrp() {}
+        virtual ~Castgrp();
         
         
     CommonMixIn    m_Common;
@@ -390,7 +390,7 @@ class MEI_EXPORT Castgrp : public MeiElement {
 class MEI_EXPORT Castitem : public MeiElement {
     public:
         Castitem();
-        virtual ~Castitem() {}
+        virtual ~Castitem();
         
         
     CommonMixIn    m_Common;
@@ -406,7 +406,7 @@ class MEI_EXPORT Castitem : public MeiElement {
 class MEI_EXPORT Castlist : public MeiElement {
     public:
         Castlist();
-        virtual ~Castlist() {}
+        virtual ~Castlist();
         
         
     CommonMixIn    m_Common;
@@ -423,7 +423,7 @@ class MEI_EXPORT Castlist : public MeiElement {
 class MEI_EXPORT Chord : public MeiElement {
     public:
         Chord();
-        virtual ~Chord() {}
+        virtual ~Chord();
         
         
     CommonMixIn    m_Common;
@@ -474,7 +474,7 @@ class MEI_EXPORT Chord : public MeiElement {
 class MEI_EXPORT Clef : public MeiElement {
     public:
         Clef();
-        virtual ~Clef() {}
+        virtual ~Clef();
         
         
     CommonMixIn    m_Common;
@@ -497,7 +497,7 @@ class MEI_EXPORT Clef : public MeiElement {
 class MEI_EXPORT Clefchange : public MeiElement {
     public:
         Clefchange();
-        virtual ~Clefchange() {}
+        virtual ~Clefchange();
         
         
     CommonMixIn    m_Common;
@@ -528,7 +528,7 @@ class MEI_EXPORT Clefchange : public MeiElement {
 class MEI_EXPORT Custos : public MeiElement {
     public:
         Custos();
-        virtual ~Custos() {}
+        virtual ~Custos();
         
         
     CommonMixIn    m_Common;
@@ -556,7 +556,7 @@ class MEI_EXPORT Custos : public MeiElement {
 class MEI_EXPORT Date : public MeiElement {
     public:
         Date();
-        virtual ~Date() {}
+        virtual ~Date();
         
     /** \brief   provides a regularized, authorized value.
     */
@@ -594,7 +594,7 @@ class MEI_EXPORT Date : public MeiElement {
 class MEI_EXPORT Dir : public MeiElement {
     public:
         Dir();
-        virtual ~Dir() {}
+        virtual ~Dir();
         
         
     CommonMixIn    m_Common;
@@ -632,7 +632,7 @@ class MEI_EXPORT Dir : public MeiElement {
 class MEI_EXPORT Dot : public MeiElement {
     public:
         Dot();
-        virtual ~Dot() {}
+        virtual ~Dot();
         
         
     CommonMixIn    m_Common;
@@ -670,7 +670,7 @@ class MEI_EXPORT Dot : public MeiElement {
 class MEI_EXPORT Dynam : public MeiElement {
     public:
         Dynam();
-        virtual ~Dynam() {}
+        virtual ~Dynam();
         
         
     CommonMixIn    m_Common;
@@ -710,7 +710,7 @@ class MEI_EXPORT Dynam : public MeiElement {
 class MEI_EXPORT Edition : public MeiElement {
     public:
         Edition();
-        virtual ~Edition() {}
+        virtual ~Edition();
         
         
     CommonMixIn    m_Common;
@@ -730,7 +730,7 @@ class MEI_EXPORT Edition : public MeiElement {
 class MEI_EXPORT Ending : public MeiElement {
     public:
         Ending();
-        virtual ~Ending() {}
+        virtual ~Ending();
         
         
     CommonMixIn    m_Common;
@@ -765,7 +765,7 @@ class MEI_EXPORT Ending : public MeiElement {
 class MEI_EXPORT Expan : public MeiElement {
     public:
         Expan();
-        virtual ~Expan() {}
+        virtual ~Expan();
         
     /** \brief   captures the unabbreviated form of the text.
     */
@@ -799,7 +799,7 @@ class MEI_EXPORT Expan : public MeiElement {
 class MEI_EXPORT Expansion : public MeiElement {
     public:
         Expansion();
-        virtual ~Expansion() {}
+        virtual ~Expansion();
         
         
     CommonMixIn    m_Common;
@@ -819,7 +819,7 @@ class MEI_EXPORT Expansion : public MeiElement {
 class MEI_EXPORT Fw : public MeiElement {
     public:
         Fw();
-        virtual ~Fw() {}
+        virtual ~Fw();
         
         
     CommonMixIn    m_Common;
@@ -839,7 +839,7 @@ class MEI_EXPORT Fw : public MeiElement {
 class MEI_EXPORT Group : public MeiElement {
     public:
         Group();
-        virtual ~Group() {}
+        virtual ~Group();
         
         
     CommonMixIn    m_Common;
@@ -857,7 +857,7 @@ class MEI_EXPORT Group : public MeiElement {
 class MEI_EXPORT Grpsym : public MeiElement {
     public:
         Grpsym();
-        virtual ~Grpsym() {}
+        virtual ~Grpsym();
         
         
     CommonMixIn    m_Common;
@@ -883,7 +883,7 @@ class MEI_EXPORT Grpsym : public MeiElement {
 class MEI_EXPORT Identifier : public MeiElement {
     public:
         Identifier();
-        virtual ~Identifier() {}
+        virtual ~Identifier();
         
         
     BiblMixIn    m_Bibl;
@@ -904,7 +904,7 @@ class MEI_EXPORT Identifier : public MeiElement {
 class MEI_EXPORT Incip : public MeiElement {
     public:
         Incip();
-        virtual ~Incip() {}
+        virtual ~Incip();
         
         
     CommonMixIn    m_Common;
@@ -922,7 +922,7 @@ class MEI_EXPORT Incip : public MeiElement {
 class MEI_EXPORT Instrdef : public MeiElement {
     public:
         Instrdef();
-        virtual ~Instrdef() {}
+        virtual ~Instrdef();
         
         
     CommonMixIn    m_Common;
@@ -938,7 +938,7 @@ class MEI_EXPORT Instrdef : public MeiElement {
 class MEI_EXPORT Instrgrp : public MeiElement {
     public:
         Instrgrp();
-        virtual ~Instrgrp() {}
+        virtual ~Instrgrp();
         
         
     CommonMixIn    m_Common;
@@ -953,7 +953,7 @@ class MEI_EXPORT Instrgrp : public MeiElement {
 class MEI_EXPORT Keyaccid : public MeiElement {
     public:
         Keyaccid();
-        virtual ~Keyaccid() {}
+        virtual ~Keyaccid();
         
     /** \brief   records the function of the dot.
     */
@@ -982,7 +982,7 @@ class MEI_EXPORT Keyaccid : public MeiElement {
 class MEI_EXPORT Keysig : public MeiElement {
     public:
         Keysig();
-        virtual ~Keysig() {}
+        virtual ~Keysig();
         
     /** \brief   indicates major, minor, or other tonality.
     */
@@ -1006,7 +1006,7 @@ class MEI_EXPORT Keysig : public MeiElement {
 class MEI_EXPORT Label : public MeiElement {
     public:
         Label();
-        virtual ~Label() {}
+        virtual ~Label();
         
         
     CommonMixIn    m_Common;
@@ -1026,7 +1026,7 @@ class MEI_EXPORT Label : public MeiElement {
 class MEI_EXPORT Layer : public MeiElement {
     public:
         Layer();
-        virtual ~Layer() {}
+        virtual ~Layer();
         
         
     CommonMixIn    m_Common;
@@ -1046,7 +1046,7 @@ class MEI_EXPORT Layer : public MeiElement {
 class MEI_EXPORT Layerdef : public MeiElement {
     public:
         Layerdef();
-        virtual ~Layerdef() {}
+        virtual ~Layerdef();
         
         
     CommonMixIn    m_Common;
@@ -1074,7 +1074,7 @@ class MEI_EXPORT Layerdef : public MeiElement {
 class MEI_EXPORT Lb : public MeiElement {
     public:
         Lb();
-        virtual ~Lb() {}
+        virtual ~Lb();
         
     /** \brief   records the function of an accidental.
     */
@@ -1111,7 +1111,7 @@ class MEI_EXPORT Lb : public MeiElement {
 class MEI_EXPORT Mdiv : public MeiElement {
     public:
         Mdiv();
-        virtual ~Mdiv() {}
+        virtual ~Mdiv();
         
         
     CommonMixIn    m_Common;
@@ -1131,7 +1131,7 @@ class MEI_EXPORT Mdiv : public MeiElement {
 class MEI_EXPORT Mei : public MeiElement {
     public:
         Mei();
-        virtual ~Mei() {}
+        virtual ~Mei();
         
         
     MeiversionMixIn    m_Meiversion;
@@ -1145,7 +1145,7 @@ class MEI_EXPORT Mei : public MeiElement {
 class MEI_EXPORT Music : public MeiElement {
     public:
         Music();
-        virtual ~Music() {}
+        virtual ~Music();
         
         
     CommonMixIn    m_Common;
@@ -1177,7 +1177,7 @@ class MEI_EXPORT Music : public MeiElement {
 class MEI_EXPORT Name : public MeiElement {
     public:
         Name();
-        virtual ~Name() {}
+        virtual ~Name();
         
         
     BiblMixIn    m_Bibl;
@@ -1210,7 +1210,7 @@ class MEI_EXPORT Name : public MeiElement {
 class MEI_EXPORT Note : public MeiElement {
     public:
         Note();
-        virtual ~Note() {}
+        virtual ~Note();
         
         
     CommonMixIn    m_Common;
@@ -1275,7 +1275,7 @@ class MEI_EXPORT Note : public MeiElement {
 class MEI_EXPORT Num : public MeiElement {
     public:
         Num();
-        virtual ~Num() {}
+        virtual ~Num();
         
         
     CommonMixIn    m_Common;
@@ -1296,7 +1296,7 @@ class MEI_EXPORT Num : public MeiElement {
 class MEI_EXPORT P : public MeiElement {
     public:
         P();
-        virtual ~P() {}
+        virtual ~P();
         
         
     CommonMixIn    m_Common;
@@ -1314,7 +1314,7 @@ class MEI_EXPORT P : public MeiElement {
 class MEI_EXPORT Pad : public MeiElement {
     public:
         Pad();
-        virtual ~Pad() {}
+        virtual ~Pad();
         
         
     CommonMixIn    m_Common;
@@ -1343,7 +1343,7 @@ class MEI_EXPORT Pad : public MeiElement {
 class MEI_EXPORT Part : public MeiElement {
     public:
         Part();
-        virtual ~Part() {}
+        virtual ~Part();
         
         
     CommonMixIn    m_Common;
@@ -1361,7 +1361,7 @@ class MEI_EXPORT Part : public MeiElement {
 class MEI_EXPORT Parts : public MeiElement {
     public:
         Parts();
-        virtual ~Parts() {}
+        virtual ~Parts();
         
         
     CommonMixIn    m_Common;
@@ -1383,7 +1383,7 @@ class MEI_EXPORT Parts : public MeiElement {
 class MEI_EXPORT Pb : public MeiElement {
     public:
         Pb();
-        virtual ~Pb() {}
+        virtual ~Pb();
         
         
     CommonMixIn    m_Common;
@@ -1408,7 +1408,7 @@ class MEI_EXPORT Pb : public MeiElement {
 class MEI_EXPORT Pgdesc : public MeiElement {
     public:
         Pgdesc();
-        virtual ~Pgdesc() {}
+        virtual ~Pgdesc();
         
         
     CommonMixIn    m_Common;
@@ -1426,7 +1426,7 @@ class MEI_EXPORT Pgdesc : public MeiElement {
 class MEI_EXPORT Pgfoot : public MeiElement {
     public:
         Pgfoot();
-        virtual ~Pgfoot() {}
+        virtual ~Pgfoot();
         
         
     CommonMixIn    m_Common;
@@ -1445,7 +1445,7 @@ class MEI_EXPORT Pgfoot : public MeiElement {
 class MEI_EXPORT Pgfoot2 : public MeiElement {
     public:
         Pgfoot2();
-        virtual ~Pgfoot2() {}
+        virtual ~Pgfoot2();
         
         
     CommonMixIn    m_Common;
@@ -1466,7 +1466,7 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
 class MEI_EXPORT Pghead : public MeiElement {
     public:
         Pghead();
-        virtual ~Pghead() {}
+        virtual ~Pghead();
         
         
     CommonMixIn    m_Common;
@@ -1485,7 +1485,7 @@ class MEI_EXPORT Pghead : public MeiElement {
 class MEI_EXPORT Pghead2 : public MeiElement {
     public:
         Pghead2();
-        virtual ~Pghead2() {}
+        virtual ~Pghead2();
         
         
     CommonMixIn    m_Common;
@@ -1514,7 +1514,7 @@ class MEI_EXPORT Pghead2 : public MeiElement {
 class MEI_EXPORT Phrase : public MeiElement {
     public:
         Phrase();
-        virtual ~Phrase() {}
+        virtual ~Phrase();
         
         
     CommonMixIn    m_Common;
@@ -1555,7 +1555,7 @@ class MEI_EXPORT Phrase : public MeiElement {
 class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
-        virtual ~Rend() {}
+        virtual ~Rend();
         
     /** \brief   used to extend the values of the rend attribute.
     */
@@ -1607,7 +1607,7 @@ class MEI_EXPORT Rend : public MeiElement {
 class MEI_EXPORT Repository : public MeiElement {
     public:
         Repository();
-        virtual ~Repository() {}
+        virtual ~Repository();
         
         
     BiblMixIn    m_Bibl;
@@ -1630,7 +1630,7 @@ class MEI_EXPORT Repository : public MeiElement {
 class MEI_EXPORT Rest : public MeiElement {
     public:
         Rest();
-        virtual ~Rest() {}
+        virtual ~Rest();
         
         
     CommonMixIn    m_Common;
@@ -1668,7 +1668,7 @@ class MEI_EXPORT Rest : public MeiElement {
 class MEI_EXPORT Role : public MeiElement {
     public:
         Role();
-        virtual ~Role() {}
+        virtual ~Role();
         
         
     CommonMixIn    m_Common;
@@ -1684,7 +1684,7 @@ class MEI_EXPORT Role : public MeiElement {
 class MEI_EXPORT Roledesc : public MeiElement {
     public:
         Roledesc();
-        virtual ~Roledesc() {}
+        virtual ~Roledesc();
         
         
     CommonMixIn    m_Common;
@@ -1702,7 +1702,7 @@ class MEI_EXPORT Roledesc : public MeiElement {
 class MEI_EXPORT Sb : public MeiElement {
     public:
         Sb();
-        virtual ~Sb() {}
+        virtual ~Sb();
         
         
     CommonMixIn    m_Common;
@@ -1724,7 +1724,7 @@ class MEI_EXPORT Sb : public MeiElement {
 class MEI_EXPORT Score : public MeiElement {
     public:
         Score();
-        virtual ~Score() {}
+        virtual ~Score();
         
         
     CommonMixIn    m_Common;
@@ -1742,7 +1742,7 @@ class MEI_EXPORT Score : public MeiElement {
 class MEI_EXPORT Scoredef : public MeiElement {
     public:
         Scoredef();
-        virtual ~Scoredef() {}
+        virtual ~Scoredef();
         
         
     CommonMixIn    m_Common;
@@ -1790,7 +1790,7 @@ class MEI_EXPORT Scoredef : public MeiElement {
 class MEI_EXPORT Section : public MeiElement {
     public:
         Section();
-        virtual ~Section() {}
+        virtual ~Section();
         
         
     CommonMixIn    m_Common;
@@ -1815,7 +1815,7 @@ class MEI_EXPORT Section : public MeiElement {
 class MEI_EXPORT Space : public MeiElement {
     public:
         Space();
-        virtual ~Space() {}
+        virtual ~Space();
         
         
     CommonMixIn    m_Common;
@@ -1843,7 +1843,7 @@ class MEI_EXPORT Space : public MeiElement {
 class MEI_EXPORT Stack : public MeiElement {
     public:
         Stack();
-        virtual ~Stack() {}
+        virtual ~Stack();
         
     /** \brief   indicates the delimiter used to mark the portions of text that are to be
     * stacked.
@@ -1882,7 +1882,7 @@ class MEI_EXPORT Stack : public MeiElement {
 class MEI_EXPORT Staff : public MeiElement {
     public:
         Staff();
-        virtual ~Staff() {}
+        virtual ~Staff();
         
         
     CommonMixIn    m_Common;
@@ -1902,7 +1902,7 @@ class MEI_EXPORT Staff : public MeiElement {
 class MEI_EXPORT Staffdef : public MeiElement {
     public:
         Staffdef();
-        virtual ~Staffdef() {}
+        virtual ~Staffdef();
         
         
     CommonMixIn    m_Common;
@@ -1952,7 +1952,7 @@ class MEI_EXPORT Staffdef : public MeiElement {
 class MEI_EXPORT Staffgrp : public MeiElement {
     public:
         Staffgrp();
-        virtual ~Staffgrp() {}
+        virtual ~Staffgrp();
         
         
     CommonMixIn    m_Common;
@@ -1975,7 +1975,7 @@ class MEI_EXPORT Staffgrp : public MeiElement {
 class MEI_EXPORT Syl : public MeiElement {
     public:
         Syl();
-        virtual ~Syl() {}
+        virtual ~Syl();
         
         
     CommonMixIn    m_Common;
@@ -2004,7 +2004,7 @@ class MEI_EXPORT Syl : public MeiElement {
 class MEI_EXPORT Tempo : public MeiElement {
     public:
         Tempo();
-        virtual ~Tempo() {}
+        virtual ~Tempo();
         
         
     CommonMixIn    m_Common;
@@ -2049,7 +2049,7 @@ class MEI_EXPORT Tempo : public MeiElement {
 class MEI_EXPORT Title : public MeiElement {
     public:
         Title();
-        virtual ~Title() {}
+        virtual ~Title();
         
     /** \brief   indicates the bibliographic level for a title.
     */
@@ -2078,7 +2078,7 @@ class MEI_EXPORT Title : public MeiElement {
 class MEI_EXPORT Titlepage : public MeiElement {
     public:
         Titlepage();
-        virtual ~Titlepage() {}
+        virtual ~Titlepage();
         
         
     CommonMixIn    m_Common;

@@ -41,7 +41,7 @@ namespace mei {
 class MEI_EXPORT Avfile : public MeiElement {
     public:
         Avfile();
-        virtual ~Avfile() {}
+        virtual ~Avfile();
         
         
     CommonMixIn    m_Common;
@@ -62,7 +62,7 @@ class MEI_EXPORT Avfile : public MeiElement {
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
-        virtual ~Clip() {}
+        virtual ~Clip();
         
     /** \brief   indication of the absolute start time.
     */
@@ -103,7 +103,7 @@ class MEI_EXPORT Clip : public MeiElement {
 class MEI_EXPORT Performance : public MeiElement {
     public:
         Performance();
-        virtual ~Performance() {}
+        virtual ~Performance();
         
         
     CommonMixIn    m_Common;
@@ -121,7 +121,7 @@ class MEI_EXPORT Performance : public MeiElement {
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
-        virtual ~Recording() {}
+        virtual ~Recording();
         
     /** \brief   indication of the absolute start time.
     */

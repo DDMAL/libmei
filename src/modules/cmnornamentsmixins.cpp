@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::MordentLogMixIn::MordentLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MordentLogMixIn::~MordentLogMixIn() {};
 
 MeiAttribute* mei::MordentLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
@@ -57,6 +58,7 @@ void mei::MordentLogMixIn::removeLong() {
 mei::OrnamentaccidMixIn::OrnamentaccidMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::OrnamentaccidMixIn::~OrnamentaccidMixIn() {};
 
 MeiAttribute* mei::OrnamentaccidMixIn::getAccidupper() {
     if (!b->hasAttribute("accidupper")) {
@@ -106,6 +108,7 @@ void mei::OrnamentaccidMixIn::removeAccidlower() {
 mei::TurnLogMixIn::TurnLogMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TurnLogMixIn::~TurnLogMixIn() {};
 
 MeiAttribute* mei::TurnLogMixIn::getDelayed() {
     if (!b->hasAttribute("delayed")) {

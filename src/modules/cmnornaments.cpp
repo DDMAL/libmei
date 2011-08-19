@@ -28,6 +28,7 @@ mei::Mordent::Mordent() :
 {
 };
 REGISTER_DEFINITION(mei::Mordent, "mordent");
+mei::Mordent::~Mordent() {};
 
 
 
@@ -58,6 +59,7 @@ mei::Trill::Trill() :
 {
 };
 REGISTER_DEFINITION(mei::Trill, "trill");
+mei::Trill::~Trill() {};
 
 
 
@@ -84,6 +86,7 @@ mei::Turn::Turn() :
 {
 };
 REGISTER_DEFINITION(mei::Turn, "turn");
+mei::Turn::~Turn() {};
 
 
 

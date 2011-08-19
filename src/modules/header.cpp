@@ -13,6 +13,7 @@ mei::Accessrestrict::Accessrestrict() :
 {
 };
 REGISTER_DEFINITION(mei::Accessrestrict, "accessRestrict");
+mei::Accessrestrict::~Accessrestrict() {};
 
 
 
@@ -24,6 +25,7 @@ mei::Acqsource::Acqsource() :
 {
 };
 REGISTER_DEFINITION(mei::Acqsource, "acqSource");
+mei::Acqsource::~Acqsource() {};
 
 
 
@@ -35,6 +37,7 @@ mei::Altid::Altid() :
 {
 };
 REGISTER_DEFINITION(mei::Altid, "altId");
+mei::Altid::~Altid() {};
 
 
 
@@ -44,6 +47,7 @@ mei::Appinfo::Appinfo() :
 {
 };
 REGISTER_DEFINITION(mei::Appinfo, "appInfo");
+mei::Appinfo::~Appinfo() {};
 
 
 
@@ -55,6 +59,7 @@ mei::Application::Application() :
 {
 };
 REGISTER_DEFINITION(mei::Application, "application");
+mei::Application::~Application() {};
 
 
 MeiAttribute* mei::Application::getVersion() {
@@ -88,6 +93,7 @@ mei::Availability::Availability() :
 {
 };
 REGISTER_DEFINITION(mei::Availability, "availability");
+mei::Availability::~Availability() {};
 
 
 
@@ -98,6 +104,7 @@ mei::Change::Change() :
 {
 };
 REGISTER_DEFINITION(mei::Change, "change");
+mei::Change::~Change() {};
 
 
 
@@ -109,6 +116,7 @@ mei::Changedesc::Changedesc() :
 {
 };
 REGISTER_DEFINITION(mei::Changedesc, "changeDesc");
+mei::Changedesc::~Changedesc() {};
 
 
 
@@ -120,6 +128,7 @@ mei::Classcode::Classcode() :
 {
 };
 REGISTER_DEFINITION(mei::Classcode, "classCode");
+mei::Classcode::~Classcode() {};
 
 
 
@@ -131,6 +140,7 @@ mei::Classification::Classification() :
 {
 };
 REGISTER_DEFINITION(mei::Classification, "classification");
+mei::Classification::~Classification() {};
 
 
 
@@ -142,6 +152,7 @@ mei::Condition::Condition() :
 {
 };
 REGISTER_DEFINITION(mei::Condition, "condition");
+mei::Condition::~Condition() {};
 
 
 
@@ -152,6 +163,7 @@ mei::Contentitem::Contentitem() :
 {
 };
 REGISTER_DEFINITION(mei::Contentitem, "contentItem");
+mei::Contentitem::~Contentitem() {};
 
 
 
@@ -163,6 +175,7 @@ mei::Contents::Contents() :
 {
 };
 REGISTER_DEFINITION(mei::Contents, "contents");
+mei::Contents::~Contents() {};
 
 
 
@@ -176,6 +189,7 @@ mei::Correction::Correction() :
 {
 };
 REGISTER_DEFINITION(mei::Correction, "correction");
+mei::Correction::~Correction() {};
 
 
 MeiAttribute* mei::Correction::getCorrlevel() {
@@ -209,6 +223,7 @@ mei::Creation::Creation() :
 {
 };
 REGISTER_DEFINITION(mei::Creation, "creation");
+mei::Creation::~Creation() {};
 
 
 
@@ -220,6 +235,7 @@ mei::Dimensions::Dimensions() :
 {
 };
 REGISTER_DEFINITION(mei::Dimensions, "dimensions");
+mei::Dimensions::~Dimensions() {};
 
 
 
@@ -231,6 +247,7 @@ mei::Editionstmt::Editionstmt() :
 {
 };
 REGISTER_DEFINITION(mei::Editionstmt, "editionStmt");
+mei::Editionstmt::~Editionstmt() {};
 
 
 
@@ -243,6 +260,7 @@ mei::Editorialdecl::Editorialdecl() :
 {
 };
 REGISTER_DEFINITION(mei::Editorialdecl, "editorialDecl");
+mei::Editorialdecl::~Editorialdecl() {};
 
 
 
@@ -253,6 +271,7 @@ mei::Encodingdesc::Encodingdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Encodingdesc, "encodingDesc");
+mei::Encodingdesc::~Encodingdesc() {};
 
 
 
@@ -263,6 +282,7 @@ mei::Ensemble::Ensemble() :
 {
 };
 REGISTER_DEFINITION(mei::Ensemble, "ensemble");
+mei::Ensemble::~Ensemble() {};
 
 
 
@@ -279,6 +299,7 @@ mei::Event::Event() :
 {
 };
 REGISTER_DEFINITION(mei::Event, "event");
+mei::Event::~Event() {};
 
 
 
@@ -290,6 +311,7 @@ mei::Eventlist::Eventlist() :
 {
 };
 REGISTER_DEFINITION(mei::Eventlist, "eventList");
+mei::Eventlist::~Eventlist() {};
 
 
 
@@ -301,6 +323,7 @@ mei::Exhibhist::Exhibhist() :
 {
 };
 REGISTER_DEFINITION(mei::Exhibhist, "exhibHist");
+mei::Exhibhist::~Exhibhist() {};
 
 
 
@@ -312,6 +335,7 @@ mei::Extent::Extent() :
 {
 };
 REGISTER_DEFINITION(mei::Extent, "extent");
+mei::Extent::~Extent() {};
 
 
 
@@ -322,6 +346,7 @@ mei::Filedesc::Filedesc() :
 {
 };
 REGISTER_DEFINITION(mei::Filedesc, "fileDesc");
+mei::Filedesc::~Filedesc() {};
 
 
 
@@ -332,6 +357,7 @@ mei::Fingerprint::Fingerprint() :
 {
 };
 REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
+mei::Fingerprint::~Fingerprint() {};
 
 
 
@@ -345,6 +371,7 @@ mei::Hand::Hand() :
 {
 };
 REGISTER_DEFINITION(mei::Hand, "hand");
+mei::Hand::~Hand() {};
 
 
 MeiAttribute* mei::Hand::getInitial() {
@@ -377,6 +404,7 @@ mei::Handlist::Handlist() :
 {
 };
 REGISTER_DEFINITION(mei::Handlist, "handList");
+mei::Handlist::~Handlist() {};
 
 
 
@@ -387,6 +415,7 @@ mei::History::History() :
 {
 };
 REGISTER_DEFINITION(mei::History, "history");
+mei::History::~History() {};
 
 
 
@@ -398,6 +427,7 @@ mei::Incipcode::Incipcode() :
 {
 };
 REGISTER_DEFINITION(mei::Incipcode, "incipCode");
+mei::Incipcode::~Incipcode() {};
 
 
 MeiAttribute* mei::Incipcode::getSpace() {
@@ -453,6 +483,7 @@ mei::Inscription::Inscription() :
 {
 };
 REGISTER_DEFINITION(mei::Inscription, "inscription");
+mei::Inscription::~Inscription() {};
 
 
 
@@ -465,6 +496,7 @@ mei::Instrvoice::Instrvoice() :
 {
 };
 REGISTER_DEFINITION(mei::Instrvoice, "instrVoice");
+mei::Instrvoice::~Instrvoice() {};
 
 
 MeiAttribute* mei::Instrvoice::getCount() {
@@ -521,6 +553,7 @@ mei::Interpretation::Interpretation() :
 {
 };
 REGISTER_DEFINITION(mei::Interpretation, "interpretation");
+mei::Interpretation::~Interpretation() {};
 
 
 
@@ -533,6 +566,7 @@ mei::Key::Key() :
 {
 };
 REGISTER_DEFINITION(mei::Key, "key");
+mei::Key::~Key() {};
 
 
 MeiAttribute* mei::Key::getMode() {
@@ -566,6 +600,7 @@ mei::Langusage::Langusage() :
 {
 };
 REGISTER_DEFINITION(mei::Langusage, "langUsage");
+mei::Langusage::~Langusage() {};
 
 
 
@@ -577,6 +612,7 @@ mei::Language::Language() :
 {
 };
 REGISTER_DEFINITION(mei::Language, "language");
+mei::Language::~Language() {};
 
 
 
@@ -589,6 +625,7 @@ mei::Meihead::Meihead() :
 {
 };
 REGISTER_DEFINITION(mei::Meihead, "meiHead");
+mei::Meihead::~Meihead() {};
 
 
 MeiAttribute* mei::Meihead::getType() {
@@ -624,6 +661,7 @@ mei::Normalization::Normalization() :
 {
 };
 REGISTER_DEFINITION(mei::Normalization, "normalization");
+mei::Normalization::~Normalization() {};
 
 
 
@@ -634,6 +672,7 @@ mei::Notesstmt::Notesstmt() :
 {
 };
 REGISTER_DEFINITION(mei::Notesstmt, "notesStmt");
+mei::Notesstmt::~Notesstmt() {};
 
 
 
@@ -645,6 +684,7 @@ mei::Perfmedium::Perfmedium() :
 {
 };
 REGISTER_DEFINITION(mei::Perfmedium, "perfMedium");
+mei::Perfmedium::~Perfmedium() {};
 
 
 
@@ -655,6 +695,7 @@ mei::Performer::Performer() :
 {
 };
 REGISTER_DEFINITION(mei::Performer, "performer");
+mei::Performer::~Performer() {};
 
 
 
@@ -665,6 +706,7 @@ mei::Physdesc::Physdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Physdesc, "physDesc");
+mei::Physdesc::~Physdesc() {};
 
 
 
@@ -675,6 +717,7 @@ mei::Physloc::Physloc() :
 {
 };
 REGISTER_DEFINITION(mei::Physloc, "physLoc");
+mei::Physloc::~Physloc() {};
 
 
 
@@ -687,6 +730,7 @@ mei::Physmedium::Physmedium() :
 {
 };
 REGISTER_DEFINITION(mei::Physmedium, "physMedium");
+mei::Physmedium::~Physmedium() {};
 
 
 
@@ -698,6 +742,7 @@ mei::Platenum::Platenum() :
 {
 };
 REGISTER_DEFINITION(mei::Platenum, "plateNum");
+mei::Platenum::~Platenum() {};
 
 
 
@@ -709,6 +754,7 @@ mei::Price::Price() :
 {
 };
 REGISTER_DEFINITION(mei::Price, "price");
+mei::Price::~Price() {};
 
 
 
@@ -721,6 +767,7 @@ mei::Projectdesc::Projectdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Projectdesc, "projectDesc");
+mei::Projectdesc::~Projectdesc() {};
 
 
 
@@ -732,6 +779,7 @@ mei::Provenance::Provenance() :
 {
 };
 REGISTER_DEFINITION(mei::Provenance, "provenance");
+mei::Provenance::~Provenance() {};
 
 
 
@@ -742,6 +790,7 @@ mei::Pubstmt::Pubstmt() :
 {
 };
 REGISTER_DEFINITION(mei::Pubstmt, "pubStmt");
+mei::Pubstmt::~Pubstmt() {};
 
 
 
@@ -753,6 +802,7 @@ mei::Relateditem::Relateditem() :
 {
 };
 REGISTER_DEFINITION(mei::Relateditem, "relatedItem");
+mei::Relateditem::~Relateditem() {};
 
 
 MeiAttribute* mei::Relateditem::getRel() {
@@ -784,6 +834,7 @@ mei::Resp::Resp() :
 {
 };
 REGISTER_DEFINITION(mei::Resp, "resp");
+mei::Resp::~Resp() {};
 
 
 
@@ -794,6 +845,7 @@ mei::Respstmt::Respstmt() :
 {
 };
 REGISTER_DEFINITION(mei::Respstmt, "respStmt");
+mei::Respstmt::~Respstmt() {};
 
 
 
@@ -804,6 +856,7 @@ mei::Revisiondesc::Revisiondesc() :
 {
 };
 REGISTER_DEFINITION(mei::Revisiondesc, "revisionDesc");
+mei::Revisiondesc::~Revisiondesc() {};
 
 
 
@@ -816,6 +869,7 @@ mei::Samplingdecl::Samplingdecl() :
 {
 };
 REGISTER_DEFINITION(mei::Samplingdecl, "samplingDecl");
+mei::Samplingdecl::~Samplingdecl() {};
 
 
 
@@ -828,6 +882,7 @@ mei::Segmentation::Segmentation() :
 {
 };
 REGISTER_DEFINITION(mei::Segmentation, "segmentation");
+mei::Segmentation::~Segmentation() {};
 
 
 
@@ -838,6 +893,7 @@ mei::Seriesstmt::Seriesstmt() :
 {
 };
 REGISTER_DEFINITION(mei::Seriesstmt, "seriesStmt");
+mei::Seriesstmt::~Seriesstmt() {};
 
 
 
@@ -849,6 +905,7 @@ mei::Source::Source() :
 {
 };
 REGISTER_DEFINITION(mei::Source, "source");
+mei::Source::~Source() {};
 
 
 
@@ -858,6 +915,7 @@ mei::Sourcedesc::Sourcedesc() :
 {
 };
 REGISTER_DEFINITION(mei::Sourcedesc, "sourceDesc");
+mei::Sourcedesc::~Sourcedesc() {};
 
 
 
@@ -870,6 +928,7 @@ mei::Stdvals::Stdvals() :
 {
 };
 REGISTER_DEFINITION(mei::Stdvals, "stdVals");
+mei::Stdvals::~Stdvals() {};
 
 
 
@@ -881,6 +940,7 @@ mei::Sysreq::Sysreq() :
 {
 };
 REGISTER_DEFINITION(mei::Sysreq, "sysReq");
+mei::Sysreq::~Sysreq() {};
 
 
 
@@ -891,6 +951,7 @@ mei::Term::Term() :
 {
 };
 REGISTER_DEFINITION(mei::Term, "term");
+mei::Term::~Term() {};
 
 
 MeiAttribute* mei::Term::getClasscode() {
@@ -923,6 +984,7 @@ mei::Termlist::Termlist() :
 {
 };
 REGISTER_DEFINITION(mei::Termlist, "termList");
+mei::Termlist::~Termlist() {};
 
 
 MeiAttribute* mei::Termlist::getClasscode() {
@@ -955,6 +1017,7 @@ mei::Titlestmt::Titlestmt() :
 {
 };
 REGISTER_DEFINITION(mei::Titlestmt, "titleStmt");
+mei::Titlestmt::~Titlestmt() {};
 
 
 
@@ -965,6 +1028,7 @@ mei::Treathist::Treathist() :
 {
 };
 REGISTER_DEFINITION(mei::Treathist, "treatHist");
+mei::Treathist::~Treathist() {};
 
 
 
@@ -975,6 +1039,7 @@ mei::Treatsched::Treatsched() :
 {
 };
 REGISTER_DEFINITION(mei::Treatsched, "treatSched");
+mei::Treatsched::~Treatsched() {};
 
 
 
@@ -985,6 +1050,7 @@ mei::Unpub::Unpub() :
 {
 };
 REGISTER_DEFINITION(mei::Unpub, "unpub");
+mei::Unpub::~Unpub() {};
 
 
 
@@ -995,6 +1061,7 @@ mei::Userestrict::Userestrict() :
 {
 };
 REGISTER_DEFINITION(mei::Userestrict, "useRestrict");
+mei::Userestrict::~Userestrict() {};
 
 
 
@@ -1006,6 +1073,7 @@ mei::Watermark::Watermark() :
 {
 };
 REGISTER_DEFINITION(mei::Watermark, "watermark");
+mei::Watermark::~Watermark() {};
 
 
 
@@ -1017,6 +1085,7 @@ mei::Work::Work() :
 {
 };
 REGISTER_DEFINITION(mei::Work, "work");
+mei::Work::~Work() {};
 
 
 
@@ -1026,6 +1095,7 @@ mei::Workdesc::Workdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Workdesc, "workDesc");
+mei::Workdesc::~Workdesc() {};
 
 
 

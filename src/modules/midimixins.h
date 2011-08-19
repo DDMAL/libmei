@@ -34,7 +34,7 @@ namespace mei {
 class ChannelizedMixIn {
     public:
         explicit ChannelizedMixIn(MeiElement *b);
-        virtual ~ChannelizedMixIn() {}
+        virtual ~ChannelizedMixIn();
         
     /** \brief   records a MIDI channel value.
     */
@@ -76,7 +76,7 @@ class ChannelizedMixIn {
 class MidiinstrumentMixIn {
     public:
         explicit MidiinstrumentMixIn(MeiElement *b);
-        virtual ~MidiinstrumentMixIn() {}
+        virtual ~MidiinstrumentMixIn();
         
     /** \brief   sets the MIDI instrument number.
     */
@@ -102,7 +102,7 @@ class MidiinstrumentMixIn {
 class MidinumberMixIn {
     public:
         explicit MidinumberMixIn(MeiElement *b);
-        virtual ~MidinumberMixIn() {}
+        virtual ~MidinumberMixIn();
         
     /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
     * ratio, while numbase is the second.
@@ -121,7 +121,7 @@ class MidinumberMixIn {
 class MiditempoMixIn {
     public:
         explicit MiditempoMixIn(MeiElement *b);
-        virtual ~MiditempoMixIn() {}
+        virtual ~MiditempoMixIn();
         
     /** \brief   contains a MIDI value, that is, the number of quarter notes per minute in the
     * range from 10 to 1000.
@@ -140,7 +140,7 @@ class MiditempoMixIn {
 class MidivalueMixIn {
     public:
         explicit MidivalueMixIn(MeiElement *b);
-        virtual ~MidivalueMixIn() {}
+        virtual ~MidivalueMixIn();
         
     /** \brief   MIDI number
     */
@@ -158,7 +158,7 @@ class MidivalueMixIn {
 class TimebaseMixIn {
     public:
         explicit TimebaseMixIn(MeiElement *b);
-        virtual ~TimebaseMixIn() {}
+        virtual ~TimebaseMixIn();
         
     /** \brief   indicates the number of pulses (sometimes referred to as ticks or divisions) per
     * quarter note. Unlike MIDI, MEI permits different values for a score and

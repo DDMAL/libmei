@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::CommonAnlMixIn::CommonAnlMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::CommonAnlMixIn::~CommonAnlMixIn() {};
 
 MeiAttribute* mei::CommonAnlMixIn::getCopyof() {
     if (!b->hasAttribute("copyof")) {
@@ -145,6 +146,7 @@ void mei::CommonAnlMixIn::removeSynch() {
 mei::HarmonicfunctionMixIn::HarmonicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::HarmonicfunctionMixIn::~HarmonicfunctionMixIn() {};
 
 MeiAttribute* mei::HarmonicfunctionMixIn::getHfunc() {
     if (!b->hasAttribute("hfunc")) {
@@ -172,6 +174,7 @@ void mei::HarmonicfunctionMixIn::removeHfunc() {
 mei::IntervalharmonicMixIn::IntervalharmonicMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::IntervalharmonicMixIn::~IntervalharmonicMixIn() {};
 
 MeiAttribute* mei::IntervalharmonicMixIn::getInth() {
     if (!b->hasAttribute("inth")) {
@@ -199,6 +202,7 @@ void mei::IntervalharmonicMixIn::removeInth() {
 mei::IntervallicdescMixIn::IntervallicdescMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::IntervallicdescMixIn::~IntervallicdescMixIn() {};
 
 MeiAttribute* mei::IntervallicdescMixIn::getIntm() {
     if (!b->hasAttribute("intm")) {
@@ -226,6 +230,7 @@ void mei::IntervallicdescMixIn::removeIntm() {
 mei::MelodicfunctionMixIn::MelodicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::MelodicfunctionMixIn::~MelodicfunctionMixIn() {};
 
 MeiAttribute* mei::MelodicfunctionMixIn::getMfunc() {
     if (!b->hasAttribute("mfunc")) {
@@ -253,6 +258,7 @@ void mei::MelodicfunctionMixIn::removeMfunc() {
 mei::PitchclassMixIn::PitchclassMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::PitchclassMixIn::~PitchclassMixIn() {};
 
 MeiAttribute* mei::PitchclassMixIn::getPclass() {
     if (!b->hasAttribute("pclass")) {
@@ -280,6 +286,7 @@ void mei::PitchclassMixIn::removePclass() {
 mei::SolfaMixIn::SolfaMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::SolfaMixIn::~SolfaMixIn() {};
 
 MeiAttribute* mei::SolfaMixIn::getPsolfa() {
     if (!b->hasAttribute("psolfa")) {

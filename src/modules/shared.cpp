@@ -19,6 +19,7 @@ mei::Abbr::Abbr() :
 {
 };
 REGISTER_DEFINITION(mei::Abbr, "abbr");
+mei::Abbr::~Abbr() {};
 
 
 MeiAttribute* mei::Abbr::getExpan() {
@@ -68,6 +69,7 @@ mei::Accid::Accid() :
 {
 };
 REGISTER_DEFINITION(mei::Accid, "accid");
+mei::Accid::~Accid() {};
 
 
 
@@ -79,6 +81,7 @@ mei::Actor::Actor() :
 {
 };
 REGISTER_DEFINITION(mei::Actor, "actor");
+mei::Actor::~Actor() {};
 
 
 
@@ -90,6 +93,7 @@ mei::Addrline::Addrline() :
 {
 };
 REGISTER_DEFINITION(mei::Addrline, "addrLine");
+mei::Addrline::~Addrline() {};
 
 
 
@@ -101,6 +105,7 @@ mei::Address::Address() :
 {
 };
 REGISTER_DEFINITION(mei::Address, "address");
+mei::Address::~Address() {};
 
 
 
@@ -129,6 +134,7 @@ mei::Annot::Annot() :
 {
 };
 REGISTER_DEFINITION(mei::Annot, "annot");
+mei::Annot::~Annot() {};
 
 
 
@@ -156,6 +162,7 @@ mei::Artic::Artic() :
 {
 };
 REGISTER_DEFINITION(mei::Artic, "artic");
+mei::Artic::~Artic() {};
 
 
 
@@ -178,6 +185,7 @@ mei::Barline::Barline() :
 {
 };
 REGISTER_DEFINITION(mei::Barline, "barLine");
+mei::Barline::~Barline() {};
 
 
 
@@ -191,6 +199,7 @@ mei::Bibl::Bibl() :
 {
 };
 REGISTER_DEFINITION(mei::Bibl, "bibl");
+mei::Bibl::~Bibl() {};
 
 
 
@@ -201,6 +210,7 @@ mei::Body::Body() :
 {
 };
 REGISTER_DEFINITION(mei::Body, "body");
+mei::Body::~Body() {};
 
 
 
@@ -212,6 +222,7 @@ mei::Caption::Caption() :
 {
 };
 REGISTER_DEFINITION(mei::Caption, "caption");
+mei::Caption::~Caption() {};
 
 
 
@@ -223,6 +234,7 @@ mei::Castgrp::Castgrp() :
 {
 };
 REGISTER_DEFINITION(mei::Castgrp, "castGrp");
+mei::Castgrp::~Castgrp() {};
 
 
 
@@ -234,6 +246,7 @@ mei::Castitem::Castitem() :
 {
 };
 REGISTER_DEFINITION(mei::Castitem, "castItem");
+mei::Castitem::~Castitem() {};
 
 
 
@@ -245,6 +258,7 @@ mei::Castlist::Castlist() :
 {
 };
 REGISTER_DEFINITION(mei::Castlist, "castList");
+mei::Castlist::~Castlist() {};
 
 
 
@@ -287,6 +301,7 @@ mei::Chord::Chord() :
 {
 };
 REGISTER_DEFINITION(mei::Chord, "chord");
+mei::Chord::~Chord() {};
 
 
 
@@ -305,6 +320,7 @@ mei::Clef::Clef() :
 {
 };
 REGISTER_DEFINITION(mei::Clef, "clef");
+mei::Clef::~Clef() {};
 
 
 
@@ -327,6 +343,7 @@ mei::Clefchange::Clefchange() :
 {
 };
 REGISTER_DEFINITION(mei::Clefchange, "clefChange");
+mei::Clefchange::~Clefchange() {};
 
 
 
@@ -345,6 +362,7 @@ mei::Custos::Custos() :
 {
 };
 REGISTER_DEFINITION(mei::Custos, "custos");
+mei::Custos::~Custos() {};
 
 
 
@@ -362,6 +380,7 @@ mei::Date::Date() :
 {
 };
 REGISTER_DEFINITION(mei::Date, "date");
+mei::Date::~Date() {};
 
 
 MeiAttribute* mei::Date::getReg() {
@@ -414,6 +433,7 @@ mei::Dir::Dir() :
 {
 };
 REGISTER_DEFINITION(mei::Dir, "dir");
+mei::Dir::~Dir() {};
 
 
 
@@ -437,6 +457,7 @@ mei::Dot::Dot() :
 {
 };
 REGISTER_DEFINITION(mei::Dot, "dot");
+mei::Dot::~Dot() {};
 
 
 
@@ -467,6 +488,7 @@ mei::Dynam::Dynam() :
 {
 };
 REGISTER_DEFINITION(mei::Dynam, "dynam");
+mei::Dynam::~Dynam() {};
 
 
 
@@ -477,6 +499,7 @@ mei::Edition::Edition() :
 {
 };
 REGISTER_DEFINITION(mei::Edition, "edition");
+mei::Edition::~Edition() {};
 
 
 
@@ -493,6 +516,7 @@ mei::Ending::Ending() :
 {
 };
 REGISTER_DEFINITION(mei::Ending, "ending");
+mei::Ending::~Ending() {};
 
 
 
@@ -510,6 +534,7 @@ mei::Expan::Expan() :
 {
 };
 REGISTER_DEFINITION(mei::Expan, "expan");
+mei::Expan::~Expan() {};
 
 
 MeiAttribute* mei::Expan::getAbbr() {
@@ -544,6 +569,7 @@ mei::Expansion::Expansion() :
 {
 };
 REGISTER_DEFINITION(mei::Expansion, "expansion");
+mei::Expansion::~Expansion() {};
 
 
 
@@ -556,6 +582,7 @@ mei::Fw::Fw() :
 {
 };
 REGISTER_DEFINITION(mei::Fw, "fw");
+mei::Fw::~Fw() {};
 
 
 
@@ -566,6 +593,7 @@ mei::Group::Group() :
 {
 };
 REGISTER_DEFINITION(mei::Group, "group");
+mei::Group::~Group() {};
 
 
 
@@ -583,6 +611,7 @@ mei::Grpsym::Grpsym() :
 {
 };
 REGISTER_DEFINITION(mei::Grpsym, "grpSym");
+mei::Grpsym::~Grpsym() {};
 
 
 
@@ -595,6 +624,7 @@ mei::Identifier::Identifier() :
 {
 };
 REGISTER_DEFINITION(mei::Identifier, "identifier");
+mei::Identifier::~Identifier() {};
 
 
 
@@ -606,6 +636,7 @@ mei::Incip::Incip() :
 {
 };
 REGISTER_DEFINITION(mei::Incip, "incip");
+mei::Incip::~Incip() {};
 
 
 
@@ -617,6 +648,7 @@ mei::Instrdef::Instrdef() :
 {
 };
 REGISTER_DEFINITION(mei::Instrdef, "instrDef");
+mei::Instrdef::~Instrdef() {};
 
 
 
@@ -626,6 +658,7 @@ mei::Instrgrp::Instrgrp() :
 {
 };
 REGISTER_DEFINITION(mei::Instrgrp, "instrGrp");
+mei::Instrgrp::~Instrgrp() {};
 
 
 
@@ -642,6 +675,7 @@ mei::Keyaccid::Keyaccid() :
 {
 };
 REGISTER_DEFINITION(mei::Keyaccid, "keyAccid");
+mei::Keyaccid::~Keyaccid() {};
 
 
 MeiAttribute* mei::Keyaccid::getForm() {
@@ -676,6 +710,7 @@ mei::Keysig::Keysig() :
 {
 };
 REGISTER_DEFINITION(mei::Keysig, "keySig");
+mei::Keysig::~Keysig() {};
 
 
 MeiAttribute* mei::Keysig::getMode() {
@@ -710,6 +745,7 @@ mei::Label::Label() :
 {
 };
 REGISTER_DEFINITION(mei::Label, "label");
+mei::Label::~Label() {};
 
 
 
@@ -725,6 +761,7 @@ mei::Layer::Layer() :
 {
 };
 REGISTER_DEFINITION(mei::Layer, "layer");
+mei::Layer::~Layer() {};
 
 
 
@@ -743,6 +780,7 @@ mei::Layerdef::Layerdef() :
 {
 };
 REGISTER_DEFINITION(mei::Layerdef, "layerDef");
+mei::Layerdef::~Layerdef() {};
 
 
 
@@ -755,6 +793,7 @@ mei::Lb::Lb() :
 {
 };
 REGISTER_DEFINITION(mei::Lb, "lb");
+mei::Lb::~Lb() {};
 
 
 MeiAttribute* mei::Lb::getFunc() {
@@ -789,6 +828,7 @@ mei::Mdiv::Mdiv() :
 {
 };
 REGISTER_DEFINITION(mei::Mdiv, "mdiv");
+mei::Mdiv::~Mdiv() {};
 
 
 
@@ -798,6 +838,7 @@ mei::Mei::Mei() :
 {
 };
 REGISTER_DEFINITION(mei::Mei, "mei");
+mei::Mei::~Mei() {};
 
 
 
@@ -809,6 +850,7 @@ mei::Music::Music() :
 {
 };
 REGISTER_DEFINITION(mei::Music, "music");
+mei::Music::~Music() {};
 
 
 
@@ -825,6 +867,7 @@ mei::Name::Name() :
 {
 };
 REGISTER_DEFINITION(mei::Name, "name");
+mei::Name::~Name() {};
 
 
 
@@ -883,6 +926,7 @@ mei::Note::Note() :
 {
 };
 REGISTER_DEFINITION(mei::Note, "note");
+mei::Note::~Note() {};
 
 
 
@@ -895,6 +939,7 @@ mei::Num::Num() :
 {
 };
 REGISTER_DEFINITION(mei::Num, "num");
+mei::Num::~Num() {};
 
 
 
@@ -908,6 +953,7 @@ mei::P::P() :
 {
 };
 REGISTER_DEFINITION(mei::P, "p");
+mei::P::~P() {};
 
 
 
@@ -922,6 +968,7 @@ mei::Pad::Pad() :
 {
 };
 REGISTER_DEFINITION(mei::Pad, "pad");
+mei::Pad::~Pad() {};
 
 
 
@@ -935,6 +982,7 @@ mei::Part::Part() :
 {
 };
 REGISTER_DEFINITION(mei::Part, "part");
+mei::Part::~Part() {};
 
 
 
@@ -948,6 +996,7 @@ mei::Parts::Parts() :
 {
 };
 REGISTER_DEFINITION(mei::Parts, "parts");
+mei::Parts::~Parts() {};
 
 
 
@@ -964,6 +1013,7 @@ mei::Pb::Pb() :
 {
 };
 REGISTER_DEFINITION(mei::Pb, "pb");
+mei::Pb::~Pb() {};
 
 
 
@@ -974,6 +1024,7 @@ mei::Pgdesc::Pgdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Pgdesc, "pgDesc");
+mei::Pgdesc::~Pgdesc() {};
 
 
 
@@ -985,6 +1036,7 @@ mei::Pgfoot::Pgfoot() :
 {
 };
 REGISTER_DEFINITION(mei::Pgfoot, "pgFoot");
+mei::Pgfoot::~Pgfoot() {};
 
 
 
@@ -996,6 +1048,7 @@ mei::Pgfoot2::Pgfoot2() :
 {
 };
 REGISTER_DEFINITION(mei::Pgfoot2, "pgFoot2");
+mei::Pgfoot2::~Pgfoot2() {};
 
 
 
@@ -1007,6 +1060,7 @@ mei::Pghead::Pghead() :
 {
 };
 REGISTER_DEFINITION(mei::Pghead, "pgHead");
+mei::Pghead::~Pghead() {};
 
 
 
@@ -1018,6 +1072,7 @@ mei::Pghead2::Pghead2() :
 {
 };
 REGISTER_DEFINITION(mei::Pghead2, "pgHead2");
+mei::Pghead2::~Pghead2() {};
 
 
 
@@ -1051,6 +1106,7 @@ mei::Phrase::Phrase() :
 {
 };
 REGISTER_DEFINITION(mei::Phrase, "phrase");
+mei::Phrase::~Phrase() {};
 
 
 
@@ -1064,6 +1120,7 @@ mei::Rend::Rend() :
 {
 };
 REGISTER_DEFINITION(mei::Rend, "rend");
+mei::Rend::~Rend() {};
 
 
 MeiAttribute* mei::Rend::getAltrend() {
@@ -1168,6 +1225,7 @@ mei::Repository::Repository() :
 {
 };
 REGISTER_DEFINITION(mei::Repository, "repository");
+mei::Repository::~Repository() {};
 
 
 
@@ -1201,6 +1259,7 @@ mei::Rest::Rest() :
 {
 };
 REGISTER_DEFINITION(mei::Rest, "rest");
+mei::Rest::~Rest() {};
 
 
 
@@ -1212,6 +1271,7 @@ mei::Role::Role() :
 {
 };
 REGISTER_DEFINITION(mei::Role, "role");
+mei::Role::~Role() {};
 
 
 
@@ -1223,6 +1283,7 @@ mei::Roledesc::Roledesc() :
 {
 };
 REGISTER_DEFINITION(mei::Roledesc, "roleDesc");
+mei::Roledesc::~Roledesc() {};
 
 
 
@@ -1237,6 +1298,7 @@ mei::Sb::Sb() :
 {
 };
 REGISTER_DEFINITION(mei::Sb, "sb");
+mei::Sb::~Sb() {};
 
 
 
@@ -1250,6 +1312,7 @@ mei::Score::Score() :
 {
 };
 REGISTER_DEFINITION(mei::Score, "score");
+mei::Score::~Score() {};
 
 
 
@@ -1291,6 +1354,7 @@ mei::Scoredef::Scoredef() :
 {
 };
 REGISTER_DEFINITION(mei::Scoredef, "scoreDef");
+mei::Scoredef::~Scoredef() {};
 
 
 
@@ -1309,6 +1373,7 @@ mei::Section::Section() :
 {
 };
 REGISTER_DEFINITION(mei::Section, "section");
+mei::Section::~Section() {};
 
 
 
@@ -1332,6 +1397,7 @@ mei::Space::Space() :
 {
 };
 REGISTER_DEFINITION(mei::Space, "space");
+mei::Space::~Space() {};
 
 
 
@@ -1343,6 +1409,7 @@ mei::Stack::Stack() :
 {
 };
 REGISTER_DEFINITION(mei::Stack, "stack");
+mei::Stack::~Stack() {};
 
 
 MeiAttribute* mei::Stack::getDelim() {
@@ -1402,6 +1469,7 @@ mei::Staff::Staff() :
 {
 };
 REGISTER_DEFINITION(mei::Staff, "staff");
+mei::Staff::~Staff() {};
 
 
 
@@ -1444,6 +1512,7 @@ mei::Staffdef::Staffdef() :
 {
 };
 REGISTER_DEFINITION(mei::Staffdef, "staffDef");
+mei::Staffdef::~Staffdef() {};
 
 
 
@@ -1460,6 +1529,7 @@ mei::Staffgrp::Staffgrp() :
 {
 };
 REGISTER_DEFINITION(mei::Staffgrp, "staffGrp");
+mei::Staffgrp::~Staffgrp() {};
 
 
 
@@ -1479,6 +1549,7 @@ mei::Syl::Syl() :
 {
 };
 REGISTER_DEFINITION(mei::Syl, "syl");
+mei::Syl::~Syl() {};
 
 
 
@@ -1507,6 +1578,7 @@ mei::Tempo::Tempo() :
 {
 };
 REGISTER_DEFINITION(mei::Tempo, "tempo");
+mei::Tempo::~Tempo() {};
 
 
 
@@ -1522,6 +1594,7 @@ mei::Title::Title() :
 {
 };
 REGISTER_DEFINITION(mei::Title, "title");
+mei::Title::~Title() {};
 
 
 MeiAttribute* mei::Title::getLevel() {
@@ -1555,6 +1628,7 @@ mei::Titlepage::Titlepage() :
 {
 };
 REGISTER_DEFINITION(mei::Titlepage, "titlePage");
+mei::Titlepage::~Titlepage() {};
 
 
 

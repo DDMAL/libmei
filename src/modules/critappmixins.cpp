@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::CritMixIn::CritMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::CritMixIn::~CritMixIn() {};
 
 MeiAttribute* mei::CritMixIn::getCause() {
     if (!b->hasAttribute("cause")) {
@@ -35,6 +36,7 @@ void mei::CritMixIn::removeCause() {
 mei::SourceMixIn::SourceMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::SourceMixIn::~SourceMixIn() {};
 
 MeiAttribute* mei::SourceMixIn::getSource() {
     if (!b->hasAttribute("source")) {

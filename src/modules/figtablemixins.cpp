@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::TabularMixIn::TabularMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::TabularMixIn::~TabularMixIn() {};
 
 MeiAttribute* mei::TabularMixIn::getColspan() {
     if (!b->hasAttribute("colspan")) {

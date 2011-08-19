@@ -15,6 +15,7 @@ mei::Fig::Fig() :
 {
 };
 REGISTER_DEFINITION(mei::Fig, "fig");
+mei::Fig::~Fig() {};
 
 
 
@@ -25,6 +26,7 @@ mei::Figdesc::Figdesc() :
 {
 };
 REGISTER_DEFINITION(mei::Figdesc, "figDesc");
+mei::Figdesc::~Figdesc() {};
 
 
 
@@ -41,6 +43,7 @@ mei::Graphic::Graphic() :
 {
 };
 REGISTER_DEFINITION(mei::Graphic, "graphic");
+mei::Graphic::~Graphic() {};
 
 
 MeiAttribute* mei::Graphic::getHeight() {
@@ -75,6 +78,7 @@ mei::Table::Table() :
 {
 };
 REGISTER_DEFINITION(mei::Table, "table");
+mei::Table::~Table() {};
 
 
 
@@ -88,6 +92,7 @@ mei::Td::Td() :
 {
 };
 REGISTER_DEFINITION(mei::Td, "td");
+mei::Td::~Td() {};
 
 
 
@@ -101,6 +106,7 @@ mei::Th::Th() :
 {
 };
 REGISTER_DEFINITION(mei::Th, "th");
+mei::Th::~Th() {};
 
 
 
@@ -113,6 +119,7 @@ mei::Tr::Tr() :
 {
 };
 REGISTER_DEFINITION(mei::Tr, "tr");
+mei::Tr::~Tr() {};
 
 
 

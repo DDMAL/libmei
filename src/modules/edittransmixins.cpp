@@ -8,6 +8,7 @@ using mei::AttributeNotFoundException;
 mei::AgentidentMixIn::AgentidentMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::AgentidentMixIn::~AgentidentMixIn() {};
 
 MeiAttribute* mei::AgentidentMixIn::getAgent() {
     if (!b->hasAttribute("agent")) {
@@ -35,6 +36,7 @@ void mei::AgentidentMixIn::removeAgent() {
 mei::EditMixIn::EditMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::EditMixIn::~EditMixIn() {};
 
 MeiAttribute* mei::EditMixIn::getCert() {
     if (!b->hasAttribute("cert")) {
@@ -84,6 +86,7 @@ void mei::EditMixIn::removeEvidence() {
 mei::ExtentMixIn::ExtentMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ExtentMixIn::~ExtentMixIn() {};
 
 MeiAttribute* mei::ExtentMixIn::getExtent() {
     if (!b->hasAttribute("extent")) {
@@ -111,6 +114,7 @@ void mei::ExtentMixIn::removeExtent() {
 mei::ReasonidentMixIn::ReasonidentMixIn(MeiElement *b) {
     this->b = b;
 };
+mei::ReasonidentMixIn::~ReasonidentMixIn() {};
 
 MeiAttribute* mei::ReasonidentMixIn::getReason() {
     if (!b->hasAttribute("reason")) {

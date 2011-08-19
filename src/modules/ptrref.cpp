@@ -14,6 +14,7 @@ mei::Extptr::Extptr() :
 {
 };
 REGISTER_DEFINITION(mei::Extptr, "extptr");
+mei::Extptr::~Extptr() {};
 
 
 
@@ -27,6 +28,7 @@ mei::Extref::Extref() :
 {
 };
 REGISTER_DEFINITION(mei::Extref, "extref");
+mei::Extref::~Extref() {};
 
 
 
@@ -38,6 +40,7 @@ mei::Ptr::Ptr() :
 {
 };
 REGISTER_DEFINITION(mei::Ptr, "ptr");
+mei::Ptr::~Ptr() {};
 
 
 
@@ -50,6 +53,7 @@ mei::Ref::Ref() :
 {
 };
 REGISTER_DEFINITION(mei::Ref, "ref");
+mei::Ref::~Ref() {};
 
 
 

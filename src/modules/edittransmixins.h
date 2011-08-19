@@ -34,7 +34,7 @@ namespace mei {
 class AgentidentMixIn {
     public:
         explicit AgentidentMixIn(MeiElement *b);
-        virtual ~AgentidentMixIn() {}
+        virtual ~AgentidentMixIn();
         
     /** \brief   signifies the causative agent of damage, illegibility, or other loss of original
     * text.
@@ -53,7 +53,7 @@ class AgentidentMixIn {
 class EditMixIn {
     public:
         explicit EditMixIn(MeiElement *b);
-        virtual ~EditMixIn() {}
+        virtual ~EditMixIn();
         
     /** \brief   signifies the degree of certainty or precision associated with a feature.
     */
@@ -81,7 +81,7 @@ class EditMixIn {
 class ExtentMixIn {
     public:
         explicit ExtentMixIn(MeiElement *b);
-        virtual ~ExtentMixIn() {}
+        virtual ~ExtentMixIn();
         
     /** \brief   indicates the extent of damage or omission.
     */
@@ -99,7 +99,7 @@ class ExtentMixIn {
 class ReasonidentMixIn {
     public:
         explicit ReasonidentMixIn(MeiElement *b);
-        virtual ~ReasonidentMixIn() {}
+        virtual ~ReasonidentMixIn();
         
     /** \brief   holds a short phrase describing the reason for missing textual material (gap),
     * why material is supplied (supplied), or why transcription is difficult

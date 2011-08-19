@@ -34,7 +34,7 @@ namespace mei {
 class FacsimileMixIn {
     public:
         explicit FacsimileMixIn(MeiElement *b);
-        virtual ~FacsimileMixIn() {}
+        virtual ~FacsimileMixIn();
         
     /** \brief   permits the current element to reference a facsimile image or image zone which
     * corresponds to it.
