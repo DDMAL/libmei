@@ -7,87 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0583599E13FB2F1E00919769 /* analysismixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583595613FB2F1D00919769 /* analysismixins.cpp */; };
-		0583599F13FB2F1E00919769 /* analysismixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583595713FB2F1D00919769 /* analysismixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359A013FB2F1E00919769 /* cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583595813FB2F1D00919769 /* cmn.cpp */; };
-		058359A113FB2F1E00919769 /* cmn.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583595913FB2F1D00919769 /* cmn.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359A213FB2F1E00919769 /* cmnmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583595A13FB2F1D00919769 /* cmnmixins.cpp */; };
-		058359A313FB2F1E00919769 /* cmnmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583595B13FB2F1D00919769 /* cmnmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359A413FB2F1E00919769 /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583595C13FB2F1D00919769 /* cmnornaments.cpp */; };
-		058359A513FB2F1E00919769 /* cmnornaments.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583595D13FB2F1D00919769 /* cmnornaments.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359A613FB2F1E00919769 /* cmnornamentsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583595E13FB2F1D00919769 /* cmnornamentsmixins.cpp */; };
-		058359A713FB2F1E00919769 /* cmnornamentsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583595F13FB2F1D00919769 /* cmnornamentsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359A813FB2F1E00919769 /* corpus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596013FB2F1D00919769 /* corpus.cpp */; };
-		058359A913FB2F1E00919769 /* corpus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596113FB2F1D00919769 /* corpus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359AA13FB2F1E00919769 /* critapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596213FB2F1D00919769 /* critapp.cpp */; };
-		058359AB13FB2F1E00919769 /* critapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596313FB2F1D00919769 /* critapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359AC13FB2F1E00919769 /* critappmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596413FB2F1D00919769 /* critappmixins.cpp */; };
-		058359AD13FB2F1E00919769 /* critappmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596513FB2F1D00919769 /* critappmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359AE13FB2F1E00919769 /* edittrans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596613FB2F1D00919769 /* edittrans.cpp */; };
-		058359AF13FB2F1E00919769 /* edittrans.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596713FB2F1D00919769 /* edittrans.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359B013FB2F1E00919769 /* edittransmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596813FB2F1D00919769 /* edittransmixins.cpp */; };
-		058359B113FB2F1E00919769 /* edittransmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596913FB2F1D00919769 /* edittransmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359B213FB2F1E00919769 /* facsimile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596A13FB2F1D00919769 /* facsimile.cpp */; };
-		058359B313FB2F1E00919769 /* facsimile.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596B13FB2F1D00919769 /* facsimile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359B413FB2F1E00919769 /* facsimilemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596C13FB2F1D00919769 /* facsimilemixins.cpp */; };
-		058359B513FB2F1E00919769 /* facsimilemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596D13FB2F1D00919769 /* facsimilemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359B613FB2F1E00919769 /* figtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583596E13FB2F1D00919769 /* figtable.cpp */; };
-		058359B713FB2F1E00919769 /* figtable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583596F13FB2F1D00919769 /* figtable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359B813FB2F1E00919769 /* figtablemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597013FB2F1D00919769 /* figtablemixins.cpp */; };
-		058359B913FB2F1E00919769 /* figtablemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597113FB2F1D00919769 /* figtablemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359BA13FB2F1E00919769 /* harmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597213FB2F1D00919769 /* harmony.cpp */; };
-		058359BB13FB2F1E00919769 /* harmony.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597313FB2F1D00919769 /* harmony.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359BC13FB2F1E00919769 /* harmonymixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597413FB2F1D00919769 /* harmonymixins.cpp */; };
-		058359BD13FB2F1E00919769 /* harmonymixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597513FB2F1D00919769 /* harmonymixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359BE13FB2F1E00919769 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597613FB2F1D00919769 /* header.cpp */; };
-		058359BF13FB2F1E00919769 /* header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597713FB2F1D00919769 /* header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359C013FB2F1E00919769 /* headermixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597813FB2F1D00919769 /* headermixins.cpp */; };
-		058359C113FB2F1E00919769 /* headermixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597913FB2F1D00919769 /* headermixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359C213FB2F1E00919769 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597A13FB2F1D00919769 /* linkalign.cpp */; };
-		058359C313FB2F1E00919769 /* linkalign.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597B13FB2F1D00919769 /* linkalign.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359C413FB2F1E00919769 /* linkalignmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597C13FB2F1D00919769 /* linkalignmixins.cpp */; };
-		058359C513FB2F1E00919769 /* linkalignmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597D13FB2F1D00919769 /* linkalignmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359C613FB2F1E00919769 /* lyrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583597E13FB2F1D00919769 /* lyrics.cpp */; };
-		058359C713FB2F1E00919769 /* lyrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583597F13FB2F1D00919769 /* lyrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359C813FB2F1E00919769 /* lyricsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598013FB2F1D00919769 /* lyricsmixins.cpp */; };
-		058359C913FB2F1E00919769 /* lyricsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598113FB2F1D00919769 /* lyricsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359CA13FB2F1E00919769 /* mensural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598213FB2F1D00919769 /* mensural.cpp */; };
-		058359CB13FB2F1E00919769 /* mensural.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598313FB2F1D00919769 /* mensural.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359CC13FB2F1E00919769 /* mensuralmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598413FB2F1D00919769 /* mensuralmixins.cpp */; };
-		058359CD13FB2F1E00919769 /* mensuralmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598513FB2F1D00919769 /* mensuralmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359CE13FB2F1E00919769 /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598613FB2F1D00919769 /* midi.cpp */; };
-		058359CF13FB2F1E00919769 /* midi.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598713FB2F1D00919769 /* midi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359D013FB2F1E00919769 /* midimixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598813FB2F1D00919769 /* midimixins.cpp */; };
-		058359D113FB2F1E00919769 /* midimixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598913FB2F1D00919769 /* midimixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359D213FB2F1E00919769 /* namesdates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598A13FB2F1D00919769 /* namesdates.cpp */; };
-		058359D313FB2F1E00919769 /* namesdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598B13FB2F1D00919769 /* namesdates.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359D413FB2F1E00919769 /* neumes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598C13FB2F1D00919769 /* neumes.cpp */; };
-		058359D513FB2F1E00919769 /* neumes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598D13FB2F1D00919769 /* neumes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359D613FB2F1E00919769 /* neumesmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583598E13FB2F1D00919769 /* neumesmixins.cpp */; };
-		058359D713FB2F1E00919769 /* neumesmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583598F13FB2F1D00919769 /* neumesmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359D813FB2F1E00919769 /* performance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599013FB2F1D00919769 /* performance.cpp */; };
-		058359D913FB2F1E00919769 /* performance.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599113FB2F1D00919769 /* performance.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359DA13FB2F1E00919769 /* ptrref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599213FB2F1D00919769 /* ptrref.cpp */; };
-		058359DB13FB2F1E00919769 /* ptrref.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599313FB2F1D00919769 /* ptrref.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359DC13FB2F1E00919769 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599413FB2F1D00919769 /* shared.cpp */; };
-		058359DD13FB2F1E00919769 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599513FB2F1D00919769 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359DE13FB2F1E00919769 /* sharedmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599613FB2F1D00919769 /* sharedmixins.cpp */; };
-		058359DF13FB2F1E00919769 /* sharedmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599713FB2F1D00919769 /* sharedmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359E013FB2F1E00919769 /* tablaturemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599813FB2F1D00919769 /* tablaturemixins.cpp */; };
-		058359E113FB2F1E00919769 /* tablaturemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599913FB2F1D00919769 /* tablaturemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359E213FB2F1E00919769 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599A13FB2F1D00919769 /* text.cpp */; };
-		058359E313FB2F1E00919769 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599B13FB2F1D00919769 /* text.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058359E413FB2F1E00919769 /* usersymbols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0583599C13FB2F1E00919769 /* usersymbols.cpp */; };
-		058359E513FB2F1E00919769 /* usersymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 0583599D13FB2F1E00919769 /* usersymbols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A64113FD6BF100310111 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64013FD6BF100310111 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A64313FD6C0900310111 /* xmlimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64213FD6C0900310111 /* xmlimport.cpp */; };
+		0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64413FD6C2100310111 /* xmlexport.cpp */; };
+		0514A64713FD6C3300310111 /* xmlexport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64613FD6C3300310111 /* xmlexport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A69013FDAAF500310111 /* test_xmlinput.cpp */; };
+		0514A69213FDAB5200310111 /* analysismixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64913FD6D6000310111 /* analysismixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69313FDAB5200310111 /* cmn.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64B13FD6D6000310111 /* cmn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69413FDAB5200310111 /* cmnmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64D13FD6D6000310111 /* cmnmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69513FDAB5200310111 /* cmnornaments.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64F13FD6D6000310111 /* cmnornaments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69613FDAB5200310111 /* cmnornamentsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65113FD6D6000310111 /* cmnornamentsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69713FDAB5200310111 /* corpus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65313FD6D6000310111 /* corpus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69813FDAB5200310111 /* critapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65513FD6D6000310111 /* critapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69913FDAB5200310111 /* critappmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65713FD6D6000310111 /* critappmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69A13FDAB5200310111 /* edittrans.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65913FD6D6000310111 /* edittrans.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69B13FDAB5200310111 /* edittransmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65B13FD6D6000310111 /* edittransmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69C13FDAB5200310111 /* facsimile.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65D13FD6D6000310111 /* facsimile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69D13FDAB5200310111 /* facsimilemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A65F13FD6D6000310111 /* facsimilemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69E13FDAB5200310111 /* figtable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66113FD6D6000310111 /* figtable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A69F13FDAB5200310111 /* figtablemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66313FD6D6000310111 /* figtablemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A013FDAB5200310111 /* harmony.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66513FD6D6000310111 /* harmony.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A113FDAB5200310111 /* harmonymixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66713FD6D6000310111 /* harmonymixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A213FDAB5200310111 /* header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66913FD6D6000310111 /* header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A313FDAB5200310111 /* headermixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66B13FD6D6000310111 /* headermixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A413FDAB5200310111 /* linkalign.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66D13FD6D6000310111 /* linkalign.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A513FDAB5200310111 /* linkalignmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66F13FD6D6000310111 /* linkalignmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A613FDAB5200310111 /* lyrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67113FD6D6000310111 /* lyrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A713FDAB5200310111 /* lyricsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67313FD6D6000310111 /* lyricsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A813FDAB5200310111 /* mensural.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67513FD6D6000310111 /* mensural.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6A913FDAB5200310111 /* mensuralmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67713FD6D6000310111 /* mensuralmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AA13FDAB5200310111 /* midi.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67913FD6D6000310111 /* midi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AB13FDAB5200310111 /* midimixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67B13FD6D6000310111 /* midimixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AC13FDAB5200310111 /* namesdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67D13FD6D6000310111 /* namesdates.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AD13FDAB5200310111 /* neumes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67F13FD6D6000310111 /* neumes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AE13FDAB5200310111 /* neumesmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68113FD6D6000310111 /* neumesmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6AF13FDAB5200310111 /* performance.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68313FD6D6000310111 /* performance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B013FDAB5200310111 /* ptrref.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68513FD6D6000310111 /* ptrref.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B113FDAB5200310111 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68713FD6D6000310111 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B213FDAB5200310111 /* sharedmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68913FD6D6000310111 /* sharedmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B313FDAB5200310111 /* tablaturemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68B13FD6D6000310111 /* tablaturemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B413FDAB5200310111 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68D13FD6D6000310111 /* text.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B513FDAB5200310111 /* usersymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A68F13FD6D6000310111 /* usersymbols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64813FD6D6000310111 /* analysismixins.cpp */; };
+		0514A6B713FDABAB00310111 /* cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64A13FD6D6000310111 /* cmn.cpp */; };
+		0514A6B813FDABAB00310111 /* cmnmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64C13FD6D6000310111 /* cmnmixins.cpp */; };
+		0514A6B913FDABAB00310111 /* cmnornaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64E13FD6D6000310111 /* cmnornaments.cpp */; };
+		0514A6BA13FDABAB00310111 /* cmnornamentsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65013FD6D6000310111 /* cmnornamentsmixins.cpp */; };
+		0514A6BB13FDABAB00310111 /* corpus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65213FD6D6000310111 /* corpus.cpp */; };
+		0514A6BC13FDABAB00310111 /* critapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65413FD6D6000310111 /* critapp.cpp */; };
+		0514A6BD13FDABAB00310111 /* critappmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65613FD6D6000310111 /* critappmixins.cpp */; };
+		0514A6BE13FDABAB00310111 /* edittrans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65813FD6D6000310111 /* edittrans.cpp */; };
+		0514A6BF13FDABAB00310111 /* edittransmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65A13FD6D6000310111 /* edittransmixins.cpp */; };
+		0514A6C013FDABAB00310111 /* facsimile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65C13FD6D6000310111 /* facsimile.cpp */; };
+		0514A6C113FDABAB00310111 /* facsimilemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A65E13FD6D6000310111 /* facsimilemixins.cpp */; };
+		0514A6C213FDABAB00310111 /* figtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66013FD6D6000310111 /* figtable.cpp */; };
+		0514A6C313FDABAB00310111 /* figtablemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66213FD6D6000310111 /* figtablemixins.cpp */; };
+		0514A6C413FDABAB00310111 /* harmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66413FD6D6000310111 /* harmony.cpp */; };
+		0514A6C513FDABAB00310111 /* harmonymixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66613FD6D6000310111 /* harmonymixins.cpp */; };
+		0514A6C613FDABAB00310111 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66813FD6D6000310111 /* header.cpp */; };
+		0514A6C713FDABAB00310111 /* headermixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66A13FD6D6000310111 /* headermixins.cpp */; };
+		0514A6C813FDABAB00310111 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66C13FD6D6000310111 /* linkalign.cpp */; };
+		0514A6C913FDABAB00310111 /* linkalignmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66E13FD6D6000310111 /* linkalignmixins.cpp */; };
+		0514A6CA13FDABAB00310111 /* lyrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67013FD6D6000310111 /* lyrics.cpp */; };
+		0514A6CB13FDABAB00310111 /* lyricsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67213FD6D6000310111 /* lyricsmixins.cpp */; };
+		0514A6CC13FDABAB00310111 /* mensural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67413FD6D6000310111 /* mensural.cpp */; };
+		0514A6CD13FDABAB00310111 /* mensuralmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67613FD6D6000310111 /* mensuralmixins.cpp */; };
+		0514A6CE13FDABAB00310111 /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67813FD6D6000310111 /* midi.cpp */; };
+		0514A6CF13FDABAB00310111 /* midimixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67A13FD6D6000310111 /* midimixins.cpp */; };
+		0514A6D013FDABAB00310111 /* namesdates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67C13FD6D6000310111 /* namesdates.cpp */; };
+		0514A6D113FDABAB00310111 /* neumes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67E13FD6D6000310111 /* neumes.cpp */; };
+		0514A6D213FDABAB00310111 /* neumesmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68013FD6D6000310111 /* neumesmixins.cpp */; };
+		0514A6D313FDABAB00310111 /* performance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68213FD6D6000310111 /* performance.cpp */; };
+		0514A6D413FDABAB00310111 /* ptrref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68413FD6D6000310111 /* ptrref.cpp */; };
+		0514A6D513FDABAB00310111 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68613FD6D6000310111 /* shared.cpp */; };
+		0514A6D613FDABAB00310111 /* sharedmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68813FD6D6000310111 /* sharedmixins.cpp */; };
+		0514A6D713FDABAB00310111 /* tablaturemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68A13FD6D6000310111 /* tablaturemixins.cpp */; };
+		0514A6D813FDABAB00310111 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68C13FD6D6000310111 /* text.cpp */; };
+		0514A6D913FDABAB00310111 /* usersymbols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68E13FD6D6000310111 /* usersymbols.cpp */; };
+		0514A6DA13FDB42200310111 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		058359E813FB2F8700919769 /* test_meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E613FB2F8700919769 /* test_meielement.cpp */; };
 		058359E913FB2F8700919769 /* test_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E713FB2F8700919769 /* test_shared.cpp */; };
 		05C9B31B13FC0BD000E68B21 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C9B31913FC0BC300E68B21 /* gtest.framework */; };
 		05C9B31C13FC2D2C00E68B21 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
 		05CEA57813FC78B00009A15E /* runmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56913FC78520009A15E /* runmei.cpp */; };
-		05CEA57913FC7CCC0009A15E /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
-		05CEA57B13FC7E570009A15E /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CEA57A13FC7E570009A15E /* gtest.framework */; };
-		05CEA57C13FC7E5D0009A15E /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCCD71312C86F00B46918 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
@@ -114,80 +117,85 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0514A64013FD6BF100310111 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
+		0514A64213FD6C0900310111 /* xmlimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlimport.cpp; path = src/import/xmlimport.cpp; sourceTree = "<group>"; };
+		0514A64413FD6C2100310111 /* xmlexport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport.cpp; path = src/export/xmlexport.cpp; sourceTree = "<group>"; };
+		0514A64613FD6C3300310111 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
+		0514A64813FD6D6000310111 /* analysismixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = analysismixins.cpp; path = src/modules/analysismixins.cpp; sourceTree = "<group>"; };
+		0514A64913FD6D6000310111 /* analysismixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = analysismixins.h; path = src/modules/analysismixins.h; sourceTree = "<group>"; };
+		0514A64A13FD6D6000310111 /* cmn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cmn.cpp; path = src/modules/cmn.cpp; sourceTree = "<group>"; };
+		0514A64B13FD6D6000310111 /* cmn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cmn.h; path = src/modules/cmn.h; sourceTree = "<group>"; };
+		0514A64C13FD6D6000310111 /* cmnmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cmnmixins.cpp; path = src/modules/cmnmixins.cpp; sourceTree = "<group>"; };
+		0514A64D13FD6D6000310111 /* cmnmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cmnmixins.h; path = src/modules/cmnmixins.h; sourceTree = "<group>"; };
+		0514A64E13FD6D6000310111 /* cmnornaments.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cmnornaments.cpp; path = src/modules/cmnornaments.cpp; sourceTree = "<group>"; };
+		0514A64F13FD6D6000310111 /* cmnornaments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cmnornaments.h; path = src/modules/cmnornaments.h; sourceTree = "<group>"; };
+		0514A65013FD6D6000310111 /* cmnornamentsmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cmnornamentsmixins.cpp; path = src/modules/cmnornamentsmixins.cpp; sourceTree = "<group>"; };
+		0514A65113FD6D6000310111 /* cmnornamentsmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cmnornamentsmixins.h; path = src/modules/cmnornamentsmixins.h; sourceTree = "<group>"; };
+		0514A65213FD6D6000310111 /* corpus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = corpus.cpp; path = src/modules/corpus.cpp; sourceTree = "<group>"; };
+		0514A65313FD6D6000310111 /* corpus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = corpus.h; path = src/modules/corpus.h; sourceTree = "<group>"; };
+		0514A65413FD6D6000310111 /* critapp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = critapp.cpp; path = src/modules/critapp.cpp; sourceTree = "<group>"; };
+		0514A65513FD6D6000310111 /* critapp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = critapp.h; path = src/modules/critapp.h; sourceTree = "<group>"; };
+		0514A65613FD6D6000310111 /* critappmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = critappmixins.cpp; path = src/modules/critappmixins.cpp; sourceTree = "<group>"; };
+		0514A65713FD6D6000310111 /* critappmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = critappmixins.h; path = src/modules/critappmixins.h; sourceTree = "<group>"; };
+		0514A65813FD6D6000310111 /* edittrans.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = edittrans.cpp; path = src/modules/edittrans.cpp; sourceTree = "<group>"; };
+		0514A65913FD6D6000310111 /* edittrans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = edittrans.h; path = src/modules/edittrans.h; sourceTree = "<group>"; };
+		0514A65A13FD6D6000310111 /* edittransmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = edittransmixins.cpp; path = src/modules/edittransmixins.cpp; sourceTree = "<group>"; };
+		0514A65B13FD6D6000310111 /* edittransmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = edittransmixins.h; path = src/modules/edittransmixins.h; sourceTree = "<group>"; };
+		0514A65C13FD6D6000310111 /* facsimile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = facsimile.cpp; path = src/modules/facsimile.cpp; sourceTree = "<group>"; };
+		0514A65D13FD6D6000310111 /* facsimile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = facsimile.h; path = src/modules/facsimile.h; sourceTree = "<group>"; };
+		0514A65E13FD6D6000310111 /* facsimilemixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = facsimilemixins.cpp; path = src/modules/facsimilemixins.cpp; sourceTree = "<group>"; };
+		0514A65F13FD6D6000310111 /* facsimilemixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = facsimilemixins.h; path = src/modules/facsimilemixins.h; sourceTree = "<group>"; };
+		0514A66013FD6D6000310111 /* figtable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = figtable.cpp; path = src/modules/figtable.cpp; sourceTree = "<group>"; };
+		0514A66113FD6D6000310111 /* figtable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = figtable.h; path = src/modules/figtable.h; sourceTree = "<group>"; };
+		0514A66213FD6D6000310111 /* figtablemixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = figtablemixins.cpp; path = src/modules/figtablemixins.cpp; sourceTree = "<group>"; };
+		0514A66313FD6D6000310111 /* figtablemixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = figtablemixins.h; path = src/modules/figtablemixins.h; sourceTree = "<group>"; };
+		0514A66413FD6D6000310111 /* harmony.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = harmony.cpp; path = src/modules/harmony.cpp; sourceTree = "<group>"; };
+		0514A66513FD6D6000310111 /* harmony.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = harmony.h; path = src/modules/harmony.h; sourceTree = "<group>"; };
+		0514A66613FD6D6000310111 /* harmonymixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = harmonymixins.cpp; path = src/modules/harmonymixins.cpp; sourceTree = "<group>"; };
+		0514A66713FD6D6000310111 /* harmonymixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = harmonymixins.h; path = src/modules/harmonymixins.h; sourceTree = "<group>"; };
+		0514A66813FD6D6000310111 /* header.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = header.cpp; path = src/modules/header.cpp; sourceTree = "<group>"; };
+		0514A66913FD6D6000310111 /* header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = header.h; path = src/modules/header.h; sourceTree = "<group>"; };
+		0514A66A13FD6D6000310111 /* headermixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = headermixins.cpp; path = src/modules/headermixins.cpp; sourceTree = "<group>"; };
+		0514A66B13FD6D6000310111 /* headermixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = headermixins.h; path = src/modules/headermixins.h; sourceTree = "<group>"; };
+		0514A66C13FD6D6000310111 /* linkalign.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = linkalign.cpp; path = src/modules/linkalign.cpp; sourceTree = "<group>"; };
+		0514A66D13FD6D6000310111 /* linkalign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = linkalign.h; path = src/modules/linkalign.h; sourceTree = "<group>"; };
+		0514A66E13FD6D6000310111 /* linkalignmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = linkalignmixins.cpp; path = src/modules/linkalignmixins.cpp; sourceTree = "<group>"; };
+		0514A66F13FD6D6000310111 /* linkalignmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = linkalignmixins.h; path = src/modules/linkalignmixins.h; sourceTree = "<group>"; };
+		0514A67013FD6D6000310111 /* lyrics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = lyrics.cpp; path = src/modules/lyrics.cpp; sourceTree = "<group>"; };
+		0514A67113FD6D6000310111 /* lyrics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lyrics.h; path = src/modules/lyrics.h; sourceTree = "<group>"; };
+		0514A67213FD6D6000310111 /* lyricsmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = lyricsmixins.cpp; path = src/modules/lyricsmixins.cpp; sourceTree = "<group>"; };
+		0514A67313FD6D6000310111 /* lyricsmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lyricsmixins.h; path = src/modules/lyricsmixins.h; sourceTree = "<group>"; };
+		0514A67413FD6D6000310111 /* mensural.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mensural.cpp; path = src/modules/mensural.cpp; sourceTree = "<group>"; };
+		0514A67513FD6D6000310111 /* mensural.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mensural.h; path = src/modules/mensural.h; sourceTree = "<group>"; };
+		0514A67613FD6D6000310111 /* mensuralmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mensuralmixins.cpp; path = src/modules/mensuralmixins.cpp; sourceTree = "<group>"; };
+		0514A67713FD6D6000310111 /* mensuralmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mensuralmixins.h; path = src/modules/mensuralmixins.h; sourceTree = "<group>"; };
+		0514A67813FD6D6000310111 /* midi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = midi.cpp; path = src/modules/midi.cpp; sourceTree = "<group>"; };
+		0514A67913FD6D6000310111 /* midi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = midi.h; path = src/modules/midi.h; sourceTree = "<group>"; };
+		0514A67A13FD6D6000310111 /* midimixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = midimixins.cpp; path = src/modules/midimixins.cpp; sourceTree = "<group>"; };
+		0514A67B13FD6D6000310111 /* midimixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = midimixins.h; path = src/modules/midimixins.h; sourceTree = "<group>"; };
+		0514A67C13FD6D6000310111 /* namesdates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = namesdates.cpp; path = src/modules/namesdates.cpp; sourceTree = "<group>"; };
+		0514A67D13FD6D6000310111 /* namesdates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = namesdates.h; path = src/modules/namesdates.h; sourceTree = "<group>"; };
+		0514A67E13FD6D6000310111 /* neumes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = neumes.cpp; path = src/modules/neumes.cpp; sourceTree = "<group>"; };
+		0514A67F13FD6D6000310111 /* neumes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = neumes.h; path = src/modules/neumes.h; sourceTree = "<group>"; };
+		0514A68013FD6D6000310111 /* neumesmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = neumesmixins.cpp; path = src/modules/neumesmixins.cpp; sourceTree = "<group>"; };
+		0514A68113FD6D6000310111 /* neumesmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = neumesmixins.h; path = src/modules/neumesmixins.h; sourceTree = "<group>"; };
+		0514A68213FD6D6000310111 /* performance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = performance.cpp; path = src/modules/performance.cpp; sourceTree = "<group>"; };
+		0514A68313FD6D6000310111 /* performance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = performance.h; path = src/modules/performance.h; sourceTree = "<group>"; };
+		0514A68413FD6D6000310111 /* ptrref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ptrref.cpp; path = src/modules/ptrref.cpp; sourceTree = "<group>"; };
+		0514A68513FD6D6000310111 /* ptrref.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ptrref.h; path = src/modules/ptrref.h; sourceTree = "<group>"; };
+		0514A68613FD6D6000310111 /* shared.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = shared.cpp; path = src/modules/shared.cpp; sourceTree = "<group>"; };
+		0514A68713FD6D6000310111 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shared.h; path = src/modules/shared.h; sourceTree = "<group>"; };
+		0514A68813FD6D6000310111 /* sharedmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sharedmixins.cpp; path = src/modules/sharedmixins.cpp; sourceTree = "<group>"; };
+		0514A68913FD6D6000310111 /* sharedmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sharedmixins.h; path = src/modules/sharedmixins.h; sourceTree = "<group>"; };
+		0514A68A13FD6D6000310111 /* tablaturemixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tablaturemixins.cpp; path = src/modules/tablaturemixins.cpp; sourceTree = "<group>"; };
+		0514A68B13FD6D6000310111 /* tablaturemixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = tablaturemixins.h; path = src/modules/tablaturemixins.h; sourceTree = "<group>"; };
+		0514A68C13FD6D6000310111 /* text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = src/modules/text.cpp; sourceTree = "<group>"; };
+		0514A68D13FD6D6000310111 /* text.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = text.h; path = src/modules/text.h; sourceTree = "<group>"; };
+		0514A68E13FD6D6000310111 /* usersymbols.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbols.cpp; path = src/modules/usersymbols.cpp; sourceTree = "<group>"; };
+		0514A68F13FD6D6000310111 /* usersymbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = usersymbols.h; path = src/modules/usersymbols.h; sourceTree = "<group>"; };
+		0514A69013FDAAF500310111 /* test_xmlinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmlinput.cpp; path = test/test_xmlinput.cpp; sourceTree = "<group>"; };
 		0583585713F96F7900919769 /* types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = types.cpp; path = src/types.cpp; sourceTree = "<group>"; };
 		0583585813F96F7900919769 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = src/types.h; sourceTree = "<group>"; };
-		0583595613FB2F1D00919769 /* analysismixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = analysismixins.cpp; path = src/analysismixins.cpp; sourceTree = "<group>"; };
-		0583595713FB2F1D00919769 /* analysismixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = analysismixins.h; path = src/analysismixins.h; sourceTree = "<group>"; };
-		0583595813FB2F1D00919769 /* cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmn.cpp; path = src/cmn.cpp; sourceTree = "<group>"; };
-		0583595913FB2F1D00919769 /* cmn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmn.h; path = src/cmn.h; sourceTree = "<group>"; };
-		0583595A13FB2F1D00919769 /* cmnmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmnmixins.cpp; path = src/cmnmixins.cpp; sourceTree = "<group>"; };
-		0583595B13FB2F1D00919769 /* cmnmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmnmixins.h; path = src/cmnmixins.h; sourceTree = "<group>"; };
-		0583595C13FB2F1D00919769 /* cmnornaments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmnornaments.cpp; path = src/cmnornaments.cpp; sourceTree = "<group>"; };
-		0583595D13FB2F1D00919769 /* cmnornaments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmnornaments.h; path = src/cmnornaments.h; sourceTree = "<group>"; };
-		0583595E13FB2F1D00919769 /* cmnornamentsmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmnornamentsmixins.cpp; path = src/cmnornamentsmixins.cpp; sourceTree = "<group>"; };
-		0583595F13FB2F1D00919769 /* cmnornamentsmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmnornamentsmixins.h; path = src/cmnornamentsmixins.h; sourceTree = "<group>"; };
-		0583596013FB2F1D00919769 /* corpus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = corpus.cpp; path = src/corpus.cpp; sourceTree = "<group>"; };
-		0583596113FB2F1D00919769 /* corpus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = corpus.h; path = src/corpus.h; sourceTree = "<group>"; };
-		0583596213FB2F1D00919769 /* critapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = critapp.cpp; path = src/critapp.cpp; sourceTree = "<group>"; };
-		0583596313FB2F1D00919769 /* critapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = critapp.h; path = src/critapp.h; sourceTree = "<group>"; };
-		0583596413FB2F1D00919769 /* critappmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = critappmixins.cpp; path = src/critappmixins.cpp; sourceTree = "<group>"; };
-		0583596513FB2F1D00919769 /* critappmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = critappmixins.h; path = src/critappmixins.h; sourceTree = "<group>"; };
-		0583596613FB2F1D00919769 /* edittrans.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = edittrans.cpp; path = src/edittrans.cpp; sourceTree = "<group>"; };
-		0583596713FB2F1D00919769 /* edittrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edittrans.h; path = src/edittrans.h; sourceTree = "<group>"; };
-		0583596813FB2F1D00919769 /* edittransmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = edittransmixins.cpp; path = src/edittransmixins.cpp; sourceTree = "<group>"; };
-		0583596913FB2F1D00919769 /* edittransmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edittransmixins.h; path = src/edittransmixins.h; sourceTree = "<group>"; };
-		0583596A13FB2F1D00919769 /* facsimile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = facsimile.cpp; path = src/facsimile.cpp; sourceTree = "<group>"; };
-		0583596B13FB2F1D00919769 /* facsimile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = facsimile.h; path = src/facsimile.h; sourceTree = "<group>"; };
-		0583596C13FB2F1D00919769 /* facsimilemixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = facsimilemixins.cpp; path = src/facsimilemixins.cpp; sourceTree = "<group>"; };
-		0583596D13FB2F1D00919769 /* facsimilemixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = facsimilemixins.h; path = src/facsimilemixins.h; sourceTree = "<group>"; };
-		0583596E13FB2F1D00919769 /* figtable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = figtable.cpp; path = src/figtable.cpp; sourceTree = "<group>"; };
-		0583596F13FB2F1D00919769 /* figtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figtable.h; path = src/figtable.h; sourceTree = "<group>"; };
-		0583597013FB2F1D00919769 /* figtablemixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = figtablemixins.cpp; path = src/figtablemixins.cpp; sourceTree = "<group>"; };
-		0583597113FB2F1D00919769 /* figtablemixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figtablemixins.h; path = src/figtablemixins.h; sourceTree = "<group>"; };
-		0583597213FB2F1D00919769 /* harmony.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = harmony.cpp; path = src/harmony.cpp; sourceTree = "<group>"; };
-		0583597313FB2F1D00919769 /* harmony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = harmony.h; path = src/harmony.h; sourceTree = "<group>"; };
-		0583597413FB2F1D00919769 /* harmonymixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = harmonymixins.cpp; path = src/harmonymixins.cpp; sourceTree = "<group>"; };
-		0583597513FB2F1D00919769 /* harmonymixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = harmonymixins.h; path = src/harmonymixins.h; sourceTree = "<group>"; };
-		0583597613FB2F1D00919769 /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = header.cpp; path = src/header.cpp; sourceTree = "<group>"; };
-		0583597713FB2F1D00919769 /* header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = header.h; path = src/header.h; sourceTree = "<group>"; };
-		0583597813FB2F1D00919769 /* headermixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = headermixins.cpp; path = src/headermixins.cpp; sourceTree = "<group>"; };
-		0583597913FB2F1D00919769 /* headermixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = headermixins.h; path = src/headermixins.h; sourceTree = "<group>"; };
-		0583597A13FB2F1D00919769 /* linkalign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = linkalign.cpp; path = src/linkalign.cpp; sourceTree = "<group>"; };
-		0583597B13FB2F1D00919769 /* linkalign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linkalign.h; path = src/linkalign.h; sourceTree = "<group>"; };
-		0583597C13FB2F1D00919769 /* linkalignmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = linkalignmixins.cpp; path = src/linkalignmixins.cpp; sourceTree = "<group>"; };
-		0583597D13FB2F1D00919769 /* linkalignmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linkalignmixins.h; path = src/linkalignmixins.h; sourceTree = "<group>"; };
-		0583597E13FB2F1D00919769 /* lyrics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lyrics.cpp; path = src/lyrics.cpp; sourceTree = "<group>"; };
-		0583597F13FB2F1D00919769 /* lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lyrics.h; path = src/lyrics.h; sourceTree = "<group>"; };
-		0583598013FB2F1D00919769 /* lyricsmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lyricsmixins.cpp; path = src/lyricsmixins.cpp; sourceTree = "<group>"; };
-		0583598113FB2F1D00919769 /* lyricsmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lyricsmixins.h; path = src/lyricsmixins.h; sourceTree = "<group>"; };
-		0583598213FB2F1D00919769 /* mensural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mensural.cpp; path = src/mensural.cpp; sourceTree = "<group>"; };
-		0583598313FB2F1D00919769 /* mensural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mensural.h; path = src/mensural.h; sourceTree = "<group>"; };
-		0583598413FB2F1D00919769 /* mensuralmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mensuralmixins.cpp; path = src/mensuralmixins.cpp; sourceTree = "<group>"; };
-		0583598513FB2F1D00919769 /* mensuralmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mensuralmixins.h; path = src/mensuralmixins.h; sourceTree = "<group>"; };
-		0583598613FB2F1D00919769 /* midi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = midi.cpp; path = src/midi.cpp; sourceTree = "<group>"; };
-		0583598713FB2F1D00919769 /* midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = midi.h; path = src/midi.h; sourceTree = "<group>"; };
-		0583598813FB2F1D00919769 /* midimixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = midimixins.cpp; path = src/midimixins.cpp; sourceTree = "<group>"; };
-		0583598913FB2F1D00919769 /* midimixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = midimixins.h; path = src/midimixins.h; sourceTree = "<group>"; };
-		0583598A13FB2F1D00919769 /* namesdates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = namesdates.cpp; path = src/namesdates.cpp; sourceTree = "<group>"; };
-		0583598B13FB2F1D00919769 /* namesdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = namesdates.h; path = src/namesdates.h; sourceTree = "<group>"; };
-		0583598C13FB2F1D00919769 /* neumes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = neumes.cpp; path = src/neumes.cpp; sourceTree = "<group>"; };
-		0583598D13FB2F1D00919769 /* neumes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = neumes.h; path = src/neumes.h; sourceTree = "<group>"; };
-		0583598E13FB2F1D00919769 /* neumesmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = neumesmixins.cpp; path = src/neumesmixins.cpp; sourceTree = "<group>"; };
-		0583598F13FB2F1D00919769 /* neumesmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = neumesmixins.h; path = src/neumesmixins.h; sourceTree = "<group>"; };
-		0583599013FB2F1D00919769 /* performance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = performance.cpp; path = src/performance.cpp; sourceTree = "<group>"; };
-		0583599113FB2F1D00919769 /* performance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = performance.h; path = src/performance.h; sourceTree = "<group>"; };
-		0583599213FB2F1D00919769 /* ptrref.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ptrref.cpp; path = src/ptrref.cpp; sourceTree = "<group>"; };
-		0583599313FB2F1D00919769 /* ptrref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ptrref.h; path = src/ptrref.h; sourceTree = "<group>"; };
-		0583599413FB2F1D00919769 /* shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shared.cpp; path = src/shared.cpp; sourceTree = "<group>"; };
-		0583599513FB2F1D00919769 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shared.h; path = src/shared.h; sourceTree = "<group>"; };
-		0583599613FB2F1D00919769 /* sharedmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sharedmixins.cpp; path = src/sharedmixins.cpp; sourceTree = "<group>"; };
-		0583599713FB2F1D00919769 /* sharedmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sharedmixins.h; path = src/sharedmixins.h; sourceTree = "<group>"; };
-		0583599813FB2F1D00919769 /* tablaturemixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tablaturemixins.cpp; path = src/tablaturemixins.cpp; sourceTree = "<group>"; };
-		0583599913FB2F1D00919769 /* tablaturemixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tablaturemixins.h; path = src/tablaturemixins.h; sourceTree = "<group>"; };
-		0583599A13FB2F1D00919769 /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = src/text.cpp; sourceTree = "<group>"; };
-		0583599B13FB2F1D00919769 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text.h; path = src/text.h; sourceTree = "<group>"; };
-		0583599C13FB2F1E00919769 /* usersymbols.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbols.cpp; path = src/usersymbols.cpp; sourceTree = "<group>"; };
-		0583599D13FB2F1E00919769 /* usersymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usersymbols.h; path = src/usersymbols.h; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
 		058359E713FB2F8700919769 /* test_shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_shared.cpp; path = test/test_shared.cpp; sourceTree = "<group>"; };
 		05C9B31913FC0BC300E68B21 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = Library/Frameworks/gtest.framework; sourceTree = SDKROOT; };
@@ -222,8 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CEA57B13FC7E570009A15E /* gtest.framework in Frameworks */,
-				05CEA57913FC7CCC0009A15E /* mei.framework in Frameworks */,
+				0514A6DA13FDB42200310111 /* mei.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0514A63D13FD6B8500310111 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F9E7913CCD5C900E95E7F /* iomeixml.h */,
+				7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */,
+				0514A64013FD6BF100310111 /* xmlimport.h */,
+				0514A64213FD6C0900310111 /* xmlimport.cpp */,
+			);
+			name = Import;
+			sourceTree = "<group>";
+		};
+		0514A63F13FD6B8E00310111 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				0514A64413FD6C2100310111 /* xmlexport.cpp */,
+				0514A64613FD6C3300310111 /* xmlexport.h */,
+			);
+			name = Export;
+			sourceTree = "<group>";
+		};
 		0867D691FE84028FC02AAC07 /* libmei */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +318,8 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0514A63F13FD6B8E00310111 /* Export */,
+				0514A63D13FD6B8500310111 /* Import */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
 				617B4322130450C900EBBE7F /* mei.h */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
@@ -302,8 +331,6 @@
 				9B2EE931133117D700C94712 /* exceptions.h */,
 				7D5F31D313C8CA940037636E /* types.h */,
 				7D5F31D413C8CA940037636E /* types.cpp */,
-				7D1F9E7913CCD5C900E95E7F /* iomeixml.h */,
-				7D1F9E7A13CCD5C900E95E7F /* iomeixml.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -324,6 +351,7 @@
 				058359E713FB2F8700919769 /* test_shared.cpp */,
 				61DBCD401312DDF500B46918 /* gtest_main.cc */,
 				05CEA56513FC61CB0009A15E /* test_meifactory.cpp */,
+				0514A69013FDAAF500310111 /* test_xmlinput.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -340,78 +368,78 @@
 		9B11C8A5132E6C4E0090FDA6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0583595613FB2F1D00919769 /* analysismixins.cpp */,
-				0583595713FB2F1D00919769 /* analysismixins.h */,
-				0583595813FB2F1D00919769 /* cmn.cpp */,
-				0583595913FB2F1D00919769 /* cmn.h */,
-				0583595A13FB2F1D00919769 /* cmnmixins.cpp */,
-				0583595B13FB2F1D00919769 /* cmnmixins.h */,
-				0583595C13FB2F1D00919769 /* cmnornaments.cpp */,
-				0583595D13FB2F1D00919769 /* cmnornaments.h */,
-				0583595E13FB2F1D00919769 /* cmnornamentsmixins.cpp */,
-				0583595F13FB2F1D00919769 /* cmnornamentsmixins.h */,
-				0583596013FB2F1D00919769 /* corpus.cpp */,
-				0583596113FB2F1D00919769 /* corpus.h */,
-				0583596213FB2F1D00919769 /* critapp.cpp */,
-				0583596313FB2F1D00919769 /* critapp.h */,
-				0583596413FB2F1D00919769 /* critappmixins.cpp */,
-				0583596513FB2F1D00919769 /* critappmixins.h */,
-				0583596613FB2F1D00919769 /* edittrans.cpp */,
-				0583596713FB2F1D00919769 /* edittrans.h */,
-				0583596813FB2F1D00919769 /* edittransmixins.cpp */,
-				0583596913FB2F1D00919769 /* edittransmixins.h */,
-				0583596A13FB2F1D00919769 /* facsimile.cpp */,
-				0583596B13FB2F1D00919769 /* facsimile.h */,
-				0583596C13FB2F1D00919769 /* facsimilemixins.cpp */,
-				0583596D13FB2F1D00919769 /* facsimilemixins.h */,
-				0583596E13FB2F1D00919769 /* figtable.cpp */,
-				0583596F13FB2F1D00919769 /* figtable.h */,
-				0583597013FB2F1D00919769 /* figtablemixins.cpp */,
-				0583597113FB2F1D00919769 /* figtablemixins.h */,
-				0583597213FB2F1D00919769 /* harmony.cpp */,
-				0583597313FB2F1D00919769 /* harmony.h */,
-				0583597413FB2F1D00919769 /* harmonymixins.cpp */,
-				0583597513FB2F1D00919769 /* harmonymixins.h */,
-				0583597613FB2F1D00919769 /* header.cpp */,
-				0583597713FB2F1D00919769 /* header.h */,
-				0583597813FB2F1D00919769 /* headermixins.cpp */,
-				0583597913FB2F1D00919769 /* headermixins.h */,
-				0583597A13FB2F1D00919769 /* linkalign.cpp */,
-				0583597B13FB2F1D00919769 /* linkalign.h */,
-				0583597C13FB2F1D00919769 /* linkalignmixins.cpp */,
-				0583597D13FB2F1D00919769 /* linkalignmixins.h */,
-				0583597E13FB2F1D00919769 /* lyrics.cpp */,
-				0583597F13FB2F1D00919769 /* lyrics.h */,
-				0583598013FB2F1D00919769 /* lyricsmixins.cpp */,
-				0583598113FB2F1D00919769 /* lyricsmixins.h */,
-				0583598213FB2F1D00919769 /* mensural.cpp */,
-				0583598313FB2F1D00919769 /* mensural.h */,
-				0583598413FB2F1D00919769 /* mensuralmixins.cpp */,
-				0583598513FB2F1D00919769 /* mensuralmixins.h */,
-				0583598613FB2F1D00919769 /* midi.cpp */,
-				0583598713FB2F1D00919769 /* midi.h */,
-				0583598813FB2F1D00919769 /* midimixins.cpp */,
-				0583598913FB2F1D00919769 /* midimixins.h */,
-				0583598A13FB2F1D00919769 /* namesdates.cpp */,
-				0583598B13FB2F1D00919769 /* namesdates.h */,
-				0583598C13FB2F1D00919769 /* neumes.cpp */,
-				0583598D13FB2F1D00919769 /* neumes.h */,
-				0583598E13FB2F1D00919769 /* neumesmixins.cpp */,
-				0583598F13FB2F1D00919769 /* neumesmixins.h */,
-				0583599013FB2F1D00919769 /* performance.cpp */,
-				0583599113FB2F1D00919769 /* performance.h */,
-				0583599213FB2F1D00919769 /* ptrref.cpp */,
-				0583599313FB2F1D00919769 /* ptrref.h */,
-				0583599413FB2F1D00919769 /* shared.cpp */,
-				0583599513FB2F1D00919769 /* shared.h */,
-				0583599613FB2F1D00919769 /* sharedmixins.cpp */,
-				0583599713FB2F1D00919769 /* sharedmixins.h */,
-				0583599813FB2F1D00919769 /* tablaturemixins.cpp */,
-				0583599913FB2F1D00919769 /* tablaturemixins.h */,
-				0583599A13FB2F1D00919769 /* text.cpp */,
-				0583599B13FB2F1D00919769 /* text.h */,
-				0583599C13FB2F1E00919769 /* usersymbols.cpp */,
-				0583599D13FB2F1E00919769 /* usersymbols.h */,
+				0514A64813FD6D6000310111 /* analysismixins.cpp */,
+				0514A64913FD6D6000310111 /* analysismixins.h */,
+				0514A64A13FD6D6000310111 /* cmn.cpp */,
+				0514A64B13FD6D6000310111 /* cmn.h */,
+				0514A64C13FD6D6000310111 /* cmnmixins.cpp */,
+				0514A64D13FD6D6000310111 /* cmnmixins.h */,
+				0514A64E13FD6D6000310111 /* cmnornaments.cpp */,
+				0514A64F13FD6D6000310111 /* cmnornaments.h */,
+				0514A65013FD6D6000310111 /* cmnornamentsmixins.cpp */,
+				0514A65113FD6D6000310111 /* cmnornamentsmixins.h */,
+				0514A65213FD6D6000310111 /* corpus.cpp */,
+				0514A65313FD6D6000310111 /* corpus.h */,
+				0514A65413FD6D6000310111 /* critapp.cpp */,
+				0514A65513FD6D6000310111 /* critapp.h */,
+				0514A65613FD6D6000310111 /* critappmixins.cpp */,
+				0514A65713FD6D6000310111 /* critappmixins.h */,
+				0514A65813FD6D6000310111 /* edittrans.cpp */,
+				0514A65913FD6D6000310111 /* edittrans.h */,
+				0514A65A13FD6D6000310111 /* edittransmixins.cpp */,
+				0514A65B13FD6D6000310111 /* edittransmixins.h */,
+				0514A65C13FD6D6000310111 /* facsimile.cpp */,
+				0514A65D13FD6D6000310111 /* facsimile.h */,
+				0514A65E13FD6D6000310111 /* facsimilemixins.cpp */,
+				0514A65F13FD6D6000310111 /* facsimilemixins.h */,
+				0514A66013FD6D6000310111 /* figtable.cpp */,
+				0514A66113FD6D6000310111 /* figtable.h */,
+				0514A66213FD6D6000310111 /* figtablemixins.cpp */,
+				0514A66313FD6D6000310111 /* figtablemixins.h */,
+				0514A66413FD6D6000310111 /* harmony.cpp */,
+				0514A66513FD6D6000310111 /* harmony.h */,
+				0514A66613FD6D6000310111 /* harmonymixins.cpp */,
+				0514A66713FD6D6000310111 /* harmonymixins.h */,
+				0514A66813FD6D6000310111 /* header.cpp */,
+				0514A66913FD6D6000310111 /* header.h */,
+				0514A66A13FD6D6000310111 /* headermixins.cpp */,
+				0514A66B13FD6D6000310111 /* headermixins.h */,
+				0514A66C13FD6D6000310111 /* linkalign.cpp */,
+				0514A66D13FD6D6000310111 /* linkalign.h */,
+				0514A66E13FD6D6000310111 /* linkalignmixins.cpp */,
+				0514A66F13FD6D6000310111 /* linkalignmixins.h */,
+				0514A67013FD6D6000310111 /* lyrics.cpp */,
+				0514A67113FD6D6000310111 /* lyrics.h */,
+				0514A67213FD6D6000310111 /* lyricsmixins.cpp */,
+				0514A67313FD6D6000310111 /* lyricsmixins.h */,
+				0514A67413FD6D6000310111 /* mensural.cpp */,
+				0514A67513FD6D6000310111 /* mensural.h */,
+				0514A67613FD6D6000310111 /* mensuralmixins.cpp */,
+				0514A67713FD6D6000310111 /* mensuralmixins.h */,
+				0514A67813FD6D6000310111 /* midi.cpp */,
+				0514A67913FD6D6000310111 /* midi.h */,
+				0514A67A13FD6D6000310111 /* midimixins.cpp */,
+				0514A67B13FD6D6000310111 /* midimixins.h */,
+				0514A67C13FD6D6000310111 /* namesdates.cpp */,
+				0514A67D13FD6D6000310111 /* namesdates.h */,
+				0514A67E13FD6D6000310111 /* neumes.cpp */,
+				0514A67F13FD6D6000310111 /* neumes.h */,
+				0514A68013FD6D6000310111 /* neumesmixins.cpp */,
+				0514A68113FD6D6000310111 /* neumesmixins.h */,
+				0514A68213FD6D6000310111 /* performance.cpp */,
+				0514A68313FD6D6000310111 /* performance.h */,
+				0514A68413FD6D6000310111 /* ptrref.cpp */,
+				0514A68513FD6D6000310111 /* ptrref.h */,
+				0514A68613FD6D6000310111 /* shared.cpp */,
+				0514A68713FD6D6000310111 /* shared.h */,
+				0514A68813FD6D6000310111 /* sharedmixins.cpp */,
+				0514A68913FD6D6000310111 /* sharedmixins.h */,
+				0514A68A13FD6D6000310111 /* tablaturemixins.cpp */,
+				0514A68B13FD6D6000310111 /* tablaturemixins.h */,
+				0514A68C13FD6D6000310111 /* text.cpp */,
+				0514A68D13FD6D6000310111 /* text.h */,
+				0514A68E13FD6D6000310111 /* usersymbols.cpp */,
+				0514A68F13FD6D6000310111 /* usersymbols.h */,
 				0583585713F96F7900919769 /* types.cpp */,
 				0583585813F96F7900919769 /* types.h */,
 			);
@@ -429,43 +457,45 @@
 				61DBCCD71312C86F00B46918 /* mei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
 				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
-				0583599F13FB2F1E00919769 /* analysismixins.h in Headers */,
-				058359A113FB2F1E00919769 /* cmn.h in Headers */,
-				058359A313FB2F1E00919769 /* cmnmixins.h in Headers */,
-				058359A513FB2F1E00919769 /* cmnornaments.h in Headers */,
-				058359A713FB2F1E00919769 /* cmnornamentsmixins.h in Headers */,
-				058359A913FB2F1E00919769 /* corpus.h in Headers */,
-				058359AB13FB2F1E00919769 /* critapp.h in Headers */,
-				058359AD13FB2F1E00919769 /* critappmixins.h in Headers */,
-				058359AF13FB2F1E00919769 /* edittrans.h in Headers */,
-				058359B113FB2F1E00919769 /* edittransmixins.h in Headers */,
-				058359B313FB2F1E00919769 /* facsimile.h in Headers */,
-				058359B513FB2F1E00919769 /* facsimilemixins.h in Headers */,
-				058359B713FB2F1E00919769 /* figtable.h in Headers */,
-				058359B913FB2F1E00919769 /* figtablemixins.h in Headers */,
-				058359BB13FB2F1E00919769 /* harmony.h in Headers */,
-				058359BD13FB2F1E00919769 /* harmonymixins.h in Headers */,
-				058359BF13FB2F1E00919769 /* header.h in Headers */,
-				058359C113FB2F1E00919769 /* headermixins.h in Headers */,
-				058359C313FB2F1E00919769 /* linkalign.h in Headers */,
-				058359C513FB2F1E00919769 /* linkalignmixins.h in Headers */,
-				058359C713FB2F1E00919769 /* lyrics.h in Headers */,
-				058359C913FB2F1E00919769 /* lyricsmixins.h in Headers */,
-				058359CB13FB2F1E00919769 /* mensural.h in Headers */,
-				058359CD13FB2F1E00919769 /* mensuralmixins.h in Headers */,
-				058359CF13FB2F1E00919769 /* midi.h in Headers */,
-				058359D113FB2F1E00919769 /* midimixins.h in Headers */,
-				058359D313FB2F1E00919769 /* namesdates.h in Headers */,
-				058359D513FB2F1E00919769 /* neumes.h in Headers */,
-				058359D713FB2F1E00919769 /* neumesmixins.h in Headers */,
-				058359D913FB2F1E00919769 /* performance.h in Headers */,
-				058359DB13FB2F1E00919769 /* ptrref.h in Headers */,
-				058359DD13FB2F1E00919769 /* shared.h in Headers */,
-				058359DF13FB2F1E00919769 /* sharedmixins.h in Headers */,
-				058359E113FB2F1E00919769 /* tablaturemixins.h in Headers */,
-				058359E313FB2F1E00919769 /* text.h in Headers */,
-				058359E513FB2F1E00919769 /* usersymbols.h in Headers */,
+				0514A69213FDAB5200310111 /* analysismixins.h in Headers */,
+				0514A69313FDAB5200310111 /* cmn.h in Headers */,
+				0514A69413FDAB5200310111 /* cmnmixins.h in Headers */,
+				0514A69513FDAB5200310111 /* cmnornaments.h in Headers */,
+				0514A69613FDAB5200310111 /* cmnornamentsmixins.h in Headers */,
+				0514A69713FDAB5200310111 /* corpus.h in Headers */,
+				0514A69813FDAB5200310111 /* critapp.h in Headers */,
+				0514A69913FDAB5200310111 /* critappmixins.h in Headers */,
+				0514A69A13FDAB5200310111 /* edittrans.h in Headers */,
+				0514A69B13FDAB5200310111 /* edittransmixins.h in Headers */,
+				0514A69C13FDAB5200310111 /* facsimile.h in Headers */,
+				0514A69D13FDAB5200310111 /* facsimilemixins.h in Headers */,
+				0514A69E13FDAB5200310111 /* figtable.h in Headers */,
+				0514A69F13FDAB5200310111 /* figtablemixins.h in Headers */,
+				0514A6A013FDAB5200310111 /* harmony.h in Headers */,
+				0514A6A113FDAB5200310111 /* harmonymixins.h in Headers */,
+				0514A6A213FDAB5200310111 /* header.h in Headers */,
+				0514A6A313FDAB5200310111 /* headermixins.h in Headers */,
+				0514A6A413FDAB5200310111 /* linkalign.h in Headers */,
+				0514A6A513FDAB5200310111 /* linkalignmixins.h in Headers */,
+				0514A6A613FDAB5200310111 /* lyrics.h in Headers */,
+				0514A6A713FDAB5200310111 /* lyricsmixins.h in Headers */,
+				0514A6A813FDAB5200310111 /* mensural.h in Headers */,
+				0514A6A913FDAB5200310111 /* mensuralmixins.h in Headers */,
+				0514A6AA13FDAB5200310111 /* midi.h in Headers */,
+				0514A6AB13FDAB5200310111 /* midimixins.h in Headers */,
+				0514A6AC13FDAB5200310111 /* namesdates.h in Headers */,
+				0514A6AD13FDAB5200310111 /* neumes.h in Headers */,
+				0514A6AE13FDAB5200310111 /* neumesmixins.h in Headers */,
+				0514A6AF13FDAB5200310111 /* performance.h in Headers */,
+				0514A6B013FDAB5200310111 /* ptrref.h in Headers */,
+				0514A6B113FDAB5200310111 /* shared.h in Headers */,
+				0514A6B213FDAB5200310111 /* sharedmixins.h in Headers */,
+				0514A6B313FDAB5200310111 /* tablaturemixins.h in Headers */,
+				0514A6B413FDAB5200310111 /* text.h in Headers */,
+				0514A6B513FDAB5200310111 /* usersymbols.h in Headers */,
 				9B2EE933133117D700C94712 /* exceptions.h in Headers */,
+				0514A64113FD6BF100310111 /* xmlimport.h in Headers */,
+				0514A64713FD6C3300310111 /* xmlexport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +615,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CEA57C13FC7E5D0009A15E /* gtest_main.cc in Sources */,
 				05CEA57813FC78B00009A15E /* runmei.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +635,7 @@
 				058359E813FB2F8700919769 /* test_meielement.cpp in Sources */,
 				058359E913FB2F8700919769 /* test_shared.cpp in Sources */,
 				05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */,
+				0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,45 +643,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */,
+				0514A6B713FDABAB00310111 /* cmn.cpp in Sources */,
+				0514A6B813FDABAB00310111 /* cmnmixins.cpp in Sources */,
+				0514A6B913FDABAB00310111 /* cmnornaments.cpp in Sources */,
+				0514A6BA13FDABAB00310111 /* cmnornamentsmixins.cpp in Sources */,
+				0514A6BB13FDABAB00310111 /* corpus.cpp in Sources */,
+				0514A6BC13FDABAB00310111 /* critapp.cpp in Sources */,
+				0514A6BD13FDABAB00310111 /* critappmixins.cpp in Sources */,
+				0514A6BE13FDABAB00310111 /* edittrans.cpp in Sources */,
+				0514A6BF13FDABAB00310111 /* edittransmixins.cpp in Sources */,
+				0514A6C013FDABAB00310111 /* facsimile.cpp in Sources */,
+				0514A6C113FDABAB00310111 /* facsimilemixins.cpp in Sources */,
+				0514A6C213FDABAB00310111 /* figtable.cpp in Sources */,
+				0514A6C313FDABAB00310111 /* figtablemixins.cpp in Sources */,
+				0514A6C413FDABAB00310111 /* harmony.cpp in Sources */,
+				0514A6C513FDABAB00310111 /* harmonymixins.cpp in Sources */,
+				0514A6C613FDABAB00310111 /* header.cpp in Sources */,
+				0514A6C713FDABAB00310111 /* headermixins.cpp in Sources */,
+				0514A6C813FDABAB00310111 /* linkalign.cpp in Sources */,
+				0514A6C913FDABAB00310111 /* linkalignmixins.cpp in Sources */,
+				0514A6CA13FDABAB00310111 /* lyrics.cpp in Sources */,
+				0514A6CB13FDABAB00310111 /* lyricsmixins.cpp in Sources */,
+				0514A6CC13FDABAB00310111 /* mensural.cpp in Sources */,
+				0514A6CD13FDABAB00310111 /* mensuralmixins.cpp in Sources */,
+				0514A6CE13FDABAB00310111 /* midi.cpp in Sources */,
+				0514A6CF13FDABAB00310111 /* midimixins.cpp in Sources */,
+				0514A6D013FDABAB00310111 /* namesdates.cpp in Sources */,
+				0514A6D113FDABAB00310111 /* neumes.cpp in Sources */,
+				0514A6D213FDABAB00310111 /* neumesmixins.cpp in Sources */,
+				0514A6D313FDABAB00310111 /* performance.cpp in Sources */,
+				0514A6D413FDABAB00310111 /* ptrref.cpp in Sources */,
+				0514A6D513FDABAB00310111 /* shared.cpp in Sources */,
+				0514A6D613FDABAB00310111 /* sharedmixins.cpp in Sources */,
+				0514A6D713FDABAB00310111 /* tablaturemixins.cpp in Sources */,
+				0514A6D813FDABAB00310111 /* text.cpp in Sources */,
+				0514A6D913FDABAB00310111 /* usersymbols.cpp in Sources */,
 				9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */,
 				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
 				9BDC643D132A905F0062255E /* meidocument.cpp in Sources */,
-				0583599E13FB2F1E00919769 /* analysismixins.cpp in Sources */,
-				058359A013FB2F1E00919769 /* cmn.cpp in Sources */,
-				058359A213FB2F1E00919769 /* cmnmixins.cpp in Sources */,
-				058359A413FB2F1E00919769 /* cmnornaments.cpp in Sources */,
-				058359A613FB2F1E00919769 /* cmnornamentsmixins.cpp in Sources */,
-				058359A813FB2F1E00919769 /* corpus.cpp in Sources */,
-				058359AA13FB2F1E00919769 /* critapp.cpp in Sources */,
-				058359AC13FB2F1E00919769 /* critappmixins.cpp in Sources */,
-				058359AE13FB2F1E00919769 /* edittrans.cpp in Sources */,
-				058359B013FB2F1E00919769 /* edittransmixins.cpp in Sources */,
-				058359B213FB2F1E00919769 /* facsimile.cpp in Sources */,
-				058359B413FB2F1E00919769 /* facsimilemixins.cpp in Sources */,
-				058359B613FB2F1E00919769 /* figtable.cpp in Sources */,
-				058359B813FB2F1E00919769 /* figtablemixins.cpp in Sources */,
-				058359BA13FB2F1E00919769 /* harmony.cpp in Sources */,
-				058359BC13FB2F1E00919769 /* harmonymixins.cpp in Sources */,
-				058359BE13FB2F1E00919769 /* header.cpp in Sources */,
-				058359C013FB2F1E00919769 /* headermixins.cpp in Sources */,
-				058359C213FB2F1E00919769 /* linkalign.cpp in Sources */,
-				058359C413FB2F1E00919769 /* linkalignmixins.cpp in Sources */,
-				058359C613FB2F1E00919769 /* lyrics.cpp in Sources */,
-				058359C813FB2F1E00919769 /* lyricsmixins.cpp in Sources */,
-				058359CA13FB2F1E00919769 /* mensural.cpp in Sources */,
-				058359CC13FB2F1E00919769 /* mensuralmixins.cpp in Sources */,
-				058359CE13FB2F1E00919769 /* midi.cpp in Sources */,
-				058359D013FB2F1E00919769 /* midimixins.cpp in Sources */,
-				058359D213FB2F1E00919769 /* namesdates.cpp in Sources */,
-				058359D413FB2F1E00919769 /* neumes.cpp in Sources */,
-				058359D613FB2F1E00919769 /* neumesmixins.cpp in Sources */,
-				058359D813FB2F1E00919769 /* performance.cpp in Sources */,
-				058359DA13FB2F1E00919769 /* ptrref.cpp in Sources */,
-				058359DC13FB2F1E00919769 /* shared.cpp in Sources */,
-				058359DE13FB2F1E00919769 /* sharedmixins.cpp in Sources */,
-				058359E013FB2F1E00919769 /* tablaturemixins.cpp in Sources */,
-				058359E213FB2F1E00919769 /* text.cpp in Sources */,
-				058359E413FB2F1E00919769 /* usersymbols.cpp in Sources */,
+				0514A64313FD6C0900310111 /* xmlimport.cpp in Sources */,
+				0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +707,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -691,6 +724,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -741,6 +775,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/usr/include/libxml2,
 					../src,
@@ -763,6 +798,7 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../Downloads/gtest-1.5.0/xcode/build/Release\"";
 				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ../src;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = readmei;
@@ -879,6 +915,7 @@
 				05CEA57713FC78890009A15E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */ = {
 			isa = XCConfigurationList;
