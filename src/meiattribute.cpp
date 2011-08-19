@@ -24,8 +24,9 @@
 
 #include "meiattribute.h"
 
-#include <iostream>
 #include <string>
+
+using std::string;
 
 mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
     this->name = attrname;
@@ -34,15 +35,16 @@ mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
 }
 
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
-    return (this->name == other.name && this->value == other.value && this->prefix == other.prefix);
+    return (this->name == other.name &&
+            this->value == other.value &&
+            this->prefix == other.prefix);
 }
 
 string mei::MeiAttribute::getName() {
     return this->name;
 }
 
-void mei::MeiAttribute::setName(string attrname)
-{
+void mei::MeiAttribute::setName(string attrname) {
     this->name = attrname;
 }
 

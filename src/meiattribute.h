@@ -25,14 +25,13 @@
 #ifndef MEIATTRIBUTE_H_
 #define MEIATTRIBUTE_H_
 
-#include "mei.h"
 #include <string>
+
+#include "mei.h"
 
 using std::string;
 
 namespace mei {
-
-class MEI_EXPORT MeiElement; // forward declare MeiElement
 
 /** \brief  A representation of an attribute associated to an element in the MEI schema,
  *          attributes describe the properties of the Mei Element.
@@ -85,5 +84,4 @@ class MeiAttribute
     };
 }
 
-#endif // MEIATTRIBUTE_H_
-
+#endif  // MEIATTRIBUTE_H_

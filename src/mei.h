@@ -10,9 +10,9 @@
 
 #if defined _WIN32 || defined __CYGWIN__
     #ifdef BUILDING_DLL
-        #define MEI_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
+        #define MEI_EXPORT __declspec(dllexport)
     #else
-        #define MEI_EXPORT __declspec(dllimport) // Note: actually gcc seems to also supports this syntax.
+        #define MEI_EXPORT __declspec(dllimport)
     #endif
 #else
     #if __GNUC__ >= 4

@@ -1,12 +1,12 @@
 #include "meielement.h"
-#include "meiattribute.h"
 
 #include <stdio.h>
 
-#include <iostream>
 #include <iomanip>
 #include <string>
 #include <vector>
+
+#include "meiattribute.h"
 
 using std::string;
 using mei::MeiAttribute;
@@ -119,7 +119,6 @@ MeiElement::MeiElement(xmlNode* node) {
     //else throw an exception?
 }
 */
-mei::MeiElement::~MeiElement() {}
 
 // currently fails to compare children vectors
 /*
@@ -206,7 +205,7 @@ void mei::MeiElement::setAttributes(vector<MeiAttribute*> attrs) {
 }
 
 MeiAttribute* mei::MeiElement::getAttribute(string name)
-                        throw (AttributeNotFoundException) {
+                        throw(AttributeNotFoundException) {
     if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
@@ -219,7 +218,7 @@ MeiAttribute* mei::MeiElement::getAttribute(string name)
     return NULL;
 }
 
-string mei::MeiElement::getAttributeValue(string name) throw (AttributeNotFoundException) {
+string mei::MeiElement::getAttributeValue(string name) throw(AttributeNotFoundException) {
     if (!this->hasAttribute(name)) {
         throw AttributeNotFoundException(name);
     }
@@ -237,7 +236,7 @@ bool mei::MeiElement::hasAttribute(string name) {
     return false;
 }
 
-void mei::MeiElement::addAttribute(MeiAttribute *attr) throw (DuplicateAttributeException) {
+void mei::MeiElement::addAttribute(MeiAttribute *attr) throw(DuplicateAttributeException) {
     for (vector<MeiAttribute*>::iterator i = attributes.begin(); i != attributes.end(); ++i) {
         if ( (*i)->getName() == attr->getName() ) {
             throw DuplicateAttributeException((*i)->getName());
@@ -251,8 +250,7 @@ void mei::MeiElement::removeAttribute(string name) {
     while (iter != attributes.end()) {
         if ((*iter)->getName() == name) {
             iter = attributes.erase(iter);
-        }
-        else {
+        } else {
             ++iter;
         }
     }
@@ -289,7 +287,7 @@ vector<mei::MeiElement*> mei::MeiElement::getChildren() {
     return this->children;
 }
 
-vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) throw (ChildNotFoundException) {
+vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) throw(ChildNotFoundException) {
     if (!this->hasChildren(name)) {
         throw ChildNotFoundException(name);
     }
@@ -302,7 +300,7 @@ vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) throw (
     return res;
 }
 
-mei::MeiElement* mei::MeiElement::getChildById(string cid) throw (ChildNotFoundException) {
+mei::MeiElement* mei::MeiElement::getChildById(string cid) throw(ChildNotFoundException) {
     for (vector<mei::MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getId() == cid) return *iter;
     }
@@ -319,7 +317,7 @@ void mei::MeiElement::deleteAllChildren() {
 void mei::MeiElement::removeChildren(string cname) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
-        if((*iter)->getName() == cname) {
+        if ((*iter)->getName() == cname) {
             iter = this->children.erase(iter);
         } else {
             ++iter;
@@ -330,7 +328,7 @@ void mei::MeiElement::removeChildren(string cname) {
 void mei::MeiElement::removeChild(MeiElement * child) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
-        if(child == *iter) {
+        if (child == *iter) {
             iter = this->children.erase(iter);
         } else {
             ++iter;
@@ -340,14 +338,14 @@ void mei::MeiElement::removeChild(MeiElement * child) {
 
 bool mei::MeiElement::hasChildren(string cname) {
     for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
-        if((*iter)->getName() == cname) return true;
+        if ((*iter)->getName() == cname) return true;
     }
     return false;
 }
 
 bool mei::MeiElement::hasChild(MeiElement * child) {
-    for(vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
-        if( child == *iter) return true;
+    for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
+        if (child == *iter) return true;
     }
     return false;
 }

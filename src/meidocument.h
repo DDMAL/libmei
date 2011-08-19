@@ -83,13 +83,13 @@ class MEI_EXPORT MeiDocument
         MeiElement* getElementById(string id);
 
     private:
-        map<string,MeiElement*> *getMap();
+        map<string, MeiElement*> *getMap();
         void FillMap(MeiElement* element);
 
         string docname;
         string encoding;
         MeiElement* root;
-        map<string,MeiElement*> *idmap;
+        map<string, MeiElement*> *idmap;
     };
 }
-#endif // MEIDOCUMENT_H_
+#endif  // MEIDOCUMENT_H_

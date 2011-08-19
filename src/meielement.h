@@ -25,11 +25,11 @@
 #ifndef MEIELEMENT_H_
 #define MEIELEMENT_H_
 
+#include <libxml/xmlreader.h>
+
 #include <string>
 #include <vector>
 #include <map>
-
-#include <libxml/xmlreader.h>
 
 #include "mei.h"
 #include "meiattribute.h"
@@ -73,7 +73,7 @@ class MEI_EXPORT MeiElement
 
         MeiElement(string name, string value, string prefix, string ns, MeiElement * parent);
 
-        virtual ~MeiElement();
+        virtual ~MeiElement() {}
 
 
         string getId();
@@ -126,9 +126,9 @@ class MEI_EXPORT MeiElement
 
         vector<MeiAttribute*>& getAttributes();
         void setAttributes(vector<MeiAttribute*> attrs);
-        MeiAttribute* getAttribute(string name) throw (AttributeNotFoundException);
-        string getAttributeValue(string name) throw (AttributeNotFoundException);
-        void addAttribute(MeiAttribute *attribute) throw (DuplicateAttributeException);
+        MeiAttribute* getAttribute(string name) throw(AttributeNotFoundException);
+        string getAttributeValue(string name) throw(AttributeNotFoundException);
+        void addAttribute(MeiAttribute *attribute) throw(DuplicateAttributeException);
 
         void removeAttribute(string name);
 
@@ -153,7 +153,7 @@ class MEI_EXPORT MeiElement
         void addChild(MeiElement *child);
         void setChildren(vector<MeiElement*> children);
         vector<MeiElement*> getChildren();
-        vector<MeiElement*> getChildrenByName(string name) throw (ChildNotFoundException);
+        vector<MeiElement*> getChildrenByName(string name) throw(ChildNotFoundException);
         MeiElement* getChildById(string cid) throw(ChildNotFoundException);
         void deleteAllChildren();
         void removeChildren(string cname);
@@ -190,8 +190,6 @@ class MEI_EXPORT MeiElement
         vector<MeiAttribute*> attributes;
         vector<MeiElement*> children;
         MeiElement *parent;
-
-
     };
 
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
@@ -211,18 +209,18 @@ class MEI_EXPORT MeiElement
        // }
 
         static MeiElement* createInstance(std::string const& s) {
-
             default_map::iterator it = getMap()->find(s);
-            if(it == getMap()->end())
+            if (it == getMap()->end()) {
                 return NULL;
+            }
             return it->second();
-
         }
 
         static bool inMap(std::string const& query) {
             default_map::iterator it = getMap()->find(query);
-            if(it == getMap()->end())
+            if (it == getMap()->end()) {
                 return false;
+            }
             return true;
         }
 
@@ -234,7 +232,9 @@ class MEI_EXPORT MeiElement
         //     return nodemap;
         // }
         static default_map * getMap() {
-            if(!defaultmap) { defaultmap = new default_map; }
+            if (!defaultmap) {
+                defaultmap = new default_map;
+            }
             return defaultmap;
         }
 
@@ -256,7 +256,5 @@ class MEI_EXPORT MeiElement
     //         getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
     //     }
     // };
-
 }
-#endif // MEIELEMENT_H_
-
+#endif  // MEIELEMENT_H_
