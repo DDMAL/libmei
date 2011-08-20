@@ -12,7 +12,7 @@ LANG_NAME="C++"
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani"
 
-METHODS_HEADER_TEMPLATE = """    {documentation}
+METHODS_HEADER_TEMPLATE = """{documentation}
         MeiAttribute* get{attNameUpper}();
         void set{attNameUpper}(std::string _{attNameLowerJoined});
         bool has{attNameUpper}();
@@ -141,7 +141,32 @@ def create(schema):
     __create_element_classes(schema)
     
     lg.debug("Success!")
+
+def __get_docstr(text, indent=0):
+    """ Format a docstring. Take the first sentence (. followed by a space)
+        and use it for the brief. Then put the rest of the text after a blank
+        line if there is text there
+    """
+    text = text.strip().encode("utf-8")
+    dotpos = text.find(". ")
+    if dotpos > 0:
+        brief = text[:dotpos+1]
+        content = text[dotpos+2:]
+    else:
+        brief = text
+        content = ""
+    if indent == 0:
+        istr = ""
+    else:
+        istr = "{0:{1}}".format(" ", indent)
     
+    brief = "\n{0} *  ".format(istr).join(textwrap.wrap(brief, 80))
+    content = "\n{0} *  ".format(istr).join(textwrap.wrap(content, 80))
+    docstr = "{0}/** \\brief {1}".format(istr, brief)
+    if len(content) > 0:
+        docstr += "\n{0} * \n{0} *  {1}".format(istr, content)
+    docstr += "\n{0} */".format(istr)
+    return docstr
 
 def __create_mixin_classes(schema):
     ###########################################################################
@@ -163,11 +188,12 @@ def __create_mixin_classes(schema):
             
             methods = ""
             for att in atts:
+                docstr = __get_docstr(schema.getattdocs(att), indent=8)
                 substrings = {
                     "attNameUpper": schema.cc(schema.strpatt(att)),
                     "attNameLower": att,
                     "attNameLowerJoined": schema.strpdot(att),
-                    "documentation": "{0}".format("    /** \\brief   "+"\n        * ".join(textwrap.wrap(((schema.getattdocs(att)).encode('utf-8')),80))+"\n        */")
+                    "documentation": docstr
                 }
                 methods += METHODS_HEADER_TEMPLATE.format(**substrings)
                 
@@ -255,11 +281,12 @@ def __create_element_classes(schema):
                     for sda in attribute:
                         if sda == "xml:id":
                             continue
+                        docstr = __get_docstr(schema.getattdocs(sda), indent=8)
                         methstr = {
                             "attNameUpper": schema.cc(schema.strpatt(sda)),
                             "attNameLower": sda,
                             "attNameLowerJoined": schema.strpdot(sda),
-                            "documentation": "{0}".format("/** \\brief   "+"\n    * ".join(textwrap.wrap(((schema.getattdocs(sda)).encode('utf-8')),80))+"\n    */")
+                            "documentation": docstr
                         }
                         attribute_methods += METHODS_HEADER_TEMPLATE.format(**methstr)
                         
@@ -271,12 +298,12 @@ def __create_element_classes(schema):
                         mod = schema.inverse_attribute_group_structure[attribute]
                         if mod not in includes:
                             includes.append(mod)
-                        
+            docstr = __get_docstr(schema.geteldocs(element), indent=0)
             elvars = {
                 "elementNameUpper": schema.cc(element),
                 "methods": attribute_methods,
                 "mixIns": element_mixins,
-                "documentation": "{0}".format("/** \\brief   "+"\n* ".join(textwrap.wrap(((schema.geteldocs(element)).encode('utf-8')),80))+"\n*/\n").strip()
+                "documentation": docstr.strip()
             }
             
             # pdb.set_trace()
