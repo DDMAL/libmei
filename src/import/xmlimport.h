@@ -13,32 +13,28 @@
 
 namespace mei {
 
-    namespace XmlImport {
+    class XmlImport {
+        public:
+            /** public interfaces for importing. Each of these will convert their input
+             *  into an xmlNode for processing by the _MeiXmlStruct class.
+             */
+            static MeiDocument* documentFromFile(const char* filename);
+            static MeiDocument* documentFromStream(std::string stream); // figure out arg type!
+            static MeiDocument* documentFromText(std::string text); // is this right???
         
-        /** public interfaces for importing. Each of these will convert their input
-         *  into an xmlNode for processing by the _MeiXmlStruct class.
-         */
-        MeiDocument* File(const char* filename);
-        MeiDocument* Stream(std::string stream); // figure out arg type!
-        MeiDocument* Text(std::string text); // is this right???
-        
-        // privat class for doing the processing.
-        class _MeiXml {
-            public:
-                _MeiXml(xmlDoc *d);
-                virtual ~_MeiXml();
-                MeiDocument* getMeiDocument();
-                
-            private:
-                MeiElement* xmlNodeToMeiElement(xmlNode *el);
-                
-                xmlNode* rootXmlNode;
-                xmlDoc* xmlMeiDocument;
-                MeiDocument* meiDocument;
-                MeiElement* rootMeiElement;
-        };
-
-    }
+        private:
+            XmlImport(xmlDoc *doc);
+            virtual ~XmlImport();
+            void init();
+            
+            MeiDocument* getMeiDocument();
+            MeiElement* xmlNodeToMeiElement(xmlNode *el);
+            
+            xmlNode* rootXmlNode;
+            xmlDoc* xmlMeiDocument;
+            MeiDocument* meiDocument;
+            MeiElement* rootMeiElement;
+    };
 }
 
 
