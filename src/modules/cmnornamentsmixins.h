@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,89 +26,72 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class MordentLogMixIn {
     public:
         explicit MordentLogMixIn(MeiElement *b);
         virtual ~MordentLogMixIn();
-        
-    /** \brief   records the function of the dot.
-    */
-
-    MeiAttribute* getForm();
-    void setForm(std::string _form);
-    bool hasForm();
-    void removeForm();
-
-    /** \brief   When the long attribute is set to 'yes', a double or long mordent, consisting of
-    * 5 notes, is indicated.
-    */
-
-    MeiAttribute* getLong();
-    void setLong(std::string _long);
-    bool hasLong();
-    void removeLong();
+        /** \brief   records the function of the dot.
+        */
+        MeiAttribute* getForm();
+        void setForm(std::string _form);
+        bool hasForm();
+        void removeForm();
+        /** \brief   When the long attribute is set to 'yes', a double or long mordent, consisting of
+        * 5 notes, is indicated.
+        */
+        MeiAttribute* getLong();
+        void setLong(std::string _long);
+        bool hasLong();
+        void removeLong();
 
     private:
         MeiElement *b;
 };
-
 
 class OrnamentaccidMixIn {
     public:
         explicit OrnamentaccidMixIn(MeiElement *b);
         virtual ~OrnamentaccidMixIn();
-        
-    /** \brief   records the written accidental associated with an upper neighboring note.
-    */
-
-    MeiAttribute* getAccidupper();
-    void setAccidupper(std::string _accidupper);
-    bool hasAccidupper();
-    void removeAccidupper();
-
-    /** \brief   records the written accidental associated with a lower neighboring note.
-    */
-
-    MeiAttribute* getAccidlower();
-    void setAccidlower(std::string _accidlower);
-    bool hasAccidlower();
-    void removeAccidlower();
+        /** \brief   records the written accidental associated with an upper neighboring note.
+        */
+        MeiAttribute* getAccidupper();
+        void setAccidupper(std::string _accidupper);
+        bool hasAccidupper();
+        void removeAccidupper();
+        /** \brief   records the written accidental associated with a lower neighboring note.
+        */
+        MeiAttribute* getAccidlower();
+        void setAccidlower(std::string _accidlower);
+        bool hasAccidlower();
+        void removeAccidlower();
 
     private:
         MeiElement *b;
 };
-
 
 class TurnLogMixIn {
     public:
         explicit TurnLogMixIn(MeiElement *b);
         virtual ~TurnLogMixIn();
-        
-    /** \brief   When the delayed attribute is set to 'true', the turn begins on the second half
-    * of the beat. See Read, p. 246.
-    */
-
-    MeiAttribute* getDelayed();
-    void setDelayed(std::string _delayed);
-    bool hasDelayed();
-    void removeDelayed();
-
-    /** \brief   records the function of the dot.
-    */
-
-    MeiAttribute* getForm();
-    void setForm(std::string _form);
-    bool hasForm();
-    void removeForm();
+        /** \brief   When the delayed attribute is set to 'true', the turn begins on the second half
+        * of the beat. See Read, p. 246.
+        */
+        MeiAttribute* getDelayed();
+        void setDelayed(std::string _delayed);
+        bool hasDelayed();
+        void removeDelayed();
+        /** \brief   records the function of the dot.
+        */
+        MeiAttribute* getForm();
+        void setForm(std::string _form);
+        bool hasForm();
+        void removeForm();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // CMNORNAMENTSMIXIN_H_
+#endif  // CMNORNAMENTSMIXIN_H_

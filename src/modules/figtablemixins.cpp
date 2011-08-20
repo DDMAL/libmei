@@ -1,15 +1,15 @@
-
 #include "figtablemixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::TabularMixIn::TabularMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TabularMixIn::~TabularMixIn() {};
 
+mei::TabularMixIn::~TabularMixIn() {}
 MeiAttribute* mei::TabularMixIn::getColspan() {
     if (!b->hasAttribute("colspan")) {
         throw AttributeNotFoundException("colspan");
@@ -31,7 +31,6 @@ bool mei::TabularMixIn::hasColspan() {
 void mei::TabularMixIn::removeColspan() {
     b->removeAttribute("colspan");
 };
-
 MeiAttribute* mei::TabularMixIn::getRowspan() {
     if (!b->hasAttribute("rowspan")) {
         throw AttributeNotFoundException("rowspan");

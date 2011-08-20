@@ -1,15 +1,15 @@
-
 #include "neumesmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::IneumeLogMixIn::IneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::IneumeLogMixIn::~IneumeLogMixIn() {};
 
+mei::IneumeLogMixIn::~IneumeLogMixIn() {}
 MeiAttribute* mei::IneumeLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -31,7 +31,6 @@ bool mei::IneumeLogMixIn::hasForm() {
 void mei::IneumeLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
-
 MeiAttribute* mei::IneumeLogMixIn::getName() {
     if (!b->hasAttribute("name")) {
         throw AttributeNotFoundException("name");
@@ -54,12 +53,11 @@ void mei::IneumeLogMixIn::removeName() {
     b->removeAttribute("name");
 };
 
-
 mei::UneumeLogMixIn::UneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::UneumeLogMixIn::~UneumeLogMixIn() {};
 
+mei::UneumeLogMixIn::~UneumeLogMixIn() {}
 MeiAttribute* mei::UneumeLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -81,7 +79,6 @@ bool mei::UneumeLogMixIn::hasForm() {
 void mei::UneumeLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
-
 MeiAttribute* mei::UneumeLogMixIn::getName() {
     if (!b->hasAttribute("name")) {
         throw AttributeNotFoundException("name");

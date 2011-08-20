@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,27 +26,22 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class RegularmethodMixIn {
     public:
         explicit RegularmethodMixIn(MeiElement *b);
         virtual ~RegularmethodMixIn();
-        
-    /** \brief   indicates the method employed to mark corrections and normalizations.
-    */
-
-    MeiAttribute* getMethod();
-    void setMethod(std::string _method);
-    bool hasMethod();
-    void removeMethod();
+        /** \brief   indicates the method employed to mark corrections and normalizations.
+        */
+        MeiAttribute* getMethod();
+        void setMethod(std::string _method);
+        bool hasMethod();
+        void removeMethod();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // HEADERMIXIN_H_
+#endif  // HEADERMIXIN_H_

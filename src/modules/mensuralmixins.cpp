@@ -1,15 +1,15 @@
-
 #include "mensuralmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::LigatureLogMixIn::LigatureLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::LigatureLogMixIn::~LigatureLogMixIn() {};
 
+mei::LigatureLogMixIn::~LigatureLogMixIn() {}
 MeiAttribute* mei::LigatureLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -32,12 +32,11 @@ void mei::LigatureLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
-
 mei::MensurLogMixIn::MensurLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MensurLogMixIn::~MensurLogMixIn() {};
 
+mei::MensurLogMixIn::~MensurLogMixIn() {}
 MeiAttribute* mei::MensurLogMixIn::getModusmaior() {
     if (!b->hasAttribute("modusmaior")) {
         throw AttributeNotFoundException("modusmaior");
@@ -59,7 +58,6 @@ bool mei::MensurLogMixIn::hasModusmaior() {
 void mei::MensurLogMixIn::removeModusmaior() {
     b->removeAttribute("modusmaior");
 };
-
 MeiAttribute* mei::MensurLogMixIn::getModusminor() {
     if (!b->hasAttribute("modusminor")) {
         throw AttributeNotFoundException("modusminor");
@@ -81,7 +79,6 @@ bool mei::MensurLogMixIn::hasModusminor() {
 void mei::MensurLogMixIn::removeModusminor() {
     b->removeAttribute("modusminor");
 };
-
 MeiAttribute* mei::MensurLogMixIn::getProlatio() {
     if (!b->hasAttribute("prolatio")) {
         throw AttributeNotFoundException("prolatio");
@@ -103,7 +100,6 @@ bool mei::MensurLogMixIn::hasProlatio() {
 void mei::MensurLogMixIn::removeProlatio() {
     b->removeAttribute("prolatio");
 };
-
 MeiAttribute* mei::MensurLogMixIn::getTempus() {
     if (!b->hasAttribute("tempus")) {
         throw AttributeNotFoundException("tempus");
@@ -126,12 +122,11 @@ void mei::MensurLogMixIn::removeTempus() {
     b->removeAttribute("tempus");
 };
 
-
 mei::MensurVisMixIn::MensurVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MensurVisMixIn::~MensurVisMixIn() {};
 
+mei::MensurVisMixIn::~MensurVisMixIn() {}
 MeiAttribute* mei::MensurVisMixIn::getDot() {
     if (!b->hasAttribute("dot")) {
         throw AttributeNotFoundException("dot");
@@ -153,7 +148,6 @@ bool mei::MensurVisMixIn::hasDot() {
 void mei::MensurVisMixIn::removeDot() {
     b->removeAttribute("dot");
 };
-
 MeiAttribute* mei::MensurVisMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -175,7 +169,6 @@ bool mei::MensurVisMixIn::hasForm() {
 void mei::MensurVisMixIn::removeForm() {
     b->removeAttribute("form");
 };
-
 MeiAttribute* mei::MensurVisMixIn::getOrient() {
     if (!b->hasAttribute("orient")) {
         throw AttributeNotFoundException("orient");
@@ -197,7 +190,6 @@ bool mei::MensurVisMixIn::hasOrient() {
 void mei::MensurVisMixIn::removeOrient() {
     b->removeAttribute("orient");
 };
-
 MeiAttribute* mei::MensurVisMixIn::getSign() {
     if (!b->hasAttribute("sign")) {
         throw AttributeNotFoundException("sign");
@@ -220,12 +212,11 @@ void mei::MensurVisMixIn::removeSign() {
     b->removeAttribute("sign");
 };
 
-
 mei::MensurationLogMixIn::MensurationLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MensurationLogMixIn::~MensurationLogMixIn() {};
 
+mei::MensurationLogMixIn::~MensurationLogMixIn() {}
 MeiAttribute* mei::MensurationLogMixIn::getMensurDot() {
     if (!b->hasAttribute("mensur.dot")) {
         throw AttributeNotFoundException("mensur.dot");
@@ -247,7 +238,6 @@ bool mei::MensurationLogMixIn::hasMensurDot() {
 void mei::MensurationLogMixIn::removeMensurDot() {
     b->removeAttribute("mensur.dot");
 };
-
 MeiAttribute* mei::MensurationLogMixIn::getMensurOrient() {
     if (!b->hasAttribute("mensur.orient")) {
         throw AttributeNotFoundException("mensur.orient");
@@ -269,7 +259,6 @@ bool mei::MensurationLogMixIn::hasMensurOrient() {
 void mei::MensurationLogMixIn::removeMensurOrient() {
     b->removeAttribute("mensur.orient");
 };
-
 MeiAttribute* mei::MensurationLogMixIn::getMensurSign() {
     if (!b->hasAttribute("mensur.sign")) {
         throw AttributeNotFoundException("mensur.sign");
@@ -291,7 +280,6 @@ bool mei::MensurationLogMixIn::hasMensurSign() {
 void mei::MensurationLogMixIn::removeMensurSign() {
     b->removeAttribute("mensur.sign");
 };
-
 MeiAttribute* mei::MensurationLogMixIn::getMensurSlash() {
     if (!b->hasAttribute("mensur.slash")) {
         throw AttributeNotFoundException("mensur.slash");
@@ -314,12 +302,11 @@ void mei::MensurationLogMixIn::removeMensurSlash() {
     b->removeAttribute("mensur.slash");
 };
 
-
 mei::MensurationVisMixIn::MensurationVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MensurationVisMixIn::~MensurationVisMixIn() {};
 
+mei::MensurationVisMixIn::~MensurationVisMixIn() {}
 MeiAttribute* mei::MensurationVisMixIn::getMensurForm() {
     if (!b->hasAttribute("mensur.form")) {
         throw AttributeNotFoundException("mensur.form");
@@ -341,7 +328,6 @@ bool mei::MensurationVisMixIn::hasMensurForm() {
 void mei::MensurationVisMixIn::removeMensurForm() {
     b->removeAttribute("mensur.form");
 };
-
 MeiAttribute* mei::MensurationVisMixIn::getMensurLoc() {
     if (!b->hasAttribute("mensur.loc")) {
         throw AttributeNotFoundException("mensur.loc");
@@ -363,7 +349,6 @@ bool mei::MensurationVisMixIn::hasMensurLoc() {
 void mei::MensurationVisMixIn::removeMensurLoc() {
     b->removeAttribute("mensur.loc");
 };
-
 MeiAttribute* mei::MensurationVisMixIn::getMensurSize() {
     if (!b->hasAttribute("mensur.size")) {
         throw AttributeNotFoundException("mensur.size");
@@ -386,12 +371,11 @@ void mei::MensurationVisMixIn::removeMensurSize() {
     b->removeAttribute("mensur.size");
 };
 
-
 mei::NoteLogMensuralMixIn::NoteLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::NoteLogMensuralMixIn::~NoteLogMensuralMixIn() {};
 
+mei::NoteLogMensuralMixIn::~NoteLogMensuralMixIn() {}
 MeiAttribute* mei::NoteLogMensuralMixIn::getLig() {
     if (!b->hasAttribute("lig")) {
         throw AttributeNotFoundException("lig");
@@ -414,12 +398,11 @@ void mei::NoteLogMensuralMixIn::removeLig() {
     b->removeAttribute("lig");
 };
 
-
 mei::RestVisMensuralMixIn::RestVisMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::RestVisMensuralMixIn::~RestVisMensuralMixIn() {};
 
+mei::RestVisMensuralMixIn::~RestVisMensuralMixIn() {}
 MeiAttribute* mei::RestVisMensuralMixIn::getSpaces() {
     if (!b->hasAttribute("spaces")) {
         throw AttributeNotFoundException("spaces");
@@ -442,12 +425,11 @@ void mei::RestVisMensuralMixIn::removeSpaces() {
     b->removeAttribute("spaces");
 };
 
-
 mei::StaffdefLogMensuralMixIn::StaffdefLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::StaffdefLogMensuralMixIn::~StaffdefLogMensuralMixIn() {};
 
+mei::StaffdefLogMensuralMixIn::~StaffdefLogMensuralMixIn() {}
 MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNum() {
     if (!b->hasAttribute("proport.num")) {
         throw AttributeNotFoundException("proport.num");
@@ -469,7 +451,6 @@ bool mei::StaffdefLogMensuralMixIn::hasProportNum() {
 void mei::StaffdefLogMensuralMixIn::removeProportNum() {
     b->removeAttribute("proport.num");
 };
-
 MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNumbase() {
     if (!b->hasAttribute("proport.numbase")) {
         throw AttributeNotFoundException("proport.numbase");

@@ -1,15 +1,15 @@
-
 #include "facsimilemixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::FacsimileMixIn::FacsimileMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::FacsimileMixIn::~FacsimileMixIn() {};
 
+mei::FacsimileMixIn::~FacsimileMixIn() {}
 MeiAttribute* mei::FacsimileMixIn::getFacs() {
     if (!b->hasAttribute("facs")) {
         throw AttributeNotFoundException("facs");

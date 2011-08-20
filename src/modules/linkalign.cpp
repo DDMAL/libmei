@@ -1,18 +1,17 @@
-
 #include "linkalign.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Timeline::Timeline() : 
+mei::Timeline::Timeline() :
     MeiElement("timeline"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Timeline, "timeline");
-mei::Timeline::~Timeline() {};
-
+mei::Timeline::~Timeline() {}
 
 MeiAttribute* mei::Timeline::getAvref() {
     if (!hasAttribute("avref")) {
@@ -35,7 +34,6 @@ bool mei::Timeline::hasAvref() {
 void mei::Timeline::removeAvref() {
     removeAttribute("avref");
 };
-
 MeiAttribute* mei::Timeline::getOrigin() {
     if (!hasAttribute("origin")) {
         throw AttributeNotFoundException("origin");
@@ -58,16 +56,14 @@ void mei::Timeline::removeOrigin() {
     removeAttribute("origin");
 };
 
-
-mei::When::When() : 
+mei::When::When() :
     MeiElement("when"),
     m_Common(this),
-    m_Datapointing(this) 
+    m_Datapointing(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::When, "when");
-mei::When::~When() {};
-
+mei::When::~When() {}
 
 MeiAttribute* mei::When::getAbsolute() {
     if (!hasAttribute("absolute")) {
@@ -90,7 +86,6 @@ bool mei::When::hasAbsolute() {
 void mei::When::removeAbsolute() {
     removeAttribute("absolute");
 };
-
 MeiAttribute* mei::When::getInterval() {
     if (!hasAttribute("interval")) {
         throw AttributeNotFoundException("interval");
@@ -112,7 +107,6 @@ bool mei::When::hasInterval() {
 void mei::When::removeInterval() {
     removeAttribute("interval");
 };
-
 MeiAttribute* mei::When::getInttype() {
     if (!hasAttribute("inttype")) {
         throw AttributeNotFoundException("inttype");
@@ -134,7 +128,6 @@ bool mei::When::hasInttype() {
 void mei::When::removeInttype() {
     removeAttribute("inttype");
 };
-
 MeiAttribute* mei::When::getSince() {
     if (!hasAttribute("since")) {
         throw AttributeNotFoundException("since");

@@ -1,16 +1,16 @@
-
 #include "cmnornaments.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Mordent::Mordent() : 
+mei::Mordent::Mordent() :
     MeiElement("mordent"),
     m_Common(this),
     m_Facsimile(this),
     m_MordentLog(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -24,19 +24,18 @@ mei::Mordent::Mordent() :
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Mordent, "mordent");
-mei::Mordent::~Mordent() {};
+mei::Mordent::~Mordent() {}
 
 
-
-mei::Trill::Trill() : 
+mei::Trill::Trill() :
     MeiElement("trill"),
     m_Common(this),
     m_Facsimile(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -55,20 +54,19 @@ mei::Trill::Trill() :
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Trill, "trill");
-mei::Trill::~Trill() {};
+mei::Trill::~Trill() {}
 
 
-
-mei::Turn::Turn() : 
+mei::Turn::Turn() :
     MeiElement("turn"),
     m_Common(this),
     m_Facsimile(this),
     m_TurnLog(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -82,11 +80,11 @@ mei::Turn::Turn() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Turn, "turn");
-mei::Turn::~Turn() {};
+mei::Turn::~Turn() {}
 
 
 

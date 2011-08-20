@@ -1,31 +1,29 @@
-
 #include "harmony.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Barre::Barre() : 
+mei::Barre::Barre() :
     MeiElement("barre"),
     m_Common(this),
     m_Fretlocation(this),
     m_Startendid(this),
-    m_Startid(this) 
+    m_Startid(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Barre, "barre");
-mei::Barre::~Barre() {};
+mei::Barre::~Barre() {}
 
 
-
-mei::Chorddef::Chorddef() : 
+mei::Chorddef::Chorddef() :
     MeiElement("chordDef"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Chorddef, "chordDef");
-mei::Chorddef::~Chorddef() {};
-
+mei::Chorddef::~Chorddef() {}
 
 MeiAttribute* mei::Chorddef::getPos() {
     if (!hasAttribute("pos")) {
@@ -49,20 +47,18 @@ void mei::Chorddef::removePos() {
     removeAttribute("pos");
 };
 
-
-mei::Chordmember::Chordmember() : 
+mei::Chordmember::Chordmember() :
     MeiElement("chordMember"),
     m_Common(this),
     m_AccidentalPerformed(this),
     m_Fretlocation(this),
     m_Intervalharmonic(this),
     m_Pitch(this),
-    m_Octave(this) 
+    m_Octave(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Chordmember, "chordMember");
-mei::Chordmember::~Chordmember() {};
-
+mei::Chordmember::~Chordmember() {}
 
 MeiAttribute* mei::Chordmember::getFing() {
     if (!hasAttribute("fing")) {
@@ -86,29 +82,26 @@ void mei::Chordmember::removeFing() {
     removeAttribute("fing");
 };
 
-
-mei::Chordtable::Chordtable() : 
+mei::Chordtable::Chordtable() :
     MeiElement("chordTable"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Chordtable, "chordTable");
-mei::Chordtable::~Chordtable() {};
+mei::Chordtable::~Chordtable() {}
 
 
-
-mei::F::F() : 
+mei::F::F() :
     MeiElement("f"),
     m_Common(this),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Altsym(this),
-    m_Facsimile(this) 
+    m_Facsimile(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::F, "f");
-mei::F::~F() {};
-
+mei::F::~F() {}
 
 MeiAttribute* mei::F::getExtender() {
     if (!hasAttribute("extender")) {
@@ -132,26 +125,24 @@ void mei::F::removeExtender() {
     removeAttribute("extender");
 };
 
-
-mei::Fb::Fb() : 
+mei::Fb::Fb() :
     MeiElement("fb"),
     m_Common(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Facsimile(this) 
+    m_Facsimile(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Fb, "fb");
-mei::Fb::~Fb() {};
+mei::Fb::~Fb() {}
 
 
-
-mei::Harm::Harm() : 
+mei::Harm::Harm() :
     MeiElement("harm"),
     m_Common(this),
     m_Facsimile(this),
     m_HarmLog(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -169,11 +160,11 @@ mei::Harm::Harm() :
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Harm, "harm");
-mei::Harm::~Harm() {};
+mei::Harm::~Harm() {}
 
 
 

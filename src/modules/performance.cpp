@@ -1,35 +1,33 @@
-
 #include "performance.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Avfile::Avfile() : 
+mei::Avfile::Avfile() :
     MeiElement("avFile"),
     m_Common(this),
     m_Declaring(this),
     m_Internetmedia(this),
     m_Facsimile(this),
-    m_LinkExternal(this),
-    m_Typed(this) 
+    m_Targets(this),
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Avfile, "avFile");
-mei::Avfile::~Avfile() {};
+mei::Avfile::~Avfile() {}
 
 
-
-mei::Clip::Clip() : 
+mei::Clip::Clip() :
     MeiElement("clip"),
     m_Common(this),
     m_Declaring(this),
-    m_Startid(this) 
+    m_Startid(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Clip, "clip");
-mei::Clip::~Clip() {};
-
+mei::Clip::~Clip() {}
 
 MeiAttribute* mei::Clip::getBegin() {
     if (!hasAttribute("begin")) {
@@ -52,7 +50,6 @@ bool mei::Clip::hasBegin() {
 void mei::Clip::removeBegin() {
     removeAttribute("begin");
 };
-
 MeiAttribute* mei::Clip::getEnd() {
     if (!hasAttribute("end")) {
         throw AttributeNotFoundException("end");
@@ -74,7 +71,6 @@ bool mei::Clip::hasEnd() {
 void mei::Clip::removeEnd() {
     removeAttribute("end");
 };
-
 MeiAttribute* mei::Clip::getBetype() {
     if (!hasAttribute("betype")) {
         throw AttributeNotFoundException("betype");
@@ -97,28 +93,25 @@ void mei::Clip::removeBetype() {
     removeAttribute("betype");
 };
 
-
-mei::Performance::Performance() : 
+mei::Performance::Performance() :
     MeiElement("performance"),
     m_Common(this),
-    m_Declaring(this) 
+    m_Declaring(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Performance, "performance");
-mei::Performance::~Performance() {};
+mei::Performance::~Performance() {}
 
 
-
-mei::Recording::Recording() : 
+mei::Recording::Recording() :
     MeiElement("recording"),
     m_Common(this),
     m_Declaring(this),
-    m_Startid(this) 
+    m_Startid(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Recording, "recording");
-mei::Recording::~Recording() {};
-
+mei::Recording::~Recording() {}
 
 MeiAttribute* mei::Recording::getBegin() {
     if (!hasAttribute("begin")) {
@@ -141,7 +134,6 @@ bool mei::Recording::hasBegin() {
 void mei::Recording::removeBegin() {
     removeAttribute("begin");
 };
-
 MeiAttribute* mei::Recording::getEnd() {
     if (!hasAttribute("end")) {
         throw AttributeNotFoundException("end");
@@ -163,7 +155,6 @@ bool mei::Recording::hasEnd() {
 void mei::Recording::removeEnd() {
     removeAttribute("end");
 };
-
 MeiAttribute* mei::Recording::getBetype() {
     if (!hasAttribute("betype")) {
         throw AttributeNotFoundException("betype");

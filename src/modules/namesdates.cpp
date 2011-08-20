@@ -1,11 +1,11 @@
-
 #include "namesdates.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Corpname::Corpname() : 
+mei::Corpname::Corpname() :
     MeiElement("corpName"),
     m_Bibl(this),
     m_Common(this),
@@ -18,15 +18,14 @@ mei::Corpname::Corpname() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Corpname, "corpName");
-mei::Corpname::~Corpname() {};
+mei::Corpname::~Corpname() {}
 
 
-
-mei::Geogname::Geogname() : 
+mei::Geogname::Geogname() :
     MeiElement("geogName"),
     m_Bibl(this),
     m_Common(this),
@@ -38,15 +37,14 @@ mei::Geogname::Geogname() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Geogname, "geogName");
-mei::Geogname::~Geogname() {};
+mei::Geogname::~Geogname() {}
 
 
-
-mei::Periodname::Periodname() : 
+mei::Periodname::Periodname() :
     MeiElement("periodName"),
     m_Bibl(this),
     m_Common(this),
@@ -59,15 +57,14 @@ mei::Periodname::Periodname() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Periodname, "periodName");
-mei::Periodname::~Periodname() {};
+mei::Periodname::~Periodname() {}
 
 
-
-mei::Persname::Persname() : 
+mei::Persname::Persname() :
     MeiElement("persName"),
     m_Bibl(this),
     m_Common(this),
@@ -80,15 +77,14 @@ mei::Persname::Persname() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Persname, "persName");
-mei::Persname::~Persname() {};
+mei::Persname::~Persname() {}
 
 
-
-mei::Stylename::Stylename() : 
+mei::Stylename::Stylename() :
     MeiElement("styleName"),
     m_Bibl(this),
     m_Common(this),
@@ -100,11 +96,11 @@ mei::Stylename::Stylename() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Stylename, "styleName");
-mei::Stylename::~Stylename() {};
+mei::Stylename::~Stylename() {}
 
 
 

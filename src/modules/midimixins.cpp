@@ -1,15 +1,15 @@
-
 #include "midimixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::ChannelizedMixIn::ChannelizedMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ChannelizedMixIn::~ChannelizedMixIn() {};
 
+mei::ChannelizedMixIn::~ChannelizedMixIn() {}
 MeiAttribute* mei::ChannelizedMixIn::getMidiChannel() {
     if (!b->hasAttribute("midi.channel")) {
         throw AttributeNotFoundException("midi.channel");
@@ -31,7 +31,6 @@ bool mei::ChannelizedMixIn::hasMidiChannel() {
 void mei::ChannelizedMixIn::removeMidiChannel() {
     b->removeAttribute("midi.channel");
 };
-
 MeiAttribute* mei::ChannelizedMixIn::getMidiDuty() {
     if (!b->hasAttribute("midi.duty")) {
         throw AttributeNotFoundException("midi.duty");
@@ -53,7 +52,6 @@ bool mei::ChannelizedMixIn::hasMidiDuty() {
 void mei::ChannelizedMixIn::removeMidiDuty() {
     b->removeAttribute("midi.duty");
 };
-
 MeiAttribute* mei::ChannelizedMixIn::getMidiPort() {
     if (!b->hasAttribute("midi.port")) {
         throw AttributeNotFoundException("midi.port");
@@ -75,7 +73,6 @@ bool mei::ChannelizedMixIn::hasMidiPort() {
 void mei::ChannelizedMixIn::removeMidiPort() {
     b->removeAttribute("midi.port");
 };
-
 MeiAttribute* mei::ChannelizedMixIn::getMidiTrack() {
     if (!b->hasAttribute("midi.track")) {
         throw AttributeNotFoundException("midi.track");
@@ -98,12 +95,11 @@ void mei::ChannelizedMixIn::removeMidiTrack() {
     b->removeAttribute("midi.track");
 };
 
-
 mei::MidiinstrumentMixIn::MidiinstrumentMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MidiinstrumentMixIn::~MidiinstrumentMixIn() {};
 
+mei::MidiinstrumentMixIn::~MidiinstrumentMixIn() {}
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrnum() {
     if (!b->hasAttribute("midi.instrnum")) {
         throw AttributeNotFoundException("midi.instrnum");
@@ -125,7 +121,6 @@ bool mei::MidiinstrumentMixIn::hasMidiInstrnum() {
 void mei::MidiinstrumentMixIn::removeMidiInstrnum() {
     b->removeAttribute("midi.instrnum");
 };
-
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrname() {
     if (!b->hasAttribute("midi.instrname")) {
         throw AttributeNotFoundException("midi.instrname");
@@ -148,12 +143,11 @@ void mei::MidiinstrumentMixIn::removeMidiInstrname() {
     b->removeAttribute("midi.instrname");
 };
 
-
 mei::MidinumberMixIn::MidinumberMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MidinumberMixIn::~MidinumberMixIn() {};
 
+mei::MidinumberMixIn::~MidinumberMixIn() {}
 MeiAttribute* mei::MidinumberMixIn::getNum() {
     if (!b->hasAttribute("num")) {
         throw AttributeNotFoundException("num");
@@ -176,12 +170,11 @@ void mei::MidinumberMixIn::removeNum() {
     b->removeAttribute("num");
 };
 
-
 mei::MiditempoMixIn::MiditempoMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MiditempoMixIn::~MiditempoMixIn() {};
 
+mei::MiditempoMixIn::~MiditempoMixIn() {}
 MeiAttribute* mei::MiditempoMixIn::getMidiTempo() {
     if (!b->hasAttribute("midi.tempo")) {
         throw AttributeNotFoundException("midi.tempo");
@@ -204,12 +197,11 @@ void mei::MiditempoMixIn::removeMidiTempo() {
     b->removeAttribute("midi.tempo");
 };
 
-
 mei::MidivalueMixIn::MidivalueMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MidivalueMixIn::~MidivalueMixIn() {};
 
+mei::MidivalueMixIn::~MidivalueMixIn() {}
 MeiAttribute* mei::MidivalueMixIn::getVal() {
     if (!b->hasAttribute("val")) {
         throw AttributeNotFoundException("val");
@@ -232,12 +224,11 @@ void mei::MidivalueMixIn::removeVal() {
     b->removeAttribute("val");
 };
 
-
 mei::TimebaseMixIn::TimebaseMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TimebaseMixIn::~TimebaseMixIn() {};
 
+mei::TimebaseMixIn::~TimebaseMixIn() {}
 MeiAttribute* mei::TimebaseMixIn::getPpq() {
     if (!b->hasAttribute("ppq")) {
         throw AttributeNotFoundException("ppq");

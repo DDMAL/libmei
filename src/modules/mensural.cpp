@@ -1,25 +1,24 @@
-
 #include "mensural.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Ligature::Ligature() : 
+mei::Ligature::Ligature() :
     MeiElement("ligature"),
     m_Common(this),
     m_Facsimile(this),
     m_LigatureLog(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Ligature, "ligature");
-mei::Ligature::~Ligature() {};
+mei::Ligature::~Ligature() {}
 
 
-
-mei::Mensur::Mensur() : 
+mei::Mensur::Mensur() :
     MeiElement("mensur"),
     m_Common(this),
     m_Facsimile(this),
@@ -31,25 +30,24 @@ mei::Mensur::Mensur() :
     m_Slashcount(this),
     m_Staffloc(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Mensur, "mensur");
-mei::Mensur::~Mensur() {};
+mei::Mensur::~Mensur() {}
 
 
-
-mei::Proport::Proport() : 
+mei::Proport::Proport() :
     MeiElement("proport"),
     m_Common(this),
     m_Facsimile(this),
     m_DurationRatio(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Proport, "proport");
-mei::Proport::~Proport() {};
+mei::Proport::~Proport() {}
 
 
 

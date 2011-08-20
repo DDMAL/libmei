@@ -1,15 +1,15 @@
-
 #include "lyricsmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::VerseLogMixIn::VerseLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::VerseLogMixIn::~VerseLogMixIn() {};
 
+mei::VerseLogMixIn::~VerseLogMixIn() {}
 MeiAttribute* mei::VerseLogMixIn::getRefrain() {
     if (!b->hasAttribute("refrain")) {
         throw AttributeNotFoundException("refrain");
@@ -31,7 +31,6 @@ bool mei::VerseLogMixIn::hasRefrain() {
 void mei::VerseLogMixIn::removeRefrain() {
     b->removeAttribute("refrain");
 };
-
 MeiAttribute* mei::VerseLogMixIn::getRhythm() {
     if (!b->hasAttribute("rhythm")) {
         throw AttributeNotFoundException("rhythm");

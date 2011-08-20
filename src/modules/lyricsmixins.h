@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,36 +26,29 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class VerseLogMixIn {
     public:
         explicit VerseLogMixIn(MeiElement *b);
         virtual ~VerseLogMixIn();
-        
-    /** \brief   used to indicate a common, usually centered, refrain (Mup User's Guide, p. 44).
-    */
-
-    MeiAttribute* getRefrain();
-    void setRefrain(std::string _refrain);
-    bool hasRefrain();
-    void removeRefrain();
-
-    /** \brief   used to specify a rhythm for the lyric syllables that differs from that of the
-    * notes on the staff, e.g. '4,4,4,4' when the rhythm of the notes is '4.,8,4.,8'.
-    */
-
-    MeiAttribute* getRhythm();
-    void setRhythm(std::string _rhythm);
-    bool hasRhythm();
-    void removeRhythm();
+        /** \brief   used to indicate a common, usually centered, refrain (Mup User's Guide, p. 44).
+        */
+        MeiAttribute* getRefrain();
+        void setRefrain(std::string _refrain);
+        bool hasRefrain();
+        void removeRefrain();
+        /** \brief   used to specify a rhythm for the lyric syllables that differs from that of the
+        * notes on the staff, e.g. '4,4,4,4' when the rhythm of the notes is '4.,8,4.,8'.
+        */
+        MeiAttribute* getRhythm();
+        void setRhythm(std::string _rhythm);
+        bool hasRhythm();
+        void removeRhythm();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // LYRICSMIXIN_H_
+#endif  // LYRICSMIXIN_H_

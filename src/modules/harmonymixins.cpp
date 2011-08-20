@@ -1,15 +1,15 @@
-
 #include "harmonymixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::FretlocationMixIn::FretlocationMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::FretlocationMixIn::~FretlocationMixIn() {};
 
+mei::FretlocationMixIn::~FretlocationMixIn() {}
 MeiAttribute* mei::FretlocationMixIn::getFret() {
     if (!b->hasAttribute("fret")) {
         throw AttributeNotFoundException("fret");
@@ -32,12 +32,11 @@ void mei::FretlocationMixIn::removeFret() {
     b->removeAttribute("fret");
 };
 
-
 mei::HarmLogMixIn::HarmLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HarmLogMixIn::~HarmLogMixIn() {};
 
+mei::HarmLogMixIn::~HarmLogMixIn() {}
 MeiAttribute* mei::HarmLogMixIn::getChordref() {
     if (!b->hasAttribute("chordref")) {
         throw AttributeNotFoundException("chordref");
@@ -60,12 +59,11 @@ void mei::HarmLogMixIn::removeChordref() {
     b->removeAttribute("chordref");
 };
 
-
 mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HarmVisMixIn::~HarmVisMixIn() {};
 
+mei::HarmVisMixIn::~HarmVisMixIn() {}
 MeiAttribute* mei::HarmVisMixIn::getExtender() {
     if (!b->hasAttribute("extender")) {
         throw AttributeNotFoundException("extender");
@@ -87,7 +85,6 @@ bool mei::HarmVisMixIn::hasExtender() {
 void mei::HarmVisMixIn::removeExtender() {
     b->removeAttribute("extender");
 };
-
 MeiAttribute* mei::HarmVisMixIn::getRendgrid() {
     if (!b->hasAttribute("rendgrid")) {
         throw AttributeNotFoundException("rendgrid");

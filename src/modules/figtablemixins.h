@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,35 +26,28 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class TabularMixIn {
     public:
         explicit TabularMixIn(MeiElement *b);
         virtual ~TabularMixIn();
-        
-    /** \brief   the number of columns spanned by this cell.
-    */
-
-    MeiAttribute* getColspan();
-    void setColspan(std::string _colspan);
-    bool hasColspan();
-    void removeColspan();
-
-    /** \brief   the number of rows spanned by this cell.
-    */
-
-    MeiAttribute* getRowspan();
-    void setRowspan(std::string _rowspan);
-    bool hasRowspan();
-    void removeRowspan();
+        /** \brief   the number of columns spanned by this cell.
+        */
+        MeiAttribute* getColspan();
+        void setColspan(std::string _colspan);
+        bool hasColspan();
+        void removeColspan();
+        /** \brief   the number of rows spanned by this cell.
+        */
+        MeiAttribute* getRowspan();
+        void setRowspan(std::string _rowspan);
+        bool hasRowspan();
+        void removeRowspan();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // FIGTABLEMIXIN_H_
+#endif  // FIGTABLEMIXIN_H_

@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,61 +26,49 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class IneumeLogMixIn {
     public:
         explicit IneumeLogMixIn(MeiElement *b);
         virtual ~IneumeLogMixIn();
-        
-    /** \brief   records the function of the dot.
-    */
-
-    MeiAttribute* getForm();
-    void setForm(std::string _form);
-    bool hasForm();
-    void removeForm();
-
-    /** \brief   records the name of the neume.
-    */
-
-    MeiAttribute* getName();
-    void setName(std::string _name);
-    bool hasName();
-    void removeName();
+        /** \brief   records the function of the dot.
+        */
+        MeiAttribute* getForm();
+        void setForm(std::string _form);
+        bool hasForm();
+        void removeForm();
+        /** \brief   records the name of the neume.
+        */
+        MeiAttribute* getName();
+        void setName(std::string _name);
+        bool hasName();
+        void removeName();
 
     private:
         MeiElement *b;
 };
-
 
 class UneumeLogMixIn {
     public:
         explicit UneumeLogMixIn(MeiElement *b);
         virtual ~UneumeLogMixIn();
-        
-    /** \brief   records the function of the dot.
-    */
-
-    MeiAttribute* getForm();
-    void setForm(std::string _form);
-    bool hasForm();
-    void removeForm();
-
-    /** \brief   records the name of the neume.
-    */
-
-    MeiAttribute* getName();
-    void setName(std::string _name);
-    bool hasName();
-    void removeName();
+        /** \brief   records the function of the dot.
+        */
+        MeiAttribute* getForm();
+        void setForm(std::string _form);
+        bool hasForm();
+        void removeForm();
+        /** \brief   records the name of the neume.
+        */
+        MeiAttribute* getName();
+        void setName(std::string _name);
+        bool hasName();
+        void removeName();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // NEUMESMIXIN_H_
+#endif  // NEUMESMIXIN_H_

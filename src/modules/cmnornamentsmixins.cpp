@@ -1,15 +1,15 @@
-
 #include "cmnornamentsmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::MordentLogMixIn::MordentLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MordentLogMixIn::~MordentLogMixIn() {};
 
+mei::MordentLogMixIn::~MordentLogMixIn() {}
 MeiAttribute* mei::MordentLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -31,7 +31,6 @@ bool mei::MordentLogMixIn::hasForm() {
 void mei::MordentLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
-
 MeiAttribute* mei::MordentLogMixIn::getLong() {
     if (!b->hasAttribute("long")) {
         throw AttributeNotFoundException("long");
@@ -54,12 +53,11 @@ void mei::MordentLogMixIn::removeLong() {
     b->removeAttribute("long");
 };
 
-
 mei::OrnamentaccidMixIn::OrnamentaccidMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::OrnamentaccidMixIn::~OrnamentaccidMixIn() {};
 
+mei::OrnamentaccidMixIn::~OrnamentaccidMixIn() {}
 MeiAttribute* mei::OrnamentaccidMixIn::getAccidupper() {
     if (!b->hasAttribute("accidupper")) {
         throw AttributeNotFoundException("accidupper");
@@ -81,7 +79,6 @@ bool mei::OrnamentaccidMixIn::hasAccidupper() {
 void mei::OrnamentaccidMixIn::removeAccidupper() {
     b->removeAttribute("accidupper");
 };
-
 MeiAttribute* mei::OrnamentaccidMixIn::getAccidlower() {
     if (!b->hasAttribute("accidlower")) {
         throw AttributeNotFoundException("accidlower");
@@ -104,12 +101,11 @@ void mei::OrnamentaccidMixIn::removeAccidlower() {
     b->removeAttribute("accidlower");
 };
 
-
 mei::TurnLogMixIn::TurnLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TurnLogMixIn::~TurnLogMixIn() {};
 
+mei::TurnLogMixIn::~TurnLogMixIn() {}
 MeiAttribute* mei::TurnLogMixIn::getDelayed() {
     if (!b->hasAttribute("delayed")) {
         throw AttributeNotFoundException("delayed");
@@ -131,7 +127,6 @@ bool mei::TurnLogMixIn::hasDelayed() {
 void mei::TurnLogMixIn::removeDelayed() {
     b->removeAttribute("delayed");
 };
-
 MeiAttribute* mei::TurnLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
