@@ -31,14 +31,16 @@
 
 
 namespace mei {
-/** \brief   meiCorpus ― The document element for a group of related MEI documents, each
-* with its own complete header, contains a header for the group, and one or more
-* <mei> elements. The group may be related in a number of ways, for example, by
-* composer, by similar instrumentation, by holding institution, etc. This
-* element's name should not be changed in order to assure an absolute minimum
-* level of MEI compliance. This element is modelled on the teiCorpus element in
-* the Text Encoding Initiative (TEI).
-*/
+/** \brief meiCorpus ― The document element for a group of related MEI documents, each
+ *  with its own complete header, contains a header for the group, and one or more
+ *  <mei> elements.
+ * 
+ *  The group may be related in a number of ways, for example, by composer, by
+ *  similar instrumentation, by holding institution, etc. This element's name should
+ *  not be changed in order to assure an absolute minimum level of MEI compliance.
+ *  This element is modelled on the teiCorpus element in the Text Encoding
+ *  Initiative (TEI).
+ */
 class MEI_EXPORT Meicorpus : public MeiElement {
     public:
         Meicorpus();

@@ -35,14 +35,16 @@
 
 
 namespace mei {
-/** \brief   ligature ― A mensural notation symbol that combines two or more notes into a
-* single sign. The rhythmic meaning of the components of a ligature is typically
-* contextual, not absolute; therefore, an interpretative duration may be encoded
-* on each of the components using either the dur.ges attribute or the num and
-* numbase attribute pair. The <ligature> element should *not* be used for brackets
-* in modern notation that indicate notes that were part of a ligature in the
-* original source.
-*/
+/** \brief ligature ― A mensural notation symbol that combines two or more notes into a
+ *  single sign.
+ * 
+ *  The rhythmic meaning of the components of a ligature is typically contextual,
+ *  not absolute; therefore, an interpretative duration may be encoded on each of
+ *  the components using either the dur.ges attribute or the num and numbase
+ *  attribute pair. The <ligature> element should *not* be used for brackets in
+ *  modern notation that indicate notes that were part of a ligature in the original
+ *  source.
+ */
 class MEI_EXPORT Ligature : public MeiElement {
     public:
         Ligature();
@@ -58,12 +60,14 @@ class MEI_EXPORT Ligature : public MeiElement {
         REGISTER_DECLARATION(Ligature);
 };
 
-/** \brief   mensuration ― The <mensur> element is provided for the encoding of mensural
-* notation. It collects information about the metrical relationship between a note
-* value and the next smaller value; that is, either triple or duple. The slash
-* attribute indicates the number lines added to the mensuration sign. For example,
-* one slash is added for what we now call 'alla breve'.
-*/
+/** \brief mensuration ― The <mensur> element is provided for the encoding of mensural
+ *  notation.
+ * 
+ *  It collects information about the metrical relationship between a note value and
+ *  the next smaller value; that is, either triple or duple. The slash attribute
+ *  indicates the number lines added to the mensuration sign. For example, one slash
+ *  is added for what we now call 'alla breve'.
+ */
 class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
@@ -85,11 +89,13 @@ class MEI_EXPORT Mensur : public MeiElement {
         REGISTER_DECLARATION(Mensur);
 };
 
-/** \brief   proportion ― The <proportion> element is provided for the encoding of mensural
-* notation. It allows the description of note durations as arithmetic ratios.
-* While mensuration refers to the normal relationships between note durations,
-* proportion affects the relations of the note durations to the tactus.
-*/
+/** \brief proportion ― The <proportion> element is provided for the encoding of mensural
+ *  notation.
+ * 
+ *  It allows the description of note durations as arithmetic ratios. While
+ *  mensuration refers to the normal relationships between note durations,
+ *  proportion affects the relations of the note durations to the tactus.
+ */
 class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();

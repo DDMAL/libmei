@@ -34,15 +34,17 @@
 
 
 namespace mei {
-/** \brief   corporate name ― Identifies an organization or group of people that acts as a
-* single entity. Examples include names of associations, institutions, business
-* firms, non-profit enterprises, governments, government agencies, projects,
-* programs, religious bodies, churches, conferences, athletic contests,
-* exhibitions, expeditions, fairs, and ships. Secondary name parts may be encoded
-* in <corpName> sub-elements. The name of the list from which a controlled value
-* is taken may be recorded using the authority attribute. This element is modelled
-* on an element in Encoded Archival Description (EAD).
-*/
+/** \brief corporate name ― Identifies an organization or group of people that acts as a
+ *  single entity.
+ * 
+ *  Examples include names of associations, institutions, business firms, non-profit
+ *  enterprises, governments, government agencies, projects, programs, religious
+ *  bodies, churches, conferences, athletic contests, exhibitions, expeditions,
+ *  fairs, and ships. Secondary name parts may be encoded in <corpName> sub-
+ *  elements. The name of the list from which a controlled value is taken may be
+ *  recorded using the authority attribute. This element is modelled on an element
+ *  in Encoded Archival Description (EAD).
+ */
 class MEI_EXPORT Corpname : public MeiElement {
     public:
         Corpname();
@@ -65,14 +67,15 @@ class MEI_EXPORT Corpname : public MeiElement {
         REGISTER_DECLARATION(Corpname);
 };
 
-/** \brief   geographic name ― The proper noun designation for a place, natural feature, or
-* political jurisdiction. Examples include Black Forest; Baltimore, Maryland; and
-* Quartier Latin, Paris. Name sub-parts may be encoded in <geogName> sub-elements.
-* The name of the list from which a controlled value is taken, such as the
-* Thesaurus of Geographic Names (TGN), may be recorded using the authority
-* attribute. This element is modelled on an element in Encoded Archival
-* Description (EAD).
-*/
+/** \brief geographic name ― The proper noun designation for a place, natural feature, or
+ *  political jurisdiction.
+ * 
+ *  Examples include Black Forest; Baltimore, Maryland; and Quartier Latin, Paris.
+ *  Name sub-parts may be encoded in <geogName> sub-elements. The name of the list
+ *  from which a controlled value is taken, such as the Thesaurus of Geographic
+ *  Names (TGN), may be recorded using the authority attribute. This element is
+ *  modelled on an element in Encoded Archival Description (EAD).
+ */
 class MEI_EXPORT Geogname : public MeiElement {
     public:
         Geogname();
@@ -94,10 +97,12 @@ class MEI_EXPORT Geogname : public MeiElement {
         REGISTER_DECLARATION(Geogname);
 };
 
-/** \brief   period name ― A label that describes a period of time, such as 'Baroque' or
-* '3rd Style period'. The name of the list from which a controlled value is taken
-* may be recorded using the authority attribute.
-*/
+/** \brief period name ― A label that describes a period of time, such as 'Baroque' or
+ *  '3rd Style period'.
+ * 
+ *  The name of the list from which a controlled value is taken may be recorded
+ *  using the authority attribute.
+ */
 class MEI_EXPORT Periodname : public MeiElement {
     public:
         Periodname();
@@ -120,12 +125,14 @@ class MEI_EXPORT Periodname : public MeiElement {
         REGISTER_DECLARATION(Periodname);
 };
 
-/** \brief   personal name ― Designation for an individual, including any or all of that
-* individual's forenames, surnames, honorific titles, and added names. Name sub-
-* parts may be recorded in <persName> sub-elements. The name of the list from
-* which a controlled value is taken may be recorded using the authority attribute.
-* This element is modelled on an element in Encoded Archival Description (EAD).
-*/
+/** \brief personal name ― Designation for an individual, including any or all of that
+ *  individual's forenames, surnames, honorific titles, and added names.
+ * 
+ *  Name sub-parts may be recorded in <persName> sub-elements. The name of the list
+ *  from which a controlled value is taken may be recorded using the authority
+ *  attribute. This element is modelled on an element in Encoded Archival
+ *  Description (EAD).
+ */
 class MEI_EXPORT Persname : public MeiElement {
     public:
         Persname();
@@ -148,11 +155,13 @@ class MEI_EXPORT Persname : public MeiElement {
         REGISTER_DECLARATION(Persname);
 };
 
-/** \brief   style name ― A label for a characteristic style of writing or performance,
-* such as 'bebop' or 'rock-n-roll'. Do not confuse this element with the
-* <periodName> element. The name of the list from which a controlled value is
-* taken may be recorded using the authority attribute.
-*/
+/** \brief style name ― A label for a characteristic style of writing or performance,
+ *  such as 'bebop' or 'rock-n-roll'.
+ * 
+ *  Do not confuse this element with the <periodName> element. The name of the list
+ *  from which a controlled value is taken may be recorded using the authority
+ *  attribute.
+ */
 class MEI_EXPORT Stylename : public MeiElement {
     public:
         Stylename();

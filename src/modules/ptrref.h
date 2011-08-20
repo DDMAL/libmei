@@ -31,11 +31,12 @@
 
 
 namespace mei {
-/** \brief   pointer ― Defines a pointer to another location. Unlike the <ref> element,
-* <ptr> cannot contain text or sub-elements to describe the referenced object.
-* This element is modelled on an element in Encoded Archival Description (EAD) and
-* TEI.
-*/
+/** \brief pointer ― Defines a pointer to another location.
+ * 
+ *  Unlike the <ref> element, <ptr> cannot contain text or sub-elements to describe
+ *  the referenced object. This element is modelled on an element in Encoded
+ *  Archival Description (EAD) and TEI.
+ */
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
@@ -50,10 +51,12 @@ class MEI_EXPORT Ptr : public MeiElement {
         REGISTER_DECLARATION(Ptr);
 };
 
-/** \brief   reference ― Defines a reference to another location. Unlike the <ptr> element,
-* <ref> may contain text and sub-elements to describe the destination. This
-* element is modelled on an element in Encoded Archival Description (EAD) and TEI.
-*/
+/** \brief reference ― Defines a reference to another location.
+ * 
+ *  Unlike the <ptr> element, <ref> may contain text and sub-elements to describe
+ *  the destination. This element is modelled on an element in Encoded Archival
+ *  Description (EAD) and TEI.
+ */
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();

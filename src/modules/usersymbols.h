@@ -35,17 +35,19 @@
 
 
 namespace mei {
-/** \brief   anchored text ― Container for text that is fixed to a particular location,
-* regardless of changes made to the layout of the measures around it. This element
-* may be used where semantic markup of the text is neither possible nor desirable,
-* such as in optical music recognition (OMR) applications. The content model here
-* is similar to paragraph without model.textcomponent and <pb> sub-elements. The
-* starting point of the text may be identified in absolute output coordinate terms
-* using the x and y attributes or relative to the location of another element
-* using the startid attribute. The attributes in the att.visualoffset class may be
-* used to record horizontal, vertical, or time offsets from the absolute
-* coordinates or from the location of the referenced element.
-*/
+/** \brief anchored text ― Container for text that is fixed to a particular location,
+ *  regardless of changes made to the layout of the measures around it.
+ * 
+ *  This element may be used where semantic markup of the text is neither possible
+ *  nor desirable, such as in optical music recognition (OMR) applications. The
+ *  content model here is similar to paragraph without model.textcomponent and <pb>
+ *  sub-elements. The starting point of the text may be identified in absolute
+ *  output coordinate terms using the x and y attributes or relative to the location
+ *  of another element using the startid attribute. The attributes in the
+ *  att.visualoffset class may be used to record horizontal, vertical, or time
+ *  offsets from the absolute coordinates or from the location of the referenced
+ *  element.
+ */
 class MEI_EXPORT Anchoredtext : public MeiElement {
     public:
         Anchoredtext();
@@ -67,23 +69,25 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
         REGISTER_DECLARATION(Anchoredtext);
 };
 
-/** \brief   curve ― A curved line that cannot be represented by a more specific element,
-* such as a <slur>. The starting point of the curve may be identified in absolute
-* output coordinate terms using the x1 and y1 attributes or relative to the
-* location of another element using the startid attribute. The attributes in the
-* att.visualoffset class may be used to record horizontal, vertical, or time
-* offsets from the absolute coordinates or from the location of the referenced
-* element. Similarly, the terminal point of the curve may be recorded using either
-* the x2,y2 coordinates or in relation to the location of another element using
-* the endid attribute. Attributes in the att.visualoffset2 class maybe used to
-* record the offsets of the ending point. The bulge attribute or, alternatively,
-* the bezier attribute, describes the shape of the curve. The bulge attribute
-* describes the curve as a set of distance values above or below an imaginary line
-* connecting the endpoints of the curve while the bezier attribute records the
-* placement of Bezier control points as a series of space-separated xy coordinate
-* pairs, e.g., 19 45 -32 118. The bulge attribute must contain one or more values
-* of the NUMBER datatype. The rend attribute captures the appearance of the curve.
-*/
+/** \brief curve ― A curved line that cannot be represented by a more specific element,
+ *  such as a <slur>.
+ * 
+ *  The starting point of the curve may be identified in absolute output coordinate
+ *  terms using the x1 and y1 attributes or relative to the location of another
+ *  element using the startid attribute. The attributes in the att.visualoffset
+ *  class may be used to record horizontal, vertical, or time offsets from the
+ *  absolute coordinates or from the location of the referenced element. Similarly,
+ *  the terminal point of the curve may be recorded using either the x2,y2
+ *  coordinates or in relation to the location of another element using the endid
+ *  attribute. Attributes in the att.visualoffset2 class maybe used to record the
+ *  offsets of the ending point. The bulge attribute or, alternatively, the bezier
+ *  attribute, describes the shape of the curve. The bulge attribute describes the
+ *  curve as a set of distance values above or below an imaginary line connecting
+ *  the endpoints of the curve while the bezier attribute records the placement of
+ *  Bezier control points as a series of space-separated xy coordinate pairs, e.g.,
+ *  19 45 -32 118. The bulge attribute must contain one or more values of the NUMBER
+ *  datatype. The rend attribute captures the appearance of the curve.
+ */
 class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
@@ -112,19 +116,20 @@ class MEI_EXPORT Curve : public MeiElement {
         REGISTER_DECLARATION(Curve);
 };
 
-/** \brief   line ― A line that cannot be represented by a more specific element. The
-* starting point of the line may be identified in absolute output coordinate terms
-* using the x1 and y1 attributes or relative to the location of another element
-* using the startid attribute. The attributes in the att.visualoffset class may be
-* used to record horizontal, vertical, or time offsets from the absolute
-* coordinates or from the location of the referenced element. Similarly, the
-* terminal point of the line may be recorded using either the x2 and y2 attributes
-* or in relation to the location of another element using the endid attribute.
-* Attributes in the att.visualoffset2 class maybe used to record the offsets of
-* the ending point. Text content of the line element, e.g. 'gliss.', may be
-* rendered with the line. The appearance of the line is captured in the rend
-* attribute.
-*/
+/** \brief line ― A line that cannot be represented by a more specific element.
+ * 
+ *  The starting point of the line may be identified in absolute output coordinate
+ *  terms using the x1 and y1 attributes or relative to the location of another
+ *  element using the startid attribute. The attributes in the att.visualoffset
+ *  class may be used to record horizontal, vertical, or time offsets from the
+ *  absolute coordinates or from the location of the referenced element. Similarly,
+ *  the terminal point of the line may be recorded using either the x2 and y2
+ *  attributes or in relation to the location of another element using the endid
+ *  attribute. Attributes in the att.visualoffset2 class maybe used to record the
+ *  offsets of the ending point. Text content of the line element, e.g. 'gliss.',
+ *  may be rendered with the line. The appearance of the line is captured in the
+ *  rend attribute.
+ */
 class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
@@ -152,21 +157,22 @@ class MEI_EXPORT Line : public MeiElement {
         REGISTER_DECLARATION(Line);
 };
 
-/** \brief   symbol ― A reference to a previously defined symbol. The starting point, e.g.
-* "hotspot", of the symbol may be identified in absolute output coordinate terms
-* using the x and y attributes or relative to another element using the startid
-* attribute. Attributes in the att.visualoffset class may be used to record
-* horizontal, vertical, or time offsets from the absolute coordinates or from the
-* location of the referenced element. The ref attribute must contain the id of a
-* symbolDef element. The scale attribute indicates that the printed output must be
-* scaled by the specified percentage.
-*/
+/** \brief symbol ― A reference to a previously defined symbol.
+ * 
+ *  The starting point, e.g. "hotspot", of the symbol may be identified in absolute
+ *  output coordinate terms using the x and y attributes or relative to another
+ *  element using the startid attribute. Attributes in the att.visualoffset class
+ *  may be used to record horizontal, vertical, or time offsets from the absolute
+ *  coordinates or from the location of the referenced element. The ref attribute
+ *  must contain the id of a symbolDef element. The scale attribute indicates that
+ *  the printed output must be scaled by the specified percentage.
+ */
 class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
         virtual ~Symbol();
-    /** \brief   contains a reference to a previously-declared user-defined symbol.
-    */
+        /** \brief contains a reference to a previously-declared user-defined symbol.
+         */
         MeiAttribute* getRef();
         void setRef(std::string _ref);
         bool hasRef();
@@ -189,8 +195,8 @@ class MEI_EXPORT Symbol : public MeiElement {
         REGISTER_DECLARATION(Symbol);
 };
 
-/** \brief   symbol definition ― Declaration of an individual symbol in a symbolTable.
-*/
+/** \brief symbol definition ― Declaration of an individual symbol in a symbolTable.
+ */
 class MEI_EXPORT Symboldef : public MeiElement {
     public:
         Symboldef();
@@ -202,10 +208,11 @@ class MEI_EXPORT Symboldef : public MeiElement {
         REGISTER_DECLARATION(Symboldef);
 };
 
-/** \brief   symbol table ― Contains individual, user-defined symbols. Like a chord table,
-* a symbolTable may be shared between mei instances through the use of an external
-* parsed entity containing the symbolTable to be shared.
-*/
+/** \brief symbol table ― Contains individual, user-defined symbols.
+ * 
+ *  Like a chord table, a symbolTable may be shared between mei instances through
+ *  the use of an external parsed entity containing the symbolTable to be shared.
+ */
 class MEI_EXPORT Symboltable : public MeiElement {
     public:
         Symboltable();

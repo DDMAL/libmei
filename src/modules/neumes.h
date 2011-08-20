@@ -35,10 +35,11 @@
 
 
 namespace mei {
-/** \brief   interrupted neume ― a graphically interrupted neume; that is, a neume which is
-* logically a single entity but is written using multiple signs. The constituent
-* signs may be encoded using ineume and uneume sub-elements.
-*/
+/** \brief interrupted neume ― a graphically interrupted neume; that is, a neume which is
+ *  logically a single entity but is written using multiple signs.
+ * 
+ *  The constituent signs may be encoded using ineume and uneume sub-elements.
+ */
 class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
@@ -56,9 +57,11 @@ class MEI_EXPORT Ineume : public MeiElement {
         REGISTER_DECLARATION(Ineume);
 };
 
-/** \brief   syllable ― Neume notation can be thought of as "neumed text". Therefore, the
-* syllable element provides high-level organization in this repertoire.
-*/
+/** \brief syllable ― Neume notation can be thought of as "neumed text".
+ * 
+ *  Therefore, the syllable element provides high-level organization in this
+ *  repertoire.
+ */
 class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
@@ -70,11 +73,12 @@ class MEI_EXPORT Syllable : public MeiElement {
         REGISTER_DECLARATION(Syllable);
 };
 
-/** \brief   uninterrupted neume ― A graphically-uninterrupted neume sign. While ineume is
-* allowed as a sub-element of uneume here as part of the model.eventLike.neume
-* class, it is unlikely that an uninterrupted neume containing an interrupted
-* neume is a meaningful construct.
-*/
+/** \brief uninterrupted neume ― A graphically-uninterrupted neume sign.
+ * 
+ *  While ineume is allowed as a sub-element of uneume here as part of the
+ *  model.eventLike.neume class, it is unlikely that an uninterrupted neume
+ *  containing an interrupted neume is a meaningful construct.
+ */
 class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();

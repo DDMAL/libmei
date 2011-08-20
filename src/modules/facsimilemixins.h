@@ -33,9 +33,9 @@ class FacsimileMixIn {
     public:
         explicit FacsimileMixIn(MeiElement *b);
         virtual ~FacsimileMixIn();
-        /** \brief   permits the current element to reference a facsimile image or image zone which
-        * corresponds to it.
-        */
+        /** \brief permits the current element to reference a facsimile image or image zone which
+         *  corresponds to it.
+         */
         MeiAttribute* getFacs();
         void setFacs(std::string _facs);
         bool hasFacs();
