@@ -42,7 +42,7 @@ string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
 
 bool XmlExportImpl::meiDocumentToFile(string filename) {
     xmlKeepBlanksDefault(0);
-    xmlSaveFormatFile(filename.c_str(), xmlDocOutput, 1);
+    xmlSaveFormatFileEnc(filename.c_str(), xmlDocOutput, "UTF-8", 1);
     
     return true;
 }
