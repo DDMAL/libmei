@@ -36,13 +36,12 @@ using std::vector;
 
 using mei::MeiElement;
 
-mei::MeiDocument::MeiDocument(string docname, string encoding) {
+mei::MeiDocument::MeiDocument(string docname) {
     this->docname = docname;
-    this->encoding = encoding;
     this->root = NULL;
 }
 
-string mei::MeiDocument::getDocName() {
+const string mei::MeiDocument::getDocName() {
     return docname;
 }
 
@@ -50,33 +49,35 @@ void mei::MeiDocument::setDocName(string docname) {
     this->docname = docname;
 }
 
-string mei::MeiDocument::getEncoding() {
-    return encoding;
-}
-
-void mei::MeiDocument::setEncoding(string encoding) {
-    this->encoding = encoding;
-}
-
 MeiElement* mei::MeiDocument::getRootElement() {
     return root;
 }
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
+    if (root->getNs() == "") {
+        root->setNs(MEI_NS);
+    }
+    root->addAttribute(new MeiAttribute("meiversion", MEI_VERSION));
     this->root = root;
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {
-    map<string, MeiElement*>::iterator it = getMap()->find(id);
-    if (it != getMap()->end()) {
+    map<string, MeiElement*>::iterator it = idmap.find(id);
+    if (it != idmap.end()) {
         return it->second;
     }
     return NULL;
 }
 
-map<string, MeiElement*> *mei::MeiDocument::getMap() {
-    if (!idmap) {
-        idmap = new map<string, MeiElement*>;
+mei::MeiElement* /*mei::MeiDocument::*/getElementById2(string cid) {
+//    for (vector<mei::MeiElement*>::const_iterator iter = root->getChildren().begin(); iter != root->getChildren().end(); ++iter) {
+//        if ((*iter)->getId() == cid) return *iter;
+//    }
+    return NULL;
+}
+
+map<string, MeiElement*> mei::MeiDocument::getMap() {
+    if (idmap.size() == 0) {
         FillMap(root);
     }
     return idmap;
@@ -85,9 +86,9 @@ map<string, MeiElement*> *mei::MeiDocument::getMap() {
 void mei::MeiDocument::FillMap(MeiElement* element) {
     MeiAttribute *idattr = element->getAttribute("id");
     if (idattr) {
-        getMap()->insert(std::make_pair(idattr->getValue(), element));
+        idmap.insert(std::make_pair(idattr->getValue(), element));
     }
-    for (vector<MeiElement*>::iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
+    for (vector<MeiElement*>::const_iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
         FillMap(*i);
     }
 }

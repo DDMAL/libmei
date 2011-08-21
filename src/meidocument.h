@@ -33,13 +33,10 @@
 
 #define MEI_VERSION "2011-05"
 #define MEI_NS "http://www.music-encoding.org/ns/mei"
-#define MEI_PREFIX "mei"
 #define ENCODING "UTF-8"
 
-using std::string;
-using std::map;
-
 namespace mei {
+    
 /** \brief The entity which will contains all the elements and attributes
  *         storing a musical piece in the MEI schema.
  *
@@ -48,13 +45,11 @@ namespace mei {
  * The document itself contains a name and an encoding, both of which are needed to identify it.
  * MeiDocuments can be written to and Read from XML.
  */
-
-class MEI_EXPORT MeiDocument
-    {
+class MEI_EXPORT MeiDocument {
     public:
         /** \brief The MeiDocument Constructor, requires the document name and encoding
          */
-        MeiDocument(string docname, string encoding);
+        MeiDocument(std::string docname);
 
         /** \brief Get the name of the document
          *
@@ -62,16 +57,10 @@ class MEI_EXPORT MeiDocument
          *  name must exist if a valid Mei document exists
          *  \return The document name
          */
-        string getDocName();
+        const std::string getDocName();
 
         /** \brief Set/change the name of the Mei document */
-        void setDocName(string docname);
-
-        /** \brief Get the string indicating the Mei document encoding*/
-        string getEncoding();
-
-        /** \brief Set/change the encoding of the Mei document*/
-        void setEncoding(string encoding);
+        void setDocName(std::string docname);
 
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
@@ -80,16 +69,15 @@ class MEI_EXPORT MeiDocument
         void setRootElement(MeiElement* root);
 
         /** \return The Mei element with the given id. */
-        MeiElement* getElementById(string id);
+        MeiElement* getElementById(std::string id);
 
     private:
-        map<string, MeiElement*> *getMap();
+        std::map<std::string, MeiElement*> getMap();
         void FillMap(MeiElement* element);
 
-        string docname;
-        string encoding;
+        std::string docname;
         MeiElement* root;
-        map<string, MeiElement*> *idmap;
+        std::map<std::string, MeiElement*> idmap;
     };
 }
 #endif  // MEIDOCUMENT_H_

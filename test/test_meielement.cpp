@@ -1,26 +1,23 @@
-//
-//  test_meielement.cpp
-//  mei
-//
-//  Created by Andrew Hankinson on 11-08-09.
-//  Copyright 2011 McGill University. All rights reserved.
-//
+/*
+ libmei
+ Copyright (c) 2011 Alastair Porter, Andrew Hankinson
+*/
 
 #include <mei/meielement.h>
 #include <mei/mei.h>
 #include <mei/shared.h>
 #include <mei/exceptions.h>
 
-#include <gtest/gtest.h>
-#include <stdio.h>
-#include <iostream>
-
-#include <exception>
-#include <stdexcept>
-
 #include <execinfo.h>
 #include <signal.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+#include <iostream>
+#include <exception>
+#include <stdexcept>
+
+#include <gtest/gtest.h>
 
 using mei::MeiElement;
 using mei::MeiAttribute;
@@ -29,147 +26,249 @@ using mei::Layer;
 using mei::Accid;
 using mei::Note;
 
-TEST(MeiElementTest, TestBasicConstructor) {
-    MeiElement * m = new MeiElement("note");
+TEST(MeiElementTest, TestConstructor) {
+    MeiElement *m = new MeiElement("note");
     ASSERT_EQ("note", m->getName());
 }
 
-TEST(MeiElementTest, TestValueConstructor) {
-    MeiElement * m = new MeiElement("p", "this is a foobar string");
-    ASSERT_EQ("this is a foobar string", m->getValue());
-}
-
-TEST(MeiElementTest, TestFullConstructor) {
-    MeiElement * layer = new Layer();
-    MeiElement * m = new MeiElement("note", "", MEI_PREFIX, MEI_NS, layer);
-    ASSERT_EQ("note", m->getName());
-}
-
-TEST(MeiElementTest, TestGetSetValue) {
-    MeiElement * p = new MeiElement("p");
+TEST(MeiElementTest, TestGetSet) {
+    MeiElement *p = new MeiElement("p");
     p->setValue("this is a sentence");
     ASSERT_EQ("this is a sentence", p->getValue());
+
+    p->setId("anid");
+    p->setTail("atail");
+    p->setNs("somenamespace");
+
+    ASSERT_EQ("anid", p->getId());
+    ASSERT_EQ("atail", p->getTail());
+    ASSERT_EQ("somenamespace", p->getNs());
+}
+
+TEST(MeiElementTest, TestGetNoAttribute) {
+    MeiElement *p = new MeiElement("note");
+    ASSERT_EQ(NULL, p->getAttribute("color"));
 }
 
 TEST(MeiElementTest, TestGetSetHasAttributes) {
-    MeiElement * p = new MeiElement("note");
-    
-    MeiAttribute * attr1 = new MeiAttribute("pname", "c");
-    MeiAttribute * attr2 = new MeiAttribute("stem.dir", "down");
-    
+    MeiElement *p = new MeiElement("note");
+
+    MeiAttribute *attr1 = new MeiAttribute("pname", "c");
+    MeiAttribute *attr2 = new MeiAttribute("stem.dir", "down");
+
     vector<MeiAttribute*> attrs;
     attrs.push_back(attr1);
     attrs.push_back(attr2);
     p->setAttributes(attrs);
-    
+
+    ASSERT_EQ(2, p->getAttributes().size());
     ASSERT_TRUE(p->hasAttribute("pname"));
-    
-    ASSERT_THROW(p->getAttribute("color"), std::runtime_error);
+    ASSERT_TRUE(p->hasAttribute("stem.dir"));
     ASSERT_EQ("c", p->getAttribute("pname")->getValue());
+    
+    // Adding a new attribute to the initial list doesn't
+    // affect the attributes in the element
+    attrs.push_back(new MeiAttribute("oct", "4"));
+    ASSERT_EQ(2, p->getAttributes().size());
 }
 
 TEST(MeiElementTest, TestAddAttribute) {
-    MeiElement * p = new MeiElement("note");
-    MeiAttribute * attr1 = new MeiAttribute("pname", "c");
-    MeiAttribute * attr2 = new MeiAttribute("pname", "d");
-    
+    MeiElement *p = new MeiElement("note");
+    MeiAttribute *attr1 = new MeiAttribute("pname", "c");
+    MeiAttribute *attr2 = new MeiAttribute("pname", "d");
+
     p->addAttribute(attr1);
     ASSERT_TRUE(p->hasAttribute("pname"));
-    ASSERT_THROW(p->addAttribute(attr2), std::runtime_error);   
+    ASSERT_EQ("c", p->getAttribute("pname")->getValue());
+    // Adding the same named attribute replaces it
+    p->addAttribute(attr2);
+    ASSERT_EQ("d", p->getAttribute("pname")->getValue());
 }
 
 TEST(MeiElementTest, TestRemoveAttribute) {
-    MeiElement * p = new MeiElement("note");
-    MeiAttribute * attr1 = new MeiAttribute("pname", "c");
-    
+    MeiElement *p = new MeiElement("note");
+    MeiAttribute *attr1 = new MeiAttribute("pname", "c");
+
     p->addAttribute(attr1);
     ASSERT_TRUE(p->hasAttribute("pname"));
-    
+
     p->removeAttribute("pname");
     ASSERT_FALSE(p->hasAttribute("pname"));
 }
 
-TEST(MeiElementTest, TestGetSetHasChildren) {
-    MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new Accid();
-    MeiElement * c2 = new Accid();
-    c2->setId("1234");
+TEST(MeiElementTest, TestConstGetAttributes) {
+    MeiElement *p = new MeiElement("note");
+    MeiAttribute *attr1 = new MeiAttribute("pname", "c");
+    MeiAttribute *attr2 = new MeiAttribute("oct", "4");    
     
-    ASSERT_EQ((unsigned int)0, p->getChildren().size());
+    p->addAttribute(attr1);
+    p->addAttribute(attr2);
     
-    p->addChild(c1);
-    ASSERT_TRUE(p->hasChildren("accid"));
-    ASSERT_TRUE(p->hasChild(c1));
+    vector<MeiAttribute*> atts = p->getAttributes();
+    ASSERT_EQ(2, atts.size());
     
-    vector<MeiElement*> chrn;
-    chrn.push_back(c2);
-    p->setChildren(chrn);
-    ASSERT_FALSE(p->hasChild(c1));
-    ASSERT_TRUE(p->hasChild(c2));
-    ASSERT_EQ("accid", p->getChildById("1234")->getName());
-    ASSERT_THROW(p->getChildById("4567"), std::runtime_error);
+    // Adding to the returned vector doesn't affect the element
+    atts.push_back(new MeiAttribute("stem.dir", "up"));
+    ASSERT_EQ(2, p->getAttributes().size());
 }
 
-TEST(MeiElementTest, TestAddRemoveChild) {
-    MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new Accid();
+// If we get a pointer to an attribute, we can change it
+TEST(MeiElementTest, TestChangeAttributeValue) {
+    MeiElement *p = new MeiElement("note");
+    MeiAttribute *attr1 = new MeiAttribute("pname", "c");
+    p->addAttribute(attr1);
     
-    p->addChild(c1);
-    ASSERT_TRUE(p->hasChild(c1));
-    ASSERT_TRUE(p->hasChildren("accid"));
-    
-    p->removeChild(c1);
-    ASSERT_FALSE(p->hasChild(c1));
-    ASSERT_FALSE(p->hasChildren("accid"));
-}
-
-TEST(MeiElementTest, TestAddRemoveChildren) {
-    MeiElement * p = new MeiElement("note");
-    MeiElement * c1 = new Accid();
-    MeiElement * c2 = new Accid();
-    MeiElement * c3 = new Note();
-    
-    vector<MeiElement*> chn;
-    chn.push_back(c1);
-    chn.push_back(c2);
-    chn.push_back(c3);
-    
-    p->setChildren(chn);
-    ASSERT_TRUE(p->hasChildren("accid"));
-    p->removeChildren("accid");
-    
-    ASSERT_EQ((unsigned int)1, p->getChildren().size());
-    ASSERT_FALSE(p->hasChildren("accid"));
-    ASSERT_TRUE(p->hasChildren("note"));
-}
-
-TEST(MeiElementTest, TestGetDescendentsByName) {
-    
-}
-
-TEST(MeiElementTest, TestGetDescendentsById) {
-    
+    vector<MeiAttribute*> atts = p->getAttributes();
+    atts[0]->setValue("d");
+    ASSERT_EQ("d", p->getAttribute("pname")->getValue());
 }
 
 TEST(MeiElementTest, TestGetSetParent) {
-    MeiElement * s = new Staff();
-    MeiElement * n = new Note();
+    MeiElement *s = new Staff();
+    MeiElement *n = new Note();
+    ASSERT_EQ(NULL, n->getParent());
+    ASSERT_FALSE(s->hasParent());
     
     n->setParent(s);
     ASSERT_EQ(n->getParent()->getName(), "staff");
     
-    MeiElement * ns = new Layer();
+    MeiElement *ns = new Layer();
     n->setParent(ns);
     ASSERT_EQ(n->getParent()->getName(), "layer");
 }
 
-TEST(MeiElementTest, TestGetSetTail) {
-    MeiElement * p = new MeiElement("p");
-    MeiElement * b = new MeiElement("b");
+TEST(MeiElementTest, TestAddChild) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    c1->addAttribute(new MeiAttribute("x", "y"));
+    MeiElement *c2 = new Accid();
+
+    ASSERT_EQ(0, p->getChildren().size());
+
+    p->addChild(c1);
+    ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_EQ(1, p->getChildren().size());
+
+    p->addChild(c2);
+    ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_EQ(2, p->getChildren().size());
+}
+
+TEST(MeiElementTest, TestSetChildren) {
+    MeiElement *p = new Note();
+    MeiElement *ch1 = new Accid();
+    MeiElement *ch2 = new mei::Dot();
+    MeiElement *ch3 = new mei::Artic();
     
-    p->setValue("This is the first half of the string without ");
-    b->setValue("the bolded part ");
-    b->setTail("and then the tail.");
+    p->addChild(ch1);
+    ASSERT_EQ(1, p->getChildren().size());
     
-    ASSERT_EQ(b->getTail(), "and then the tail.");
+    vector<MeiElement*> children;
+    children.push_back(ch2);
+    children.push_back(ch3);
+    p->setChildren(children);
+    ASSERT_EQ(2, p->getChildren().size());
+    // Can't affect children by changing the initial vector
+    children.push_back(new Accid());
+    ASSERT_EQ(2, p->getChildren().size());
+    
+    p->addChild(ch1);
+    ASSERT_EQ(3, p->getChildren().size());
+}
+
+TEST(MeiElementTest, TestHasChildren) {
+    MeiElement *p = new Note();
+    p->addChild(new Accid());
+    ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_FALSE(p->hasChildren("artic"));
+}
+
+TEST(MeiElementTest, TestConstGetChildren) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c2 = new Accid();
+    MeiElement *c3 = new Note();
+    vector<MeiElement*> chn;
+    chn.push_back(c2);
+    chn.push_back(c3);
+    p->setChildren(chn);
+
+    vector<MeiElement*> get = p->getChildren();
+    // Can't add a new element to the vector
+    get.push_back(new mei::Artic());
+    ASSERT_EQ(2, p->getChildren().size());
+}
+
+TEST(MeiElementTest, TestGetChildrenByName) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    MeiElement *c2 = new Accid();
+    MeiElement *c3 = new Note();
+    vector<MeiElement*> chn;
+    chn.push_back(c1);
+    chn.push_back(c2);
+    chn.push_back(c3);
+    p->setChildren(chn);
+    ASSERT_EQ(3, p->getChildren().size());
+    vector<MeiElement*> get = p->getChildrenByName("accid");
+    ASSERT_EQ(2, get.size());  
+}
+
+TEST(MeiElementTest, TestChangeChildValue) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c = new Note();
+    c->addAttribute(new MeiAttribute("pname", "c"));
+    p->addChild(c);
+    vector<MeiElement*> get = p->getChildren();
+    get[0]->getAttribute("pname")->setValue("d");
+    ASSERT_EQ("d", p->getChildren()[0]->getAttribute("pname")->getValue());
+}
+
+TEST(MeiElementTest, TestRemoveChild) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+
+    p->addChild(c1);
+    ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_EQ(1, p->getChildren().size());
+
+    p->removeChild(c1);
+    ASSERT_FALSE(p->hasChildren("accid"));
+    ASSERT_EQ(0, p->getChildren().size());
+}
+
+TEST(MeiElementTest, TestRemoveChildByName) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    MeiElement *c2 = new Accid();
+    MeiElement *c3 = new Note();
+
+    vector<MeiElement*> chn;
+    chn.push_back(c1);
+    chn.push_back(c2);
+    chn.push_back(c3);
+
+    p->setChildren(chn);
+    ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_EQ(3, p->getChildren().size());
+    p->removeChildrenWithName("accid");
+
+    ASSERT_EQ(1, p->getChildren().size());
+    ASSERT_FALSE(p->hasChildren("accid"));
+    ASSERT_TRUE(p->hasChildren("note"));
+}
+
+TEST(MeiElementTest, TestDeleteChildren) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    MeiElement *c2 = new Accid();
+    MeiElement *c3 = new Note();
+    vector<MeiElement*> chn;
+    chn.push_back(c1);
+    chn.push_back(c2);
+    chn.push_back(c3);
+    p->setChildren(chn);
+    
+    ASSERT_EQ(3, p->getChildren().size());
+    p->deleteAllChildren();
+    ASSERT_EQ(0, p->getChildren().size());
 }

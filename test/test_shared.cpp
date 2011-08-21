@@ -71,7 +71,7 @@ TEST(MeiShared, NoteMixinMethodsTest) {
 }
 
 
-TEST(MEiShared, NoteMixinBaseMethodsTest) {
+TEST(MeiShared, NoteMixinBaseMethodsTest) {
     // test the interaction between the special mixins and the base methods.
     Note * n = new Note();
     
