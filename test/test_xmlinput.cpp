@@ -19,3 +19,8 @@ TEST(TestMeiXmlImport, ReadFileIn) {
     MeiDocument* docf = mei::XmlImport::documentFromFile("beethoven.mei");
     ASSERT_NE((MeiDocument*)NULL, docf);
 }
+
+TEST(TextMeiXmlImport, ReadLargeFileIn) {
+    MeiDocument* docf = mei::XmlImport::documentFromFile("bach.mei");
+    ASSERT_NE((MeiDocument*)NULL, docf);
+}
