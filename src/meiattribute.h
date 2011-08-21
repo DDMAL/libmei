@@ -76,11 +76,24 @@ class MeiAttribute
 
         /** \brief Set/change the prefix associated with an attribute*/
         void setPrefix(string prfx);
+        
+        /** \brief Check if the attribute is namespaced */
+        bool hasPrefix();
+        
+        /** \brief get the Prefix HREF value */
+        string getHref();
+
+        /** \brief set the Prefix HREF value */
+        void setHref(string href);
+        
+        /** \brief check if the attribute has a Prefix HREF value */
+        bool hasHref();
 
     private:
         string name;
         string value;
         string prefix;
+        string href;
     };
 }
 

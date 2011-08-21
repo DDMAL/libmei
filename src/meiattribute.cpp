@@ -32,12 +32,14 @@ mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
     this->name = attrname;
     this->value = attrvalue;
     this->prefix = "";
+    this->href = "";
 }
 
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
     return (this->name == other.name &&
             this->value == other.value &&
-            this->prefix == other.prefix);
+            this->prefix == other.prefix && 
+            this->href == other.href);
 }
 
 string mei::MeiAttribute::getName() {
@@ -63,4 +65,29 @@ string mei::MeiAttribute::getPrefix() {
 void mei::MeiAttribute::setPrefix(string prfx) {
     this->prefix = prfx;
 }
+
+bool mei::MeiAttribute::hasPrefix() {
+    if (this->prefix != "") {
+        return true;   
+    } else {
+        return false;
+    }
+}
+
+string mei::MeiAttribute::getHref() {
+    return this->href;
+}
+
+void mei::MeiAttribute::setHref(string href) {
+    this->href = href;
+}
+
+bool mei::MeiAttribute::hasHref() {
+    if (this->href != "") {
+        return true;   
+    } else {
+        return false;
+    }
+}
+
 
