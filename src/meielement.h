@@ -117,7 +117,7 @@ class MEI_EXPORT MeiElement
          *
          *  \return A const vector of the attributes on this element.
          */
-        const vector<MeiAttribute*>& getAttributes();
+        const vector<MeiAttribute*> getAttributes();
         
         /**
          * \brief add all of the given attributes to this element.
