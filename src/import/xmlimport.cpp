@@ -49,7 +49,7 @@ XmlImport::XmlImport(xmlDoc *d) {
 void XmlImport::init() {
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
-    MeiDocument *doc = new MeiDocument("test", "UTF-8");
+    MeiDocument *doc = new MeiDocument("test");
     doc->setRootElement(this->rootMeiElement);    
     this->meiDocument = doc; 
 }
