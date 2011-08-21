@@ -433,3 +433,9 @@ vector<MeiElement*>& MeiElement::getPeers() {
 }
 */
 
+mei::MeiTextNode::MeiTextNode() :
+    MeiElement("_text") 
+{
+}
+
+mei::MeiTextNode::~MeiTextNode() {}
