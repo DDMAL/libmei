@@ -62,32 +62,30 @@ MeiDocument* XmlImport::getMeiDocument() {
     return this->meiDocument;
 }
 
-
-//static void XmlNodeToMei(xmlNode* node, MeiElement *parent) {
-//  xmlNode* curnode = NULL;    
-//    for (curnode = node; curnode; curnode = curnode->next) {
-//        if (curnode->type == XML_ELEMENT_NODE) {
-//            MeiElement* child = MeiFactory::createInstanceFromNode(string((const char*)curnode->name),curnode);
-//            if (child) {
-//                XmlNodeToMei(curnode->children, child);
-//                parent->addChild(child);
-//            } else {
-//                string message = "unknown node type " + (string)(const char*)curnode->name;
-//                throw message;
-//            }            
-//        }
-//  }
-//}
-//
-
 MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
-    MeiElement *obj = new MeiElement(string((const char*)el->name));
+    if (!MeiFactory::inMap(string((const char*)el->name))) {
+        return NULL;
+    }
+    
+    MeiElement *obj = MeiFactory::createInstance((string((const char*)el->name)));
+    
+    // XML attributes
+    if (el->properties) {
+        xmlAttr *curattr = NULL;
+        for (curattr = el->properties; curattr; curattr = curattr->next) {
+            string attrname = (const char*)curattr->name;
+            // values are rendered as children of the attribute *facepalm*
+            string attrvalue = (const char*)curattr->children->content;
+            MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
+            obj->addAttribute(a);
+        }
+    }
+    
     xmlNodePtr child = el->children;
     while (child != NULL) {
-        
         MeiElement* ch = xmlNodeToMeiElement(child);
         obj->addChild(ch);
-        
+
         child = child->next;
     }
     return obj;
