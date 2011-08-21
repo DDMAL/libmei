@@ -12,7 +12,7 @@
 #include <vector>
 #include <libxml/xmlwriter.h>
 
-#include "xmlexport.h"
+#include "xmlexport_impl.h"
 #include "meidocument.h"
 
 using std::string;
@@ -68,7 +68,6 @@ xmlNode* XmlExport::meiElementToXmlNode(MeiElement *el) {
             string attrvalue = (*iter)->getValue();
                       
             if ((*iter)->hasPrefix()) {
-                cout << "adding a namespace " << endl;
                 attrname = (*iter)->getPrefix() + ":" + attrname;
             }
             

@@ -75,7 +75,7 @@ MeiDocument* XmlImportImpl::getMeiDocument() {
     return this->meiDocument;
 }
 
-MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
+MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     
     MeiElement *obj;
     
