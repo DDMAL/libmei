@@ -289,6 +289,12 @@ private:
             virtual ~MeiTextNode();
        
     };
+    
+    class MEI_EXPORT MeiCommentNode : public MeiElement {
+        public:
+            MeiCommentNode();
+            virtual ~MeiCommentNode();
+    };
 
 }
 #endif  // MEIELEMENT_H_

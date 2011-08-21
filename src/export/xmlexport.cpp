@@ -73,6 +73,8 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     
     if (el->getName() == "_text") {
         curxmlnode = xmlNewText((const xmlChar*)el->getValue().c_str());
+    } else if (el->getName() == "_comment") {
+        curxmlnode = xmlNewComment((const xmlChar*)el->getValue().c_str());
     } else {
         curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());   
     }
