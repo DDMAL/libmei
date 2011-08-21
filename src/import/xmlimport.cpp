@@ -9,6 +9,7 @@
 #include <iostream>
 #include <libxml/xmlreader.h>
 
+#include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
 
@@ -20,33 +21,43 @@ using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiFactory;
 using mei::XmlImport;
+using mei::XmlImportImpl;
 
-MeiDocument* mei::XmlImport::documentFromFile(const char* filename) {
+XmlImport::XmlImport() : impl(new XmlImportImpl) {
+    
+}
+
+MeiDocument* XmlImport::documentFromFile(const char *filename) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromFile(filename);
+    delete import;
+    return d;
+}
+
+XmlImportImpl::XmlImportImpl() {
+}
+
+MeiDocument* XmlImportImpl::documentFromFile(const char* filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
-    XmlImport *mfile = new XmlImport(doc);
-    return mfile->getMeiDocument();
-}
-
-//MeiDocument* XmlImport::documentFromStream(string xmlstream) {
-//  MeiDocument* mdoc;
-//
-//  return mdoc;
-//}
-//
-//MeiDocument* XmlImport::documentFromText(string text) {
-//  MeiDocument* mdoc;
-//
-//  return mdoc;
-//}
-
-XmlImport::XmlImport(xmlDoc *d) {
-    // at construction time parse the xmlNode out into the MeiDocument.
-    this->xmlMeiDocument = d;
+    this->xmlMeiDocument = doc;
     this->init();
+    return getMeiDocument();
 }
 
-void XmlImport::init() {
+//MeiDocument* XmlImportImpl::documentFromStream(string xmlstream) {
+//  MeiDocument* mdoc;
+//
+//  return mdoc;
+//}
+//
+//MeiDocument* XmlImportImpl::documentFromText(string text) {
+//  MeiDocument* mdoc;
+//
+//  return mdoc;
+//}
+
+void XmlImportImpl::init() {
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
     MeiDocument *doc = new MeiDocument("test");
@@ -54,15 +65,15 @@ void XmlImport::init() {
     this->meiDocument = doc; 
 }
 
-mei::XmlImport::~XmlImport() {
+mei::XmlImportImpl::~XmlImportImpl() {
     xmlCleanupParser();
 }
 
-MeiDocument* XmlImport::getMeiDocument() {
+MeiDocument* XmlImportImpl::getMeiDocument() {
     return this->meiDocument;
 }
 
-MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
+MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     if (!MeiFactory::inMap(string((const char*)el->name))) {
         return NULL;
     }

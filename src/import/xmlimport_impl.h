@@ -21,29 +21,38 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef MEI_XMLIMPORT_H_
-#define MEI_XMLIMPORT_H_
+#ifndef MEI_XMLIMPORT_IMPL_H_
+#define MEI_XMLIMPORT_IMPL_H_
+
+#include "meidocument.h"
+#include <libxml/xmlreader.h>
 
 namespace mei {
 
-class XmlImportImpl;
-    
-class XmlImport {
-    public:
-        XmlImport();
-        virtual ~XmlImport() {
-            delete impl;
-        }
-        /** public interfaces for importing. Each of these will convert their input
-         *  into an xmlNode for processing by the _MeiXmlStruct class.
-         */
-        static MeiDocument* documentFromFile(const char* filename);
-        static MeiDocument* documentFromStream(std::string stream); // figure out arg type!
-        static MeiDocument* documentFromText(std::string text); // is this right???
-    private:
-        XmlImportImpl *impl;
-};
+    class XmlImportImpl {
+        private:
+            friend class XmlImport;
 
+            /** public interfaces for importing. Each of these will convert their input
+             *  into an xmlNode for processing by the _MeiXmlStruct class.
+             */
+            MeiDocument* documentFromFile(const char* filename);
+            MeiDocument* documentFromStream(std::string stream); // figure out arg type!
+            MeiDocument* documentFromText(std::string text); // is this right???
+
+            XmlImportImpl();
+            virtual ~XmlImportImpl();
+            void init();
+            
+            MeiDocument* getMeiDocument();
+            MeiElement* xmlNodeToMeiElement(xmlNode *el);
+            
+            xmlNode* rootXmlNode;
+            xmlDoc* xmlMeiDocument;
+            MeiDocument* meiDocument;
+            MeiElement* rootMeiElement;
+    };
 }
 
-#endif  // MEI_XMLIMPORT_H_
+
+#endif // MEI_XMLIMPORT_IMPL_H_
