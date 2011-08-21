@@ -63,12 +63,6 @@ MeiElement* mei::MeiDocument::getRootElement() {
 }
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
-    if (root->getNs() == "") {
-        string ns = root->getNs();
-        ns = MEI_NS;
-        root->setNs(ns);
-    }
-    root->addAttribute(new MeiAttribute("meiversion", MEI_VERSION));
     this->root = root;
 }
 
