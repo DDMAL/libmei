@@ -119,7 +119,7 @@ void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     this->children = children;
 }
 
-const vector<mei::MeiElement*> mei::MeiElement::getChildren() {
+const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
     return this->children;
 }
 

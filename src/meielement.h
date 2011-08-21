@@ -178,7 +178,7 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Get all of the children of this element.
          */
-        const vector<MeiElement*> getChildren();
+        const vector<MeiElement*>& getChildren();
         
         /**
          * \brief Get all of the children of this element that have a given name.
