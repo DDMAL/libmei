@@ -27,6 +27,10 @@ namespace mei {
         virtual ~XmlExport();
         void init();
         xmlNode* meiElementToXmlNode(MeiElement *el);
+        void outputToFile(const char* filename);
+        
+        MeiDocument* meiDocument;
+        xmlDocPtr xmlDocOutput;
     };
 }
 
