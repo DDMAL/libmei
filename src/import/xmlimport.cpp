@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <string.h>
+#include <stdio.h>
 #include <libxml/xmlreader.h>
 
 #include "xmlimport.h"
@@ -63,13 +65,23 @@ MeiDocument* XmlImport::getMeiDocument() {
 }
 
 MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
+    
     if (!MeiFactory::inMap(string((const char*)el->name))) {
         return NULL;
     }
     
-    MeiElement *obj = MeiFactory::createInstance((string((const char*)el->name)));
+    MeiElement *obj;
     
-    // XML attributes
+    if (el->type == XML_ELEMENT_NODE) {
+        obj = MeiFactory::createInstance((string((const char*)el->name)));   
+    } else if (el->type == XML_TEXT_NODE) {
+        obj = new MeiTextNode();
+        obj->setValue(string((const char*)el->content));
+    } else {
+        return NULL;
+    }
+    
+    // XML attributes and children. Text nodes will never have these.
     if (el->properties) {
         xmlAttr *curattr = NULL;
         for (curattr = el->properties; curattr; curattr = curattr->next) {
@@ -77,15 +89,21 @@ MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
             // values are rendered as children of the attribute *facepalm*
             string attrvalue = (const char*)curattr->children->content;
             MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
+            
+            if (curattr->ns) {
+                if (attrname.compare("id") && string((const char*)curattr->ns->prefix).compare("xml")) {
+                    obj->setId(attrvalue);
+                }
+                a->setPrefix(string((const char*)curattr->ns->prefix));
+            }
+            
             obj->addAttribute(a);
         }
     }
-    
     xmlNodePtr child = el->children;
     while (child != NULL) {
         MeiElement* ch = xmlNodeToMeiElement(child);
         obj->addChild(ch);
-
         child = child->next;
     }
     return obj;
