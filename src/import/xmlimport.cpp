@@ -66,10 +66,6 @@ MeiDocument* XmlImport::getMeiDocument() {
 
 MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
     
-    if (!MeiFactory::inMap(string((const char*)el->name))) {
-        return NULL;
-    }
-    
     MeiElement *obj;
     
     if (el->type == XML_ELEMENT_NODE) {
@@ -95,6 +91,7 @@ MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
                     obj->setId(attrvalue);
                 }
                 a->setPrefix(string((const char*)curattr->ns->prefix));
+                a->setHref(string((const char*)curattr->ns->href));
             }
             
             obj->addAttribute(a);
@@ -103,7 +100,11 @@ MeiElement* XmlImport::xmlNodeToMeiElement(xmlNode *el) {
     xmlNodePtr child = el->children;
     while (child != NULL) {
         MeiElement* ch = xmlNodeToMeiElement(child);
-        obj->addChild(ch);
+
+        if (ch != NULL) {
+            obj->addChild(ch);
+        }
+        
         child = child->next;
     }
     return obj;
