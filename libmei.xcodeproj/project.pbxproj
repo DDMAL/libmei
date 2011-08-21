@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0514A64113FD6BF100310111 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64013FD6BF100310111 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A64113FD6BF100310111 /* xmlimport_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64013FD6BF100310111 /* xmlimport_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A64313FD6C0900310111 /* xmlimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64213FD6C0900310111 /* xmlimport.cpp */; };
-		0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64413FD6C2100310111 /* xmlexport.cpp */; };
-		0514A64713FD6C3300310111 /* xmlexport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64613FD6C3300310111 /* xmlexport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0514A64513FD6C2100310111 /* xmlexport_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64413FD6C2100310111 /* xmlexport_impl.cpp */; };
+		0514A64713FD6C3300310111 /* xmlexport_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64613FD6C3300310111 /* xmlexport_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A69013FDAAF500310111 /* test_xmlinput.cpp */; };
 		0514A69213FDAB5200310111 /* analysismixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64913FD6D6000310111 /* analysismixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A69313FDAB5200310111 /* cmn.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A64B13FD6D6000310111 /* cmn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -105,6 +105,7 @@
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
+		B2E397B614018B3E00161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -131,10 +132,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0514A64013FD6BF100310111 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
+		0514A64013FD6BF100310111 /* xmlimport_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport_impl.h; path = src/import/xmlimport_impl.h; sourceTree = "<group>"; };
 		0514A64213FD6C0900310111 /* xmlimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlimport.cpp; path = src/import/xmlimport.cpp; sourceTree = "<group>"; };
-		0514A64413FD6C2100310111 /* xmlexport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport.cpp; path = src/export/xmlexport.cpp; sourceTree = "<group>"; };
-		0514A64613FD6C3300310111 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
+		0514A64413FD6C2100310111 /* xmlexport_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport_impl.cpp; path = src/export/xmlexport_impl.cpp; sourceTree = "<group>"; };
+		0514A64613FD6C3300310111 /* xmlexport_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport_impl.h; path = src/export/xmlexport_impl.h; sourceTree = "<group>"; };
 		0514A64813FD6D6000310111 /* analysismixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = analysismixins.cpp; path = src/modules/analysismixins.cpp; sourceTree = "<group>"; };
 		0514A64913FD6D6000310111 /* analysismixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = analysismixins.h; path = src/modules/analysismixins.h; sourceTree = "<group>"; };
 		0514A64A13FD6D6000310111 /* cmn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cmn.cpp; path = src/modules/cmn.cpp; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
+		B2E397B514018B3E00161BD2 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +288,8 @@
 		0514A63D13FD6B8500310111 /* Import */ = {
 			isa = PBXGroup;
 			children = (
-				0514A64013FD6BF100310111 /* xmlimport.h */,
+				B2E397B514018B3E00161BD2 /* xmlimport.h */,
+				0514A64013FD6BF100310111 /* xmlimport_impl.h */,
 				0514A64213FD6C0900310111 /* xmlimport.cpp */,
 			);
 			name = Import;
@@ -295,8 +298,8 @@
 		0514A63F13FD6B8E00310111 /* Export */ = {
 			isa = PBXGroup;
 			children = (
-				0514A64413FD6C2100310111 /* xmlexport.cpp */,
-				0514A64613FD6C3300310111 /* xmlexport.h */,
+				0514A64413FD6C2100310111 /* xmlexport_impl.cpp */,
+				0514A64613FD6C3300310111 /* xmlexport_impl.h */,
 			);
 			name = Export;
 			sourceTree = "<group>";
@@ -502,8 +505,9 @@
 				0514A6B413FDAB5200310111 /* text.h in Headers */,
 				0514A6B513FDAB5200310111 /* usersymbols.h in Headers */,
 				9B2EE933133117D700C94712 /* exceptions.h in Headers */,
-				0514A64113FD6BF100310111 /* xmlimport.h in Headers */,
-				0514A64713FD6C3300310111 /* xmlexport.h in Headers */,
+				0514A64113FD6BF100310111 /* xmlimport_impl.h in Headers */,
+				0514A64713FD6C3300310111 /* xmlexport_impl.h in Headers */,
+				B2E397B614018B3E00161BD2 /* xmlimport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +697,7 @@
 				9BE4E760131D677900A59F5D /* meielement.cpp in Sources */,
 				9BDC643D132A905F0062255E /* meidocument.cpp in Sources */,
 				0514A64313FD6C0900310111 /* xmlimport.cpp in Sources */,
-				0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */,
+				0514A64513FD6C2100310111 /* xmlexport_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
