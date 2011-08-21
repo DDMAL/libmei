@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -32,64 +31,63 @@
 
 
 namespace mei {
-    
-/** \brief   facsimile ― Contains a representation of some written source in the form of a
-    * set of images rather than as transcribed or encoded text. The decls attribute
-    * may be used to link the collection of images with a particular source described
-    * in the header. This element is modelled on an element in the Text Encoding
-    * Initiative (TEI).
-    */
-
+/** \brief facsimile ― Contains a representation of some written source in the form of a
+ *  set of images rather than as transcribed or encoded text.
+ * 
+ *  The decls attribute may be used to link the collection of images with a
+ *  particular source described in the header. This element is modelled on an
+ *  element in the Text Encoding Initiative (TEI).
+ */
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
         virtual ~Facsimile();
-        
-        
-    CommonMixIn    m_Common;
-    DeclaringMixIn    m_Declaring;
+
+        CommonMixIn    m_Common;
+        DeclaringMixIn    m_Declaring;
+
     private:
         REGISTER_DECLARATION(Facsimile);
 };
 
-/** \brief   surface ― Defines a written surface in terms of a rectangular coordinate
-    * space, optionally grouping one or more graphic representations of that space,
-    * and rectangular zones of interest within it. The startid attribute may be used
-    * to hold a reference to the first feature occurring on this surface. This element
-    * is modelled on an element in the Text Encoding Initiative (TEI).
-    */
-
+/** \brief surface ― Defines a written surface in terms of a rectangular coordinate
+ *  space, optionally grouping one or more graphic representations of that space,
+ *  and rectangular zones of interest within it.
+ * 
+ *  The startid attribute may be used to hold a reference to the first feature
+ *  occurring on this surface. This element is modelled on an element in the Text
+ *  Encoding Initiative (TEI).
+ */
 class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
         virtual ~Surface();
-        
-        
-    CommonMixIn    m_Common;
-    CoordinatedMixIn    m_Coordinated;
-    DatapointingMixIn    m_Datapointing;
-    DeclaringMixIn    m_Declaring;
-    StartidMixIn    m_Startid;
+
+        CommonMixIn    m_Common;
+        CoordinatedMixIn    m_Coordinated;
+        DatapointingMixIn    m_Datapointing;
+        DeclaringMixIn    m_Declaring;
+        StartidMixIn    m_Startid;
+
     private:
         REGISTER_DECLARATION(Surface);
 };
 
-/** \brief   zone ― Defines a rectangular area contained within a surface. This element is
-    * modelled on an element in the Text Encoding Initiative (TEI).
-    */
-
+/** \brief zone ― Defines a rectangular area contained within a surface.
+ * 
+ *  This element is modelled on an element in the Text Encoding Initiative (TEI).
+ */
 class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
         virtual ~Zone();
-        
-        
-    CommonMixIn    m_Common;
-    CoordinatedMixIn    m_Coordinated;
-    DatapointingMixIn    m_Datapointing;
+
+        CommonMixIn    m_Common;
+        CoordinatedMixIn    m_Coordinated;
+        DatapointingMixIn    m_Datapointing;
+
     private:
         REGISTER_DECLARATION(Zone);
 };
-
 }
-#endif // FACSIMILE_H_
+#endif  // FACSIMILE_H_

@@ -1,22 +1,21 @@
-
 #include "critapp.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::App::App() : 
+mei::App::App() :
     MeiElement("app"),
     m_Common(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::App, "app");
-mei::App::~App() {};
+mei::App::~App() {}
 
 
-
-mei::Lem::Lem() : 
+mei::Lem::Lem() :
     MeiElement("lem"),
     m_Common(this),
     m_Crit(this),
@@ -25,19 +24,17 @@ mei::Lem::Lem() :
     m_Sequence(this),
     m_Source(this),
     m_Typed(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this),
-    m_Participantident(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Lem, "lem");
-mei::Lem::~Lem() {};
+mei::Lem::~Lem() {}
 
 
-
-mei::Rdg::Rdg() : 
+mei::Rdg::Rdg() :
     MeiElement("rdg"),
     m_Common(this),
     m_Crit(this),
@@ -46,15 +43,14 @@ mei::Rdg::Rdg() :
     m_Sequence(this),
     m_Source(this),
     m_Typed(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this),
-    m_Participantident(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Rdg, "rdg");
-mei::Rdg::~Rdg() {};
+mei::Rdg::~Rdg() {}
 
 
 

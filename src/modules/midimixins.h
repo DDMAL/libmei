@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,153 +26,127 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class ChannelizedMixIn {
     public:
         explicit ChannelizedMixIn(MeiElement *b);
         virtual ~ChannelizedMixIn();
-        
-    /** \brief   records a MIDI channel value.
-    */
-
-    MeiAttribute* getMidiChannel();
-    void setMidiChannel(std::string _midichannel);
-    bool hasMidiChannel();
-    void removeMidiChannel();
-
-    /** \brief   specifies the 'on' part of the duty cycle as a percentage of a note's duration.
-    */
-
-    MeiAttribute* getMidiDuty();
-    void setMidiDuty(std::string _mididuty);
-    bool hasMidiDuty();
-    void removeMidiDuty();
-
-    /** \brief   sets the MIDI port value.
-    */
-
-    MeiAttribute* getMidiPort();
-    void setMidiPort(std::string _midiport);
-    bool hasMidiPort();
-    void removeMidiPort();
-
-    /** \brief   sets the MIDI track.
-    */
-
-    MeiAttribute* getMidiTrack();
-    void setMidiTrack(std::string _miditrack);
-    bool hasMidiTrack();
-    void removeMidiTrack();
+        /** \brief records a MIDI channel value.
+         */
+        MeiAttribute* getMidiChannel();
+        void setMidiChannel(std::string _midichannel);
+        bool hasMidiChannel();
+        void removeMidiChannel();
+        /** \brief specifies the 'on' part of the duty cycle as a percentage of a note's duration.
+         */
+        MeiAttribute* getMidiDuty();
+        void setMidiDuty(std::string _mididuty);
+        bool hasMidiDuty();
+        void removeMidiDuty();
+        /** \brief sets the MIDI port value.
+         */
+        MeiAttribute* getMidiPort();
+        void setMidiPort(std::string _midiport);
+        bool hasMidiPort();
+        void removeMidiPort();
+        /** \brief sets the MIDI track.
+         */
+        MeiAttribute* getMidiTrack();
+        void setMidiTrack(std::string _miditrack);
+        bool hasMidiTrack();
+        void removeMidiTrack();
 
     private:
         MeiElement *b;
 };
-
 
 class MidiinstrumentMixIn {
     public:
         explicit MidiinstrumentMixIn(MeiElement *b);
         virtual ~MidiinstrumentMixIn();
-        
-    /** \brief   sets the MIDI instrument number.
-    */
-
-    MeiAttribute* getMidiInstrnum();
-    void setMidiInstrnum(std::string _midiinstrnum);
-    bool hasMidiInstrnum();
-    void removeMidiInstrnum();
-
-    /** \brief   provides a General MIDI label for the MIDI instrument.
-    */
-
-    MeiAttribute* getMidiInstrname();
-    void setMidiInstrname(std::string _midiinstrname);
-    bool hasMidiInstrname();
-    void removeMidiInstrname();
+        /** \brief sets the MIDI instrument number.
+         */
+        MeiAttribute* getMidiInstrnum();
+        void setMidiInstrnum(std::string _midiinstrnum);
+        bool hasMidiInstrnum();
+        void removeMidiInstrnum();
+        /** \brief provides a General MIDI label for the MIDI instrument.
+         */
+        MeiAttribute* getMidiInstrname();
+        void setMidiInstrname(std::string _midiinstrname);
+        bool hasMidiInstrname();
+        void removeMidiInstrname();
 
     private:
         MeiElement *b;
 };
-
 
 class MidinumberMixIn {
     public:
         explicit MidinumberMixIn(MeiElement *b);
         virtual ~MidinumberMixIn();
-        
-    /** \brief   along with numbase, describes duration as a ratio. num is the first value in the
-    * ratio, while numbase is the second.
-    */
-
-    MeiAttribute* getNum();
-    void setNum(std::string _num);
-    bool hasNum();
-    void removeNum();
+        /** \brief along with numbase, describes duration as a ratio.
+         * 
+         *  num is the first value in the ratio, while numbase is the second.
+         */
+        MeiAttribute* getNum();
+        void setNum(std::string _num);
+        bool hasNum();
+        void removeNum();
 
     private:
         MeiElement *b;
 };
-
 
 class MiditempoMixIn {
     public:
         explicit MiditempoMixIn(MeiElement *b);
         virtual ~MiditempoMixIn();
-        
-    /** \brief   contains a MIDI value, that is, the number of quarter notes per minute in the
-    * range from 10 to 1000.
-    */
-
-    MeiAttribute* getMidiTempo();
-    void setMidiTempo(std::string _miditempo);
-    bool hasMidiTempo();
-    void removeMidiTempo();
+        /** \brief contains a MIDI value, that is, the number of quarter notes per minute in the
+         *  range from 10 to 1000.
+         */
+        MeiAttribute* getMidiTempo();
+        void setMidiTempo(std::string _miditempo);
+        bool hasMidiTempo();
+        void removeMidiTempo();
 
     private:
         MeiElement *b;
 };
-
 
 class MidivalueMixIn {
     public:
         explicit MidivalueMixIn(MeiElement *b);
         virtual ~MidivalueMixIn();
-        
-    /** \brief   MIDI number
-    */
-
-    MeiAttribute* getVal();
-    void setVal(std::string _val);
-    bool hasVal();
-    void removeVal();
+        /** \brief MIDI number
+         */
+        MeiAttribute* getVal();
+        void setVal(std::string _val);
+        bool hasVal();
+        void removeVal();
 
     private:
         MeiElement *b;
 };
-
 
 class TimebaseMixIn {
     public:
         explicit TimebaseMixIn(MeiElement *b);
         virtual ~TimebaseMixIn();
-        
-    /** \brief   indicates the number of pulses (sometimes referred to as ticks or divisions) per
-    * quarter note. Unlike MIDI, MEI permits different values for a score and
-    * individual staves.
-    */
-
-    MeiAttribute* getPpq();
-    void setPpq(std::string _ppq);
-    bool hasPpq();
-    void removePpq();
+        /** \brief indicates the number of pulses (sometimes referred to as ticks or divisions) per
+         *  quarter note.
+         * 
+         *  Unlike MIDI, MEI permits different values for a score and individual staves.
+         */
+        MeiAttribute* getPpq();
+        void setPpq(std::string _ppq);
+        bool hasPpq();
+        void removePpq();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // MIDIMIXIN_H_
+#endif  // MIDIMIXIN_H_

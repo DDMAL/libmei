@@ -1,11 +1,11 @@
-
 #include "neumes.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Ineume::Ineume() : 
+mei::Ineume::Ineume() :
     MeiElement("ineume"),
     m_Common(this),
     m_Facsimile(this),
@@ -13,25 +13,23 @@ mei::Ineume::Ineume() :
     m_IneumeLog(this),
     m_Color(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Ineume, "ineume");
-mei::Ineume::~Ineume() {};
+mei::Ineume::~Ineume() {}
 
 
-
-mei::Syllable::Syllable() : 
+mei::Syllable::Syllable() :
     MeiElement("syllable"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Syllable, "syllable");
-mei::Syllable::~Syllable() {};
+mei::Syllable::~Syllable() {}
 
 
-
-mei::Uneume::Uneume() : 
+mei::Uneume::Uneume() :
     MeiElement("uneume"),
     m_Common(this),
     m_Facsimile(this),
@@ -54,11 +52,11 @@ mei::Uneume::Uneume() :
     m_Melodicfunction(this),
     m_Intervallicdesc(this),
     m_Intervalharmonic(this),
-    m_Solfa(this) 
+    m_Solfa(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Uneume, "uneume");
-mei::Uneume::~Uneume() {};
+mei::Uneume::~Uneume() {}
 
 
 

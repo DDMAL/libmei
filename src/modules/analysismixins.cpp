@@ -1,15 +1,15 @@
-
 #include "analysismixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::CommonAnlMixIn::CommonAnlMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::CommonAnlMixIn::~CommonAnlMixIn() {};
 
+mei::CommonAnlMixIn::~CommonAnlMixIn() {}
 MeiAttribute* mei::CommonAnlMixIn::getCopyof() {
     if (!b->hasAttribute("copyof")) {
         throw AttributeNotFoundException("copyof");
@@ -31,7 +31,6 @@ bool mei::CommonAnlMixIn::hasCopyof() {
 void mei::CommonAnlMixIn::removeCopyof() {
     b->removeAttribute("copyof");
 };
-
 MeiAttribute* mei::CommonAnlMixIn::getCorresp() {
     if (!b->hasAttribute("corresp")) {
         throw AttributeNotFoundException("corresp");
@@ -53,7 +52,6 @@ bool mei::CommonAnlMixIn::hasCorresp() {
 void mei::CommonAnlMixIn::removeCorresp() {
     b->removeAttribute("corresp");
 };
-
 MeiAttribute* mei::CommonAnlMixIn::getNext() {
     if (!b->hasAttribute("next")) {
         throw AttributeNotFoundException("next");
@@ -75,7 +73,6 @@ bool mei::CommonAnlMixIn::hasNext() {
 void mei::CommonAnlMixIn::removeNext() {
     b->removeAttribute("next");
 };
-
 MeiAttribute* mei::CommonAnlMixIn::getPrev() {
     if (!b->hasAttribute("prev")) {
         throw AttributeNotFoundException("prev");
@@ -97,7 +94,6 @@ bool mei::CommonAnlMixIn::hasPrev() {
 void mei::CommonAnlMixIn::removePrev() {
     b->removeAttribute("prev");
 };
-
 MeiAttribute* mei::CommonAnlMixIn::getSameas() {
     if (!b->hasAttribute("sameas")) {
         throw AttributeNotFoundException("sameas");
@@ -119,7 +115,6 @@ bool mei::CommonAnlMixIn::hasSameas() {
 void mei::CommonAnlMixIn::removeSameas() {
     b->removeAttribute("sameas");
 };
-
 MeiAttribute* mei::CommonAnlMixIn::getSynch() {
     if (!b->hasAttribute("synch")) {
         throw AttributeNotFoundException("synch");
@@ -142,12 +137,11 @@ void mei::CommonAnlMixIn::removeSynch() {
     b->removeAttribute("synch");
 };
 
-
 mei::HarmonicfunctionMixIn::HarmonicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HarmonicfunctionMixIn::~HarmonicfunctionMixIn() {};
 
+mei::HarmonicfunctionMixIn::~HarmonicfunctionMixIn() {}
 MeiAttribute* mei::HarmonicfunctionMixIn::getHfunc() {
     if (!b->hasAttribute("hfunc")) {
         throw AttributeNotFoundException("hfunc");
@@ -170,12 +164,11 @@ void mei::HarmonicfunctionMixIn::removeHfunc() {
     b->removeAttribute("hfunc");
 };
 
-
 mei::IntervalharmonicMixIn::IntervalharmonicMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::IntervalharmonicMixIn::~IntervalharmonicMixIn() {};
 
+mei::IntervalharmonicMixIn::~IntervalharmonicMixIn() {}
 MeiAttribute* mei::IntervalharmonicMixIn::getInth() {
     if (!b->hasAttribute("inth")) {
         throw AttributeNotFoundException("inth");
@@ -198,12 +191,11 @@ void mei::IntervalharmonicMixIn::removeInth() {
     b->removeAttribute("inth");
 };
 
-
 mei::IntervallicdescMixIn::IntervallicdescMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::IntervallicdescMixIn::~IntervallicdescMixIn() {};
 
+mei::IntervallicdescMixIn::~IntervallicdescMixIn() {}
 MeiAttribute* mei::IntervallicdescMixIn::getIntm() {
     if (!b->hasAttribute("intm")) {
         throw AttributeNotFoundException("intm");
@@ -226,12 +218,11 @@ void mei::IntervallicdescMixIn::removeIntm() {
     b->removeAttribute("intm");
 };
 
-
 mei::MelodicfunctionMixIn::MelodicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MelodicfunctionMixIn::~MelodicfunctionMixIn() {};
 
+mei::MelodicfunctionMixIn::~MelodicfunctionMixIn() {}
 MeiAttribute* mei::MelodicfunctionMixIn::getMfunc() {
     if (!b->hasAttribute("mfunc")) {
         throw AttributeNotFoundException("mfunc");
@@ -254,12 +245,11 @@ void mei::MelodicfunctionMixIn::removeMfunc() {
     b->removeAttribute("mfunc");
 };
 
-
 mei::PitchclassMixIn::PitchclassMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::PitchclassMixIn::~PitchclassMixIn() {};
 
+mei::PitchclassMixIn::~PitchclassMixIn() {}
 MeiAttribute* mei::PitchclassMixIn::getPclass() {
     if (!b->hasAttribute("pclass")) {
         throw AttributeNotFoundException("pclass");
@@ -282,12 +272,11 @@ void mei::PitchclassMixIn::removePclass() {
     b->removeAttribute("pclass");
 };
 
-
 mei::SolfaMixIn::SolfaMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::SolfaMixIn::~SolfaMixIn() {};
 
+mei::SolfaMixIn::~SolfaMixIn() {}
 MeiAttribute* mei::SolfaMixIn::getPsolfa() {
     if (!b->hasAttribute("psolfa")) {
         throw AttributeNotFoundException("psolfa");

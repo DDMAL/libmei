@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -32,95 +31,45 @@
 
 
 namespace mei {
-    
-/** \brief   external pointer ― An empty linking element that uses attributes to connect
-    * the MEI document to an external electronic object. Either the entityref or href
-    * attribute may be used to identify the external object. Don't confuse this
-    * element with the <ptr< element, which is an internal link for movement from one
-    * place in the MEI document to another in the same document. This element is
-    * modelled on an element in Encoded Archival Description (EAD).
-    */
-
-class MEI_EXPORT Extptr : public MeiElement {
-    public:
-        Extptr();
-        virtual ~Extptr();
-        
-        
-    CommonMixIn    m_Common;
-    InternetmediaMixIn    m_Internetmedia;
-    LinkCommonMixIn    m_LinkCommon;
-    LinkExternalMixIn    m_LinkExternal;
-    private:
-        REGISTER_DECLARATION(Extptr);
-};
-
-/** \brief   external reference ― A linking element that can include text and sub-elements
-    * as part of its reference to an electronic object that is external to the MEI
-    * document. Either the entityref or href attribute may be used to identify the
-    * external object. Don't confuse this element with the <ref> element, which is an
-    * internal link for movement from one place in the MEI document to another in the
-    * same document. This element is modelled on an element in Encoded Archival
-    * Description (EAD).
-    */
-
-class MEI_EXPORT Extref : public MeiElement {
-    public:
-        Extref();
-        virtual ~Extref();
-        
-        
-    CommonMixIn    m_Common;
-    InternetmediaMixIn    m_Internetmedia;
-    LangMixIn    m_Lang;
-    LinkCommonMixIn    m_LinkCommon;
-    LinkExternalMixIn    m_LinkExternal;
-    private:
-        REGISTER_DECLARATION(Extref);
-};
-
-/** \brief   pointer ― An empty internal linking element that uses attributes to provide
-    * for movement from one place in an MEI document to another place in the same
-    * document. Unlike the <ref> element, <ptr> cannot contain text or sub-elements to
-    * describe the referenced object. Don't confuse this element with <extptr> which
-    * is used to connect the MEI document to an external electronic object. This
-    * element is modelled on an element in Encoded Archival Description (EAD).
-    */
-
+/** \brief pointer ― Defines a pointer to another location.
+ * 
+ *  Unlike the <ref> element, <ptr> cannot contain text or sub-elements to describe
+ *  the referenced object. This element is modelled on an element in Encoded
+ *  Archival Description (EAD) and TEI.
+ */
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
         virtual ~Ptr();
-        
-        
-    CommonMixIn    m_Common;
-    LinkCommonMixIn    m_LinkCommon;
-    ParticipantidentMixIn    m_Participantident;
+
+        CommonMixIn    m_Common;
+        InternetmediaMixIn    m_Internetmedia;
+        PointingMixIn    m_Pointing;
+        TargetsMixIn    m_Targets;
+
     private:
         REGISTER_DECLARATION(Ptr);
 };
 
-/** \brief   reference ― An internal linking element that provides for movement from one
-    * place in a MEI document to another point in the same document. Unlike the <ptr>
-    * element, <ref> may contain text and sub-elements to describe the destination.
-    * Don't confuse this element with <extref> which provides for linking to an
-    * electronic object that is external to the MEI document. This element is modelled
-    * on an element in Encoded Archival Description (EAD).
-    */
-
+/** \brief reference ― Defines a reference to another location.
+ * 
+ *  Unlike the <ptr> element, <ref> may contain text and sub-elements to describe
+ *  the destination. This element is modelled on an element in Encoded Archival
+ *  Description (EAD) and TEI.
+ */
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
         virtual ~Ref();
-        
-        
-    CommonMixIn    m_Common;
-    LangMixIn    m_Lang;
-    LinkCommonMixIn    m_LinkCommon;
-    ParticipantidentMixIn    m_Participantident;
+
+        CommonMixIn    m_Common;
+        InternetmediaMixIn    m_Internetmedia;
+        LangMixIn    m_Lang;
+        PointingMixIn    m_Pointing;
+        TargetsMixIn    m_Targets;
+
     private:
         REGISTER_DECLARATION(Ref);
 };
-
 }
-#endif // PTRREF_H_
+#endif  // PTRREF_H_

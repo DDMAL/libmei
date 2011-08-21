@@ -1,11 +1,11 @@
-
 #include "usersymbols.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Anchoredtext::Anchoredtext() : 
+mei::Anchoredtext::Anchoredtext() :
     MeiElement("anchoredText"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -17,15 +17,14 @@ mei::Anchoredtext::Anchoredtext() :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this) 
+    m_Xy(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Anchoredtext, "anchoredText");
-mei::Anchoredtext::~Anchoredtext() {};
+mei::Anchoredtext::~Anchoredtext() {}
 
 
-
-mei::Curve::Curve() : 
+mei::Curve::Curve() :
     MeiElement("curve"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -44,15 +43,14 @@ mei::Curve::Curve() :
     m_Xy(this),
     m_Xy2(this),
     m_Curvature(this),
-    m_Curverend(this) 
+    m_Curverend(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Curve, "curve");
-mei::Curve::~Curve() {};
+mei::Curve::~Curve() {}
 
 
-
-mei::Line::Line() : 
+mei::Line::Line() :
     MeiElement("line"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -70,15 +68,14 @@ mei::Line::Line() :
     m_Visualoffset2Vo(this),
     m_Xy(this),
     m_Xy2(this),
-    m_Linerend(this) 
+    m_Linerend(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Line, "line");
-mei::Line::~Line() {};
+mei::Line::~Line() {}
 
 
-
-mei::Symbol::Symbol() : 
+mei::Symbol::Symbol() :
     MeiElement("symbol"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -91,12 +88,11 @@ mei::Symbol::Symbol() :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this) 
+    m_Xy(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Symbol, "symbol");
-mei::Symbol::~Symbol() {};
-
+mei::Symbol::~Symbol() {}
 
 MeiAttribute* mei::Symbol::getRef() {
     if (!hasAttribute("ref")) {
@@ -120,24 +116,22 @@ void mei::Symbol::removeRef() {
     removeAttribute("ref");
 };
 
-
-mei::Symboldef::Symboldef() : 
+mei::Symboldef::Symboldef() :
     MeiElement("symbolDef"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Symboldef, "symbolDef");
-mei::Symboldef::~Symboldef() {};
+mei::Symboldef::~Symboldef() {}
 
 
-
-mei::Symboltable::Symboltable() : 
+mei::Symboltable::Symboltable() :
     MeiElement("symbolTable"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Symboltable, "symbolTable");
-mei::Symboltable::~Symboltable() {};
+mei::Symboltable::~Symboltable() {}
 
 
 

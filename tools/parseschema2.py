@@ -156,19 +156,23 @@ class MeiSchema(object):
 if __name__ == "__main__":
     p = ArgumentParser()
     
-    output_group = p.add_mutually_exclusive_group()
-    lang_group = p.add_mutually_exclusive_group()
+    output_group = p.add_argument_group()
+    lang_group = p.add_argument_group()
     
-    p.add_argument("-s", "--source", help="MEI Source file")
-    p.add_argument("-c", "--customization", help="MEI Customization File")
-    p.add_argument("-o", "--outdir", help="output directory")
-    p.add_argument("-l", "--lang", help="Programming language to output", action="store")
-    p.add_argument("-g", "--generate", help="Generate an accompanying MEI RNG Schema (must have Roma installed)", action="store")
-    p.add_argument("-d", "--debugging", help="Run with verbose output", action="store")
+    output_group.add_argument("-s", "--source", help="MEI Source file")
+    output_group.add_argument("-c", "--customization", help="MEI Customization File")
+    output_group.add_argument("-o", "--outdir", help="output directory")
+    output_group.add_argument("-l", "--lang", help="Programming language to output")
+    output_group.add_argument("-g", "--generate", help="Generate an accompanying MEI RNG Schema (must have Roma installed)", action="store_true")
+    output_group.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
     
-    p.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
+    lang_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
     
     args = p.parse_args()
+
+    if not args.source or not args.customization:
+        p.print_help()
+        sys.exit(1)
     
     if args.showlang:
         import langs
@@ -177,6 +181,12 @@ if __name__ == "__main__":
             print "\t{0}".format(l)
         sys.exit(0)
     
+    if not os.path.exists(args.source):
+        print >>sys.stderr, "Cannot find source file %s" % args.source
+        sys.exit(1)
+    if not os.path.exists(args.customization):
+        print >>sys.stderr, "Cannot find customization file %s" % args.customization
+        sys.exit(1)
     sf = codecs.open(args.source,'r', "utf-8")
     cf = codecs.open(args.customization, 'r', "utf-8")
     

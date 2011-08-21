@@ -1,15 +1,15 @@
-
 #include "edittransmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::AgentidentMixIn::AgentidentMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::AgentidentMixIn::~AgentidentMixIn() {};
 
+mei::AgentidentMixIn::~AgentidentMixIn() {}
 MeiAttribute* mei::AgentidentMixIn::getAgent() {
     if (!b->hasAttribute("agent")) {
         throw AttributeNotFoundException("agent");
@@ -32,12 +32,11 @@ void mei::AgentidentMixIn::removeAgent() {
     b->removeAttribute("agent");
 };
 
-
 mei::EditMixIn::EditMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::EditMixIn::~EditMixIn() {};
 
+mei::EditMixIn::~EditMixIn() {}
 MeiAttribute* mei::EditMixIn::getCert() {
     if (!b->hasAttribute("cert")) {
         throw AttributeNotFoundException("cert");
@@ -59,7 +58,6 @@ bool mei::EditMixIn::hasCert() {
 void mei::EditMixIn::removeCert() {
     b->removeAttribute("cert");
 };
-
 MeiAttribute* mei::EditMixIn::getEvidence() {
     if (!b->hasAttribute("evidence")) {
         throw AttributeNotFoundException("evidence");
@@ -82,12 +80,11 @@ void mei::EditMixIn::removeEvidence() {
     b->removeAttribute("evidence");
 };
 
-
 mei::ExtentMixIn::ExtentMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ExtentMixIn::~ExtentMixIn() {};
 
+mei::ExtentMixIn::~ExtentMixIn() {}
 MeiAttribute* mei::ExtentMixIn::getExtent() {
     if (!b->hasAttribute("extent")) {
         throw AttributeNotFoundException("extent");
@@ -110,12 +107,11 @@ void mei::ExtentMixIn::removeExtent() {
     b->removeAttribute("extent");
 };
 
-
 mei::ReasonidentMixIn::ReasonidentMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ReasonidentMixIn::~ReasonidentMixIn() {};
 
+mei::ReasonidentMixIn::~ReasonidentMixIn() {}
 MeiAttribute* mei::ReasonidentMixIn::getReason() {
     if (!b->hasAttribute("reason")) {
         throw AttributeNotFoundException("reason");

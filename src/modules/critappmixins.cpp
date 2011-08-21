@@ -1,15 +1,15 @@
-
 #include "critappmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::CritMixIn::CritMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::CritMixIn::~CritMixIn() {};
 
+mei::CritMixIn::~CritMixIn() {}
 MeiAttribute* mei::CritMixIn::getCause() {
     if (!b->hasAttribute("cause")) {
         throw AttributeNotFoundException("cause");
@@ -32,12 +32,11 @@ void mei::CritMixIn::removeCause() {
     b->removeAttribute("cause");
 };
 
-
 mei::SourceMixIn::SourceMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::SourceMixIn::~SourceMixIn() {};
 
+mei::SourceMixIn::~SourceMixIn() {}
 MeiAttribute* mei::SourceMixIn::getSource() {
     if (!b->hasAttribute("source")) {
         throw AttributeNotFoundException("source");

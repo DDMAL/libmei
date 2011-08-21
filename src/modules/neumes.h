@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -36,81 +35,80 @@
 
 
 namespace mei {
-    
-/** \brief   interrupted neume ― a graphically interrupted neume; that is, a neume which is
-    * logically a single entity but is written using multiple signs. The constituent
-    * signs may be encoded using ineume and uneume sub-elements.
-    */
-
+/** \brief interrupted neume ― a graphically interrupted neume; that is, a neume which is
+ *  logically a single entity but is written using multiple signs.
+ * 
+ *  The constituent signs may be encoded using ineume and uneume sub-elements.
+ */
 class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
         virtual ~Ineume();
-        
-        
-    CommonMixIn    m_Common;
-    FacsimileMixIn    m_Facsimile;
-    TypedMixIn    m_Typed;
-    IneumeLogMixIn    m_IneumeLog;
-    ColorMixIn    m_Color;
-    CommonAnlMixIn    m_CommonAnl;
-    AlignmentMixIn    m_Alignment;
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+        TypedMixIn    m_Typed;
+        IneumeLogMixIn    m_IneumeLog;
+        ColorMixIn    m_Color;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+
     private:
         REGISTER_DECLARATION(Ineume);
 };
 
-/** \brief   syllable ― Neume notation can be thought of as "neumed text". Therefore, the
-    * syllable element provides high-level organization in this repertoire.
-    */
-
+/** \brief syllable ― Neume notation can be thought of as "neumed text".
+ * 
+ *  Therefore, the syllable element provides high-level organization in this
+ *  repertoire.
+ */
 class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
         virtual ~Syllable();
-        
-        
-    CommonMixIn    m_Common;
+
+        CommonMixIn    m_Common;
+
     private:
         REGISTER_DECLARATION(Syllable);
 };
 
-/** \brief   uninterrupted neume ― A graphically-uninterrupted neume sign. While ineume is
-    * allowed as a sub-element of uneume here as part of the model.eventLike.neume
-    * class, it is unlikely that an uninterrupted neume containing an interrupted
-    * neume is a meaningful construct.
-    */
-
+/** \brief uninterrupted neume ― A graphically-uninterrupted neume sign.
+ * 
+ *  While ineume is allowed as a sub-element of uneume here as part of the
+ *  model.eventLike.neume class, it is unlikely that an uninterrupted neume
+ *  containing an interrupted neume is a meaningful construct.
+ */
 class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
         virtual ~Uneume();
-        
-        
-    CommonMixIn    m_Common;
-    FacsimileMixIn    m_Facsimile;
-    TypedMixIn    m_Typed;
-    UneumeLogMixIn    m_UneumeLog;
-    TimestampMusicalMixIn    m_TimestampMusical;
-    TimestampPerformedMixIn    m_TimestampPerformed;
-    StaffidentMixIn    m_Staffident;
-    LayeridentMixIn    m_Layerident;
-    SyltextMixIn    m_Syltext;
-    AltsymMixIn    m_Altsym;
-    ColorMixIn    m_Color;
-    RelativesizeMixIn    m_Relativesize;
-    VisualoffsetHoMixIn    m_VisualoffsetHo;
-    XyMixIn    m_Xy;
-    VisibilityMixIn    m_Visibility;
-    CommonAnlMixIn    m_CommonAnl;
-    AlignmentMixIn    m_Alignment;
-    HarmonicfunctionMixIn    m_Harmonicfunction;
-    MelodicfunctionMixIn    m_Melodicfunction;
-    IntervallicdescMixIn    m_Intervallicdesc;
-    IntervalharmonicMixIn    m_Intervalharmonic;
-    SolfaMixIn    m_Solfa;
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+        TypedMixIn    m_Typed;
+        UneumeLogMixIn    m_UneumeLog;
+        TimestampMusicalMixIn    m_TimestampMusical;
+        TimestampPerformedMixIn    m_TimestampPerformed;
+        StaffidentMixIn    m_Staffident;
+        LayeridentMixIn    m_Layerident;
+        SyltextMixIn    m_Syltext;
+        AltsymMixIn    m_Altsym;
+        ColorMixIn    m_Color;
+        RelativesizeMixIn    m_Relativesize;
+        VisualoffsetHoMixIn    m_VisualoffsetHo;
+        XyMixIn    m_Xy;
+        VisibilityMixIn    m_Visibility;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+        HarmonicfunctionMixIn    m_Harmonicfunction;
+        MelodicfunctionMixIn    m_Melodicfunction;
+        IntervallicdescMixIn    m_Intervallicdesc;
+        IntervalharmonicMixIn    m_Intervalharmonic;
+        SolfaMixIn    m_Solfa;
+
     private:
         REGISTER_DECLARATION(Uneume);
 };
-
 }
-#endif // NEUMES_H_
+#endif  // NEUMES_H_

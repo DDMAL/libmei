@@ -1,11 +1,11 @@
-
 #include "lyrics.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Lyrics::Lyrics() : 
+mei::Lyrics::Lyrics() :
     MeiElement("lyrics"),
     m_Common(this),
     m_Facsimile(this),
@@ -15,15 +15,14 @@ mei::Lyrics::Lyrics() :
     m_Placement(this),
     m_Typography(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Lyrics, "lyrics");
-mei::Lyrics::~Lyrics() {};
+mei::Lyrics::~Lyrics() {}
 
 
-
-mei::Verse::Verse() : 
+mei::Verse::Verse() :
     MeiElement("verse"),
     m_Common(this),
     m_Facsimile(this),
@@ -34,11 +33,11 @@ mei::Verse::Verse() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Verse, "verse");
-mei::Verse::~Verse() {};
+mei::Verse::~Verse() {}
 
 
 

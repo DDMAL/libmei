@@ -1,11 +1,11 @@
-
 #include "shared.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Abbr::Abbr() : 
+mei::Abbr::Abbr() :
     MeiElement("abbr"),
     m_Common(this),
     m_Edit(this),
@@ -15,12 +15,11 @@ mei::Abbr::Abbr() :
     m_Lang(this),
     m_Handident(this),
     m_Sequence(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Abbr, "abbr");
-mei::Abbr::~Abbr() {};
-
+mei::Abbr::~Abbr() {}
 
 MeiAttribute* mei::Abbr::getExpan() {
     if (!hasAttribute("expan")) {
@@ -44,15 +43,14 @@ void mei::Abbr::removeExpan() {
     removeAttribute("expan");
 };
 
-
-mei::Accid::Accid() : 
+mei::Accid::Accid() :
     MeiElement("accid"),
     m_Common(this),
     m_Facsimile(this),
     m_Typography(this),
     m_AccidLog(this),
     m_Accidental(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -65,51 +63,47 @@ mei::Accid::Accid() :
     m_Xy(this),
     m_Enclosingchars(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Accid, "accid");
-mei::Accid::~Accid() {};
+mei::Accid::~Accid() {}
 
 
-
-mei::Actor::Actor() : 
+mei::Actor::Actor() :
     MeiElement("actor"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Actor, "actor");
-mei::Actor::~Actor() {};
+mei::Actor::~Actor() {}
 
 
-
-mei::Addrline::Addrline() : 
+mei::Addrline::Addrline() :
     MeiElement("addrLine"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Addrline, "addrLine");
-mei::Addrline::~Addrline() {};
+mei::Addrline::~Addrline() {}
 
 
-
-mei::Address::Address() : 
+mei::Address::Address() :
     MeiElement("address"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Address, "address");
-mei::Address::~Address() {};
+mei::Address::~Address() {}
 
 
-
-mei::Annot::Annot() : 
+mei::Annot::Annot() :
     MeiElement("annot"),
     m_Bibl(this),
     m_Common(this),
@@ -127,24 +121,22 @@ mei::Annot::Annot() :
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_LinkCommon(this),
-    m_Participantident(this),
-    m_LinkExternal(this),
-    m_Responsibility(this) 
+    m_Pointing(this),
+    m_Targets(this),
+    m_Responsibility(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Annot, "annot");
-mei::Annot::~Annot() {};
+mei::Annot::~Annot() {}
 
 
-
-mei::Artic::Artic() : 
+mei::Artic::Artic() :
     MeiElement("artic"),
     m_Common(this),
     m_Facsimile(this),
     m_Typography(this),
     m_Articulation(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -158,21 +150,19 @@ mei::Artic::Artic() :
     m_Xy(this),
     m_Enclosingchars(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Artic, "artic");
-mei::Artic::~Artic() {};
+mei::Artic::~Artic() {}
 
 
-
-mei::Barline::Barline() : 
+mei::Barline::Barline() :
     MeiElement("barLine"),
     m_Common(this),
     m_Facsimile(this),
-    m_LinkCommon(this),
-    m_Participantident(this),
-    m_LinkExternal(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_BarlineLog(this),
     m_MeterconformanceBar(this),
     m_Barplacement(this),
@@ -181,88 +171,81 @@ mei::Barline::Barline() :
     m_Width(this),
     m_TimestampMusical(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Barline, "barLine");
-mei::Barline::~Barline() {};
+mei::Barline::~Barline() {}
 
 
-
-mei::Bibl::Bibl() : 
+mei::Bibl::Bibl() :
     MeiElement("bibl"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this) 
+    m_Pointing(this),
+    m_Targets(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Bibl, "bibl");
-mei::Bibl::~Bibl() {};
+mei::Bibl::~Bibl() {}
 
 
-
-mei::Body::Body() : 
+mei::Body::Body() :
     MeiElement("body"),
     m_Common(this),
-    m_Declaring(this) 
+    m_Declaring(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Body, "body");
-mei::Body::~Body() {};
+mei::Body::~Body() {}
 
 
-
-mei::Caption::Caption() : 
+mei::Caption::Caption() :
     MeiElement("caption"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Caption, "caption");
-mei::Caption::~Caption() {};
+mei::Caption::~Caption() {}
 
 
-
-mei::Castgrp::Castgrp() : 
+mei::Castgrp::Castgrp() :
     MeiElement("castGrp"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Castgrp, "castGrp");
-mei::Castgrp::~Castgrp() {};
+mei::Castgrp::~Castgrp() {}
 
 
-
-mei::Castitem::Castitem() : 
+mei::Castitem::Castitem() :
     MeiElement("castItem"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Castitem, "castItem");
-mei::Castitem::~Castitem() {};
+mei::Castitem::~Castitem() {}
 
 
-
-mei::Castlist::Castlist() : 
+mei::Castlist::Castlist() :
     MeiElement("castList"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Castlist, "castList");
-mei::Castlist::~Castlist() {};
+mei::Castlist::~Castlist() {}
 
 
-
-mei::Chord::Chord() : 
+mei::Chord::Chord() :
     MeiElement("chord"),
     m_Common(this),
     m_Facsimile(this),
@@ -297,15 +280,14 @@ mei::Chord::Chord() :
     m_Graced(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Melodicfunction(this) 
+    m_Melodicfunction(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Chord, "chord");
-mei::Chord::~Chord() {};
+mei::Chord::~Chord() {}
 
 
-
-mei::Clef::Clef() : 
+mei::Clef::Clef() :
     MeiElement("clef"),
     m_Common(this),
     m_Facsimile(this),
@@ -316,15 +298,14 @@ mei::Clef::Clef() :
     m_Octave(this),
     m_Octavedisplacement(this),
     m_Altsym(this),
-    m_Color(this) 
+    m_Color(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Clef, "clef");
-mei::Clef::~Clef() {};
+mei::Clef::~Clef() {}
 
 
-
-mei::Clefchange::Clefchange() : 
+mei::Clefchange::Clefchange() :
     MeiElement("clefChange"),
     m_Common(this),
     m_TimestampMusical(this),
@@ -339,15 +320,14 @@ mei::Clefchange::Clefchange() :
     m_Altsym(this),
     m_Color(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Clefchange, "clefChange");
-mei::Clefchange::~Clefchange() {};
+mei::Clefchange::~Clefchange() {}
 
 
-
-mei::Custos::Custos() : 
+mei::Custos::Custos() :
     MeiElement("custos"),
     m_Common(this),
     m_Facsimile(this),
@@ -358,15 +338,14 @@ mei::Custos::Custos() :
     m_Altsym(this),
     m_Color(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Custos, "custos");
-mei::Custos::~Custos() {};
+mei::Custos::~Custos() {}
 
 
-
-mei::Date::Date() : 
+mei::Date::Date() :
     MeiElement("date"),
     m_Bibl(this),
     m_Calendared(this),
@@ -376,12 +355,11 @@ mei::Date::Date() :
     m_Responsibility(this),
     m_Source(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Date, "date");
-mei::Date::~Date() {};
-
+mei::Date::~Date() {}
 
 MeiAttribute* mei::Date::getReg() {
     if (!hasAttribute("reg")) {
@@ -405,14 +383,13 @@ void mei::Date::removeReg() {
     removeAttribute("reg");
 };
 
-
-mei::Dir::Dir() : 
+mei::Dir::Dir() :
     MeiElement("dir"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Typed(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -429,20 +406,19 @@ mei::Dir::Dir() :
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Dir, "dir");
-mei::Dir::~Dir() {};
+mei::Dir::~Dir() {}
 
 
-
-mei::Dot::Dot() : 
+mei::Dot::Dot() :
     MeiElement("dot"),
     m_Common(this),
     m_Facsimile(this),
     m_DotLog(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -453,20 +429,19 @@ mei::Dot::Dot() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Dot, "dot");
-mei::Dot::~Dot() {};
+mei::Dot::~Dot() {}
 
 
-
-mei::Dynam::Dynam() : 
+mei::Dynam::Dynam() :
     MeiElement("dynam"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -484,43 +459,39 @@ mei::Dynam::Dynam() :
     m_DurationPerformed(this),
     m_Midivalue(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Dynam, "dynam");
-mei::Dynam::~Dynam() {};
+mei::Dynam::~Dynam() {}
 
 
-
-mei::Edition::Edition() : 
+mei::Edition::Edition() :
     MeiElement("edition"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Edition, "edition");
-mei::Edition::~Edition() {};
+mei::Edition::~Edition() {}
 
 
-
-mei::Ending::Ending() : 
+mei::Ending::Ending() :
     MeiElement("ending"),
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this),
-    m_Participantident(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Ending, "ending");
-mei::Ending::~Ending() {};
+mei::Ending::~Ending() {}
 
 
-
-mei::Expan::Expan() : 
+mei::Expan::Expan() :
     MeiElement("expan"),
     m_Common(this),
     m_Edit(this),
@@ -530,12 +501,11 @@ mei::Expan::Expan() :
     m_Lang(this),
     m_Handident(this),
     m_Sequence(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Expan, "expan");
-mei::Expan::~Expan() {};
-
+mei::Expan::~Expan() {}
 
 MeiAttribute* mei::Expan::getAbbr() {
     if (!hasAttribute("abbr")) {
@@ -559,45 +529,41 @@ void mei::Expan::removeAbbr() {
     removeAttribute("abbr");
 };
 
-
-mei::Expansion::Expansion() : 
+mei::Expansion::Expansion() :
     MeiElement("expansion"),
     m_Common(this),
     m_Source(this),
     m_Typed(this),
-    m_Participantident(this) 
+    m_Targets(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Expansion, "expansion");
-mei::Expansion::~Expansion() {};
+mei::Expansion::~Expansion() {}
 
 
-
-mei::Fw::Fw() : 
+mei::Fw::Fw() :
     MeiElement("fw"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Fw, "fw");
-mei::Fw::~Fw() {};
+mei::Fw::~Fw() {}
 
 
-
-mei::Group::Group() : 
+mei::Group::Group() :
     MeiElement("group"),
     m_Common(this),
-    m_Declaring(this) 
+    m_Declaring(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Group, "group");
-mei::Group::~Group() {};
+mei::Group::~Group() {}
 
 
-
-mei::Grpsym::Grpsym() : 
+mei::Grpsym::Grpsym() :
     MeiElement("grpSym"),
     m_Common(this),
     m_Facsimile(this),
@@ -607,62 +573,57 @@ mei::Grpsym::Grpsym() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Grpsym, "grpSym");
-mei::Grpsym::~Grpsym() {};
+mei::Grpsym::~Grpsym() {}
 
 
-
-mei::Identifier::Identifier() : 
+mei::Identifier::Identifier() :
     MeiElement("identifier"),
     m_Bibl(this),
     m_Common(this),
     m_Facsimile(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Identifier, "identifier");
-mei::Identifier::~Identifier() {};
+mei::Identifier::~Identifier() {}
 
 
-
-mei::Incip::Incip() : 
+mei::Incip::Incip() :
     MeiElement("incip"),
     m_Common(this),
     m_Bibl(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Incip, "incip");
-mei::Incip::~Incip() {};
+mei::Incip::~Incip() {}
 
 
-
-mei::Instrdef::Instrdef() : 
+mei::Instrdef::Instrdef() :
     MeiElement("instrDef"),
     m_Common(this),
     m_Channelized(this),
-    m_Midiinstrument(this) 
+    m_Midiinstrument(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Instrdef, "instrDef");
-mei::Instrdef::~Instrdef() {};
+mei::Instrdef::~Instrdef() {}
 
 
-
-mei::Instrgrp::Instrgrp() : 
+mei::Instrgrp::Instrgrp() :
     MeiElement("instrGrp"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Instrgrp, "instrGrp");
-mei::Instrgrp::~Instrgrp() {};
+mei::Instrgrp::~Instrgrp() {}
 
 
-
-mei::Keyaccid::Keyaccid() : 
+mei::Keyaccid::Keyaccid() :
     MeiElement("keyAccid"),
     m_Accidental(this),
     m_Common(this),
@@ -671,12 +632,11 @@ mei::Keyaccid::Keyaccid() :
     m_Pitch(this),
     m_Octave(this),
     m_Staffloc(this),
-    m_Xy(this) 
+    m_Xy(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Keyaccid, "keyAccid");
-mei::Keyaccid::~Keyaccid() {};
-
+mei::Keyaccid::~Keyaccid() {}
 
 MeiAttribute* mei::Keyaccid::getForm() {
     if (!hasAttribute("form")) {
@@ -700,18 +660,16 @@ void mei::Keyaccid::removeForm() {
     removeAttribute("form");
 };
 
-
-mei::Keysig::Keysig() : 
+mei::Keysig::Keysig() :
     MeiElement("keySig"),
     m_Common(this),
     m_Facsimile(this),
     m_Accidental(this),
-    m_Pitch(this) 
+    m_Pitch(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Keysig, "keySig");
-mei::Keysig::~Keysig() {};
-
+mei::Keysig::~Keysig() {}
 
 MeiAttribute* mei::Keysig::getMode() {
     if (!hasAttribute("mode")) {
@@ -735,21 +693,19 @@ void mei::Keysig::removeMode() {
     removeAttribute("mode");
 };
 
-
-mei::Label::Label() : 
+mei::Label::Label() :
     MeiElement("label"),
     m_Common(this),
     m_Facsimile(this),
     m_Source(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Label, "label");
-mei::Label::~Label() {};
+mei::Label::~Label() {}
 
 
-
-mei::Layer::Layer() : 
+mei::Layer::Layer() :
     MeiElement("layer"),
     m_Common(this),
     m_Declaring(this),
@@ -757,15 +713,14 @@ mei::Layer::Layer() :
     m_Meterconformance(this),
     m_Visibility(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Layer, "layer");
-mei::Layer::~Layer() {};
+mei::Layer::~Layer() {}
 
 
-
-mei::Layerdef::Layerdef() : 
+mei::Layerdef::Layerdef() :
     MeiElement("layerDef"),
     m_Common(this),
     m_Declaring(this),
@@ -776,25 +731,23 @@ mei::Layerdef::Layerdef() :
     m_BeamingVis(this),
     m_Textstyle(this),
     m_Visibility(this),
-    m_Instrumentident(this) 
+    m_Instrumentident(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Layerdef, "layerDef");
-mei::Layerdef::~Layerdef() {};
+mei::Layerdef::~Layerdef() {}
 
 
-
-mei::Lb::Lb() : 
+mei::Lb::Lb() :
     MeiElement("lb"),
     m_Common(this),
     m_Facsimile(this),
     m_Source(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Lb, "lb");
-mei::Lb::~Lb() {};
-
+mei::Lb::~Lb() {}
 
 MeiAttribute* mei::Lb::getFunc() {
     if (!hasAttribute("func")) {
@@ -818,43 +771,60 @@ void mei::Lb::removeFunc() {
     removeAttribute("func");
 };
 
-
-mei::Mdiv::Mdiv() : 
+mei::Mdiv::Mdiv() :
     MeiElement("mdiv"),
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Mdiv, "mdiv");
-mei::Mdiv::~Mdiv() {};
+mei::Mdiv::~Mdiv() {}
 
 
-
-mei::Mei::Mei() : 
+mei::Mei::Mei() :
     MeiElement("mei"),
-    m_Meiversion(this) 
+    m_Meiversion(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Mei, "mei");
-mei::Mei::~Mei() {};
+mei::Mei::~Mei() {}
 
+MeiAttribute* mei::Mei::getId() {
+    if (!hasAttribute("id")) {
+        throw AttributeNotFoundException("id");
+    }
+    return getAttribute("id");
+};
 
+void mei::Mei::setId(std::string _id) {
+    if (!hasAttribute("id")) {
+        MeiAttribute *a = new MeiAttribute("id", _id);
+        addAttribute(a);
+    }
+};
 
-mei::Music::Music() : 
+bool mei::Mei::hasId() {
+    return hasAttribute("id");
+};
+
+void mei::Mei::removeId() {
+    removeAttribute("id");
+};
+
+mei::Music::Music() :
     MeiElement("music"),
     m_Common(this),
     m_Declaring(this),
-    m_Meiversion(this) 
+    m_Meiversion(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Music, "music");
-mei::Music::~Music() {};
+mei::Music::~Music() {}
 
 
-
-mei::Name::Name() : 
+mei::Name::Name() :
     MeiElement("name"),
     m_Bibl(this),
     m_Common(this),
@@ -863,15 +833,14 @@ mei::Name::Name() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Name, "name");
-mei::Name::~Name() {};
+mei::Name::~Name() {}
 
 
-
-mei::Note::Note() : 
+mei::Note::Note() :
     MeiElement("note"),
     m_Common(this),
     m_Facsimile(this),
@@ -922,165 +891,153 @@ mei::Note::Note() :
     m_Intervalharmonic(this),
     m_Melodicfunction(this),
     m_Pitchclass(this),
-    m_Solfa(this) 
+    m_Solfa(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Note, "note");
-mei::Note::~Note() {};
+mei::Note::~Note() {}
 
 
-
-mei::Num::Num() : 
+mei::Num::Num() :
     MeiElement("num"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Measurement(this) 
+    m_Measurement(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Num, "num");
-mei::Num::~Num() {};
+mei::Num::~Num() {}
 
 
-
-mei::P::P() : 
+mei::P::P() :
     MeiElement("p"),
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Xy(this) 
+    m_Xy(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::P, "p");
-mei::P::~P() {};
+mei::P::~P() {}
 
 
-
-mei::Pad::Pad() : 
+mei::Pad::Pad() :
     MeiElement("pad"),
     m_Common(this),
     m_PadLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
-    m_Layerident(this) 
+    m_Layerident(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pad, "pad");
-mei::Pad::~Pad() {};
+mei::Pad::~Pad() {}
 
 
-
-mei::Part::Part() : 
+mei::Part::Part() :
     MeiElement("part"),
     m_Common(this),
     m_Declaring(this),
     m_Typed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Part, "part");
-mei::Part::~Part() {};
+mei::Part::~Part() {}
 
 
-
-mei::Parts::Parts() : 
+mei::Parts::Parts() :
     MeiElement("parts"),
     m_Common(this),
     m_Declaring(this),
     m_Typed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Parts, "parts");
-mei::Parts::~Parts() {};
+mei::Parts::~Parts() {}
 
 
-
-mei::Pb::Pb() : 
+mei::Pb::Pb() :
     MeiElement("pb"),
     m_Common(this),
     m_Facsimile(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_Source(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_PbVis(this) 
+    m_PbVis(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pb, "pb");
-mei::Pb::~Pb() {};
+mei::Pb::~Pb() {}
 
 
-
-mei::Pgdesc::Pgdesc() : 
+mei::Pgdesc::Pgdesc() :
     MeiElement("pgDesc"),
     m_Common(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pgdesc, "pgDesc");
-mei::Pgdesc::~Pgdesc() {};
+mei::Pgdesc::~Pgdesc() {}
 
 
-
-mei::Pgfoot::Pgfoot() : 
+mei::Pgfoot::Pgfoot() :
     MeiElement("pgFoot"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pgfoot, "pgFoot");
-mei::Pgfoot::~Pgfoot() {};
+mei::Pgfoot::~Pgfoot() {}
 
 
-
-mei::Pgfoot2::Pgfoot2() : 
+mei::Pgfoot2::Pgfoot2() :
     MeiElement("pgFoot2"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pgfoot2, "pgFoot2");
-mei::Pgfoot2::~Pgfoot2() {};
+mei::Pgfoot2::~Pgfoot2() {}
 
 
-
-mei::Pghead::Pghead() : 
+mei::Pghead::Pghead() :
     MeiElement("pgHead"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pghead, "pgHead");
-mei::Pghead::~Pghead() {};
+mei::Pghead::~Pghead() {}
 
 
-
-mei::Pghead2::Pghead2() : 
+mei::Pghead2::Pghead2() :
     MeiElement("pgHead2"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pghead2, "pgHead2");
-mei::Pghead2::~Pghead2() {};
+mei::Pghead2::~Pghead2() {}
 
 
-
-mei::Phrase::Phrase() : 
+mei::Phrase::Phrase() :
     MeiElement("phrase"),
     m_Common(this),
     m_Facsimile(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1102,26 +1059,24 @@ mei::Phrase::Phrase() :
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Joined(this) 
+    m_Joined(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Phrase, "phrase");
-mei::Phrase::~Phrase() {};
+mei::Phrase::~Phrase() {}
 
 
-
-mei::Rend::Rend() : 
+mei::Rend::Rend() :
     MeiElement("rend"),
     m_Color(this),
     m_Common(this),
     m_Lang(this),
     m_Typography(this),
-    m_Horizontalalign(this) 
+    m_Horizontalalign(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Rend, "rend");
-mei::Rend::~Rend() {};
-
+mei::Rend::~Rend() {}
 
 MeiAttribute* mei::Rend::getAltrend() {
     if (!hasAttribute("altrend")) {
@@ -1144,7 +1099,6 @@ bool mei::Rend::hasAltrend() {
 void mei::Rend::removeAltrend() {
     removeAttribute("altrend");
 };
-
 MeiAttribute* mei::Rend::getRend() {
     if (!hasAttribute("rend")) {
         throw AttributeNotFoundException("rend");
@@ -1166,7 +1120,6 @@ bool mei::Rend::hasRend() {
 void mei::Rend::removeRend() {
     removeAttribute("rend");
 };
-
 MeiAttribute* mei::Rend::getRotation() {
     if (!hasAttribute("rotation")) {
         throw AttributeNotFoundException("rotation");
@@ -1188,7 +1141,6 @@ bool mei::Rend::hasRotation() {
 void mei::Rend::removeRotation() {
     removeAttribute("rotation");
 };
-
 MeiAttribute* mei::Rend::getValign() {
     if (!hasAttribute("valign")) {
         throw AttributeNotFoundException("valign");
@@ -1211,8 +1163,7 @@ void mei::Rend::removeValign() {
     removeAttribute("valign");
 };
 
-
-mei::Repository::Repository() : 
+mei::Repository::Repository() :
     MeiElement("repository"),
     m_Bibl(this),
     m_Common(this),
@@ -1221,15 +1172,14 @@ mei::Repository::Repository() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Repository, "repository");
-mei::Repository::~Repository() {};
+mei::Repository::~Repository() {}
 
 
-
-mei::Rest::Rest() : 
+mei::Rest::Rest() :
     MeiElement("rest"),
     m_Common(this),
     m_Facsimile(this),
@@ -1255,68 +1205,63 @@ mei::Rest::Rest() :
     m_Instrumentident(this),
     m_DurationRatio(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Rest, "rest");
-mei::Rest::~Rest() {};
+mei::Rest::~Rest() {}
 
 
-
-mei::Role::Role() : 
+mei::Role::Role() :
     MeiElement("role"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Role, "role");
-mei::Role::~Role() {};
+mei::Role::~Role() {}
 
 
-
-mei::Roledesc::Roledesc() : 
+mei::Roledesc::Roledesc() :
     MeiElement("roleDesc"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Roledesc, "roleDesc");
-mei::Roledesc::~Roledesc() {};
+mei::Roledesc::~Roledesc() {}
 
 
-
-mei::Sb::Sb() : 
+mei::Sb::Sb() :
     MeiElement("sb"),
     m_Common(this),
     m_Facsimile(this),
     m_Source(this),
     m_SbVis(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Sb, "sb");
-mei::Sb::~Sb() {};
+mei::Sb::~Sb() {}
 
 
-
-mei::Score::Score() : 
+mei::Score::Score() :
     MeiElement("score"),
     m_Common(this),
     m_Declaring(this),
     m_Typed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Score, "score");
-mei::Score::~Score() {};
+mei::Score::~Score() {}
 
 
-
-mei::Scoredef::Scoredef() : 
+mei::Scoredef::Scoredef() :
     MeiElement("scoreDef"),
     m_Common(this),
     m_CleffingLog(this),
@@ -1350,34 +1295,31 @@ mei::Scoredef::Scoredef() :
     m_Channelized(this),
     m_Timebase(this),
     m_Miditempo(this),
-    m_Mmtempo(this) 
+    m_Mmtempo(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Scoredef, "scoreDef");
-mei::Scoredef::~Scoredef() {};
+mei::Scoredef::~Scoredef() {}
 
 
-
-mei::Section::Section() : 
+mei::Section::Section() :
     MeiElement("section"),
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Typed(this),
-    m_LinkCommon(this),
-    m_LinkExternal(this),
-    m_Participantident(this),
+    m_Pointing(this),
+    m_Targets(this),
     m_SectionVis(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Section, "section");
-mei::Section::~Section() {};
+mei::Section::~Section() {}
 
 
-
-mei::Space::Space() : 
+mei::Space::Space() :
     MeiElement("space"),
     m_Common(this),
     m_Facsimile(this),
@@ -1393,24 +1335,22 @@ mei::Space::Space() :
     m_SpaceVis(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Space, "space");
-mei::Space::~Space() {};
+mei::Space::~Space() {}
 
 
-
-mei::Stack::Stack() : 
+mei::Stack::Stack() :
     MeiElement("stack"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Stack, "stack");
-mei::Stack::~Stack() {};
-
+mei::Stack::~Stack() {}
 
 MeiAttribute* mei::Stack::getDelim() {
     if (!hasAttribute("delim")) {
@@ -1433,7 +1373,6 @@ bool mei::Stack::hasDelim() {
 void mei::Stack::removeDelim() {
     removeAttribute("delim");
 };
-
 MeiAttribute* mei::Stack::getAlign() {
     if (!hasAttribute("align")) {
         throw AttributeNotFoundException("align");
@@ -1456,8 +1395,7 @@ void mei::Stack::removeAlign() {
     removeAttribute("align");
 };
 
-
-mei::Staff::Staff() : 
+mei::Staff::Staff() :
     MeiElement("staff"),
     m_Common(this),
     m_Declaring(this),
@@ -1465,15 +1403,14 @@ mei::Staff::Staff() :
     m_Meterconformance(this),
     m_Visibility(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Staff, "staff");
-mei::Staff::~Staff() {};
+mei::Staff::~Staff() {}
 
 
-
-mei::Staffdef::Staffdef() : 
+mei::Staffdef::Staffdef() :
     MeiElement("staffDef"),
     m_Common(this),
     m_Declaring(this),
@@ -1508,15 +1445,14 @@ mei::Staffdef::Staffdef() :
     m_MensurationVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
-    m_StaffdefGesTablature(this) 
+    m_StaffdefGesTablature(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Staffdef, "staffDef");
-mei::Staffdef::~Staffdef() {};
+mei::Staffdef::~Staffdef() {}
 
 
-
-mei::Staffgrp::Staffgrp() : 
+mei::Staffgrp::Staffgrp() :
     MeiElement("staffGrp"),
     m_Common(this),
     m_Declaring(this),
@@ -1525,15 +1461,14 @@ mei::Staffgrp::Staffgrp() :
     m_LabelsAddl(this),
     m_Staffgroupingsym(this),
     m_Visibility(this),
-    m_Instrumentident(this) 
+    m_Instrumentident(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Staffgrp, "staffGrp");
-mei::Staffgrp::~Staffgrp() {};
+mei::Staffgrp::~Staffgrp() {}
 
 
-
-mei::Syl::Syl() : 
+mei::Syl::Syl() :
     MeiElement("syl"),
     m_Common(this),
     m_Facsimile(this),
@@ -1545,20 +1480,19 @@ mei::Syl::Syl() :
     m_Xy(this),
     m_Horizontalalign(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Syl, "syl");
-mei::Syl::~Syl() {};
+mei::Syl::~Syl() {}
 
 
-
-mei::Tempo::Tempo() : 
+mei::Tempo::Tempo() :
     MeiElement("tempo"),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Participantident(this),
+    m_Targets(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1574,15 +1508,14 @@ mei::Tempo::Tempo() :
     m_Miditempo(this),
     m_Mmtempo(this),
     m_CommonAnl(this),
-    m_Alignment(this) 
+    m_Alignment(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Tempo, "tempo");
-mei::Tempo::~Tempo() {};
+mei::Tempo::~Tempo() {}
 
 
-
-mei::Title::Title() : 
+mei::Title::Title() :
     MeiElement("title"),
     m_Common(this),
     m_Facsimile(this),
@@ -1590,12 +1523,11 @@ mei::Title::Title() :
     m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Title, "title");
-mei::Title::~Title() {};
-
+mei::Title::~Title() {}
 
 MeiAttribute* mei::Title::getLevel() {
     if (!hasAttribute("level")) {
@@ -1619,16 +1551,15 @@ void mei::Title::removeLevel() {
     removeAttribute("level");
 };
 
-
-mei::Titlepage::Titlepage() : 
+mei::Titlepage::Titlepage() :
     MeiElement("titlePage"),
     m_Common(this),
     m_Facsimile(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Titlepage, "titlePage");
-mei::Titlepage::~Titlepage() {};
+mei::Titlepage::~Titlepage() {}
 
 
 

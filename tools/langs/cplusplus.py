@@ -12,16 +12,14 @@ LANG_NAME="C++"
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani"
 
-METHODS_HEADER_TEMPLATE = """
-    {documentation}
-    MeiAttribute* get{attNameUpper}();
-    void set{attNameUpper}(std::string _{attNameLowerJoined});
-    bool has{attNameUpper}();
-    void remove{attNameUpper}();
+METHODS_HEADER_TEMPLATE = """{documentation}
+        MeiAttribute* get{attNameUpper}();
+        void set{attNameUpper}(std::string _{attNameLowerJoined});
+        bool has{attNameUpper}();
+        void remove{attNameUpper}();
 """
 
-METHODS_IMPL_TEMPLATE = """
-MeiAttribute* mei::{className}::get{attNameUpper}() {{
+METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() {{
     if (!{accessor}hasAttribute("{attNameLower}")) {{
         throw AttributeNotFoundException("{attNameLower}");
     }}
@@ -44,8 +42,9 @@ void mei::{className}::remove{attNameUpper}() {{
 }};
 """
 
-CLASSES_IMPL_TEMPLATE = """
-#include "{moduleNameLower}.h"
+CLASSES_IMPL_TEMPLATE = """#include "{moduleNameLower}.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
@@ -53,8 +52,7 @@ using mei::AttributeNotFoundException;
 {elements}
 
 """
-CLASSES_HEAD_TEMPLATE = """
-{license}
+CLASSES_HEAD_TEMPLATE = """{license}
 
 #ifndef {moduleNameCaps}_H_
 #define {moduleNameCaps}_H_
@@ -64,9 +62,9 @@ CLASSES_HEAD_TEMPLATE = """
 {includes}
 
 namespace mei {{
-    {elements}
+{elements}
 }}
-#endif // {moduleNameCaps}_H_
+#endif  // {moduleNameCaps}_H_
 """
 
 ELEMENT_CLASS_HEAD_TEMPLATE = """
@@ -75,45 +73,43 @@ class MEI_EXPORT {elementNameUpper} : public MeiElement {{
     public:
         {elementNameUpper}();
         virtual ~{elementNameUpper}();
-        {methods}
-        {mixIns}
+{methods}
+{mixIns}
     private:
         REGISTER_DECLARATION({elementNameUpper});
 }};
 """
 
-ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """
-mei::{elementNameUpper}::{elementNameUpper}() : {mixIns} 
+ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper}() :{mixIns}
 {{
-}};
+}}
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
-mei::{elementNameUpper}::~{elementNameUpper}() {{}};
+mei::{elementNameUpper}::~{elementNameUpper}() {{}}
 
 {methods}
 """
 
-MIXIN_CLASS_HEAD_TEMPLATE = """
-class {attGroupNameUpper}MixIn {{
+MIXIN_CLASS_HEAD_TEMPLATE = """class {attGroupNameUpper}MixIn {{
     public:
         explicit {attGroupNameUpper}MixIn(MeiElement *b);
         virtual ~{attGroupNameUpper}MixIn();
-        {methods}
+{methods}
     private:
         MeiElement *b;
 }};
 
 """
 
-MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
-mei::{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
+MIXIN_CLASS_IMPL_CONS_TEMPLATE = """mei::{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
     this->b = b;
 }};
-mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}};
+
+mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}}
 {methods}
 """
 
-ELEMENT_MIXIN_TEMPLATE = """
-    {attNameUpper}MixIn    m_{attNameUpper};"""
+ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
+"""
 
 LICENSE = """/*
     Copyright (c) 2011 {authors}
@@ -145,7 +141,32 @@ def create(schema):
     __create_element_classes(schema)
     
     lg.debug("Success!")
+
+def __get_docstr(text, indent=0):
+    """ Format a docstring. Take the first sentence (. followed by a space)
+        and use it for the brief. Then put the rest of the text after a blank
+        line if there is text there
+    """
+    text = text.strip().encode("utf-8")
+    dotpos = text.find(". ")
+    if dotpos > 0:
+        brief = text[:dotpos+1]
+        content = text[dotpos+2:]
+    else:
+        brief = text
+        content = ""
+    if indent == 0:
+        istr = ""
+    else:
+        istr = "{0:{1}}".format(" ", indent)
     
+    brief = "\n{0} *  ".format(istr).join(textwrap.wrap(brief, 80))
+    content = "\n{0} *  ".format(istr).join(textwrap.wrap(content, 80))
+    docstr = "{0}/** \\brief {1}".format(istr, brief)
+    if len(content) > 0:
+        docstr += "\n{0} * \n{0} *  {1}".format(istr, content)
+    docstr += "\n{0} */".format(istr)
+    return docstr
 
 def __create_mixin_classes(schema):
     ###########################################################################
@@ -167,11 +188,12 @@ def __create_mixin_classes(schema):
             
             methods = ""
             for att in atts:
+                docstr = __get_docstr(schema.getattdocs(att), indent=8)
                 substrings = {
                     "attNameUpper": schema.cc(schema.strpatt(att)),
                     "attNameLower": att,
                     "attNameLowerJoined": schema.strpdot(att),
-                    "documentation": "{0}".format("/** \\brief   "+"\n    * ".join(textwrap.wrap(((schema.getattdocs(att)).encode('utf-8')),80))+"\n    */\n")
+                    "documentation": docstr
                 }
                 methods += METHODS_HEADER_TEMPLATE.format(**substrings)
                 
@@ -185,8 +207,10 @@ def __create_mixin_classes(schema):
             "includes": "",
             'license': LICENSE.format(authors=AUTHORS),
             'moduleNameCaps': "{0}MIXIN".format(module.upper()),
-            'elements': classes
+            'elements': classes.strip()
         }
+        if "std::string" in classes:
+            tplvars["includes"] = "#include <string>"
         fullout = CLASSES_HEAD_TEMPLATE.format(**tplvars)
         fmh = open(os.path.join(schema.outdir, "{0}mixins.h".format(module.lower())), 'w')
         fmh.write(fullout)
@@ -257,11 +281,12 @@ def __create_element_classes(schema):
                     for sda in attribute:
                         if sda == "xml:id":
                             continue
+                        docstr = __get_docstr(schema.getattdocs(sda), indent=8)
                         methstr = {
                             "attNameUpper": schema.cc(schema.strpatt(sda)),
                             "attNameLower": sda,
                             "attNameLowerJoined": schema.strpdot(sda),
-                            "documentation": "{0}".format("/** \\brief   "+"\n    * ".join(textwrap.wrap(((schema.getattdocs(sda)).encode('utf-8')),80))+"\n    */")
+                            "documentation": docstr
                         }
                         attribute_methods += METHODS_HEADER_TEMPLATE.format(**methstr)
                         
@@ -273,12 +298,12 @@ def __create_element_classes(schema):
                         mod = schema.inverse_attribute_group_structure[attribute]
                         if mod not in includes:
                             includes.append(mod)
-                        
+            docstr = __get_docstr(schema.geteldocs(element), indent=0)
             elvars = {
                 "elementNameUpper": schema.cc(element),
                 "methods": attribute_methods,
                 "mixIns": element_mixins,
-                "documentation": "{0}".format("/** \\brief   "+"\n    * ".join(textwrap.wrap(((schema.geteldocs(element)).encode('utf-8')),80))+"\n    */\n")
+                "documentation": docstr.strip()
             }
             
             # pdb.set_trace()
@@ -293,8 +318,10 @@ def __create_element_classes(schema):
             "includes": incl_output,
             "license": LICENSE.format(authors = AUTHORS),
             "moduleNameCaps": module.upper(),
-            "elements": element_output,
+            "elements": element_output.strip()
         }
+        if "std::string" in element_output:
+            outvars["includes"] += "#include <string>\n"
         
         fullout = CLASSES_HEAD_TEMPLATE.format(**outvars)
         fmh = open(os.path.join(schema.outdir, "{0}.h".format(module.lower())), 'w')

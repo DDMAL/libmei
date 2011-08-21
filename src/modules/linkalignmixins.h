@@ -1,4 +1,3 @@
-
 /*
     Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
     
@@ -27,28 +26,24 @@
 
 #include "meielement.h"
 #include "exceptions.h"
-
+#include <string>
 
 namespace mei {
-    
 class AlignmentMixIn {
     public:
         explicit AlignmentMixIn(MeiElement *b);
         virtual ~AlignmentMixIn();
-        
-    /** \brief   indicates the point of occurrence of this feature along a time line. Its value
-    * must be the ID of a <when> element.
-    */
-
-    MeiAttribute* getWhen();
-    void setWhen(std::string _when);
-    bool hasWhen();
-    void removeWhen();
+        /** \brief indicates the point of occurrence of this feature along a time line.
+         * 
+         *  Its value must be the ID of a <when> element.
+         */
+        MeiAttribute* getWhen();
+        void setWhen(std::string _when);
+        bool hasWhen();
+        void removeWhen();
 
     private:
         MeiElement *b;
 };
-
-
 }
-#endif // LINKALIGNMIXIN_H_
+#endif  // LINKALIGNMIXIN_H_

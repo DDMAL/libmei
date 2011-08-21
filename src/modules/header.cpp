@@ -1,66 +1,61 @@
-
 #include "header.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
-mei::Accessrestrict::Accessrestrict() : 
+mei::Accessrestrict::Accessrestrict() :
     MeiElement("accessRestrict"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Accessrestrict, "accessRestrict");
-mei::Accessrestrict::~Accessrestrict() {};
+mei::Accessrestrict::~Accessrestrict() {}
 
 
-
-mei::Acqsource::Acqsource() : 
+mei::Acqsource::Acqsource() :
     MeiElement("acqSource"),
     m_Bibl(this),
     m_Common(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Acqsource, "acqSource");
-mei::Acqsource::~Acqsource() {};
+mei::Acqsource::~Acqsource() {}
 
 
-
-mei::Altid::Altid() : 
+mei::Altid::Altid() :
     MeiElement("altId"),
     m_Bibl(this),
     m_Common(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Altid, "altId");
-mei::Altid::~Altid() {};
+mei::Altid::~Altid() {}
 
 
-
-mei::Appinfo::Appinfo() : 
+mei::Appinfo::Appinfo() :
     MeiElement("appInfo"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Appinfo, "appInfo");
-mei::Appinfo::~Appinfo() {};
+mei::Appinfo::~Appinfo() {}
 
 
-
-mei::Application::Application() : 
+mei::Application::Application() :
     MeiElement("application"),
     m_Common(this),
     m_Datable(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Application, "application");
-mei::Application::~Application() {};
-
+mei::Application::~Application() {}
 
 MeiAttribute* mei::Application::getVersion() {
     if (!hasAttribute("version")) {
@@ -84,113 +79,103 @@ void mei::Application::removeVersion() {
     removeAttribute("version");
 };
 
-
-mei::Availability::Availability() : 
+mei::Availability::Availability() :
     MeiElement("availability"),
     m_Bibl(this),
     m_Common(this),
-    m_Datapointing(this) 
+    m_Datapointing(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Availability, "availability");
-mei::Availability::~Availability() {};
+mei::Availability::~Availability() {}
 
 
-
-mei::Change::Change() : 
+mei::Change::Change() :
     MeiElement("change"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Change, "change");
-mei::Change::~Change() {};
+mei::Change::~Change() {}
 
 
-
-mei::Changedesc::Changedesc() : 
+mei::Changedesc::Changedesc() :
     MeiElement("changeDesc"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Changedesc, "changeDesc");
-mei::Changedesc::~Changedesc() {};
+mei::Changedesc::~Changedesc() {}
 
 
-
-mei::Classcode::Classcode() : 
+mei::Classcode::Classcode() :
     MeiElement("classCode"),
     m_Common(this),
     m_Authorized(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Classcode, "classCode");
-mei::Classcode::~Classcode() {};
+mei::Classcode::~Classcode() {}
 
 
-
-mei::Classification::Classification() : 
+mei::Classification::Classification() :
     MeiElement("classification"),
     m_Common(this),
     m_Bibl(this),
-    m_Datapointing(this) 
+    m_Datapointing(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Classification, "classification");
-mei::Classification::~Classification() {};
+mei::Classification::~Classification() {}
 
 
-
-mei::Condition::Condition() : 
+mei::Condition::Condition() :
     MeiElement("condition"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Condition, "condition");
-mei::Condition::~Condition() {};
+mei::Condition::~Condition() {}
 
 
-
-mei::Contentitem::Contentitem() : 
+mei::Contentitem::Contentitem() :
     MeiElement("contentItem"),
     m_Bibl(this),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Contentitem, "contentItem");
-mei::Contentitem::~Contentitem() {};
+mei::Contentitem::~Contentitem() {}
 
 
-
-mei::Contents::Contents() : 
+mei::Contents::Contents() :
     MeiElement("contents"),
     m_Common(this),
     m_Bibl(this),
-    m_LinkExternal(this) 
+    m_Targets(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Contents, "contents");
-mei::Contents::~Contents() {};
+mei::Contents::~Contents() {}
 
 
-
-mei::Correction::Correction() : 
+mei::Correction::Correction() :
     MeiElement("correction"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
     m_Lang(this),
-    m_Regularmethod(this) 
+    m_Regularmethod(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Correction, "correction");
-mei::Correction::~Correction() {};
-
+mei::Correction::~Correction() {}
 
 MeiAttribute* mei::Correction::getCorrlevel() {
     if (!hasAttribute("corrlevel")) {
@@ -214,79 +199,72 @@ void mei::Correction::removeCorrlevel() {
     removeAttribute("corrlevel");
 };
 
-
-mei::Creation::Creation() : 
+mei::Creation::Creation() :
     MeiElement("creation"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Creation, "creation");
-mei::Creation::~Creation() {};
+mei::Creation::~Creation() {}
 
 
-
-mei::Dimensions::Dimensions() : 
+mei::Dimensions::Dimensions() :
     MeiElement("dimensions"),
     m_Common(this),
     m_Bibl(this),
-    m_Measurement(this) 
+    m_Measurement(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Dimensions, "dimensions");
-mei::Dimensions::~Dimensions() {};
+mei::Dimensions::~Dimensions() {}
 
 
-
-mei::Editionstmt::Editionstmt() : 
+mei::Editionstmt::Editionstmt() :
     MeiElement("editionStmt"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Editionstmt, "editionStmt");
-mei::Editionstmt::~Editionstmt() {};
+mei::Editionstmt::~Editionstmt() {}
 
 
-
-mei::Editorialdecl::Editorialdecl() : 
+mei::Editorialdecl::Editorialdecl() :
     MeiElement("editorialDecl"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Editorialdecl, "editorialDecl");
-mei::Editorialdecl::~Editorialdecl() {};
+mei::Editorialdecl::~Editorialdecl() {}
 
 
-
-mei::Encodingdesc::Encodingdesc() : 
+mei::Encodingdesc::Encodingdesc() :
     MeiElement("encodingDesc"),
     m_Bibl(this),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Encodingdesc, "encodingDesc");
-mei::Encodingdesc::~Encodingdesc() {};
+mei::Encodingdesc::~Encodingdesc() {}
 
 
-
-mei::Ensemble::Ensemble() : 
+mei::Ensemble::Ensemble() :
     MeiElement("ensemble"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Ensemble, "ensemble");
-mei::Ensemble::~Ensemble() {};
+mei::Ensemble::~Ensemble() {}
 
 
-
-mei::Event::Event() : 
+mei::Event::Event() :
     MeiElement("event"),
     m_Bibl(this),
     m_Calendared(this),
@@ -295,84 +273,77 @@ mei::Event::Event() :
     m_Edit(this),
     m_Responsibility(this),
     m_Source(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Event, "event");
-mei::Event::~Event() {};
+mei::Event::~Event() {}
 
 
-
-mei::Eventlist::Eventlist() : 
+mei::Eventlist::Eventlist() :
     MeiElement("eventList"),
     m_Bibl(this),
     m_Common(this),
-    m_Typed(this) 
+    m_Typed(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Eventlist, "eventList");
-mei::Eventlist::~Eventlist() {};
+mei::Eventlist::~Eventlist() {}
 
 
-
-mei::Exhibhist::Exhibhist() : 
+mei::Exhibhist::Exhibhist() :
     MeiElement("exhibHist"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Exhibhist, "exhibHist");
-mei::Exhibhist::~Exhibhist() {};
+mei::Exhibhist::~Exhibhist() {}
 
 
-
-mei::Extent::Extent() : 
+mei::Extent::Extent() :
     MeiElement("extent"),
     m_Common(this),
     m_Bibl(this),
-    m_Measurement(this) 
+    m_Measurement(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Extent, "extent");
-mei::Extent::~Extent() {};
+mei::Extent::~Extent() {}
 
 
-
-mei::Filedesc::Filedesc() : 
+mei::Filedesc::Filedesc() :
     MeiElement("fileDesc"),
     m_Bibl(this),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Filedesc, "fileDesc");
-mei::Filedesc::~Filedesc() {};
+mei::Filedesc::~Filedesc() {}
 
 
-
-mei::Fingerprint::Fingerprint() : 
+mei::Fingerprint::Fingerprint() :
     MeiElement("fingerprint"),
     m_Common(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
-mei::Fingerprint::~Fingerprint() {};
+mei::Fingerprint::~Fingerprint() {}
 
 
-
-mei::Hand::Hand() : 
+mei::Hand::Hand() :
     MeiElement("hand"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this),
     m_Medium(this),
-    m_Responsibility(this) 
+    m_Responsibility(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Hand, "hand");
-mei::Hand::~Hand() {};
-
+mei::Hand::~Hand() {}
 
 MeiAttribute* mei::Hand::getInitial() {
     if (!hasAttribute("initial")) {
@@ -396,39 +367,35 @@ void mei::Hand::removeInitial() {
     removeAttribute("initial");
 };
 
-
-mei::Handlist::Handlist() : 
+mei::Handlist::Handlist() :
     MeiElement("handList"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Handlist, "handList");
-mei::Handlist::~Handlist() {};
+mei::Handlist::~Handlist() {}
 
 
-
-mei::History::History() : 
+mei::History::History() :
     MeiElement("history"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::History, "history");
-mei::History::~History() {};
+mei::History::~History() {}
 
 
-
-mei::Incipcode::Incipcode() : 
+mei::Incipcode::Incipcode() :
     MeiElement("incipCode"),
     m_Common(this),
     m_Bibl(this),
-    m_Internetmedia(this) 
+    m_Internetmedia(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Incipcode, "incipCode");
-mei::Incipcode::~Incipcode() {};
-
+mei::Incipcode::~Incipcode() {}
 
 MeiAttribute* mei::Incipcode::getSpace() {
     if (!hasAttribute("space")) {
@@ -451,7 +418,6 @@ bool mei::Incipcode::hasSpace() {
 void mei::Incipcode::removeSpace() {
     removeAttribute("space");
 };
-
 MeiAttribute* mei::Incipcode::getForm() {
     if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -474,30 +440,27 @@ void mei::Incipcode::removeForm() {
     removeAttribute("form");
 };
 
-
-mei::Inscription::Inscription() : 
+mei::Inscription::Inscription() :
     MeiElement("inscription"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Inscription, "inscription");
-mei::Inscription::~Inscription() {};
+mei::Inscription::~Inscription() {}
 
 
-
-mei::Instrvoice::Instrvoice() : 
+mei::Instrvoice::Instrvoice() :
     MeiElement("instrVoice"),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this),
-    m_Regularized(this) 
+    m_Regularized(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Instrvoice, "instrVoice");
-mei::Instrvoice::~Instrvoice() {};
-
+mei::Instrvoice::~Instrvoice() {}
 
 MeiAttribute* mei::Instrvoice::getCount() {
     if (!hasAttribute("count")) {
@@ -520,7 +483,6 @@ bool mei::Instrvoice::hasCount() {
 void mei::Instrvoice::removeCount() {
     removeAttribute("count");
 };
-
 MeiAttribute* mei::Instrvoice::getSolo() {
     if (!hasAttribute("solo")) {
         throw AttributeNotFoundException("solo");
@@ -543,31 +505,28 @@ void mei::Instrvoice::removeSolo() {
     removeAttribute("solo");
 };
 
-
-mei::Interpretation::Interpretation() : 
+mei::Interpretation::Interpretation() :
     MeiElement("interpretation"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Interpretation, "interpretation");
-mei::Interpretation::~Interpretation() {};
+mei::Interpretation::~Interpretation() {}
 
 
-
-mei::Key::Key() : 
+mei::Key::Key() :
     MeiElement("key"),
     m_Common(this),
     m_Bibl(this),
     m_AccidentalPerformed(this),
-    m_Pitch(this) 
+    m_Pitch(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Key, "key");
-mei::Key::~Key() {};
-
+mei::Key::~Key() {}
 
 MeiAttribute* mei::Key::getMode() {
     if (!hasAttribute("mode")) {
@@ -591,42 +550,38 @@ void mei::Key::removeMode() {
     removeAttribute("mode");
 };
 
-
-mei::Langusage::Langusage() : 
+mei::Langusage::Langusage() :
     MeiElement("langUsage"),
     m_Common(this),
     m_Bibl(this),
-    m_Datapointing(this) 
+    m_Datapointing(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Langusage, "langUsage");
-mei::Langusage::~Langusage() {};
+mei::Langusage::~Langusage() {}
 
 
-
-mei::Language::Language() : 
+mei::Language::Language() :
     MeiElement("language"),
     m_Common(this),
     m_Bibl(this),
-    m_Authorized(this) 
+    m_Authorized(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Language, "language");
-mei::Language::~Language() {};
+mei::Language::~Language() {}
 
 
-
-mei::Meihead::Meihead() : 
+mei::Meihead::Meihead() :
     MeiElement("meiHead"),
     m_Bibl(this),
     m_Common(this),
     m_Lang(this),
-    m_Meiversion(this) 
+    m_Meiversion(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Meihead, "meiHead");
-mei::Meihead::~Meihead() {};
-
+mei::Meihead::~Meihead() {}
 
 MeiAttribute* mei::Meihead::getType() {
     if (!hasAttribute("type")) {
@@ -650,160 +605,146 @@ void mei::Meihead::removeType() {
     removeAttribute("type");
 };
 
-
-mei::Normalization::Normalization() : 
+mei::Normalization::Normalization() :
     MeiElement("normalization"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
     m_Lang(this),
-    m_Regularmethod(this) 
+    m_Regularmethod(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Normalization, "normalization");
-mei::Normalization::~Normalization() {};
+mei::Normalization::~Normalization() {}
 
 
-
-mei::Notesstmt::Notesstmt() : 
+mei::Notesstmt::Notesstmt() :
     MeiElement("notesStmt"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Notesstmt, "notesStmt");
-mei::Notesstmt::~Notesstmt() {};
+mei::Notesstmt::~Notesstmt() {}
 
 
-
-mei::Perfmedium::Perfmedium() : 
+mei::Perfmedium::Perfmedium() :
     MeiElement("perfMedium"),
     m_Common(this),
     m_Bibl(this),
-    m_Authorized(this) 
+    m_Authorized(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Perfmedium, "perfMedium");
-mei::Perfmedium::~Perfmedium() {};
+mei::Perfmedium::~Perfmedium() {}
 
 
-
-mei::Performer::Performer() : 
+mei::Performer::Performer() :
     MeiElement("performer"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Performer, "performer");
-mei::Performer::~Performer() {};
+mei::Performer::~Performer() {}
 
 
-
-mei::Physdesc::Physdesc() : 
+mei::Physdesc::Physdesc() :
     MeiElement("physDesc"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Physdesc, "physDesc");
-mei::Physdesc::~Physdesc() {};
+mei::Physdesc::~Physdesc() {}
 
 
-
-mei::Physloc::Physloc() : 
+mei::Physloc::Physloc() :
     MeiElement("physLoc"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Physloc, "physLoc");
-mei::Physloc::~Physloc() {};
+mei::Physloc::~Physloc() {}
 
 
-
-mei::Physmedium::Physmedium() : 
+mei::Physmedium::Physmedium() :
     MeiElement("physMedium"),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Physmedium, "physMedium");
-mei::Physmedium::~Physmedium() {};
+mei::Physmedium::~Physmedium() {}
 
 
-
-mei::Platenum::Platenum() : 
+mei::Platenum::Platenum() :
     MeiElement("plateNum"),
     m_Common(this),
     m_Bibl(this),
-    m_Facsimile(this) 
+    m_Facsimile(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Platenum, "plateNum");
-mei::Platenum::~Platenum() {};
+mei::Platenum::~Platenum() {}
 
 
-
-mei::Price::Price() : 
+mei::Price::Price() :
     MeiElement("price"),
     m_Common(this),
     m_Bibl(this),
-    m_Measurement(this) 
+    m_Measurement(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Price, "price");
-mei::Price::~Price() {};
+mei::Price::~Price() {}
 
 
-
-mei::Projectdesc::Projectdesc() : 
+mei::Projectdesc::Projectdesc() :
     MeiElement("projectDesc"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Projectdesc, "projectDesc");
-mei::Projectdesc::~Projectdesc() {};
+mei::Projectdesc::~Projectdesc() {}
 
 
-
-mei::Provenance::Provenance() : 
+mei::Provenance::Provenance() :
     MeiElement("provenance"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Provenance, "provenance");
-mei::Provenance::~Provenance() {};
+mei::Provenance::~Provenance() {}
 
 
-
-mei::Pubstmt::Pubstmt() : 
+mei::Pubstmt::Pubstmt() :
     MeiElement("pubStmt"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Pubstmt, "pubStmt");
-mei::Pubstmt::~Pubstmt() {};
+mei::Pubstmt::~Pubstmt() {}
 
 
-
-mei::Relateditem::Relateditem() : 
+mei::Relateditem::Relateditem() :
     MeiElement("relatedItem"),
     m_Datapointing(this),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Relateditem, "relatedItem");
-mei::Relateditem::~Relateditem() {};
-
+mei::Relateditem::~Relateditem() {}
 
 MeiAttribute* mei::Relateditem::getRel() {
     if (!hasAttribute("rel")) {
@@ -827,132 +768,120 @@ void mei::Relateditem::removeRel() {
     removeAttribute("rel");
 };
 
-
-mei::Resp::Resp() : 
+mei::Resp::Resp() :
     MeiElement("resp"),
-    m_Authorized(this) 
+    m_Authorized(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Resp, "resp");
-mei::Resp::~Resp() {};
+mei::Resp::~Resp() {}
 
 
-
-mei::Respstmt::Respstmt() : 
+mei::Respstmt::Respstmt() :
     MeiElement("respStmt"),
     m_Bibl(this),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Respstmt, "respStmt");
-mei::Respstmt::~Respstmt() {};
+mei::Respstmt::~Respstmt() {}
 
 
-
-mei::Revisiondesc::Revisiondesc() : 
+mei::Revisiondesc::Revisiondesc() :
     MeiElement("revisionDesc"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Revisiondesc, "revisionDesc");
-mei::Revisiondesc::~Revisiondesc() {};
+mei::Revisiondesc::~Revisiondesc() {}
 
 
-
-mei::Samplingdecl::Samplingdecl() : 
+mei::Samplingdecl::Samplingdecl() :
     MeiElement("samplingDecl"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Samplingdecl, "samplingDecl");
-mei::Samplingdecl::~Samplingdecl() {};
+mei::Samplingdecl::~Samplingdecl() {}
 
 
-
-mei::Segmentation::Segmentation() : 
+mei::Segmentation::Segmentation() :
     MeiElement("segmentation"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Segmentation, "segmentation");
-mei::Segmentation::~Segmentation() {};
+mei::Segmentation::~Segmentation() {}
 
 
-
-mei::Seriesstmt::Seriesstmt() : 
+mei::Seriesstmt::Seriesstmt() :
     MeiElement("seriesStmt"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Seriesstmt, "seriesStmt");
-mei::Seriesstmt::~Seriesstmt() {};
+mei::Seriesstmt::~Seriesstmt() {}
 
 
-
-mei::Source::Source() : 
+mei::Source::Source() :
     MeiElement("source"),
     m_Datapointing(this),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Source, "source");
-mei::Source::~Source() {};
+mei::Source::~Source() {}
 
 
-
-mei::Sourcedesc::Sourcedesc() : 
+mei::Sourcedesc::Sourcedesc() :
     MeiElement("sourceDesc"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Sourcedesc, "sourceDesc");
-mei::Sourcedesc::~Sourcedesc() {};
+mei::Sourcedesc::~Sourcedesc() {}
 
 
-
-mei::Stdvals::Stdvals() : 
+mei::Stdvals::Stdvals() :
     MeiElement("stdVals"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Stdvals, "stdVals");
-mei::Stdvals::~Stdvals() {};
+mei::Stdvals::~Stdvals() {}
 
 
-
-mei::Sysreq::Sysreq() : 
+mei::Sysreq::Sysreq() :
     MeiElement("sysReq"),
     m_Common(this),
     m_Bibl(this),
-    m_Lang(this) 
+    m_Lang(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Sysreq, "sysReq");
-mei::Sysreq::~Sysreq() {};
+mei::Sysreq::~Sysreq() {}
 
 
-
-mei::Term::Term() : 
+mei::Term::Term() :
     MeiElement("term"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Term, "term");
-mei::Term::~Term() {};
-
+mei::Term::~Term() {}
 
 MeiAttribute* mei::Term::getClasscode() {
     if (!hasAttribute("classcode")) {
@@ -976,16 +905,14 @@ void mei::Term::removeClasscode() {
     removeAttribute("classcode");
 };
 
-
-mei::Termlist::Termlist() : 
+mei::Termlist::Termlist() :
     MeiElement("termList"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Termlist, "termList");
-mei::Termlist::~Termlist() {};
-
+mei::Termlist::~Termlist() {}
 
 MeiAttribute* mei::Termlist::getClasscode() {
     if (!hasAttribute("classcode")) {
@@ -1009,93 +936,85 @@ void mei::Termlist::removeClasscode() {
     removeAttribute("classcode");
 };
 
-
-mei::Titlestmt::Titlestmt() : 
+mei::Titlestmt::Titlestmt() :
     MeiElement("titleStmt"),
     m_Bibl(this),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Titlestmt, "titleStmt");
-mei::Titlestmt::~Titlestmt() {};
+mei::Titlestmt::~Titlestmt() {}
 
 
-
-mei::Treathist::Treathist() : 
+mei::Treathist::Treathist() :
     MeiElement("treatHist"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Treathist, "treatHist");
-mei::Treathist::~Treathist() {};
+mei::Treathist::~Treathist() {}
 
 
-
-mei::Treatsched::Treatsched() : 
+mei::Treatsched::Treatsched() :
     MeiElement("treatSched"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Treatsched, "treatSched");
-mei::Treatsched::~Treatsched() {};
+mei::Treatsched::~Treatsched() {}
 
 
-
-mei::Unpub::Unpub() : 
+mei::Unpub::Unpub() :
     MeiElement("unpub"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Unpub, "unpub");
-mei::Unpub::~Unpub() {};
+mei::Unpub::~Unpub() {}
 
 
-
-mei::Userestrict::Userestrict() : 
+mei::Userestrict::Userestrict() :
     MeiElement("useRestrict"),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Userestrict, "useRestrict");
-mei::Userestrict::~Userestrict() {};
+mei::Userestrict::~Userestrict() {}
 
 
-
-mei::Watermark::Watermark() : 
+mei::Watermark::Watermark() :
     MeiElement("watermark"),
     m_Common(this),
     m_Bibl(this),
-    m_Facsimile(this) 
+    m_Facsimile(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Watermark, "watermark");
-mei::Watermark::~Watermark() {};
+mei::Watermark::~Watermark() {}
 
 
-
-mei::Work::Work() : 
+mei::Work::Work() :
     MeiElement("work"),
     m_Datapointing(this),
     m_Common(this),
-    m_Bibl(this) 
+    m_Bibl(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Work, "work");
-mei::Work::~Work() {};
+mei::Work::~Work() {}
 
 
-
-mei::Workdesc::Workdesc() : 
+mei::Workdesc::Workdesc() :
     MeiElement("workDesc"),
-    m_Common(this) 
+    m_Common(this)
 {
-};
+}
 REGISTER_DEFINITION(mei::Workdesc, "workDesc");
-mei::Workdesc::~Workdesc() {};
+mei::Workdesc::~Workdesc() {}
 
 
 

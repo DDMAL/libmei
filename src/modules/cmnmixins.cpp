@@ -1,15 +1,15 @@
-
 #include "cmnmixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::ArpegLogMixIn::ArpegLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ArpegLogMixIn::~ArpegLogMixIn() {};
 
+mei::ArpegLogMixIn::~ArpegLogMixIn() {}
 MeiAttribute* mei::ArpegLogMixIn::getOrder() {
     if (!b->hasAttribute("order")) {
         throw AttributeNotFoundException("order");
@@ -32,12 +32,11 @@ void mei::ArpegLogMixIn::removeOrder() {
     b->removeAttribute("order");
 };
 
-
 mei::ArpegVisMixIn::ArpegVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ArpegVisMixIn::~ArpegVisMixIn() {};
 
+mei::ArpegVisMixIn::~ArpegVisMixIn() {}
 MeiAttribute* mei::ArpegVisMixIn::getArrow() {
     if (!b->hasAttribute("arrow")) {
         throw AttributeNotFoundException("arrow");
@@ -60,12 +59,11 @@ void mei::ArpegVisMixIn::removeArrow() {
     b->removeAttribute("arrow");
 };
 
-
 mei::BtremLogMixIn::BtremLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BtremLogMixIn::~BtremLogMixIn() {};
 
+mei::BtremLogMixIn::~BtremLogMixIn() {}
 MeiAttribute* mei::BtremLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -88,12 +86,11 @@ void mei::BtremLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
-
 mei::BeamedMixIn::BeamedMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeamedMixIn::~BeamedMixIn() {};
 
+mei::BeamedMixIn::~BeamedMixIn() {}
 MeiAttribute* mei::BeamedMixIn::getBeam() {
     if (!b->hasAttribute("beam")) {
         throw AttributeNotFoundException("beam");
@@ -116,12 +113,11 @@ void mei::BeamedMixIn::removeBeam() {
     b->removeAttribute("beam");
 };
 
-
 mei::BeamedwithMixIn::BeamedwithMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeamedwithMixIn::~BeamedwithMixIn() {};
 
+mei::BeamedwithMixIn::~BeamedwithMixIn() {}
 MeiAttribute* mei::BeamedwithMixIn::getBeamWith() {
     if (!b->hasAttribute("beam.with")) {
         throw AttributeNotFoundException("beam.with");
@@ -144,12 +140,11 @@ void mei::BeamedwithMixIn::removeBeamWith() {
     b->removeAttribute("beam.with");
 };
 
-
 mei::BeamingLogMixIn::BeamingLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeamingLogMixIn::~BeamingLogMixIn() {};
 
+mei::BeamingLogMixIn::~BeamingLogMixIn() {}
 MeiAttribute* mei::BeamingLogMixIn::getBeamGroup() {
     if (!b->hasAttribute("beam.group")) {
         throw AttributeNotFoundException("beam.group");
@@ -171,7 +166,6 @@ bool mei::BeamingLogMixIn::hasBeamGroup() {
 void mei::BeamingLogMixIn::removeBeamGroup() {
     b->removeAttribute("beam.group");
 };
-
 MeiAttribute* mei::BeamingLogMixIn::getBeamRests() {
     if (!b->hasAttribute("beam.rests")) {
         throw AttributeNotFoundException("beam.rests");
@@ -194,12 +188,11 @@ void mei::BeamingLogMixIn::removeBeamRests() {
     b->removeAttribute("beam.rests");
 };
 
-
 mei::BeamrendMixIn::BeamrendMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeamrendMixIn::~BeamrendMixIn() {};
 
+mei::BeamrendMixIn::~BeamrendMixIn() {}
 MeiAttribute* mei::BeamrendMixIn::getRend() {
     if (!b->hasAttribute("rend")) {
         throw AttributeNotFoundException("rend");
@@ -221,7 +214,6 @@ bool mei::BeamrendMixIn::hasRend() {
 void mei::BeamrendMixIn::removeRend() {
     b->removeAttribute("rend");
 };
-
 MeiAttribute* mei::BeamrendMixIn::getSlope() {
     if (!b->hasAttribute("slope")) {
         throw AttributeNotFoundException("slope");
@@ -244,12 +236,11 @@ void mei::BeamrendMixIn::removeSlope() {
     b->removeAttribute("slope");
 };
 
-
 mei::BeamsecondaryMixIn::BeamsecondaryMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeamsecondaryMixIn::~BeamsecondaryMixIn() {};
 
+mei::BeamsecondaryMixIn::~BeamsecondaryMixIn() {}
 MeiAttribute* mei::BeamsecondaryMixIn::getBreaksec() {
     if (!b->hasAttribute("breaksec")) {
         throw AttributeNotFoundException("breaksec");
@@ -272,12 +263,11 @@ void mei::BeamsecondaryMixIn::removeBreaksec() {
     b->removeAttribute("breaksec");
 };
 
-
 mei::BeatrptVisMixIn::BeatrptVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BeatrptVisMixIn::~BeatrptVisMixIn() {};
 
+mei::BeatrptVisMixIn::~BeatrptVisMixIn() {}
 MeiAttribute* mei::BeatrptVisMixIn::getRend() {
     if (!b->hasAttribute("rend")) {
         throw AttributeNotFoundException("rend");
@@ -300,12 +290,11 @@ void mei::BeatrptVisMixIn::removeRend() {
     b->removeAttribute("rend");
 };
 
-
 mei::BendGesMixIn::BendGesMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::BendGesMixIn::~BendGesMixIn() {};
 
+mei::BendGesMixIn::~BendGesMixIn() {}
 MeiAttribute* mei::BendGesMixIn::getAmount() {
     if (!b->hasAttribute("amount")) {
         throw AttributeNotFoundException("amount");
@@ -328,12 +317,11 @@ void mei::BendGesMixIn::removeAmount() {
     b->removeAttribute("amount");
 };
 
-
 mei::CutoutMixIn::CutoutMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::CutoutMixIn::~CutoutMixIn() {};
 
+mei::CutoutMixIn::~CutoutMixIn() {}
 MeiAttribute* mei::CutoutMixIn::getCutout() {
     if (!b->hasAttribute("cutout")) {
         throw AttributeNotFoundException("cutout");
@@ -356,12 +344,11 @@ void mei::CutoutMixIn::removeCutout() {
     b->removeAttribute("cutout");
 };
 
-
 mei::ExpandableMixIn::ExpandableMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ExpandableMixIn::~ExpandableMixIn() {};
 
+mei::ExpandableMixIn::~ExpandableMixIn() {}
 MeiAttribute* mei::ExpandableMixIn::getExpand() {
     if (!b->hasAttribute("expand")) {
         throw AttributeNotFoundException("expand");
@@ -384,12 +371,11 @@ void mei::ExpandableMixIn::removeExpand() {
     b->removeAttribute("expand");
 };
 
-
 mei::FtremGesMixIn::FtremGesMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::FtremGesMixIn::~FtremGesMixIn() {};
 
+mei::FtremGesMixIn::~FtremGesMixIn() {}
 MeiAttribute* mei::FtremGesMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -412,12 +398,11 @@ void mei::FtremGesMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
-
 mei::FermataVisMixIn::FermataVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::FermataVisMixIn::~FermataVisMixIn() {};
 
+mei::FermataVisMixIn::~FermataVisMixIn() {}
 MeiAttribute* mei::FermataVisMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -439,7 +424,6 @@ bool mei::FermataVisMixIn::hasForm() {
 void mei::FermataVisMixIn::removeForm() {
     b->removeAttribute("form");
 };
-
 MeiAttribute* mei::FermataVisMixIn::getShape() {
     if (!b->hasAttribute("shape")) {
         throw AttributeNotFoundException("shape");
@@ -462,12 +446,11 @@ void mei::FermataVisMixIn::removeShape() {
     b->removeAttribute("shape");
 };
 
-
 mei::GlissVisMixIn::GlissVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::GlissVisMixIn::~GlissVisMixIn() {};
 
+mei::GlissVisMixIn::~GlissVisMixIn() {}
 MeiAttribute* mei::GlissVisMixIn::getText() {
     if (!b->hasAttribute("text")) {
         throw AttributeNotFoundException("text");
@@ -490,12 +473,11 @@ void mei::GlissVisMixIn::removeText() {
     b->removeAttribute("text");
 };
 
-
 mei::GracedMixIn::GracedMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::GracedMixIn::~GracedMixIn() {};
 
+mei::GracedMixIn::~GracedMixIn() {}
 MeiAttribute* mei::GracedMixIn::getGrace() {
     if (!b->hasAttribute("grace")) {
         throw AttributeNotFoundException("grace");
@@ -517,7 +499,6 @@ bool mei::GracedMixIn::hasGrace() {
 void mei::GracedMixIn::removeGrace() {
     b->removeAttribute("grace");
 };
-
 MeiAttribute* mei::GracedMixIn::getGraceTime() {
     if (!b->hasAttribute("grace.time")) {
         throw AttributeNotFoundException("grace.time");
@@ -540,12 +521,11 @@ void mei::GracedMixIn::removeGraceTime() {
     b->removeAttribute("grace.time");
 };
 
-
 mei::HairpinLogMixIn::HairpinLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HairpinLogMixIn::~HairpinLogMixIn() {};
 
+mei::HairpinLogMixIn::~HairpinLogMixIn() {}
 MeiAttribute* mei::HairpinLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -568,12 +548,11 @@ void mei::HairpinLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
-
 mei::HairpinVisMixIn::HairpinVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HairpinVisMixIn::~HairpinVisMixIn() {};
 
+mei::HairpinVisMixIn::~HairpinVisMixIn() {}
 MeiAttribute* mei::HairpinVisMixIn::getOpening() {
     if (!b->hasAttribute("opening")) {
         throw AttributeNotFoundException("opening");
@@ -596,12 +575,11 @@ void mei::HairpinVisMixIn::removeOpening() {
     b->removeAttribute("opening");
 };
 
-
 mei::HarppedalLogMixIn::HarppedalLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::HarppedalLogMixIn::~HarppedalLogMixIn() {};
 
+mei::HarppedalLogMixIn::~HarppedalLogMixIn() {}
 MeiAttribute* mei::HarppedalLogMixIn::getC() {
     if (!b->hasAttribute("c")) {
         throw AttributeNotFoundException("c");
@@ -623,7 +601,6 @@ bool mei::HarppedalLogMixIn::hasC() {
 void mei::HarppedalLogMixIn::removeC() {
     b->removeAttribute("c");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getD() {
     if (!b->hasAttribute("d")) {
         throw AttributeNotFoundException("d");
@@ -645,7 +622,6 @@ bool mei::HarppedalLogMixIn::hasD() {
 void mei::HarppedalLogMixIn::removeD() {
     b->removeAttribute("d");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getE() {
     if (!b->hasAttribute("e")) {
         throw AttributeNotFoundException("e");
@@ -667,7 +643,6 @@ bool mei::HarppedalLogMixIn::hasE() {
 void mei::HarppedalLogMixIn::removeE() {
     b->removeAttribute("e");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getF() {
     if (!b->hasAttribute("f")) {
         throw AttributeNotFoundException("f");
@@ -689,7 +664,6 @@ bool mei::HarppedalLogMixIn::hasF() {
 void mei::HarppedalLogMixIn::removeF() {
     b->removeAttribute("f");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getG() {
     if (!b->hasAttribute("g")) {
         throw AttributeNotFoundException("g");
@@ -711,7 +685,6 @@ bool mei::HarppedalLogMixIn::hasG() {
 void mei::HarppedalLogMixIn::removeG() {
     b->removeAttribute("g");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getA() {
     if (!b->hasAttribute("a")) {
         throw AttributeNotFoundException("a");
@@ -733,7 +706,6 @@ bool mei::HarppedalLogMixIn::hasA() {
 void mei::HarppedalLogMixIn::removeA() {
     b->removeAttribute("a");
 };
-
 MeiAttribute* mei::HarppedalLogMixIn::getB() {
     if (!b->hasAttribute("b")) {
         throw AttributeNotFoundException("b");
@@ -756,12 +728,11 @@ void mei::HarppedalLogMixIn::removeB() {
     b->removeAttribute("b");
 };
 
-
 mei::LvpresentMixIn::LvpresentMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::LvpresentMixIn::~LvpresentMixIn() {};
 
+mei::LvpresentMixIn::~LvpresentMixIn() {}
 MeiAttribute* mei::LvpresentMixIn::getLv() {
     if (!b->hasAttribute("lv")) {
         throw AttributeNotFoundException("lv");
@@ -784,12 +755,11 @@ void mei::LvpresentMixIn::removeLv() {
     b->removeAttribute("lv");
 };
 
-
 mei::MultirestVisMixIn::MultirestVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::MultirestVisMixIn::~MultirestVisMixIn() {};
 
+mei::MultirestVisMixIn::~MultirestVisMixIn() {}
 MeiAttribute* mei::MultirestVisMixIn::getBlock() {
     if (!b->hasAttribute("block")) {
         throw AttributeNotFoundException("block");
@@ -812,12 +782,11 @@ void mei::MultirestVisMixIn::removeBlock() {
     b->removeAttribute("block");
 };
 
-
 mei::NoteGesCmnMixIn::NoteGesCmnMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::NoteGesCmnMixIn::~NoteGesCmnMixIn() {};
 
+mei::NoteGesCmnMixIn::~NoteGesCmnMixIn() {}
 MeiAttribute* mei::NoteGesCmnMixIn::getGliss() {
     if (!b->hasAttribute("gliss")) {
         throw AttributeNotFoundException("gliss");
@@ -840,12 +809,11 @@ void mei::NoteGesCmnMixIn::removeGliss() {
     b->removeAttribute("gliss");
 };
 
-
 mei::NumberedMixIn::NumberedMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::NumberedMixIn::~NumberedMixIn() {};
 
+mei::NumberedMixIn::~NumberedMixIn() {}
 MeiAttribute* mei::NumberedMixIn::getNum() {
     if (!b->hasAttribute("num")) {
         throw AttributeNotFoundException("num");
@@ -868,12 +836,11 @@ void mei::NumberedMixIn::removeNum() {
     b->removeAttribute("num");
 };
 
-
 mei::NumberplacementMixIn::NumberplacementMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::NumberplacementMixIn::~NumberplacementMixIn() {};
 
+mei::NumberplacementMixIn::~NumberplacementMixIn() {}
 MeiAttribute* mei::NumberplacementMixIn::getNumPlace() {
     if (!b->hasAttribute("num.place")) {
         throw AttributeNotFoundException("num.place");
@@ -895,7 +862,6 @@ bool mei::NumberplacementMixIn::hasNumPlace() {
 void mei::NumberplacementMixIn::removeNumPlace() {
     b->removeAttribute("num.place");
 };
-
 MeiAttribute* mei::NumberplacementMixIn::getNumVisible() {
     if (!b->hasAttribute("num.visible")) {
         throw AttributeNotFoundException("num.visible");
@@ -918,12 +884,11 @@ void mei::NumberplacementMixIn::removeNumVisible() {
     b->removeAttribute("num.visible");
 };
 
-
 mei::OctaveLogMixIn::OctaveLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::OctaveLogMixIn::~OctaveLogMixIn() {};
 
+mei::OctaveLogMixIn::~OctaveLogMixIn() {}
 MeiAttribute* mei::OctaveLogMixIn::getColl() {
     if (!b->hasAttribute("coll")) {
         throw AttributeNotFoundException("coll");
@@ -946,12 +911,11 @@ void mei::OctaveLogMixIn::removeColl() {
     b->removeAttribute("coll");
 };
 
-
 mei::PedalLogMixIn::PedalLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::PedalLogMixIn::~PedalLogMixIn() {};
 
+mei::PedalLogMixIn::~PedalLogMixIn() {}
 MeiAttribute* mei::PedalLogMixIn::getDir() {
     if (!b->hasAttribute("dir")) {
         throw AttributeNotFoundException("dir");
@@ -974,12 +938,11 @@ void mei::PedalLogMixIn::removeDir() {
     b->removeAttribute("dir");
 };
 
-
 mei::PedalVisMixIn::PedalVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::PedalVisMixIn::~PedalVisMixIn() {};
 
+mei::PedalVisMixIn::~PedalVisMixIn() {}
 MeiAttribute* mei::PedalVisMixIn::getStyle() {
     if (!b->hasAttribute("style")) {
         throw AttributeNotFoundException("style");
@@ -1002,12 +965,11 @@ void mei::PedalVisMixIn::removeStyle() {
     b->removeAttribute("style");
 };
 
-
 mei::PianopedalsMixIn::PianopedalsMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::PianopedalsMixIn::~PianopedalsMixIn() {};
 
+mei::PianopedalsMixIn::~PianopedalsMixIn() {}
 MeiAttribute* mei::PianopedalsMixIn::getPedalStyle() {
     if (!b->hasAttribute("pedal.style")) {
         throw AttributeNotFoundException("pedal.style");
@@ -1030,12 +992,11 @@ void mei::PianopedalsMixIn::removePedalStyle() {
     b->removeAttribute("pedal.style");
 };
 
-
 mei::RehearsalMixIn::RehearsalMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::RehearsalMixIn::~RehearsalMixIn() {};
 
+mei::RehearsalMixIn::~RehearsalMixIn() {}
 MeiAttribute* mei::RehearsalMixIn::getRehEnclose() {
     if (!b->hasAttribute("reh.enclose")) {
         throw AttributeNotFoundException("reh.enclose");
@@ -1058,12 +1019,11 @@ void mei::RehearsalMixIn::removeRehEnclose() {
     b->removeAttribute("reh.enclose");
 };
 
-
 mei::ScoredefVisCmnMixIn::ScoredefVisCmnMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::ScoredefVisCmnMixIn::~ScoredefVisCmnMixIn() {};
 
+mei::ScoredefVisCmnMixIn::~ScoredefVisCmnMixIn() {}
 MeiAttribute* mei::ScoredefVisCmnMixIn::getGridShow() {
     if (!b->hasAttribute("grid.show")) {
         throw AttributeNotFoundException("grid.show");
@@ -1086,12 +1046,11 @@ void mei::ScoredefVisCmnMixIn::removeGridShow() {
     b->removeAttribute("grid.show");
 };
 
-
 mei::SlurrendMixIn::SlurrendMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::SlurrendMixIn::~SlurrendMixIn() {};
 
+mei::SlurrendMixIn::~SlurrendMixIn() {}
 MeiAttribute* mei::SlurrendMixIn::getSlurRend() {
     if (!b->hasAttribute("slur.rend")) {
         throw AttributeNotFoundException("slur.rend");
@@ -1114,12 +1073,11 @@ void mei::SlurrendMixIn::removeSlurRend() {
     b->removeAttribute("slur.rend");
 };
 
-
 mei::StemmedCmnMixIn::StemmedCmnMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::StemmedCmnMixIn::~StemmedCmnMixIn() {};
 
+mei::StemmedCmnMixIn::~StemmedCmnMixIn() {}
 MeiAttribute* mei::StemmedCmnMixIn::getStemMod() {
     if (!b->hasAttribute("stem.mod")) {
         throw AttributeNotFoundException("stem.mod");
@@ -1141,7 +1099,6 @@ bool mei::StemmedCmnMixIn::hasStemMod() {
 void mei::StemmedCmnMixIn::removeStemMod() {
     b->removeAttribute("stem.mod");
 };
-
 MeiAttribute* mei::StemmedCmnMixIn::getStemWith() {
     if (!b->hasAttribute("stem.with")) {
         throw AttributeNotFoundException("stem.with");
@@ -1164,12 +1121,11 @@ void mei::StemmedCmnMixIn::removeStemWith() {
     b->removeAttribute("stem.with");
 };
 
-
 mei::TierendMixIn::TierendMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TierendMixIn::~TierendMixIn() {};
 
+mei::TierendMixIn::~TierendMixIn() {}
 MeiAttribute* mei::TierendMixIn::getTieRend() {
     if (!b->hasAttribute("tie.rend")) {
         throw AttributeNotFoundException("tie.rend");
@@ -1192,12 +1148,11 @@ void mei::TierendMixIn::removeTieRend() {
     b->removeAttribute("tie.rend");
 };
 
-
 mei::TupletLogMixIn::TupletLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TupletLogMixIn::~TupletLogMixIn() {};
 
+mei::TupletLogMixIn::~TupletLogMixIn() {}
 MeiAttribute* mei::TupletLogMixIn::getDur() {
     if (!b->hasAttribute("dur")) {
         throw AttributeNotFoundException("dur");
@@ -1220,12 +1175,11 @@ void mei::TupletLogMixIn::removeDur() {
     b->removeAttribute("dur");
 };
 
-
 mei::TupletVisMixIn::TupletVisMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TupletVisMixIn::~TupletVisMixIn() {};
 
+mei::TupletVisMixIn::~TupletVisMixIn() {}
 MeiAttribute* mei::TupletVisMixIn::getBracketPlace() {
     if (!b->hasAttribute("bracket.place")) {
         throw AttributeNotFoundException("bracket.place");
@@ -1247,7 +1201,6 @@ bool mei::TupletVisMixIn::hasBracketPlace() {
 void mei::TupletVisMixIn::removeBracketPlace() {
     b->removeAttribute("bracket.place");
 };
-
 MeiAttribute* mei::TupletVisMixIn::getBracketVisible() {
     if (!b->hasAttribute("bracket.visible")) {
         throw AttributeNotFoundException("bracket.visible");
@@ -1269,7 +1222,6 @@ bool mei::TupletVisMixIn::hasBracketVisible() {
 void mei::TupletVisMixIn::removeBracketVisible() {
     b->removeAttribute("bracket.visible");
 };
-
 MeiAttribute* mei::TupletVisMixIn::getDurVisible() {
     if (!b->hasAttribute("dur.visible")) {
         throw AttributeNotFoundException("dur.visible");
@@ -1291,7 +1243,6 @@ bool mei::TupletVisMixIn::hasDurVisible() {
 void mei::TupletVisMixIn::removeDurVisible() {
     b->removeAttribute("dur.visible");
 };
-
 MeiAttribute* mei::TupletVisMixIn::getNumFormat() {
     if (!b->hasAttribute("num.format")) {
         throw AttributeNotFoundException("num.format");
@@ -1314,12 +1265,11 @@ void mei::TupletVisMixIn::removeNumFormat() {
     b->removeAttribute("num.format");
 };
 
-
 mei::TupletspanLogMixIn::TupletspanLogMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::TupletspanLogMixIn::~TupletspanLogMixIn() {};
 
+mei::TupletspanLogMixIn::~TupletspanLogMixIn() {}
 MeiAttribute* mei::TupletspanLogMixIn::getDur() {
     if (!b->hasAttribute("dur")) {
         throw AttributeNotFoundException("dur");

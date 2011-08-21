@@ -1,15 +1,15 @@
-
 #include "headermixins.h"
+
+#include <string>
 using std::string;
 using mei::MeiAttribute;
 using mei::AttributeNotFoundException;
 
-
 mei::RegularmethodMixIn::RegularmethodMixIn(MeiElement *b) {
     this->b = b;
 };
-mei::RegularmethodMixIn::~RegularmethodMixIn() {};
 
+mei::RegularmethodMixIn::~RegularmethodMixIn() {}
 MeiAttribute* mei::RegularmethodMixIn::getMethod() {
     if (!b->hasAttribute("method")) {
         throw AttributeNotFoundException("method");
