@@ -84,6 +84,9 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     } else if (el->type == XML_TEXT_NODE) {
         obj = new MeiTextNode();
         obj->setValue(string((const char*)el->content));
+    } else if (el->type == XML_COMMENT_NODE) {
+        obj = new MeiCommentNode();
+        obj->setValue(string((const char*)el->content));
     } else {
         return NULL;
     }
@@ -111,7 +114,7 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     xmlNodePtr child = el->children;
     while (child != NULL) {
         MeiElement* ch = xmlNodeToMeiElement(child);
-
+        
         if (ch != NULL) {
             obj->addChild(ch);
         }

@@ -258,3 +258,9 @@ mei::MeiTextNode::MeiTextNode() :
 }
 
 mei::MeiTextNode::~MeiTextNode() {}
+
+mei::MeiCommentNode::MeiCommentNode() :
+    MeiElement("_comment")
+{
+}
+mei::MeiCommentNode::~MeiCommentNode() {}
