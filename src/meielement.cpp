@@ -56,7 +56,7 @@ void mei::MeiElement::setTail(string tail) {
     this->tail = tail;
 }
 
-const vector<MeiAttribute*> mei::MeiElement::getAttributes() {
+const vector<MeiAttribute*>& mei::MeiElement::getAttributes() {
     return this->attributes;
 }
 
