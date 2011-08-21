@@ -21,35 +21,29 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef MEI_XMLEXPORT_IMPL_H_
-#define MEI_XMLEXPORT_IMPL_H_
+#ifndef MEI_XMLEXPORT_H_
+#define MEI_XMLEXPORT_H_
 
 #include <string>
 
-#include "xmlexport.h"
 #include "meidocument.h"
 
 namespace mei {
-    
-    class XmlExportImpl {
-    private:
-        friend class mei::XmlExport;
-        XmlExportImpl(MeiDocument *doc);
-        virtual ~XmlExportImpl();
-        void init();
-        xmlNode* meiElementToXmlNode(MeiElement *el);
-        void outputToFile(const char* filename);
-        
+
+class XmlExportImpl;
+
+class XmlExport {
+    public:
         /** public interfaces for importing. Each of these will convert their input
          *  into an xmlNode for processing by the _MeiXmlStruct class.
          */
-        bool meiDocumentToFile(string filename);
-        std::string meiDocumentToText();
-        
-        MeiDocument* meiDocument;
-        xmlDocPtr xmlDocOutput;
-    };
+        static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
+        static std::string meiDocumentToText(MeiDocument *doc); // is this right???
+    private:
+        XmlExport(MeiDocument *doc);
+        XmlExportImpl *impl;
+};
+
 }
 
-
-#endif // MEI_XMLEXPORT_IMPL_H_
+#endif  // MEI_XMLEXPORT_H_

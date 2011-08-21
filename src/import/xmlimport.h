@@ -24,6 +24,8 @@
 #ifndef MEI_XMLIMPORT_H_
 #define MEI_XMLIMPORT_H_
 
+#include "meidocument.h"
+
 namespace mei {
 
 class XmlImportImpl;
@@ -31,9 +33,7 @@ class XmlImportImpl;
 class XmlImport {
     public:
         XmlImport();
-        virtual ~XmlImport() {
-            delete impl;
-        }
+    virtual ~XmlImport();
         /** public interfaces for importing. Each of these will convert their input
          *  into an xmlNode for processing by the _MeiXmlStruct class.
          */

@@ -13,6 +13,7 @@
 #include <libxml/xmlwriter.h>
 
 #include "xmlexport_impl.h"
+#include "xmlexport.h"
 #include "meidocument.h"
 
 using std::string;
@@ -23,23 +24,38 @@ using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiFactory;
 using mei::XmlExport;
+using mei::XmlExportImpl;
 
-void XmlExport::meiDocumentToFile(mei::MeiDocument *doc, const char *filename) {
-    XmlExport *xexp = new XmlExport(doc);
-    xmlKeepBlanksDefault(0);
-    xmlSaveFormatFile(filename, xexp->xmlDocOutput, 1);
+XmlExport::XmlExport(MeiDocument *doc) : impl(new XmlExportImpl(doc)) {
     
-    delete xexp;
 }
 
-XmlExport::XmlExport(MeiDocument *doc) {
+bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
+    XmlExport *ex = new XmlExport(doc);
+    return ex->impl->meiDocumentToFile(filename);
+}
+
+string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
+    return "";
+}
+
+
+bool XmlExportImpl::meiDocumentToFile(string filename) {
+    xmlKeepBlanksDefault(0);
+    xmlSaveFormatFile(filename.c_str(), xmlDocOutput, 1);
+    
+    return true;
+}
+
+XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
     this->meiDocument = doc;
     this->init();
 }
 
-XmlExport::~XmlExport() {}
+XmlExportImpl::~XmlExportImpl() {
+}
 
-void XmlExport::init() {
+void XmlExportImpl::init() {
     MeiElement *root = this->meiDocument->getRootElement();
     xmlNode* xroot = this->meiElementToXmlNode(root);
     
@@ -50,10 +66,10 @@ void XmlExport::init() {
     
 }
 
-xmlNode* XmlExport::meiElementToXmlNode(MeiElement *el) {
+xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     xmlNodePtr curxmlnode;
     xmlAttrPtr curxmlattr;
-    xmlNsPtr   curxmlns;
+    //xmlNsPtr   curxmlns;
     
     if (el->getName() == "_text") {
         curxmlnode = xmlNewText((const xmlChar*)el->getValue().c_str());

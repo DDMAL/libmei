@@ -29,6 +29,10 @@ XmlImport::XmlImport() : impl(new XmlImportImpl) {
     
 }
 
+XmlImport::~XmlImport() {
+    delete impl;
+}
+
 MeiDocument* XmlImport::documentFromFile(const char *filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
