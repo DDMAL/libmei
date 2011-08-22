@@ -16,7 +16,7 @@ using std::string;
 using mei::MeiDocument;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
-    MeiDocument *docf = mei::XmlImport::documentFromFile("bach.mei");
+    MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
     mei::XmlExport::meiDocumentToFile(docf, "filename.mei");
 }
 
