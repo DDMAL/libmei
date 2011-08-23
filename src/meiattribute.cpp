@@ -24,16 +24,19 @@
 
 #include "meiattribute.h"
 #include "meinamespace.h"
+#include "meielement.h"
 
 #include <string>
 
 using std::string;
 using mei::MeiNamespace;
+using mei::MeiElement;
 
 mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
     this->name = attrname;
     this->value = attrvalue;
     this->ns = NULL;
+    this->element = NULL;
 }
 
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
@@ -58,8 +61,12 @@ void mei::MeiAttribute::setValue(string attrvalue) {
     this->value = attrvalue;
 }
 
+MeiElement* mei::MeiAttribute::getElement() {
+    return this->element;
 }
 
+void mei::MeiAttribute::setElement(MeiElement *el) {
+    this->element = el;
 }
 
 bool mei::MeiAttribute::hasNamespace() {

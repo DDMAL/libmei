@@ -71,6 +71,8 @@ namespace mei {
             /** \brief Set/change the value of an attribute*/
             void setValue(std::string attrvalue);
             
+            MeiElement* getElement();
+            void setElement(MeiElement* el);
             
             bool hasNamespace();
             MeiNamespace* getNamespace();
@@ -79,6 +81,7 @@ namespace mei {
         private:
             std::string name;
             std::string value;
+            MeiElement* element;
             MeiNamespace* ns;
 
         };
