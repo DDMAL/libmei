@@ -21,6 +21,7 @@ set( MEI_LIB_VERSION "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}.${MEI_LI
 set( MEI_LIB_VERSION_SONAME "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}")
 
 option(MEI_BUILD_TESTS "Build all unit tests" ON)
+option(MEI_TEST_COVERAGE "Build with test coverage support" OFF)
 
 if(MEI_BUILD_TESTS)
 	find_package( GoogleTest REQUIRED )
@@ -86,6 +87,11 @@ target_link_libraries( mei
 	${LIBXML2_LIBRARIES}
 	${UUID_LIBRARY}
 )
+if (MEI_TEST_COVERAGE)
+    ADD_DEFINITIONS(--coverage)
+    target_link_libraries(mei gcov)
+endif(MEI_TEST_COVERAGE)
+
 #set_target_properties( mei PROPERTIES VERSION ${MEI_LIB_VERSION} SOVERSION ${MEI_LIB_VERSION_SONAME} )
 install( TARGETS mei   RUNTIME DESTINATION bin
                             LIBRARY DESTINATION lib${LIB_SUFFIX}
@@ -107,6 +113,9 @@ if( MEI_BUILD_TESTS )
         get_filename_component(_name ${_source} NAME_WE)
         add_executable(${_name} ${_source} test/gtest_main.cc)
         target_link_libraries(${_name} mei ${GTEST_LIBRARIES} pthread )
+        if (MEI_TEST_COVERAGE)
+            target_link_libraries(${_name} gcov)
+        endif(MEI_TEST_COVERAGE)
         add_test(NAME ${_name}-test COMMAND ${EXECUTABLE_OUTPUT_PATH}/${_name} --gtest_output=xml:${_name}.xml)
     endmacro(add_mei_test)
 
