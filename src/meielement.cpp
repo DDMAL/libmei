@@ -17,6 +17,7 @@ MeiFactory::default_map * MeiFactory::defaultmap;
 mei::MeiElement::MeiElement(string name) {
     this->name = name;
     this->value = "";
+    this->id = "";
     this->parent = NULL;
 }
 
@@ -26,6 +27,10 @@ const string mei::MeiElement::getId() {
 
 void mei::MeiElement::setId(string id) {
     this->id = id;
+}
+
+bool mei::MeiElement::hasId() {
+    return this->id != "";
 }
 
 const string mei::MeiElement::getName() {

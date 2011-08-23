@@ -80,6 +80,10 @@ class MEI_EXPORT MeiElement
          */
         void setId(string id);
 
+        /** \brief Checks if the ID of the element is set.
+         */
+        bool hasId();
+    
         /** \brief Get the name of this element
          */
         const string getName();
