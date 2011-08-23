@@ -14,6 +14,7 @@
 #include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
+#include "mei.h"
 
 using std::string;
 using std::cout;
@@ -133,6 +134,12 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
             }
         }
     }
+    
+    // if the attributes haven't set an ID, we'll set one now
+    if (obj->getId() == "") {
+        obj->setId(mei::generateId());
+    }
+    
     xmlNodePtr child = el->children;
     while (child != NULL) {
         MeiElement* ch = xmlNodeToMeiElement(child);
