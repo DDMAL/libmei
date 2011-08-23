@@ -6,9 +6,28 @@
 //  Copyright 2011 McGill University. All rights reserved.
 //
 
-#ifndef libmei_MeiNamespace_h
-#define libmei_MeiNamespace_h
+#ifndef MEINAMESPACE_H_
+#define MEINAMESPACE_H_
 
+#include "mei.h"
 
+namespace mei {
+    
+    class MeiNamespace {
+    public:
+        MeiNamespace();
+        ~MeiNamespace();
+        
+        std::string getHref();
+        void setHref(std::string href);
+        
+        std::string getPrefix();
+        void setPrefix(std::string prefix);
+        
+    private:
+        std::string href;
+        std::string prefix;
+    };
+}
 
-#endif
+#endif // MEINAMESPACE_H_
