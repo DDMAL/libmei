@@ -116,9 +116,9 @@ map<string, MeiElement*> mei::MeiDocument::getMap() {
 }
 
 void mei::MeiDocument::FillMap(MeiElement* element) {
-    MeiAttribute *idattr = element->getAttribute("id");
-    if (idattr) {
-        idmap.insert(std::make_pair(idattr->getValue(), element));
+    string idattr = element->getId();
+    if (idattr != "") {
+        idmap.insert(std::make_pair(idattr, element));
     }
     for (vector<MeiElement*>::const_iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
         FillMap(*i);
