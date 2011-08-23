@@ -85,6 +85,8 @@
 		0514A6DA13FDB42200310111 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		053321C41402DBF400B89665 /* meinamespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053321C21402DBF400B89665 /* meinamespace.cpp */; };
 		053321CD1402F79700B89665 /* meinamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 053321C31402DBF400B89665 /* meinamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		053C409614040E710003363C /* badversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409314040D560003363C /* badversion.mei */; };
+		053C409714040E710003363C /* noversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409414040D560003363C /* noversion.mei */; };
 		0550E42F1401C7240005B735 /* campion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E42D1401C71F0005B735 /* campion.mei */; };
 		058359E813FB2F8700919769 /* test_meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E613FB2F8700919769 /* test_meielement.cpp */; };
 		058359E913FB2F8700919769 /* test_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E713FB2F8700919769 /* test_shared.cpp */; };
@@ -126,6 +128,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				053C409614040E710003363C /* badversion.mei in CopyFiles */,
+				053C409714040E710003363C /* noversion.mei in CopyFiles */,
 				0550E42F1401C7240005B735 /* campion.mei in CopyFiles */,
 				059A88B014016691006BA118 /* bach.mei in CopyFiles */,
 				B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */,
@@ -214,6 +218,8 @@
 		0514A69013FDAAF500310111 /* test_xmlinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmlinput.cpp; path = test/test_xmlinput.cpp; sourceTree = "<group>"; };
 		053321C21402DBF400B89665 /* meinamespace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meinamespace.cpp; path = src/meinamespace.cpp; sourceTree = "<group>"; };
 		053321C31402DBF400B89665 /* meinamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = meinamespace.h; path = src/meinamespace.h; sourceTree = "<group>"; };
+		053C409314040D560003363C /* badversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = badversion.mei; path = test/badversion.mei; sourceTree = "<group>"; };
+		053C409414040D560003363C /* noversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = noversion.mei; path = test/noversion.mei; sourceTree = "<group>"; };
 		0550E41313FE18B30005B735 /* beethoven.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = beethoven.mei; path = test/beethoven.mei; sourceTree = "<group>"; };
 		0550E42D1401C71F0005B735 /* campion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = campion.mei; path = test/campion.mei; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 		617B42F113044EE600EBBE7F /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				053C409314040D560003363C /* badversion.mei */,
+				053C409414040D560003363C /* noversion.mei */,
 				0550E42D1401C71F0005B735 /* campion.mei */,
 				05B6605714017A2800D54F9A /* test_xmloutput.cpp */,
 				059A88AE1401667A006BA118 /* bach.mei */,
