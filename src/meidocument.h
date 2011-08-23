@@ -30,10 +30,7 @@
 #include <map>
 #include "mei.h"
 #include "meielement.h"
-
-#define MEI_VERSION "2011-05"
-#define MEI_NS "http://www.music-encoding.org/ns/mei"
-#define ENCODING "UTF-8"
+#include "meinamespace.h"
 
 namespace mei {
     
@@ -61,7 +58,12 @@ class MEI_EXPORT MeiDocument {
 
         /** \brief Set/change the name of the Mei document */
         void setDocName(std::string docname);
-
+        
+        bool hasNamespace(std::string href);
+        MeiNamespace* getNamespace(std::string href);
+        vector<MeiNamespace*> getNamespaces();
+        void addNamespace(MeiNamespace* ns);
+    
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
 
@@ -78,6 +80,9 @@ class MEI_EXPORT MeiDocument {
         std::string docname;
         MeiElement* root;
         std::map<std::string, MeiElement*> idmap;
+        
+        std::vector<MeiNamespace*> namespaces;
+        bool nsMatch(string href);
     };
 }
 #endif  // MEIDOCUMENT_H_

@@ -35,10 +35,17 @@ using std::string;
 using std::vector;
 
 using mei::MeiElement;
+using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument(string docname) {
     this->docname = docname;
     this->root = NULL;
+    
+    // add the default MEI namespace
+    MeiNamespace* mei = new MeiNamespace();
+    mei->setHref(MEI_NS);
+    mei->setPrefix(MEI_PREFIX);
+    this->namespaces.push_back(mei);
 }
 
 const string mei::MeiDocument::getDocName() {
@@ -49,15 +56,39 @@ void mei::MeiDocument::setDocName(string docname) {
     this->docname = docname;
 }
 
+bool mei::MeiDocument::hasNamespace(string href) {
+    if (this->namespaces.empty()) return false;
+    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
+        if ((*iter)->getHref() == href) {
+            return true;
+        }
+    }
+    return false;
+}
+
+MeiNamespace* mei::MeiDocument::getNamespace(string href) {
+    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
+        if ((*iter)->getHref() == href) return *iter;
+    }
+    return NULL;
+}
+
+vector<mei::MeiNamespace*> mei::MeiDocument::getNamespaces() {
+    return this->namespaces;
+}
+
+// note: should this raise an error if we try to add a namespace that already exists?
+void mei::MeiDocument::addNamespace(mei::MeiNamespace *ns) {
+    if (!hasNamespace(ns->getHref())) {
+        this->namespaces.push_back(ns);
+    }
+}
+
 MeiElement* mei::MeiDocument::getRootElement() {
     return root;
 }
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
-    if (root->getNs() == "") {
-        root->setNs(MEI_NS);
-    }
-    root->addAttribute(new MeiAttribute("meiversion", MEI_VERSION));
     this->root = root;
 }
 
