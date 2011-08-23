@@ -79,17 +79,39 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
         curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());   
     }
     
-    if (el->getAttributes().size() > 0) {
+    if (el == this->meiDocument->getRootElement()) {
+        // we're working with the root element of this document. We need to set up any global namespaces.
+        std::vector<MeiNamespace*> nsps = this->meiDocument->getNamespaces();
+        for (std::vector<MeiNamespace*>::iterator iter = nsps.begin(); iter != nsps.end(); ++iter) {
+            if ((*iter)->getPrefix() == "mei") {
+                // the default namespace
+                xmlNewNs(curxmlnode, (const xmlChar*)(*iter)->getHref().c_str(), NULL);
+            } else {
+                xmlNewNs(curxmlnode, (const xmlChar*)(*iter)->getHref().c_str(), (const xmlChar*)(*iter)->getPrefix().c_str());   
+            }
+        }
+    }
+    
+    if (el->hasId()) {
+        string idattr = "xml:id";
+        string idvalue = el->getId();
+        xmlNewProp(curxmlnode, (const xmlChar*)idattr.c_str(), (const xmlChar*)idvalue.c_str());
+    }
+    
+    
+    if (!el->getAttributes().empty()) {
         vector<MeiAttribute*> ats = el->getAttributes();
         for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter !=ats.end(); ++iter) {
             string attrname = (*iter)->getName();
             string attrvalue = (*iter)->getValue();
-                      
-            if ((*iter)->hasPrefix()) {
-                attrname = (*iter)->getPrefix() + ":" + attrname;
+
+            if ((*iter)->hasNamespace()) {
+                MeiNamespace* atns = (*iter)->getNamespace();
+                attrname = atns->getPrefix() + ":" + attrname;
             }
             
             curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+
         }
     }
     

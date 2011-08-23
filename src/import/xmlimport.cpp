@@ -64,11 +64,12 @@ MeiDocument* XmlImportImpl::documentFromFile(const char* filename) {
 //}
 
 void XmlImportImpl::init() {
+    MeiDocument *doc = new MeiDocument("test");
+    this->meiDocument = doc; 
+    
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
-    MeiDocument *doc = new MeiDocument("test");
-    doc->setRootElement(this->rootMeiElement);    
-    this->meiDocument = doc; 
+    doc->setRootElement(this->rootMeiElement);
 }
 
 mei::XmlImportImpl::~XmlImportImpl() {
@@ -99,20 +100,33 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     if (el->properties) {
         xmlAttr *curattr = NULL;
         for (curattr = el->properties; curattr; curattr = curattr->next) {
-            string attrname = (const char*)curattr->name;
-            // values are rendered as children of the attribute *facepalm*
-            string attrvalue = (const char*)curattr->children->content;
-            MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
-            
-            if (curattr->ns) {
-                if (attrname.compare("id") && string((const char*)curattr->ns->prefix).compare("xml")) {
-                    obj->setId(attrvalue);
+            if (curattr->atype == XML_ATTRIBUTE_ID) {
+                /* we store the ID on the element, not as an attribute. This will be serialized out
+                 *   on export 
+                 */
+                obj->setId(string((const char*)curattr->children->content));
+            } else {
+                string attrname = (const char*)curattr->name;
+                // values are rendered as children of the attribute *facepalm*
+                string attrvalue = (const char*)curattr->children->content;
+                MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
+                
+                if (curattr->ns) {
+                    if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
+                        MeiNamespace* meins = new MeiNamespace();
+                        meins->setPrefix(string((const char*)curattr->ns->prefix));
+                        meins->setHref(string((const char*)curattr->ns->href));
+                        this->meiDocument->addNamespace(meins);
+                        a->setNamespace(meins);
+                    } else {
+                        MeiNamespace* meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
+                        a->setNamespace(meins);
+                    }
                 }
-                a->setPrefix(string((const char*)curattr->ns->prefix));
-                a->setHref(string((const char*)curattr->ns->href));
+                
+                a->setElement(obj);
+                obj->addAttribute(a);                
             }
-            
-            obj->addAttribute(a);
         }
     }
     xmlNodePtr child = el->children;
