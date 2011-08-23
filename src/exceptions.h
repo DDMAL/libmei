@@ -52,6 +52,20 @@ public:
     ~ChildNotFoundException() throw() {}
 };
 
+class MEI_EXPORT VersionMismatchException : public MeiException {
+public:
+    explicit VersionMismatchException(const std::string &what) :
+    MeiException("The version " + what + " does not match the supported MEI version.") {}
+    ~VersionMismatchException() throw() {}
+};
+
+class MEI_EXPORT NoVersionFoundException : public MeiException {
+public:
+    explicit NoVersionFoundException(const std::string &what) :
+    MeiException("No mei version was found on this document.") {}
+    ~NoVersionFoundException() throw() {}
+};
+
 
 class MEI_EXPORT FooBarException : public MeiException {
 public:

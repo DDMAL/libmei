@@ -46,6 +46,8 @@ namespace mei {
             
             MeiDocument* getMeiDocument();
             MeiElement* xmlNodeToMeiElement(xmlNode *el);
+        
+            bool checkCompatibility(xmlNode *n) throw (NoVersionFoundException, VersionMismatchException);
             
             xmlNode* rootXmlNode;
             xmlDoc* xmlMeiDocument;

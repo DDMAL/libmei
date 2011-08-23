@@ -11,6 +11,7 @@
 #include <mei/xmlimport.h>
 #include <mei/meielement.h>
 #include <mei/meidocument.h>
+#include <mei/exceptions.h>
 
 using mei::MeiDocument;
 
@@ -20,7 +21,15 @@ TEST(TestMeiXmlImport, ReadFileIn) {
     ASSERT_NE((MeiDocument*)NULL, docf);
 }
 
-TEST(TextMeiXmlImport, ReadLargeFileIn) {
+TEST(TestMeiXmlImport, ReadLargeFileIn) {
     MeiDocument* docf = mei::XmlImport::documentFromFile("bach.mei");
     ASSERT_NE((MeiDocument*)NULL, docf);
+}
+
+TEST(TestMeiXmlImport, TestBadVersionException) {
+    ASSERT_THROW(mei::XmlImport::documentFromFile("badversion.mei"), mei::VersionMismatchException);
+}
+
+TEST(TestMeiXmlImport, TestNoVersionException) {
+    ASSERT_THROW(mei::XmlImport::documentFromFile("noversion.mei"), mei::NoVersionFoundException);
 }

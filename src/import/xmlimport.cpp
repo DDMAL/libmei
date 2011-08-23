@@ -47,8 +47,13 @@ MeiDocument* XmlImportImpl::documentFromFile(const char* filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
     this->xmlMeiDocument = doc;
-    this->init();
-    return getMeiDocument();
+    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
+    
+    if(this->checkCompatibility(this->rootXmlNode)) {
+        this->init();
+        return this->getMeiDocument();        
+    };
+    return NULL;
 }
 
 //MeiDocument* XmlImportImpl::documentFromStream(string xmlstream) {
@@ -67,7 +72,6 @@ void XmlImportImpl::init() {
     MeiDocument *doc = new MeiDocument("test");
     this->meiDocument = doc; 
     
-    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
     doc->setRootElement(this->rootMeiElement);
 }
@@ -140,6 +144,17 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
         child = child->next;
     }
     return obj;
+}
+
+bool XmlImportImpl::checkCompatibility(xmlNode *r) throw (NoVersionFoundException, VersionMismatchException) {
+    xmlAttrPtr meivers = xmlHasProp(r, (const xmlChar*)"meiversion");
+    if (meivers == NULL) {
+        throw NoVersionFoundException("");
+    } else if (string((const char*)meivers->children->content) != MEI_VERSION) {
+        throw VersionMismatchException(string((const char*)meivers->children->content));
+    } else {
+        return true;
+    }
 }
 
 /*
