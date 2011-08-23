@@ -29,6 +29,7 @@
 #include <vector>
 
 #include "meielement.h"
+#include "meinamespace.h"
 
 using std::map;
 using std::string;

@@ -9,8 +9,6 @@
 #ifndef MEINAMESPACE_H_
 #define MEINAMESPACE_H_
 
-#include "mei.h"
-
 namespace mei {
     
     class MeiNamespace {
