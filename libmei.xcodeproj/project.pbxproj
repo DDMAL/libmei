@@ -87,6 +87,7 @@
 		053321CD1402F79700B89665 /* meinamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 053321C31402DBF400B89665 /* meinamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		053C409614040E710003363C /* badversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409314040D560003363C /* badversion.mei */; };
 		053C409714040E710003363C /* noversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409414040D560003363C /* noversion.mei */; };
+		053C409B14041FB00003363C /* mei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C409A14041E080003363C /* mei.cpp */; };
 		0550E42F1401C7240005B735 /* campion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E42D1401C71F0005B735 /* campion.mei */; };
 		058359E813FB2F8700919769 /* test_meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E613FB2F8700919769 /* test_meielement.cpp */; };
 		058359E913FB2F8700919769 /* test_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E713FB2F8700919769 /* test_shared.cpp */; };
@@ -220,6 +221,7 @@
 		053321C31402DBF400B89665 /* meinamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = meinamespace.h; path = src/meinamespace.h; sourceTree = "<group>"; };
 		053C409314040D560003363C /* badversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = badversion.mei; path = test/badversion.mei; sourceTree = "<group>"; };
 		053C409414040D560003363C /* noversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = noversion.mei; path = test/noversion.mei; sourceTree = "<group>"; };
+		053C409A14041E080003363C /* mei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mei.cpp; path = src/mei.cpp; sourceTree = "<group>"; };
 		0550E41313FE18B30005B735 /* beethoven.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = beethoven.mei; path = test/beethoven.mei; sourceTree = "<group>"; };
 		0550E42D1401C71F0005B735 /* campion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = campion.mei; path = test/campion.mei; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				0514A63D13FD6B8500310111 /* Import */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
 				617B4322130450C900EBBE7F /* mei.h */,
+				053C409A14041E080003363C /* mei.cpp */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
 				9BE4E743131D570100A59F5D /* meielement.cpp */,
 				9B3CB63A13214C430054C2DC /* meiattribute.h */,
@@ -676,6 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053C409B14041FB00003363C /* mei.cpp in Sources */,
 				0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */,
 				0514A6B713FDABAB00310111 /* cmn.cpp in Sources */,
 				0514A6B813FDABAB00310111 /* cmnmixins.cpp in Sources */,
