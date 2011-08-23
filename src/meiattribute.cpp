@@ -23,23 +23,23 @@
 
 
 #include "meiattribute.h"
+#include "meinamespace.h"
 
 #include <string>
 
 using std::string;
+using mei::MeiNamespace;
 
 mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
     this->name = attrname;
     this->value = attrvalue;
-    this->prefix = "";
-    this->href = "";
+    this->ns = NULL;
 }
 
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
     return (this->name == other.name &&
             this->value == other.value &&
-            this->prefix == other.prefix && 
-            this->href == other.href);
+            this->ns == other.ns);
 }
 
 string mei::MeiAttribute::getName() {
@@ -58,36 +58,18 @@ void mei::MeiAttribute::setValue(string attrvalue) {
     this->value = attrvalue;
 }
 
-string mei::MeiAttribute::getPrefix() {
-    return this->prefix;
 }
 
-void mei::MeiAttribute::setPrefix(string prfx) {
-    this->prefix = prfx;
 }
 
-bool mei::MeiAttribute::hasPrefix() {
-    if (this->prefix != "") {
-        return true;   
-    } else {
-        return false;
-    }
+bool mei::MeiAttribute::hasNamespace() {
+    return this->ns != NULL;
 }
 
-string mei::MeiAttribute::getHref() {
-    return this->href;
+MeiNamespace* mei::MeiAttribute::getNamespace() {
+    return this->ns;
 }
 
-void mei::MeiAttribute::setHref(string href) {
-    this->href = href;
+void mei::MeiAttribute::setNamespace(MeiNamespace *ns) {
+    this->ns = ns;
 }
-
-bool mei::MeiAttribute::hasHref() {
-    if (this->href != "") {
-        return true;   
-    } else {
-        return false;
-    }
-}
-
-

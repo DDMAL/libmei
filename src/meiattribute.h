@@ -28,73 +28,60 @@
 #include <string>
 
 #include "mei.h"
-
-using std::string;
+#include "meinamespace.h"
 
 namespace mei {
 
-/** \brief  A representation of an attribute associated to an element in the MEI schema,
- *          attributes describe the properties of the Mei Element.
- *
- * MeiAttributes are descriptors associated with MeiElements and are stored on the element.
- * Each MeiAttribute needs a name and a value to be created and read.
- * An MeiElement can have more than one attribute;
- * all attributes are stored in the order they are created on the element.
- *
- */
-class MeiAttribute
-    {
-    public:
-        /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
-        MeiAttribute(string attrname, string attrvalue);
+    /** \brief  A representation of an attribute associated to an element in the MEI schema,
+     *          attributes describe the properties of the Mei Element.
+     *
+     * MeiAttributes are descriptors associated with MeiElements and are stored on the element.
+     * Each MeiAttribute needs a name and a value to be created and read.
+     * An MeiElement can have more than one attribute;
+     * all attributes are stored in the order they are created on the element.
+     *
+     */
+    class MeiElement;
+    
+    class MEI_EXPORT MeiAttribute
+        {
+        public:
+            /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
+            MeiAttribute(std::string attrname, std::string attrvalue);
 
-        virtual ~MeiAttribute() {}
+            virtual ~MeiAttribute() {}
 
-        bool operator==(const MeiAttribute &other) const;
+            bool operator==(const MeiAttribute &other) const;
 
-        /** \brief Get the name of the attribute.
-         *
-         *  Each attribute is created with a name and value, the attribute cannot exist without a name
-         *  \return string containing the attribute name.
-         */
-        string getName();
+            /** \brief Get the name of the attribute.
+             *
+             *  Each attribute is created with a name and value, the attribute cannot exist without a name
+             *  \return string containing the attribute name.
+             */
+            std::string getName();
 
-        /** \brief Set/Change the name of an attribute*/
-        void setName(string attrname);
+            /** \brief Set/Change the name of an attribute*/
+            void setName(std::string attrname);
 
-        /** \brief Get the value of the attribute.
-         *  \return A string indicating the attribute value
-         */
-        string getValue();
+            /** \brief Get the value of the attribute.
+             *  \return A string indicating the attribute value
+             */
+            std::string getValue();
 
-        /** \brief Set/change the value of an attribute*/
-        void setValue(string attrvalue);
+            /** \brief Set/change the value of an attribute*/
+            void setValue(std::string attrvalue);
+            
+            
+            bool hasNamespace();
+            MeiNamespace* getNamespace();
+            void setNamespace(MeiNamespace* ns);
+            
+        private:
+            std::string name;
+            std::string value;
+            MeiNamespace* ns;
 
-        /** \brief Get the prefix associated with an attribute
-         */
-        string getPrefix();
-
-        /** \brief Set/change the prefix associated with an attribute*/
-        void setPrefix(string prfx);
-        
-        /** \brief Check if the attribute is namespaced */
-        bool hasPrefix();
-        
-        /** \brief get the Prefix HREF value */
-        string getHref();
-
-        /** \brief set the Prefix HREF value */
-        void setHref(string href);
-        
-        /** \brief check if the attribute has a Prefix HREF value */
-        bool hasHref();
-
-    private:
-        string name;
-        string value;
-        string prefix;
-        string href;
-    };
+        };
 }
 
 #endif  // MEIATTRIBUTE_H_
