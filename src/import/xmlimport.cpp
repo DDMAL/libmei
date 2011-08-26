@@ -39,6 +39,10 @@ MeiDocument* XmlImport::documentFromFile(const char *filename) {
 }
 
 XmlImportImpl::XmlImportImpl() {
+    rootXmlNode = NULL;
+    xmlMeiDocument = NULL;
+    meiDocument = NULL;
+    rootMeiElement = NULL;
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {

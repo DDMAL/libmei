@@ -109,7 +109,7 @@ mei::MeiElement* /*mei::MeiDocument::*/getElementById2(string cid) {
 }
 
 map<string, MeiElement*> mei::MeiDocument::getMap() {
-    if (idmap.size() == 0) {
+    if (idmap.empty()) {
         FillMap(root);
     }
     return idmap;

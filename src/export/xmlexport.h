@@ -39,6 +39,7 @@ class XmlExport {
          */
         static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
         static std::string meiDocumentToText(MeiDocument *doc); // is this right???
+    virtual ~XmlExport();
     private:
         XmlExport(MeiDocument *doc);
         XmlExportImpl *impl;

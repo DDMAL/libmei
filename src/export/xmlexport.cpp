@@ -26,7 +26,12 @@ using mei::XmlExport;
 using mei::XmlExportImpl;
 
 XmlExport::XmlExport(MeiDocument *doc) : impl(new XmlExportImpl(doc)) {
+}
 
+XmlExport::~XmlExport() {
+    if (impl) {
+        delete impl;
+    }
 }
 
 bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
@@ -66,8 +71,6 @@ void XmlExportImpl::init() {
 
 xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     xmlNodePtr curxmlnode;
-    xmlAttrPtr curxmlattr;
-    //xmlNsPtr   curxmlns;
 
     if (el->getName() == "_text") {
         curxmlnode = xmlNewText((const xmlChar*)el->getValue().c_str());
@@ -108,7 +111,7 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
                 attrname = atns->getPrefix() + ":" + attrname;
             }
 
-            curxmlattr = xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+            xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
         }
     }
 
