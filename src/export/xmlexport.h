@@ -32,13 +32,15 @@ namespace mei {
 
 class XmlExportImpl;
 
+/**
+ * \brief Export a document to XML.
+ */
 class XmlExport {
     public:
-        /** public interfaces for importing. Each of these will convert their input
-         *  into an xmlNode for processing by the _MeiXmlStruct class.
-         */
+        /** \brief Save a document to a file. */
         static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
-        static std::string meiDocumentToText(MeiDocument *doc); // is this right???
+        /** \brief Return the XML text of a document. */
+        static std::string meiDocumentToText(MeiDocument *doc);
     virtual ~XmlExport();
     private:
         XmlExport(MeiDocument *doc);

@@ -25,6 +25,19 @@ using mei::MeiFactory;
 using mei::XmlExport;
 using mei::XmlExportImpl;
 
+/*
+ XmlImport and XmlExport use a Partial Implementation (PImpl) model for their class structure.
+ A public interface is exposed in xmlexport.h. This file is added to the includes directory.
+ An implementation class is defined in xmlexport_impl.h. This class can now include in its
+ definition implementation details that should not be exposed to a client application
+ (for example, libxml2).
+ The XmlExportImpl class defines XmlImport as a friend class, so that XmlImport can directly
+ access private members.
+ When an XmlExport class is created, its impl member is also created (as an XmlExportImpl).
+ Any method in XmlExport should directly call impl->sameMethod().
+ Static members in XmlExport should create an XmlExport instance then call export->impl->method()
+*/
+
 XmlExport::XmlExport(MeiDocument *doc) : impl(new XmlExportImpl(doc)) {
 }
 

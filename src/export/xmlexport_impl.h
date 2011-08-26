@@ -40,9 +40,6 @@ namespace mei {
         xmlNode* meiElementToXmlNode(MeiElement *el);
         void outputToFile(const char* filename);
 
-        /** public interfaces for importing. Each of these will convert their input
-         *  into an xmlNode for processing by the _MeiXmlStruct class.
-         */
         bool meiDocumentToFile(string filename);
         std::string meiDocumentToText();
 
