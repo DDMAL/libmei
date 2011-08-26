@@ -6,8 +6,9 @@
 //  Copyright 2011 McGill University. All rights reserved.
 //
 
-#include <iostream>
 #include "meinamespace.h"
+
+#include <string>
 
 using std::string;
 

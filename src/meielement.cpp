@@ -258,7 +258,7 @@ vector<MeiElement*>& MeiElement::getPeers() {
 */
 
 mei::MeiTextNode::MeiTextNode() :
-    MeiElement("_text") 
+    MeiElement("_text")
 {
 }
 

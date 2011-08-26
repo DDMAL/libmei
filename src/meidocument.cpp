@@ -41,7 +41,7 @@ using mei::MeiNamespace;
 mei::MeiDocument::MeiDocument(string docname) {
     this->docname = docname;
     this->root = NULL;
-    
+
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace();
     mei->setHref(MEI_NS);

@@ -33,7 +33,7 @@
 #include "meinamespace.h"
 
 namespace mei {
-    
+
 /** \brief The entity which will contains all the elements and attributes
  *         storing a musical piece in the MEI schema.
  *
@@ -58,12 +58,12 @@ class MEI_EXPORT MeiDocument {
 
         /** \brief Set/change the name of the Mei document */
         void setDocName(std::string docname);
-        
+
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);
         vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
-    
+
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
 
@@ -80,7 +80,7 @@ class MEI_EXPORT MeiDocument {
         std::string docname;
         MeiElement* root;
         std::map<std::string, MeiElement*> idmap;
-        
+
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(string href);
     };

@@ -73,7 +73,7 @@ class MEI_EXPORT MeiElement
         /** \brief Get the id of this element.
          */
         const string getId();
-        
+
         /** \brief Set the ID of this elelement.
          *
          *  The id MUST be unique in the document, if given.
@@ -83,7 +83,7 @@ class MEI_EXPORT MeiElement
         /** \brief Checks if the ID of the element is set.
          */
         bool hasId();
-    
+
         /** \brief Get the name of this element
          */
         const string getName();
@@ -122,12 +122,12 @@ class MEI_EXPORT MeiElement
          *  \return A const vector of the attributes on this element.
          */
         const vector<MeiAttribute*>& getAttributes();
-        
+
         /**
          * \brief add all of the given attributes to this element.
          */
         void setAttributes(const vector<MeiAttribute*> attrs);
-        
+
         /**
          * \brief Add an attribute to this element.
          *
@@ -135,7 +135,7 @@ class MEI_EXPORT MeiElement
          * this element, it is replaced.
          */
         void addAttribute(MeiAttribute *attribute);
-        
+
         /**
          * \brief Convienence method to get the attribute with a given name.
          *
@@ -147,7 +147,7 @@ class MEI_EXPORT MeiElement
          * \brief Remove the attribute with the given name.
          */
         void removeAttribute(string name);
-        
+
         /**
          * \brief See if this element has an attribute with the given name.
          */
@@ -178,29 +178,29 @@ class MEI_EXPORT MeiElement
          * This will remove any existing children.
          */
         void setChildren(vector<MeiElement*> children);
-        
+
         /**
          * \brief Get all of the children of this element.
          */
         const vector<MeiElement*>& getChildren();
-        
+
         /**
          * \brief Get all of the children of this element that have a given name.
          */
         const vector<MeiElement*> getChildrenByName(string name);
-        
+
         /**
          * \brief Remove all of the children of this element.
          *
          * The children are deleted and removed from the element.
          */
         void deleteAllChildren();
-        
+
         /**
          * \brief Remove the children from this element that have a given name.
          */
         void removeChildrenWithName(string cname);
-        
+
         /**
          * \brief Remove the specified element as a child from this element.
          *
@@ -208,7 +208,7 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-        
+
         /**
          * \brief Check if this element has any children with the given name.
          */
@@ -218,7 +218,7 @@ class MEI_EXPORT MeiElement
         void print();
 
         /** \brief Print a tree starting at this element, but indented.
-         *  \param l the indentation level. 
+         *  \param l the indentation level.
          */
         void print(int l);
 
@@ -283,22 +283,20 @@ private:
     //         getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
     //     }
     // };
-    
-    
-    // a special type of MeiElement for holding text values. This has the unique name of 
+
+
+    // a special type of MeiElement for holding text values. This has the unique name of
     // "_text" to avoid any confusion with "real" MEI elements.
     class MEI_EXPORT MeiTextNode : public MeiElement {
         public:
             MeiTextNode();
             virtual ~MeiTextNode();
-       
     };
-    
+
     class MEI_EXPORT MeiCommentNode : public MeiElement {
         public:
             MeiCommentNode();
             virtual ~MeiCommentNode();
     };
-
 }
 #endif  // MEIELEMENT_H_
