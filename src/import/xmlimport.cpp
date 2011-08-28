@@ -119,10 +119,9 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
 
                 if (curattr->ns) {
                     if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
-                        MeiNamespace* meins = new MeiNamespace();
-                        meins->setPrefix(string((const char*)curattr->ns->prefix));
-                        meins->setHref(string((const char*)curattr->ns->href));
-                        this->meiDocument->addNamespace(meins);
+                        string prefix = (const char*)curattr->ns->prefix;
+                        string href = (const char*)curattr->ns->href;
+                        MeiNamespace* meins = new MeiNamespace(prefix, href);
                         a->setNamespace(meins);
                     } else {
                         MeiNamespace* meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
