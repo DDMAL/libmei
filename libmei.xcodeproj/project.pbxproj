@@ -107,6 +107,7 @@
 		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
 		B2E397BB1401A52200161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2E397BD1401B1E000161BD2 /* xmlexport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397BC1401B1E000161BD2 /* xmlexport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -249,6 +250,7 @@
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
+		B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meidocument.cpp; path = test/test_meidocument.cpp; sourceTree = "<group>"; };
 		B2E397B514018B3E00161BD2 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 		B2E397BC1401B1E000161BD2 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,17 +378,14 @@
 		617B42F113044EE600EBBE7F /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				053C409314040D560003363C /* badversion.mei */,
-				053C409414040D560003363C /* noversion.mei */,
-				0550E42D1401C71F0005B735 /* campion.mei */,
+				B28CF240140AE04D00A87C7A /* Testfiles */,
 				05B6605714017A2800D54F9A /* test_xmloutput.cpp */,
-				059A88AE1401667A006BA118 /* bach.mei */,
-				0550E41313FE18B30005B735 /* beethoven.mei */,
 				058359E613FB2F8700919769 /* test_meielement.cpp */,
 				058359E713FB2F8700919769 /* test_shared.cpp */,
 				61DBCD401312DDF500B46918 /* gtest_main.cc */,
 				05CEA56513FC61CB0009A15E /* test_meifactory.cpp */,
 				0514A69013FDAAF500310111 /* test_xmlinput.cpp */,
+				B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -477,6 +476,18 @@
 				0514A68F13FD6D6000310111 /* usersymbols.h */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		B28CF240140AE04D00A87C7A /* Testfiles */ = {
+			isa = PBXGroup;
+			children = (
+				059A88AE1401667A006BA118 /* bach.mei */,
+				0550E41313FE18B30005B735 /* beethoven.mei */,
+				053C409314040D560003363C /* badversion.mei */,
+				053C409414040D560003363C /* noversion.mei */,
+				0550E42D1401C71F0005B735 /* campion.mei */,
+			);
+			name = Testfiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -672,6 +683,7 @@
 				05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */,
 				0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */,
 				05B6605814017D8400D54F9A /* test_xmloutput.cpp in Sources */,
+				B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
