@@ -70,16 +70,17 @@ class MEI_EXPORT MeiDocument {
         /** \brief Make an Mei element the Root element of a document*/
         void setRootElement(MeiElement* root);
 
-        /** \return The Mei element with the given id. */
+        /** \brief Get the element with the given ID.
+         *
+         *  \return The Mei element with the given id, or NULL if
+         *   the element doesn't exist
+         */
         MeiElement* getElementById(std::string id);
 
     private:
-        std::map<std::string, MeiElement*> getMap();
-        void FillMap(MeiElement* element);
-
+        MeiElement* getElementById(std::string id, MeiElement* from);
         std::string docname;
         MeiElement* root;
-        std::map<std::string, MeiElement*> idmap;
 
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(string href);
