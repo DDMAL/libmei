@@ -157,6 +157,8 @@ class MEI_EXPORT MeiElement
          */
         MeiElement *getParent();
 
+        void setDocument(MeiDocument *doc);
+
         /** \brief sets this element's parent to the given element
          */
         void setParent(MeiElement *parent);
@@ -229,6 +231,7 @@ class MEI_EXPORT MeiElement
         vector<MeiAttribute*> attributes;
         vector<MeiElement*> children;
         MeiElement *parent;
+        MeiDocument *document;
 };
 
 // This implements the element map for allowing the creation of an element given its

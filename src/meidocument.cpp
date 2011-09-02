@@ -89,21 +89,19 @@ MeiElement* mei::MeiDocument::getRootElement() {
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
+    root->setDocument(this);
+}
+
+void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
+    idMap.insert(std::make_pair(id, element));
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {
-    return getElementById(id, root);
+    map<string, MeiElement*>::iterator iter = idMap.find(id);
+    if (iter == idMap.end()) {
+        return NULL;
+    } else {
+        return iter->second;
+    }
 }
 
-MeiElement* mei::MeiDocument::getElementById(string id, MeiElement *from) {
-    if (from->getId() == id) {
-        return from;
-    }
-    for (vector<MeiElement*>::const_iterator i = from->getChildren().begin(); i != from->getChildren().end(); ++i) {
-        MeiElement *ret = getElementById(id, *i);
-        if (ret != NULL) {
-            return ret;
-        }
-    }
-    return NULL;
-}

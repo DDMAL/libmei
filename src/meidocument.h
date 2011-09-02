@@ -77,6 +77,8 @@ class MEI_EXPORT MeiDocument {
          */
         MeiElement* getElementById(std::string id);
 
+        void addIdMap(std::string, MeiElement*);
+
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
         std::string docname;
@@ -84,6 +86,8 @@ class MEI_EXPORT MeiDocument {
 
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(string href);
+
+        std::map<std::string, MeiElement*> idMap;
     };
 }
 #endif  // MEIDOCUMENT_H_
