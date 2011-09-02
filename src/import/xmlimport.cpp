@@ -88,20 +88,8 @@ MeiDocument* XmlImportImpl::getMeiDocument() {
 
 MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
 
-    MeiElement *obj;
-
-    if (el->type == XML_ELEMENT_NODE) {
-        obj = MeiFactory::createInstance((string((const char*)el->name)));
-    } else if (el->type == XML_TEXT_NODE) {
-        obj = new MeiTextNode();
-        obj->setValue(string((const char*)el->content));
-    } else if (el->type == XML_COMMENT_NODE) {
-        obj = new MeiCommentNode();
-        obj->setValue(string((const char*)el->content));
-    } else {
-        return NULL;
-    }
-
+    string id = "";
+    vector<MeiAttribute*> attributes;
     // XML attributes and children. Text nodes will never have these.
     if (el->properties) {
         xmlAttr *curattr = NULL;
@@ -110,7 +98,7 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
                 /* we store the ID on the element, not as an attribute. This will be serialized out
                  *   on export
                  */
-                obj->setId(string((const char*)curattr->children->content));
+                id = (const char*)curattr->children->content;
             } else {
                 string attrname = (const char*)curattr->name;
                 // values are rendered as children of the attribute *facepalm*
@@ -129,15 +117,23 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
                     }
                 }
 
-                a->setElement(obj);
-                obj->addAttribute(a);
+                attributes.push_back(a);
             }
         }
     }
 
-    // if the attributes haven't set an ID, we'll set one now
-    if (obj->getId() == "") {
-        obj->setId(mei::generateId());
+    MeiElement *obj;
+
+    if (el->type == XML_ELEMENT_NODE) {
+        obj = MeiFactory::createInstance((const char*)el->name, id);
+    } else if (el->type == XML_TEXT_NODE) {
+        obj = new MeiTextNode();
+        obj->setValue(string((const char*)el->content));
+    } else if (el->type == XML_COMMENT_NODE) {
+        obj = new MeiCommentNode();
+        obj->setValue(string((const char*)el->content));
+    } else {
+        return NULL;
     }
 
     xmlNodePtr child = el->children;

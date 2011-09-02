@@ -74,12 +74,6 @@ class MEI_EXPORT MeiElement
          */
         const string getId();
 
-        /** \brief Set the ID of this elelement.
-         *
-         *  The id MUST be unique in the document, if given.
-         */
-        void setId(string id);
-
         /** \brief Checks if the ID of the element is set.
          */
         bool hasId();
@@ -221,9 +215,12 @@ class MEI_EXPORT MeiElement
          *  \param l the indentation level.
          */
         void print(int l);
+        template<typename T> static MeiElement* createT(std::string id);
 
     private:
+        void generateAndSetId();
         string id;
+        void setId(string id);
         string name;
         string value;
         string tail;
@@ -237,17 +234,30 @@ class MEI_EXPORT MeiElement
 // This implements the element map for allowing the creation of an element given its
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
-template<typename T> MeiElement* createT() { return new T(); }
+template<typename T> MeiElement* MeiElement::createT(std::string id) {
+    T *ret = new T();
+    if (id == "") {
+        ret->generateAndSetId();
+    } else {
+        ret->setId(id);
+    }
+    return ret;
+}
 
 struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)()> default_map;
-
-    static MeiElement* createInstance(std::string const& s) {
+    typedef std::map<std::string, MeiElement*(*)(string)> default_map;
+    /**
+     * \brief Create an instance of the element registered for the give type name.
+     * Types register a string using the REGISTER_DEFINITION and REGISTER_DECLARATION
+     * macros. The ID is optional. If it is not given, a new ID will be generated.
+     * \return an instance of the element, or NULL if the type doesn't exist.
+     */
+    static MeiElement* createInstance(std::string const& s, std::string const& id) {
         default_map::iterator it = getMap()->find(s);
         if (it == getMap()->end()) {
             return NULL;
         }
-        return it->second();
+        return it->second(id);
     }
 
     static bool inMap(std::string const& query) {
@@ -273,17 +283,9 @@ private:
     template<typename T>
     struct DerivedRegister : MeiFactory {
         DerivedRegister(std::string const& s) {
-            getMap()->insert(std::make_pair(s, &createT<T>));
+            getMap()->insert(std::make_pair(s, &MeiElement::createT<T>));
         }
     };
-
-    // template<typename T>
-    // struct NodeDerivedRegister : MeiFactory {
-    //     NodeDerivedRegister(std::string const& s) {
-    //         getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
-    //     }
-    // };
-
 
     // a special type of MeiElement for holding text values. This has the unique name of
     // "_text" to avoid any confusion with "real" MEI elements.

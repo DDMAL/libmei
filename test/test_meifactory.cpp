@@ -16,12 +16,20 @@ using mei::MeiFactory;
 using mei::Note;
 
 TEST(MeiFactoryTest, TestFactoryStart) {
-    MeiElement * e = MeiFactory::createInstance("note");
+    MeiElement *e = MeiFactory::createInstance("note", "anid");
     ASSERT_EQ("note", e->getName());
+    ASSERT_EQ("anid", e->getId());
+}
+
+TEST(MeiFactoryTest, TestFactoryStartDefaultId) {
+    // Empty ID makes a random one
+    MeiElement *e = MeiFactory::createInstance("note", "");
+    ASSERT_EQ("note", e->getName());
+    ASSERT_EQ(38, e->getId().length());
 }
 
 TEST(MeiFactoryTest, TestFactoryWithMixins) {
-    Note *e = dynamic_cast<Note*>(MeiFactory::createInstance("note"));
+    Note *e = dynamic_cast<Note*>(MeiFactory::createInstance("note", "anid"));
     
     
     ASSERT_EQ("note", e->getName());
