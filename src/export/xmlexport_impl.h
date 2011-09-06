@@ -26,6 +26,8 @@
 
 #include <string>
 
+#include <libxml/xmlreader.h>
+
 #include "xmlexport.h"
 #include "meidocument.h"
 

@@ -25,8 +25,6 @@
 #ifndef MEIELEMENT_H_
 #define MEIELEMENT_H_
 
-#include <libxml/xmlreader.h>
-
 #include <string>
 #include <vector>
 #include <map>
