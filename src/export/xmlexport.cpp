@@ -53,7 +53,8 @@ bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
 }
 
 string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
-    return "";
+    XmlExport *ex = new XmlExport(doc);
+    return ex->impl->meiDocumentToText();
 }
 
 
@@ -63,6 +64,15 @@ bool XmlExportImpl::meiDocumentToFile(string filename) {
 
     return true;
 }
+
+string XmlExportImpl::meiDocumentToText() {
+    xmlChar *xmlbuf;
+    int buffersize;
+    xmlDocDumpFormatMemory(xmlDocOutput, &xmlbuf, &buffersize, 1);
+
+    return string((char*)xmlbuf);
+}
+
 
 XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
     this->meiDocument = doc;
