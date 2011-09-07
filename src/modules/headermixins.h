@@ -25,6 +25,7 @@
 #define HEADERMIXIN_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include <string>
 

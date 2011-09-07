@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Abbr::Abbr() :
@@ -50,7 +51,7 @@ mei::Accid::Accid() :
     m_Typography(this),
     m_AccidLog(this),
     m_Accidental(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -121,8 +122,7 @@ mei::Annot::Annot() :
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Pointing(this),
-    m_Targets(this),
+    m_Plist(this),
     m_Responsibility(this)
 {
 }
@@ -136,7 +136,7 @@ mei::Artic::Artic() :
     m_Facsimile(this),
     m_Typography(this),
     m_Articulation(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -162,7 +162,6 @@ mei::Barline::Barline() :
     m_Common(this),
     m_Facsimile(this),
     m_Pointing(this),
-    m_Targets(this),
     m_BarlineLog(this),
     m_MeterconformanceBar(this),
     m_Barplacement(this),
@@ -183,8 +182,7 @@ mei::Bibl::Bibl() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Pointing(this),
-    m_Targets(this)
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Bibl, "bibl");
@@ -389,7 +387,7 @@ mei::Dir::Dir() :
     m_Facsimile(this),
     m_Lang(this),
     m_Typed(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -418,7 +416,7 @@ mei::Dot::Dot() :
     m_Common(this),
     m_Facsimile(this),
     m_DotLog(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -441,7 +439,7 @@ mei::Dynam::Dynam() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -482,7 +480,6 @@ mei::Ending::Ending() :
     m_Facsimile(this),
     m_Typed(this),
     m_Pointing(this),
-    m_Targets(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -534,7 +531,7 @@ mei::Expansion::Expansion() :
     m_Common(this),
     m_Source(this),
     m_Typed(this),
-    m_Targets(this)
+    m_Plist(this)
 {
 }
 REGISTER_DEFINITION(mei::Expansion, "expansion");
@@ -791,27 +788,6 @@ mei::Mei::Mei() :
 REGISTER_DEFINITION(mei::Mei, "mei");
 mei::Mei::~Mei() {}
 
-MeiAttribute* mei::Mei::getId() {
-    if (!hasAttribute("id")) {
-        throw AttributeNotFoundException("id");
-    }
-    return getAttribute("id");
-};
-
-void mei::Mei::setId(std::string _id) {
-    if (!hasAttribute("id")) {
-        MeiAttribute *a = new MeiAttribute("id", _id);
-        addAttribute(a);
-    }
-};
-
-bool mei::Mei::hasId() {
-    return hasAttribute("id");
-};
-
-void mei::Mei::removeId() {
-    removeAttribute("id");
-};
 
 mei::Music::Music() :
     MeiElement("music"),
@@ -968,7 +944,6 @@ mei::Pb::Pb() :
     m_Common(this),
     m_Facsimile(this),
     m_Pointing(this),
-    m_Targets(this),
     m_Source(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -1037,7 +1012,7 @@ mei::Phrase::Phrase() :
     MeiElement("phrase"),
     m_Common(this),
     m_Facsimile(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1309,7 +1284,6 @@ mei::Section::Section() :
     m_Facsimile(this),
     m_Typed(this),
     m_Pointing(this),
-    m_Targets(this),
     m_SectionVis(this),
     m_CommonAnl(this),
     m_Alignment(this)
@@ -1492,7 +1466,7 @@ mei::Tempo::Tempo() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),

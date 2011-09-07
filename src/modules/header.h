@@ -25,6 +25,7 @@
 #define HEADER_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -293,7 +294,7 @@ class MEI_EXPORT Contents : public MeiElement {
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
-        TargetsMixIn    m_Targets;
+        PointingMixIn    m_Pointing;
 
     private:
         REGISTER_DECLARATION(Contents);
@@ -1070,9 +1071,9 @@ class MEI_EXPORT Pubstmt : public MeiElement {
  *  related to the present one in some specified manner, for example as a
  *  constituent or alternative version of it.
  * 
- *  A URI for the related item should be placed in the <identifier> sub-element.
- *  This element is modelled on the relatedItem element in the Text Encoding
- *  Initiative (TEI) and MODS schemas.
+ *  A URI for the related item may be placed in the target attribute or in an
+ *  <identifier> sub-element. This element is modelled on the relatedItem element in
+ *  the Text Encoding Initiative (TEI) and MODS schemas.
  */
 class MEI_EXPORT Relateditem : public MeiElement {
     public:
@@ -1100,6 +1101,7 @@ class MEI_EXPORT Relateditem : public MeiElement {
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
+        PointingMixIn    m_Pointing;
 
     private:
         REGISTER_DECLARATION(Relateditem);

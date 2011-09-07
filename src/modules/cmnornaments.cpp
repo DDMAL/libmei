@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Mordent::Mordent() :
@@ -10,7 +11,7 @@ mei::Mordent::Mordent() :
     m_Common(this),
     m_Facsimile(this),
     m_MordentLog(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -35,7 +36,7 @@ mei::Trill::Trill() :
     MeiElement("trill"),
     m_Common(this),
     m_Facsimile(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -66,7 +67,7 @@ mei::Turn::Turn() :
     m_Common(this),
     m_Facsimile(this),
     m_TurnLog(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
