@@ -135,6 +135,7 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     } else {
         return NULL;
     }
+    obj->setAttributes(attributes);
 
     xmlNodePtr child = el->children;
     while (child != NULL) {
