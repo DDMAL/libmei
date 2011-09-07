@@ -50,24 +50,15 @@ TEST(TestMeiDocument, RootElement) {
 // after adding a root to a document, you can find an element
 TEST(TestMeiDocument, ElementById) {
     Mei *mei = new Mei();
-    mei->setId(mei::generateId());
     Music *mus = new Music();
-    mus->setId(mei::generateId());
     Body *body = new Body();
-    body->setId(mei::generateId());
     Staff *staff = new Staff();
-    staff->setId(mei::generateId());
     Staff *s2 = new Staff();
-    s2->setId(mei::generateId());
     Note *n1 = new Note();
-    string wantedId = mei::generateId();
-    n1->setId(wantedId);
+    string wantedId = n1->getId();
     Note *n2 = new Note();
-    n2->setId(mei::generateId());
     Note *n3 = new Note();
-    n3->setId(mei::generateId());
     Note *n4 = new Note();
-    n4->setId(mei::generateId());
 
     mei->addChild(mus);
     mus->addChild(body);
@@ -87,8 +78,8 @@ TEST(TestMeiDocument, ElementById) {
 
     // After adding the root element, making a new element works
     Note *n5 = new Note();
-    n5->setId("a-new-id");
+    string newid = n5->getId();
     s2->addChild(n5);
-    ASSERT_EQ(n5, doc->getElementById("a-new-id"));
+    ASSERT_EQ(n5, doc->getElementById(newid));
 
 }

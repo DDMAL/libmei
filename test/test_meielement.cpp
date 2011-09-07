@@ -36,11 +36,11 @@ TEST(MeiElementTest, TestGetSet) {
     p->setValue("this is a sentence");
     ASSERT_EQ("this is a sentence", p->getValue());
 
-    p->setId("anid");
     p->setTail("atail");
     p->setNs("somenamespace");
 
-    ASSERT_EQ("anid", p->getId());
+    // We know an id is 'm-<uuid>', so we can check the length
+    ASSERT_EQ(38, p->getId().length());
     ASSERT_EQ("atail", p->getTail());
     ASSERT_EQ("somenamespace", p->getNs());
 }
@@ -48,6 +48,25 @@ TEST(MeiElementTest, TestGetSet) {
 TEST(MeiElementTest, TestGetNoAttribute) {
     MeiElement *p = new MeiElement("note");
     ASSERT_EQ(NULL, p->getAttribute("color"));
+}
+
+// Adding an attribute to an element sets the attr's element.
+TEST(MeiElementTest, TestAttributeLink) {
+    MeiElement *p = new MeiElement("note");
+    MeiAttribute *a = new MeiAttribute("pname", "c");
+    p->addAttribute(a);
+    ASSERT_EQ(p, a->getElement());
+
+    // And when adding many attrs
+    MeiAttribute *b = new MeiAttribute("pname", "d");
+    MeiAttribute *c = new MeiAttribute("stem.dir", "down");
+    vector<MeiAttribute*> atts;
+    atts.push_back(b);
+    atts.push_back(c);
+    p->setAttributes(atts);
+    ASSERT_EQ(2, p->getAttributes().size());
+    ASSERT_EQ(p, b->getElement());
+    ASSERT_EQ(p, c->getElement());
 }
 
 TEST(MeiElementTest, TestGetSetHasAttributes) {
