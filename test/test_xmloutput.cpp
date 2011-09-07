@@ -38,7 +38,7 @@ TEST(TestXmlMeiExport, ExportToString) {
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\"/>\n";
+    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2011-05\"/>\n";
     string ret = XmlExport::meiDocumentToText(d);
     ASSERT_EQ(expected, ret);
 }

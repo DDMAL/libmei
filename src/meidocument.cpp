@@ -49,6 +49,7 @@ mei::MeiDocument::MeiDocument() {
 void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
+    this->meiVersion = MEI_VERSION;
 
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
@@ -97,6 +98,10 @@ MeiElement* mei::MeiDocument::getRootElement() {
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
+}
+
+string mei::MeiDocument::getVersion() {
+    return meiVersion;
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {

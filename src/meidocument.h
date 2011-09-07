@@ -69,6 +69,8 @@ class MEI_EXPORT MeiDocument {
         vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
 
+        std::string getVersion();
+
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
 
@@ -85,6 +87,8 @@ class MEI_EXPORT MeiDocument {
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
         std::string docname;
+        /** The version of this MEI document. */
+        std::string meiVersion;
         MeiElement* root;
         void init(std::string docname);
 

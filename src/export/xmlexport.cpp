@@ -16,6 +16,8 @@
 #include <libxml/xmlwriter.h>
 
 #include "meidocument.h"
+#include "meielement.h"
+#include "shared.h"
 
 using std::string;
 
@@ -24,6 +26,7 @@ using mei::MeiElement;
 using mei::MeiFactory;
 using mei::XmlExport;
 using mei::XmlExportImpl;
+using mei::Mei;
 
 /*
  XmlImport and XmlExport use a Partial Implementation (PImpl) model for their class structure.
@@ -84,6 +87,8 @@ XmlExportImpl::~XmlExportImpl() {
 
 void XmlExportImpl::init() {
     MeiElement *root = this->meiDocument->getRootElement();
+    // Copy the version from the document into the root element
+    static_cast<Mei*>(root)->m_Meiversion.setMeiversion(meiDocument->getVersion());
     xmlNode* xroot = this->meiElementToXmlNode(root);
 
     xmlDocPtr xmldoc = NULL;
