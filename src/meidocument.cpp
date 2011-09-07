@@ -39,6 +39,14 @@ using mei::MeiElement;
 using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument(string docname) {
+    init(docname);
+}
+
+mei::MeiDocument::MeiDocument() {
+    init("");
+}
+
+void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
 
