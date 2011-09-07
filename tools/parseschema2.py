@@ -68,7 +68,14 @@ class MeiSchema(object):
             attdefs = element.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
             if attdefs:
                 for attdef in attdefs:
-                    selfattributes.append(attdef.get("ident"))
+                    if attdef.get("ident") == "id":
+                        continue
+                    if attdef.get("ns"):
+                        attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
+                    else:
+                        attname = "{0}".format(attdef.get("ident"))
+                    selfattributes.append(attname)
+
                 self.element_structure[modname][element_name].append(selfattributes)
             
     
@@ -83,7 +90,14 @@ class MeiSchema(object):
             
             self.attribute_group_structure[group_module][group_name] = []
             for attdef in attdefs:
-                self.attribute_group_structure[group_module][group_name].append(attdef.get("ident"))
+                if attdef.get("ident") == "id":
+                    continue
+                if attdef.get("ns"):
+                    attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
+                else:
+                    attname = "{0}".format(attdef.get("ident"))
+                
+                self.attribute_group_structure[group_module][group_name].append(attname)
     
     def invert_attribute_group_structure(self):
         for module,groups in self.attribute_group_structure.iteritems():
