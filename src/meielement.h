@@ -233,7 +233,7 @@ class MEI_EXPORT MeiElement
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 template<typename T> MeiElement* MeiElement::createT(std::string id) {
-    T *ret = new T();
+    MeiElement *ret = new T();
     if (id == "") {
         ret->generateAndSetId();
     } else {

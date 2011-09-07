@@ -117,9 +117,8 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     }
 
     if (el->hasId()) {
-        string idattr = "xml:id";
         string idvalue = el->getId();
-        xmlNewProp(curxmlnode, (const xmlChar*)idattr.c_str(), (const xmlChar*)idvalue.c_str());
+        xmlNewProp(curxmlnode, XML_XML_ID, (const xmlChar*)idvalue.c_str());
     }
 
 
