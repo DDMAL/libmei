@@ -1,6 +1,6 @@
 /*
  Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
- 
+
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files (the
  "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
  distribute, sublicense, and/or sell copies of the Software, and to
  permit persons to whom the Software is furnished to do so, subject to
  the following conditions:
- 
+
  The above copyright notice and this permission notice shall be
  included in all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -37,18 +37,18 @@ namespace mei {
              *  into an xmlNode for processing by the _MeiXmlStruct class.
              */
             MeiDocument* documentFromFile(const char* filename);
-            MeiDocument* documentFromStream(std::string stream); // figure out arg type!
-            MeiDocument* documentFromText(std::string text); // is this right???
+            MeiDocument* documentFromStream(std::string stream);  // figure out arg type!
+            MeiDocument* documentFromText(std::string text);  // is this right???
 
             XmlImportImpl();
             virtual ~XmlImportImpl();
             void init();
-            
+
             MeiDocument* getMeiDocument();
             MeiElement* xmlNodeToMeiElement(xmlNode *el);
-        
-            bool checkCompatibility(xmlNode *n) throw (NoVersionFoundException, VersionMismatchException);
-            
+
+            bool checkCompatibility(xmlNode *n) throw(NoVersionFoundException, VersionMismatchException);
+
             xmlNode* rootXmlNode;
             xmlDoc* xmlMeiDocument;
             MeiDocument* meiDocument;
@@ -56,5 +56,4 @@ namespace mei {
     };
 }
 
-
-#endif // MEI_XMLIMPORT_IMPL_H_
+#endif  // MEI_XMLIMPORT_IMPL_H_

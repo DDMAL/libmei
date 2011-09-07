@@ -25,8 +25,6 @@
 #ifndef MEIELEMENT_H_
 #define MEIELEMENT_H_
 
-#include <libxml/xmlreader.h>
-
 #include <string>
 #include <vector>
 #include <map>
@@ -73,17 +71,11 @@ class MEI_EXPORT MeiElement
         /** \brief Get the id of this element.
          */
         const string getId();
-        
-        /** \brief Set the ID of this elelement.
-         *
-         *  The id MUST be unique in the document, if given.
-         */
-        void setId(string id);
 
         /** \brief Checks if the ID of the element is set.
          */
         bool hasId();
-    
+
         /** \brief Get the name of this element
          */
         const string getName();
@@ -122,12 +114,12 @@ class MEI_EXPORT MeiElement
          *  \return A const vector of the attributes on this element.
          */
         const vector<MeiAttribute*>& getAttributes();
-        
+
         /**
          * \brief add all of the given attributes to this element.
          */
         void setAttributes(const vector<MeiAttribute*> attrs);
-        
+
         /**
          * \brief Add an attribute to this element.
          *
@@ -135,7 +127,7 @@ class MEI_EXPORT MeiElement
          * this element, it is replaced.
          */
         void addAttribute(MeiAttribute *attribute);
-        
+
         /**
          * \brief Convienence method to get the attribute with a given name.
          *
@@ -147,7 +139,7 @@ class MEI_EXPORT MeiElement
          * \brief Remove the attribute with the given name.
          */
         void removeAttribute(string name);
-        
+
         /**
          * \brief See if this element has an attribute with the given name.
          */
@@ -178,29 +170,29 @@ class MEI_EXPORT MeiElement
          * This will remove any existing children.
          */
         void setChildren(vector<MeiElement*> children);
-        
+
         /**
          * \brief Get all of the children of this element.
          */
         const vector<MeiElement*>& getChildren();
-        
+
         /**
          * \brief Get all of the children of this element that have a given name.
          */
         const vector<MeiElement*> getChildrenByName(string name);
-        
+
         /**
          * \brief Remove all of the children of this element.
          *
          * The children are deleted and removed from the element.
          */
         void deleteAllChildren();
-        
+
         /**
          * \brief Remove the children from this element that have a given name.
          */
         void removeChildrenWithName(string cname);
-        
+
         /**
          * \brief Remove the specified element as a child from this element.
          *
@@ -208,7 +200,7 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-        
+
         /**
          * \brief Check if this element has any children with the given name.
          */
@@ -218,12 +210,15 @@ class MEI_EXPORT MeiElement
         void print();
 
         /** \brief Print a tree starting at this element, but indented.
-         *  \param l the indentation level. 
+         *  \param l the indentation level.
          */
         void print(int l);
+        template<typename T> static MeiElement* createT(std::string id);
 
     private:
+        void generateAndSetId();
         string id;
+        void setId(string id);
         string name;
         string value;
         string tail;
@@ -237,17 +232,30 @@ class MEI_EXPORT MeiElement
 // This implements the element map for allowing the creation of an element given its
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
-template<typename T> MeiElement* createT() { return new T(); }
+template<typename T> MeiElement* MeiElement::createT(std::string id) {
+    T *ret = new T();
+    if (id == "") {
+        ret->generateAndSetId();
+    } else {
+        ret->setId(id);
+    }
+    return ret;
+}
 
 struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)()> default_map;
-
-    static MeiElement* createInstance(std::string const& s) {
+    typedef std::map<std::string, MeiElement*(*)(string)> default_map;
+    /**
+     * \brief Create an instance of the element registered for the give type name.
+     * Types register a string using the REGISTER_DEFINITION and REGISTER_DECLARATION
+     * macros. The ID is optional. If it is not given, a new ID will be generated.
+     * \return an instance of the element, or NULL if the type doesn't exist.
+     */
+    static MeiElement* createInstance(std::string const& s, std::string const& id) {
         default_map::iterator it = getMap()->find(s);
         if (it == getMap()->end()) {
             return NULL;
         }
-        return it->second();
+        return it->second(id);
     }
 
     static bool inMap(std::string const& query) {
@@ -273,32 +281,22 @@ private:
     template<typename T>
     struct DerivedRegister : MeiFactory {
         DerivedRegister(std::string const& s) {
-            getMap()->insert(std::make_pair(s, &createT<T>));
+            getMap()->insert(std::make_pair(s, &MeiElement::createT<T>));
         }
     };
 
-    // template<typename T>
-    // struct NodeDerivedRegister : MeiFactory {
-    //     NodeDerivedRegister(std::string const& s) {
-    //         getNodeMap()->insert(std::make_pair(s, &createTFromNode<T>));
-    //     }
-    // };
-    
-    
-    // a special type of MeiElement for holding text values. This has the unique name of 
+    // a special type of MeiElement for holding text values. This has the unique name of
     // "_text" to avoid any confusion with "real" MEI elements.
     class MEI_EXPORT MeiTextNode : public MeiElement {
         public:
             MeiTextNode();
             virtual ~MeiTextNode();
-       
     };
-    
+
     class MEI_EXPORT MeiCommentNode : public MeiElement {
         public:
             MeiCommentNode();
             virtual ~MeiCommentNode();
     };
-
 }
 #endif  // MEIELEMENT_H_

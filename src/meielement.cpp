@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "meiattribute.h"
 
@@ -17,8 +18,43 @@ MeiFactory::default_map * MeiFactory::defaultmap;
 mei::MeiElement::MeiElement(string name) {
     this->name = name;
     this->value = "";
-    this->id = "";
     this->parent = NULL;
+    generateAndSetId();
+}
+
+extern "C"
+{
+#ifdef WIN32
+#include <Rpc.h>
+#else
+#include <uuid/uuid.h>
+#endif
+}
+
+void mei::MeiElement::generateAndSetId() {
+#ifdef WIN
+    UUID uuid;
+    UuidCreate(&uuid);
+
+    unsigned char *str;
+    UuidToStringA(&uuid, &str);
+
+    string s((char*) str);
+
+    RpcStringFreeA(&str);
+#else
+    uuid_t uuid;
+    uuid_generate_random(uuid);
+    char s[37];
+    uuid_unparse(uuid, s);
+#endif
+    string out;
+
+    // xml IDs can't start with a number, so we prepend "m-" to every ID.
+    out = "m-" + string(s);
+    std::transform(out.begin(), out.end(), out.begin(), ::tolower);
+
+    setId(out);
 }
 
 const string mei::MeiElement::getId() {
@@ -66,7 +102,11 @@ const vector<MeiAttribute*>& mei::MeiElement::getAttributes() {
 }
 
 void mei::MeiElement::setAttributes(const vector<MeiAttribute*> attrs) {
-    this->attributes = attrs;
+    attributes.clear();
+    // Add one at a time so the element link gets added
+    for (vector<MeiAttribute*>::const_iterator i = attrs.begin(); i != attrs.end(); ++i) {
+        addAttribute(*i);
+    }
 }
 
 MeiAttribute* mei::MeiElement::getAttribute(string name) {
@@ -87,6 +127,7 @@ bool mei::MeiElement::hasAttribute(string name) {
 
 void mei::MeiElement::addAttribute(MeiAttribute *attr) {
     removeAttribute(attr->getName());
+    attr->setElement(this);
     attributes.push_back(attr);
 }
 
@@ -258,7 +299,7 @@ vector<MeiElement*>& MeiElement::getPeers() {
 */
 
 mei::MeiTextNode::MeiTextNode() :
-    MeiElement("_text") 
+    MeiElement("_text")
 {
 }
 

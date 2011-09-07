@@ -42,7 +42,7 @@ namespace mei {
      *
      */
     class MeiElement;
-    
+
     class MEI_EXPORT MeiAttribute
         {
         public:
@@ -70,20 +70,19 @@ namespace mei {
 
             /** \brief Set/change the value of an attribute*/
             void setValue(std::string attrvalue);
-            
+
             MeiElement* getElement();
             void setElement(MeiElement* el);
-            
+
             bool hasNamespace();
             MeiNamespace* getNamespace();
             void setNamespace(MeiNamespace* ns);
-            
+
         private:
             std::string name;
             std::string value;
             MeiElement* element;
             MeiNamespace* ns;
-
         };
 }
 

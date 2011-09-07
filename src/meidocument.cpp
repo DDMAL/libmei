@@ -41,11 +41,9 @@ using mei::MeiNamespace;
 mei::MeiDocument::MeiDocument(string docname) {
     this->docname = docname;
     this->root = NULL;
-    
+
     // add the default MEI namespace
-    MeiNamespace* mei = new MeiNamespace();
-    mei->setHref(MEI_NS);
-    mei->setPrefix(MEI_PREFIX);
+    MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
 }
 
@@ -94,33 +92,18 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {
-    map<string, MeiElement*>::iterator it = idmap.find(id);
-    if (it != idmap.end()) {
-        return it->second;
+    return getElementById(id, root);
+}
+
+MeiElement* mei::MeiDocument::getElementById(string id, MeiElement *from) {
+    if (from->getId() == id) {
+        return from;
+    }
+    for (vector<MeiElement*>::const_iterator i = from->getChildren().begin(); i != from->getChildren().end(); ++i) {
+        MeiElement *ret = getElementById(id, *i);
+        if (ret != NULL) {
+            return ret;
+        }
     }
     return NULL;
-}
-
-mei::MeiElement* /*mei::MeiDocument::*/getElementById2(string cid) {
-//    for (vector<mei::MeiElement*>::const_iterator iter = root->getChildren().begin(); iter != root->getChildren().end(); ++iter) {
-//        if ((*iter)->getId() == cid) return *iter;
-//    }
-    return NULL;
-}
-
-map<string, MeiElement*> mei::MeiDocument::getMap() {
-    if (idmap.size() == 0) {
-        FillMap(root);
-    }
-    return idmap;
-}
-
-void mei::MeiDocument::FillMap(MeiElement* element) {
-    string idattr = element->getId();
-    if (idattr != "") {
-        idmap.insert(std::make_pair(idattr, element));
-    }
-    for (vector<MeiElement*>::const_iterator i = element->getChildren().begin(); i != element->getChildren().end(); ++i) {
-        FillMap(*i);
-    }
 }

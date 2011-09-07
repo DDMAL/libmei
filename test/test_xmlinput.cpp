@@ -12,13 +12,18 @@
 #include <mei/meielement.h>
 #include <mei/meidocument.h>
 #include <mei/exceptions.h>
+#include <mei/shared.h>
 
 using mei::MeiDocument;
-
+using mei::Note;
 
 TEST(TestMeiXmlImport, ReadFileIn) {
     MeiDocument* docf = mei::XmlImport::documentFromFile("beethoven.mei");
     ASSERT_NE((MeiDocument*)NULL, docf);
+
+    Note *n = dynamic_cast<Note*>(docf->getElementById("d1e41"));
+    ASSERT_EQ("c", n->m_Pitch.getPname()->getValue());
+    ASSERT_EQ("4", n->m_Octave.getOct()->getValue());
 }
 
 TEST(TestMeiXmlImport, ReadLargeFileIn) {

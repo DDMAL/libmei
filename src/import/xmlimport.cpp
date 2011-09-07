@@ -6,8 +6,8 @@
 //  Copyright 2011 McGill University. All rights reserved.
 //
 
-#include <iostream>
-#include <string.h>
+#include <string>
+
 #include <stdio.h>
 #include <libxml/xmlreader.h>
 
@@ -17,8 +17,6 @@
 #include "mei.h"
 
 using std::string;
-using std::cout;
-using std::endl;
 
 using mei::MeiDocument;
 using mei::MeiElement;
@@ -27,7 +25,6 @@ using mei::XmlImport;
 using mei::XmlImportImpl;
 
 XmlImport::XmlImport() : impl(new XmlImportImpl) {
-    
 }
 
 XmlImport::~XmlImport() {
@@ -42,18 +39,22 @@ MeiDocument* XmlImport::documentFromFile(const char *filename) {
 }
 
 XmlImportImpl::XmlImportImpl() {
+    rootXmlNode = NULL;
+    xmlMeiDocument = NULL;
+    meiDocument = NULL;
+    rootMeiElement = NULL;
 }
 
-MeiDocument* XmlImportImpl::documentFromFile(const char* filename) {
+MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
-    
-    if(this->checkCompatibility(this->rootXmlNode)) {
+
+    if (this->checkCompatibility(this->rootXmlNode)) {
         this->init();
-        return this->getMeiDocument();        
-    };
+        return this->getMeiDocument();
+    }
     return NULL;
 }
 
@@ -71,8 +72,8 @@ MeiDocument* XmlImportImpl::documentFromFile(const char* filename) {
 
 void XmlImportImpl::init() {
     MeiDocument *doc = new MeiDocument("test");
-    this->meiDocument = doc; 
-    
+    this->meiDocument = doc;
+
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
     doc->setRootElement(this->rootMeiElement);
 }
@@ -86,11 +87,45 @@ MeiDocument* XmlImportImpl::getMeiDocument() {
 }
 
 MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
-    
+
+    string id = "";
+    vector<MeiAttribute*> attributes;
+    // XML attributes and children. Text nodes will never have these.
+    if (el->properties) {
+        xmlAttr *curattr = NULL;
+        for (curattr = el->properties; curattr; curattr = curattr->next) {
+            if (curattr->atype == XML_ATTRIBUTE_ID) {
+                /* we store the ID on the element, not as an attribute. This will be serialized out
+                 *   on export
+                 */
+                id = (const char*)curattr->children->content;
+            } else {
+                string attrname = (const char*)curattr->name;
+                // values are rendered as children of the attribute *facepalm*
+                string attrvalue = (const char*)curattr->children->content;
+                MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
+
+                if (curattr->ns) {
+                    if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
+                        string prefix = (const char*)curattr->ns->prefix;
+                        string href = (const char*)curattr->ns->href;
+                        MeiNamespace* meins = new MeiNamespace(prefix, href);
+                        a->setNamespace(meins);
+                    } else {
+                        MeiNamespace* meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
+                        a->setNamespace(meins);
+                    }
+                }
+
+                attributes.push_back(a);
+            }
+        }
+    }
+
     MeiElement *obj;
-    
+
     if (el->type == XML_ELEMENT_NODE) {
-        obj = MeiFactory::createInstance((string((const char*)el->name)));   
+        obj = MeiFactory::createInstance((const char*)el->name, id);
     } else if (el->type == XML_TEXT_NODE) {
         obj = new MeiTextNode();
         obj->setValue(string((const char*)el->content));
@@ -100,60 +135,21 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     } else {
         return NULL;
     }
-    
-    // XML attributes and children. Text nodes will never have these.
-    if (el->properties) {
-        xmlAttr *curattr = NULL;
-        for (curattr = el->properties; curattr; curattr = curattr->next) {
-            if (curattr->atype == XML_ATTRIBUTE_ID) {
-                /* we store the ID on the element, not as an attribute. This will be serialized out
-                 *   on export 
-                 */
-                obj->setId(string((const char*)curattr->children->content));
-            } else {
-                string attrname = (const char*)curattr->name;
-                // values are rendered as children of the attribute *facepalm*
-                string attrvalue = (const char*)curattr->children->content;
-                MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
-                
-                if (curattr->ns) {
-                    if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
-                        MeiNamespace* meins = new MeiNamespace();
-                        meins->setPrefix(string((const char*)curattr->ns->prefix));
-                        meins->setHref(string((const char*)curattr->ns->href));
-                        this->meiDocument->addNamespace(meins);
-                        a->setNamespace(meins);
-                    } else {
-                        MeiNamespace* meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
-                        a->setNamespace(meins);
-                    }
-                }
-                
-                a->setElement(obj);
-                obj->addAttribute(a);                
-            }
-        }
-    }
-    
-    // if the attributes haven't set an ID, we'll set one now
-    if (obj->getId() == "") {
-        obj->setId(mei::generateId());
-    }
-    
+
     xmlNodePtr child = el->children;
     while (child != NULL) {
         MeiElement* ch = xmlNodeToMeiElement(child);
-        
+
         if (ch != NULL) {
             obj->addChild(ch);
         }
-        
+
         child = child->next;
     }
     return obj;
 }
 
-bool XmlImportImpl::checkCompatibility(xmlNode *r) throw (NoVersionFoundException, VersionMismatchException) {
+bool XmlImportImpl::checkCompatibility(xmlNode *r) throw(NoVersionFoundException, VersionMismatchException) {
     xmlAttrPtr meivers = xmlHasProp(r, (const xmlChar*)"meiversion");
     if (meivers == NULL) {
         throw NoVersionFoundException("");
@@ -174,7 +170,7 @@ MeiElement::MeiElement(xmlNode* node) {
     const xmlChar* attrprefix;
     xmlNode* attrvalue = NULL;
     xmlNs* xmlns = NULL;
-    
+
     if (node && node->type == XML_ELEMENT_NODE) {
         xmlns = node->ns;
         const xmlChar* childhref = xmlns->href;
@@ -186,10 +182,10 @@ MeiElement::MeiElement(xmlNode* node) {
         if (childprefix != NULL) {
             ns.prefix = (const char*)childprefix;
         }
-        
+
         this->ns = ns;
         this->name_ = (const char*)node->name;
-        
+
         if (node->nsDef != NULL) {
             if (node->nsDef->href != NULL && node->nsDef->prefix != NULL) {
                 string prefix = (const char*)(node->nsDef->prefix);
@@ -199,7 +195,7 @@ MeiElement::MeiElement(xmlNode* node) {
                 addAttribute(attribute);
             }
         }
-        
+
         if (node->properties) {
             for (curattr = node->properties; curattr; curattr = curattr->next) {
                 if (curattr->type == XML_ATTRIBUTE_NODE) {
@@ -227,7 +223,7 @@ MeiElement::MeiElement(xmlNode* node) {
                 }
             }
         }
-        
+
         for (curnode = node->children; curnode; curnode = curnode->next) {
             if ( curnode->type == XML_TEXT_NODE) {
                 setValue((const char *)curnode->content);
