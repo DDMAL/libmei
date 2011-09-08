@@ -208,6 +208,10 @@ void mei::MeiElement::removeChildrenWithName(string name) {
     }
 }
 
+bool mei::MeiElement::hasChildren() {
+    return this->children != NULL;
+}
+
 bool mei::MeiElement::hasChildren(string cname) {
     for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getName() == cname) return true;

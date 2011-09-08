@@ -200,7 +200,12 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-
+        
+        /**
+         * \brief Check if this element has any children.
+         */
+        bool hasChildren();
+        
         /**
          * \brief Check if this element has any children with the given name.
          */
