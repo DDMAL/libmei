@@ -336,8 +336,12 @@
 		0514A63D13FD6B8500310111 /* Import */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				B2E397B514018B3E00161BD2 /* xmlimport.h */,
 				0514A64013FD6BF100310111 /* xmlimport_impl.h */,
+=======
+				0514A64013FD6BF100310111 /* xmlimport.h */,
+>>>>>>> Stashed changes
 				0514A64213FD6C0900310111 /* xmlimport.cpp */,
 			);
 			name = Import;
