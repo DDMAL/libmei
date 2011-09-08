@@ -1,25 +1,25 @@
 /*
-    Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
-
-    Permission is hereby granted, free of charge, to any person obtaining
-    a copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be
-    included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+ Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
+ 
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ 
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 
 
 #include "meidocument.h"
@@ -50,7 +50,7 @@ void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
     this->meiVersion = MEI_VERSION;
-
+    
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
@@ -101,14 +101,12 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
     root->setDocument(this);
 }
 
-void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
-    idMap.insert(std::make_pair(id, element));
 string mei::MeiDocument::getVersion() {
     return meiVersion;
 }
 
-MeiElement* mei::MeiDocument::getElementById(string id) {
-    return getElementById(id, root);
+void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
+    idMap.insert(std::make_pair(id, element));
 }
 
 void mei::MeiDocument::rmIdMap(string id) {
@@ -125,3 +123,12 @@ MeiElement* mei::MeiDocument::getElementById(string id) {
     }
 }
 
+vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
+    vector<MeiElement*> ret;
+    for (map<string, MeiElement*>::iterator iter = idMap.begin(); iter != idMap.end(); ++iter) {
+        if ((*iter).second->getName() == name) {
+            ret.push_back((*iter).second);
+        }
+    }
+    return ret;
+}
