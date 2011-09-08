@@ -44,9 +44,14 @@ namespace mei {
  */
 class MEI_EXPORT MeiDocument {
     public:
-        /** \brief The MeiDocument Constructor, requires the document name and encoding
+        /**
+         * \brief Create a new Document with a specified name
          */
         MeiDocument(std::string docname);
+        /**
+         * \brief Create a new untitled document.
+         */
+        MeiDocument();
 
         /** \brief Get the name of the document
          *
@@ -63,6 +68,8 @@ class MEI_EXPORT MeiDocument {
         MeiNamespace* getNamespace(std::string href);
         std::vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
+
+        std::string getVersion();
 
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
@@ -83,7 +90,10 @@ class MEI_EXPORT MeiDocument {
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
         std::string docname;
+        /** The version of this MEI document. */
+        std::string meiVersion;
         MeiElement* root;
+        void init(std::string docname);
 
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(std::string href);

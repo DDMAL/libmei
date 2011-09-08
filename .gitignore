@@ -2,6 +2,7 @@
 *.swp
 *~.nib
 *.pyc
+*~
 
 build/
 

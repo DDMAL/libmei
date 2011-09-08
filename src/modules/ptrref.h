@@ -25,6 +25,7 @@
 #define PTRREF_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -45,7 +46,6 @@ class MEI_EXPORT Ptr : public MeiElement {
         CommonMixIn    m_Common;
         InternetmediaMixIn    m_Internetmedia;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
 
     private:
         REGISTER_DECLARATION(Ptr);
@@ -66,7 +66,6 @@ class MEI_EXPORT Ref : public MeiElement {
         InternetmediaMixIn    m_Internetmedia;
         LangMixIn    m_Lang;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
 
     private:
         REGISTER_DECLARATION(Ref);

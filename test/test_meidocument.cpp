@@ -83,3 +83,9 @@ TEST(TestMeiDocument, ElementById) {
     ASSERT_EQ(n5, doc->getElementById(newid));
 
 }
+
+// Making a document sets the version
+TEST(TestMeiDocument, SetVersion) {
+    mei::MeiDocument *doc = new mei::MeiDocument();
+    ASSERT_EQ("2011-05", doc->getVersion());
+}

@@ -39,8 +39,17 @@ using mei::MeiElement;
 using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument(string docname) {
+    init(docname);
+}
+
+mei::MeiDocument::MeiDocument() {
+    init("");
+}
+
+void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
+    this->meiVersion = MEI_VERSION;
 
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
@@ -94,6 +103,12 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
 
 void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
     idMap.insert(std::make_pair(id, element));
+string mei::MeiDocument::getVersion() {
+    return meiVersion;
+}
+
+MeiElement* mei::MeiDocument::getElementById(string id) {
+    return getElementById(id, root);
 }
 
 void mei::MeiDocument::rmIdMap(string id) {

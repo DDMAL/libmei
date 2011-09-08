@@ -3,14 +3,13 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Fig::Fig() :
     MeiElement("fig"),
     m_Common(this),
     m_Facsimile(this),
-    m_Pointing(this),
-    m_Targets(this),
     m_Xy(this)
 {
 }
@@ -34,7 +33,7 @@ mei::Graphic::Graphic() :
     m_Declaring(this),
     m_Internetmedia(this),
     m_Facsimile(this),
-    m_Targets(this),
+    m_Pointing(this),
     m_Measurement(this),
     m_Typed(this),
     m_Width(this)

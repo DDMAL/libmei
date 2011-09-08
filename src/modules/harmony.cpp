@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Barre::Barre() :
@@ -142,7 +143,7 @@ mei::Harm::Harm() :
     m_Common(this),
     m_Facsimile(this),
     m_HarmLog(this),
-    m_Targets(this),
+    m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),

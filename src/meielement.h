@@ -25,8 +25,6 @@
 #ifndef MEIELEMENT_H_
 #define MEIELEMENT_H_
 
-#include <libxml/xmlreader.h>
-
 #include <string>
 #include <vector>
 #include <map>
@@ -218,7 +216,12 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-
+        
+        /**
+         * \brief Check if this element has any children.
+         */
+        bool hasChildren();
+        
         /**
          * \brief Check if this element has any children with the given name.
          */
@@ -252,7 +255,7 @@ class MEI_EXPORT MeiElement
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 template<typename T> MeiElement* MeiElement::createT(std::string id) {
-    T *ret = new T();
+    MeiElement *ret = new T();
     if (id == "") {
         ret->generateAndSetId();
     } else {
