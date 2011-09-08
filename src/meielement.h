@@ -61,6 +61,10 @@ namespace mei {
  * You can create an MeiElement, but should probably use a subclass instead. That is,
  * use Note() instead of MeiElement("note").
  */
+
+// Forward declaration
+class MeiDocument;
+    
 class MEI_EXPORT MeiElement
     {
     public:
@@ -157,7 +161,17 @@ class MEI_EXPORT MeiElement
          */
         MeiElement *getParent();
 
+        /** \brief Links this element and it's children to the given document
+         *
+         *  Also updates the document id map for getElementById lookups
+         */
         void setDocument(MeiDocument *doc);
+        
+        /** \brief Removes the pointer from this element and it's children to its currently assigned document
+         *
+         *  Also updates the document id map for getElementById lookups
+         */
+        void removeDocument();
 
         /** \brief sets this element's parent to the given element
          */

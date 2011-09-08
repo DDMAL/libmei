@@ -96,6 +96,11 @@ void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
     idMap.insert(std::make_pair(id, element));
 }
 
+void mei::MeiDocument::rmIdMap(string id) {
+    map<string, MeiElement*>::iterator iter = idMap.find(id);
+    idMap.erase(iter);
+}
+
 MeiElement* mei::MeiDocument::getElementById(string id) {
     map<string, MeiElement*>::iterator iter = idMap.find(id);
     if (iter == idMap.end()) {

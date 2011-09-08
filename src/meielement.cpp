@@ -161,14 +161,18 @@ mei::MeiElement* mei::MeiElement::getParent() {
 
 void mei::MeiElement::setDocument(MeiDocument *document) {
     this->document = document;
+    document->addIdMap(id, this);
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
         (*iter)->setDocument(document);
     }
-    document->
 }
 
 void mei::MeiElement::removeDocument() {
-    
+    this->document->rmIdMap(id);
+    this->document = NULL;
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->removeDocument();
+    }
 }
 
 /** Working with Children **/

@@ -61,7 +61,7 @@ class MEI_EXPORT MeiDocument {
 
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);
-        vector<MeiNamespace*> getNamespaces();
+        std::vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
 
         /** \brief Find the root element of the tree structure in the Mei document*/
@@ -78,6 +78,7 @@ class MEI_EXPORT MeiDocument {
         MeiElement* getElementById(std::string id);
 
         void addIdMap(std::string, MeiElement*);
+        void rmIdMap(std::string id);
 
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
@@ -85,7 +86,7 @@ class MEI_EXPORT MeiDocument {
         MeiElement* root;
 
         std::vector<MeiNamespace*> namespaces;
-        bool nsMatch(string href);
+        bool nsMatch(std::string href);
 
         std::map<std::string, MeiElement*> idMap;
     };
