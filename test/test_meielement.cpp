@@ -197,8 +197,11 @@ TEST(MeiElementTest, TestSetChildren) {
 
 TEST(MeiElementTest, TestHasChildren) {
     MeiElement *p = new Note();
+    ASSERT_FALSE(p->hasChildren());
+    
     p->addChild(new Accid());
     ASSERT_TRUE(p->hasChildren("accid"));
+    ASSERT_TRUE(p->hasChildren());
     ASSERT_FALSE(p->hasChildren("artic"));
 }
 
