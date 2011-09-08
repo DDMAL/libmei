@@ -20,8 +20,6 @@ using mei::MeiDocument;
 using mei::MeiElement;
 using mei::XmlExport;
 
-using std::string;
-
 TEST(TextXmlMeiExport, TestBasicExport) {
     MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
     XmlExport::meiDocumentToFile(docf, "filename.mei");
