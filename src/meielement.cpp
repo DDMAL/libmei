@@ -236,7 +236,8 @@ void mei::MeiElement::removeChildrenWithName(string name) {
 }
 
 bool mei::MeiElement::hasChildren() {
-    return this->children != NULL;
+    // topsy-turvy world! returns true if not empty.
+    return !this->children.empty();
 }
 
 bool mei::MeiElement::hasChildren(string cname) {
