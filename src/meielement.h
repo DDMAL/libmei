@@ -40,9 +40,6 @@ static DerivedRegister<NAME> nodereg
 #define REGISTER_DEFINITION(NAME, s) \
 mei::DerivedRegister<NAME> NAME::nodereg(s)
 
-using std::string;
-using std::vector;
-
 namespace mei {
 
 /** \brief Base class to represent an element from the Mei schema.
@@ -68,13 +65,13 @@ class MEI_EXPORT MeiElement
     public:
         /** \brief Create a named MeiElement
          */
-        MeiElement(string name);
+        MeiElement(std::string name);
 
         virtual ~MeiElement() {}
 
         /** \brief Get the id of this element.
          */
-        const string getId();
+        const std::string getId();
 
         /** \brief Checks if the ID of the element is set.
          */
@@ -82,47 +79,47 @@ class MEI_EXPORT MeiElement
 
         /** \brief Get the name of this element
          */
-        const string getName();
+        const std::string getName();
 
         /** \brief Return the namespace associated with the Mei Element
          */
-        const string getNs();
+        const std::string getNs();
         /** \brief Set the namespace for this element.
          *
          *  If not given, the default MEI namespace will be used.
          */
-        void setNs(string ns);
+        void setNs(std::string ns);
 
         /** \brief get the xml tail of an Mei Element
          *
          *  \return The xml tail associated with the Mei Element or
          *          an empty string if the Mei Element has no tail
          */
-        const string getTail();
+        const std::string getTail();
 
         /** \brief Set the xml tail associated with the Mei Element */
-        void setTail(string tail);
+        void setTail(std::string tail);
 
         /** \brief Get the value associated with the Mei Element
          *
          *  \return A string indicating the value of the Mei Element or
          *          an empty string if the element has no value
          */
-        const string getValue();
+        const std::string getValue();
 
         /** \brief Set the value associated with the Mei Element */
-        void setValue(string value);
+        void setValue(std::string value);
 
         /** \brief Get a list of all the attributes associated with an Mei Element
          *
          *  \return A const vector of the attributes on this element.
          */
-        const vector<MeiAttribute*>& getAttributes();
+        const std::vector<MeiAttribute*>& getAttributes();
 
         /**
          * \brief add all of the given attributes to this element.
          */
-        void setAttributes(const vector<MeiAttribute*> attrs);
+        void setAttributes(const std::vector<MeiAttribute*> attrs);
 
         /**
          * \brief Add an attribute to this element.
@@ -137,17 +134,17 @@ class MEI_EXPORT MeiElement
          *
          * \return the attribute with this name, or NULL if the atribute doesn't exist.
          */
-        MeiAttribute* getAttribute(string name);
+        MeiAttribute* getAttribute(std::string name);
 
         /**
          * \brief Remove the attribute with the given name.
          */
-        void removeAttribute(string name);
+        void removeAttribute(std::string name);
 
         /**
          * \brief See if this element has an attribute with the given name.
          */
-        bool hasAttribute(string name);
+        bool hasAttribute(std::string name);
 
         /** \brief Check if this element has a parent element
          *
@@ -185,17 +182,17 @@ class MEI_EXPORT MeiElement
          *
          * This will remove any existing children.
          */
-        void setChildren(vector<MeiElement*> children);
+        void setChildren(std::vector<MeiElement*> children);
 
         /**
          * \brief Get all of the children of this element.
          */
-        const vector<MeiElement*>& getChildren();
+        const std::vector<MeiElement*>& getChildren();
 
         /**
          * \brief Get all of the children of this element that have a given name.
          */
-        const vector<MeiElement*> getChildrenByName(string name);
+        const std::vector<MeiElement*> getChildrenByName(std::string name);
 
         /**
          * \brief Remove all of the children of this element.
@@ -207,7 +204,7 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Remove the children from this element that have a given name.
          */
-        void removeChildrenWithName(string cname);
+        void removeChildrenWithName(std::string cname);
 
         /**
          * \brief Remove the specified element as a child from this element.
@@ -225,19 +222,19 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Check if this element has any children with the given name.
          */
-        bool hasChildren(string cname);
+        bool hasChildren(std::string cname);
         
         /**
          *  \brief Get the ancestor with a given name
          *
          *  \return MeiElement, or NULL if no ancestor is found.
          */
-        MeiElement* getAncestor(string name);
+        MeiElement* getAncestor(std::string name);
         
         /**
          *  \brief Get all descendants of the current element.
          */
-        vector<MeiElement*> getDescendants();
+        std::vector<MeiElement*> getDescendants();
         
         /** \brief Print a tree of elements with this one at the root. */
         void print();
@@ -250,20 +247,20 @@ class MEI_EXPORT MeiElement
 
     private:
         void generateAndSetId();
-        string id;
-        void setId(string id);
-        string name;
-        string value;
-        string tail;
-        string ns;
+        std::string id;
+        void setId(std::string id);
+        std::string name;
+        std::string value;
+        std::string tail;
+        std::string ns;
 
-        vector<MeiAttribute*> attributes;
-        vector<MeiElement*> children;
+        std::vector<MeiAttribute*> attributes;
+        std::vector<MeiElement*> children;
         MeiElement *parent;
         MeiDocument *document;
     
         MeiElement* traverseParent(std::string name, MeiElement *e);
-        vector<MeiElement*> flatten(MeiElement *e);
+        std::vector<MeiElement*> flatten(MeiElement *e);
 };
 
 // This implements the element map for allowing the creation of an element given its
@@ -280,7 +277,7 @@ template<typename T> MeiElement* MeiElement::createT(std::string id) {
 }
 
 struct MeiFactory {
-    typedef std::map<std::string, MeiElement*(*)(string)> default_map;
+    typedef std::map<std::string, MeiElement*(*)(std::string)> default_map;
     /**
      * \brief Create an instance of the element registered for the give type name.
      * Types register a string using the REGISTER_DEFINITION and REGISTER_DECLARATION

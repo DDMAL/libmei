@@ -19,6 +19,9 @@
 
 #include <gtest/gtest.h>
 
+using std::vector;
+using std::string;
+
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::Staff;
@@ -26,8 +29,6 @@ using mei::Layer;
 using mei::Accid;
 using mei::Note;
 
-using std::cout;
-using std::endl;
 
 TEST(MeiElementTest, TestConstructor) {
     MeiElement *m = new MeiElement("note");

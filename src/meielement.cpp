@@ -11,6 +11,8 @@
 #include "meidocument.h"
 
 using std::string;
+using std::vector;
+
 using mei::MeiAttribute;
 using mei::MeiFactory;
 using mei::MeiDocument;

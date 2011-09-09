@@ -89,7 +89,7 @@ class MEI_EXPORT MeiDocument {
          *  \return A vector of MeiElements
          *
          */
-        vector<MeiElement*> getElementsByName(std::string name);
+        std::vector<MeiElement*> getElementsByName(std::string name);
         
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);

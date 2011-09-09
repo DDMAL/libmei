@@ -9,10 +9,9 @@
 #include <mei/meinamespace.h>
 #include <mei/shared.h>
 
-using std::cout;
-using std::endl;
-
+using std::string;
 using std::vector;
+
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiNamespace;
