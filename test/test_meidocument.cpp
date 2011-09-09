@@ -130,3 +130,46 @@ TEST(TestMeiDocument, ElementsByName) {
     ASSERT_EQ(5, notes_new.size());
     
 }
+
+TEST(TestMeiDocument, GetAncestorTest) {
+    Mei *mei = new Mei();
+    string meiId = mei->getId();
+    
+    Music *mus = new Music();
+    string musId = mus->getId();
+    
+    Body *body = new Body();
+    Staff *staff = new Staff();
+    Staff *s2 = new Staff();
+    Note *n1 = new Note();
+    string wantedId = n1->getId();
+    Note *n2 = new Note();
+    Note *n3 = new Note();
+    Note *n4 = new Note();
+    
+    mei->addChild(mus);
+    mus->addChild(body);
+    body->addChild(staff);
+    body->addChild(s2);
+    staff->addChild(n1);
+    staff->addChild(n2);
+    staff->addChild(n3);
+    s2->addChild(n4);
+    
+    MeiDocument *doc = new MeiDocument("doc");
+    doc->setRootElement(mei);
+    
+    // check basic case
+    MeiElement* e = doc->getAncestor("music", n1);
+    ASSERT_EQ(e->getName(), "music");
+    ASSERT_EQ(e->getId(), musId);
+    
+    // check root element case
+    MeiElement* m = doc->getAncestor("mei", n1);
+    ASSERT_EQ(m->getId(), meiId);
+    
+    // check null case
+    MeiElement* n = doc->getAncestor("accid", n1);
+    ASSERT_EQ(NULL, n);
+    
+}
