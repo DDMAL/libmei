@@ -105,24 +105,6 @@ string mei::MeiDocument::getVersion() {
     return meiVersion;
 }
 
-MeiElement* mei::MeiDocument::getAncestor(string name, MeiElement *e) {
-    MeiElement* p = e->getParent();
-    if (p == this->root) {
-        if (p->getName() == name) {
-            return p;
-        } else {
-            return NULL;
-        }
-    }
-    if (p->getName() == name) {
-        return p;
-    } else {
-        return getAncestor(name, p);
-    }
-    // we shouldn't get here, but just in case we'll return null.
-    return NULL;
-}
-
 void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
     idMap.insert(std::make_pair(id, element));
 }

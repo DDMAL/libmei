@@ -226,7 +226,19 @@ class MEI_EXPORT MeiElement
          * \brief Check if this element has any children with the given name.
          */
         bool hasChildren(string cname);
-
+        
+        /**
+         *  \brief Get the ancestor with a given name
+         *
+         *  \return MeiElement, or NULL if no ancestor is found.
+         */
+        MeiElement* getAncestor(string name);
+        
+        /**
+         *  \brief Get all descendants of the current element.
+         */
+        vector<MeiElement*> getDescendants();
+        
         /** \brief Print a tree of elements with this one at the root. */
         void print();
 
@@ -249,6 +261,9 @@ class MEI_EXPORT MeiElement
         vector<MeiElement*> children;
         MeiElement *parent;
         MeiDocument *document;
+    
+        MeiElement* traverseParent(std::string name, MeiElement *e);
+        vector<MeiElement*> flatten(MeiElement *e);
 };
 
 // This implements the element map for allowing the creation of an element given its

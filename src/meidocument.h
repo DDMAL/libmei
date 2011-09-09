@@ -90,14 +90,7 @@ class MEI_EXPORT MeiDocument {
          *
          */
         vector<MeiElement*> getElementsByName(std::string name);
-    
-        /** \brief Get the ancestor of Element e with the given name.
-         *
-         *  \return MeiElement or NULL if no element is found with that name.
-         */
-        MeiElement* getAncestor(std::string name, MeiElement *e);
         
-    
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
@@ -112,9 +105,7 @@ class MEI_EXPORT MeiDocument {
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(std::string href);
 
-        std::map<std::string, MeiElement*> idMap;
-        MeiElement* traverseParent(MeiElement *p);
-        
+        std::map<std::string, MeiElement*> idMap;    
     };
 }
 #endif  // MEIDOCUMENT_H_
