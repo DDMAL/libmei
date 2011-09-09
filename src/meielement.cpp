@@ -181,6 +181,7 @@ void mei::MeiElement::addChild(MeiElement *child) {
     if (document) {
         child->setDocument(document);
     }
+    child->setParent(this);
     this->children.push_back(child);
 }
 

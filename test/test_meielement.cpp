@@ -173,6 +173,14 @@ TEST(MeiElementTest, TestAddChild) {
     ASSERT_EQ(2, p->getChildren().size());
 }
 
+TEST(MeiElementTest, TestAddChildWithParent) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    
+    p->addChild(c1);
+    ASSERT_EQ(p, c1->getParent());
+}
+
 TEST(MeiElementTest, TestSetChildren) {
     MeiElement *p = new Note();
     MeiElement *ch1 = new Accid();
