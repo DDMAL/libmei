@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Accessrestrict::Accessrestrict() :
@@ -158,7 +159,7 @@ mei::Contents::Contents() :
     MeiElement("contents"),
     m_Common(this),
     m_Bibl(this),
-    m_Targets(this)
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Contents, "contents");
@@ -407,6 +408,8 @@ MeiAttribute* mei::Incipcode::getSpace() {
 void mei::Incipcode::setSpace(std::string _space) {
     if (!hasAttribute("space")) {
         MeiAttribute *a = new MeiAttribute("space", _space);
+        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+        a->setNamespace(s);
         addAttribute(a);
     }
 };
@@ -740,7 +743,8 @@ mei::Relateditem::Relateditem() :
     MeiElement("relatedItem"),
     m_Datapointing(this),
     m_Common(this),
-    m_Bibl(this)
+    m_Bibl(this),
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Relateditem, "relatedItem");

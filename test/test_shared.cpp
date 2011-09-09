@@ -10,8 +10,10 @@
 #include <gtest/gtest.h>
 #include <mei/shared.h>
 #include <mei/meielement.h>
+#include <mei/meinamespace.h>
 using mei::MeiAttribute;
 using mei::MeiElement;
+using mei::MeiNamespace;
 using mei::Note;
 using mei::Accid;
 using mei::Layer;
@@ -59,7 +61,7 @@ TEST(MeiShared, NoteDefinedBaseMethodsTest) {
 }
 
 TEST(MeiShared, NoteMixinMethodsTest) {
-    Note * n = new Note();
+    Note *n = new Note();
     
     ASSERT_FALSE(n->m_Color.hasColor());
     
@@ -73,7 +75,7 @@ TEST(MeiShared, NoteMixinMethodsTest) {
 
 TEST(MeiShared, NoteMixinBaseMethodsTest) {
     // test the interaction between the special mixins and the base methods.
-    Note * n = new Note();
+    Note *n = new Note();
     
     n->m_Color.setColor("black");
     
@@ -82,4 +84,17 @@ TEST(MeiShared, NoteMixinBaseMethodsTest) {
     n->removeAttribute("color");
     
     ASSERT_FALSE(n->m_Color.hasColor());
+}
+
+TEST(MeiShared, NamespacedElementTest) {
+    Note *n = new Note();
+    n->m_Common.setBase("foobar");
+    ASSERT_TRUE(n->m_Common.hasBase());
+
+    MeiAttribute *a = n->m_Common.getBase();
+    ASSERT_TRUE(a->hasNamespace());
+
+    MeiNamespace *s = a->getNamespace();
+    ASSERT_EQ("http://www.w3.org/XML/1998/namespace", s->getHref());
+
 }

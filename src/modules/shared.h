@@ -25,6 +25,7 @@
 #define SHARED_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -112,7 +113,7 @@ class MEI_EXPORT Accid : public MeiElement {
         TypographyMixIn    m_Typography;
         AccidLogMixIn    m_AccidLog;
         AccidentalMixIn    m_Accidental;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -218,8 +219,7 @@ class MEI_EXPORT Annot : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
-        PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         ResponsibilityMixIn    m_Responsibility;
 
     private:
@@ -243,7 +243,7 @@ class MEI_EXPORT Artic : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         TypographyMixIn    m_Typography;
         ArticulationMixIn    m_Articulation;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -279,7 +279,6 @@ class MEI_EXPORT Barline : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         BarlineLogMixIn    m_BarlineLog;
         MeterconformanceBarMixIn    m_MeterconformanceBar;
         BarplacementMixIn    m_Barplacement;
@@ -310,7 +309,6 @@ class MEI_EXPORT Bibl : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
 
     private:
         REGISTER_DECLARATION(Bibl);
@@ -582,7 +580,7 @@ class MEI_EXPORT Dir : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -620,7 +618,7 @@ class MEI_EXPORT Dot : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         DotLogMixIn    m_DotLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -658,7 +656,7 @@ class MEI_EXPORT Dynam : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -720,7 +718,6 @@ class MEI_EXPORT Ending : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -787,7 +784,7 @@ class MEI_EXPORT Expansion : public MeiElement {
         CommonMixIn    m_Common;
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
 
     private:
         REGISTER_DECLARATION(Expansion);
@@ -1115,15 +1112,6 @@ class MEI_EXPORT Mei : public MeiElement {
     public:
         Mei();
         virtual ~Mei();
-        /** \brief regularizes the naming of an element and thus facilitates building links between
-         *  it and other resources.
-         * 
-         *  Each id attribute within a document must have a unique value.
-         */
-        MeiAttribute* getId();
-        void setId(std::string _id);
-        bool hasId();
-        void removeId();
 
         MeiversionMixIn    m_Meiversion;
 
@@ -1378,7 +1366,6 @@ class MEI_EXPORT Pb : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         SourceMixIn    m_Source;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -1509,7 +1496,7 @@ class MEI_EXPORT Phrase : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -1783,7 +1770,6 @@ class MEI_EXPORT Section : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         SectionVisMixIn    m_SectionVis;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -1992,7 +1978,7 @@ class MEI_EXPORT Tempo : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;

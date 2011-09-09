@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::AccidLogMixIn::AccidLogMixIn(MeiElement *b) {
@@ -724,27 +725,6 @@ mei::CommonMixIn::CommonMixIn(MeiElement *b) {
 };
 
 mei::CommonMixIn::~CommonMixIn() {}
-MeiAttribute* mei::CommonMixIn::getId() {
-    if (!b->hasAttribute("id")) {
-        throw AttributeNotFoundException("id");
-    }
-    return b->getAttribute("id");
-};
-
-void mei::CommonMixIn::setId(std::string _id) {
-    if (!b->hasAttribute("id")) {
-        MeiAttribute *a = new MeiAttribute("id", _id);
-        b->addAttribute(a);
-    }
-};
-
-bool mei::CommonMixIn::hasId() {
-    return b->hasAttribute("id");
-};
-
-void mei::CommonMixIn::removeId() {
-    b->removeAttribute("id");
-};
 MeiAttribute* mei::CommonMixIn::getLabel() {
     if (!b->hasAttribute("label")) {
         throw AttributeNotFoundException("label");
@@ -797,6 +777,8 @@ MeiAttribute* mei::CommonMixIn::getBase() {
 void mei::CommonMixIn::setBase(std::string _base) {
     if (!b->hasAttribute("base")) {
         MeiAttribute *a = new MeiAttribute("base", _base);
+        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -1808,6 +1790,8 @@ MeiAttribute* mei::LangMixIn::getLang() {
 void mei::LangMixIn::setLang(std::string _lang) {
     if (!b->hasAttribute("lang")) {
         MeiAttribute *a = new MeiAttribute("lang", _lang);
+        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -2789,6 +2773,54 @@ void mei::PlacementMixIn::removePlace() {
     b->removeAttribute("place");
 };
 
+mei::PlistMixIn::PlistMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::PlistMixIn::~PlistMixIn() {}
+MeiAttribute* mei::PlistMixIn::getPlist() {
+    if (!b->hasAttribute("plist")) {
+        throw AttributeNotFoundException("plist");
+    }
+    return b->getAttribute("plist");
+};
+
+void mei::PlistMixIn::setPlist(std::string _plist) {
+    if (!b->hasAttribute("plist")) {
+        MeiAttribute *a = new MeiAttribute("plist", _plist);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::PlistMixIn::hasPlist() {
+    return b->hasAttribute("plist");
+};
+
+void mei::PlistMixIn::removePlist() {
+    b->removeAttribute("plist");
+};
+MeiAttribute* mei::PlistMixIn::getEvaluate() {
+    if (!b->hasAttribute("evaluate")) {
+        throw AttributeNotFoundException("evaluate");
+    }
+    return b->getAttribute("evaluate");
+};
+
+void mei::PlistMixIn::setEvaluate(std::string _evaluate) {
+    if (!b->hasAttribute("evaluate")) {
+        MeiAttribute *a = new MeiAttribute("evaluate", _evaluate);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::PlistMixIn::hasEvaluate() {
+    return b->hasAttribute("evaluate");
+};
+
+void mei::PlistMixIn::removeEvaluate() {
+    b->removeAttribute("evaluate");
+};
+
 mei::PointingMixIn::PointingMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2804,6 +2836,8 @@ MeiAttribute* mei::PointingMixIn::getActuate() {
 void mei::PointingMixIn::setActuate(std::string _actuate) {
     if (!b->hasAttribute("actuate")) {
         MeiAttribute *a = new MeiAttribute("actuate", _actuate);
+        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -2825,6 +2859,8 @@ MeiAttribute* mei::PointingMixIn::getRole() {
 void mei::PointingMixIn::setRole(std::string _role) {
     if (!b->hasAttribute("role")) {
         MeiAttribute *a = new MeiAttribute("role", _role);
+        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -2846,6 +2882,8 @@ MeiAttribute* mei::PointingMixIn::getShow() {
 void mei::PointingMixIn::setShow(std::string _show) {
     if (!b->hasAttribute("show")) {
         MeiAttribute *a = new MeiAttribute("show", _show);
+        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -2856,6 +2894,27 @@ bool mei::PointingMixIn::hasShow() {
 
 void mei::PointingMixIn::removeShow() {
     b->removeAttribute("show");
+};
+MeiAttribute* mei::PointingMixIn::getTarget() {
+    if (!b->hasAttribute("target")) {
+        throw AttributeNotFoundException("target");
+    }
+    return b->getAttribute("target");
+};
+
+void mei::PointingMixIn::setTarget(std::string _target) {
+    if (!b->hasAttribute("target")) {
+        MeiAttribute *a = new MeiAttribute("target", _target);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::PointingMixIn::hasTarget() {
+    return b->hasAttribute("target");
+};
+
+void mei::PointingMixIn::removeTarget() {
+    b->removeAttribute("target");
 };
 MeiAttribute* mei::PointingMixIn::getTargettype() {
     if (!b->hasAttribute("targettype")) {
@@ -2888,6 +2947,8 @@ MeiAttribute* mei::PointingMixIn::getTitle() {
 void mei::PointingMixIn::setTitle(std::string _title) {
     if (!b->hasAttribute("title")) {
         MeiAttribute *a = new MeiAttribute("title", _title);
+        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+        a->setNamespace(s);
         b->addAttribute(a);
     }
 };
@@ -4164,54 +4225,6 @@ bool mei::SyltextMixIn::hasSyl() {
 
 void mei::SyltextMixIn::removeSyl() {
     b->removeAttribute("syl");
-};
-
-mei::TargetsMixIn::TargetsMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::TargetsMixIn::~TargetsMixIn() {}
-MeiAttribute* mei::TargetsMixIn::getPlist() {
-    if (!b->hasAttribute("plist")) {
-        throw AttributeNotFoundException("plist");
-    }
-    return b->getAttribute("plist");
-};
-
-void mei::TargetsMixIn::setPlist(std::string _plist) {
-    if (!b->hasAttribute("plist")) {
-        MeiAttribute *a = new MeiAttribute("plist", _plist);
-        b->addAttribute(a);
-    }
-};
-
-bool mei::TargetsMixIn::hasPlist() {
-    return b->hasAttribute("plist");
-};
-
-void mei::TargetsMixIn::removePlist() {
-    b->removeAttribute("plist");
-};
-MeiAttribute* mei::TargetsMixIn::getEvaluate() {
-    if (!b->hasAttribute("evaluate")) {
-        throw AttributeNotFoundException("evaluate");
-    }
-    return b->getAttribute("evaluate");
-};
-
-void mei::TargetsMixIn::setEvaluate(std::string _evaluate) {
-    if (!b->hasAttribute("evaluate")) {
-        MeiAttribute *a = new MeiAttribute("evaluate", _evaluate);
-        b->addAttribute(a);
-    }
-};
-
-bool mei::TargetsMixIn::hasEvaluate() {
-    return b->hasAttribute("evaluate");
-};
-
-void mei::TargetsMixIn::removeEvaluate() {
-    b->removeAttribute("evaluate");
 };
 
 mei::TextstyleMixIn::TextstyleMixIn(MeiElement *b) {

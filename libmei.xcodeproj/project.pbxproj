@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05138CEF14192BE00093C907 /* mei-update.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05138CDF14192B910093C907 /* mei-update.cpp */; };
 		0514A64313FD6C0900310111 /* xmlimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64213FD6C0900310111 /* xmlimport.cpp */; };
 		0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A64413FD6C2100310111 /* xmlexport.cpp */; };
 		0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A69013FDAAF500310111 /* test_xmlinput.cpp */; };
@@ -114,6 +115,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		05138CE314192BCC0093C907 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		05CEA56C13FC78890009A15E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +150,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05138CDE14192B910093C907 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		05138CDF14192B910093C907 /* mei-update.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "mei-update.cpp"; sourceTree = "<group>"; };
+		05138CE014192B910093C907 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		05138CE514192BCC0093C907 /* mei-update */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "mei-update"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0514A64013FD6BF100310111 /* xmlimport_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport_impl.h; path = src/import/xmlimport_impl.h; sourceTree = "<group>"; };
 		0514A64213FD6C0900310111 /* xmlimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlimport.cpp; path = src/import/xmlimport.cpp; sourceTree = "<group>"; };
 		0514A64413FD6C2100310111 /* xmlexport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport.cpp; path = src/export/xmlexport.cpp; sourceTree = "<group>"; };
@@ -254,6 +268,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05138CE214192BCC0093C907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CEA56B13FC78890009A15E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,8 +317,20 @@
 				61DBCC271312C04000B46918 /* mei_test */,
 				61DBCCCF1312C85D00B46918 /* mei.framework */,
 				05CEA56E13FC78890009A15E /* runmei */,
+				05138CE514192BCC0093C907 /* mei-update */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		05138CDD14192B910093C907 /* meiconverter */ = {
+			isa = PBXGroup;
+			children = (
+				05138CDE14192B910093C907 /* Makefile */,
+				05138CDF14192B910093C907 /* mei-update.cpp */,
+				05138CE014192B910093C907 /* readme.md */,
+			);
+			name = meiconverter;
+			path = util/meiconverter;
 			sourceTree = "<group>";
 		};
 		0514A63D13FD6B8500310111 /* Import */ = {
@@ -390,6 +423,7 @@
 		617B4333130453F500EBBE7F /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				05138CDD14192B910093C907 /* meiconverter */,
 				05CEA56913FC78520009A15E /* runmei.cpp */,
 				617B43351304540E00EBBE7F /* readmei.cpp */,
 			);
@@ -544,6 +578,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		05138CE414192BCC0093C907 /* mei-update */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05138CEC14192BCC0093C907 /* Build configuration list for PBXNativeTarget "mei-update" */;
+			buildPhases = (
+				05138CE114192BCC0093C907 /* Sources */,
+				05138CE214192BCC0093C907 /* Frameworks */,
+				05138CE314192BCC0093C907 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mei-update";
+			productName = "mei-update";
+			productReference = 05138CE514192BCC0093C907 /* mei-update */;
+			productType = "com.apple.product-type.tool";
+		};
 		05CEA56D13FC78890009A15E /* runmei */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05CEA57513FC78890009A15E /* Build configuration list for PBXNativeTarget "runmei" */;
@@ -639,6 +690,7 @@
 				61DBCC261312C04000B46918 /* mei_test */,
 				61DBCCCE1312C85D00B46918 /* mei */,
 				05CEA56D13FC78890009A15E /* runmei */,
+				05138CE414192BCC0093C907 /* mei-update */,
 			);
 		};
 /* End PBXProject section */
@@ -654,6 +706,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05138CE114192BCC0093C907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05138CEF14192BE00093C907 /* mei-update.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CEA56A13FC78890009A15E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -736,6 +796,45 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		05138CED14192BCC0093C907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05138CEE14192BCC0093C907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		05CEA57613FC78890009A15E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -954,6 +1053,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05138CEC14192BCC0093C907 /* Build configuration list for PBXNativeTarget "mei-update" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05138CED14192BCC0093C907 /* Debug */,
+				05138CEE14192BCC0093C907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		05CEA57513FC78890009A15E /* Build configuration list for PBXNativeTarget "runmei" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

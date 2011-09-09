@@ -1,25 +1,25 @@
 /*
-    Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
-
-    Permission is hereby granted, free of charge, to any person obtaining
-    a copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be
-    included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+ Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
+ 
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ 
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 
 
 #include "meidocument.h"
@@ -39,9 +39,18 @@ using mei::MeiElement;
 using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument(string docname) {
+    init(docname);
+}
+
+mei::MeiDocument::MeiDocument() {
+    init("");
+}
+
+void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
-
+    this->meiVersion = MEI_VERSION;
+    
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
@@ -89,21 +98,37 @@ MeiElement* mei::MeiDocument::getRootElement() {
 
 void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
+    root->setDocument(this);
+}
+
+string mei::MeiDocument::getVersion() {
+    return meiVersion;
+}
+
+void mei::MeiDocument::addIdMap(string id, MeiElement *element) {
+    idMap.insert(std::make_pair(id, element));
+}
+
+void mei::MeiDocument::rmIdMap(string id) {
+    map<string, MeiElement*>::iterator iter = idMap.find(id);
+    idMap.erase(iter);
 }
 
 MeiElement* mei::MeiDocument::getElementById(string id) {
-    return getElementById(id, root);
+    map<string, MeiElement*>::iterator iter = idMap.find(id);
+    if (iter == idMap.end()) {
+        return NULL;
+    } else {
+        return iter->second;
+    }
 }
 
-MeiElement* mei::MeiDocument::getElementById(string id, MeiElement *from) {
-    if (from->getId() == id) {
-        return from;
-    }
-    for (vector<MeiElement*>::const_iterator i = from->getChildren().begin(); i != from->getChildren().end(); ++i) {
-        MeiElement *ret = getElementById(id, *i);
-        if (ret != NULL) {
-            return ret;
+vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
+    vector<MeiElement*> ret;
+    for (map<string, MeiElement*>::iterator iter = idMap.begin(); iter != idMap.end(); ++iter) {
+        if ((*iter).second->getName() == name) {
+            ret.push_back((*iter).second);
         }
     }
-    return NULL;
+    return ret;
 }

@@ -59,6 +59,10 @@ namespace mei {
  * You can create an MeiElement, but should probably use a subclass instead. That is,
  * use Note() instead of MeiElement("note").
  */
+
+// Forward declaration
+class MeiDocument;
+    
 class MEI_EXPORT MeiElement
     {
     public:
@@ -155,6 +159,18 @@ class MEI_EXPORT MeiElement
          */
         MeiElement *getParent();
 
+        /** \brief Links this element and it's children to the given document
+         *
+         *  Also updates the document id map for getElementById lookups
+         */
+        void setDocument(MeiDocument *doc);
+        
+        /** \brief Removes the pointer from this element and it's children to its currently assigned document
+         *
+         *  Also updates the document id map for getElementById lookups
+         */
+        void removeDocument();
+
         /** \brief sets this element's parent to the given element
          */
         void setParent(MeiElement *parent);
@@ -200,7 +216,12 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-
+        
+        /**
+         * \brief Check if this element has any children.
+         */
+        bool hasChildren();
+        
         /**
          * \brief Check if this element has any children with the given name.
          */
@@ -227,13 +248,14 @@ class MEI_EXPORT MeiElement
         vector<MeiAttribute*> attributes;
         vector<MeiElement*> children;
         MeiElement *parent;
+        MeiDocument *document;
 };
 
 // This implements the element map for allowing the creation of an element given its
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
 template<typename T> MeiElement* MeiElement::createT(std::string id) {
-    T *ret = new T();
+    MeiElement *ret = new T();
     if (id == "") {
         ret->generateAndSetId();
     } else {

@@ -25,6 +25,7 @@
 #define CMNORNAMENTS_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -51,7 +52,7 @@ class MEI_EXPORT Mordent : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         MordentLogMixIn    m_MordentLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -91,7 +92,7 @@ class MEI_EXPORT Trill : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -132,7 +133,7 @@ class MEI_EXPORT Turn : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TurnLogMixIn    m_TurnLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;

@@ -9,7 +9,9 @@
 #include <mei/meinamespace.h>
 #include <mei/shared.h>
 
+using std::vector;
 using mei::MeiDocument;
+using mei::MeiElement;
 using mei::MeiNamespace;
 using mei::Mei;
 using mei::Music;
@@ -82,4 +84,49 @@ TEST(TestMeiDocument, ElementById) {
     s2->addChild(n5);
     ASSERT_EQ(n5, doc->getElementById(newid));
 
+}
+
+// Making a document sets the version
+TEST(TestMeiDocument, SetVersion) {
+    mei::MeiDocument *doc = new mei::MeiDocument();
+    ASSERT_EQ("2011-05", doc->getVersion());
+}
+
+TEST(TestMeiDocument, ElementsByName) {
+    Mei *mei = new Mei();
+    Music *mus = new Music();
+    Body *body = new Body();
+    Staff *staff = new Staff();
+    Staff *s2 = new Staff();
+    Note *n1 = new Note();
+    string wantedId = n1->getId();
+    Note *n2 = new Note();
+    Note *n3 = new Note();
+    Note *n4 = new Note();
+    
+    mei->addChild(mus);
+    mus->addChild(body);
+    body->addChild(staff);
+    body->addChild(s2);
+    staff->addChild(n1);
+    staff->addChild(n2);
+    staff->addChild(n3);
+    s2->addChild(n4);
+    
+    MeiDocument *doc = new MeiDocument("doc");
+    doc->setRootElement(mei);
+    
+    std::vector<MeiElement*> notes = doc->getElementsByName("note");
+    ASSERT_EQ(4, notes.size());
+    
+    std::vector<MeiElement*> rests = doc->getElementsByName("rest");
+    ASSERT_EQ(0, rests.size());
+
+    // After adding the root element, making a new element works
+    Note *n5 = new Note();
+    staff->addChild(n5);
+    
+    std::vector<MeiElement*> notes_new = doc->getElementsByName("note");
+    ASSERT_EQ(5, notes_new.size());
+    
 }

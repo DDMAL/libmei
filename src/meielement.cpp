@@ -8,10 +8,12 @@
 #include <algorithm>
 
 #include "meiattribute.h"
+#include "meidocument.h"
 
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiFactory;
+using mei::MeiDocument;
 
 MeiFactory::default_map * MeiFactory::defaultmap;
 
@@ -19,8 +21,11 @@ mei::MeiElement::MeiElement(string name) {
     this->name = name;
     this->value = "";
     this->parent = NULL;
+    this->document = NULL;
     generateAndSetId();
 }
+
+// XXX: destructor - remove element from document map
 
 extern "C"
 {
@@ -154,15 +159,36 @@ mei::MeiElement* mei::MeiElement::getParent() {
     return this->parent;
 }
 
+void mei::MeiElement::setDocument(MeiDocument *document) {
+    this->document = document;
+    document->addIdMap(id, this);
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->setDocument(document);
+    }
+}
+
+void mei::MeiElement::removeDocument() {
+    this->document->rmIdMap(id);
+    this->document = NULL;
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->removeDocument();
+    }
+}
+
 /** Working with Children **/
 
 void mei::MeiElement::addChild(MeiElement *child) {
+    if (document) {
+        child->setDocument(document);
+    }
     this->children.push_back(child);
 }
 
 void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     deleteAllChildren();
-    this->children = children;
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        addChild(*iter);
+    }
 }
 
 const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
@@ -190,6 +216,7 @@ void mei::MeiElement::removeChild(MeiElement *child) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         if (child == *iter) {
+            // XXX: Remove child from document map
             iter = this->children.erase(iter);
         } else {
             ++iter;
@@ -206,6 +233,11 @@ void mei::MeiElement::removeChildrenWithName(string name) {
             ++iter;
         }
     }
+}
+
+bool mei::MeiElement::hasChildren() {
+    // topsy-turvy world! returns true if not empty.
+    return !this->children.empty();
 }
 
 bool mei::MeiElement::hasChildren(string cname) {
