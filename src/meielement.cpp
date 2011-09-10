@@ -260,6 +260,14 @@ vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     return res;
 }
 
+vector<mei::MeiElement*> mei::MeiElement::getPeers() {
+    if (this->parent) {
+        return this->parent->getChildren();
+    }
+    vector<mei::MeiElement*> emptyres;
+    return emptyres;
+}
+
 void mei::MeiElement::print() {
     print(0);
 }

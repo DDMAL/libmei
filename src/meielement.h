@@ -236,6 +236,19 @@ class MEI_EXPORT MeiElement
          */
         std::vector<MeiElement*> getDescendants();
         
+        /**
+         *  \brief Get all the peer elements of the current element.
+         *      Note that this will return a list of all the children
+         *      of this objects parent, including itself. This is done
+         *      so that we can preserve ordering amongst peer elements.
+         *      In other words, removing self from the list of peer 
+         *      elements would be a bad idea, since we wouldn't know 
+         *      where this element occurs in relation to its peers.
+         *
+         *  \return A vector of MeiElements (possibly empty).
+         */
+        std::vector<MeiElement*> getPeers();
+        
         /** \brief Print a tree of elements with this one at the root. */
         void print();
 

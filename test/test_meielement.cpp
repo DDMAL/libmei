@@ -353,3 +353,32 @@ TEST(MeiElementTest, GetDescendentsTest) {
     
 }
 
+TEST(MeiElementTest, GetPeersTest) {
+    MeiElement *m1 = new MeiElement("music");
+    string musicId = m1->getId();
+    MeiElement *b1 = new MeiElement("body");
+    MeiElement *s1 = new MeiElement("staff");
+    MeiElement *n1 = new MeiElement("note");
+    string nId = n1->getId();
+    MeiElement *n2 = new MeiElement("note");
+    MeiElement *n3 = new MeiElement("note");
+    MeiElement *n4 = new MeiElement("note");    
+    string n4Id = n4->getId();
+    
+    m1->addChild(b1);
+    b1->addChild(s1);
+    s1->addChild(n1);
+    s1->addChild(n2);
+    s1->addChild(n3);
+    s1->addChild(n4);
+    
+    vector<MeiElement*> res = n2->getPeers();
+    
+    ASSERT_EQ(4, res.size());
+    
+    // check the ordering
+    ASSERT_EQ(nId, res[0]->getId());
+    ASSERT_EQ(n4Id, res[3]->getId());
+    
+}
+
