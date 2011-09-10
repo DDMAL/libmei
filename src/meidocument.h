@@ -83,15 +83,14 @@ class MEI_EXPORT MeiDocument {
          *   the element doesn't exist
          */
         MeiElement* getElementById(std::string id);
-        
     
         /** \brief Get the elements with a given name
          *
          *  \return A vector of MeiElements
          *
          */
-        vector<MeiElement*> getElementsByName(std::string name);
-
+        std::vector<MeiElement*> getElementsByName(std::string name);
+        
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
@@ -106,7 +105,7 @@ class MEI_EXPORT MeiDocument {
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(std::string href);
 
-        std::map<std::string, MeiElement*> idMap;
+        std::map<std::string, MeiElement*> idMap;    
     };
 }
 #endif  // MEIDOCUMENT_H_

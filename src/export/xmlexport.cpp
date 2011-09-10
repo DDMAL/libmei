@@ -20,6 +20,7 @@
 #include "shared.h"
 
 using std::string;
+using std::vector;
 
 using mei::MeiDocument;
 using mei::MeiElement;

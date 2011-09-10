@@ -19,12 +19,16 @@
 
 #include <gtest/gtest.h>
 
+using std::vector;
+using std::string;
+
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::Staff;
 using mei::Layer;
 using mei::Accid;
 using mei::Note;
+
 
 TEST(MeiElementTest, TestConstructor) {
     MeiElement *m = new MeiElement("note");
@@ -173,6 +177,14 @@ TEST(MeiElementTest, TestAddChild) {
     ASSERT_EQ(2, p->getChildren().size());
 }
 
+TEST(MeiElementTest, TestAddChildWithParent) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new Accid();
+    
+    p->addChild(c1);
+    ASSERT_EQ(p, c1->getParent());
+}
+
 TEST(MeiElementTest, TestSetChildren) {
     MeiElement *p = new Note();
     MeiElement *ch1 = new Accid();
@@ -294,3 +306,50 @@ TEST(MeiElementTest, TestDeleteChildren) {
     p->deleteAllChildren();
     ASSERT_EQ(0, p->getChildren().size());
 }
+
+TEST(MeiElementTest, GetAncestorTest) {
+    MeiElement *m1 = new MeiElement("music");
+    string musicId = m1->getId();
+    MeiElement *b1 = new MeiElement("body");
+    string bodyId = b1->getId();
+    MeiElement *s1 = new MeiElement("staff");
+    MeiElement *n1 = new MeiElement("note");
+    MeiElement *a1 = new MeiElement("accid");
+    
+    m1->addChild(b1);
+    b1->addChild(s1);
+    s1->addChild(n1);
+    n1->addChild(a1);
+    
+    // test basic case
+    ASSERT_EQ(bodyId, a1->getAncestor("body")->getId());
+    
+    // test root case
+    ASSERT_EQ(musicId, a1->getAncestor("music")->getId());
+    
+    // test null case
+    ASSERT_EQ(NULL, a1->getAncestor("mei"));
+}
+
+TEST(MeiElementTest, GetDescendentsTest) {
+    MeiElement *m1 = new MeiElement("music");
+    string musicId = m1->getId();
+    MeiElement *b1 = new MeiElement("body");
+    MeiElement *s1 = new MeiElement("staff");
+    MeiElement *n1 = new MeiElement("note");
+    MeiElement *a1 = new MeiElement("accid");
+    
+    m1->addChild(b1);
+    b1->addChild(s1);
+    s1->addChild(n1);
+    n1->addChild(a1);
+    
+    // check basic case
+    vector<MeiElement*> res = m1->getDescendants();
+    ASSERT_EQ(4, res.size());
+    
+    vector<MeiElement*> res2 = a1->getDescendants();
+    ASSERT_EQ(0, res2.size());
+    
+}
+
