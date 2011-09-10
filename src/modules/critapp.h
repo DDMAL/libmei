@@ -25,6 +25,7 @@
 #define CRITAPP_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -81,7 +82,6 @@ class MEI_EXPORT Lem : public MeiElement {
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -109,7 +109,6 @@ class MEI_EXPORT Rdg : public MeiElement {
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 

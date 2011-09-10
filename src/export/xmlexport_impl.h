@@ -26,6 +26,8 @@
 
 #include <string>
 
+#include <libxml/xmlreader.h>
+
 #include "xmlexport.h"
 #include "meidocument.h"
 
@@ -40,7 +42,7 @@ namespace mei {
         xmlNode* meiElementToXmlNode(MeiElement *el);
         void outputToFile(const char* filename);
 
-        bool meiDocumentToFile(string filename);
+        bool meiDocumentToFile(std::string filename);
         std::string meiDocumentToText();
 
         MeiDocument* meiDocument;

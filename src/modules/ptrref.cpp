@@ -3,14 +3,14 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Ptr::Ptr() :
     MeiElement("ptr"),
     m_Common(this),
     m_Internetmedia(this),
-    m_Pointing(this),
-    m_Targets(this)
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Ptr, "ptr");
@@ -22,8 +22,7 @@ mei::Ref::Ref() :
     m_Common(this),
     m_Internetmedia(this),
     m_Lang(this),
-    m_Pointing(this),
-    m_Targets(this)
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Ref, "ref");

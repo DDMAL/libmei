@@ -25,6 +25,7 @@
 #define HARMONY_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -188,7 +189,7 @@ class MEI_EXPORT Harm : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         HarmLogMixIn    m_HarmLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;

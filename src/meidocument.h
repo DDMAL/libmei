@@ -44,9 +44,14 @@ namespace mei {
  */
 class MEI_EXPORT MeiDocument {
     public:
-        /** \brief The MeiDocument Constructor, requires the document name and encoding
+        /**
+         * \brief Create a new Document with a specified name
          */
         MeiDocument(std::string docname);
+        /**
+         * \brief Create a new untitled document.
+         */
+        MeiDocument();
 
         /** \brief Get the name of the document
          *
@@ -61,8 +66,10 @@ class MEI_EXPORT MeiDocument {
 
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);
-        vector<MeiNamespace*> getNamespaces();
+        std::vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
+
+        std::string getVersion();
 
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
@@ -76,14 +83,29 @@ class MEI_EXPORT MeiDocument {
          *   the element doesn't exist
          */
         MeiElement* getElementById(std::string id);
+    
+        /** \brief Get the elements with a given name
+         *
+         *  \return A vector of MeiElements
+         *
+         */
+        std::vector<MeiElement*> getElementsByName(std::string name);
+        
+        void addIdMap(std::string, MeiElement*);
+        void rmIdMap(std::string id);
 
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
         std::string docname;
+        /** The version of this MEI document. */
+        std::string meiVersion;
         MeiElement* root;
+        void init(std::string docname);
 
         std::vector<MeiNamespace*> namespaces;
-        bool nsMatch(string href);
+        bool nsMatch(std::string href);
+
+        std::map<std::string, MeiElement*> idMap;    
     };
 }
 #endif  // MEIDOCUMENT_H_

@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::Avfile::Avfile() :
@@ -11,7 +12,7 @@ mei::Avfile::Avfile() :
     m_Declaring(this),
     m_Internetmedia(this),
     m_Facsimile(this),
-    m_Targets(this),
+    m_Pointing(this),
     m_Typed(this)
 {
 }

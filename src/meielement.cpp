@@ -8,10 +8,14 @@
 #include <algorithm>
 
 #include "meiattribute.h"
+#include "meidocument.h"
 
 using std::string;
+using std::vector;
+
 using mei::MeiAttribute;
 using mei::MeiFactory;
+using mei::MeiDocument;
 
 MeiFactory::default_map * MeiFactory::defaultmap;
 
@@ -19,8 +23,11 @@ mei::MeiElement::MeiElement(string name) {
     this->name = name;
     this->value = "";
     this->parent = NULL;
+    this->document = NULL;
     generateAndSetId();
 }
+
+// XXX: destructor - remove element from document map
 
 extern "C"
 {
@@ -154,15 +161,37 @@ mei::MeiElement* mei::MeiElement::getParent() {
     return this->parent;
 }
 
+void mei::MeiElement::setDocument(MeiDocument *document) {
+    this->document = document;
+    document->addIdMap(id, this);
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->setDocument(document);
+    }
+}
+
+void mei::MeiElement::removeDocument() {
+    this->document->rmIdMap(id);
+    this->document = NULL;
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->removeDocument();
+    }
+}
+
 /** Working with Children **/
 
 void mei::MeiElement::addChild(MeiElement *child) {
+    if (document) {
+        child->setDocument(document);
+    }
+    child->setParent(this);
     this->children.push_back(child);
 }
 
 void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     deleteAllChildren();
-    this->children = children;
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        addChild(*iter);
+    }
 }
 
 const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
@@ -190,6 +219,7 @@ void mei::MeiElement::removeChild(MeiElement *child) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         if (child == *iter) {
+            // XXX: Remove child from document map
             iter = this->children.erase(iter);
         } else {
             ++iter;
@@ -208,11 +238,26 @@ void mei::MeiElement::removeChildrenWithName(string name) {
     }
 }
 
+bool mei::MeiElement::hasChildren() {
+    // topsy-turvy world! returns true if not empty.
+    return !this->children.empty();
+}
+
 bool mei::MeiElement::hasChildren(string cname) {
     for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getName() == cname) return true;
     }
     return false;
+}
+
+mei::MeiElement* mei::MeiElement::getAncestor(string name) {
+    // we shouldn't get here, but just in case we'll return null.
+    return this->traverseParent(name, this);
+}
+
+vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
+    vector<mei::MeiElement*> res = this->flatten(this);
+    return res;
 }
 
 void mei::MeiElement::print() {
@@ -239,6 +284,33 @@ void mei::MeiElement::print(int level) {
     }
 }
 
+mei::MeiElement* mei::MeiElement::traverseParent(std::string name, mei::MeiElement *e) {
+    MeiElement* p = e->getParent();
+    if (p == NULL) {
+        return NULL;
+    }
+    if (p->getName() == name) {
+        return p;
+    } else {
+        return traverseParent(name, p);
+    }
+    return NULL;
+}
+
+vector<mei::MeiElement*> mei::MeiElement::flatten(MeiElement *e) {
+    vector<MeiElement*> res;
+    vector<MeiElement*> children = e->getChildren();
+    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        res.push_back(*iter);
+        
+        if ((*iter)->hasChildren()) {
+            vector<MeiElement*> subres = this->flatten((*iter));
+            res.insert(res.end(), subres.begin(), subres.end());
+        }
+        
+    }
+    return res;
+}
 
 
 /*

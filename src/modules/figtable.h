@@ -25,6 +25,7 @@
 #define FIGTABLE_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -47,8 +48,6 @@ class MEI_EXPORT Fig : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         XyMixIn    m_Xy;
 
     private:
@@ -97,7 +96,7 @@ class MEI_EXPORT Graphic : public MeiElement {
         DeclaringMixIn    m_Declaring;
         InternetmediaMixIn    m_Internetmedia;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PointingMixIn    m_Pointing;
         MeasurementMixIn    m_Measurement;
         TypedMixIn    m_Typed;
         WidthMixIn    m_Width;

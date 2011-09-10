@@ -17,6 +17,7 @@
 #include "mei.h"
 
 using std::string;
+using std::vector;
 
 using mei::MeiDocument;
 using mei::MeiElement;
@@ -135,6 +136,7 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
     } else {
         return NULL;
     }
+    obj->setAttributes(attributes);
 
     xmlNodePtr child = el->children;
     while (child != NULL) {

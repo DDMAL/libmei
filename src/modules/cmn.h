@@ -25,6 +25,7 @@
 #define CMN_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -58,7 +59,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         ArpegLogMixIn    m_ArpegLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -155,7 +156,7 @@ class MEI_EXPORT Beamspan : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -220,7 +221,7 @@ class MEI_EXPORT Bend : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -263,7 +264,7 @@ class MEI_EXPORT Breath : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -332,7 +333,7 @@ class MEI_EXPORT Fermata : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -375,7 +376,7 @@ class MEI_EXPORT Gliss : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -418,7 +419,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         HairpinLogMixIn    m_HairpinLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -486,7 +487,7 @@ class MEI_EXPORT Harppedal : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         HarppedalLogMixIn    m_HarppedalLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -641,7 +642,6 @@ class MEI_EXPORT Measure : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
-        TargetsMixIn    m_Targets;
         MeasureLogMixIn    m_MeasureLog;
         MeterconformanceBarMixIn    m_MeterconformanceBar;
         BarplacementMixIn    m_Barplacement;
@@ -735,7 +735,7 @@ class MEI_EXPORT Octave : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         OctaveLogMixIn    m_OctaveLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -797,7 +797,7 @@ class MEI_EXPORT Pedal : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PedalLogMixIn    m_PedalLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -876,7 +876,7 @@ class MEI_EXPORT Slur : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -918,7 +918,7 @@ class MEI_EXPORT Tie : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -1004,7 +1004,7 @@ class MEI_EXPORT Tupletspan : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TupletspanLogMixIn    m_TupletspanLog;
-        TargetsMixIn    m_Targets;
+        PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;

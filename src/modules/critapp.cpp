@@ -3,6 +3,7 @@
 #include <string>
 using std::string;
 using mei::MeiAttribute;
+using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
 mei::App::App() :
@@ -25,7 +26,6 @@ mei::Lem::Lem() :
     m_Source(this),
     m_Typed(this),
     m_Pointing(this),
-    m_Targets(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -44,7 +44,6 @@ mei::Rdg::Rdg() :
     m_Source(this),
     m_Typed(this),
     m_Pointing(this),
-    m_Targets(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {

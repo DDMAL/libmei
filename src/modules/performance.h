@@ -25,6 +25,7 @@
 #define PERFORMANCE_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include "mei.h"
 #include "sharedmixins.h"
@@ -46,7 +47,7 @@ class MEI_EXPORT Avfile : public MeiElement {
         DeclaringMixIn    m_Declaring;
         InternetmediaMixIn    m_Internetmedia;
         FacsimileMixIn    m_Facsimile;
-        TargetsMixIn    m_Targets;
+        PointingMixIn    m_Pointing;
         TypedMixIn    m_Typed;
 
     private:

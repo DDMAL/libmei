@@ -25,6 +25,7 @@
 #define SHAREDMIXIN_H_
 
 #include "meielement.h"
+#include "meinamespace.h"
 #include "exceptions.h"
 #include <string>
 
@@ -430,15 +431,6 @@ class CommonMixIn {
     public:
         explicit CommonMixIn(MeiElement *b);
         virtual ~CommonMixIn();
-        /** \brief regularizes the naming of an element and thus facilitates building links between
-         *  it and other resources.
-         * 
-         *  Each id attribute within a document must have a unique value.
-         */
-        MeiAttribute* getId();
-        void setId(std::string _id);
-        bool hasId();
-        void removeId();
         /** \brief provides a label for an element.
          * 
          *  The value may be any string.
@@ -551,8 +543,8 @@ class CustosLogMixIn {
     public:
         explicit CustosLogMixIn(MeiElement *b);
         virtual ~CustosLogMixIn();
-        /** \brief encodes the target note when its pitch differs from the pitch at which the
-         *  custos appears.
+        /** \brief allows the use of one or more previously-undeclared URIs to identify an external
+         *  electronic object.
          */
         MeiAttribute* getTarget();
         void setTarget(std::string _target);
@@ -1495,6 +1487,28 @@ class PlacementMixIn {
         MeiElement *b;
 };
 
+class PlistMixIn {
+    public:
+        explicit PlistMixIn(MeiElement *b);
+        virtual ~PlistMixIn();
+        /** \brief contains a space separated list of references that identify logical events that
+         *  participate in a collection, such as notes under a phrase mark.
+         */
+        MeiAttribute* getPlist();
+        void setPlist(std::string _plist);
+        bool hasPlist();
+        void removePlist();
+        /** \brief specifies the intended meaning when the target of a pointer is itself a pointer.
+         */
+        MeiAttribute* getEvaluate();
+        void setEvaluate(std::string _evaluate);
+        bool hasEvaluate();
+        void removeEvaluate();
+
+    private:
+        MeiElement *b;
+};
+
 class PointingMixIn {
     public:
         explicit PointingMixIn(MeiElement *b);
@@ -1525,6 +1539,13 @@ class PointingMixIn {
         void setShow(std::string _show);
         bool hasShow();
         void removeShow();
+        /** \brief allows the use of one or more previously-undeclared URIs to identify an external
+         *  electronic object.
+         */
+        MeiAttribute* getTarget();
+        void setTarget(std::string _target);
+        bool hasTarget();
+        void removeTarget();
         /** \brief in contrast with the role attribute, allows the target resource to be
          *  characterized using any convenient classification scheme or typology.
          */
@@ -2099,28 +2120,6 @@ class SyltextMixIn {
         void setSyl(std::string _syl);
         bool hasSyl();
         void removeSyl();
-
-    private:
-        MeiElement *b;
-};
-
-class TargetsMixIn {
-    public:
-        explicit TargetsMixIn(MeiElement *b);
-        virtual ~TargetsMixIn();
-        /** \brief contains a space separated list of ID references that identify logical events
-         *  that participate in a collection, such as notes under a phrase mark.
-         */
-        MeiAttribute* getPlist();
-        void setPlist(std::string _plist);
-        bool hasPlist();
-        void removePlist();
-        /** \brief specifies the intended meaning when the target of a pointer is itself a pointer.
-         */
-        MeiAttribute* getEvaluate();
-        void setEvaluate(std::string _evaluate);
-        bool hasEvaluate();
-        void removeEvaluate();
 
     private:
         MeiElement *b;
