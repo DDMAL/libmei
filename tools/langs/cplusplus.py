@@ -1,6 +1,8 @@
 # -- coding: utf-8 --
 
 import os
+import re
+import hashlib
 import codecs
 import textwrap
 import logging
@@ -85,6 +87,8 @@ class MEI_EXPORT {elementNameUpper} : public MeiElement {{
         {elementNameUpper}();
         virtual ~{elementNameUpper}();
 {methods}
+/* include {elementNameMd5} */
+
 {mixIns}
     private:
         REGISTER_DECLARATION({elementNameUpper});
@@ -97,7 +101,8 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 mei::{elementNameUpper}::~{elementNameUpper}() {{}}
 
-{methods}
+{methods}/* include {elementNameMd5} */
+
 """
 
 MIXIN_CLASS_HEAD_TEMPLATE = """class {attGroupNameUpper}MixIn {{
@@ -329,7 +334,8 @@ def __create_element_classes(schema):
                 "elementNameUpper": schema.cc(element),
                 "methods": attribute_methods,
                 "mixIns": element_mixins,
-                "documentation": docstr.strip()
+                "documentation": docstr.strip(),
+                "elementNameMd5": hashlib.md5(schema.cc(element)).hexdigest()
             }
             
             # pdb.set_trace()
@@ -401,7 +407,8 @@ def __create_element_classes(schema):
                 'elementNameUpper': schema.cc(element),
                 'elementNameLower': element,
                 'mixIns': element_mixins,
-                'methods': attribute_methods
+                'methods': attribute_methods,
+                "elementNameMd5": hashlib.md5(schema.cc(element)).hexdigest()
             }
             
             element_constructor += ELEMENT_CLASS_IMPL_CONS_TEMPLATE.format(**consvars)
@@ -416,5 +423,63 @@ def __create_element_classes(schema):
         fmi.write(fullout)
         fmi.close()
         lg.debug("\t Created {0}.cpp".format(module.lower()))
+
+def parse_includes(file_dir, includes_dir):
+    lg.debug("Parsing includes")
+
+    # get the files in the includes directory
+    includes = [f for f in os.listdir(includes_dir) if not f.startswith(".")]
+
+
+    for dp,dn,fn in os.walk(file_dir):
+        for f in fn:
+            if f.startswith("."):
+                continue
+            if "mixins" in f:
+                continue
+            
+            methods = __process_include(f, includes, includes_dir)
+            if methods:
+                __parse_codefile(methods, dp, f)
+
+
+
+def __process_include(fname, includes, includes_dir):
+    name,ext = os.path.splitext(fname)
+    print "Name {0}, Extension {1}".format(name,ext)
+    if "{0}.inc".format(fname) in includes:
+        lg.debug("Huzzah! an include was found for {0}".format(fname))
+        f = open(os.path.join(includes_dir, "{0}.inc".format(fname)), 'r')
+        includefile = f.read()
+        f.close()
+        new_methods = __parse_includefile(includefile)
+        return new_methods
+
+def __parse_includefile(contents):
+    # parse the include file for our methods.
+    reg = re.compile(r"^\/\* (.+) \*\/\n+((?:\n.+)+)\n+\/\* end [0-9a-z]+ \*\/", re.MULTILINE)
+    ret = dict(re.findall(reg, contents))
+    return ret
+
+def __parse_codefile(methods, directory, codefile):
+    f = open(os.path.join(directory, codefile), 'r')
+    contents = f.readlines()
+    f.close()
+    regmatch = re.compile(r"\/\* include (?P<md5>[0-9a-z]{32}) \*\/")
+    for i,line in enumerate(contents):
+        match = re.match(regmatch, line) 
+        if match:
+            if match.group("md5") in methods.keys():
+                contents[i] = methods[match.group("md5")].lstrip("\n") + "\n"
+    
+    f = open(os.path.join(directory, codefile), 'w')
+    f.writelines(contents)
+    f.close()
+
+
+
+
+
+
 
 

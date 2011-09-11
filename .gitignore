@@ -18,3 +18,5 @@ build/
 /tools/autogen
 /tools/mei-customization.xml
 /tools/mei-source.xml
+
+/tools/mei-all.xml

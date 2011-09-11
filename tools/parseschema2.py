@@ -177,6 +177,7 @@ if __name__ == "__main__":
     output_group.add_argument("-c", "--customization", help="MEI Customization File")
     output_group.add_argument("-o", "--outdir", help="output directory")
     output_group.add_argument("-l", "--lang", help="Programming language to output")
+    output_group.add_argument("-i", "--includes", help="Parse external includes from a given directory")
     output_group.add_argument("-g", "--generate", help="Generate an accompanying MEI RNG Schema (must have Roma installed)", action="store_true")
     output_group.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
     
@@ -196,10 +197,10 @@ if __name__ == "__main__":
         sys.exit(0)
     
     if not os.path.exists(args.source):
-        print >>sys.stderr, "Cannot find source file %s" % args.source
+        p.error("Cannot find source file {0}".format(args.source))
         sys.exit(1)
     if not os.path.exists(args.customization):
-        print >>sys.stderr, "Cannot find customization file %s" % args.customization
+        p.error("Cannot find customization file {0}".format(args.customization))
         sys.exit(1)
     sf = codecs.open(args.source,'r', "utf-8")
     cf = codecs.open(args.customization, 'r', "utf-8")
@@ -211,5 +212,8 @@ if __name__ == "__main__":
     import langs.cplusplus as cpp
     cpp.create(schema)
     
+    if args.includes:
+        cpp.parse_includes(args.outdir, args.includes)
+
     sf.close()
     cf.close()
