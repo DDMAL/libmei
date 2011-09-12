@@ -31,6 +31,7 @@ mei::Mordent::Mordent() :
 REGISTER_DEFINITION(mei::Mordent, "mordent");
 mei::Mordent::~Mordent() {}
 
+/* include <mordent> */
 
 mei::Trill::Trill() :
     MeiElement("trill"),
@@ -61,6 +62,7 @@ mei::Trill::Trill() :
 REGISTER_DEFINITION(mei::Trill, "trill");
 mei::Trill::~Trill() {}
 
+/* include <trill> */
 
 mei::Turn::Turn() :
     MeiElement("turn"),
@@ -87,6 +89,7 @@ mei::Turn::Turn() :
 REGISTER_DEFINITION(mei::Turn, "turn");
 mei::Turn::~Turn() {}
 
+/* include <turn> */
 
 
 

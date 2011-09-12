@@ -46,6 +46,8 @@ class MEI_EXPORT Ineume : public MeiElement {
         Ineume();
         virtual ~Ineume();
 
+/* include <ineume> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
@@ -68,6 +70,8 @@ class MEI_EXPORT Syllable : public MeiElement {
         Syllable();
         virtual ~Syllable();
 
+/* include <syllable> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -84,6 +88,8 @@ class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
         virtual ~Uneume();
+
+/* include <uneume> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

@@ -48,6 +48,8 @@ class MEI_EXPORT Barre : public MeiElement {
         Barre();
         virtual ~Barre();
 
+/* include <barre> */
+
         CommonMixIn    m_Common;
         FretlocationMixIn    m_Fretlocation;
         StartendidMixIn    m_Startendid;
@@ -76,6 +78,8 @@ class MEI_EXPORT Chorddef : public MeiElement {
         bool hasPos();
         void removePos();
 
+/* include <chordDef> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -103,6 +107,8 @@ class MEI_EXPORT Chordmember : public MeiElement {
         bool hasFing();
         void removeFing();
 
+/* include <chordMember> */
+
         CommonMixIn    m_Common;
         AccidentalPerformedMixIn    m_AccidentalPerformed;
         FretlocationMixIn    m_Fretlocation;
@@ -123,6 +129,8 @@ class MEI_EXPORT Chordtable : public MeiElement {
     public:
         Chordtable();
         virtual ~Chordtable();
+
+/* include <chordTable> */
 
         CommonMixIn    m_Common;
 
@@ -145,6 +153,8 @@ class MEI_EXPORT F : public MeiElement {
         bool hasExtender();
         void removeExtender();
 
+/* include <f> */
+
         CommonMixIn    m_Common;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -161,6 +171,8 @@ class MEI_EXPORT Fb : public MeiElement {
     public:
         Fb();
         virtual ~Fb();
+
+/* include <fb> */
 
         CommonMixIn    m_Common;
         CommonAnlMixIn    m_CommonAnl;
@@ -185,6 +197,8 @@ class MEI_EXPORT Harm : public MeiElement {
     public:
         Harm();
         virtual ~Harm();
+
+/* include <harm> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

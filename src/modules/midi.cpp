@@ -21,6 +21,7 @@ mei::Cc::Cc() :
 REGISTER_DEFINITION(mei::Cc, "cc");
 mei::Cc::~Cc() {}
 
+/* include <cc> */
 
 mei::Chan::Chan() :
     MeiElement("chan"),
@@ -56,6 +57,7 @@ bool mei::Chan::hasNum() {
 void mei::Chan::removeNum() {
     removeAttribute("num");
 };
+/* include <chan> */
 
 mei::Chanpr::Chanpr() :
     MeiElement("chanPr"),
@@ -71,6 +73,7 @@ mei::Chanpr::Chanpr() :
 REGISTER_DEFINITION(mei::Chanpr, "chanPr");
 mei::Chanpr::~Chanpr() {}
 
+/* include <chanPr> */
 
 mei::Cue::Cue() :
     MeiElement("cue"),
@@ -85,6 +88,7 @@ mei::Cue::Cue() :
 REGISTER_DEFINITION(mei::Cue, "cue");
 mei::Cue::~Cue() {}
 
+/* include <cue> */
 
 mei::Hex::Hex() :
     MeiElement("hex"),
@@ -99,6 +103,7 @@ mei::Hex::Hex() :
 REGISTER_DEFINITION(mei::Hex, "hex");
 mei::Hex::~Hex() {}
 
+/* include <hex> */
 
 mei::Marker::Marker() :
     MeiElement("marker"),
@@ -113,6 +118,7 @@ mei::Marker::Marker() :
 REGISTER_DEFINITION(mei::Marker, "marker");
 mei::Marker::~Marker() {}
 
+/* include <marker> */
 
 mei::Metatext::Metatext() :
     MeiElement("metaText"),
@@ -127,6 +133,7 @@ mei::Metatext::Metatext() :
 REGISTER_DEFINITION(mei::Metatext, "metaText");
 mei::Metatext::~Metatext() {}
 
+/* include <metaText> */
 
 mei::Midi::Midi() :
     MeiElement("midi"),
@@ -140,6 +147,7 @@ mei::Midi::Midi() :
 REGISTER_DEFINITION(mei::Midi, "midi");
 mei::Midi::~Midi() {}
 
+/* include <midi> */
 
 mei::Noteoff::Noteoff() :
     MeiElement("noteOff"),
@@ -155,6 +163,7 @@ mei::Noteoff::Noteoff() :
 REGISTER_DEFINITION(mei::Noteoff, "noteOff");
 mei::Noteoff::~Noteoff() {}
 
+/* include <noteOff> */
 
 mei::Noteon::Noteon() :
     MeiElement("noteOn"),
@@ -170,6 +179,7 @@ mei::Noteon::Noteon() :
 REGISTER_DEFINITION(mei::Noteon, "noteOn");
 mei::Noteon::~Noteon() {}
 
+/* include <noteOn> */
 
 mei::Port::Port() :
     MeiElement("port"),
@@ -185,6 +195,7 @@ mei::Port::Port() :
 REGISTER_DEFINITION(mei::Port, "port");
 mei::Port::~Port() {}
 
+/* include <port> */
 
 mei::Prog::Prog() :
     MeiElement("prog"),
@@ -200,6 +211,7 @@ mei::Prog::Prog() :
 REGISTER_DEFINITION(mei::Prog, "prog");
 mei::Prog::~Prog() {}
 
+/* include <prog> */
 
 mei::Seqnum::Seqnum() :
     MeiElement("seqNum"),
@@ -235,6 +247,7 @@ bool mei::Seqnum::hasNum() {
 void mei::Seqnum::removeNum() {
     removeAttribute("num");
 };
+/* include <seqNum> */
 
 mei::Trkname::Trkname() :
     MeiElement("trkName"),
@@ -249,6 +262,7 @@ mei::Trkname::Trkname() :
 REGISTER_DEFINITION(mei::Trkname, "trkName");
 mei::Trkname::~Trkname() {}
 
+/* include <trkName> */
 
 mei::Vel::Vel() :
     MeiElement("vel"),
@@ -285,6 +299,7 @@ bool mei::Vel::hasForm() {
 void mei::Vel::removeForm() {
     removeAttribute("form");
 };
+/* include <vel> */
 
 
 

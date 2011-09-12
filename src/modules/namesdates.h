@@ -51,6 +51,8 @@ class MEI_EXPORT Corpname : public MeiElement {
         Corpname();
         virtual ~Corpname();
 
+/* include <corpName> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         DatableMixIn    m_Datable;
@@ -82,6 +84,8 @@ class MEI_EXPORT Geogname : public MeiElement {
         Geogname();
         virtual ~Geogname();
 
+/* include <geogName> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -108,6 +112,8 @@ class MEI_EXPORT Periodname : public MeiElement {
     public:
         Periodname();
         virtual ~Periodname();
+
+/* include <periodName> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -139,6 +145,8 @@ class MEI_EXPORT Persname : public MeiElement {
         Persname();
         virtual ~Persname();
 
+/* include <persName> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         DatableMixIn    m_Datable;
@@ -167,6 +175,8 @@ class MEI_EXPORT Stylename : public MeiElement {
     public:
         Stylename();
         virtual ~Stylename();
+
+/* include <styleName> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;

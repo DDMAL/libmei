@@ -16,6 +16,7 @@ mei::Ptr::Ptr() :
 REGISTER_DEFINITION(mei::Ptr, "ptr");
 mei::Ptr::~Ptr() {}
 
+/* include <ptr> */
 
 mei::Ref::Ref() :
     MeiElement("ref"),
@@ -28,6 +29,7 @@ mei::Ref::Ref() :
 REGISTER_DEFINITION(mei::Ref, "ref");
 mei::Ref::~Ref() {}
 
+/* include <ref> */
 
 
 

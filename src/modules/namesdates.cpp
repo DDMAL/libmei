@@ -25,6 +25,7 @@ mei::Corpname::Corpname() :
 REGISTER_DEFINITION(mei::Corpname, "corpName");
 mei::Corpname::~Corpname() {}
 
+/* include <corpName> */
 
 mei::Geogname::Geogname() :
     MeiElement("geogName"),
@@ -44,6 +45,7 @@ mei::Geogname::Geogname() :
 REGISTER_DEFINITION(mei::Geogname, "geogName");
 mei::Geogname::~Geogname() {}
 
+/* include <geogName> */
 
 mei::Periodname::Periodname() :
     MeiElement("periodName"),
@@ -64,6 +66,7 @@ mei::Periodname::Periodname() :
 REGISTER_DEFINITION(mei::Periodname, "periodName");
 mei::Periodname::~Periodname() {}
 
+/* include <periodName> */
 
 mei::Persname::Persname() :
     MeiElement("persName"),
@@ -84,6 +87,7 @@ mei::Persname::Persname() :
 REGISTER_DEFINITION(mei::Persname, "persName");
 mei::Persname::~Persname() {}
 
+/* include <persName> */
 
 mei::Stylename::Stylename() :
     MeiElement("styleName"),
@@ -103,6 +107,7 @@ mei::Stylename::Stylename() :
 REGISTER_DEFINITION(mei::Stylename, "styleName");
 mei::Stylename::~Stylename() {}
 
+/* include <styleName> */
 
 
 

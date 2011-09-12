@@ -56,6 +56,7 @@ bool mei::Timeline::hasOrigin() {
 void mei::Timeline::removeOrigin() {
     removeAttribute("origin");
 };
+/* include <timeline> */
 
 mei::When::When() :
     MeiElement("when"),
@@ -150,6 +151,7 @@ bool mei::When::hasSince() {
 void mei::When::removeSince() {
     removeAttribute("since");
 };
+/* include <when> */
 
 
 

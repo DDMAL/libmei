@@ -20,6 +20,7 @@ mei::Ineume::Ineume() :
 REGISTER_DEFINITION(mei::Ineume, "ineume");
 mei::Ineume::~Ineume() {}
 
+/* include <ineume> */
 
 mei::Syllable::Syllable() :
     MeiElement("syllable"),
@@ -29,6 +30,7 @@ mei::Syllable::Syllable() :
 REGISTER_DEFINITION(mei::Syllable, "syllable");
 mei::Syllable::~Syllable() {}
 
+/* include <syllable> */
 
 mei::Uneume::Uneume() :
     MeiElement("uneume"),
@@ -59,6 +61,7 @@ mei::Uneume::Uneume() :
 REGISTER_DEFINITION(mei::Uneume, "uneume");
 mei::Uneume::~Uneume() {}
 
+/* include <uneume> */
 
 
 

@@ -62,6 +62,8 @@ class MEI_EXPORT Timeline : public MeiElement {
         bool hasOrigin();
         void removeOrigin();
 
+/* include <timeline> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -117,6 +119,8 @@ class MEI_EXPORT When : public MeiElement {
         void setSince(std::string _since);
         bool hasSince();
         void removeSince();
+
+/* include <when> */
 
         CommonMixIn    m_Common;
         DatapointingMixIn    m_Datapointing;

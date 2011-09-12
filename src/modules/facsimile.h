@@ -44,6 +44,8 @@ class MEI_EXPORT Facsimile : public MeiElement {
         Facsimile();
         virtual ~Facsimile();
 
+/* include <facsimile> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
 
@@ -64,6 +66,8 @@ class MEI_EXPORT Surface : public MeiElement {
         Surface();
         virtual ~Surface();
 
+/* include <surface> */
+
         CommonMixIn    m_Common;
         CoordinatedMixIn    m_Coordinated;
         DatapointingMixIn    m_Datapointing;
@@ -82,6 +86,8 @@ class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
         virtual ~Zone();
+
+/* include <zone> */
 
         CommonMixIn    m_Common;
         CoordinatedMixIn    m_Coordinated;

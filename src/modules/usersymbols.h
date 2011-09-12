@@ -54,6 +54,8 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
         Anchoredtext();
         virtual ~Anchoredtext();
 
+/* include <anchoredText> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -93,6 +95,8 @@ class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
         virtual ~Curve();
+
+/* include <curve> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -135,6 +139,8 @@ class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
         virtual ~Line();
+
+/* include <line> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -179,6 +185,8 @@ class MEI_EXPORT Symbol : public MeiElement {
         bool hasRef();
         void removeRef();
 
+/* include <symbol> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         ColorMixIn    m_Color;
@@ -203,6 +211,8 @@ class MEI_EXPORT Symboldef : public MeiElement {
         Symboldef();
         virtual ~Symboldef();
 
+/* include <symbolDef> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -218,6 +228,8 @@ class MEI_EXPORT Symboltable : public MeiElement {
     public:
         Symboltable();
         virtual ~Symboltable();
+
+/* include <symbolTable> */
 
         CommonMixIn    m_Common;
 

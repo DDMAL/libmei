@@ -43,6 +43,8 @@ class MEI_EXPORT Ptr : public MeiElement {
         Ptr();
         virtual ~Ptr();
 
+/* include <ptr> */
+
         CommonMixIn    m_Common;
         InternetmediaMixIn    m_Internetmedia;
         PointingMixIn    m_Pointing;
@@ -61,6 +63,8 @@ class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
         virtual ~Ref();
+
+/* include <ref> */
 
         CommonMixIn    m_Common;
         InternetmediaMixIn    m_Internetmedia;

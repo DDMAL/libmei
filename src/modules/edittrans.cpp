@@ -20,6 +20,7 @@ mei::Add::Add() :
 REGISTER_DEFINITION(mei::Add, "add");
 mei::Add::~Add() {}
 
+/* include <add> */
 
 mei::Choice::Choice() :
     MeiElement("choice"),
@@ -29,6 +30,7 @@ mei::Choice::Choice() :
 REGISTER_DEFINITION(mei::Choice, "choice");
 mei::Choice::~Choice() {}
 
+/* include <choice> */
 
 mei::Corr::Corr() :
     MeiElement("corr"),
@@ -43,6 +45,7 @@ mei::Corr::Corr() :
 REGISTER_DEFINITION(mei::Corr, "corr");
 mei::Corr::~Corr() {}
 
+/* include <corr> */
 
 mei::Damage::Damage() :
     MeiElement("damage"),
@@ -78,6 +81,7 @@ bool mei::Damage::hasDegree() {
 void mei::Damage::removeDegree() {
     removeAttribute("degree");
 };
+/* include <damage> */
 
 mei::Del::Del() :
     MeiElement("del"),
@@ -111,6 +115,7 @@ bool mei::Del::hasRend() {
 void mei::Del::removeRend() {
     removeAttribute("rend");
 };
+/* include <del> */
 
 mei::Gap::Gap() :
     MeiElement("gap"),
@@ -127,6 +132,7 @@ mei::Gap::Gap() :
 REGISTER_DEFINITION(mei::Gap, "gap");
 mei::Gap::~Gap() {}
 
+/* include <gap> */
 
 mei::Handshift::Handshift() :
     MeiElement("handShift"),
@@ -204,6 +210,7 @@ bool mei::Handshift::hasOld() {
 void mei::Handshift::removeOld() {
     removeAttribute("old");
 };
+/* include <handShift> */
 
 mei::Orig::Orig() :
     MeiElement("orig"),
@@ -218,6 +225,7 @@ mei::Orig::Orig() :
 REGISTER_DEFINITION(mei::Orig, "orig");
 mei::Orig::~Orig() {}
 
+/* include <orig> */
 
 mei::Reg::Reg() :
     MeiElement("reg"),
@@ -231,6 +239,7 @@ mei::Reg::Reg() :
 REGISTER_DEFINITION(mei::Reg, "reg");
 mei::Reg::~Reg() {}
 
+/* include <reg> */
 
 mei::Restore::Restore() :
     MeiElement("restore"),
@@ -265,6 +274,7 @@ bool mei::Restore::hasDesc() {
 void mei::Restore::removeDesc() {
     removeAttribute("desc");
 };
+/* include <restore> */
 
 mei::Sic::Sic() :
     MeiElement("sic"),
@@ -275,6 +285,7 @@ mei::Sic::Sic() :
 REGISTER_DEFINITION(mei::Sic, "sic");
 mei::Sic::~Sic() {}
 
+/* include <sic> */
 
 mei::Subst::Subst() :
     MeiElement("subst"),
@@ -289,6 +300,7 @@ mei::Subst::Subst() :
 REGISTER_DEFINITION(mei::Subst, "subst");
 mei::Subst::~Subst() {}
 
+/* include <subst> */
 
 mei::Supplied::Supplied() :
     MeiElement("supplied"),
@@ -304,6 +316,7 @@ mei::Supplied::Supplied() :
 REGISTER_DEFINITION(mei::Supplied, "supplied");
 mei::Supplied::~Supplied() {}
 
+/* include <supplied> */
 
 mei::Unclear::Unclear() :
     MeiElement("unclear"),
@@ -320,6 +333,7 @@ mei::Unclear::Unclear() :
 REGISTER_DEFINITION(mei::Unclear, "unclear");
 mei::Unclear::~Unclear() {}
 
+/* include <unclear> */
 
 
 

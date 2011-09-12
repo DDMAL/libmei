@@ -43,6 +43,7 @@ bool mei::Abbr::hasExpan() {
 void mei::Abbr::removeExpan() {
     removeAttribute("expan");
 };
+/* include <abbr> */
 
 mei::Accid::Accid() :
     MeiElement("accid"),
@@ -70,6 +71,7 @@ mei::Accid::Accid() :
 REGISTER_DEFINITION(mei::Accid, "accid");
 mei::Accid::~Accid() {}
 
+/* include <accid> */
 
 mei::Actor::Actor() :
     MeiElement("actor"),
@@ -81,6 +83,7 @@ mei::Actor::Actor() :
 REGISTER_DEFINITION(mei::Actor, "actor");
 mei::Actor::~Actor() {}
 
+/* include <actor> */
 
 mei::Addrline::Addrline() :
     MeiElement("addrLine"),
@@ -92,6 +95,7 @@ mei::Addrline::Addrline() :
 REGISTER_DEFINITION(mei::Addrline, "addrLine");
 mei::Addrline::~Addrline() {}
 
+/* include <addrLine> */
 
 mei::Address::Address() :
     MeiElement("address"),
@@ -103,6 +107,7 @@ mei::Address::Address() :
 REGISTER_DEFINITION(mei::Address, "address");
 mei::Address::~Address() {}
 
+/* include <address> */
 
 mei::Annot::Annot() :
     MeiElement("annot"),
@@ -129,6 +134,7 @@ mei::Annot::Annot() :
 REGISTER_DEFINITION(mei::Annot, "annot");
 mei::Annot::~Annot() {}
 
+/* include <annot> */
 
 mei::Artic::Artic() :
     MeiElement("artic"),
@@ -156,6 +162,7 @@ mei::Artic::Artic() :
 REGISTER_DEFINITION(mei::Artic, "artic");
 mei::Artic::~Artic() {}
 
+/* include <artic> */
 
 mei::Barline::Barline() :
     MeiElement("barLine"),
@@ -176,6 +183,7 @@ mei::Barline::Barline() :
 REGISTER_DEFINITION(mei::Barline, "barLine");
 mei::Barline::~Barline() {}
 
+/* include <barLine> */
 
 mei::Bibl::Bibl() :
     MeiElement("bibl"),
@@ -188,6 +196,7 @@ mei::Bibl::Bibl() :
 REGISTER_DEFINITION(mei::Bibl, "bibl");
 mei::Bibl::~Bibl() {}
 
+/* include <bibl> */
 
 mei::Body::Body() :
     MeiElement("body"),
@@ -198,6 +207,7 @@ mei::Body::Body() :
 REGISTER_DEFINITION(mei::Body, "body");
 mei::Body::~Body() {}
 
+/* include <body> */
 
 mei::Caption::Caption() :
     MeiElement("caption"),
@@ -209,6 +219,7 @@ mei::Caption::Caption() :
 REGISTER_DEFINITION(mei::Caption, "caption");
 mei::Caption::~Caption() {}
 
+/* include <caption> */
 
 mei::Castgrp::Castgrp() :
     MeiElement("castGrp"),
@@ -220,6 +231,7 @@ mei::Castgrp::Castgrp() :
 REGISTER_DEFINITION(mei::Castgrp, "castGrp");
 mei::Castgrp::~Castgrp() {}
 
+/* include <castGrp> */
 
 mei::Castitem::Castitem() :
     MeiElement("castItem"),
@@ -231,6 +243,7 @@ mei::Castitem::Castitem() :
 REGISTER_DEFINITION(mei::Castitem, "castItem");
 mei::Castitem::~Castitem() {}
 
+/* include <castItem> */
 
 mei::Castlist::Castlist() :
     MeiElement("castList"),
@@ -242,6 +255,7 @@ mei::Castlist::Castlist() :
 REGISTER_DEFINITION(mei::Castlist, "castList");
 mei::Castlist::~Castlist() {}
 
+/* include <castList> */
 
 mei::Chord::Chord() :
     MeiElement("chord"),
@@ -284,6 +298,7 @@ mei::Chord::Chord() :
 REGISTER_DEFINITION(mei::Chord, "chord");
 mei::Chord::~Chord() {}
 
+/* include <chord> */
 
 mei::Clef::Clef() :
     MeiElement("clef"),
@@ -302,6 +317,7 @@ mei::Clef::Clef() :
 REGISTER_DEFINITION(mei::Clef, "clef");
 mei::Clef::~Clef() {}
 
+/* include <clef> */
 
 mei::Clefchange::Clefchange() :
     MeiElement("clefChange"),
@@ -324,6 +340,7 @@ mei::Clefchange::Clefchange() :
 REGISTER_DEFINITION(mei::Clefchange, "clefChange");
 mei::Clefchange::~Clefchange() {}
 
+/* include <clefChange> */
 
 mei::Custos::Custos() :
     MeiElement("custos"),
@@ -342,6 +359,7 @@ mei::Custos::Custos() :
 REGISTER_DEFINITION(mei::Custos, "custos");
 mei::Custos::~Custos() {}
 
+/* include <custos> */
 
 mei::Date::Date() :
     MeiElement("date"),
@@ -380,6 +398,7 @@ bool mei::Date::hasReg() {
 void mei::Date::removeReg() {
     removeAttribute("reg");
 };
+/* include <date> */
 
 mei::Dir::Dir() :
     MeiElement("dir"),
@@ -410,6 +429,7 @@ mei::Dir::Dir() :
 REGISTER_DEFINITION(mei::Dir, "dir");
 mei::Dir::~Dir() {}
 
+/* include <dir> */
 
 mei::Dot::Dot() :
     MeiElement("dot"),
@@ -433,6 +453,7 @@ mei::Dot::Dot() :
 REGISTER_DEFINITION(mei::Dot, "dot");
 mei::Dot::~Dot() {}
 
+/* include <dot> */
 
 mei::Dynam::Dynam() :
     MeiElement("dynam"),
@@ -463,6 +484,7 @@ mei::Dynam::Dynam() :
 REGISTER_DEFINITION(mei::Dynam, "dynam");
 mei::Dynam::~Dynam() {}
 
+/* include <dynam> */
 
 mei::Edition::Edition() :
     MeiElement("edition"),
@@ -473,6 +495,7 @@ mei::Edition::Edition() :
 REGISTER_DEFINITION(mei::Edition, "edition");
 mei::Edition::~Edition() {}
 
+/* include <edition> */
 
 mei::Ending::Ending() :
     MeiElement("ending"),
@@ -487,6 +510,7 @@ mei::Ending::Ending() :
 REGISTER_DEFINITION(mei::Ending, "ending");
 mei::Ending::~Ending() {}
 
+/* include <ending> */
 
 mei::Expan::Expan() :
     MeiElement("expan"),
@@ -525,6 +549,7 @@ bool mei::Expan::hasAbbr() {
 void mei::Expan::removeAbbr() {
     removeAttribute("abbr");
 };
+/* include <expan> */
 
 mei::Expansion::Expansion() :
     MeiElement("expansion"),
@@ -537,6 +562,7 @@ mei::Expansion::Expansion() :
 REGISTER_DEFINITION(mei::Expansion, "expansion");
 mei::Expansion::~Expansion() {}
 
+/* include <expansion> */
 
 mei::Fw::Fw() :
     MeiElement("fw"),
@@ -549,6 +575,7 @@ mei::Fw::Fw() :
 REGISTER_DEFINITION(mei::Fw, "fw");
 mei::Fw::~Fw() {}
 
+/* include <fw> */
 
 mei::Group::Group() :
     MeiElement("group"),
@@ -559,6 +586,7 @@ mei::Group::Group() :
 REGISTER_DEFINITION(mei::Group, "group");
 mei::Group::~Group() {}
 
+/* include <group> */
 
 mei::Grpsym::Grpsym() :
     MeiElement("grpSym"),
@@ -576,6 +604,7 @@ mei::Grpsym::Grpsym() :
 REGISTER_DEFINITION(mei::Grpsym, "grpSym");
 mei::Grpsym::~Grpsym() {}
 
+/* include <grpSym> */
 
 mei::Identifier::Identifier() :
     MeiElement("identifier"),
@@ -588,6 +617,7 @@ mei::Identifier::Identifier() :
 REGISTER_DEFINITION(mei::Identifier, "identifier");
 mei::Identifier::~Identifier() {}
 
+/* include <identifier> */
 
 mei::Incip::Incip() :
     MeiElement("incip"),
@@ -599,6 +629,7 @@ mei::Incip::Incip() :
 REGISTER_DEFINITION(mei::Incip, "incip");
 mei::Incip::~Incip() {}
 
+/* include <incip> */
 
 mei::Instrdef::Instrdef() :
     MeiElement("instrDef"),
@@ -610,6 +641,7 @@ mei::Instrdef::Instrdef() :
 REGISTER_DEFINITION(mei::Instrdef, "instrDef");
 mei::Instrdef::~Instrdef() {}
 
+/* include <instrDef> */
 
 mei::Instrgrp::Instrgrp() :
     MeiElement("instrGrp"),
@@ -619,6 +651,7 @@ mei::Instrgrp::Instrgrp() :
 REGISTER_DEFINITION(mei::Instrgrp, "instrGrp");
 mei::Instrgrp::~Instrgrp() {}
 
+/* include <instrGrp> */
 
 mei::Keyaccid::Keyaccid() :
     MeiElement("keyAccid"),
@@ -656,6 +689,7 @@ bool mei::Keyaccid::hasForm() {
 void mei::Keyaccid::removeForm() {
     removeAttribute("form");
 };
+/* include <keyAccid> */
 
 mei::Keysig::Keysig() :
     MeiElement("keySig"),
@@ -689,6 +723,7 @@ bool mei::Keysig::hasMode() {
 void mei::Keysig::removeMode() {
     removeAttribute("mode");
 };
+/* include <keySig> */
 
 mei::Label::Label() :
     MeiElement("label"),
@@ -701,6 +736,7 @@ mei::Label::Label() :
 REGISTER_DEFINITION(mei::Label, "label");
 mei::Label::~Label() {}
 
+/* include <label> */
 
 mei::Layer::Layer() :
     MeiElement("layer"),
@@ -716,6 +752,7 @@ mei::Layer::Layer() :
 REGISTER_DEFINITION(mei::Layer, "layer");
 mei::Layer::~Layer() {}
 
+/* include <layer> */
 
 mei::Layerdef::Layerdef() :
     MeiElement("layerDef"),
@@ -734,6 +771,7 @@ mei::Layerdef::Layerdef() :
 REGISTER_DEFINITION(mei::Layerdef, "layerDef");
 mei::Layerdef::~Layerdef() {}
 
+/* include <layerDef> */
 
 mei::Lb::Lb() :
     MeiElement("lb"),
@@ -767,6 +805,7 @@ bool mei::Lb::hasFunc() {
 void mei::Lb::removeFunc() {
     removeAttribute("func");
 };
+/* include <lb> */
 
 mei::Mdiv::Mdiv() :
     MeiElement("mdiv"),
@@ -779,6 +818,7 @@ mei::Mdiv::Mdiv() :
 REGISTER_DEFINITION(mei::Mdiv, "mdiv");
 mei::Mdiv::~Mdiv() {}
 
+/* include <mdiv> */
 
 mei::Mei::Mei() :
     MeiElement("mei"),
@@ -788,6 +828,7 @@ mei::Mei::Mei() :
 REGISTER_DEFINITION(mei::Mei, "mei");
 mei::Mei::~Mei() {}
 
+/* include <mei> */
 
 mei::Music::Music() :
     MeiElement("music"),
@@ -799,6 +840,7 @@ mei::Music::Music() :
 REGISTER_DEFINITION(mei::Music, "music");
 mei::Music::~Music() {}
 
+/* include <music> */
 
 mei::Name::Name() :
     MeiElement("name"),
@@ -815,6 +857,7 @@ mei::Name::Name() :
 REGISTER_DEFINITION(mei::Name, "name");
 mei::Name::~Name() {}
 
+/* include <name> */
 
 mei::Note::Note() :
     MeiElement("note"),
@@ -873,6 +916,7 @@ mei::Note::Note() :
 REGISTER_DEFINITION(mei::Note, "note");
 mei::Note::~Note() {}
 
+/* include <note> */
 
 mei::Num::Num() :
     MeiElement("num"),
@@ -885,6 +929,7 @@ mei::Num::Num() :
 REGISTER_DEFINITION(mei::Num, "num");
 mei::Num::~Num() {}
 
+/* include <num> */
 
 mei::P::P() :
     MeiElement("p"),
@@ -898,6 +943,7 @@ mei::P::P() :
 REGISTER_DEFINITION(mei::P, "p");
 mei::P::~P() {}
 
+/* include <p> */
 
 mei::Pad::Pad() :
     MeiElement("pad"),
@@ -912,6 +958,7 @@ mei::Pad::Pad() :
 REGISTER_DEFINITION(mei::Pad, "pad");
 mei::Pad::~Pad() {}
 
+/* include <pad> */
 
 mei::Part::Part() :
     MeiElement("part"),
@@ -925,6 +972,7 @@ mei::Part::Part() :
 REGISTER_DEFINITION(mei::Part, "part");
 mei::Part::~Part() {}
 
+/* include <part> */
 
 mei::Parts::Parts() :
     MeiElement("parts"),
@@ -938,6 +986,7 @@ mei::Parts::Parts() :
 REGISTER_DEFINITION(mei::Parts, "parts");
 mei::Parts::~Parts() {}
 
+/* include <parts> */
 
 mei::Pb::Pb() :
     MeiElement("pb"),
@@ -953,6 +1002,7 @@ mei::Pb::Pb() :
 REGISTER_DEFINITION(mei::Pb, "pb");
 mei::Pb::~Pb() {}
 
+/* include <pb> */
 
 mei::Pgdesc::Pgdesc() :
     MeiElement("pgDesc"),
@@ -963,6 +1013,7 @@ mei::Pgdesc::Pgdesc() :
 REGISTER_DEFINITION(mei::Pgdesc, "pgDesc");
 mei::Pgdesc::~Pgdesc() {}
 
+/* include <pgDesc> */
 
 mei::Pgfoot::Pgfoot() :
     MeiElement("pgFoot"),
@@ -974,6 +1025,7 @@ mei::Pgfoot::Pgfoot() :
 REGISTER_DEFINITION(mei::Pgfoot, "pgFoot");
 mei::Pgfoot::~Pgfoot() {}
 
+/* include <pgFoot> */
 
 mei::Pgfoot2::Pgfoot2() :
     MeiElement("pgFoot2"),
@@ -985,6 +1037,7 @@ mei::Pgfoot2::Pgfoot2() :
 REGISTER_DEFINITION(mei::Pgfoot2, "pgFoot2");
 mei::Pgfoot2::~Pgfoot2() {}
 
+/* include <pgFoot2> */
 
 mei::Pghead::Pghead() :
     MeiElement("pgHead"),
@@ -996,6 +1049,7 @@ mei::Pghead::Pghead() :
 REGISTER_DEFINITION(mei::Pghead, "pgHead");
 mei::Pghead::~Pghead() {}
 
+/* include <pgHead> */
 
 mei::Pghead2::Pghead2() :
     MeiElement("pgHead2"),
@@ -1007,6 +1061,7 @@ mei::Pghead2::Pghead2() :
 REGISTER_DEFINITION(mei::Pghead2, "pgHead2");
 mei::Pghead2::~Pghead2() {}
 
+/* include <pgHead2> */
 
 mei::Phrase::Phrase() :
     MeiElement("phrase"),
@@ -1040,6 +1095,7 @@ mei::Phrase::Phrase() :
 REGISTER_DEFINITION(mei::Phrase, "phrase");
 mei::Phrase::~Phrase() {}
 
+/* include <phrase> */
 
 mei::Rend::Rend() :
     MeiElement("rend"),
@@ -1137,6 +1193,7 @@ bool mei::Rend::hasValign() {
 void mei::Rend::removeValign() {
     removeAttribute("valign");
 };
+/* include <rend> */
 
 mei::Repository::Repository() :
     MeiElement("repository"),
@@ -1153,6 +1210,7 @@ mei::Repository::Repository() :
 REGISTER_DEFINITION(mei::Repository, "repository");
 mei::Repository::~Repository() {}
 
+/* include <repository> */
 
 mei::Rest::Rest() :
     MeiElement("rest"),
@@ -1186,6 +1244,7 @@ mei::Rest::Rest() :
 REGISTER_DEFINITION(mei::Rest, "rest");
 mei::Rest::~Rest() {}
 
+/* include <rest> */
 
 mei::Role::Role() :
     MeiElement("role"),
@@ -1197,6 +1256,7 @@ mei::Role::Role() :
 REGISTER_DEFINITION(mei::Role, "role");
 mei::Role::~Role() {}
 
+/* include <role> */
 
 mei::Roledesc::Roledesc() :
     MeiElement("roleDesc"),
@@ -1208,6 +1268,7 @@ mei::Roledesc::Roledesc() :
 REGISTER_DEFINITION(mei::Roledesc, "roleDesc");
 mei::Roledesc::~Roledesc() {}
 
+/* include <roleDesc> */
 
 mei::Sb::Sb() :
     MeiElement("sb"),
@@ -1222,6 +1283,7 @@ mei::Sb::Sb() :
 REGISTER_DEFINITION(mei::Sb, "sb");
 mei::Sb::~Sb() {}
 
+/* include <sb> */
 
 mei::Score::Score() :
     MeiElement("score"),
@@ -1235,6 +1297,7 @@ mei::Score::Score() :
 REGISTER_DEFINITION(mei::Score, "score");
 mei::Score::~Score() {}
 
+/* include <score> */
 
 mei::Scoredef::Scoredef() :
     MeiElement("scoreDef"),
@@ -1276,6 +1339,7 @@ mei::Scoredef::Scoredef() :
 REGISTER_DEFINITION(mei::Scoredef, "scoreDef");
 mei::Scoredef::~Scoredef() {}
 
+/* include <scoreDef> */
 
 mei::Section::Section() :
     MeiElement("section"),
@@ -1292,6 +1356,7 @@ mei::Section::Section() :
 REGISTER_DEFINITION(mei::Section, "section");
 mei::Section::~Section() {}
 
+/* include <section> */
 
 mei::Space::Space() :
     MeiElement("space"),
@@ -1315,6 +1380,7 @@ mei::Space::Space() :
 REGISTER_DEFINITION(mei::Space, "space");
 mei::Space::~Space() {}
 
+/* include <space> */
 
 mei::Stack::Stack() :
     MeiElement("stack"),
@@ -1368,6 +1434,7 @@ bool mei::Stack::hasAlign() {
 void mei::Stack::removeAlign() {
     removeAttribute("align");
 };
+/* include <stack> */
 
 mei::Staff::Staff() :
     MeiElement("staff"),
@@ -1383,6 +1450,7 @@ mei::Staff::Staff() :
 REGISTER_DEFINITION(mei::Staff, "staff");
 mei::Staff::~Staff() {}
 
+/* include <staff> */
 
 mei::Staffdef::Staffdef() :
     MeiElement("staffDef"),
@@ -1425,6 +1493,7 @@ mei::Staffdef::Staffdef() :
 REGISTER_DEFINITION(mei::Staffdef, "staffDef");
 mei::Staffdef::~Staffdef() {}
 
+/* include <staffDef> */
 
 mei::Staffgrp::Staffgrp() :
     MeiElement("staffGrp"),
@@ -1441,6 +1510,7 @@ mei::Staffgrp::Staffgrp() :
 REGISTER_DEFINITION(mei::Staffgrp, "staffGrp");
 mei::Staffgrp::~Staffgrp() {}
 
+/* include <staffGrp> */
 
 mei::Syl::Syl() :
     MeiElement("syl"),
@@ -1460,6 +1530,7 @@ mei::Syl::Syl() :
 REGISTER_DEFINITION(mei::Syl, "syl");
 mei::Syl::~Syl() {}
 
+/* include <syl> */
 
 mei::Tempo::Tempo() :
     MeiElement("tempo"),
@@ -1488,6 +1559,7 @@ mei::Tempo::Tempo() :
 REGISTER_DEFINITION(mei::Tempo, "tempo");
 mei::Tempo::~Tempo() {}
 
+/* include <tempo> */
 
 mei::Title::Title() :
     MeiElement("title"),
@@ -1524,6 +1596,7 @@ bool mei::Title::hasLevel() {
 void mei::Title::removeLevel() {
     removeAttribute("level");
 };
+/* include <title> */
 
 mei::Titlepage::Titlepage() :
     MeiElement("titlePage"),
@@ -1535,6 +1608,7 @@ mei::Titlepage::Titlepage() :
 REGISTER_DEFINITION(mei::Titlepage, "titlePage");
 mei::Titlepage::~Titlepage() {}
 
+/* include <titlePage> */
 
 
 

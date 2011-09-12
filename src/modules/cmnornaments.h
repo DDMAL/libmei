@@ -49,6 +49,8 @@ class MEI_EXPORT Mordent : public MeiElement {
         Mordent();
         virtual ~Mordent();
 
+/* include <mordent> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         MordentLogMixIn    m_MordentLog;
@@ -90,6 +92,8 @@ class MEI_EXPORT Trill : public MeiElement {
         Trill();
         virtual ~Trill();
 
+/* include <trill> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
@@ -129,6 +133,8 @@ class MEI_EXPORT Turn : public MeiElement {
     public:
         Turn();
         virtual ~Turn();
+
+/* include <turn> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

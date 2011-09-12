@@ -24,6 +24,7 @@ mei::Anchoredtext::Anchoredtext() :
 REGISTER_DEFINITION(mei::Anchoredtext, "anchoredText");
 mei::Anchoredtext::~Anchoredtext() {}
 
+/* include <anchoredText> */
 
 mei::Curve::Curve() :
     MeiElement("curve"),
@@ -50,6 +51,7 @@ mei::Curve::Curve() :
 REGISTER_DEFINITION(mei::Curve, "curve");
 mei::Curve::~Curve() {}
 
+/* include <curve> */
 
 mei::Line::Line() :
     MeiElement("line"),
@@ -75,6 +77,7 @@ mei::Line::Line() :
 REGISTER_DEFINITION(mei::Line, "line");
 mei::Line::~Line() {}
 
+/* include <line> */
 
 mei::Symbol::Symbol() :
     MeiElement("symbol"),
@@ -116,6 +119,7 @@ bool mei::Symbol::hasRef() {
 void mei::Symbol::removeRef() {
     removeAttribute("ref");
 };
+/* include <symbol> */
 
 mei::Symboldef::Symboldef() :
     MeiElement("symbolDef"),
@@ -125,6 +129,7 @@ mei::Symboldef::Symboldef() :
 REGISTER_DEFINITION(mei::Symboldef, "symbolDef");
 mei::Symboldef::~Symboldef() {}
 
+/* include <symbolDef> */
 
 mei::Symboltable::Symboltable() :
     MeiElement("symbolTable"),
@@ -134,6 +139,7 @@ mei::Symboltable::Symboltable() :
 REGISTER_DEFINITION(mei::Symboltable, "symbolTable");
 mei::Symboltable::~Symboltable() {}
 
+/* include <symbolTable> */
 
 
 
