@@ -310,12 +310,10 @@ vector<mei::MeiElement*> mei::MeiElement::flatten(MeiElement *e) {
     vector<MeiElement*> children = e->getChildren();
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
         res.push_back(*iter);
-        
         if ((*iter)->hasChildren()) {
             vector<MeiElement*> subres = this->flatten((*iter));
             res.insert(res.end(), subres.begin(), subres.end());
         }
-        
     }
     return res;
 }

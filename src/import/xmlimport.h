@@ -25,6 +25,7 @@
 #define MEI_XMLIMPORT_H_
 
 #include "meidocument.h"
+#include <string>
 
 namespace mei {
 

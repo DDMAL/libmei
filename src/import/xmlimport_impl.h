@@ -26,6 +26,7 @@
 
 #include "meidocument.h"
 #include <libxml/xmlreader.h>
+#include <string>
 
 namespace mei {
 

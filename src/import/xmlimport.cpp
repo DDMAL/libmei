@@ -7,7 +7,7 @@
 //
 
 #include <string>
-
+#include <vector>
 #include <stdio.h>
 #include <libxml/xmlreader.h>
 
@@ -59,17 +59,17 @@ MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
     return NULL;
 }
 
-//MeiDocument* XmlImportImpl::documentFromStream(string xmlstream) {
-//  MeiDocument* mdoc;
+// MeiDocument* XmlImportImpl::documentFromStream(string xmlstream) {
+//   MeiDocument* mdoc;
 //
-//  return mdoc;
-//}
+//   return mdoc;
+// }
 //
-//MeiDocument* XmlImportImpl::documentFromText(string text) {
-//  MeiDocument* mdoc;
+// MeiDocument* XmlImportImpl::documentFromText(string text) {
+//   MeiDocument* mdoc;
 //
-//  return mdoc;
-//}
+//   return mdoc;
+// }
 
 void XmlImportImpl::init() {
     MeiDocument *doc = new MeiDocument("test");
@@ -88,7 +88,6 @@ MeiDocument* XmlImportImpl::getMeiDocument() {
 }
 
 MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
-
     string id = "";
     vector<MeiAttribute*> attributes;
     // XML attributes and children. Text nodes will never have these.
