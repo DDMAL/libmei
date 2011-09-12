@@ -2,7 +2,6 @@
 
 import os
 import re
-import hashlib
 import codecs
 import textwrap
 import logging
@@ -87,7 +86,7 @@ class MEI_EXPORT {elementNameUpper} : public MeiElement {{
         {elementNameUpper}();
         virtual ~{elementNameUpper}();
 {methods}
-/* include {elementNameMd5} */
+/* include <{elementName}> */
 
 {mixIns}
     private:
@@ -101,7 +100,7 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 mei::{elementNameUpper}::~{elementNameUpper}() {{}}
 
-{methods}/* include {elementNameMd5} */
+{methods}/* include <{elementNameLower}> */
 
 """
 
@@ -335,7 +334,7 @@ def __create_element_classes(schema):
                 "methods": attribute_methods,
                 "mixIns": element_mixins,
                 "documentation": docstr.strip(),
-                "elementNameMd5": hashlib.md5(schema.cc(element)).hexdigest()
+                "elementName": element
             }
             
             # pdb.set_trace()
@@ -407,8 +406,7 @@ def __create_element_classes(schema):
                 'elementNameUpper': schema.cc(element),
                 'elementNameLower': element,
                 'mixIns': element_mixins,
-                'methods': attribute_methods,
-                "elementNameMd5": hashlib.md5(schema.cc(element)).hexdigest()
+                'methods': attribute_methods
             }
             
             element_constructor += ELEMENT_CLASS_IMPL_CONS_TEMPLATE.format(**consvars)
@@ -457,7 +455,7 @@ def __process_include(fname, includes, includes_dir):
 
 def __parse_includefile(contents):
     # parse the include file for our methods.
-    reg = re.compile(r"^\/\* (.+) \*\/\n+((?:\n.+)+)\n+\/\* end [0-9a-z]+ \*\/", re.MULTILINE)
+    reg = re.compile(r"/\* <(?P<elementName>[^>]+)> \*/(.+?)/\* </(?P=elementName)> \*/", re.MULTILINE|re.DOTALL)
     ret = dict(re.findall(reg, contents))
     return ret
 
@@ -465,12 +463,12 @@ def __parse_codefile(methods, directory, codefile):
     f = open(os.path.join(directory, codefile), 'r')
     contents = f.readlines()
     f.close()
-    regmatch = re.compile(r"\/\* include (?P<md5>[0-9a-z]{32}) \*\/")
+    regmatch = re.compile(r"/\* include <(?P<elementName>[^>]+)> \*/")
     for i,line in enumerate(contents):
-        match = re.match(regmatch, line) 
+        match = re.match(regmatch, line)
         if match:
-            if match.group("md5") in methods.keys():
-                contents[i] = methods[match.group("md5")].lstrip("\n") + "\n"
+            if match.group("elementName") in methods.keys():
+                contents[i] = methods[match.group("elementName")].lstrip("\n") + "\n"
     
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)

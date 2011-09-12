@@ -1,14 +1,13 @@
-/* 2de86fa016c5a004fb0b0e8b707ea99b */
+/* <tie> */
 
+        /** A comment to test the documentation **/
+        std::vector<mei::MeiElement*> getTiedNotes();
 
-/** A comment to test the documentation **/
-vector<mei::MeiElement*> mei::Tie::getTiedNotes();
+/* </tie> */
 
-/* end 2de86fa016c5a004fb0b0e8b707ea99b */
+/* <slur> */
 
-/* 76ddef8b6ba62064b651ebe9fc708332 */
+        std::vector<mei::MeiElement*> getSlurredNotes();
+        MeiElement* somethingElse();
 
-vector<mei::MeiElement*> mei::Slur::getSlurredNotes();
-MeiElement* mei::Slur::somethingElse(foo blah, bar blahblah);
-
-/* end 76ddef8b6ba62064b651ebe9fc708332 */
+/* </slur> */
