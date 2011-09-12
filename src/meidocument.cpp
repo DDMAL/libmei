@@ -50,7 +50,6 @@ void mei::MeiDocument::init(string docname) {
     this->docname = docname;
     this->root = NULL;
     this->meiVersion = MEI_VERSION;
-    
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);

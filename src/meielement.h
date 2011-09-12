@@ -59,7 +59,7 @@ namespace mei {
 
 // Forward declaration
 class MeiDocument;
-    
+
 class MEI_EXPORT MeiElement
     {
     public:
@@ -161,7 +161,7 @@ class MEI_EXPORT MeiElement
          *  Also updates the document id map for getElementById lookups
          */
         void setDocument(MeiDocument *doc);
-        
+
         /** \brief Removes the pointer from this element and it's children to its currently assigned document
          *
          *  Also updates the document id map for getElementById lookups
@@ -213,29 +213,29 @@ class MEI_EXPORT MeiElement
          * of the caller to free elements after they have been removed.
          */
         void removeChild(MeiElement *child);
-        
+
         /**
          * \brief Check if this element has any children.
          */
         bool hasChildren();
-        
+
         /**
          * \brief Check if this element has any children with the given name.
          */
         bool hasChildren(std::string cname);
-        
+
         /**
          *  \brief Get the ancestor with a given name
          *
          *  \return MeiElement, or NULL if no ancestor is found.
          */
         MeiElement* getAncestor(std::string name);
-        
+
         /**
          *  \brief Get all descendants of the current element.
          */
         std::vector<MeiElement*> getDescendants();
-        
+
         /**
          *  \brief Get all the peer elements of the current element.
          *      Note that this will return a list of all the children
@@ -248,7 +248,7 @@ class MEI_EXPORT MeiElement
          *  \return A vector of MeiElements (possibly empty).
          */
         std::vector<MeiElement*> getPeers();
-        
+
         /** \brief Print a tree of elements with this one at the root. */
         void print();
 

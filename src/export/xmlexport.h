@@ -46,7 +46,6 @@ class XmlExport {
         XmlExport(MeiDocument *doc);
         XmlExportImpl *impl;
 };
-
 }
 
 #endif  // MEI_XMLEXPORT_H_

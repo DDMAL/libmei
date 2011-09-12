@@ -67,7 +67,7 @@ POSTFLAGS  += $(LIBDIR1)/$(LIB1).a
 
 
 
-$(NAME):
+windows:
 	$(COMPILER) $(PREFLAGS) -o $(NAME)$(EXE) $(NAME).cc $(POSTFLAGS) && \
 		$(STRIP) $(NAME)$(EXE)
 
@@ -82,4 +82,13 @@ test:
 	-$(NAME)$(EXE) testoutput.mei
 	-diff testinput.mei testoutput.mei > difference
 
+CXXFLAGS="-I/usr/include/libxml2"
+LDFLAGS="-lxml2"
+linux: mei-update.o
+	g++ -o mei-converter mei-update.o $(LDFLAGS)
+
+clean:
+	rm -f mei-converter mei-update.o
+
+.PHONY: linux windows test clean
 
