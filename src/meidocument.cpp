@@ -38,29 +38,16 @@ using std::vector;
 using mei::MeiElement;
 using mei::MeiNamespace;
 
-mei::MeiDocument::MeiDocument(string docname) {
-    init(docname);
-}
-
 mei::MeiDocument::MeiDocument() {
-    init("");
+    init();
 }
 
-void mei::MeiDocument::init(string docname) {
-    this->docname = docname;
+void mei::MeiDocument::init() {
     this->root = NULL;
     this->meiVersion = MEI_VERSION;
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
-}
-
-const string mei::MeiDocument::getDocName() {
-    return docname;
-}
-
-void mei::MeiDocument::setDocName(string docname) {
-    this->docname = docname;
 }
 
 bool mei::MeiDocument::hasNamespace(string href) {
