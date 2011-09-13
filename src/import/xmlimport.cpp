@@ -72,7 +72,7 @@ MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
 // }
 
 void XmlImportImpl::init() {
-    MeiDocument *doc = new MeiDocument("test");
+    MeiDocument *doc = new MeiDocument();
     this->meiDocument = doc;
 
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
