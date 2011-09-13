@@ -284,7 +284,10 @@ void mei::MeiElement::print(int level) {
     }
 
     if (value != "") {
-        printf(" (%s)", value.c_str());
+        printf(" (v=%s)", value.c_str());
+    }
+    if (tail != "") {
+        printf(" (t=%s)", tail.c_str());
     }
 
     printf("\n");
