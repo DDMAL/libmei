@@ -55,6 +55,7 @@ NAMESPACE_TEMPLATE = """\n        MeiNamespace *s = new MeiNamespace("{prefix}",
 CLASSES_IMPL_TEMPLATE = """#include "{moduleNameLower}.h"
 
 #include <string>
+/* #include_block */
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
@@ -71,6 +72,8 @@ CLASSES_HEAD_TEMPLATE = """{license}
 #include "meielement.h"
 #include "meinamespace.h"
 #include "exceptions.h"
+/* #include_block */
+
 {includes}
 
 namespace mei {{
@@ -436,35 +439,52 @@ def parse_includes(file_dir, includes_dir):
             if "mixins" in f:
                 continue
             
-            methods = __process_include(f, includes, includes_dir)
+            methods, inc = __process_include(f, includes, includes_dir)
             if methods:
-                __parse_codefile(methods, dp, f)
+                __parse_codefile(methods, inc, dp, f)
 
 
 
 def __process_include(fname, includes, includes_dir):
     name,ext = os.path.splitext(fname)
     print "Name {0}, Extension {1}".format(name,ext)
+    new_methods, includes_block = None, None
     if "{0}.inc".format(fname) in includes:
         lg.debug("Huzzah! an include was found for {0}".format(fname))
         f = open(os.path.join(includes_dir, "{0}.inc".format(fname)), 'r')
         includefile = f.read()
         f.close()
-        new_methods = __parse_includefile(includefile)
-        return new_methods
+        new_methods, includes_block = __parse_includefile(includefile)
+        return (new_methods, includes_block)
+    else:
+        return (None, None)
 
 def __parse_includefile(contents):
     # parse the include file for our methods.
+    ret = {}
+    inc = []
     reg = re.compile(r"/\* <(?P<elementName>[^>]+)> \*/(.+?)/\* </(?P=elementName)> \*/", re.MULTILINE|re.DOTALL)
     ret = dict(re.findall(reg, contents))
-    return ret
 
-def __parse_codefile(methods, directory, codefile):
+    # grab the include for the includes...
+    reginc = re.compile(r"/\* #include_block \*/(.+?)/\* #include_block \*/", re.MULTILINE|re.DOTALL)
+    inc = re.findall(reginc, contents)
+    return (ret, inc)
+
+def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'r')
     contents = f.readlines()
     f.close()
     regmatch = re.compile(r"/\* include <(?P<elementName>[^>]+)> \*/")
+    if includes:
+        incmatch = re.compile(r"/\* #include_block \*/")
     for i,line in enumerate(contents):
+        if includes:
+            # add the includes to this file
+            imatch = re.match(incmatch, line)
+            if imatch:
+                contents[i] = includes[0]
+
         match = re.match(regmatch, line)
         if match:
             if match.group("elementName") in methods.keys():
