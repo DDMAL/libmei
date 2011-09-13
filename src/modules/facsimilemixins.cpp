@@ -1,6 +1,7 @@
 #include "facsimilemixins.h"
 
 #include <string>
+/* #include_block */
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
