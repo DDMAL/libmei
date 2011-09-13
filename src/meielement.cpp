@@ -169,6 +169,10 @@ void mei::MeiElement::setDocument(MeiDocument *document) {
     }
 }
 
+MeiDocument* mei::MeiElement::getDocument() {
+    return this->document;
+}
+
 void mei::MeiElement::removeDocument() {
     this->document->rmIdMap(id);
     this->document = NULL;

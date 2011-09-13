@@ -162,6 +162,10 @@ class MEI_EXPORT MeiElement
          */
         void setDocument(MeiDocument *doc);
 
+        /** \brief Gets a pointer to the document this element is attached to.
+         */
+        MeiDocument* getDocument();
+
         /** \brief Removes the pointer from this element and it's children to its currently assigned document
          *
          *  Also updates the document id map for getElementById lookups
@@ -271,7 +275,7 @@ class MEI_EXPORT MeiElement
         std::vector<MeiElement*> children;
         MeiElement *parent;
         MeiDocument *document;
-    
+
         MeiElement* traverseParent(std::string name, MeiElement *e);
         std::vector<MeiElement*> flatten(MeiElement *e);
 };
