@@ -84,6 +84,10 @@ XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
 }
 
 XmlExportImpl::~XmlExportImpl() {
+    if (xmlDocOutput) {
+        xmlFreeDoc(xmlDocOutput);
+    }
+    xmlCleanupParser();
 }
 
 void XmlExportImpl::init() {

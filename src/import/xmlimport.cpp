@@ -80,6 +80,9 @@ void XmlImportImpl::init() {
 }
 
 mei::XmlImportImpl::~XmlImportImpl() {
+    if (xmlMeiDocument) {
+        xmlFreeDoc(xmlMeiDocument);
+    }
     xmlCleanupParser();
 }
 
