@@ -95,24 +95,16 @@ void XmlExportImpl::init() {
     MeiElement *root = this->meiDocument->getRootElement();
     // Copy the version from the document into the root element
     static_cast<Mei*>(root)->m_Meiversion.setMeiversion(meiDocument->getVersion());
+
     xmlNode* xroot = this->meiElementToXmlNode(root);
 
-    xmlDocPtr xmldoc = NULL;
-    xmldoc = xmlNewDoc((const xmlChar*)"1.0");
+    xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
     xmlDocSetRootElement(xmldoc, xroot);
     this->xmlDocOutput = xmldoc;
 }
 
 xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
-    xmlNodePtr curxmlnode;
-
-    if (el->getName() == "_text") {
-        curxmlnode = xmlNewText((const xmlChar*)el->getValue().c_str());
-    } else if (el->getName() == "_comment") {
-        curxmlnode = xmlNewComment((const xmlChar*)el->getValue().c_str());
-    } else {
-        curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());
-    }
+    xmlNodePtr curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());
 
     if (el == this->meiDocument->getRootElement()) {
         // we're working with the root element of this document. We need to set up any global namespaces.
@@ -132,31 +124,41 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
         xmlNewProp(curxmlnode, XML_XML_ID, (const xmlChar*)idvalue.c_str());
     }
 
+    vector<MeiAttribute*> ats = el->getAttributes();
+    for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter !=ats.end(); ++iter) {
+        string attrname = (*iter)->getName();
+        string attrvalue = (*iter)->getValue();
 
-    if (!el->getAttributes().empty()) {
-        vector<MeiAttribute*> ats = el->getAttributes();
-        for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter !=ats.end(); ++iter) {
-            string attrname = (*iter)->getName();
-            string attrvalue = (*iter)->getValue();
-
-            if ((*iter)->hasNamespace()) {
-                MeiNamespace* atns = (*iter)->getNamespace();
-                attrname = atns->getPrefix() + ":" + attrname;
-            }
-
-            xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+        if ((*iter)->hasNamespace()) {
+            MeiNamespace* atns = (*iter)->getNamespace();
+            attrname = atns->getPrefix() + ":" + attrname;
         }
+
+        xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
 
-    if (el->getChildren().size() > 0) {
-        vector<MeiElement*> cn = el->getChildren();
-        for (vector<MeiElement*>::iterator iter = cn.begin(); iter != cn.end(); ++iter) {
-            // add children to xml node
+    // Add child for text node
+    if (el->getValue() != "") {
+        xmlNode *value = xmlNewText((const xmlChar*)el->getValue().c_str());
+        xmlAddChild(curxmlnode, value);
+    }
+
+    // Add all other children
+    vector<MeiElement*> cn = el->getChildren();
+    for (vector<MeiElement*>::iterator iter = cn.begin(); iter != cn.end(); ++iter) {
+        if ((*iter)->getName() == "_comment") {
+            xmlNode *comment = xmlNewComment((const xmlChar*)(*iter)->getValue().c_str());
+            xmlAddChild(curxmlnode, comment);
+        } else {
             xmlNodePtr child = meiElementToXmlNode(*iter);
             xmlAddChild(curxmlnode, child);
+        }
+        // A node's tail is added as a text node peer
+        if ((*iter)->getTail() != "") {
+            xmlNode *tail = xmlNewText((const xmlChar*)(*iter)->getTail().c_str());
+            xmlAddChild(curxmlnode, tail);
         }
     }
 
     return curxmlnode;
 }
-

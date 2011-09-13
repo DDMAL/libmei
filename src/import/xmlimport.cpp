@@ -39,6 +39,13 @@ MeiDocument* XmlImport::documentFromFile(const char *filename) {
     return d;
 }
 
+MeiDocument* XmlImport::documentFromText(string text) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromText(text);
+    delete import;
+    return d;
+}
+
 XmlImportImpl::XmlImportImpl() {
     rootXmlNode = NULL;
     xmlMeiDocument = NULL;
@@ -59,17 +66,18 @@ MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
     return NULL;
 }
 
-// MeiDocument* XmlImportImpl::documentFromStream(string xmlstream) {
-//   MeiDocument* mdoc;
-//
-//   return mdoc;
-// }
-//
-// MeiDocument* XmlImportImpl::documentFromText(string text) {
-//   MeiDocument* mdoc;
-//
-//   return mdoc;
-// }
+MeiDocument* XmlImportImpl::documentFromText(string text) {
+    xmlDoc *doc = NULL;
+    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, 0);
+    this->xmlMeiDocument = doc;
+    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
+
+    if (this->checkCompatibility(this->rootXmlNode)) {
+        this->init();
+        return this->meiDocument;
+    }
+    return NULL;
+}
 
 void XmlImportImpl::init() {
     MeiDocument *doc = new MeiDocument();
@@ -125,27 +133,32 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
         }
     }
 
-    MeiElement *obj;
-
-    if (el->type == XML_ELEMENT_NODE) {
-        obj = MeiFactory::createInstance((const char*)el->name, id);
-    } else if (el->type == XML_TEXT_NODE) {
-        obj = new MeiTextNode();
-        obj->setValue(string((const char*)el->content));
-    } else if (el->type == XML_COMMENT_NODE) {
-        obj = new MeiCommentNode();
-        obj->setValue(string((const char*)el->content));
-    } else {
-        return NULL;
-    }
+    MeiElement *obj = MeiFactory::createInstance((const char*)el->name, id);
     obj->setAttributes(attributes);
 
+    MeiElement *lastElement = NULL;
     xmlNodePtr child = el->children;
     while (child != NULL) {
-        MeiElement* ch = xmlNodeToMeiElement(child);
-
-        if (ch != NULL) {
+        if (child->type == XML_ELEMENT_NODE) {
+            MeiElement* ch = xmlNodeToMeiElement(child);
             obj->addChild(ch);
+            lastElement = ch;
+        } else if (child->type == XML_TEXT_NODE) {
+            if (lastElement) {
+                const char *content = (const char*)child->content;
+                if (content) {
+                    lastElement->setTail(content);
+                }
+            } else {
+                const char *content = (const char*)child->content;
+                if (content) {
+                    obj->setValue(content);
+                }
+            }
+        } else if (child->type == XML_COMMENT_NODE) {
+            MeiElement *comment = new MeiCommentNode();
+            comment->setValue(string((const char*)child->content));
+            obj->addChild(comment);
         }
 
         child = child->next;
@@ -163,76 +176,3 @@ bool XmlImportImpl::checkCompatibility(xmlNode *r) throw(NoVersionFoundException
         return true;
     }
 }
-
-/*
-MeiElement::MeiElement(xmlNode* node) {
-    parent_ = NULL;
-    value_ = "";
-    xmlNode* curnode = NULL;
-    xmlAttr* curattr = NULL;
-    const xmlChar* attrname;
-    const xmlChar* attrprefix;
-    xmlNode* attrvalue = NULL;
-    xmlNs* xmlns = NULL;
-
-    if (node && node->type == XML_ELEMENT_NODE) {
-        xmlns = node->ns;
-        const xmlChar* childhref = xmlns->href;
-        const xmlChar* childprefix = xmlns->prefix;
-        MeiNs ns;
-        if (childhref != NULL) {
-            ns.href = (const char*)childhref;
-        }
-        if (childprefix != NULL) {
-            ns.prefix = (const char*)childprefix;
-        }
-
-        this->ns = ns;
-        this->name_ = (const char*)node->name;
-
-        if (node->nsDef != NULL) {
-            if (node->nsDef->href != NULL && node->nsDef->prefix != NULL) {
-                string prefix = (const char*)(node->nsDef->prefix);
-                string href = (const char*)(node->nsDef->href);
-                MeiAttribute *attribute = new MeiAttribute(prefix,href);
-                attribute->setPrefix("xmlns");
-                addAttribute(attribute);
-            }
-        }
-
-        if (node->properties) {
-            for (curattr = node->properties; curattr; curattr = curattr->next) {
-                if (curattr->type == XML_ATTRIBUTE_NODE) {
-                    attrname = curattr->name;
-                    if (curattr->children) {
-                        attrvalue = curattr->children;
-                        if (curattr->atype != XML_ATTRIBUTE_ID) {
-                            string name = (const char *)(attrname);
-                            string value = (const char *)(attrvalue->content);
-                            MeiAttribute *curmeiattr = new MeiAttribute(name, value);
-                            if (curattr->ns) {
-                                if (curattr->ns->prefix) {
-                                    attrprefix = curattr->ns->prefix;
-                                    string prefix = (const char*)attrprefix;
-                                    curmeiattr->setPrefix(prefix);
-                                }
-                            }
-                            addAttribute(curmeiattr);
-                        } else {
-                            MeiAttribute *idattr = new MeiAttribute("id",string((const char*)attrvalue->content));
-                            idattr->setPrefix("xml");
-                            addAttribute(idattr);
-                        }
-                    }
-                }
-            }
-        }
-
-        for (curnode = node->children; curnode; curnode = curnode->next) {
-            if ( curnode->type == XML_TEXT_NODE) {
-                setValue((const char *)curnode->content);
-            }
-        }
-    }
-}
-*/

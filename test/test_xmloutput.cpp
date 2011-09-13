@@ -40,3 +40,33 @@ TEST(TestXmlMeiExport, ExportToString) {
     string ret = XmlExport::meiDocumentToText(d);
     ASSERT_EQ(expected, ret);
 }
+
+// Test that we export values and tails properly
+TEST(TestXmlMeiExport, ExportValueAndTail) {
+    MeiDocument *d = new MeiDocument();
+    MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
+    d->setRootElement(root);
+    MeiElement *note = mei::MeiFactory::createInstance("note", "noteid");
+    note->setValue("value");
+    note->setTail("tail");
+    root->addChild(note);
+
+    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2011-05\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
+    string ret = XmlExport::meiDocumentToText(d);
+    ASSERT_EQ(expected, ret);
+}
+
+// Test that comments are created correctly
+TEST(TestXmlMeiExport, ExportComment) {
+    MeiDocument *d = new MeiDocument();
+    MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
+    d->setRootElement(root);
+    MeiElement *comment = new mei::MeiElement("_comment");
+    comment->setValue("comment");
+    comment->setTail("t");
+    root->addChild(comment);
+
+    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2011-05\"><!--comment-->t</mei>\n";
+    string ret = XmlExport::meiDocumentToText(d);
+    ASSERT_EQ(expected, ret);
+}
