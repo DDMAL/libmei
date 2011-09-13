@@ -128,6 +128,15 @@ class MEI_EXPORT MeiElement
          * this element, it is replaced.
          */
         void addAttribute(MeiAttribute *attribute);
+    
+        /**
+         * \brief Add an attribute attrname with a value attrvalue. 
+         *  Creates an MeiAttribute object and adds it to the element.
+         *
+         * If an attribute with the same name already exists on
+         * this element, it is replaced
+         */
+        void addAttribute(std::string attrname, std::string attrvalue);
 
         /**
          * \brief Convienence method to get the attribute with a given name.

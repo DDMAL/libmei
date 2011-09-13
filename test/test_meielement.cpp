@@ -108,6 +108,14 @@ TEST(MeiElementTest, TestAddAttribute) {
     ASSERT_EQ("d", p->getAttribute("pname")->getValue());
 }
 
+TEST(MeiElementTest, TestAddAttributeByStrings) {
+    MeiElement *p = new MeiElement("note");
+    p->addAttribute("pname", "c");
+    
+    ASSERT_TRUE(p->hasAttribute("pname"));
+    ASSERT_EQ("c", p->getAttribute("pname")->getValue());
+}
+
 TEST(MeiElementTest, TestRemoveAttribute) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");

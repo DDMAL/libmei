@@ -133,7 +133,18 @@ bool mei::MeiElement::hasAttribute(string name) {
 }
 
 void mei::MeiElement::addAttribute(MeiAttribute *attr) {
-    removeAttribute(attr->getName());
+    if (this->hasAttribute(attr->getName())) {
+        removeAttribute(attr->getName());
+    }
+    attr->setElement(this);
+    attributes.push_back(attr);
+}
+
+void mei::MeiElement::addAttribute(string attrname, string attrvalue) {
+    MeiAttribute* attr = new MeiAttribute(attrname, attrvalue);
+    if (this->hasAttribute(attrname)) {
+        removeAttribute(attrname);
+    }
     attr->setElement(this);
     attributes.push_back(attr);
 }
