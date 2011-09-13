@@ -283,6 +283,10 @@ void mei::MeiElement::print(int level) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
 
+    if (value != "") {
+        printf(" (%s)", value.c_str());
+    }
+
     printf("\n");
 
     vector<MeiElement*>::iterator iter = this->children.begin();
