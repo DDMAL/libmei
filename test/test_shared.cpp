@@ -21,7 +21,7 @@ using mei::Layer;
 
 // Testing the shared module, since it's the biggest of them all. If this works, the others should too...
 TEST(MeiShared, NoteConstructorTest) {
-    Note * n = new Note();
+    Note* n = new Note();
     
     ASSERT_EQ("note", n->getName());
 };
@@ -30,7 +30,7 @@ TEST(MeiShared, NoteDefinedMethodsTest) {
     // some methods are defined on Note(), and some are defined on a mixin.
     // test the methods that are defined on note first.
     
-    Note * n = new Note();
+    Note* n = new Note();
     
     n->m_NoteVis.setHeadshape("diamond");
     
@@ -87,14 +87,14 @@ TEST(MeiShared, NoteMixinBaseMethodsTest) {
 }
 
 TEST(MeiShared, NamespacedElementTest) {
-    Note *n = new Note();
+    Note* n = new Note();
     n->m_Common.setBase("foobar");
     ASSERT_TRUE(n->m_Common.hasBase());
 
-    MeiAttribute *a = n->m_Common.getBase();
+    MeiAttribute* a = n->m_Common.getBase();
     ASSERT_TRUE(a->hasNamespace());
 
-    MeiNamespace *s = a->getNamespace();
+    MeiNamespace* s = a->getNamespace();
     ASSERT_EQ("http://www.w3.org/XML/1998/namespace", s->getHref());
 
 }
