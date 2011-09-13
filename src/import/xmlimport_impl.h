@@ -38,8 +38,7 @@ namespace mei {
              *  into an xmlNode for processing by the _MeiXmlStruct class.
              */
             MeiDocument* documentFromFile(const char* filename);
-            MeiDocument* documentFromStream(std::string stream);  // figure out arg type!
-            MeiDocument* documentFromText(std::string text);  // is this right???
+            MeiDocument* documentFromText(std::string text);
 
             XmlImportImpl();
             virtual ~XmlImportImpl();

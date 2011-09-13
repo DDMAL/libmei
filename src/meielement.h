@@ -332,14 +332,6 @@ private:
         }
     };
 
-    // a special type of MeiElement for holding text values. This has the unique name of
-    // "_text" to avoid any confusion with "real" MEI elements.
-    class MEI_EXPORT MeiTextNode : public MeiElement {
-        public:
-            MeiTextNode();
-            virtual ~MeiTextNode();
-    };
-
     class MEI_EXPORT MeiCommentNode : public MeiElement {
         public:
             MeiCommentNode();

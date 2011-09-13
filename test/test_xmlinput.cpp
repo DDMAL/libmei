@@ -14,8 +14,40 @@
 #include <mei/exceptions.h>
 #include <mei/shared.h>
 
+#include <string>
+#include <vector>
+
 using mei::MeiDocument;
+using mei::MeiElement;
 using mei::Note;
+
+using std::string;
+using std::vector;
+
+// Test that the value and tail members of elements are set correctly
+TEST(TestMeiXmlImport, SetValueAndTail) {
+    // Not a valid looking document, but representative of what is being tested
+    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"i\" meiversion=\"2011-05\"><note>noteinner</note>notetail<tie><p>pinner</p></tie>tietail</mei>";
+
+    MeiDocument *doc = mei::XmlImport::documentFromText(input);
+    MeiElement *e = doc->getRootElement();
+    ASSERT_EQ("mei", e->getName());
+    ASSERT_EQ(2, e->getChildren().size());
+    vector<MeiElement*> ch = e->getChildren();
+
+    ASSERT_EQ("note", ch[0]->getName());
+    ASSERT_EQ("noteinner", ch[0]->getValue());
+    ASSERT_EQ("notetail", ch[0]->getTail());
+
+    ASSERT_EQ("tie", ch[1]->getName());
+    ASSERT_EQ("", ch[1]->getValue());
+    ASSERT_EQ("tietail", ch[1]->getTail());
+
+    ASSERT_EQ(1, ch[1]->getChildren().size());
+    ASSERT_EQ("p", ch[1]->getChildren()[0]->getName());
+    ASSERT_EQ("pinner", ch[1]->getChildren()[0]->getValue());
+    ASSERT_EQ("", ch[1]->getChildren()[0]->getTail());
+}
 
 TEST(TestMeiXmlImport, ReadFileIn) {
     MeiDocument* docf = mei::XmlImport::documentFromFile("beethoven.mei");
