@@ -476,23 +476,17 @@ def __parse_codefile(methods, includes, directory, codefile):
     contents = f.readlines()
     f.close()
     regmatch = re.compile(r"/\* include <(?P<elementName>[^>]+)> \*/")
-    if includes:
-        incmatch = re.compile(r"/\* #include_block \*/")
+    incmatch = re.compile(r"/\* #include_block \*/")
     for i,line in enumerate(contents):
         imatch = re.match(incmatch, line)
         if imatch:
             if includes:
                 contents[i] = includes[0]
-            else:
-                contents[i] = ""
-
 
         match = re.match(regmatch, line)
         if match:
             if match.group("elementName") in methods.keys():
                 contents[i] = methods[match.group("elementName")].lstrip("\n") + "\n"
-            else:
-                contents[i] = ""
     
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)
