@@ -44,6 +44,8 @@ class MEI_EXPORT Back : public MeiElement {
         Back();
         virtual ~Back();
 
+/* include <back> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -63,6 +65,8 @@ class MEI_EXPORT Div : public MeiElement {
     public:
         Div();
         virtual ~Div();
+
+/* include <div> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -89,6 +93,8 @@ class MEI_EXPORT Front : public MeiElement {
         Front();
         virtual ~Front();
 
+/* include <front> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -110,6 +116,8 @@ class MEI_EXPORT Head : public MeiElement {
         Head();
         virtual ~Head();
 
+/* include <head> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -128,6 +136,8 @@ class MEI_EXPORT Item : public MeiElement {
     public:
         Item();
         virtual ~Item();
+
+/* include <item> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -148,6 +158,8 @@ class MEI_EXPORT L : public MeiElement {
         L();
         virtual ~L();
 
+/* include <l> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -165,6 +177,8 @@ class MEI_EXPORT Lg : public MeiElement {
     public:
         Lg();
         virtual ~Lg();
+
+/* include <lg> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -193,6 +207,8 @@ class MEI_EXPORT List : public MeiElement {
         bool hasForm();
         void removeForm();
 
+/* include <list> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -215,6 +231,8 @@ class MEI_EXPORT Quote : public MeiElement {
     public:
         Quote();
         virtual ~Quote();
+
+/* include <quote> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

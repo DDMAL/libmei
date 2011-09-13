@@ -43,6 +43,8 @@ class MEI_EXPORT Avfile : public MeiElement {
         Avfile();
         virtual ~Avfile();
 
+/* include <avFile> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         InternetmediaMixIn    m_Internetmedia;
@@ -85,6 +87,8 @@ class MEI_EXPORT Clip : public MeiElement {
         bool hasBetype();
         void removeBetype();
 
+/* include <clip> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         StartidMixIn    m_Startid;
@@ -103,6 +107,8 @@ class MEI_EXPORT Performance : public MeiElement {
     public:
         Performance();
         virtual ~Performance();
+
+/* include <performance> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -143,6 +149,8 @@ class MEI_EXPORT Recording : public MeiElement {
         void setBetype(std::string _betype);
         bool hasBetype();
         void removeBetype();
+
+/* include <recording> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;

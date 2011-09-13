@@ -22,6 +22,7 @@ mei::Lyrics::Lyrics() :
 REGISTER_DEFINITION(mei::Lyrics, "lyrics");
 mei::Lyrics::~Lyrics() {}
 
+/* include <lyrics> */
 
 mei::Verse::Verse() :
     MeiElement("verse"),
@@ -40,6 +41,7 @@ mei::Verse::Verse() :
 REGISTER_DEFINITION(mei::Verse, "verse");
 mei::Verse::~Verse() {}
 
+/* include <verse> */
 
 
 

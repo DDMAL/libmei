@@ -46,6 +46,8 @@ class MEI_EXPORT Cc : public MeiElement {
         Cc();
         virtual ~Cc();
 
+/* include <cc> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -74,6 +76,8 @@ class MEI_EXPORT Chan : public MeiElement {
         bool hasNum();
         void removeNum();
 
+/* include <chan> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -94,6 +98,8 @@ class MEI_EXPORT Chanpr : public MeiElement {
         Chanpr();
         virtual ~Chanpr();
 
+/* include <chanPr> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -112,6 +118,8 @@ class MEI_EXPORT Cue : public MeiElement {
     public:
         Cue();
         virtual ~Cue();
+
+/* include <cue> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -134,6 +142,8 @@ class MEI_EXPORT Hex : public MeiElement {
         Hex();
         virtual ~Hex();
 
+/* include <hex> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -152,6 +162,8 @@ class MEI_EXPORT Marker : public MeiElement {
         Marker();
         virtual ~Marker();
 
+/* include <marker> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -169,6 +181,8 @@ class MEI_EXPORT Metatext : public MeiElement {
     public:
         Metatext();
         virtual ~Metatext();
+
+/* include <metaText> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -192,6 +206,8 @@ class MEI_EXPORT Midi : public MeiElement {
         Midi();
         virtual ~Midi();
 
+/* include <midi> */
+
         CommonMixIn    m_Common;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
@@ -208,6 +224,8 @@ class MEI_EXPORT Noteoff : public MeiElement {
     public:
         Noteoff();
         virtual ~Noteoff();
+
+/* include <noteOff> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -227,6 +245,8 @@ class MEI_EXPORT Noteon : public MeiElement {
     public:
         Noteon();
         virtual ~Noteon();
+
+/* include <noteOn> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -249,6 +269,8 @@ class MEI_EXPORT Port : public MeiElement {
         Port();
         virtual ~Port();
 
+/* include <port> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -269,6 +291,8 @@ class MEI_EXPORT Prog : public MeiElement {
     public:
         Prog();
         virtual ~Prog();
+
+/* include <prog> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -297,6 +321,8 @@ class MEI_EXPORT Seqnum : public MeiElement {
         bool hasNum();
         void removeNum();
 
+/* include <seqNum> */
+
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
@@ -314,6 +340,8 @@ class MEI_EXPORT Trkname : public MeiElement {
     public:
         Trkname();
         virtual ~Trkname();
+
+/* include <trkName> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -340,6 +368,8 @@ class MEI_EXPORT Vel : public MeiElement {
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
+
+/* include <vel> */
 
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;

@@ -53,6 +53,8 @@ class MEI_EXPORT Add : public MeiElement {
         Add();
         virtual ~Add();
 
+/* include <add> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         EditMixIn    m_Edit;
@@ -80,6 +82,8 @@ class MEI_EXPORT Choice : public MeiElement {
         Choice();
         virtual ~Choice();
 
+/* include <choice> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -100,6 +104,8 @@ class MEI_EXPORT Corr : public MeiElement {
     public:
         Corr();
         virtual ~Corr();
+
+/* include <corr> */
 
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -138,6 +144,8 @@ class MEI_EXPORT Damage : public MeiElement {
         bool hasDegree();
         void removeDegree();
 
+/* include <damage> */
+
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;
         ExtentMixIn    m_Extent;
@@ -172,6 +180,8 @@ class MEI_EXPORT Del : public MeiElement {
         void setRend(std::string _rend);
         bool hasRend();
         void removeRend();
+
+/* include <del> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -208,6 +218,8 @@ class MEI_EXPORT Gap : public MeiElement {
     public:
         Gap();
         virtual ~Gap();
+
+/* include <gap> */
 
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -263,6 +275,8 @@ class MEI_EXPORT Handshift : public MeiElement {
         bool hasOld();
         void removeOld();
 
+/* include <handShift> */
+
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
@@ -288,6 +302,8 @@ class MEI_EXPORT Orig : public MeiElement {
     public:
         Orig();
         virtual ~Orig();
+
+/* include <orig> */
 
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -315,6 +331,8 @@ class MEI_EXPORT Reg : public MeiElement {
     public:
         Reg();
         virtual ~Reg();
+
+/* include <reg> */
 
         CommonMixIn    m_Common;
         AuthorizedMixIn    m_Authorized;
@@ -350,6 +368,8 @@ class MEI_EXPORT Restore : public MeiElement {
         bool hasDesc();
         void removeDesc();
 
+/* include <restore> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         HandidentMixIn    m_Handident;
@@ -371,6 +391,8 @@ class MEI_EXPORT Sic : public MeiElement {
         Sic();
         virtual ~Sic();
 
+/* include <sic> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
 
@@ -387,6 +409,8 @@ class MEI_EXPORT Subst : public MeiElement {
     public:
         Subst();
         virtual ~Subst();
+
+/* include <subst> */
 
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -420,6 +444,8 @@ class MEI_EXPORT Supplied : public MeiElement {
         Supplied();
         virtual ~Supplied();
 
+/* include <supplied> */
+
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
@@ -451,6 +477,8 @@ class MEI_EXPORT Unclear : public MeiElement {
     public:
         Unclear();
         virtual ~Unclear();
+
+/* include <unclear> */
 
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;

@@ -19,6 +19,7 @@ mei::Avfile::Avfile() :
 REGISTER_DEFINITION(mei::Avfile, "avFile");
 mei::Avfile::~Avfile() {}
 
+/* include <avFile> */
 
 mei::Clip::Clip() :
     MeiElement("clip"),
@@ -93,6 +94,7 @@ bool mei::Clip::hasBetype() {
 void mei::Clip::removeBetype() {
     removeAttribute("betype");
 };
+/* include <clip> */
 
 mei::Performance::Performance() :
     MeiElement("performance"),
@@ -103,6 +105,7 @@ mei::Performance::Performance() :
 REGISTER_DEFINITION(mei::Performance, "performance");
 mei::Performance::~Performance() {}
 
+/* include <performance> */
 
 mei::Recording::Recording() :
     MeiElement("recording"),
@@ -177,6 +180,7 @@ bool mei::Recording::hasBetype() {
 void mei::Recording::removeBetype() {
     removeAttribute("betype");
 };
+/* include <recording> */
 
 
 

@@ -46,6 +46,8 @@ class MEI_EXPORT Fig : public MeiElement {
         Fig();
         virtual ~Fig();
 
+/* include <fig> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         XyMixIn    m_Xy;
@@ -68,6 +70,8 @@ class MEI_EXPORT Figdesc : public MeiElement {
     public:
         Figdesc();
         virtual ~Figdesc();
+
+/* include <figDesc> */
 
         CommonMixIn    m_Common;
         LangMixIn    m_Lang;
@@ -92,6 +96,8 @@ class MEI_EXPORT Graphic : public MeiElement {
         bool hasHeight();
         void removeHeight();
 
+/* include <graphic> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         InternetmediaMixIn    m_Internetmedia;
@@ -115,6 +121,8 @@ class MEI_EXPORT Table : public MeiElement {
         Table();
         virtual ~Table();
 
+/* include <table> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -134,6 +142,8 @@ class MEI_EXPORT Td : public MeiElement {
     public:
         Td();
         virtual ~Td();
+
+/* include <td> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -156,6 +166,8 @@ class MEI_EXPORT Th : public MeiElement {
         Th();
         virtual ~Th();
 
+/* include <th> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -177,6 +189,8 @@ class MEI_EXPORT Tr : public MeiElement {
     public:
         Tr();
         virtual ~Tr();
+
+/* include <tr> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

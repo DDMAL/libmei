@@ -15,6 +15,7 @@ mei::Meicorpus::Meicorpus() :
 REGISTER_DEFINITION(mei::Meicorpus, "meiCorpus");
 mei::Meicorpus::~Meicorpus() {}
 
+/* include <meiCorpus> */
 
 
 

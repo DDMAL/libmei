@@ -21,16 +21,8 @@ using mei::Body;
 using mei::Staff;
 using mei::Note;
 
-TEST(TestMeiDocument, TestCreateDocWithName) {
-    MeiDocument *doc = new MeiDocument("myfile");
-    ASSERT_EQ("myfile", doc->getDocName());
-
-    doc->setDocName("newname");
-    ASSERT_EQ("newname", doc->getDocName());
-}
-
 TEST(TestMeiDocument, GetNamespace) {
-    MeiDocument *doc = new MeiDocument("doc");
+    MeiDocument *doc = new MeiDocument();
     MeiNamespace *ns = new MeiNamespace("prefix", "http://example.com/ns");
 
     ASSERT_EQ("http://www.music-encoding.org/ns/mei", doc->getNamespaces().at(0)->getHref());
@@ -44,7 +36,7 @@ TEST(TestMeiDocument, GetNamespace) {
 }
 
 TEST(TestMeiDocument, RootElement) {
-    MeiDocument *doc = new MeiDocument("doc");
+    MeiDocument *doc = new MeiDocument();
     Mei *m = new Mei();
     doc->setRootElement(m);
 
@@ -73,7 +65,7 @@ TEST(TestMeiDocument, ElementById) {
     staff->addChild(n3);
     s2->addChild(n4);
 
-    MeiDocument *doc = new MeiDocument("doc");
+    MeiDocument *doc = new MeiDocument();
     doc->setRootElement(mei);
 
     ASSERT_EQ(n1, doc->getElementById(wantedId));
@@ -115,7 +107,7 @@ TEST(TestMeiDocument, ElementsByName) {
     staff->addChild(n3);
     s2->addChild(n4);
     
-    MeiDocument *doc = new MeiDocument("doc");
+    MeiDocument *doc = new MeiDocument();
     doc->setRootElement(mei);
     
     std::vector<MeiElement*> notes = doc->getElementsByName("note");

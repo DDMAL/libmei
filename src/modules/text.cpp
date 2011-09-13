@@ -17,6 +17,7 @@ mei::Back::Back() :
 REGISTER_DEFINITION(mei::Back, "back");
 mei::Back::~Back() {}
 
+/* include <back> */
 
 mei::Div::Div() :
     MeiElement("div"),
@@ -30,6 +31,7 @@ mei::Div::Div() :
 REGISTER_DEFINITION(mei::Div, "div");
 mei::Div::~Div() {}
 
+/* include <div> */
 
 mei::Front::Front() :
     MeiElement("front"),
@@ -42,6 +44,7 @@ mei::Front::Front() :
 REGISTER_DEFINITION(mei::Front, "front");
 mei::Front::~Front() {}
 
+/* include <front> */
 
 mei::Head::Head() :
     MeiElement("head"),
@@ -54,6 +57,7 @@ mei::Head::Head() :
 REGISTER_DEFINITION(mei::Head, "head");
 mei::Head::~Head() {}
 
+/* include <head> */
 
 mei::Item::Item() :
     MeiElement("item"),
@@ -64,6 +68,7 @@ mei::Item::Item() :
 REGISTER_DEFINITION(mei::Item, "item");
 mei::Item::~Item() {}
 
+/* include <item> */
 
 mei::L::L() :
     MeiElement("l"),
@@ -75,6 +80,7 @@ mei::L::L() :
 REGISTER_DEFINITION(mei::L, "l");
 mei::L::~L() {}
 
+/* include <l> */
 
 mei::Lg::Lg() :
     MeiElement("lg"),
@@ -88,6 +94,7 @@ mei::Lg::Lg() :
 REGISTER_DEFINITION(mei::Lg, "lg");
 mei::Lg::~Lg() {}
 
+/* include <lg> */
 
 mei::List::List() :
     MeiElement("list"),
@@ -121,6 +128,7 @@ bool mei::List::hasForm() {
 void mei::List::removeForm() {
     removeAttribute("form");
 };
+/* include <list> */
 
 mei::Quote::Quote() :
     MeiElement("quote"),
@@ -133,6 +141,7 @@ mei::Quote::Quote() :
 REGISTER_DEFINITION(mei::Quote, "quote");
 mei::Quote::~Quote() {}
 
+/* include <quote> */
 
 
 

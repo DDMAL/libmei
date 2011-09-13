@@ -79,6 +79,8 @@ class MEI_EXPORT Abbr : public MeiElement {
         bool hasExpan();
         void removeExpan();
 
+/* include <abbr> */
+
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
@@ -107,6 +109,8 @@ class MEI_EXPORT Accid : public MeiElement {
     public:
         Accid();
         virtual ~Accid();
+
+/* include <accid> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -139,6 +143,8 @@ class MEI_EXPORT Actor : public MeiElement {
         Actor();
         virtual ~Actor();
 
+/* include <actor> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -158,6 +164,8 @@ class MEI_EXPORT Addrline : public MeiElement {
         Addrline();
         virtual ~Addrline();
 
+/* include <addrLine> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -175,6 +183,8 @@ class MEI_EXPORT Address : public MeiElement {
     public:
         Address();
         virtual ~Address();
+
+/* include <address> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -202,6 +212,8 @@ class MEI_EXPORT Annot : public MeiElement {
     public:
         Annot();
         virtual ~Annot();
+
+/* include <annot> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -238,6 +250,8 @@ class MEI_EXPORT Artic : public MeiElement {
     public:
         Artic();
         virtual ~Artic();
+
+/* include <artic> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -276,6 +290,8 @@ class MEI_EXPORT Barline : public MeiElement {
         Barline();
         virtual ~Barline();
 
+/* include <barLine> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
@@ -305,6 +321,8 @@ class MEI_EXPORT Bibl : public MeiElement {
         Bibl();
         virtual ~Bibl();
 
+/* include <bibl> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -327,6 +345,8 @@ class MEI_EXPORT Body : public MeiElement {
         Body();
         virtual ~Body();
 
+/* include <body> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
 
@@ -340,6 +360,8 @@ class MEI_EXPORT Caption : public MeiElement {
     public:
         Caption();
         virtual ~Caption();
+
+/* include <caption> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -357,6 +379,8 @@ class MEI_EXPORT Castgrp : public MeiElement {
         Castgrp();
         virtual ~Castgrp();
 
+/* include <castGrp> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -373,6 +397,8 @@ class MEI_EXPORT Castitem : public MeiElement {
         Castitem();
         virtual ~Castitem();
 
+/* include <castItem> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -387,6 +413,8 @@ class MEI_EXPORT Castlist : public MeiElement {
     public:
         Castlist();
         virtual ~Castlist();
+
+/* include <castList> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -403,6 +431,8 @@ class MEI_EXPORT Chord : public MeiElement {
     public:
         Chord();
         virtual ~Chord();
+
+/* include <chord> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -456,6 +486,8 @@ class MEI_EXPORT Clef : public MeiElement {
         Clef();
         virtual ~Clef();
 
+/* include <clef> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
@@ -477,6 +509,8 @@ class MEI_EXPORT Clefchange : public MeiElement {
     public:
         Clefchange();
         virtual ~Clefchange();
+
+/* include <clefChange> */
 
         CommonMixIn    m_Common;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -509,6 +543,8 @@ class MEI_EXPORT Custos : public MeiElement {
     public:
         Custos();
         virtual ~Custos();
+
+/* include <custos> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -545,6 +581,8 @@ class MEI_EXPORT Date : public MeiElement {
         bool hasReg();
         void removeReg();
 
+/* include <date> */
+
         BiblMixIn    m_Bibl;
         CalendaredMixIn    m_Calendared;
         CommonMixIn    m_Common;
@@ -575,6 +613,8 @@ class MEI_EXPORT Dir : public MeiElement {
     public:
         Dir();
         virtual ~Dir();
+
+/* include <dir> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -615,6 +655,8 @@ class MEI_EXPORT Dot : public MeiElement {
         Dot();
         virtual ~Dot();
 
+/* include <dot> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         DotLogMixIn    m_DotLog;
@@ -652,6 +694,8 @@ class MEI_EXPORT Dynam : public MeiElement {
     public:
         Dynam();
         virtual ~Dynam();
+
+/* include <dynam> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -694,6 +738,8 @@ class MEI_EXPORT Edition : public MeiElement {
         Edition();
         virtual ~Edition();
 
+/* include <edition> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -713,6 +759,8 @@ class MEI_EXPORT Ending : public MeiElement {
     public:
         Ending();
         virtual ~Ending();
+
+/* include <ending> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -753,6 +801,8 @@ class MEI_EXPORT Expan : public MeiElement {
         bool hasAbbr();
         void removeAbbr();
 
+/* include <expan> */
+
         CommonMixIn    m_Common;
         EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
@@ -781,6 +831,8 @@ class MEI_EXPORT Expansion : public MeiElement {
         Expansion();
         virtual ~Expansion();
 
+/* include <expansion> */
+
         CommonMixIn    m_Common;
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
@@ -800,6 +852,8 @@ class MEI_EXPORT Fw : public MeiElement {
     public:
         Fw();
         virtual ~Fw();
+
+/* include <fw> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -821,6 +875,8 @@ class MEI_EXPORT Group : public MeiElement {
         Group();
         virtual ~Group();
 
+/* include <group> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
 
@@ -839,6 +895,8 @@ class MEI_EXPORT Grpsym : public MeiElement {
     public:
         Grpsym();
         virtual ~Grpsym();
+
+/* include <grpSym> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -867,6 +925,8 @@ class MEI_EXPORT Identifier : public MeiElement {
         Identifier();
         virtual ~Identifier();
 
+/* include <identifier> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -888,6 +948,8 @@ class MEI_EXPORT Incip : public MeiElement {
         Incip();
         virtual ~Incip();
 
+/* include <incip> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         TypedMixIn    m_Typed;
@@ -907,6 +969,8 @@ class MEI_EXPORT Instrdef : public MeiElement {
         Instrdef();
         virtual ~Instrdef();
 
+/* include <instrDef> */
+
         CommonMixIn    m_Common;
         ChannelizedMixIn    m_Channelized;
         MidiinstrumentMixIn    m_Midiinstrument;
@@ -921,6 +985,8 @@ class MEI_EXPORT Instrgrp : public MeiElement {
     public:
         Instrgrp();
         virtual ~Instrgrp();
+
+/* include <instrGrp> */
 
         CommonMixIn    m_Common;
 
@@ -943,6 +1009,8 @@ class MEI_EXPORT Keyaccid : public MeiElement {
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
+
+/* include <keyAccid> */
 
         AccidentalMixIn    m_Accidental;
         CommonMixIn    m_Common;
@@ -971,6 +1039,8 @@ class MEI_EXPORT Keysig : public MeiElement {
         bool hasMode();
         void removeMode();
 
+/* include <keySig> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         AccidentalMixIn    m_Accidental;
@@ -986,6 +1056,8 @@ class MEI_EXPORT Label : public MeiElement {
     public:
         Label();
         virtual ~Label();
+
+/* include <label> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1007,6 +1079,8 @@ class MEI_EXPORT Layer : public MeiElement {
         Layer();
         virtual ~Layer();
 
+/* include <layer> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1025,6 +1099,8 @@ class MEI_EXPORT Layerdef : public MeiElement {
     public:
         Layerdef();
         virtual ~Layerdef();
+
+/* include <layerDef> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -1061,6 +1137,8 @@ class MEI_EXPORT Lb : public MeiElement {
         bool hasFunc();
         void removeFunc();
 
+/* include <lb> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         SourceMixIn    m_Source;
@@ -1092,6 +1170,8 @@ class MEI_EXPORT Mdiv : public MeiElement {
         Mdiv();
         virtual ~Mdiv();
 
+/* include <mdiv> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1113,6 +1193,8 @@ class MEI_EXPORT Mei : public MeiElement {
         Mei();
         virtual ~Mei();
 
+/* include <mei> */
+
         MeiversionMixIn    m_Meiversion;
 
     private:
@@ -1125,6 +1207,8 @@ class MEI_EXPORT Music : public MeiElement {
     public:
         Music();
         virtual ~Music();
+
+/* include <music> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -1158,6 +1242,8 @@ class MEI_EXPORT Name : public MeiElement {
         Name();
         virtual ~Name();
 
+/* include <name> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1190,6 +1276,8 @@ class MEI_EXPORT Note : public MeiElement {
     public:
         Note();
         virtual ~Note();
+
+/* include <note> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1256,6 +1344,8 @@ class MEI_EXPORT Num : public MeiElement {
         Num();
         virtual ~Num();
 
+/* include <num> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1277,6 +1367,8 @@ class MEI_EXPORT P : public MeiElement {
         P();
         virtual ~P();
 
+/* include <p> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1293,6 +1385,8 @@ class MEI_EXPORT Pad : public MeiElement {
     public:
         Pad();
         virtual ~Pad();
+
+/* include <pad> */
 
         CommonMixIn    m_Common;
         PadLogMixIn    m_PadLog;
@@ -1323,6 +1417,8 @@ class MEI_EXPORT Part : public MeiElement {
         Part();
         virtual ~Part();
 
+/* include <part> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         TypedMixIn    m_Typed;
@@ -1339,6 +1435,8 @@ class MEI_EXPORT Parts : public MeiElement {
     public:
         Parts();
         virtual ~Parts();
+
+/* include <parts> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -1362,6 +1460,8 @@ class MEI_EXPORT Pb : public MeiElement {
     public:
         Pb();
         virtual ~Pb();
+
+/* include <pb> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1388,6 +1488,8 @@ class MEI_EXPORT Pgdesc : public MeiElement {
         Pgdesc();
         virtual ~Pgdesc();
 
+/* include <pgDesc> */
+
         CommonMixIn    m_Common;
         LangMixIn    m_Lang;
 
@@ -1405,6 +1507,8 @@ class MEI_EXPORT Pgfoot : public MeiElement {
     public:
         Pgfoot();
         virtual ~Pgfoot();
+
+/* include <pgFoot> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1424,6 +1528,8 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
     public:
         Pgfoot2();
         virtual ~Pgfoot2();
+
+/* include <pgFoot2> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1446,6 +1552,8 @@ class MEI_EXPORT Pghead : public MeiElement {
         Pghead();
         virtual ~Pghead();
 
+/* include <pgHead> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1464,6 +1572,8 @@ class MEI_EXPORT Pghead2 : public MeiElement {
     public:
         Pghead2();
         virtual ~Pghead2();
+
+/* include <pgHead2> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1493,6 +1603,8 @@ class MEI_EXPORT Phrase : public MeiElement {
     public:
         Phrase();
         virtual ~Phrase();
+
+/* include <phrase> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1561,6 +1673,8 @@ class MEI_EXPORT Rend : public MeiElement {
         bool hasValign();
         void removeValign();
 
+/* include <rend> */
+
         ColorMixIn    m_Color;
         CommonMixIn    m_Common;
         LangMixIn    m_Lang;
@@ -1582,6 +1696,8 @@ class MEI_EXPORT Repository : public MeiElement {
     public:
         Repository();
         virtual ~Repository();
+
+/* include <repository> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -1605,6 +1721,8 @@ class MEI_EXPORT Rest : public MeiElement {
     public:
         Rest();
         virtual ~Rest();
+
+/* include <rest> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1643,6 +1761,8 @@ class MEI_EXPORT Role : public MeiElement {
         Role();
         virtual ~Role();
 
+/* include <role> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1657,6 +1777,8 @@ class MEI_EXPORT Roledesc : public MeiElement {
     public:
         Roledesc();
         virtual ~Roledesc();
+
+/* include <roleDesc> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1676,6 +1798,8 @@ class MEI_EXPORT Sb : public MeiElement {
     public:
         Sb();
         virtual ~Sb();
+
+/* include <sb> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1700,6 +1824,8 @@ class MEI_EXPORT Score : public MeiElement {
         Score();
         virtual ~Score();
 
+/* include <score> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         TypedMixIn    m_Typed;
@@ -1716,6 +1842,8 @@ class MEI_EXPORT Scoredef : public MeiElement {
     public:
         Scoredef();
         virtual ~Scoredef();
+
+/* include <scoreDef> */
 
         CommonMixIn    m_Common;
         CleffingLogMixIn    m_CleffingLog;
@@ -1765,6 +1893,8 @@ class MEI_EXPORT Section : public MeiElement {
         Section();
         virtual ~Section();
 
+/* include <section> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1787,6 +1917,8 @@ class MEI_EXPORT Space : public MeiElement {
     public:
         Space();
         virtual ~Space();
+
+/* include <space> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1828,6 +1960,8 @@ class MEI_EXPORT Stack : public MeiElement {
         bool hasAlign();
         void removeAlign();
 
+/* include <stack> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1852,6 +1986,8 @@ class MEI_EXPORT Staff : public MeiElement {
         Staff();
         virtual ~Staff();
 
+/* include <staff> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1870,6 +2006,8 @@ class MEI_EXPORT Staffdef : public MeiElement {
     public:
         Staffdef();
         virtual ~Staffdef();
+
+/* include <staffDef> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -1921,6 +2059,8 @@ class MEI_EXPORT Staffgrp : public MeiElement {
         Staffgrp();
         virtual ~Staffgrp();
 
+/* include <staffGrp> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -1944,6 +2084,8 @@ class MEI_EXPORT Syl : public MeiElement {
     public:
         Syl();
         virtual ~Syl();
+
+/* include <syl> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1974,6 +2116,8 @@ class MEI_EXPORT Tempo : public MeiElement {
     public:
         Tempo();
         virtual ~Tempo();
+
+/* include <tempo> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -2026,6 +2170,8 @@ class MEI_EXPORT Title : public MeiElement {
         bool hasLevel();
         void removeLevel();
 
+/* include <title> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -2048,6 +2194,8 @@ class MEI_EXPORT Titlepage : public MeiElement {
     public:
         Titlepage();
         virtual ~Titlepage();
+
+/* include <titlePage> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

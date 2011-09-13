@@ -15,6 +15,7 @@ mei::App::App() :
 REGISTER_DEFINITION(mei::App, "app");
 mei::App::~App() {}
 
+/* include <app> */
 
 mei::Lem::Lem() :
     MeiElement("lem"),
@@ -33,6 +34,7 @@ mei::Lem::Lem() :
 REGISTER_DEFINITION(mei::Lem, "lem");
 mei::Lem::~Lem() {}
 
+/* include <lem> */
 
 mei::Rdg::Rdg() :
     MeiElement("rdg"),
@@ -51,6 +53,7 @@ mei::Rdg::Rdg() :
 REGISTER_DEFINITION(mei::Rdg, "rdg");
 mei::Rdg::~Rdg() {}
 
+/* include <rdg> */
 
 
 

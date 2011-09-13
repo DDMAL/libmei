@@ -56,6 +56,8 @@ class MEI_EXPORT Arpeg : public MeiElement {
         Arpeg();
         virtual ~Arpeg();
 
+/* include <arpeg> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         ArpegLogMixIn    m_ArpegLog;
@@ -95,6 +97,8 @@ class MEI_EXPORT Btrem : public MeiElement {
         Btrem();
         virtual ~Btrem();
 
+/* include <bTrem> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         BtremLogMixIn    m_BtremLog;
@@ -126,6 +130,8 @@ class MEI_EXPORT Beam : public MeiElement {
         Beam();
         virtual ~Beam();
 
+/* include <beam> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -153,6 +159,8 @@ class MEI_EXPORT Beamspan : public MeiElement {
     public:
         Beamspan();
         virtual ~Beamspan();
+
+/* include <beamSpan> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -186,6 +194,8 @@ class MEI_EXPORT Beatrpt : public MeiElement {
         Beatrpt();
         virtual ~Beatrpt();
 
+/* include <beatRpt> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -218,6 +228,8 @@ class MEI_EXPORT Bend : public MeiElement {
     public:
         Bend();
         virtual ~Bend();
+
+/* include <bend> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -262,6 +274,8 @@ class MEI_EXPORT Breath : public MeiElement {
         Breath();
         virtual ~Breath();
 
+/* include <breath> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
@@ -299,6 +313,8 @@ class MEI_EXPORT Ftrem : public MeiElement {
         Ftrem();
         virtual ~Ftrem();
 
+/* include <fTrem> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -330,6 +346,8 @@ class MEI_EXPORT Fermata : public MeiElement {
     public:
         Fermata();
         virtual ~Fermata();
+
+/* include <fermata> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -374,6 +392,8 @@ class MEI_EXPORT Gliss : public MeiElement {
         Gliss();
         virtual ~Gliss();
 
+/* include <gliss> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
@@ -416,6 +436,8 @@ class MEI_EXPORT Hairpin : public MeiElement {
         Hairpin();
         virtual ~Hairpin();
 
+/* include <hairpin> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         HairpinLogMixIn    m_HairpinLog;
@@ -453,6 +475,8 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
         Halfmrpt();
         virtual ~Halfmrpt();
 
+/* include <halfmRpt> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -483,6 +507,8 @@ class MEI_EXPORT Harppedal : public MeiElement {
     public:
         Harppedal();
         virtual ~Harppedal();
+
+/* include <harpPedal> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -517,6 +543,8 @@ class MEI_EXPORT Mrest : public MeiElement {
     public:
         Mrest();
         virtual ~Mrest();
+
+/* include <mRest> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -553,6 +581,8 @@ class MEI_EXPORT Mrpt : public MeiElement {
         Mrpt();
         virtual ~Mrpt();
 
+/* include <mRpt> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -576,6 +606,8 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
     public:
         Mrpt2();
         virtual ~Mrpt2();
+
+/* include <mRpt2> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -602,6 +634,8 @@ class MEI_EXPORT Mspace : public MeiElement {
     public:
         Mspace();
         virtual ~Mspace();
+
+/* include <mSpace> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -637,6 +671,8 @@ class MEI_EXPORT Measure : public MeiElement {
         Measure();
         virtual ~Measure();
 
+/* include <measure> */
+
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
@@ -667,6 +703,8 @@ class MEI_EXPORT Multirest : public MeiElement {
         Multirest();
         virtual ~Multirest();
 
+/* include <multiRest> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -696,6 +734,8 @@ class MEI_EXPORT Multirpt : public MeiElement {
     public:
         Multirpt();
         virtual ~Multirpt();
+
+/* include <multiRpt> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -731,6 +771,8 @@ class MEI_EXPORT Octave : public MeiElement {
     public:
         Octave();
         virtual ~Octave();
+
+/* include <octave> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -774,6 +816,8 @@ class MEI_EXPORT Ossia : public MeiElement {
         Ossia();
         virtual ~Ossia();
 
+/* include <ossia> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
@@ -793,6 +837,8 @@ class MEI_EXPORT Pedal : public MeiElement {
     public:
         Pedal();
         virtual ~Pedal();
+
+/* include <pedal> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -829,6 +875,8 @@ class MEI_EXPORT Reh : public MeiElement {
     public:
         Reh();
         virtual ~Reh();
+
+/* include <reh> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -873,6 +921,11 @@ class MEI_EXPORT Slur : public MeiElement {
         Slur();
         virtual ~Slur();
 
+        std::vector<mei::MeiElement*> getSlurredNotes();
+        MeiElement* somethingElse();
+
+
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
@@ -914,6 +967,11 @@ class MEI_EXPORT Tie : public MeiElement {
     public:
         Tie();
         virtual ~Tie();
+
+        /** A comment to test the documentation **/
+        std::vector<mei::MeiElement*> getTiedNotes();
+
+
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -966,6 +1024,8 @@ class MEI_EXPORT Tuplet : public MeiElement {
         Tuplet();
         virtual ~Tuplet();
 
+/* include <tuplet> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         TupletLogMixIn    m_TupletLog;
@@ -1000,6 +1060,8 @@ class MEI_EXPORT Tupletspan : public MeiElement {
     public:
         Tupletspan();
         virtual ~Tupletspan();
+
+/* include <tupletSpan> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

@@ -16,6 +16,7 @@ mei::Fig::Fig() :
 REGISTER_DEFINITION(mei::Fig, "fig");
 mei::Fig::~Fig() {}
 
+/* include <fig> */
 
 mei::Figdesc::Figdesc() :
     MeiElement("figDesc"),
@@ -26,6 +27,7 @@ mei::Figdesc::Figdesc() :
 REGISTER_DEFINITION(mei::Figdesc, "figDesc");
 mei::Figdesc::~Figdesc() {}
 
+/* include <figDesc> */
 
 mei::Graphic::Graphic() :
     MeiElement("graphic"),
@@ -63,6 +65,7 @@ bool mei::Graphic::hasHeight() {
 void mei::Graphic::removeHeight() {
     removeAttribute("height");
 };
+/* include <graphic> */
 
 mei::Table::Table() :
     MeiElement("table"),
@@ -75,6 +78,7 @@ mei::Table::Table() :
 REGISTER_DEFINITION(mei::Table, "table");
 mei::Table::~Table() {}
 
+/* include <table> */
 
 mei::Td::Td() :
     MeiElement("td"),
@@ -88,6 +92,7 @@ mei::Td::Td() :
 REGISTER_DEFINITION(mei::Td, "td");
 mei::Td::~Td() {}
 
+/* include <td> */
 
 mei::Th::Th() :
     MeiElement("th"),
@@ -101,6 +106,7 @@ mei::Th::Th() :
 REGISTER_DEFINITION(mei::Th, "th");
 mei::Th::~Th() {}
 
+/* include <th> */
 
 mei::Tr::Tr() :
     MeiElement("tr"),
@@ -113,6 +119,7 @@ mei::Tr::Tr() :
 REGISTER_DEFINITION(mei::Tr, "tr");
 mei::Tr::~Tr() {}
 
+/* include <tr> */
 
 
 

@@ -51,6 +51,8 @@ class MEI_EXPORT Lyrics : public MeiElement {
         Lyrics();
         virtual ~Lyrics();
 
+/* include <lyrics> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -75,6 +77,8 @@ class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
         virtual ~Verse();
+
+/* include <verse> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

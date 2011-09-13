@@ -51,6 +51,8 @@ class MEI_EXPORT Ligature : public MeiElement {
         Ligature();
         virtual ~Ligature();
 
+/* include <ligature> */
+
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LigatureLogMixIn    m_LigatureLog;
@@ -73,6 +75,8 @@ class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
         virtual ~Mensur();
+
+/* include <mensur> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -101,6 +105,8 @@ class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();
         virtual ~Proport();
+
+/* include <proport> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;

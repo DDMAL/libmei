@@ -18,6 +18,7 @@ mei::Ligature::Ligature() :
 REGISTER_DEFINITION(mei::Ligature, "ligature");
 mei::Ligature::~Ligature() {}
 
+/* include <ligature> */
 
 mei::Mensur::Mensur() :
     MeiElement("mensur"),
@@ -37,6 +38,7 @@ mei::Mensur::Mensur() :
 REGISTER_DEFINITION(mei::Mensur, "mensur");
 mei::Mensur::~Mensur() {}
 
+/* include <mensur> */
 
 mei::Proport::Proport() :
     MeiElement("proport"),
@@ -50,6 +52,7 @@ mei::Proport::Proport() :
 REGISTER_DEFINITION(mei::Proport, "proport");
 mei::Proport::~Proport() {}
 
+/* include <proport> */
 
 
 

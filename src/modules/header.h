@@ -51,6 +51,8 @@ class MEI_EXPORT Accessrestrict : public MeiElement {
         Accessrestrict();
         virtual ~Accessrestrict();
 
+/* include <accessRestrict> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
@@ -69,6 +71,8 @@ class MEI_EXPORT Acqsource : public MeiElement {
     public:
         Acqsource();
         virtual ~Acqsource();
+
+/* include <acqSource> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -90,6 +94,8 @@ class MEI_EXPORT Altid : public MeiElement {
         Altid();
         virtual ~Altid();
 
+/* include <altId> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         TypedMixIn    m_Typed;
@@ -109,6 +115,8 @@ class MEI_EXPORT Appinfo : public MeiElement {
     public:
         Appinfo();
         virtual ~Appinfo();
+
+/* include <appInfo> */
 
         CommonMixIn    m_Common;
 
@@ -133,6 +141,8 @@ class MEI_EXPORT Application : public MeiElement {
         bool hasVersion();
         void removeVersion();
 
+/* include <application> */
+
         CommonMixIn    m_Common;
         DatableMixIn    m_Datable;
         TypedMixIn    m_Typed;
@@ -152,6 +162,8 @@ class MEI_EXPORT Availability : public MeiElement {
     public:
         Availability();
         virtual ~Availability();
+
+/* include <availability> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -177,6 +189,8 @@ class MEI_EXPORT Change : public MeiElement {
         Change();
         virtual ~Change();
 
+/* include <change> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -190,6 +204,8 @@ class MEI_EXPORT Changedesc : public MeiElement {
     public:
         Changedesc();
         virtual ~Changedesc();
+
+/* include <changeDesc> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -211,6 +227,8 @@ class MEI_EXPORT Classcode : public MeiElement {
     public:
         Classcode();
         virtual ~Classcode();
+
+/* include <classCode> */
 
         CommonMixIn    m_Common;
         AuthorizedMixIn    m_Authorized;
@@ -234,6 +252,8 @@ class MEI_EXPORT Classification : public MeiElement {
         Classification();
         virtual ~Classification();
 
+/* include <classification> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         DatapointingMixIn    m_Datapointing;
@@ -255,6 +275,8 @@ class MEI_EXPORT Condition : public MeiElement {
         Condition();
         virtual ~Condition();
 
+/* include <condition> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
@@ -269,6 +291,8 @@ class MEI_EXPORT Contentitem : public MeiElement {
     public:
         Contentitem();
         virtual ~Contentitem();
+
+/* include <contentItem> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -291,6 +315,8 @@ class MEI_EXPORT Contents : public MeiElement {
     public:
         Contents();
         virtual ~Contents();
+
+/* include <contents> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -316,6 +342,8 @@ class MEI_EXPORT Correction : public MeiElement {
         bool hasCorrlevel();
         void removeCorrlevel();
 
+/* include <correction> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         DatapointingMixIn    m_Datapointing;
@@ -337,6 +365,8 @@ class MEI_EXPORT Creation : public MeiElement {
     public:
         Creation();
         virtual ~Creation();
+
+/* include <creation> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -360,6 +390,8 @@ class MEI_EXPORT Dimensions : public MeiElement {
         Dimensions();
         virtual ~Dimensions();
 
+/* include <dimensions> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         MeasurementMixIn    m_Measurement;
@@ -378,6 +410,8 @@ class MEI_EXPORT Editionstmt : public MeiElement {
         Editionstmt();
         virtual ~Editionstmt();
 
+/* include <editionStmt> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
@@ -395,6 +429,8 @@ class MEI_EXPORT Editorialdecl : public MeiElement {
     public:
         Editorialdecl();
         virtual ~Editorialdecl();
+
+/* include <editorialDecl> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -416,6 +452,8 @@ class MEI_EXPORT Encodingdesc : public MeiElement {
         Encodingdesc();
         virtual ~Encodingdesc();
 
+/* include <encodingDesc> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
 
@@ -436,6 +474,8 @@ class MEI_EXPORT Ensemble : public MeiElement {
         Ensemble();
         virtual ~Ensemble();
 
+/* include <ensemble> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -455,6 +495,8 @@ class MEI_EXPORT Event : public MeiElement {
     public:
         Event();
         virtual ~Event();
+
+/* include <event> */
 
         BiblMixIn    m_Bibl;
         CalendaredMixIn    m_Calendared;
@@ -486,6 +528,8 @@ class MEI_EXPORT Eventlist : public MeiElement {
         Eventlist();
         virtual ~Eventlist();
 
+/* include <eventList> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         TypedMixIn    m_Typed;
@@ -503,6 +547,8 @@ class MEI_EXPORT Exhibhist : public MeiElement {
     public:
         Exhibhist();
         virtual ~Exhibhist();
+
+/* include <exhibHist> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -525,6 +571,8 @@ class MEI_EXPORT Extent : public MeiElement {
         Extent();
         virtual ~Extent();
 
+/* include <extent> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         MeasurementMixIn    m_Measurement;
@@ -542,6 +590,8 @@ class MEI_EXPORT Filedesc : public MeiElement {
     public:
         Filedesc();
         virtual ~Filedesc();
+
+/* include <fileDesc> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -561,6 +611,8 @@ class MEI_EXPORT Fingerprint : public MeiElement {
     public:
         Fingerprint();
         virtual ~Fingerprint();
+
+/* include <fingerprint> */
 
         CommonMixIn    m_Common;
         LangMixIn    m_Lang;
@@ -591,6 +643,8 @@ class MEI_EXPORT Hand : public MeiElement {
         bool hasInitial();
         void removeInitial();
 
+/* include <hand> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
@@ -610,6 +664,8 @@ class MEI_EXPORT Handlist : public MeiElement {
         Handlist();
         virtual ~Handlist();
 
+/* include <handList> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -624,6 +680,8 @@ class MEI_EXPORT History : public MeiElement {
     public:
         History();
         virtual ~History();
+
+/* include <history> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -657,6 +715,8 @@ class MEI_EXPORT Incipcode : public MeiElement {
         bool hasForm();
         void removeForm();
 
+/* include <incipCode> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         InternetmediaMixIn    m_Internetmedia;
@@ -672,6 +732,8 @@ class MEI_EXPORT Inscription : public MeiElement {
     public:
         Inscription();
         virtual ~Inscription();
+
+/* include <inscription> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -703,6 +765,8 @@ class MEI_EXPORT Instrvoice : public MeiElement {
         bool hasSolo();
         void removeSolo();
 
+/* include <instrVoice> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         AuthorizedMixIn    m_Authorized;
@@ -721,6 +785,8 @@ class MEI_EXPORT Interpretation : public MeiElement {
     public:
         Interpretation();
         virtual ~Interpretation();
+
+/* include <interpretation> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -748,6 +814,8 @@ class MEI_EXPORT Key : public MeiElement {
         bool hasMode();
         void removeMode();
 
+/* include <key> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         AccidentalPerformedMixIn    m_AccidentalPerformed;
@@ -766,6 +834,8 @@ class MEI_EXPORT Langusage : public MeiElement {
     public:
         Langusage();
         virtual ~Langusage();
+
+/* include <langUsage> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -787,6 +857,8 @@ class MEI_EXPORT Language : public MeiElement {
     public:
         Language();
         virtual ~Language();
+
+/* include <language> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -823,6 +895,8 @@ class MEI_EXPORT Meihead : public MeiElement {
         bool hasType();
         void removeType();
 
+/* include <meiHead> */
+
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
         LangMixIn    m_Lang;
@@ -841,6 +915,8 @@ class MEI_EXPORT Normalization : public MeiElement {
     public:
         Normalization();
         virtual ~Normalization();
+
+/* include <normalization> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -865,6 +941,8 @@ class MEI_EXPORT Notesstmt : public MeiElement {
         Notesstmt();
         virtual ~Notesstmt();
 
+/* include <notesStmt> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -883,6 +961,8 @@ class MEI_EXPORT Perfmedium : public MeiElement {
     public:
         Perfmedium();
         virtual ~Perfmedium();
+
+/* include <perfMedium> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -907,6 +987,8 @@ class MEI_EXPORT Performer : public MeiElement {
         Performer();
         virtual ~Performer();
 
+/* include <performer> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -928,6 +1010,8 @@ class MEI_EXPORT Physdesc : public MeiElement {
         Physdesc();
         virtual ~Physdesc();
 
+/* include <physDesc> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -944,6 +1028,8 @@ class MEI_EXPORT Physloc : public MeiElement {
     public:
         Physloc();
         virtual ~Physloc();
+
+/* include <physLoc> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -963,6 +1049,8 @@ class MEI_EXPORT Physmedium : public MeiElement {
     public:
         Physmedium();
         virtual ~Physmedium();
+
+/* include <physMedium> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -986,6 +1074,8 @@ class MEI_EXPORT Platenum : public MeiElement {
         Platenum();
         virtual ~Platenum();
 
+/* include <plateNum> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
@@ -1000,6 +1090,8 @@ class MEI_EXPORT Price : public MeiElement {
     public:
         Price();
         virtual ~Price();
+
+/* include <price> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1021,6 +1113,8 @@ class MEI_EXPORT Projectdesc : public MeiElement {
         Projectdesc();
         virtual ~Projectdesc();
 
+/* include <projectDesc> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         DatapointingMixIn    m_Datapointing;
@@ -1039,6 +1133,8 @@ class MEI_EXPORT Provenance : public MeiElement {
     public:
         Provenance();
         virtual ~Provenance();
+
+/* include <provenance> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1059,6 +1155,8 @@ class MEI_EXPORT Pubstmt : public MeiElement {
     public:
         Pubstmt();
         virtual ~Pubstmt();
+
+/* include <pubStmt> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1098,6 +1196,8 @@ class MEI_EXPORT Relateditem : public MeiElement {
         bool hasRel();
         void removeRel();
 
+/* include <relatedItem> */
+
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1119,6 +1219,8 @@ class MEI_EXPORT Resp : public MeiElement {
         Resp();
         virtual ~Resp();
 
+/* include <resp> */
+
         AuthorizedMixIn    m_Authorized;
 
     private:
@@ -1135,6 +1237,8 @@ class MEI_EXPORT Respstmt : public MeiElement {
     public:
         Respstmt();
         virtual ~Respstmt();
+
+/* include <respStmt> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -1155,6 +1259,8 @@ class MEI_EXPORT Revisiondesc : public MeiElement {
         Revisiondesc();
         virtual ~Revisiondesc();
 
+/* include <revisionDesc> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1171,6 +1277,8 @@ class MEI_EXPORT Samplingdecl : public MeiElement {
     public:
         Samplingdecl();
         virtual ~Samplingdecl();
+
+/* include <samplingDecl> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1190,6 +1298,8 @@ class MEI_EXPORT Segmentation : public MeiElement {
     public:
         Segmentation();
         virtual ~Segmentation();
+
+/* include <segmentation> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1215,6 +1325,8 @@ class MEI_EXPORT Seriesstmt : public MeiElement {
         Seriesstmt();
         virtual ~Seriesstmt();
 
+/* include <seriesStmt> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1236,6 +1348,8 @@ class MEI_EXPORT Source : public MeiElement {
         Source();
         virtual ~Source();
 
+/* include <source> */
+
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1255,6 +1369,8 @@ class MEI_EXPORT Sourcedesc : public MeiElement {
         Sourcedesc();
         virtual ~Sourcedesc();
 
+/* include <sourceDesc> */
+
         CommonMixIn    m_Common;
 
     private:
@@ -1271,6 +1387,8 @@ class MEI_EXPORT Stdvals : public MeiElement {
         Stdvals();
         virtual ~Stdvals();
 
+/* include <stdVals> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         DatapointingMixIn    m_Datapointing;
@@ -1286,6 +1404,8 @@ class MEI_EXPORT Sysreq : public MeiElement {
     public:
         Sysreq();
         virtual ~Sysreq();
+
+/* include <sysReq> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1318,6 +1438,8 @@ class MEI_EXPORT Term : public MeiElement {
         bool hasClasscode();
         void removeClasscode();
 
+/* include <term> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1343,6 +1465,8 @@ class MEI_EXPORT Termlist : public MeiElement {
         bool hasClasscode();
         void removeClasscode();
 
+/* include <termList> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1358,6 +1482,8 @@ class MEI_EXPORT Titlestmt : public MeiElement {
     public:
         Titlestmt();
         virtual ~Titlestmt();
+
+/* include <titleStmt> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
@@ -1378,6 +1504,8 @@ class MEI_EXPORT Treathist : public MeiElement {
         Treathist();
         virtual ~Treathist();
 
+/* include <treatHist> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1394,6 +1522,8 @@ class MEI_EXPORT Treatsched : public MeiElement {
     public:
         Treatsched();
         virtual ~Treatsched();
+
+/* include <treatSched> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1412,6 +1542,8 @@ class MEI_EXPORT Unpub : public MeiElement {
     public:
         Unpub();
         virtual ~Unpub();
+
+/* include <unpub> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
@@ -1436,6 +1568,8 @@ class MEI_EXPORT Userestrict : public MeiElement {
         Userestrict();
         virtual ~Userestrict();
 
+/* include <useRestrict> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
 
@@ -1454,6 +1588,8 @@ class MEI_EXPORT Watermark : public MeiElement {
         Watermark();
         virtual ~Watermark();
 
+/* include <watermark> */
+
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
@@ -1468,6 +1604,8 @@ class MEI_EXPORT Work : public MeiElement {
     public:
         Work();
         virtual ~Work();
+
+/* include <work> */
 
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
@@ -1484,6 +1622,8 @@ class MEI_EXPORT Workdesc : public MeiElement {
     public:
         Workdesc();
         virtual ~Workdesc();
+
+/* include <workDesc> */
 
         CommonMixIn    m_Common;
 

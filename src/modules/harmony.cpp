@@ -17,6 +17,7 @@ mei::Barre::Barre() :
 REGISTER_DEFINITION(mei::Barre, "barre");
 mei::Barre::~Barre() {}
 
+/* include <barre> */
 
 mei::Chorddef::Chorddef() :
     MeiElement("chordDef"),
@@ -47,6 +48,7 @@ bool mei::Chorddef::hasPos() {
 void mei::Chorddef::removePos() {
     removeAttribute("pos");
 };
+/* include <chordDef> */
 
 mei::Chordmember::Chordmember() :
     MeiElement("chordMember"),
@@ -82,6 +84,7 @@ bool mei::Chordmember::hasFing() {
 void mei::Chordmember::removeFing() {
     removeAttribute("fing");
 };
+/* include <chordMember> */
 
 mei::Chordtable::Chordtable() :
     MeiElement("chordTable"),
@@ -91,6 +94,7 @@ mei::Chordtable::Chordtable() :
 REGISTER_DEFINITION(mei::Chordtable, "chordTable");
 mei::Chordtable::~Chordtable() {}
 
+/* include <chordTable> */
 
 mei::F::F() :
     MeiElement("f"),
@@ -125,6 +129,7 @@ bool mei::F::hasExtender() {
 void mei::F::removeExtender() {
     removeAttribute("extender");
 };
+/* include <f> */
 
 mei::Fb::Fb() :
     MeiElement("fb"),
@@ -137,6 +142,7 @@ mei::Fb::Fb() :
 REGISTER_DEFINITION(mei::Fb, "fb");
 mei::Fb::~Fb() {}
 
+/* include <fb> */
 
 mei::Harm::Harm() :
     MeiElement("harm"),
@@ -167,6 +173,7 @@ mei::Harm::Harm() :
 REGISTER_DEFINITION(mei::Harm, "harm");
 mei::Harm::~Harm() {}
 
+/* include <harm> */
 
 
 

@@ -16,6 +16,7 @@ mei::Accessrestrict::Accessrestrict() :
 REGISTER_DEFINITION(mei::Accessrestrict, "accessRestrict");
 mei::Accessrestrict::~Accessrestrict() {}
 
+/* include <accessRestrict> */
 
 mei::Acqsource::Acqsource() :
     MeiElement("acqSource"),
@@ -27,6 +28,7 @@ mei::Acqsource::Acqsource() :
 REGISTER_DEFINITION(mei::Acqsource, "acqSource");
 mei::Acqsource::~Acqsource() {}
 
+/* include <acqSource> */
 
 mei::Altid::Altid() :
     MeiElement("altId"),
@@ -38,6 +40,7 @@ mei::Altid::Altid() :
 REGISTER_DEFINITION(mei::Altid, "altId");
 mei::Altid::~Altid() {}
 
+/* include <altId> */
 
 mei::Appinfo::Appinfo() :
     MeiElement("appInfo"),
@@ -47,6 +50,7 @@ mei::Appinfo::Appinfo() :
 REGISTER_DEFINITION(mei::Appinfo, "appInfo");
 mei::Appinfo::~Appinfo() {}
 
+/* include <appInfo> */
 
 mei::Application::Application() :
     MeiElement("application"),
@@ -79,6 +83,7 @@ bool mei::Application::hasVersion() {
 void mei::Application::removeVersion() {
     removeAttribute("version");
 };
+/* include <application> */
 
 mei::Availability::Availability() :
     MeiElement("availability"),
@@ -90,6 +95,7 @@ mei::Availability::Availability() :
 REGISTER_DEFINITION(mei::Availability, "availability");
 mei::Availability::~Availability() {}
 
+/* include <availability> */
 
 mei::Change::Change() :
     MeiElement("change"),
@@ -100,6 +106,7 @@ mei::Change::Change() :
 REGISTER_DEFINITION(mei::Change, "change");
 mei::Change::~Change() {}
 
+/* include <change> */
 
 mei::Changedesc::Changedesc() :
     MeiElement("changeDesc"),
@@ -111,6 +118,7 @@ mei::Changedesc::Changedesc() :
 REGISTER_DEFINITION(mei::Changedesc, "changeDesc");
 mei::Changedesc::~Changedesc() {}
 
+/* include <changeDesc> */
 
 mei::Classcode::Classcode() :
     MeiElement("classCode"),
@@ -122,6 +130,7 @@ mei::Classcode::Classcode() :
 REGISTER_DEFINITION(mei::Classcode, "classCode");
 mei::Classcode::~Classcode() {}
 
+/* include <classCode> */
 
 mei::Classification::Classification() :
     MeiElement("classification"),
@@ -133,6 +142,7 @@ mei::Classification::Classification() :
 REGISTER_DEFINITION(mei::Classification, "classification");
 mei::Classification::~Classification() {}
 
+/* include <classification> */
 
 mei::Condition::Condition() :
     MeiElement("condition"),
@@ -144,6 +154,7 @@ mei::Condition::Condition() :
 REGISTER_DEFINITION(mei::Condition, "condition");
 mei::Condition::~Condition() {}
 
+/* include <condition> */
 
 mei::Contentitem::Contentitem() :
     MeiElement("contentItem"),
@@ -154,6 +165,7 @@ mei::Contentitem::Contentitem() :
 REGISTER_DEFINITION(mei::Contentitem, "contentItem");
 mei::Contentitem::~Contentitem() {}
 
+/* include <contentItem> */
 
 mei::Contents::Contents() :
     MeiElement("contents"),
@@ -165,6 +177,7 @@ mei::Contents::Contents() :
 REGISTER_DEFINITION(mei::Contents, "contents");
 mei::Contents::~Contents() {}
 
+/* include <contents> */
 
 mei::Correction::Correction() :
     MeiElement("correction"),
@@ -199,6 +212,7 @@ bool mei::Correction::hasCorrlevel() {
 void mei::Correction::removeCorrlevel() {
     removeAttribute("corrlevel");
 };
+/* include <correction> */
 
 mei::Creation::Creation() :
     MeiElement("creation"),
@@ -210,6 +224,7 @@ mei::Creation::Creation() :
 REGISTER_DEFINITION(mei::Creation, "creation");
 mei::Creation::~Creation() {}
 
+/* include <creation> */
 
 mei::Dimensions::Dimensions() :
     MeiElement("dimensions"),
@@ -221,6 +236,7 @@ mei::Dimensions::Dimensions() :
 REGISTER_DEFINITION(mei::Dimensions, "dimensions");
 mei::Dimensions::~Dimensions() {}
 
+/* include <dimensions> */
 
 mei::Editionstmt::Editionstmt() :
     MeiElement("editionStmt"),
@@ -232,6 +248,7 @@ mei::Editionstmt::Editionstmt() :
 REGISTER_DEFINITION(mei::Editionstmt, "editionStmt");
 mei::Editionstmt::~Editionstmt() {}
 
+/* include <editionStmt> */
 
 mei::Editorialdecl::Editorialdecl() :
     MeiElement("editorialDecl"),
@@ -244,6 +261,7 @@ mei::Editorialdecl::Editorialdecl() :
 REGISTER_DEFINITION(mei::Editorialdecl, "editorialDecl");
 mei::Editorialdecl::~Editorialdecl() {}
 
+/* include <editorialDecl> */
 
 mei::Encodingdesc::Encodingdesc() :
     MeiElement("encodingDesc"),
@@ -254,6 +272,7 @@ mei::Encodingdesc::Encodingdesc() :
 REGISTER_DEFINITION(mei::Encodingdesc, "encodingDesc");
 mei::Encodingdesc::~Encodingdesc() {}
 
+/* include <encodingDesc> */
 
 mei::Ensemble::Ensemble() :
     MeiElement("ensemble"),
@@ -264,6 +283,7 @@ mei::Ensemble::Ensemble() :
 REGISTER_DEFINITION(mei::Ensemble, "ensemble");
 mei::Ensemble::~Ensemble() {}
 
+/* include <ensemble> */
 
 mei::Event::Event() :
     MeiElement("event"),
@@ -280,6 +300,7 @@ mei::Event::Event() :
 REGISTER_DEFINITION(mei::Event, "event");
 mei::Event::~Event() {}
 
+/* include <event> */
 
 mei::Eventlist::Eventlist() :
     MeiElement("eventList"),
@@ -291,6 +312,7 @@ mei::Eventlist::Eventlist() :
 REGISTER_DEFINITION(mei::Eventlist, "eventList");
 mei::Eventlist::~Eventlist() {}
 
+/* include <eventList> */
 
 mei::Exhibhist::Exhibhist() :
     MeiElement("exhibHist"),
@@ -302,6 +324,7 @@ mei::Exhibhist::Exhibhist() :
 REGISTER_DEFINITION(mei::Exhibhist, "exhibHist");
 mei::Exhibhist::~Exhibhist() {}
 
+/* include <exhibHist> */
 
 mei::Extent::Extent() :
     MeiElement("extent"),
@@ -313,6 +336,7 @@ mei::Extent::Extent() :
 REGISTER_DEFINITION(mei::Extent, "extent");
 mei::Extent::~Extent() {}
 
+/* include <extent> */
 
 mei::Filedesc::Filedesc() :
     MeiElement("fileDesc"),
@@ -323,6 +347,7 @@ mei::Filedesc::Filedesc() :
 REGISTER_DEFINITION(mei::Filedesc, "fileDesc");
 mei::Filedesc::~Filedesc() {}
 
+/* include <fileDesc> */
 
 mei::Fingerprint::Fingerprint() :
     MeiElement("fingerprint"),
@@ -333,6 +358,7 @@ mei::Fingerprint::Fingerprint() :
 REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
 mei::Fingerprint::~Fingerprint() {}
 
+/* include <fingerprint> */
 
 mei::Hand::Hand() :
     MeiElement("hand"),
@@ -367,6 +393,7 @@ bool mei::Hand::hasInitial() {
 void mei::Hand::removeInitial() {
     removeAttribute("initial");
 };
+/* include <hand> */
 
 mei::Handlist::Handlist() :
     MeiElement("handList"),
@@ -377,6 +404,7 @@ mei::Handlist::Handlist() :
 REGISTER_DEFINITION(mei::Handlist, "handList");
 mei::Handlist::~Handlist() {}
 
+/* include <handList> */
 
 mei::History::History() :
     MeiElement("history"),
@@ -387,6 +415,7 @@ mei::History::History() :
 REGISTER_DEFINITION(mei::History, "history");
 mei::History::~History() {}
 
+/* include <history> */
 
 mei::Incipcode::Incipcode() :
     MeiElement("incipCode"),
@@ -442,6 +471,7 @@ bool mei::Incipcode::hasForm() {
 void mei::Incipcode::removeForm() {
     removeAttribute("form");
 };
+/* include <incipCode> */
 
 mei::Inscription::Inscription() :
     MeiElement("inscription"),
@@ -453,6 +483,7 @@ mei::Inscription::Inscription() :
 REGISTER_DEFINITION(mei::Inscription, "inscription");
 mei::Inscription::~Inscription() {}
 
+/* include <inscription> */
 
 mei::Instrvoice::Instrvoice() :
     MeiElement("instrVoice"),
@@ -507,6 +538,7 @@ bool mei::Instrvoice::hasSolo() {
 void mei::Instrvoice::removeSolo() {
     removeAttribute("solo");
 };
+/* include <instrVoice> */
 
 mei::Interpretation::Interpretation() :
     MeiElement("interpretation"),
@@ -519,6 +551,7 @@ mei::Interpretation::Interpretation() :
 REGISTER_DEFINITION(mei::Interpretation, "interpretation");
 mei::Interpretation::~Interpretation() {}
 
+/* include <interpretation> */
 
 mei::Key::Key() :
     MeiElement("key"),
@@ -552,6 +585,7 @@ bool mei::Key::hasMode() {
 void mei::Key::removeMode() {
     removeAttribute("mode");
 };
+/* include <key> */
 
 mei::Langusage::Langusage() :
     MeiElement("langUsage"),
@@ -563,6 +597,7 @@ mei::Langusage::Langusage() :
 REGISTER_DEFINITION(mei::Langusage, "langUsage");
 mei::Langusage::~Langusage() {}
 
+/* include <langUsage> */
 
 mei::Language::Language() :
     MeiElement("language"),
@@ -574,6 +609,7 @@ mei::Language::Language() :
 REGISTER_DEFINITION(mei::Language, "language");
 mei::Language::~Language() {}
 
+/* include <language> */
 
 mei::Meihead::Meihead() :
     MeiElement("meiHead"),
@@ -607,6 +643,7 @@ bool mei::Meihead::hasType() {
 void mei::Meihead::removeType() {
     removeAttribute("type");
 };
+/* include <meiHead> */
 
 mei::Normalization::Normalization() :
     MeiElement("normalization"),
@@ -620,6 +657,7 @@ mei::Normalization::Normalization() :
 REGISTER_DEFINITION(mei::Normalization, "normalization");
 mei::Normalization::~Normalization() {}
 
+/* include <normalization> */
 
 mei::Notesstmt::Notesstmt() :
     MeiElement("notesStmt"),
@@ -630,6 +668,7 @@ mei::Notesstmt::Notesstmt() :
 REGISTER_DEFINITION(mei::Notesstmt, "notesStmt");
 mei::Notesstmt::~Notesstmt() {}
 
+/* include <notesStmt> */
 
 mei::Perfmedium::Perfmedium() :
     MeiElement("perfMedium"),
@@ -641,6 +680,7 @@ mei::Perfmedium::Perfmedium() :
 REGISTER_DEFINITION(mei::Perfmedium, "perfMedium");
 mei::Perfmedium::~Perfmedium() {}
 
+/* include <perfMedium> */
 
 mei::Performer::Performer() :
     MeiElement("performer"),
@@ -651,6 +691,7 @@ mei::Performer::Performer() :
 REGISTER_DEFINITION(mei::Performer, "performer");
 mei::Performer::~Performer() {}
 
+/* include <performer> */
 
 mei::Physdesc::Physdesc() :
     MeiElement("physDesc"),
@@ -661,6 +702,7 @@ mei::Physdesc::Physdesc() :
 REGISTER_DEFINITION(mei::Physdesc, "physDesc");
 mei::Physdesc::~Physdesc() {}
 
+/* include <physDesc> */
 
 mei::Physloc::Physloc() :
     MeiElement("physLoc"),
@@ -671,6 +713,7 @@ mei::Physloc::Physloc() :
 REGISTER_DEFINITION(mei::Physloc, "physLoc");
 mei::Physloc::~Physloc() {}
 
+/* include <physLoc> */
 
 mei::Physmedium::Physmedium() :
     MeiElement("physMedium"),
@@ -683,6 +726,7 @@ mei::Physmedium::Physmedium() :
 REGISTER_DEFINITION(mei::Physmedium, "physMedium");
 mei::Physmedium::~Physmedium() {}
 
+/* include <physMedium> */
 
 mei::Platenum::Platenum() :
     MeiElement("plateNum"),
@@ -694,6 +738,7 @@ mei::Platenum::Platenum() :
 REGISTER_DEFINITION(mei::Platenum, "plateNum");
 mei::Platenum::~Platenum() {}
 
+/* include <plateNum> */
 
 mei::Price::Price() :
     MeiElement("price"),
@@ -705,6 +750,7 @@ mei::Price::Price() :
 REGISTER_DEFINITION(mei::Price, "price");
 mei::Price::~Price() {}
 
+/* include <price> */
 
 mei::Projectdesc::Projectdesc() :
     MeiElement("projectDesc"),
@@ -717,6 +763,7 @@ mei::Projectdesc::Projectdesc() :
 REGISTER_DEFINITION(mei::Projectdesc, "projectDesc");
 mei::Projectdesc::~Projectdesc() {}
 
+/* include <projectDesc> */
 
 mei::Provenance::Provenance() :
     MeiElement("provenance"),
@@ -728,6 +775,7 @@ mei::Provenance::Provenance() :
 REGISTER_DEFINITION(mei::Provenance, "provenance");
 mei::Provenance::~Provenance() {}
 
+/* include <provenance> */
 
 mei::Pubstmt::Pubstmt() :
     MeiElement("pubStmt"),
@@ -738,6 +786,7 @@ mei::Pubstmt::Pubstmt() :
 REGISTER_DEFINITION(mei::Pubstmt, "pubStmt");
 mei::Pubstmt::~Pubstmt() {}
 
+/* include <pubStmt> */
 
 mei::Relateditem::Relateditem() :
     MeiElement("relatedItem"),
@@ -771,6 +820,7 @@ bool mei::Relateditem::hasRel() {
 void mei::Relateditem::removeRel() {
     removeAttribute("rel");
 };
+/* include <relatedItem> */
 
 mei::Resp::Resp() :
     MeiElement("resp"),
@@ -780,6 +830,7 @@ mei::Resp::Resp() :
 REGISTER_DEFINITION(mei::Resp, "resp");
 mei::Resp::~Resp() {}
 
+/* include <resp> */
 
 mei::Respstmt::Respstmt() :
     MeiElement("respStmt"),
@@ -790,6 +841,7 @@ mei::Respstmt::Respstmt() :
 REGISTER_DEFINITION(mei::Respstmt, "respStmt");
 mei::Respstmt::~Respstmt() {}
 
+/* include <respStmt> */
 
 mei::Revisiondesc::Revisiondesc() :
     MeiElement("revisionDesc"),
@@ -800,6 +852,7 @@ mei::Revisiondesc::Revisiondesc() :
 REGISTER_DEFINITION(mei::Revisiondesc, "revisionDesc");
 mei::Revisiondesc::~Revisiondesc() {}
 
+/* include <revisionDesc> */
 
 mei::Samplingdecl::Samplingdecl() :
     MeiElement("samplingDecl"),
@@ -812,6 +865,7 @@ mei::Samplingdecl::Samplingdecl() :
 REGISTER_DEFINITION(mei::Samplingdecl, "samplingDecl");
 mei::Samplingdecl::~Samplingdecl() {}
 
+/* include <samplingDecl> */
 
 mei::Segmentation::Segmentation() :
     MeiElement("segmentation"),
@@ -824,6 +878,7 @@ mei::Segmentation::Segmentation() :
 REGISTER_DEFINITION(mei::Segmentation, "segmentation");
 mei::Segmentation::~Segmentation() {}
 
+/* include <segmentation> */
 
 mei::Seriesstmt::Seriesstmt() :
     MeiElement("seriesStmt"),
@@ -834,6 +889,7 @@ mei::Seriesstmt::Seriesstmt() :
 REGISTER_DEFINITION(mei::Seriesstmt, "seriesStmt");
 mei::Seriesstmt::~Seriesstmt() {}
 
+/* include <seriesStmt> */
 
 mei::Source::Source() :
     MeiElement("source"),
@@ -845,6 +901,7 @@ mei::Source::Source() :
 REGISTER_DEFINITION(mei::Source, "source");
 mei::Source::~Source() {}
 
+/* include <source> */
 
 mei::Sourcedesc::Sourcedesc() :
     MeiElement("sourceDesc"),
@@ -854,6 +911,7 @@ mei::Sourcedesc::Sourcedesc() :
 REGISTER_DEFINITION(mei::Sourcedesc, "sourceDesc");
 mei::Sourcedesc::~Sourcedesc() {}
 
+/* include <sourceDesc> */
 
 mei::Stdvals::Stdvals() :
     MeiElement("stdVals"),
@@ -866,6 +924,7 @@ mei::Stdvals::Stdvals() :
 REGISTER_DEFINITION(mei::Stdvals, "stdVals");
 mei::Stdvals::~Stdvals() {}
 
+/* include <stdVals> */
 
 mei::Sysreq::Sysreq() :
     MeiElement("sysReq"),
@@ -877,6 +936,7 @@ mei::Sysreq::Sysreq() :
 REGISTER_DEFINITION(mei::Sysreq, "sysReq");
 mei::Sysreq::~Sysreq() {}
 
+/* include <sysReq> */
 
 mei::Term::Term() :
     MeiElement("term"),
@@ -908,6 +968,7 @@ bool mei::Term::hasClasscode() {
 void mei::Term::removeClasscode() {
     removeAttribute("classcode");
 };
+/* include <term> */
 
 mei::Termlist::Termlist() :
     MeiElement("termList"),
@@ -939,6 +1000,7 @@ bool mei::Termlist::hasClasscode() {
 void mei::Termlist::removeClasscode() {
     removeAttribute("classcode");
 };
+/* include <termList> */
 
 mei::Titlestmt::Titlestmt() :
     MeiElement("titleStmt"),
@@ -949,6 +1011,7 @@ mei::Titlestmt::Titlestmt() :
 REGISTER_DEFINITION(mei::Titlestmt, "titleStmt");
 mei::Titlestmt::~Titlestmt() {}
 
+/* include <titleStmt> */
 
 mei::Treathist::Treathist() :
     MeiElement("treatHist"),
@@ -959,6 +1022,7 @@ mei::Treathist::Treathist() :
 REGISTER_DEFINITION(mei::Treathist, "treatHist");
 mei::Treathist::~Treathist() {}
 
+/* include <treatHist> */
 
 mei::Treatsched::Treatsched() :
     MeiElement("treatSched"),
@@ -969,6 +1033,7 @@ mei::Treatsched::Treatsched() :
 REGISTER_DEFINITION(mei::Treatsched, "treatSched");
 mei::Treatsched::~Treatsched() {}
 
+/* include <treatSched> */
 
 mei::Unpub::Unpub() :
     MeiElement("unpub"),
@@ -979,6 +1044,7 @@ mei::Unpub::Unpub() :
 REGISTER_DEFINITION(mei::Unpub, "unpub");
 mei::Unpub::~Unpub() {}
 
+/* include <unpub> */
 
 mei::Userestrict::Userestrict() :
     MeiElement("useRestrict"),
@@ -989,6 +1055,7 @@ mei::Userestrict::Userestrict() :
 REGISTER_DEFINITION(mei::Userestrict, "useRestrict");
 mei::Userestrict::~Userestrict() {}
 
+/* include <useRestrict> */
 
 mei::Watermark::Watermark() :
     MeiElement("watermark"),
@@ -1000,6 +1067,7 @@ mei::Watermark::Watermark() :
 REGISTER_DEFINITION(mei::Watermark, "watermark");
 mei::Watermark::~Watermark() {}
 
+/* include <watermark> */
 
 mei::Work::Work() :
     MeiElement("work"),
@@ -1011,6 +1079,7 @@ mei::Work::Work() :
 REGISTER_DEFINITION(mei::Work, "work");
 mei::Work::~Work() {}
 
+/* include <work> */
 
 mei::Workdesc::Workdesc() :
     MeiElement("workDesc"),
@@ -1020,6 +1089,7 @@ mei::Workdesc::Workdesc() :
 REGISTER_DEFINITION(mei::Workdesc, "workDesc");
 mei::Workdesc::~Workdesc() {}
 
+/* include <workDesc> */
 
 
 

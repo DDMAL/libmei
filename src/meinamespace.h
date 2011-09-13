@@ -42,4 +42,4 @@ private:
 };
 }
 
-#endif // MEINAMESPACE_H_
+#endif  // MEINAMESPACE_H_

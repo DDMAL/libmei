@@ -45,24 +45,9 @@ namespace mei {
 class MEI_EXPORT MeiDocument {
     public:
         /**
-         * \brief Create a new Document with a specified name
-         */
-        MeiDocument(std::string docname);
-        /**
-         * \brief Create a new untitled document.
+         * \brief Create a new document.
          */
         MeiDocument();
-
-        /** \brief Get the name of the document
-         *
-         *  Each document is initially creating with a name and encoding thus a document
-         *  name must exist if a valid Mei document exists
-         *  \return The document name
-         */
-        const std::string getDocName();
-
-        /** \brief Set/change the name of the Mei document */
-        void setDocName(std::string docname);
 
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);
@@ -83,29 +68,28 @@ class MEI_EXPORT MeiDocument {
          *   the element doesn't exist
          */
         MeiElement* getElementById(std::string id);
-    
+
         /** \brief Get the elements with a given name
          *
          *  \return A vector of MeiElements
          *
          */
         std::vector<MeiElement*> getElementsByName(std::string name);
-        
+
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
-        std::string docname;
         /** The version of this MEI document. */
         std::string meiVersion;
         MeiElement* root;
-        void init(std::string docname);
+        void init();
 
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(std::string href);
 
-        std::map<std::string, MeiElement*> idMap;    
+        std::map<std::string, MeiElement*> idMap;
     };
 }
 #endif  // MEIDOCUMENT_H_

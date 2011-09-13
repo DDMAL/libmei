@@ -47,6 +47,8 @@ class MEI_EXPORT Meicorpus : public MeiElement {
         Meicorpus();
         virtual ~Meicorpus();
 
+/* include <meiCorpus> */
+
         CommonMixIn    m_Common;
         MeiversionMixIn    m_Meiversion;
 

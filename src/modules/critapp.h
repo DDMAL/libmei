@@ -50,6 +50,8 @@ class MEI_EXPORT App : public MeiElement {
         App();
         virtual ~App();
 
+/* include <app> */
+
         CommonMixIn    m_Common;
         TypedMixIn    m_Typed;
 
@@ -73,6 +75,8 @@ class MEI_EXPORT Lem : public MeiElement {
     public:
         Lem();
         virtual ~Lem();
+
+/* include <lem> */
 
         CommonMixIn    m_Common;
         CritMixIn    m_Crit;
@@ -100,6 +104,8 @@ class MEI_EXPORT Rdg : public MeiElement {
     public:
         Rdg();
         virtual ~Rdg();
+
+/* include <rdg> */
 
         CommonMixIn    m_Common;
         CritMixIn    m_Crit;

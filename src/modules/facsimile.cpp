@@ -15,6 +15,7 @@ mei::Facsimile::Facsimile() :
 REGISTER_DEFINITION(mei::Facsimile, "facsimile");
 mei::Facsimile::~Facsimile() {}
 
+/* include <facsimile> */
 
 mei::Surface::Surface() :
     MeiElement("surface"),
@@ -28,6 +29,7 @@ mei::Surface::Surface() :
 REGISTER_DEFINITION(mei::Surface, "surface");
 mei::Surface::~Surface() {}
 
+/* include <surface> */
 
 mei::Zone::Zone() :
     MeiElement("zone"),
@@ -39,6 +41,7 @@ mei::Zone::Zone() :
 REGISTER_DEFINITION(mei::Zone, "zone");
 mei::Zone::~Zone() {}
 
+/* include <zone> */
 
 
 
