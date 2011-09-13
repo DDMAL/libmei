@@ -74,7 +74,8 @@ string XmlExportImpl::meiDocumentToText() {
     int buffersize;
     xmlDocDumpFormatMemory(xmlDocOutput, &xmlbuf, &buffersize, 1);
 
-    return string((char*)xmlbuf);
+    string s((char*)xmlbuf);
+    return s;
 }
 
 
