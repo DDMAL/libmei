@@ -81,7 +81,7 @@ TEST(TestMeiDocument, ElementById) {
     ASSERT_EQ(n5, doc->getElementById(newid));
 
     // removing the element from the document, clear from document map
-    n5->removeDocument();
+    s2->removeChild(n5);
     ASSERT_EQ(NULL, doc->getElementById(newid));
 }
 

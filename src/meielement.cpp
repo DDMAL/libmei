@@ -185,8 +185,10 @@ MeiDocument* mei::MeiElement::getDocument() {
 }
 
 void mei::MeiElement::removeDocument() {
-    this->document->rmIdMap(id);
-    this->document = NULL;
+    if(getDocument() != NULL) {
+        this->document->rmIdMap(id);
+        this->document = NULL;
+    }
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
         (*iter)->removeDocument();
     }
@@ -225,6 +227,7 @@ const vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) {
 
 void mei::MeiElement::deleteAllChildren() {
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+        (*iter)->removeDocument();
         delete *iter;
     }
     children.clear();
@@ -234,7 +237,7 @@ void mei::MeiElement::removeChild(MeiElement *child) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         if (child == *iter) {
-            // XXX: Remove child from document map
+            (*iter)->removeDocument();
             iter = this->children.erase(iter);
         } else {
             ++iter;
@@ -246,6 +249,7 @@ void mei::MeiElement::removeChildrenWithName(string name) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         if (name == (*iter)->getName()) {
+            (*iter)->removeDocument();
             iter = this->children.erase(iter);
         } else {
             ++iter;
