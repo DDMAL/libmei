@@ -84,7 +84,6 @@ class MEI_EXPORT MeiDocument {
         /** The version of this MEI document. */
         std::string meiVersion;
         MeiElement* root;
-        void init();
 
         std::vector<MeiNamespace*> namespaces;
         bool nsMatch(std::string href);

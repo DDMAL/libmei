@@ -39,10 +39,6 @@ using mei::MeiElement;
 using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument() {
-    init();
-}
-
-void mei::MeiDocument::init() {
     this->root = NULL;
     this->meiVersion = MEI_VERSION;
     // add the default MEI namespace
