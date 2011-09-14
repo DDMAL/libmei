@@ -55,6 +55,9 @@ TEST(TestMeiDocument, ElementById) {
     Note *n2 = new Note();
     Note *n3 = new Note();
     Note *n4 = new Note();
+    MeiDocument *doc = new MeiDocument();
+
+    ASSERT_EQ(NULL, doc->getElementById(wantedId));
 
     mei->addChild(mus);
     mus->addChild(body);
@@ -65,7 +68,6 @@ TEST(TestMeiDocument, ElementById) {
     staff->addChild(n3);
     s2->addChild(n4);
 
-    MeiDocument *doc = new MeiDocument();
     doc->setRootElement(mei);
 
     ASSERT_EQ(n1, doc->getElementById(wantedId));
@@ -78,6 +80,9 @@ TEST(TestMeiDocument, ElementById) {
     s2->addChild(n5);
     ASSERT_EQ(n5, doc->getElementById(newid));
 
+    // removing the element from the document, clear from document map
+    n5->removeDocument();
+    ASSERT_EQ(NULL, doc->getElementById(newid));
 }
 
 // Making a document sets the version
@@ -124,3 +129,30 @@ TEST(TestMeiDocument, ElementsByName) {
     ASSERT_EQ(5, notes_new.size());
     
 }
+
+TEST(TestMeiDocument, DocumentPointers) {
+    Mei *mei = new Mei();
+    Music *mus = new Music();
+    Body *body = new Body();
+    Staff *staff = new Staff();
+
+    // If an element is added as a child and neither element is attached to a document, nothing happens. 
+    ASSERT_EQ(NULL, mei->getDocument());
+    mei->addChild(mus);
+    ASSERT_EQ(NULL, mus->getDocument());
+
+    MeiDocument *doc = new MeiDocument();
+
+    // add root to document, all elements should have their document pointer updated
+    mus->addChild(body);
+    doc->setRootElement(mei);
+    ASSERT_EQ(doc, mei->getDocument());
+    ASSERT_EQ(doc, mus->getDocument());
+    ASSERT_EQ(doc, body->getDocument());
+
+    // add another element as a child, child element should be linked to the same document
+    body->addChild(staff);
+    ASSERT_EQ(doc, staff->getDocument());
+}
+
+
