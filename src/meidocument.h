@@ -79,6 +79,16 @@ class MEI_EXPORT MeiDocument {
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
+        /** \brief Flattens the current document tree
+          *
+          * For now, this function naively updates the flattened document tree by re-initializing the vector.
+          * Based on performance constraints, this can be optimized accordingly
+          */
+        void updateFlattenedDocTree();
+
+        /** \brief Returns the flattened document tree */
+        std::vector<MeiElement*> getFlattenedDocTree();
+
     private:
         MeiElement* getElementById(std::string id, MeiElement* from);
         /** The version of this MEI document. */
@@ -89,6 +99,7 @@ class MEI_EXPORT MeiDocument {
         bool nsMatch(std::string href);
 
         std::map<std::string, MeiElement*> idMap;
+        std::vector<MeiElement*> flattenedDoc;
     };
 }
 #endif  // MEIDOCUMENT_H_

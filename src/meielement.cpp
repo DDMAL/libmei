@@ -185,7 +185,7 @@ MeiDocument* mei::MeiElement::getDocument() {
 }
 
 void mei::MeiElement::removeDocument() {
-    if(getDocument() != NULL) {
+    if(document) {
         this->document->rmIdMap(id);
         this->document = NULL;
     }
@@ -197,17 +197,23 @@ void mei::MeiElement::removeDocument() {
 /** Working with Children **/
 
 void mei::MeiElement::addChild(MeiElement *child) {
-    if (document) {
-        child->setDocument(document);
-    }
     child->setParent(this);
     this->children.push_back(child);
+
+    if (document) {
+        child->setDocument(document);
+        document->updateFlattenedDocTree();
+    }
 }
 
 void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     deleteAllChildren();
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
         addChild(*iter);
+    }
+
+    if (document) {
+        document->updateFlattenedDocTree();
     }
 }
 
@@ -231,6 +237,10 @@ void mei::MeiElement::deleteAllChildren() {
         delete *iter;
     }
     children.clear();
+
+    if (document) {
+        document->updateFlattenedDocTree();
+    }
 }
 
 void mei::MeiElement::removeChild(MeiElement *child) {
@@ -243,6 +253,10 @@ void mei::MeiElement::removeChild(MeiElement *child) {
             ++iter;
         }
     }
+
+    if (document) {
+        document->updateFlattenedDocTree();
+    }
 }
 
 void mei::MeiElement::removeChildrenWithName(string name) {
@@ -254,6 +268,10 @@ void mei::MeiElement::removeChildrenWithName(string name) {
         } else {
             ++iter;
         }
+    }
+
+    if (document) {
+        document->updateFlattenedDocTree();
     }
 }
 
@@ -275,7 +293,7 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
 }
 
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
-    vector<mei::MeiElement*> res = this->flatten(this);
+    vector<mei::MeiElement*> res = this->flatten();
     return res;
 }
 
@@ -331,13 +349,13 @@ mei::MeiElement* mei::MeiElement::traverseParent(std::string name, mei::MeiEleme
     return NULL;
 }
 
-vector<mei::MeiElement*> mei::MeiElement::flatten(MeiElement *e) {
+const vector<mei::MeiElement*> mei::MeiElement::flatten() {
     vector<MeiElement*> res;
-    vector<MeiElement*> children = e->getChildren();
-    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+    vector<MeiElement*> children = this->getChildren();
+    for (vector<mei::MeiElement*>::const_iterator iter = children.begin(); iter != children.end(); ++iter) {
         res.push_back(*iter);
         if ((*iter)->hasChildren()) {
-            vector<MeiElement*> subres = this->flatten((*iter));
+            vector<MeiElement*> subres = (*iter)->flatten();
             res.insert(res.end(), subres.begin(), subres.end());
         }
     }

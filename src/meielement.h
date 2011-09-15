@@ -262,6 +262,8 @@ class MEI_EXPORT MeiElement
          */
         std::vector<MeiElement*> getPeers();
 
+        const std::vector<MeiElement*> flatten();
+
         /** \brief Print a tree of elements with this one at the root. */
         void print();
 
@@ -286,7 +288,6 @@ class MEI_EXPORT MeiElement
         MeiDocument *document;
 
         MeiElement* traverseParent(std::string name, MeiElement *e);
-        std::vector<MeiElement*> flatten(MeiElement *e);
 };
 
 // This implements the element map for allowing the creation of an element given its

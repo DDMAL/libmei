@@ -81,6 +81,13 @@ MeiElement* mei::MeiDocument::getRootElement() {
 void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
     root->setDocument(this);
+
+    updateFlattenedDocTree();
+}
+
+void mei::MeiDocument::updateFlattenedDocTree() {
+    flattenedDoc = root->flatten();
+    flattenedDoc.insert(flattenedDoc.begin(), root);
 }
 
 string mei::MeiDocument::getVersion() {
@@ -114,3 +121,8 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     }
     return ret;
 }
+
+std::vector<MeiElement*> mei::MeiDocument::getFlattenedDocTree() {
+    return flattenedDoc;
+}
+

@@ -155,4 +155,59 @@ TEST(TestMeiDocument, DocumentPointers) {
     ASSERT_EQ(doc, staff->getDocument());
 }
 
+TEST(TestMeiDocument, FlattenedDocTree) {
+    Mei *mei = new Mei();
+    Music *mus = new Music();
+    Body *body = new Body();
+    Staff *staff = new Staff();
+    Staff *s2 = new Staff();
+    Note *n1 = new Note();
+    Note *n2 = new Note();
+    Note *n3 = new Note();
+    
+    MeiDocument *doc = new MeiDocument();
 
+    mei->addChild(mus);
+    // empty since mei not added as document root yet
+    ASSERT_TRUE(doc->getFlattenedDocTree().empty());
+
+    doc->setRootElement(mei);
+    ASSERT_EQ(2, doc->getFlattenedDocTree().size());
+
+    mus->addChild(body);    
+    body->addChild(staff);
+    body->addChild(s2);
+    staff->addChild(n1);
+    staff->addChild(n2);
+    s2->addChild(n3);
+
+    ASSERT_EQ(8, doc->getFlattenedDocTree().size());
+
+    staff->removeChild(n2);
+    ASSERT_EQ(7, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(s2, doc->getFlattenedDocTree()[5]);
+    
+    staff->removeChildrenWithName("note");
+    ASSERT_EQ(6, doc->getFlattenedDocTree().size());
+    
+    body->deleteAllChildren();
+    ASSERT_EQ(3, doc->getFlattenedDocTree().size());
+
+    std::vector<MeiElement*> newChildren;
+    Staff *newStaff1 = new Staff();
+    Staff *newStaff2 = new Staff();
+    newChildren.push_back(newStaff1);
+    newChildren.push_back(newStaff2);
+    body->setChildren(newChildren);
+    ASSERT_EQ(5, doc->getFlattenedDocTree().size());
+
+    // check contents
+    MeiElement* elements[] = { mei, mus, body, newStaff1, newStaff2 };
+    std::vector<MeiElement*> rightOrder (elements, elements + sizeof(elements) / sizeof(MeiElement));
+
+    for (int i = 0; i < rightOrder.size(); i++) {
+        // check don't overshoot memory allocation
+        ASSERT_LT(i, doc->getFlattenedDocTree().size());
+        ASSERT_EQ(rightOrder[i], doc->getFlattenedDocTree()[i]);
+    }
+}
