@@ -4,6 +4,7 @@
 */
 
 #include <mei/meielement.h>
+#include <mei/meidocument.h>
 #include <mei/mei.h>
 #include <mei/shared.h>
 #include <mei/exceptions.h>
@@ -19,9 +20,13 @@
 
 #include <gtest/gtest.h>
 
+using std::cout;
+using std::endl;
+
 using std::vector;
 using std::string;
 
+using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::Staff;
@@ -389,4 +394,33 @@ TEST(MeiElementTest, GetPeersTest) {
     ASSERT_EQ(n4Id, res[3]->getId());
     
 }
+
+TEST(MeiElementTest, GetPositionInDocument) {
+    MeiElement* m = new MeiElement("mei");
+    MeiElement *m1 = new MeiElement("music");
+    string musicId = m1->getId();
+    MeiElement *b1 = new MeiElement("body");
+    MeiElement *s1 = new MeiElement("staff");
+    MeiElement *n1 = new MeiElement("note");
+    string nId = n1->getId();
+    MeiElement *n2 = new MeiElement("note");
+    MeiElement *n3 = new MeiElement("note");
+    MeiElement *n4 = new MeiElement("note");    
+    string n4Id = n4->getId();
+    
+    m->addChild(m1);
+    m1->addChild(b1);
+    b1->addChild(s1);
+    s1->addChild(n1);
+    s1->addChild(n2);
+    s1->addChild(n3);
+    
+    MeiDocument* doc = new MeiDocument();
+    doc->setRootElement(m);
+    
+    ASSERT_EQ(4, n1->getPositionInDocument());
+    ASSERT_EQ(-1, n4->getPositionInDocument());
+    
+}
+
 

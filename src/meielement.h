@@ -261,6 +261,16 @@ class MEI_EXPORT MeiElement
          *  \return A vector of MeiElements (possibly empty).
          */
         std::vector<MeiElement*> getPeers();
+        
+        /** \brief Gets this item's position in the flattened document structure.
+         *      Position is numbered by the order the elements occur, so the first
+         *      element is 0, the next 1, and so on.
+         *  
+         *  \return Integer index of the item's position, or -1 if either the element's
+         *      document is not set, or the element is not found in the document.
+         *
+         */
+        int getPositionInDocument();
 
         const std::vector<MeiElement*> flatten();
 

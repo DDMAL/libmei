@@ -305,6 +305,21 @@ vector<mei::MeiElement*> mei::MeiElement::getPeers() {
     return emptyres;
 }
 
+int mei::MeiElement::getPositionInDocument() {
+    if (!this->document) {
+        return -1;
+    }
+
+    vector<MeiElement*> els = this->document->getFlattenedDocTree();
+    for (unsigned int i = 0; i < els.size(); ++i) {
+        if (els[i] == this) {
+            return i;       
+        }
+    }
+
+    return -1;  // this element was not found in the document
+}
+
 void mei::MeiElement::print() {
     print(0);
 }
