@@ -91,7 +91,6 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
 
 void mei::MeiDocument::updateFlattenedDocTree() {
     flattenedDoc = root->flatten();
-    flattenedDoc.insert(flattenedDoc.begin(), root);
 }
 
 string mei::MeiDocument::getVersion() {

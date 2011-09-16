@@ -295,6 +295,7 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
 
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     vector<mei::MeiElement*> res = this->flatten();
+    res.erase(res.begin());
     return res;
 }
 
@@ -367,13 +368,11 @@ mei::MeiElement* mei::MeiElement::traverseParent(std::string name, mei::MeiEleme
 
 const vector<mei::MeiElement*> mei::MeiElement::flatten() {
     vector<MeiElement*> res;
+    res.push_back(this);
     vector<MeiElement*> children = this->getChildren();
     for (vector<mei::MeiElement*>::const_iterator iter = children.begin(); iter != children.end(); ++iter) {
-        res.push_back(*iter);
-        if ((*iter)->hasChildren()) {
-            vector<MeiElement*> subres = (*iter)->flatten();
-            res.insert(res.end(), subres.begin(), subres.end());
-        }
+        vector<MeiElement*> subres = (*iter)->flatten();
+        res.insert(res.end(), subres.begin(), subres.end());
     }
     return res;
 }
