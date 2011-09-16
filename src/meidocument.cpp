@@ -27,6 +27,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "meielement.h"
 #include "meinamespace.h"
@@ -34,6 +35,9 @@
 using std::map;
 using std::string;
 using std::vector;
+
+using std::cout;
+using std::endl;
 
 using mei::MeiElement;
 using mei::MeiNamespace;
@@ -125,4 +129,30 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
 std::vector<MeiElement*> mei::MeiDocument::getFlattenedDocTree() {
     return flattenedDoc;
 }
+
+MeiElement* mei::MeiDocument::lookBack(int startpos, std::string elName) {
+    // this skips the element at startpos, so that the first result is its immediate neighbour.
+    int diff = flattenedDoc.size() - startpos;
+    
+    // topsy turvy world, where ++ is actually -- (iterating backwards..sdrawkcab gnitareti)
+    for (vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
+        if ((*iter)->getName() == elName) {
+            return (*iter);
+        }
+    }
+    return NULL;
+}
+
+//MeiElement* mei::MeiDocument::lookBack(int startpos, std::string elName, bool isAncestor) {
+//    int diff = flattenedDoc.size() - startpos;
+//    
+//    for (std::vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
+//        // check to see if our original 
+//        
+//        
+//        if () {
+//            
+//        }
+//    }
+//}
 

@@ -181,6 +181,11 @@ TEST(TestMeiDocument, FlattenedDocTree) {
     staff->addChild(n2);
     s2->addChild(n3);
 
+    
+    int pos = n2->getPositionInDocument();
+    doc->lookBack(pos, "mei");
+
+    
     ASSERT_EQ(8, doc->getFlattenedDocTree().size());
 
     staff->removeChild(n2);
@@ -210,4 +215,5 @@ TEST(TestMeiDocument, FlattenedDocTree) {
         ASSERT_LT(i, doc->getFlattenedDocTree().size());
         ASSERT_EQ(rightOrder[i], doc->getFlattenedDocTree()[i]);
     }
+        
 }
