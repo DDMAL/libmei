@@ -307,8 +307,6 @@ class MEI_EXPORT MeiElement
         std::vector<MeiElement*> children;
         MeiElement *parent;
         MeiDocument *document;
-
-        MeiElement* traverseParent(std::string name, MeiElement *e);
 };
 
 // This implements the element map for allowing the creation of an element given its

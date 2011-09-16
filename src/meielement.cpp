@@ -294,8 +294,13 @@ bool mei::MeiElement::hasChildren(string cname) {
 }
 
 mei::MeiElement* mei::MeiElement::getAncestor(string name) {
-    // we shouldn't get here, but just in case we'll return null.
-    return this->traverseParent(name, this);
+    if (parent == NULL) {
+        return NULL;
+    }
+    if (name == parent->name) {
+        return parent;
+    }
+    return parent->getAncestor(name);
 }
 
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
@@ -356,19 +361,6 @@ void mei::MeiElement::print(int level) {
         (*iter)->print(level+2);
         iter++;
     }
-}
-
-mei::MeiElement* mei::MeiElement::traverseParent(std::string name, mei::MeiElement *e) {
-    MeiElement* p = e->getParent();
-    if (p == NULL) {
-        return NULL;
-    }
-    if (p->getName() == name) {
-        return p;
-    } else {
-        return traverseParent(name, p);
-    }
-    return NULL;
 }
 
 const vector<mei::MeiElement*> mei::MeiElement::flatten() {
