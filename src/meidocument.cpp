@@ -126,7 +126,7 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     return ret;
 }
 
-std::vector<MeiElement*> mei::MeiDocument::getFlattenedDocTree() {
+const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedDocTree() {
     return flattenedDoc;
 }
 

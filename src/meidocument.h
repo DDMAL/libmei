@@ -87,7 +87,7 @@ class MEI_EXPORT MeiDocument {
         void updateFlattenedDocTree();
 
         /** \brief Returns the flattened document tree */
-        std::vector<MeiElement*> getFlattenedDocTree();
+        const std::vector<MeiElement*> &getFlattenedDocTree();
     
         MeiElement* lookBack(int startpos, std::string elName);
         MeiElement* lookBack(int startpos, std::string elName, bool isAncestor);
