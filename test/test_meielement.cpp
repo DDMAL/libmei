@@ -13,15 +13,10 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-#include <iostream>
 #include <exception>
 #include <stdexcept>
 
 #include <gtest/gtest.h>
-
-using std::cout;
-using std::endl;
 
 using std::vector;
 using std::string;
