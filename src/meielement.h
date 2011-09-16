@@ -284,6 +284,11 @@ class MEI_EXPORT MeiElement
         template<typename T> static MeiElement* createT(std::string id);
 
     private:
+        /**
+         * Call back to the document to update its internal representation
+         * of the flatened element tree.
+         */
+        void updateDocument();
         void generateAndSetId();
         std::string id;
         void setId(std::string id);

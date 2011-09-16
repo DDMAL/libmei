@@ -86,10 +86,10 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
     root->setDocument(this);
 
-    updateFlattenedDocTree();
+    updateFlattenedTree();
 }
 
-void mei::MeiDocument::updateFlattenedDocTree() {
+void mei::MeiDocument::updateFlattenedTree() {
     flattenedDoc = root->flatten();
 }
 
@@ -125,7 +125,7 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     return ret;
 }
 
-const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedDocTree() {
+const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedTree() {
     return flattenedDoc;
 }
 

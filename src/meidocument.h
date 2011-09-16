@@ -79,20 +79,21 @@ class MEI_EXPORT MeiDocument {
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
-        /** \brief Flattens the current document tree
-          *
-          * For now, this function naively updates the flattened document tree by re-initializing the vector.
-          * Based on performance constraints, this can be optimized accordingly
-          */
-        void updateFlattenedDocTree();
-
         /** \brief Returns the flattened document tree */
-        const std::vector<MeiElement*> &getFlattenedDocTree();
+        const std::vector<MeiElement*> &getFlattenedTree();
     
         MeiElement* lookBack(int startpos, std::string elName);
         MeiElement* lookBack(int startpos, std::string elName, bool isAncestor);
 
     private:
+        /** \brief Flattens the current document tree
+         *
+         * For now, this function naively updates the flattened document tree by re-initializing the vector.
+         * Based on performance constraints, this can be optimized accordingly
+         */
+        friend void MeiElement::updateDocument();
+        void updateFlattenedTree();
+
         MeiElement* getElementById(std::string id, MeiElement* from);
         /** The version of this MEI document. */
         std::string meiVersion;

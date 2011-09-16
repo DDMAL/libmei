@@ -169,10 +169,10 @@ TEST(TestMeiDocument, FlattenedDocTree) {
 
     mei->addChild(mus);
     // empty since mei not added as document root yet
-    ASSERT_TRUE(doc->getFlattenedDocTree().empty());
+    ASSERT_TRUE(doc->getFlattenedTree().empty());
 
     doc->setRootElement(mei);
-    ASSERT_EQ(2, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(2, doc->getFlattenedTree().size());
 
     mus->addChild(body);    
     body->addChild(staff);
@@ -186,17 +186,17 @@ TEST(TestMeiDocument, FlattenedDocTree) {
     doc->lookBack(pos, "mei");
 
     
-    ASSERT_EQ(8, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(8, doc->getFlattenedTree().size());
 
     staff->removeChild(n2);
-    ASSERT_EQ(7, doc->getFlattenedDocTree().size());
-    ASSERT_EQ(s2, doc->getFlattenedDocTree()[5]);
+    ASSERT_EQ(7, doc->getFlattenedTree().size());
+    ASSERT_EQ(s2, doc->getFlattenedTree()[5]);
     
     staff->removeChildrenWithName("note");
-    ASSERT_EQ(6, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(6, doc->getFlattenedTree().size());
     
     body->deleteAllChildren();
-    ASSERT_EQ(3, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(3, doc->getFlattenedTree().size());
 
     std::vector<MeiElement*> newChildren;
     Staff *newStaff1 = new Staff();
@@ -204,7 +204,7 @@ TEST(TestMeiDocument, FlattenedDocTree) {
     newChildren.push_back(newStaff1);
     newChildren.push_back(newStaff2);
     body->setChildren(newChildren);
-    ASSERT_EQ(5, doc->getFlattenedDocTree().size());
+    ASSERT_EQ(5, doc->getFlattenedTree().size());
 
     // check contents
     MeiElement* elements[] = { mei, mus, body, newStaff1, newStaff2 };
@@ -212,8 +212,8 @@ TEST(TestMeiDocument, FlattenedDocTree) {
 
     for (int i = 0; i < rightOrder.size(); i++) {
         // check don't overshoot memory allocation
-        ASSERT_LT(i, doc->getFlattenedDocTree().size());
-        ASSERT_EQ(rightOrder[i], doc->getFlattenedDocTree()[i]);
+        ASSERT_LT(i, doc->getFlattenedTree().size());
+        ASSERT_EQ(rightOrder[i], doc->getFlattenedTree()[i]);
     }
         
 }

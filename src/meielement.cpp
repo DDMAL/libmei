@@ -202,7 +202,7 @@ void mei::MeiElement::addChild(MeiElement *child) {
 
     if (document) {
         child->setDocument(document);
-        document->updateFlattenedDocTree();
+        updateDocument();
     }
 }
 
@@ -213,9 +213,7 @@ void mei::MeiElement::setChildren(vector<MeiElement*> children) {
         this->children.push_back(*iter);
     }
 
-    if (document) {
-        document->updateFlattenedDocTree();
-    }
+    updateDocument();
 }
 
 const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
@@ -239,9 +237,7 @@ void mei::MeiElement::deleteAllChildren() {
     }
     children.clear();
 
-    if (document) {
-        document->updateFlattenedDocTree();
-    }
+    updateDocument();
 }
 
 void mei::MeiElement::removeChild(MeiElement *child) {
@@ -255,9 +251,7 @@ void mei::MeiElement::removeChild(MeiElement *child) {
         }
     }
 
-    if (document) {
-        document->updateFlattenedDocTree();
-    }
+    updateDocument();
 }
 
 void mei::MeiElement::removeChildrenWithName(string name) {
@@ -271,9 +265,7 @@ void mei::MeiElement::removeChildrenWithName(string name) {
         }
     }
 
-    if (document) {
-        document->updateFlattenedDocTree();
-    }
+    updateDocument();
 }
 
 bool mei::MeiElement::hasChildren() {
@@ -312,7 +304,7 @@ int mei::MeiElement::getPositionInDocument() {
         return -1;
     }
 
-    vector<MeiElement*> els = this->document->getFlattenedDocTree();
+    vector<MeiElement*> els = this->document->getFlattenedTree();
     for (unsigned int i = 0; i < els.size(); ++i) {
         if (els[i] == this) {
             return i;       
@@ -375,6 +367,12 @@ const vector<mei::MeiElement*> mei::MeiElement::flatten() {
         res.insert(res.end(), subres.begin(), subres.end());
     }
     return res;
+}
+
+void mei::MeiElement::updateDocument() {
+    if (document) {
+        document->updateFlattenedTree();
+    }
 }
 
 mei::MeiCommentNode::MeiCommentNode() :
