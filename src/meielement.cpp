@@ -209,7 +209,8 @@ void mei::MeiElement::addChild(MeiElement *child) {
 void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     deleteAllChildren();
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
-        addChild(*iter);
+        (*iter)->setParent(this);
+        this->children.push_back(*iter);
     }
 
     if (document) {
