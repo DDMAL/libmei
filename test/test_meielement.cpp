@@ -193,6 +193,31 @@ TEST(MeiElementTest, TestAddChildWithParent) {
     ASSERT_EQ(p, c1->getParent());
 }
 
+TEST(MeiElementTest, TestAddChildBefore) {
+    MeiElement *p = new MeiElement("note");
+    MeiElement *c1 = new MeiElement("accid");
+    MeiElement *c2 = new MeiElement("accid");
+    MeiElement *c3 = new MeiElement("accid");
+    MeiElement *c4 = new MeiElement("accid");
+    p->addChild(c1);
+    p->addChild(c2);
+
+    ASSERT_EQ(2, p->getChildren().size());
+    p->addChildBefore(c2, c3);
+    ASSERT_EQ(3, p->getChildren().size());
+    ASSERT_EQ(c3, p->getChildren()[1]);
+
+    p->addChildBefore(c1, c4);
+    ASSERT_EQ(4, p->getChildren().size());
+    ASSERT_EQ(c4, p->getChildren()[0]);
+
+    // Adding before an element that doesn't exist does nothing
+    MeiElement *c5 = new MeiElement("accid");
+    MeiElement *c6 = new MeiElement("accid");
+    p->addChildBefore(c5, c6);
+    ASSERT_EQ(4, p->getChildren().size());
+}
+
 TEST(MeiElementTest, TestSetChildren) {
     MeiElement *p = new Note();
     MeiElement *ch1 = new Accid();

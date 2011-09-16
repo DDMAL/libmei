@@ -12,6 +12,7 @@
 
 using std::string;
 using std::vector;
+using std::find;
 
 using mei::MeiAttribute;
 using mei::MeiFactory;
@@ -26,8 +27,6 @@ mei::MeiElement::MeiElement(string name) {
     this->document = NULL;
     generateAndSetId();
 }
-
-// XXX: destructor - remove element from document map
 
 extern "C"
 {
@@ -199,6 +198,20 @@ void mei::MeiElement::removeDocument() {
 void mei::MeiElement::addChild(MeiElement *child) {
     child->setParent(this);
     this->children.push_back(child);
+
+    if (document) {
+        child->setDocument(document);
+        updateDocument();
+    }
+}
+
+void mei::MeiElement::addChildBefore(MeiElement *before, MeiElement *child) {
+    child->setParent(this);
+    vector<MeiElement*>::iterator pos = find(children.begin(), children.end(), before);
+    if (pos == children.end()) {
+        return;
+    }
+    this->children.insert(pos, child);
 
     if (document) {
         child->setDocument(document);

@@ -187,8 +187,14 @@ class MEI_EXPORT MeiElement
 
         /**
          * \brief Add another element as a child of this element.
+         *  The child is added at the end of all other children.
          */
         void addChild(MeiElement *child);
+
+        /**
+         * \brief Add an element as a child before the specifed element.
+         */
+        void addChildBefore(MeiElement *before, MeiElement *child);
 
         /**
          * \brief set the children of this element to be the given children.
