@@ -323,12 +323,11 @@ int mei::MeiElement::getPositionInDocument() {
     }
 
     vector<MeiElement*> els = this->document->getFlattenedTree();
-    for (unsigned int i = 0; i < els.size(); ++i) {
-        if (els[i] == this) {
-            return i;       
-        }
+    vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), this);
+    if (pos != els.end()) {
+        return pos - els.begin();
     }
-
+    
     return -1;  // this element was not found in the document
 }
 
@@ -361,6 +360,13 @@ void mei::MeiElement::print(int level) {
         (*iter)->print(level+2);
         iter++;
     }
+}
+
+mei::MeiElement* mei::MeiElement::lookBack(string elName) {
+    if(!this->document) {
+        return NULL;
+    }
+    return this->document->lookBack(this, elName);
 }
 
 const vector<mei::MeiElement*> mei::MeiElement::flatten() {

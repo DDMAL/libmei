@@ -278,6 +278,11 @@ class MEI_EXPORT MeiElement
          */
         int getPositionInDocument();
 
+        /** \brief Looks backwards from this element. Wrapper around the document->lookBack()
+         *     method.
+         */
+        MeiElement* lookBack(std::string elName);
+        
         const std::vector<MeiElement*> flatten();
 
         /** \brief Print a tree of elements with this one at the root. */
