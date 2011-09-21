@@ -4,8 +4,9 @@
 /* #include_block */
 
 /* <tie> */
+        MeiElement* getSystem();
+        std::string attachedToStaff();
 
-        /** A comment to test the documentation **/
         std::vector<mei::MeiElement*> getMembers();
 
 /* </tie> */
