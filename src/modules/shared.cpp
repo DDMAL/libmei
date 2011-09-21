@@ -1,7 +1,20 @@
 #include "shared.h"
 
 #include <string>
-/* #include_block */
+
+#include "meielement.h"
+#include "meidocument.h"
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+using std::vector;
+using std::find;
+using mei::MeiElement;
+using mei::MeiDocument;
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
@@ -307,6 +320,7 @@ mei::Clef::Clef() :
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this),
+    m_ClefLog(this),
     m_Clefshape(this),
     m_Lineloc(this),
     m_Octave(this),
@@ -320,28 +334,22 @@ mei::Clef::~Clef() {}
 
 /* include <clef> */
 
-mei::Clefchange::Clefchange() :
-    MeiElement("clefChange"),
+mei::Clefgrp::Clefgrp() :
+    MeiElement("clefGrp"),
     m_Common(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Facsimile(this),
-    m_Clefshape(this),
-    m_Lineloc(this),
-    m_Octave(this),
-    m_Octavedisplacement(this),
-    m_Altsym(this),
-    m_Color(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Clefchange, "clefChange");
-mei::Clefchange::~Clefchange() {}
+REGISTER_DEFINITION(mei::Clefgrp, "clefGrp");
+mei::Clefgrp::~Clefgrp() {}
 
-/* include <clefChange> */
+/* include <clefGrp> */
 
 mei::Custos::Custos() :
     MeiElement("custos"),
@@ -744,6 +752,7 @@ mei::Layer::Layer() :
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
+    m_LayerLog(this),
     m_Meterconformance(this),
     m_Visibility(this),
     m_CommonAnl(this),
@@ -917,7 +926,27 @@ mei::Note::Note() :
 REGISTER_DEFINITION(mei::Note, "note");
 mei::Note::~Note() {}
 
-/* include <note> */
+string mei::Note::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Note::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Note::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Note::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Note::getSystem() {
+    return this->lookBack("sb");
+}
+
+
 
 mei::Num::Num() :
     MeiElement("num"),
@@ -1245,7 +1274,26 @@ mei::Rest::Rest() :
 REGISTER_DEFINITION(mei::Rest, "rest");
 mei::Rest::~Rest() {}
 
-/* include <rest> */
+string mei::Rest::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Rest::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Rest::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Rest::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Rest::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Role::Role() :
     MeiElement("role"),
@@ -1442,6 +1490,7 @@ mei::Staff::Staff() :
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
+    m_StaffLog(this),
     m_Meterconformance(this),
     m_Visibility(this),
     m_CommonAnl(this),

@@ -474,6 +474,19 @@ void mei::Incipcode::removeForm() {
 };
 /* include <incipCode> */
 
+mei::Inciptext::Inciptext() :
+    MeiElement("incipText"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Lang(this),
+    m_Internetmedia(this)
+{
+}
+REGISTER_DEFINITION(mei::Inciptext, "incipText");
+mei::Inciptext::~Inciptext() {}
+
+/* include <incipText> */
+
 mei::Inscription::Inscription() :
     MeiElement("inscription"),
     m_Common(this),
@@ -558,7 +571,7 @@ mei::Key::Key() :
     MeiElement("key"),
     m_Common(this),
     m_Bibl(this),
-    m_AccidentalPerformed(this),
+    m_Accidental(this),
     m_Pitch(this)
 {
 }
@@ -645,6 +658,17 @@ void mei::Meihead::removeType() {
     removeAttribute("type");
 };
 /* include <meiHead> */
+
+mei::Meter::Meter() :
+    MeiElement("meter"),
+    m_MetersLog(this),
+    m_MetersVis(this)
+{
+}
+REGISTER_DEFINITION(mei::Meter, "meter");
+mei::Meter::~Meter() {}
+
+/* include <meter> */
 
 mei::Normalization::Normalization() :
     MeiElement("normalization"),
@@ -896,7 +920,8 @@ mei::Source::Source() :
     MeiElement("source"),
     m_Datapointing(this),
     m_Common(this),
-    m_Bibl(this)
+    m_Bibl(this),
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Source, "source");

@@ -502,6 +502,33 @@ void mei::ChordVisMixIn::removeCluster() {
     b->removeAttribute("cluster");
 };
 
+mei::ClefLogMixIn::ClefLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::ClefLogMixIn::~ClefLogMixIn() {}
+MeiAttribute* mei::ClefLogMixIn::getCautionary() {
+    if (!b->hasAttribute("cautionary")) {
+        throw AttributeNotFoundException("cautionary");
+    }
+    return b->getAttribute("cautionary");
+};
+
+void mei::ClefLogMixIn::setCautionary(std::string _cautionary) {
+    if (!b->hasAttribute("cautionary")) {
+        MeiAttribute *a = new MeiAttribute("cautionary", _cautionary);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::ClefLogMixIn::hasCautionary() {
+    return b->hasAttribute("cautionary");
+};
+
+void mei::ClefLogMixIn::removeCautionary() {
+    b->removeAttribute("cautionary");
+};
+
 mei::CleffingLogMixIn::CleffingLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1803,6 +1830,33 @@ bool mei::LangMixIn::hasLang() {
 
 void mei::LangMixIn::removeLang() {
     b->removeAttribute("lang");
+};
+
+mei::LayerLogMixIn::LayerLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::LayerLogMixIn::~LayerLogMixIn() {}
+MeiAttribute* mei::LayerLogMixIn::getDef() {
+    if (!b->hasAttribute("def")) {
+        throw AttributeNotFoundException("def");
+    }
+    return b->getAttribute("def");
+};
+
+void mei::LayerLogMixIn::setDef(std::string _def) {
+    if (!b->hasAttribute("def")) {
+        MeiAttribute *a = new MeiAttribute("def", _def);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::LayerLogMixIn::hasDef() {
+    return b->hasAttribute("def");
+};
+
+void mei::LayerLogMixIn::removeDef() {
+    b->removeAttribute("def");
 };
 
 mei::LayeridentMixIn::LayeridentMixIn(MeiElement *b) {
@@ -3746,6 +3800,33 @@ bool mei::SpaceVisMixIn::hasCompressable() {
 
 void mei::SpaceVisMixIn::removeCompressable() {
     b->removeAttribute("compressable");
+};
+
+mei::StaffLogMixIn::StaffLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::StaffLogMixIn::~StaffLogMixIn() {}
+MeiAttribute* mei::StaffLogMixIn::getDef() {
+    if (!b->hasAttribute("def")) {
+        throw AttributeNotFoundException("def");
+    }
+    return b->getAttribute("def");
+};
+
+void mei::StaffLogMixIn::setDef(std::string _def) {
+    if (!b->hasAttribute("def")) {
+        MeiAttribute *a = new MeiAttribute("def", _def);
+        b->addAttribute(a);
+    }
+};
+
+bool mei::StaffLogMixIn::hasDef() {
+    return b->hasAttribute("def");
+};
+
+void mei::StaffLogMixIn::removeDef() {
+    b->removeAttribute("def");
 };
 
 mei::StaffdefVisMixIn::StaffdefVisMixIn(MeiElement *b) {

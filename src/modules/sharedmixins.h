@@ -319,6 +319,23 @@ class ChordVisMixIn {
         MeiElement *b;
 };
 
+class ClefLogMixIn {
+    public:
+        explicit ClefLogMixIn(MeiElement *b);
+        virtual ~ClefLogMixIn();
+        /** \brief records the function of the clef.
+         * 
+         *  A "cautionary" clef does not change the following pitches.
+         */
+        MeiAttribute* getCautionary();
+        void setCautionary(std::string _cautionary);
+        bool hasCautionary();
+        void removeCautionary();
+
+    private:
+        MeiElement *b;
+};
+
 class CleffingLogMixIn {
     public:
         explicit CleffingLogMixIn(MeiElement *b);
@@ -987,6 +1004,21 @@ class LangMixIn {
         void setLang(std::string _lang);
         bool hasLang();
         void removeLang();
+
+    private:
+        MeiElement *b;
+};
+
+class LayerLogMixIn {
+    public:
+        explicit LayerLogMixIn(MeiElement *b);
+        virtual ~LayerLogMixIn();
+        /** \brief provides a mechanism for linking the layer to a layerDef element.
+         */
+        MeiAttribute* getDef();
+        void setDef(std::string _def);
+        bool hasDef();
+        void removeDef();
 
     private:
         MeiElement *b;
@@ -1895,6 +1927,21 @@ class SpaceVisMixIn {
         void setCompressable(std::string _compressable);
         bool hasCompressable();
         void removeCompressable();
+
+    private:
+        MeiElement *b;
+};
+
+class StaffLogMixIn {
+    public:
+        explicit StaffLogMixIn(MeiElement *b);
+        virtual ~StaffLogMixIn();
+        /** \brief provides a mechanism for linking the layer to a layerDef element.
+         */
+        MeiAttribute* getDef();
+        void setDef(std::string _def);
+        bool hasDef();
+        void removeDef();
 
     private:
         MeiElement *b;

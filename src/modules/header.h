@@ -307,11 +307,11 @@ class MEI_EXPORT Contentitem : public MeiElement {
  * 
  *  Use of this element should be determined by the complexity of the resource and
  *  whether or not the information is readily available. The description may consist
- *  of unstructured text or <contentItem> elements may be used to provide structured
- *  information. A link to an external table of contents may be supplied in lieu of
- *  or in addition to this element's child elements. If it is necessary to describe
- *  each of the components in detail, consider using <relatedItem> with the
- *  type="constituent" attribute instead of <contents>.
+ *  of a single paragraph or <contentItem> elements may be used to provide
+ *  structured information. A link to an external table of contents may be supplied
+ *  in lieu of or in addition to this element's child elements. If it is necessary
+ *  to describe each of the components in detail, consider using <relatedItem> with
+ *  the type="constituent" attribute instead of <contents>.
  */
 class MEI_EXPORT Contents : public MeiElement {
     public:
@@ -692,8 +692,8 @@ class MEI_EXPORT History : public MeiElement {
         REGISTER_DECLARATION(History);
 };
 
-/** \brief coded incipit ― Incipit coded in a non-XML, plain text format, such as Plaine
- *  & Easie.
+/** \brief incipit code ― Incipit coded in a non-XML, plain text format, such as Plaine &
+ *  Easie Code.
  */
 class MEI_EXPORT Incipcode : public MeiElement {
     public:
@@ -727,6 +727,24 @@ class MEI_EXPORT Incipcode : public MeiElement {
         REGISTER_DECLARATION(Incipcode);
 };
 
+/** \brief incipit text ― The opening words of a musical composition.
+ */
+class MEI_EXPORT Inciptext : public MeiElement {
+    public:
+        Inciptext();
+        virtual ~Inciptext();
+
+/* include <incipText> */
+
+        CommonMixIn    m_Common;
+        BiblMixIn    m_Bibl;
+        LangMixIn    m_Lang;
+        InternetmediaMixIn    m_Internetmedia;
+
+    private:
+        REGISTER_DECLARATION(Inciptext);
+};
+
 /** \brief inscription ― An inscription added to an item, such as a bookplate, a note
  *  designating the item as a gift, and/or the author's signature.
  */
@@ -745,7 +763,8 @@ class MEI_EXPORT Inscription : public MeiElement {
         REGISTER_DECLARATION(Inscription);
 };
 
-/** \brief 
+/** \brief instrument or voice ― Name of an ensemble, an instrument on which a performer
+ *  plays, or a performer's voice range designation.
  */
 class MEI_EXPORT Instrvoice : public MeiElement {
     public:
@@ -820,7 +839,7 @@ class MEI_EXPORT Key : public MeiElement {
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
-        AccidentalPerformedMixIn    m_AccidentalPerformed;
+        AccidentalMixIn    m_Accidental;
         PitchMixIn    m_Pitch;
 
     private:
@@ -908,6 +927,26 @@ class MEI_EXPORT Meihead : public MeiElement {
         REGISTER_DECLARATION(Meihead);
 };
 
+/** \brief meter ― Captures information about the time signature.
+ * 
+ *  It is used exclusively within bibliographic descriptions. Do not confuse this
+ *  element with the attributes used by staffDef and scoreDef to record this data
+ *  within the body of an MEI file.
+ */
+class MEI_EXPORT Meter : public MeiElement {
+    public:
+        Meter();
+        virtual ~Meter();
+
+/* include <meter> */
+
+        MetersLogMixIn    m_MetersLog;
+        MetersVisMixIn    m_MetersVis;
+
+    private:
+        REGISTER_DECLARATION(Meter);
+};
+
 /** \brief normalization ― Indicates the extent of normalization or regularization of the
  *  original source carried out in converting it to electronic form.
  * 
@@ -977,12 +1016,14 @@ class MEI_EXPORT Perfmedium : public MeiElement {
 /** \brief performer ― Used when performing forces includes specific instrumental or
  *  vocal performers.
  * 
- *  If the performer plays more than one instrument in a composition, the first
- *  named instrument is given. If a principal instrument can be determined, the name
- *  or code for that instrument is given. For percussion music, whether for a single
- *  performer or more than one, the number of performers is given, rather than the
- *  number of instruments. For monologues, or works with narration, an indication of
- *  unspecified voice is given for the speaker or narrator.
+ *  All instruments and roles for a single performer can be included. However, in
+ *  AACR2 the following restrictions apply: if the performer plays more than one
+ *  instrument in a composition, the first named instrument is given. If a principal
+ *  instrument can be determined, the name or code for that instrument is given. For
+ *  percussion music, whether for a single performer or more than one, the number of
+ *  performers is given, rather than the number of instruments. For monologues, or
+ *  works with narration, an indication of unspecified voice is given for the
+ *  speaker or narrator.
  */
 class MEI_EXPORT Performer : public MeiElement {
     public:
@@ -1171,9 +1212,9 @@ class MEI_EXPORT Pubstmt : public MeiElement {
  *  related to the present one in some specified manner, for example as a
  *  constituent or alternative version of it.
  * 
- *  A URI for the related item may be placed in the target attribute or in an
- *  <identifier> sub-element. This element is modelled on the relatedItem element in
- *  the Text Encoding Initiative (TEI) and MODS schemas.
+ *  A URI for the related item should be placed in the <identifier> sub-element.
+ *  This element is modelled on the relatedItem element in the Text Encoding
+ *  Initiative (TEI) and MODS schemas.
  */
 class MEI_EXPORT Relateditem : public MeiElement {
     public:
@@ -1315,12 +1356,13 @@ class MEI_EXPORT Segmentation : public MeiElement {
 /** \brief series statement ― Groups information about the series, if any, to which a
  *  publication belongs.
  * 
- *  In this context, the title element records the series title, the respStmt
+ *  In this context, the <title> element records the series title, the <respStmt>
  *  element records the person or group responsible for the series, and the
- *  identifier element contains a series identifier. The content element should be
- *  used when it is necessary to enumerate the content of the series. The seriesStmt
- *  element is provided within seriesStmt for the description of a sub-series. This
- *  element is modelled on an element in the Text Encoding Initiative (TEI).
+ *  <identifier> element contains a series identifier. The <contents> element should
+ *  be used when it is necessary to enumerate the content of the series. The
+ *  <seriesStmt> element is provided within seriesStmt for the description of a sub-
+ *  series. This element is modelled on an element in the Text Encoding Initiative
+ *  (TEI).
  */
 class MEI_EXPORT Seriesstmt : public MeiElement {
     public:
@@ -1341,9 +1383,10 @@ class MEI_EXPORT Seriesstmt : public MeiElement {
  * 
  *  Multiple physDesc sub-elements may be used to describe the physically separate
  *  parts of a single source. The data attribute may be used to reference one or
- *  more features that occur in this particular source. A URI for the related item
- *  should be placed in the <identifier> sub-element. This element is modelled on
- *  the sourceDesc element in the Text Encoding Initiative (TEI).
+ *  more features that occur in this particular source. A URI referencing a
+ *  description of the related item may be placed in the target attribute. This
+ *  element is modelled on the sourceDesc element in the Text Encoding Initiative
+ *  (TEI).
  */
 class MEI_EXPORT Source : public MeiElement {
     public:
@@ -1355,6 +1398,7 @@ class MEI_EXPORT Source : public MeiElement {
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
+        PointingMixIn    m_Pointing;
 
     private:
         REGISTER_DECLARATION(Source);

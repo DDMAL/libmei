@@ -124,7 +124,8 @@ void mei::Symbol::removeRef() {
 
 mei::Symboldef::Symboldef() :
     MeiElement("symbolDef"),
-    m_Common(this)
+    m_Common(this),
+    m_Coordinated(this)
 {
 }
 REGISTER_DEFINITION(mei::Symboldef, "symbolDef");

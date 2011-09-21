@@ -216,6 +216,7 @@ class MEI_EXPORT Symboldef : public MeiElement {
 /* include <symbolDef> */
 
         CommonMixIn    m_Common;
+        CoordinatedMixIn    m_Coordinated;
 
     private:
         REGISTER_DECLARATION(Symboldef);

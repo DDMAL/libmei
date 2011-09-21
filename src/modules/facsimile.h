@@ -55,7 +55,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
         REGISTER_DECLARATION(Facsimile);
 };
 
-/** \brief surface ― Defines a written surface in terms of a rectangular coordinate
+/** \brief surface ― Defines a writing surface in terms of a rectangular coordinate
  *  space, optionally grouping one or more graphic representations of that space,
  *  and rectangular zones of interest within it.
  * 

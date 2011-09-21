@@ -27,7 +27,9 @@
 #include "meielement.h"
 #include "meinamespace.h"
 #include "exceptions.h"
-/* #include_block */
+
+#include "meielement.h"
+#include "meidocument.h"
 
 #include "mei.h"
 #include "sharedmixins.h"
@@ -478,10 +480,11 @@ class MEI_EXPORT Chord : public MeiElement {
 /** \brief clef ― Indication of the exact location of a particular note on the staff and,
  *  therefore, the other notes as well.
  * 
- *  This element provides an alternative to the staff element's clef.* attributes.
- *  It should be used when specific display info, such as size or color, needs to be
- *  recorded for the clef or when multiple, simultaneous clefs occur on a single
- *  staff.
+ *  This element can be used as an alternative to the staff element's clef.*
+ *  attributes. It should be used when specific display info, such as size or color,
+ *  needs to be recorded for the clef or when multiple, simultaneous clefs occur on
+ *  a single staff. This element may also be used within the staff context to
+ *  indicate changes of clef.
  */
 class MEI_EXPORT Clef : public MeiElement {
     public:
@@ -494,6 +497,7 @@ class MEI_EXPORT Clef : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        ClefLogMixIn    m_ClefLog;
         ClefshapeMixIn    m_Clefshape;
         LinelocMixIn    m_Lineloc;
         OctaveMixIn    m_Octave;
@@ -505,14 +509,14 @@ class MEI_EXPORT Clef : public MeiElement {
         REGISTER_DECLARATION(Clef);
 };
 
-/** \brief clef change ― A temporary change of clef.
+/** \brief clef group ― A set of simultaneously-occurring clefs
  */
-class MEI_EXPORT Clefchange : public MeiElement {
+class MEI_EXPORT Clefgrp : public MeiElement {
     public:
-        Clefchange();
-        virtual ~Clefchange();
+        Clefgrp();
+        virtual ~Clefgrp();
 
-/* include <clefChange> */
+/* include <clefGrp> */
 
         CommonMixIn    m_Common;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -520,17 +524,11 @@ class MEI_EXPORT Clefchange : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         FacsimileMixIn    m_Facsimile;
-        ClefshapeMixIn    m_Clefshape;
-        LinelocMixIn    m_Lineloc;
-        OctaveMixIn    m_Octave;
-        OctavedisplacementMixIn    m_Octavedisplacement;
-        AltsymMixIn    m_Altsym;
-        ColorMixIn    m_Color;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Clefchange);
+        REGISTER_DECLARATION(Clefgrp);
 };
 
 /** \brief custos ― Symbol placed at the end of a line of music to indicate the first
@@ -940,10 +938,10 @@ class MEI_EXPORT Identifier : public MeiElement {
 
 /** \brief incipit ― The opening words or music of a composition.
  * 
- *  The <p> and <lg> elements are permitted in order to accommodate a text incipit,
- *  while <score> is available to provide an MEI-encoded musical incipit. An incipit
- *  encoded in another text format can be included in a CDATA section inside the
- *  <incipCode> element.
+ *  The <incipText> element may be used to capture a text incipit, while <score> is
+ *  available to provide an MEI-encoded musical incipit. Images of an incipit may be
+ *  referenced using the >graphic< element. An incipit encoded in a text format
+ *  other than MEI may be placed in the <incipCode> element.
  */
 class MEI_EXPORT Incip : public MeiElement {
     public:
@@ -1052,7 +1050,7 @@ class MEI_EXPORT Keysig : public MeiElement {
         REGISTER_DECLARATION(Keysig);
 };
 
-/** \brief label ― A text string that identifies a staff or staff group.
+/** \brief label ― A text string that identifies a staff, staff group, or contentItem.
  */
 class MEI_EXPORT Label : public MeiElement {
     public:
@@ -1073,8 +1071,12 @@ class MEI_EXPORT Label : public MeiElement {
 /** \brief layer ― An independent stream of events on a staff.
  * 
  *  The term 'layer' is used instead of 'voice' in order to avoid confusion between
- *  'voice' and 'voice leading'. The n attribute is used to establish a connection
- *  back to the appropriate layerDef element.
+ *  'voice' and 'voice leading'. The def attribute may be used to create a
+ *  connection with a layerDef element where logical and visual information about
+ *  the layer is recorded. Alternatively, the n attribute may be used as a reference
+ *  to a layerDef element with the same value in its n attribute. If neither def nor
+ *  n attributes are present, then encoding order of the layers is presumed to match
+ *  the encoding order of the layer definitions.
  */
 class MEI_EXPORT Layer : public MeiElement {
     public:
@@ -1086,6 +1088,7 @@ class MEI_EXPORT Layer : public MeiElement {
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
+        LayerLogMixIn    m_LayerLog;
         MeterconformanceMixIn    m_Meterconformance;
         VisibilityMixIn    m_Visibility;
         CommonAnlMixIn    m_CommonAnl;
@@ -1279,7 +1282,15 @@ class MEI_EXPORT Note : public MeiElement {
         Note();
         virtual ~Note();
 
-/* include <note> */
+        std::string getLayerIdent();
+        MeiElement* getLayer();
+
+        std::string getStaffIdent();
+        MeiElement* getStaff();
+
+        MeiElement* getSystem();
+
+
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1724,7 +1735,15 @@ class MEI_EXPORT Rest : public MeiElement {
         Rest();
         virtual ~Rest();
 
-/* include <rest> */
+        std::string getLayerIdent();
+        MeiElement* getLayer();
+
+        std::string getStaffIdent();
+        MeiElement* getStaff();
+
+        MeiElement* getSystem();
+
+
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1977,11 +1996,12 @@ class MEI_EXPORT Stack : public MeiElement {
  * 
  *  In MEI, however, <staff> is a grouping element for individual 'strands' of
  *  notes, rests, etc. that may or may not be rendered on staff lines; that is,
- *  diastematic and non-diastematic signs. The n attribute functions as a connection
- *  back to the appropriate staffDef element where logical and visual information
- *  about the staff is recorded. If the n attribute is omitted, encoding order is
- *  presumed to match the staff order. Of course, if data is supplied for only a
- *  subset of staves found in a printed source, the n attribute must be supplied.
+ *  diastematic and non-diastematic signs. The def attribute may be used to create a
+ *  connection with a staffDef element where logical and visual information about
+ *  the staff is recorded. Alternatively, the n attribute may be used as a reference
+ *  to a staffDef element with the same value in its n attribute. If neither def nor
+ *  n attributes are present, then the encoding order of the staves is presumed to
+ *  match the encoding order of the staff defintions.
  */
 class MEI_EXPORT Staff : public MeiElement {
     public:
@@ -1993,6 +2013,7 @@ class MEI_EXPORT Staff : public MeiElement {
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
+        StaffLogMixIn    m_StaffLog;
         MeterconformanceMixIn    m_Meterconformance;
         VisibilityMixIn    m_Visibility;
         CommonAnlMixIn    m_CommonAnl;
