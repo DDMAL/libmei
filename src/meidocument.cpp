@@ -28,6 +28,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 #include "meielement.h"
 #include "meinamespace.h"
@@ -35,6 +36,7 @@
 using std::map;
 using std::string;
 using std::vector;
+using std::find;
 
 using std::cout;
 using std::endl;
