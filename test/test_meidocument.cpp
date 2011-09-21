@@ -182,10 +182,7 @@ TEST(TestMeiDocument, FlattenedDocTree) {
     s2->addChild(n3);
 
     
-    int pos = n2->getPositionInDocument();
-    doc->lookBack(pos, "mei");
-
-    
+    doc->lookBack(n2, "mei");
     ASSERT_EQ(8, doc->getFlattenedTree().size());
 
     staff->removeChild(n2);
