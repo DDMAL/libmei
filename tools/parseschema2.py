@@ -30,10 +30,11 @@ TEI_RNG_NS = {"tei":"http://www.tei-c.org/ns/1.0","rng":"http://relaxng.org/ns/s
 
 class MeiSchema(object):
     def __init__(self, schema_file, customization_file, outdir):
-        self.schema = etree.parse(schema_file)
+        parser = etree.XMLParser(resolve_entities=True)
+        self.schema = etree.parse(schema_file, parser)
         self.customization = etree.parse(customization_file)
         self.outdir = outdir
-        
+
         self.active_modules = []
         self.element_structure = {} # the element structure.
         self.attribute_group_structure = {} # the attribute group structure
@@ -47,13 +48,13 @@ class MeiSchema(object):
         # pdb.set_trace()
     
     def get_elements(self):
-        elements = [m for m in self.schema.xpath("//tei:elementSpec", namespaces=TEI_NS) if self.__get_is_active(m)]
+        elements = [m for m in self.schema.xpath("//elementSpec", namespaces=TEI_NS) if self.__get_is_active(m)]
         for element in elements:
             modname = element.get("module").split(".")[-1]
             element_name = element.get("ident")
             memberships = []
             
-            element_membership = element.xpath("./tei:classes/tei:memberOf", namespaces=TEI_NS)
+            element_membership = element.xpath("./classes/memberOf", namespaces=TEI_NS)
             for member in element_membership:
                 if member.get("key").split(".")[0] != "att":
                     # skip the models that this element might be a member of
@@ -65,7 +66,7 @@ class MeiSchema(object):
             
             # need a way to keep self-defined attributes:
             selfattributes = []
-            attdefs = element.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
+            attdefs = element.xpath("./attList/attDef", namespaces=TEI_NS)
             if attdefs:
                 for attdef in attdefs:
                     if attdef.get("ident") == "id":
@@ -80,11 +81,11 @@ class MeiSchema(object):
             
     
     def get_attribute_groups(self):
-        attribute_groups = [m for m in self.schema.xpath("//tei:classSpec[@type=$at]", at="atts", namespaces=TEI_NS) if self.__get_is_active(m)]
+        attribute_groups = [m for m in self.schema.xpath("//classSpec[@type=$at]", at="atts", namespaces=TEI_NS) if self.__get_is_active(m)]
         for group in attribute_groups:
             group_name = group.get("ident")
             group_module = group.get("module").split(".")[-1]
-            attdefs = group.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
+            attdefs = group.xpath("./attList/attDef", namespaces=TEI_NS)
             if not attdefs:
                 continue
             
@@ -123,11 +124,16 @@ class MeiSchema(object):
         self.active_modules.sort()
     
     def __get_membership(self, member, resarr):
-        member_attgroup = member.xpath("//tei:classSpec[@type=$att][@ident=$nm]", att="atts", nm=member.get("key"), namespaces=TEI_NS)[0]
+        member_attgroup = member.xpath("//classSpec[@type=$att][@ident=$nm]", att="atts", nm=member.get("key"), namespaces=TEI_NS)
         
-        if member_attgroup.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS):
+        if member_attgroup:
+            member_attgroup = member_attgroup[0]
+        else:
+            return
+
+        if member_attgroup.xpath("./attList/attDef", namespaces=TEI_NS):
             resarr.append(member_attgroup.get("ident"))
-        m2s = member_attgroup.xpath("./tei:classes/tei:memberOf", namespaces=TEI_NS)
+        m2s = member_attgroup.xpath("./classes/memberOf", namespaces=TEI_NS)
         
         if not m2s:
             return
@@ -153,14 +159,14 @@ class MeiSchema(object):
     
     def getattdocs(self, aname):
         """ returns the documentation string for element name, or an empty string if there is none."""
-        dsc = self.schema.xpath("//tei:attDef[@ident=$name]/tei:desc/text()", name=aname, namespaces=TEI_NS)
+        dsc = self.schema.xpath("//attDef[@ident=$name]/desc/text()", name=aname, namespaces=TEI_NS)
         if dsc:
             return re.sub('[\s\t]+', ' ', dsc[0]) # strip extraneous whitespace
         else:
             return ""
     
     def geteldocs(self, ename):
-        dsc = self.schema.xpath("//tei:elementSpec[@ident=$name]/tei:desc/text()", name=ename, namespaces=TEI_NS)
+        dsc = self.schema.xpath("//elementSpec[@ident=$name]/desc/text()", name=ename, namespaces=TEI_NS)
         if dsc:
             return re.sub('[\s\t]+', ' ', dsc[0]) # strip extraneous whitespace
         else:
