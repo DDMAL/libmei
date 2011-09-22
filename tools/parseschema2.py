@@ -155,7 +155,7 @@ class MeiSchema(object):
     def cc(self, name):
         """ Returns a CamelCasedName version of attribute.case.names.
         """
-        return "".join([n.capitalize() for n in name.split(".")])
+        return "".join([n[0].upper() + n[1:] for n in name.split(".")])
     
     def getattdocs(self, aname):
         """ returns the documentation string for element name, or an empty string if there is none."""
