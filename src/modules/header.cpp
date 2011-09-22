@@ -7,49 +7,49 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
-mei::Accessrestrict::Accessrestrict() :
+mei::AccessRestrict::AccessRestrict() :
     MeiElement("accessRestrict"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Accessrestrict, "accessRestrict");
-mei::Accessrestrict::~Accessrestrict() {}
+REGISTER_DEFINITION(mei::AccessRestrict, "accessRestrict");
+mei::AccessRestrict::~AccessRestrict() {}
 
 /* include <accessRestrict> */
 
-mei::Acqsource::Acqsource() :
+mei::AcqSource::AcqSource() :
     MeiElement("acqSource"),
     m_Bibl(this),
     m_Common(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Acqsource, "acqSource");
-mei::Acqsource::~Acqsource() {}
+REGISTER_DEFINITION(mei::AcqSource, "acqSource");
+mei::AcqSource::~AcqSource() {}
 
 /* include <acqSource> */
 
-mei::Altid::Altid() :
+mei::AltId::AltId() :
     MeiElement("altId"),
     m_Bibl(this),
     m_Common(this),
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Altid, "altId");
-mei::Altid::~Altid() {}
+REGISTER_DEFINITION(mei::AltId, "altId");
+mei::AltId::~AltId() {}
 
 /* include <altId> */
 
-mei::Appinfo::Appinfo() :
+mei::AppInfo::AppInfo() :
     MeiElement("appInfo"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Appinfo, "appInfo");
-mei::Appinfo::~Appinfo() {}
+REGISTER_DEFINITION(mei::AppInfo, "appInfo");
+mei::AppInfo::~AppInfo() {}
 
 /* include <appInfo> */
 
@@ -109,27 +109,27 @@ mei::Change::~Change() {}
 
 /* include <change> */
 
-mei::Changedesc::Changedesc() :
+mei::ChangeDesc::ChangeDesc() :
     MeiElement("changeDesc"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Changedesc, "changeDesc");
-mei::Changedesc::~Changedesc() {}
+REGISTER_DEFINITION(mei::ChangeDesc, "changeDesc");
+mei::ChangeDesc::~ChangeDesc() {}
 
 /* include <changeDesc> */
 
-mei::Classcode::Classcode() :
+mei::ClassCode::ClassCode() :
     MeiElement("classCode"),
     m_Common(this),
     m_Authorized(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Classcode, "classCode");
-mei::Classcode::~Classcode() {}
+REGISTER_DEFINITION(mei::ClassCode, "classCode");
+mei::ClassCode::~ClassCode() {}
 
 /* include <classCode> */
 
@@ -157,14 +157,14 @@ mei::Condition::~Condition() {}
 
 /* include <condition> */
 
-mei::Contentitem::Contentitem() :
+mei::ContentItem::ContentItem() :
     MeiElement("contentItem"),
     m_Bibl(this),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Contentitem, "contentItem");
-mei::Contentitem::~Contentitem() {}
+REGISTER_DEFINITION(mei::ContentItem, "contentItem");
+mei::ContentItem::~ContentItem() {}
 
 /* include <contentItem> */
 
@@ -239,19 +239,19 @@ mei::Dimensions::~Dimensions() {}
 
 /* include <dimensions> */
 
-mei::Editionstmt::Editionstmt() :
+mei::EditionStmt::EditionStmt() :
     MeiElement("editionStmt"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Editionstmt, "editionStmt");
-mei::Editionstmt::~Editionstmt() {}
+REGISTER_DEFINITION(mei::EditionStmt, "editionStmt");
+mei::EditionStmt::~EditionStmt() {}
 
 /* include <editionStmt> */
 
-mei::Editorialdecl::Editorialdecl() :
+mei::EditorialDecl::EditorialDecl() :
     MeiElement("editorialDecl"),
     m_Common(this),
     m_Bibl(this),
@@ -259,19 +259,19 @@ mei::Editorialdecl::Editorialdecl() :
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Editorialdecl, "editorialDecl");
-mei::Editorialdecl::~Editorialdecl() {}
+REGISTER_DEFINITION(mei::EditorialDecl, "editorialDecl");
+mei::EditorialDecl::~EditorialDecl() {}
 
 /* include <editorialDecl> */
 
-mei::Encodingdesc::Encodingdesc() :
+mei::EncodingDesc::EncodingDesc() :
     MeiElement("encodingDesc"),
     m_Bibl(this),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Encodingdesc, "encodingDesc");
-mei::Encodingdesc::~Encodingdesc() {}
+REGISTER_DEFINITION(mei::EncodingDesc, "encodingDesc");
+mei::EncodingDesc::~EncodingDesc() {}
 
 /* include <encodingDesc> */
 
@@ -303,27 +303,27 @@ mei::Event::~Event() {}
 
 /* include <event> */
 
-mei::Eventlist::Eventlist() :
+mei::EventList::EventList() :
     MeiElement("eventList"),
     m_Bibl(this),
     m_Common(this),
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Eventlist, "eventList");
-mei::Eventlist::~Eventlist() {}
+REGISTER_DEFINITION(mei::EventList, "eventList");
+mei::EventList::~EventList() {}
 
 /* include <eventList> */
 
-mei::Exhibhist::Exhibhist() :
+mei::ExhibHist::ExhibHist() :
     MeiElement("exhibHist"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Exhibhist, "exhibHist");
-mei::Exhibhist::~Exhibhist() {}
+REGISTER_DEFINITION(mei::ExhibHist, "exhibHist");
+mei::ExhibHist::~ExhibHist() {}
 
 /* include <exhibHist> */
 
@@ -339,14 +339,14 @@ mei::Extent::~Extent() {}
 
 /* include <extent> */
 
-mei::Filedesc::Filedesc() :
+mei::FileDesc::FileDesc() :
     MeiElement("fileDesc"),
     m_Bibl(this),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Filedesc, "fileDesc");
-mei::Filedesc::~Filedesc() {}
+REGISTER_DEFINITION(mei::FileDesc, "fileDesc");
+mei::FileDesc::~FileDesc() {}
 
 /* include <fileDesc> */
 
@@ -396,14 +396,14 @@ void mei::Hand::removeInitial() {
 };
 /* include <hand> */
 
-mei::Handlist::Handlist() :
+mei::HandList::HandList() :
     MeiElement("handList"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Handlist, "handList");
-mei::Handlist::~Handlist() {}
+REGISTER_DEFINITION(mei::HandList, "handList");
+mei::HandList::~HandList() {}
 
 /* include <handList> */
 
@@ -418,24 +418,24 @@ mei::History::~History() {}
 
 /* include <history> */
 
-mei::Incipcode::Incipcode() :
+mei::IncipCode::IncipCode() :
     MeiElement("incipCode"),
     m_Common(this),
     m_Bibl(this),
     m_Internetmedia(this)
 {
 }
-REGISTER_DEFINITION(mei::Incipcode, "incipCode");
-mei::Incipcode::~Incipcode() {}
+REGISTER_DEFINITION(mei::IncipCode, "incipCode");
+mei::IncipCode::~IncipCode() {}
 
-MeiAttribute* mei::Incipcode::getSpace() {
+MeiAttribute* mei::IncipCode::getSpace() {
     if (!hasAttribute("space")) {
         throw AttributeNotFoundException("space");
     }
     return getAttribute("space");
 };
 
-void mei::Incipcode::setSpace(std::string _space) {
+void mei::IncipCode::setSpace(std::string _space) {
     if (!hasAttribute("space")) {
         MeiAttribute *a = new MeiAttribute("space", _space);
         MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
@@ -444,37 +444,37 @@ void mei::Incipcode::setSpace(std::string _space) {
     }
 };
 
-bool mei::Incipcode::hasSpace() {
+bool mei::IncipCode::hasSpace() {
     return hasAttribute("space");
 };
 
-void mei::Incipcode::removeSpace() {
+void mei::IncipCode::removeSpace() {
     removeAttribute("space");
 };
-MeiAttribute* mei::Incipcode::getForm() {
+MeiAttribute* mei::IncipCode::getForm() {
     if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
     return getAttribute("form");
 };
 
-void mei::Incipcode::setForm(std::string _form) {
+void mei::IncipCode::setForm(std::string _form) {
     if (!hasAttribute("form")) {
         MeiAttribute *a = new MeiAttribute("form", _form);
         addAttribute(a);
     }
 };
 
-bool mei::Incipcode::hasForm() {
+bool mei::IncipCode::hasForm() {
     return hasAttribute("form");
 };
 
-void mei::Incipcode::removeForm() {
+void mei::IncipCode::removeForm() {
     removeAttribute("form");
 };
 /* include <incipCode> */
 
-mei::Inciptext::Inciptext() :
+mei::IncipText::IncipText() :
     MeiElement("incipText"),
     m_Common(this),
     m_Bibl(this),
@@ -482,8 +482,8 @@ mei::Inciptext::Inciptext() :
     m_Internetmedia(this)
 {
 }
-REGISTER_DEFINITION(mei::Inciptext, "incipText");
-mei::Inciptext::~Inciptext() {}
+REGISTER_DEFINITION(mei::IncipText, "incipText");
+mei::IncipText::~IncipText() {}
 
 /* include <incipText> */
 
@@ -499,7 +499,7 @@ mei::Inscription::~Inscription() {}
 
 /* include <inscription> */
 
-mei::Instrvoice::Instrvoice() :
+mei::InstrVoice::InstrVoice() :
     MeiElement("instrVoice"),
     m_Common(this),
     m_Bibl(this),
@@ -507,49 +507,49 @@ mei::Instrvoice::Instrvoice() :
     m_Regularized(this)
 {
 }
-REGISTER_DEFINITION(mei::Instrvoice, "instrVoice");
-mei::Instrvoice::~Instrvoice() {}
+REGISTER_DEFINITION(mei::InstrVoice, "instrVoice");
+mei::InstrVoice::~InstrVoice() {}
 
-MeiAttribute* mei::Instrvoice::getCount() {
+MeiAttribute* mei::InstrVoice::getCount() {
     if (!hasAttribute("count")) {
         throw AttributeNotFoundException("count");
     }
     return getAttribute("count");
 };
 
-void mei::Instrvoice::setCount(std::string _count) {
+void mei::InstrVoice::setCount(std::string _count) {
     if (!hasAttribute("count")) {
         MeiAttribute *a = new MeiAttribute("count", _count);
         addAttribute(a);
     }
 };
 
-bool mei::Instrvoice::hasCount() {
+bool mei::InstrVoice::hasCount() {
     return hasAttribute("count");
 };
 
-void mei::Instrvoice::removeCount() {
+void mei::InstrVoice::removeCount() {
     removeAttribute("count");
 };
-MeiAttribute* mei::Instrvoice::getSolo() {
+MeiAttribute* mei::InstrVoice::getSolo() {
     if (!hasAttribute("solo")) {
         throw AttributeNotFoundException("solo");
     }
     return getAttribute("solo");
 };
 
-void mei::Instrvoice::setSolo(std::string _solo) {
+void mei::InstrVoice::setSolo(std::string _solo) {
     if (!hasAttribute("solo")) {
         MeiAttribute *a = new MeiAttribute("solo", _solo);
         addAttribute(a);
     }
 };
 
-bool mei::Instrvoice::hasSolo() {
+bool mei::InstrVoice::hasSolo() {
     return hasAttribute("solo");
 };
 
-void mei::Instrvoice::removeSolo() {
+void mei::InstrVoice::removeSolo() {
     removeAttribute("solo");
 };
 /* include <instrVoice> */
@@ -601,15 +601,15 @@ void mei::Key::removeMode() {
 };
 /* include <key> */
 
-mei::Langusage::Langusage() :
+mei::LangUsage::LangUsage() :
     MeiElement("langUsage"),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this)
 {
 }
-REGISTER_DEFINITION(mei::Langusage, "langUsage");
-mei::Langusage::~Langusage() {}
+REGISTER_DEFINITION(mei::LangUsage, "langUsage");
+mei::LangUsage::~LangUsage() {}
 
 /* include <langUsage> */
 
@@ -625,7 +625,7 @@ mei::Language::~Language() {}
 
 /* include <language> */
 
-mei::Meihead::Meihead() :
+mei::MeiHead::MeiHead() :
     MeiElement("meiHead"),
     m_Bibl(this),
     m_Common(this),
@@ -633,28 +633,28 @@ mei::Meihead::Meihead() :
     m_Meiversion(this)
 {
 }
-REGISTER_DEFINITION(mei::Meihead, "meiHead");
-mei::Meihead::~Meihead() {}
+REGISTER_DEFINITION(mei::MeiHead, "meiHead");
+mei::MeiHead::~MeiHead() {}
 
-MeiAttribute* mei::Meihead::getType() {
+MeiAttribute* mei::MeiHead::getType() {
     if (!hasAttribute("type")) {
         throw AttributeNotFoundException("type");
     }
     return getAttribute("type");
 };
 
-void mei::Meihead::setType(std::string _type) {
+void mei::MeiHead::setType(std::string _type) {
     if (!hasAttribute("type")) {
         MeiAttribute *a = new MeiAttribute("type", _type);
         addAttribute(a);
     }
 };
 
-bool mei::Meihead::hasType() {
+bool mei::MeiHead::hasType() {
     return hasAttribute("type");
 };
 
-void mei::Meihead::removeType() {
+void mei::MeiHead::removeType() {
     removeAttribute("type");
 };
 /* include <meiHead> */
@@ -684,26 +684,26 @@ mei::Normalization::~Normalization() {}
 
 /* include <normalization> */
 
-mei::Notesstmt::Notesstmt() :
+mei::NotesStmt::NotesStmt() :
     MeiElement("notesStmt"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Notesstmt, "notesStmt");
-mei::Notesstmt::~Notesstmt() {}
+REGISTER_DEFINITION(mei::NotesStmt, "notesStmt");
+mei::NotesStmt::~NotesStmt() {}
 
 /* include <notesStmt> */
 
-mei::Perfmedium::Perfmedium() :
+mei::PerfMedium::PerfMedium() :
     MeiElement("perfMedium"),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this)
 {
 }
-REGISTER_DEFINITION(mei::Perfmedium, "perfMedium");
-mei::Perfmedium::~Perfmedium() {}
+REGISTER_DEFINITION(mei::PerfMedium, "perfMedium");
+mei::PerfMedium::~PerfMedium() {}
 
 /* include <perfMedium> */
 
@@ -718,29 +718,29 @@ mei::Performer::~Performer() {}
 
 /* include <performer> */
 
-mei::Physdesc::Physdesc() :
+mei::PhysDesc::PhysDesc() :
     MeiElement("physDesc"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Physdesc, "physDesc");
-mei::Physdesc::~Physdesc() {}
+REGISTER_DEFINITION(mei::PhysDesc, "physDesc");
+mei::PhysDesc::~PhysDesc() {}
 
 /* include <physDesc> */
 
-mei::Physloc::Physloc() :
+mei::PhysLoc::PhysLoc() :
     MeiElement("physLoc"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Physloc, "physLoc");
-mei::Physloc::~Physloc() {}
+REGISTER_DEFINITION(mei::PhysLoc, "physLoc");
+mei::PhysLoc::~PhysLoc() {}
 
 /* include <physLoc> */
 
-mei::Physmedium::Physmedium() :
+mei::PhysMedium::PhysMedium() :
     MeiElement("physMedium"),
     m_Common(this),
     m_Bibl(this),
@@ -748,20 +748,20 @@ mei::Physmedium::Physmedium() :
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Physmedium, "physMedium");
-mei::Physmedium::~Physmedium() {}
+REGISTER_DEFINITION(mei::PhysMedium, "physMedium");
+mei::PhysMedium::~PhysMedium() {}
 
 /* include <physMedium> */
 
-mei::Platenum::Platenum() :
+mei::PlateNum::PlateNum() :
     MeiElement("plateNum"),
     m_Common(this),
     m_Bibl(this),
     m_Facsimile(this)
 {
 }
-REGISTER_DEFINITION(mei::Platenum, "plateNum");
-mei::Platenum::~Platenum() {}
+REGISTER_DEFINITION(mei::PlateNum, "plateNum");
+mei::PlateNum::~PlateNum() {}
 
 /* include <plateNum> */
 
@@ -777,7 +777,7 @@ mei::Price::~Price() {}
 
 /* include <price> */
 
-mei::Projectdesc::Projectdesc() :
+mei::ProjectDesc::ProjectDesc() :
     MeiElement("projectDesc"),
     m_Common(this),
     m_Bibl(this),
@@ -785,8 +785,8 @@ mei::Projectdesc::Projectdesc() :
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Projectdesc, "projectDesc");
-mei::Projectdesc::~Projectdesc() {}
+REGISTER_DEFINITION(mei::ProjectDesc, "projectDesc");
+mei::ProjectDesc::~ProjectDesc() {}
 
 /* include <projectDesc> */
 
@@ -802,18 +802,18 @@ mei::Provenance::~Provenance() {}
 
 /* include <provenance> */
 
-mei::Pubstmt::Pubstmt() :
+mei::PubStmt::PubStmt() :
     MeiElement("pubStmt"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Pubstmt, "pubStmt");
-mei::Pubstmt::~Pubstmt() {}
+REGISTER_DEFINITION(mei::PubStmt, "pubStmt");
+mei::PubStmt::~PubStmt() {}
 
 /* include <pubStmt> */
 
-mei::Relateditem::Relateditem() :
+mei::RelatedItem::RelatedItem() :
     MeiElement("relatedItem"),
     m_Datapointing(this),
     m_Common(this),
@@ -821,28 +821,28 @@ mei::Relateditem::Relateditem() :
     m_Pointing(this)
 {
 }
-REGISTER_DEFINITION(mei::Relateditem, "relatedItem");
-mei::Relateditem::~Relateditem() {}
+REGISTER_DEFINITION(mei::RelatedItem, "relatedItem");
+mei::RelatedItem::~RelatedItem() {}
 
-MeiAttribute* mei::Relateditem::getRel() {
+MeiAttribute* mei::RelatedItem::getRel() {
     if (!hasAttribute("rel")) {
         throw AttributeNotFoundException("rel");
     }
     return getAttribute("rel");
 };
 
-void mei::Relateditem::setRel(std::string _rel) {
+void mei::RelatedItem::setRel(std::string _rel) {
     if (!hasAttribute("rel")) {
         MeiAttribute *a = new MeiAttribute("rel", _rel);
         addAttribute(a);
     }
 };
 
-bool mei::Relateditem::hasRel() {
+bool mei::RelatedItem::hasRel() {
     return hasAttribute("rel");
 };
 
-void mei::Relateditem::removeRel() {
+void mei::RelatedItem::removeRel() {
     removeAttribute("rel");
 };
 /* include <relatedItem> */
@@ -857,29 +857,29 @@ mei::Resp::~Resp() {}
 
 /* include <resp> */
 
-mei::Respstmt::Respstmt() :
+mei::RespStmt::RespStmt() :
     MeiElement("respStmt"),
     m_Bibl(this),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Respstmt, "respStmt");
-mei::Respstmt::~Respstmt() {}
+REGISTER_DEFINITION(mei::RespStmt, "respStmt");
+mei::RespStmt::~RespStmt() {}
 
 /* include <respStmt> */
 
-mei::Revisiondesc::Revisiondesc() :
+mei::RevisionDesc::RevisionDesc() :
     MeiElement("revisionDesc"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Revisiondesc, "revisionDesc");
-mei::Revisiondesc::~Revisiondesc() {}
+REGISTER_DEFINITION(mei::RevisionDesc, "revisionDesc");
+mei::RevisionDesc::~RevisionDesc() {}
 
 /* include <revisionDesc> */
 
-mei::Samplingdecl::Samplingdecl() :
+mei::SamplingDecl::SamplingDecl() :
     MeiElement("samplingDecl"),
     m_Common(this),
     m_Bibl(this),
@@ -887,8 +887,8 @@ mei::Samplingdecl::Samplingdecl() :
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Samplingdecl, "samplingDecl");
-mei::Samplingdecl::~Samplingdecl() {}
+REGISTER_DEFINITION(mei::SamplingDecl, "samplingDecl");
+mei::SamplingDecl::~SamplingDecl() {}
 
 /* include <samplingDecl> */
 
@@ -905,14 +905,14 @@ mei::Segmentation::~Segmentation() {}
 
 /* include <segmentation> */
 
-mei::Seriesstmt::Seriesstmt() :
+mei::SeriesStmt::SeriesStmt() :
     MeiElement("seriesStmt"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Seriesstmt, "seriesStmt");
-mei::Seriesstmt::~Seriesstmt() {}
+REGISTER_DEFINITION(mei::SeriesStmt, "seriesStmt");
+mei::SeriesStmt::~SeriesStmt() {}
 
 /* include <seriesStmt> */
 
@@ -929,17 +929,17 @@ mei::Source::~Source() {}
 
 /* include <source> */
 
-mei::Sourcedesc::Sourcedesc() :
+mei::SourceDesc::SourceDesc() :
     MeiElement("sourceDesc"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Sourcedesc, "sourceDesc");
-mei::Sourcedesc::~Sourcedesc() {}
+REGISTER_DEFINITION(mei::SourceDesc, "sourceDesc");
+mei::SourceDesc::~SourceDesc() {}
 
 /* include <sourceDesc> */
 
-mei::Stdvals::Stdvals() :
+mei::StdVals::StdVals() :
     MeiElement("stdVals"),
     m_Common(this),
     m_Bibl(this),
@@ -947,20 +947,20 @@ mei::Stdvals::Stdvals() :
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Stdvals, "stdVals");
-mei::Stdvals::~Stdvals() {}
+REGISTER_DEFINITION(mei::StdVals, "stdVals");
+mei::StdVals::~StdVals() {}
 
 /* include <stdVals> */
 
-mei::Sysreq::Sysreq() :
+mei::SysReq::SysReq() :
     MeiElement("sysReq"),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Sysreq, "sysReq");
-mei::Sysreq::~Sysreq() {}
+REGISTER_DEFINITION(mei::SysReq, "sysReq");
+mei::SysReq::~SysReq() {}
 
 /* include <sysReq> */
 
@@ -996,68 +996,68 @@ void mei::Term::removeClasscode() {
 };
 /* include <term> */
 
-mei::Termlist::Termlist() :
+mei::TermList::TermList() :
     MeiElement("termList"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Termlist, "termList");
-mei::Termlist::~Termlist() {}
+REGISTER_DEFINITION(mei::TermList, "termList");
+mei::TermList::~TermList() {}
 
-MeiAttribute* mei::Termlist::getClasscode() {
+MeiAttribute* mei::TermList::getClasscode() {
     if (!hasAttribute("classcode")) {
         throw AttributeNotFoundException("classcode");
     }
     return getAttribute("classcode");
 };
 
-void mei::Termlist::setClasscode(std::string _classcode) {
+void mei::TermList::setClasscode(std::string _classcode) {
     if (!hasAttribute("classcode")) {
         MeiAttribute *a = new MeiAttribute("classcode", _classcode);
         addAttribute(a);
     }
 };
 
-bool mei::Termlist::hasClasscode() {
+bool mei::TermList::hasClasscode() {
     return hasAttribute("classcode");
 };
 
-void mei::Termlist::removeClasscode() {
+void mei::TermList::removeClasscode() {
     removeAttribute("classcode");
 };
 /* include <termList> */
 
-mei::Titlestmt::Titlestmt() :
+mei::TitleStmt::TitleStmt() :
     MeiElement("titleStmt"),
     m_Bibl(this),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Titlestmt, "titleStmt");
-mei::Titlestmt::~Titlestmt() {}
+REGISTER_DEFINITION(mei::TitleStmt, "titleStmt");
+mei::TitleStmt::~TitleStmt() {}
 
 /* include <titleStmt> */
 
-mei::Treathist::Treathist() :
+mei::TreatHist::TreatHist() :
     MeiElement("treatHist"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Treathist, "treatHist");
-mei::Treathist::~Treathist() {}
+REGISTER_DEFINITION(mei::TreatHist, "treatHist");
+mei::TreatHist::~TreatHist() {}
 
 /* include <treatHist> */
 
-mei::Treatsched::Treatsched() :
+mei::TreatSched::TreatSched() :
     MeiElement("treatSched"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Treatsched, "treatSched");
-mei::Treatsched::~Treatsched() {}
+REGISTER_DEFINITION(mei::TreatSched, "treatSched");
+mei::TreatSched::~TreatSched() {}
 
 /* include <treatSched> */
 
@@ -1072,14 +1072,14 @@ mei::Unpub::~Unpub() {}
 
 /* include <unpub> */
 
-mei::Userestrict::Userestrict() :
+mei::UseRestrict::UseRestrict() :
     MeiElement("useRestrict"),
     m_Common(this),
     m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Userestrict, "useRestrict");
-mei::Userestrict::~Userestrict() {}
+REGISTER_DEFINITION(mei::UseRestrict, "useRestrict");
+mei::UseRestrict::~UseRestrict() {}
 
 /* include <useRestrict> */
 
@@ -1107,13 +1107,13 @@ mei::Work::~Work() {}
 
 /* include <work> */
 
-mei::Workdesc::Workdesc() :
+mei::WorkDesc::WorkDesc() :
     MeiElement("workDesc"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Workdesc, "workDesc");
-mei::Workdesc::~Workdesc() {}
+REGISTER_DEFINITION(mei::WorkDesc, "workDesc");
+mei::WorkDesc::~WorkDesc() {}
 
 /* include <workDesc> */
 

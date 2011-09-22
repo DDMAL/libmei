@@ -48,10 +48,10 @@ namespace mei {
  *  copyright. This element is modelled on an element in Encoded Archival
  *  Description (EAD).
  */
-class MEI_EXPORT Accessrestrict : public MeiElement {
+class MEI_EXPORT AccessRestrict : public MeiElement {
     public:
-        Accessrestrict();
-        virtual ~Accessrestrict();
+        AccessRestrict();
+        virtual ~AccessRestrict();
 
 /* include <accessRestrict> */
 
@@ -60,7 +60,7 @@ class MEI_EXPORT Accessrestrict : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Accessrestrict);
+        REGISTER_DECLARATION(AccessRestrict);
 };
 
 /** \brief acquisition source ― Post-publication source, such as a vendor or distributor,
@@ -69,10 +69,10 @@ class MEI_EXPORT Accessrestrict : public MeiElement {
  * 
  *  This element is modelled on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Acqsource : public MeiElement {
+class MEI_EXPORT AcqSource : public MeiElement {
     public:
-        Acqsource();
-        virtual ~Acqsource();
+        AcqSource();
+        virtual ~AcqSource();
 
 /* include <acqSource> */
 
@@ -81,7 +81,7 @@ class MEI_EXPORT Acqsource : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Acqsource);
+        REGISTER_DECLARATION(AcqSource);
 };
 
 /** \brief alternative identifier ― May contain a bibliographic identifier that does not
@@ -91,10 +91,10 @@ class MEI_EXPORT Acqsource : public MeiElement {
  *  One or the other of <altId> or the id attribute on <mei> is required when
  *  applicable.
  */
-class MEI_EXPORT Altid : public MeiElement {
+class MEI_EXPORT AltId : public MeiElement {
     public:
-        Altid();
-        virtual ~Altid();
+        AltId();
+        virtual ~AltId();
 
 /* include <altId> */
 
@@ -103,7 +103,7 @@ class MEI_EXPORT Altid : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Altid);
+        REGISTER_DECLARATION(AltId);
 };
 
 /** \brief application information ― Groups information about applications which have
@@ -113,17 +113,17 @@ class MEI_EXPORT Altid : public MeiElement {
  *  file. The latter may be recorded in the projectDesc element. This element is
  *  modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Appinfo : public MeiElement {
+class MEI_EXPORT AppInfo : public MeiElement {
     public:
-        Appinfo();
-        virtual ~Appinfo();
+        AppInfo();
+        virtual ~AppInfo();
 
 /* include <appInfo> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Appinfo);
+        REGISTER_DECLARATION(AppInfo);
 };
 
 /** \brief application ― Provides information about an application which has acted upon
@@ -202,10 +202,10 @@ class MEI_EXPORT Change : public MeiElement {
 
 /** \brief change description ― Description of a revision of the MEI file.
  */
-class MEI_EXPORT Changedesc : public MeiElement {
+class MEI_EXPORT ChangeDesc : public MeiElement {
     public:
-        Changedesc();
-        virtual ~Changedesc();
+        ChangeDesc();
+        virtual ~ChangeDesc();
 
 /* include <changeDesc> */
 
@@ -214,7 +214,7 @@ class MEI_EXPORT Changedesc : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Changedesc);
+        REGISTER_DECLARATION(ChangeDesc);
 };
 
 /** \brief classification code ― Holds a citation to the source of controlled-vocabulary
@@ -225,10 +225,10 @@ class MEI_EXPORT Changedesc : public MeiElement {
  *  The citation may be provided in the authority attribute or as textual content of
  *  the element when additional markup is needed.
  */
-class MEI_EXPORT Classcode : public MeiElement {
+class MEI_EXPORT ClassCode : public MeiElement {
     public:
-        Classcode();
-        virtual ~Classcode();
+        ClassCode();
+        virtual ~ClassCode();
 
 /* include <classCode> */
 
@@ -237,7 +237,7 @@ class MEI_EXPORT Classcode : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Classcode);
+        REGISTER_DECLARATION(ClassCode);
 };
 
 /** \brief classification ― Groups information which describes the nature or topic of an
@@ -289,10 +289,10 @@ class MEI_EXPORT Condition : public MeiElement {
 
 /** \brief content item ― Contains a single entry within a content description element.
  */
-class MEI_EXPORT Contentitem : public MeiElement {
+class MEI_EXPORT ContentItem : public MeiElement {
     public:
-        Contentitem();
-        virtual ~Contentitem();
+        ContentItem();
+        virtual ~ContentItem();
 
 /* include <contentItem> */
 
@@ -300,7 +300,7 @@ class MEI_EXPORT Contentitem : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Contentitem);
+        REGISTER_DECLARATION(ContentItem);
 };
 
 /** \brief contents ― description of the material contained within a resource.
@@ -407,10 +407,10 @@ class MEI_EXPORT Dimensions : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Editionstmt : public MeiElement {
+class MEI_EXPORT EditionStmt : public MeiElement {
     public:
-        Editionstmt();
-        virtual ~Editionstmt();
+        EditionStmt();
+        virtual ~EditionStmt();
 
 /* include <editionStmt> */
 
@@ -419,7 +419,7 @@ class MEI_EXPORT Editionstmt : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Editionstmt);
+        REGISTER_DECLARATION(EditionStmt);
 };
 
 /** \brief editorial declaration ― Used to provide details of editorial principles and
@@ -427,10 +427,10 @@ class MEI_EXPORT Editionstmt : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Editorialdecl : public MeiElement {
+class MEI_EXPORT EditorialDecl : public MeiElement {
     public:
-        Editorialdecl();
-        virtual ~Editorialdecl();
+        EditorialDecl();
+        virtual ~EditorialDecl();
 
 /* include <editorialDecl> */
 
@@ -440,7 +440,7 @@ class MEI_EXPORT Editorialdecl : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Editorialdecl);
+        REGISTER_DECLARATION(EditorialDecl);
 };
 
 /** \brief encoding description ― Documents the relationship between an electronic file
@@ -449,10 +449,10 @@ class MEI_EXPORT Editorialdecl : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Encodingdesc : public MeiElement {
+class MEI_EXPORT EncodingDesc : public MeiElement {
     public:
-        Encodingdesc();
-        virtual ~Encodingdesc();
+        EncodingDesc();
+        virtual ~EncodingDesc();
 
 /* include <encodingDesc> */
 
@@ -460,7 +460,7 @@ class MEI_EXPORT Encodingdesc : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Encodingdesc);
+        REGISTER_DECLARATION(EncodingDesc);
 };
 
 /** \brief ensemble ― Used when an ensemble, such as an orchestra, is included in the
@@ -525,10 +525,10 @@ class MEI_EXPORT Event : public MeiElement {
  *  event lists with different functions, such as a list of events in the
  *  compositional process and a list of performance dates.
  */
-class MEI_EXPORT Eventlist : public MeiElement {
+class MEI_EXPORT EventList : public MeiElement {
     public:
-        Eventlist();
-        virtual ~Eventlist();
+        EventList();
+        virtual ~EventList();
 
 /* include <eventList> */
 
@@ -537,7 +537,7 @@ class MEI_EXPORT Eventlist : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Eventlist);
+        REGISTER_DECLARATION(EventList);
 };
 
 /** \brief exhibition history ― A record of public exhibitions, including dates, venues,
@@ -545,10 +545,10 @@ class MEI_EXPORT Eventlist : public MeiElement {
  * 
  *  This element is modelled on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Exhibhist : public MeiElement {
+class MEI_EXPORT ExhibHist : public MeiElement {
     public:
-        Exhibhist();
-        virtual ~Exhibhist();
+        ExhibHist();
+        virtual ~ExhibHist();
 
 /* include <exhibHist> */
 
@@ -557,7 +557,7 @@ class MEI_EXPORT Exhibhist : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Exhibhist);
+        REGISTER_DECLARATION(ExhibHist);
 };
 
 /** \brief extent ― Used to express size in terms other than physical dimensions, such as
@@ -588,10 +588,10 @@ class MEI_EXPORT Extent : public MeiElement {
  *  Extent in this context is file size. This element is modelled on an element in
  *  the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Filedesc : public MeiElement {
+class MEI_EXPORT FileDesc : public MeiElement {
     public:
-        Filedesc();
-        virtual ~Filedesc();
+        FileDesc();
+        virtual ~FileDesc();
 
 /* include <fileDesc> */
 
@@ -599,7 +599,7 @@ class MEI_EXPORT Filedesc : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Filedesc);
+        REGISTER_DECLARATION(FileDesc);
 };
 
 /** \brief fingerprint ― Traditionally, an identifier, constructed by combining groups of
@@ -661,10 +661,10 @@ class MEI_EXPORT Hand : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Handlist : public MeiElement {
+class MEI_EXPORT HandList : public MeiElement {
     public:
-        Handlist();
-        virtual ~Handlist();
+        HandList();
+        virtual ~HandList();
 
 /* include <handList> */
 
@@ -672,7 +672,7 @@ class MEI_EXPORT Handlist : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Handlist);
+        REGISTER_DECLARATION(HandList);
 };
 
 /** \brief history ― History provides a container for information about the creation and
@@ -695,10 +695,10 @@ class MEI_EXPORT History : public MeiElement {
 /** \brief incipit code ― Incipit coded in a non-XML, plain text format, such as Plaine &
  *  Easie Code.
  */
-class MEI_EXPORT Incipcode : public MeiElement {
+class MEI_EXPORT IncipCode : public MeiElement {
     public:
-        Incipcode();
-        virtual ~Incipcode();
+        IncipCode();
+        virtual ~IncipCode();
         /** \brief identifies the language of the element's content.
          * 
          *  The values for this attribute are language 'tags' as defined in BCP 47. All
@@ -724,15 +724,15 @@ class MEI_EXPORT Incipcode : public MeiElement {
         InternetmediaMixIn    m_Internetmedia;
 
     private:
-        REGISTER_DECLARATION(Incipcode);
+        REGISTER_DECLARATION(IncipCode);
 };
 
 /** \brief incipit text ― The opening words of a musical composition.
  */
-class MEI_EXPORT Inciptext : public MeiElement {
+class MEI_EXPORT IncipText : public MeiElement {
     public:
-        Inciptext();
-        virtual ~Inciptext();
+        IncipText();
+        virtual ~IncipText();
 
 /* include <incipText> */
 
@@ -742,7 +742,7 @@ class MEI_EXPORT Inciptext : public MeiElement {
         InternetmediaMixIn    m_Internetmedia;
 
     private:
-        REGISTER_DECLARATION(Inciptext);
+        REGISTER_DECLARATION(IncipText);
 };
 
 /** \brief inscription ― An inscription added to an item, such as a bookplate, a note
@@ -766,10 +766,10 @@ class MEI_EXPORT Inscription : public MeiElement {
 /** \brief instrument or voice ― Name of an ensemble, an instrument on which a performer
  *  plays, or a performer's voice range designation.
  */
-class MEI_EXPORT Instrvoice : public MeiElement {
+class MEI_EXPORT InstrVoice : public MeiElement {
     public:
-        Instrvoice();
-        virtual ~Instrvoice();
+        InstrVoice();
+        virtual ~InstrVoice();
         /** \brief indicates the number of parts or performers, e.g., in a composition for 2
          *  flutes.
          */
@@ -794,7 +794,7 @@ class MEI_EXPORT Instrvoice : public MeiElement {
         RegularizedMixIn    m_Regularized;
 
     private:
-        REGISTER_DECLARATION(Instrvoice);
+        REGISTER_DECLARATION(InstrVoice);
 };
 
 /** \brief interpretation ― Describes the scope of any analytic or interpretive
@@ -851,10 +851,10 @@ class MEI_EXPORT Key : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Langusage : public MeiElement {
+class MEI_EXPORT LangUsage : public MeiElement {
     public:
-        Langusage();
-        virtual ~Langusage();
+        LangUsage();
+        virtual ~LangUsage();
 
 /* include <langUsage> */
 
@@ -863,7 +863,7 @@ class MEI_EXPORT Langusage : public MeiElement {
         DatapointingMixIn    m_Datapointing;
 
     private:
-        REGISTER_DECLARATION(Langusage);
+        REGISTER_DECLARATION(LangUsage);
 };
 
 /** \brief language ― Description of a language used in the document.
@@ -904,10 +904,10 @@ class MEI_EXPORT Language : public MeiElement {
  *  encourage uniformity in the provision of metadata across document types, this
  *  element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Meihead : public MeiElement {
+class MEI_EXPORT MeiHead : public MeiElement {
     public:
-        Meihead();
-        virtual ~Meihead();
+        MeiHead();
+        virtual ~MeiHead();
         /** \brief characterizes the element in some sense, using any convenient classification
          *  scheme or typology.
          */
@@ -924,7 +924,7 @@ class MEI_EXPORT Meihead : public MeiElement {
         MeiversionMixIn    m_Meiversion;
 
     private:
-        REGISTER_DECLARATION(Meihead);
+        REGISTER_DECLARATION(MeiHead);
 };
 
 /** \brief meter ― Captures information about the time signature.
@@ -977,10 +977,10 @@ class MEI_EXPORT Normalization : public MeiElement {
  *  descriptions. This element is modelled on an element in the Text Encoding
  *  Initiative (TEI).
  */
-class MEI_EXPORT Notesstmt : public MeiElement {
+class MEI_EXPORT NotesStmt : public MeiElement {
     public:
-        Notesstmt();
-        virtual ~Notesstmt();
+        NotesStmt();
+        virtual ~NotesStmt();
 
 /* include <notesStmt> */
 
@@ -988,7 +988,7 @@ class MEI_EXPORT Notesstmt : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Notesstmt);
+        REGISTER_DECLARATION(NotesStmt);
 };
 
 /** \brief performance medium ― Indicates the number and character of the performing
@@ -998,10 +998,10 @@ class MEI_EXPORT Notesstmt : public MeiElement {
  *  ensemble and performer child elements. Arrangements are coded for the medium of
  *  the work being described, not for the original medium.
  */
-class MEI_EXPORT Perfmedium : public MeiElement {
+class MEI_EXPORT PerfMedium : public MeiElement {
     public:
-        Perfmedium();
-        virtual ~Perfmedium();
+        PerfMedium();
+        virtual ~PerfMedium();
 
 /* include <perfMedium> */
 
@@ -1010,7 +1010,7 @@ class MEI_EXPORT Perfmedium : public MeiElement {
         AuthorizedMixIn    m_Authorized;
 
     private:
-        REGISTER_DECLARATION(Perfmedium);
+        REGISTER_DECLARATION(PerfMedium);
 };
 
 /** \brief performer ― Used when performing forces includes specific instrumental or
@@ -1048,10 +1048,10 @@ class MEI_EXPORT Performer : public MeiElement {
  *  considered to be meta-data rather than a transcription. This element is modelled
  *  on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Physdesc : public MeiElement {
+class MEI_EXPORT PhysDesc : public MeiElement {
     public:
-        Physdesc();
-        virtual ~Physdesc();
+        PhysDesc();
+        virtual ~PhysDesc();
 
 /* include <physDesc> */
 
@@ -1059,7 +1059,7 @@ class MEI_EXPORT Physdesc : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Physdesc);
+        REGISTER_DECLARATION(PhysDesc);
 };
 
 /** \brief physical location ― Location of the source within a repository, e.g., shelf
@@ -1067,10 +1067,10 @@ class MEI_EXPORT Physdesc : public MeiElement {
  * 
  *  This element is modelled on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Physloc : public MeiElement {
+class MEI_EXPORT PhysLoc : public MeiElement {
     public:
-        Physloc();
-        virtual ~Physloc();
+        PhysLoc();
+        virtual ~PhysLoc();
 
 /* include <physLoc> */
 
@@ -1078,7 +1078,7 @@ class MEI_EXPORT Physloc : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Physloc);
+        REGISTER_DECLARATION(PhysLoc);
 };
 
 /** \brief physical medium ― Records the physical materials used in the source, such as
@@ -1088,10 +1088,10 @@ class MEI_EXPORT Physloc : public MeiElement {
  *  elements may be used, one for each medium. This element is modelled on an
  *  element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Physmedium : public MeiElement {
+class MEI_EXPORT PhysMedium : public MeiElement {
     public:
-        Physmedium();
-        virtual ~Physmedium();
+        PhysMedium();
+        virtual ~PhysMedium();
 
 /* include <physMedium> */
 
@@ -1101,7 +1101,7 @@ class MEI_EXPORT Physmedium : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Physmedium);
+        REGISTER_DECLARATION(PhysMedium);
 };
 
 /** \brief plate number ― Designation assigned to a resource by a music publisher,
@@ -1112,10 +1112,10 @@ class MEI_EXPORT Physmedium : public MeiElement {
  *  The facs attribute may be used to record the location of the plate number in a
  *  facsimile image.
  */
-class MEI_EXPORT Platenum : public MeiElement {
+class MEI_EXPORT PlateNum : public MeiElement {
     public:
-        Platenum();
-        virtual ~Platenum();
+        PlateNum();
+        virtual ~PlateNum();
 
 /* include <plateNum> */
 
@@ -1124,7 +1124,7 @@ class MEI_EXPORT Platenum : public MeiElement {
         FacsimileMixIn    m_Facsimile;
 
     private:
-        REGISTER_DECLARATION(Platenum);
+        REGISTER_DECLARATION(PlateNum);
 };
 
 /** \brief price ― The cost of access to a bibliographic item.
@@ -1151,10 +1151,10 @@ class MEI_EXPORT Price : public MeiElement {
  *  was assembled or collected. This element is modelled on an element in the Text
  *  Encoding Initiative (TEI).
  */
-class MEI_EXPORT Projectdesc : public MeiElement {
+class MEI_EXPORT ProjectDesc : public MeiElement {
     public:
-        Projectdesc();
-        virtual ~Projectdesc();
+        ProjectDesc();
+        virtual ~ProjectDesc();
 
 /* include <projectDesc> */
 
@@ -1164,7 +1164,7 @@ class MEI_EXPORT Projectdesc : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Projectdesc);
+        REGISTER_DECLARATION(ProjectDesc);
 };
 
 /** \brief provenance ― The record of ownership or custodianship of an item.
@@ -1194,10 +1194,10 @@ class MEI_EXPORT Provenance : public MeiElement {
  *  When an item is unpublished, use only the <unpub> sub-element. This element is
  *  modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Pubstmt : public MeiElement {
+class MEI_EXPORT PubStmt : public MeiElement {
     public:
-        Pubstmt();
-        virtual ~Pubstmt();
+        PubStmt();
+        virtual ~PubStmt();
 
 /* include <pubStmt> */
 
@@ -1205,7 +1205,7 @@ class MEI_EXPORT Pubstmt : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Pubstmt);
+        REGISTER_DECLARATION(PubStmt);
 };
 
 /** \brief related item ― contains or references another bibliographic item which is
@@ -1216,10 +1216,10 @@ class MEI_EXPORT Pubstmt : public MeiElement {
  *  This element is modelled on the relatedItem element in the Text Encoding
  *  Initiative (TEI) and MODS schemas.
  */
-class MEI_EXPORT Relateditem : public MeiElement {
+class MEI_EXPORT RelatedItem : public MeiElement {
     public:
-        Relateditem();
-        virtual ~Relateditem();
+        RelatedItem();
+        virtual ~RelatedItem();
         /** \brief describes the relationship between the <relatedItem> and the resource described
          *  in the parent element, i.e.
          * 
@@ -1247,7 +1247,7 @@ class MEI_EXPORT Relateditem : public MeiElement {
         PointingMixIn    m_Pointing;
 
     private:
-        REGISTER_DECLARATION(Relateditem);
+        REGISTER_DECLARATION(RelatedItem);
 };
 
 /** \brief responsibility ― A phrase describing the nature of a person's intellectual
@@ -1276,10 +1276,10 @@ class MEI_EXPORT Resp : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Respstmt : public MeiElement {
+class MEI_EXPORT RespStmt : public MeiElement {
     public:
-        Respstmt();
-        virtual ~Respstmt();
+        RespStmt();
+        virtual ~RespStmt();
 
 /* include <respStmt> */
 
@@ -1287,7 +1287,7 @@ class MEI_EXPORT Respstmt : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Respstmt);
+        REGISTER_DECLARATION(RespStmt);
 };
 
 /** \brief revision description ― Container for information about alterations that have
@@ -1297,10 +1297,10 @@ class MEI_EXPORT Respstmt : public MeiElement {
  *  the most recent alteration first. This element is modelled on an element in the
  *  Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Revisiondesc : public MeiElement {
+class MEI_EXPORT RevisionDesc : public MeiElement {
     public:
-        Revisiondesc();
-        virtual ~Revisiondesc();
+        RevisionDesc();
+        virtual ~RevisionDesc();
 
 /* include <revisionDesc> */
 
@@ -1308,7 +1308,7 @@ class MEI_EXPORT Revisiondesc : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Revisiondesc);
+        REGISTER_DECLARATION(RevisionDesc);
 };
 
 /** \brief sampling declaration ― Contains a prose description of the rationale and
@@ -1316,10 +1316,10 @@ class MEI_EXPORT Revisiondesc : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Samplingdecl : public MeiElement {
+class MEI_EXPORT SamplingDecl : public MeiElement {
     public:
-        Samplingdecl();
-        virtual ~Samplingdecl();
+        SamplingDecl();
+        virtual ~SamplingDecl();
 
 /* include <samplingDecl> */
 
@@ -1329,7 +1329,7 @@ class MEI_EXPORT Samplingdecl : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Samplingdecl);
+        REGISTER_DECLARATION(SamplingDecl);
 };
 
 /** \brief segmentation ― Describes the principles according to which the musical text
@@ -1364,10 +1364,10 @@ class MEI_EXPORT Segmentation : public MeiElement {
  *  series. This element is modelled on an element in the Text Encoding Initiative
  *  (TEI).
  */
-class MEI_EXPORT Seriesstmt : public MeiElement {
+class MEI_EXPORT SeriesStmt : public MeiElement {
     public:
-        Seriesstmt();
-        virtual ~Seriesstmt();
+        SeriesStmt();
+        virtual ~SeriesStmt();
 
 /* include <seriesStmt> */
 
@@ -1375,7 +1375,7 @@ class MEI_EXPORT Seriesstmt : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Seriesstmt);
+        REGISTER_DECLARATION(SeriesStmt);
 };
 
 /** \brief source ― A bibliographic description of a source used in the creation of the
@@ -1410,17 +1410,17 @@ class MEI_EXPORT Source : public MeiElement {
  *  This element is recommended where the MEI file is a transcription of existing
  *  music, but is not required when the data is originally created in MEI form.
  */
-class MEI_EXPORT Sourcedesc : public MeiElement {
+class MEI_EXPORT SourceDesc : public MeiElement {
     public:
-        Sourcedesc();
-        virtual ~Sourcedesc();
+        SourceDesc();
+        virtual ~SourceDesc();
 
 /* include <sourceDesc> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Sourcedesc);
+        REGISTER_DECLARATION(SourceDesc);
 };
 
 /** \brief standard values ― Specifies the format used when standardized date or number
@@ -1428,10 +1428,10 @@ class MEI_EXPORT Sourcedesc : public MeiElement {
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Stdvals : public MeiElement {
+class MEI_EXPORT StdVals : public MeiElement {
     public:
-        Stdvals();
-        virtual ~Stdvals();
+        StdVals();
+        virtual ~StdVals();
 
 /* include <stdVals> */
 
@@ -1441,15 +1441,15 @@ class MEI_EXPORT Stdvals : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Stdvals);
+        REGISTER_DECLARATION(StdVals);
 };
 
 /** \brief system requirements ― System requirements for using the electronic item.
  */
-class MEI_EXPORT Sysreq : public MeiElement {
+class MEI_EXPORT SysReq : public MeiElement {
     public:
-        Sysreq();
-        virtual ~Sysreq();
+        SysReq();
+        virtual ~SysReq();
 
 /* include <sysReq> */
 
@@ -1458,7 +1458,7 @@ class MEI_EXPORT Sysreq : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Sysreq);
+        REGISTER_DECLARATION(SysReq);
 };
 
 /** \brief term ― Single keyword or phrase which describes the work.
@@ -1496,10 +1496,10 @@ class MEI_EXPORT Term : public MeiElement {
 /** \brief termList ― Collection of text phrases which describe a work or source
  *  document.
  */
-class MEI_EXPORT Termlist : public MeiElement {
+class MEI_EXPORT TermList : public MeiElement {
     public:
-        Termlist();
-        virtual ~Termlist();
+        TermList();
+        virtual ~TermList();
         /** \brief contains a reference to the controlled vocabulary from which the terms are
          *  drawn.
          * 
@@ -1517,17 +1517,17 @@ class MEI_EXPORT Termlist : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Termlist);
+        REGISTER_DECLARATION(TermList);
 };
 
 /** \brief title statement ― Container for title and responsibility meta-data.
  * 
  *  This element is modelled on an element in the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Titlestmt : public MeiElement {
+class MEI_EXPORT TitleStmt : public MeiElement {
     public:
-        Titlestmt();
-        virtual ~Titlestmt();
+        TitleStmt();
+        virtual ~TitleStmt();
 
 /* include <titleStmt> */
 
@@ -1535,7 +1535,7 @@ class MEI_EXPORT Titlestmt : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Titlestmt);
+        REGISTER_DECLARATION(TitleStmt);
 };
 
 /** \brief treatment history ― A record of the treatment the item has undergone (e.g.,
@@ -1545,10 +1545,10 @@ class MEI_EXPORT Titlestmt : public MeiElement {
  * 
  *  This element is modelled on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Treathist : public MeiElement {
+class MEI_EXPORT TreatHist : public MeiElement {
     public:
-        Treathist();
-        virtual ~Treathist();
+        TreatHist();
+        virtual ~TreatHist();
 
 /* include <treatHist> */
 
@@ -1556,7 +1556,7 @@ class MEI_EXPORT Treathist : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Treathist);
+        REGISTER_DECLARATION(TreatHist);
 };
 
 /** \brief treatment scheduled ― Scheduled treatment, e.g.
@@ -1564,10 +1564,10 @@ class MEI_EXPORT Treathist : public MeiElement {
  *  de-acidification, restoration, etc., for an item. This element is modelled on an
  *  element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Treatsched : public MeiElement {
+class MEI_EXPORT TreatSched : public MeiElement {
     public:
-        Treatsched();
-        virtual ~Treatsched();
+        TreatSched();
+        virtual ~TreatSched();
 
 /* include <treatSched> */
 
@@ -1575,7 +1575,7 @@ class MEI_EXPORT Treatsched : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Treatsched);
+        REGISTER_DECLARATION(TreatSched);
 };
 
 /** \brief unpublished ― Used to explicitly indicate that a bibliographic source is
@@ -1609,10 +1609,10 @@ class MEI_EXPORT Unpub : public MeiElement {
  *  affecting the availability of the material. This element is modelled on an
  *  element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Userestrict : public MeiElement {
+class MEI_EXPORT UseRestrict : public MeiElement {
     public:
-        Userestrict();
-        virtual ~Userestrict();
+        UseRestrict();
+        virtual ~UseRestrict();
 
 /* include <useRestrict> */
 
@@ -1620,7 +1620,7 @@ class MEI_EXPORT Userestrict : public MeiElement {
         BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Userestrict);
+        REGISTER_DECLARATION(UseRestrict);
 };
 
 /** \brief watermark ― Contains a description of a watermark or similar device.
@@ -1664,17 +1664,17 @@ class MEI_EXPORT Work : public MeiElement {
 /** \brief work description ― A container for description of the work(s) used in the
  *  creation of the electronic file.
  */
-class MEI_EXPORT Workdesc : public MeiElement {
+class MEI_EXPORT WorkDesc : public MeiElement {
     public:
-        Workdesc();
-        virtual ~Workdesc();
+        WorkDesc();
+        virtual ~WorkDesc();
 
 /* include <workDesc> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Workdesc);
+        REGISTER_DECLARATION(WorkDesc);
 };
 }
 #endif  // HEADER_H_

@@ -44,10 +44,10 @@ namespace mei {
  *  This element is modelled on the teiCorpus element in the Text Encoding
  *  Initiative (TEI).
  */
-class MEI_EXPORT Meicorpus : public MeiElement {
+class MEI_EXPORT MeiCorpus : public MeiElement {
     public:
-        Meicorpus();
-        virtual ~Meicorpus();
+        MeiCorpus();
+        virtual ~MeiCorpus();
 
 /* include <meiCorpus> */
 
@@ -55,7 +55,7 @@ class MEI_EXPORT Meicorpus : public MeiElement {
         MeiversionMixIn    m_Meiversion;
 
     private:
-        REGISTER_DECLARATION(Meicorpus);
+        REGISTER_DECLARATION(MeiCorpus);
 };
 }
 #endif  // CORPUS_H_

@@ -250,10 +250,10 @@ class MEI_EXPORT Gap : public MeiElement {
  *  identification of the new hand. This element is modelled on an element in the
  *  Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Handshift : public MeiElement {
+class MEI_EXPORT HandShift : public MeiElement {
     public:
-        Handshift();
-        virtual ~Handshift();
+        HandShift();
+        virtual ~HandShift();
         /** \brief describes the character of the new hand.
          */
         MeiAttribute* getCharacter();
@@ -287,7 +287,7 @@ class MEI_EXPORT Handshift : public MeiElement {
         MediumMixIn    m_Medium;
 
     private:
-        REGISTER_DECLARATION(Handshift);
+        REGISTER_DECLARATION(HandShift);
 };
 
 /** \brief original ― Contains a reading which is marked as following the original,

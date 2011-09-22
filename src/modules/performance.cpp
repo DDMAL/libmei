@@ -7,7 +7,7 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
-mei::Avfile::Avfile() :
+mei::AvFile::AvFile() :
     MeiElement("avFile"),
     m_Common(this),
     m_Declaring(this),
@@ -17,8 +17,8 @@ mei::Avfile::Avfile() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Avfile, "avFile");
-mei::Avfile::~Avfile() {}
+REGISTER_DEFINITION(mei::AvFile, "avFile");
+mei::AvFile::~AvFile() {}
 
 /* include <avFile> */
 

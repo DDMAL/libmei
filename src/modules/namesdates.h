@@ -48,10 +48,10 @@ namespace mei {
  *  recorded using the authority attribute. This element is modelled on an element
  *  in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Corpname : public MeiElement {
+class MEI_EXPORT CorpName : public MeiElement {
     public:
-        Corpname();
-        virtual ~Corpname();
+        CorpName();
+        virtual ~CorpName();
 
 /* include <corpName> */
 
@@ -69,7 +69,7 @@ class MEI_EXPORT Corpname : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Corpname);
+        REGISTER_DECLARATION(CorpName);
 };
 
 /** \brief geographic name ― The proper noun designation for a place, natural feature, or
@@ -81,10 +81,10 @@ class MEI_EXPORT Corpname : public MeiElement {
  *  Names (TGN), may be recorded using the authority attribute. This element is
  *  modelled on an element in Encoded Archival Description (EAD).
  */
-class MEI_EXPORT Geogname : public MeiElement {
+class MEI_EXPORT GeogName : public MeiElement {
     public:
-        Geogname();
-        virtual ~Geogname();
+        GeogName();
+        virtual ~GeogName();
 
 /* include <geogName> */
 
@@ -101,7 +101,7 @@ class MEI_EXPORT Geogname : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Geogname);
+        REGISTER_DECLARATION(GeogName);
 };
 
 /** \brief period name ― A label that describes a period of time, such as 'Baroque' or
@@ -110,10 +110,10 @@ class MEI_EXPORT Geogname : public MeiElement {
  *  The name of the list from which a controlled value is taken may be recorded
  *  using the authority attribute.
  */
-class MEI_EXPORT Periodname : public MeiElement {
+class MEI_EXPORT PeriodName : public MeiElement {
     public:
-        Periodname();
-        virtual ~Periodname();
+        PeriodName();
+        virtual ~PeriodName();
 
 /* include <periodName> */
 
@@ -131,7 +131,7 @@ class MEI_EXPORT Periodname : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Periodname);
+        REGISTER_DECLARATION(PeriodName);
 };
 
 /** \brief personal name ― Designation for an individual, including any or all of that
@@ -142,10 +142,10 @@ class MEI_EXPORT Periodname : public MeiElement {
  *  attribute. This element is modelled on an element in Encoded Archival
  *  Description (EAD).
  */
-class MEI_EXPORT Persname : public MeiElement {
+class MEI_EXPORT PersName : public MeiElement {
     public:
-        Persname();
-        virtual ~Persname();
+        PersName();
+        virtual ~PersName();
 
 /* include <persName> */
 
@@ -163,7 +163,7 @@ class MEI_EXPORT Persname : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Persname);
+        REGISTER_DECLARATION(PersName);
 };
 
 /** \brief style name ― A label for a characteristic style of writing or performance,
@@ -173,10 +173,10 @@ class MEI_EXPORT Persname : public MeiElement {
  *  from which a controlled value is taken may be recorded using the authority
  *  attribute.
  */
-class MEI_EXPORT Stylename : public MeiElement {
+class MEI_EXPORT StyleName : public MeiElement {
     public:
-        Stylename();
-        virtual ~Stylename();
+        StyleName();
+        virtual ~StyleName();
 
 /* include <styleName> */
 
@@ -193,7 +193,7 @@ class MEI_EXPORT Stylename : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Stylename);
+        REGISTER_DECLARATION(StyleName);
 };
 }
 #endif  // NAMESDATES_H_

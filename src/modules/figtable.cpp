@@ -19,14 +19,14 @@ mei::Fig::~Fig() {}
 
 /* include <fig> */
 
-mei::Figdesc::Figdesc() :
+mei::FigDesc::FigDesc() :
     MeiElement("figDesc"),
     m_Common(this),
     m_Lang(this)
 {
 }
-REGISTER_DEFINITION(mei::Figdesc, "figDesc");
-mei::Figdesc::~Figdesc() {}
+REGISTER_DEFINITION(mei::FigDesc, "figDesc");
+mei::FigDesc::~FigDesc() {}
 
 /* include <figDesc> */
 

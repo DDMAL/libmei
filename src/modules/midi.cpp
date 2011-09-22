@@ -60,7 +60,7 @@ void mei::Chan::removeNum() {
 };
 /* include <chan> */
 
-mei::Chanpr::Chanpr() :
+mei::ChanPr::ChanPr() :
     MeiElement("chanPr"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -71,8 +71,8 @@ mei::Chanpr::Chanpr() :
     m_Midinumber(this)
 {
 }
-REGISTER_DEFINITION(mei::Chanpr, "chanPr");
-mei::Chanpr::~Chanpr() {}
+REGISTER_DEFINITION(mei::ChanPr, "chanPr");
+mei::ChanPr::~ChanPr() {}
 
 /* include <chanPr> */
 
@@ -121,7 +121,7 @@ mei::Marker::~Marker() {}
 
 /* include <marker> */
 
-mei::Metatext::Metatext() :
+mei::MetaText::MetaText() :
     MeiElement("metaText"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -131,8 +131,8 @@ mei::Metatext::Metatext() :
     m_TimestampMusical(this)
 {
 }
-REGISTER_DEFINITION(mei::Metatext, "metaText");
-mei::Metatext::~Metatext() {}
+REGISTER_DEFINITION(mei::MetaText, "metaText");
+mei::MetaText::~MetaText() {}
 
 /* include <metaText> */
 
@@ -150,7 +150,7 @@ mei::Midi::~Midi() {}
 
 /* include <midi> */
 
-mei::Noteoff::Noteoff() :
+mei::NoteOff::NoteOff() :
     MeiElement("noteOff"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -161,12 +161,12 @@ mei::Noteoff::Noteoff() :
     m_Midinumber(this)
 {
 }
-REGISTER_DEFINITION(mei::Noteoff, "noteOff");
-mei::Noteoff::~Noteoff() {}
+REGISTER_DEFINITION(mei::NoteOff, "noteOff");
+mei::NoteOff::~NoteOff() {}
 
 /* include <noteOff> */
 
-mei::Noteon::Noteon() :
+mei::NoteOn::NoteOn() :
     MeiElement("noteOn"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -177,8 +177,8 @@ mei::Noteon::Noteon() :
     m_Midinumber(this)
 {
 }
-REGISTER_DEFINITION(mei::Noteon, "noteOn");
-mei::Noteon::~Noteon() {}
+REGISTER_DEFINITION(mei::NoteOn, "noteOn");
+mei::NoteOn::~NoteOn() {}
 
 /* include <noteOn> */
 
@@ -214,7 +214,7 @@ mei::Prog::~Prog() {}
 
 /* include <prog> */
 
-mei::Seqnum::Seqnum() :
+mei::SeqNum::SeqNum() :
     MeiElement("seqNum"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -224,33 +224,33 @@ mei::Seqnum::Seqnum() :
     m_TimestampMusical(this)
 {
 }
-REGISTER_DEFINITION(mei::Seqnum, "seqNum");
-mei::Seqnum::~Seqnum() {}
+REGISTER_DEFINITION(mei::SeqNum, "seqNum");
+mei::SeqNum::~SeqNum() {}
 
-MeiAttribute* mei::Seqnum::getNum() {
+MeiAttribute* mei::SeqNum::getNum() {
     if (!hasAttribute("num")) {
         throw AttributeNotFoundException("num");
     }
     return getAttribute("num");
 };
 
-void mei::Seqnum::setNum(std::string _num) {
+void mei::SeqNum::setNum(std::string _num) {
     if (!hasAttribute("num")) {
         MeiAttribute *a = new MeiAttribute("num", _num);
         addAttribute(a);
     }
 };
 
-bool mei::Seqnum::hasNum() {
+bool mei::SeqNum::hasNum() {
     return hasAttribute("num");
 };
 
-void mei::Seqnum::removeNum() {
+void mei::SeqNum::removeNum() {
     removeAttribute("num");
 };
 /* include <seqNum> */
 
-mei::Trkname::Trkname() :
+mei::TrkName::TrkName() :
     MeiElement("trkName"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -260,8 +260,8 @@ mei::Trkname::Trkname() :
     m_TimestampMusical(this)
 {
 }
-REGISTER_DEFINITION(mei::Trkname, "trkName");
-mei::Trkname::~Trkname() {}
+REGISTER_DEFINITION(mei::TrkName, "trkName");
+mei::TrkName::~TrkName() {}
 
 /* include <trkName> */
 

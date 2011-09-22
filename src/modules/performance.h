@@ -40,10 +40,10 @@ namespace mei {
  * 
  *  This element is analogous to the <graphic> element in the figtable module.
  */
-class MEI_EXPORT Avfile : public MeiElement {
+class MEI_EXPORT AvFile : public MeiElement {
     public:
-        Avfile();
-        virtual ~Avfile();
+        AvFile();
+        virtual ~AvFile();
 
 /* include <avFile> */
 
@@ -55,7 +55,7 @@ class MEI_EXPORT Avfile : public MeiElement {
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Avfile);
+        REGISTER_DECLARATION(AvFile);
 };
 
 /** \brief clip ― Defines a time segment of interest within a digital audio or video

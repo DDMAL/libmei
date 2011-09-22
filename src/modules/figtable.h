@@ -68,10 +68,10 @@ class MEI_EXPORT Fig : public MeiElement {
  *  illustration. This element is modelled on an element in the Text Encoding
  *  Initiative (TEI).
  */
-class MEI_EXPORT Figdesc : public MeiElement {
+class MEI_EXPORT FigDesc : public MeiElement {
     public:
-        Figdesc();
-        virtual ~Figdesc();
+        FigDesc();
+        virtual ~FigDesc();
 
 /* include <figDesc> */
 
@@ -79,7 +79,7 @@ class MEI_EXPORT Figdesc : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Figdesc);
+        REGISTER_DECLARATION(FigDesc);
 };
 
 /** \brief graphic ― Indicates the location of an inline graphic, illustration, or

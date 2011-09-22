@@ -7,7 +7,7 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
-mei::Corpname::Corpname() :
+mei::CorpName::CorpName() :
     MeiElement("corpName"),
     m_Bibl(this),
     m_Common(this),
@@ -23,12 +23,12 @@ mei::Corpname::Corpname() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Corpname, "corpName");
-mei::Corpname::~Corpname() {}
+REGISTER_DEFINITION(mei::CorpName, "corpName");
+mei::CorpName::~CorpName() {}
 
 /* include <corpName> */
 
-mei::Geogname::Geogname() :
+mei::GeogName::GeogName() :
     MeiElement("geogName"),
     m_Bibl(this),
     m_Common(this),
@@ -43,12 +43,12 @@ mei::Geogname::Geogname() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Geogname, "geogName");
-mei::Geogname::~Geogname() {}
+REGISTER_DEFINITION(mei::GeogName, "geogName");
+mei::GeogName::~GeogName() {}
 
 /* include <geogName> */
 
-mei::Periodname::Periodname() :
+mei::PeriodName::PeriodName() :
     MeiElement("periodName"),
     m_Bibl(this),
     m_Common(this),
@@ -64,12 +64,12 @@ mei::Periodname::Periodname() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Periodname, "periodName");
-mei::Periodname::~Periodname() {}
+REGISTER_DEFINITION(mei::PeriodName, "periodName");
+mei::PeriodName::~PeriodName() {}
 
 /* include <periodName> */
 
-mei::Persname::Persname() :
+mei::PersName::PersName() :
     MeiElement("persName"),
     m_Bibl(this),
     m_Common(this),
@@ -85,12 +85,12 @@ mei::Persname::Persname() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Persname, "persName");
-mei::Persname::~Persname() {}
+REGISTER_DEFINITION(mei::PersName, "persName");
+mei::PersName::~PersName() {}
 
 /* include <persName> */
 
-mei::Stylename::Stylename() :
+mei::StyleName::StyleName() :
     MeiElement("styleName"),
     m_Bibl(this),
     m_Common(this),
@@ -105,8 +105,8 @@ mei::Stylename::Stylename() :
     m_Typed(this)
 {
 }
-REGISTER_DEFINITION(mei::Stylename, "styleName");
-mei::Stylename::~Stylename() {}
+REGISTER_DEFINITION(mei::StyleName, "styleName");
+mei::StyleName::~StyleName() {}
 
 /* include <styleName> */
 

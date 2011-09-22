@@ -62,10 +62,10 @@ class ArpegVisMixIn {
         MeiElement *b;
 };
 
-class BtremLogMixIn {
+class BTremLogMixIn {
     public:
-        explicit BtremLogMixIn(MeiElement *b);
-        virtual ~BtremLogMixIn();
+        explicit BTremLogMixIn(MeiElement *b);
+        virtual ~BTremLogMixIn();
         /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
@@ -185,10 +185,10 @@ class BeamsecondaryMixIn {
         MeiElement *b;
 };
 
-class BeatrptVisMixIn {
+class BeatRptVisMixIn {
     public:
-        explicit BeatrptVisMixIn(MeiElement *b);
-        virtual ~BeatrptVisMixIn();
+        explicit BeatRptVisMixIn(MeiElement *b);
+        virtual ~BeatRptVisMixIn();
         /** \brief describes the line style of the curve.
          */
         MeiAttribute* getRend();
@@ -252,10 +252,10 @@ class ExpandableMixIn {
         MeiElement *b;
 };
 
-class FtremGesMixIn {
+class FTremGesMixIn {
     public:
-        explicit FtremGesMixIn(MeiElement *b);
-        virtual ~FtremGesMixIn();
+        explicit FTremGesMixIn(MeiElement *b);
+        virtual ~FTremGesMixIn();
         /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
@@ -356,10 +356,10 @@ class HairpinVisMixIn {
         MeiElement *b;
 };
 
-class HarppedalLogMixIn {
+class HarpPedalLogMixIn {
     public:
-        explicit HarppedalLogMixIn(MeiElement *b);
-        virtual ~HarppedalLogMixIn();
+        explicit HarpPedalLogMixIn(MeiElement *b);
+        virtual ~HarpPedalLogMixIn();
         /** \brief indicates the pedal setting for the harp's C strings.
          */
         MeiAttribute* getC();
@@ -424,10 +424,10 @@ class LvpresentMixIn {
         MeiElement *b;
 };
 
-class MultirestVisMixIn {
+class MultiRestVisMixIn {
     public:
-        explicit MultirestVisMixIn(MeiElement *b);
-        virtual ~MultirestVisMixIn();
+        explicit MultiRestVisMixIn(MeiElement *b);
+        virtual ~MultiRestVisMixIn();
         /** \brief When the block attribute is used, combinations of the 1, 2, and 4 measure rest
          *  forms (Read, p.
          * 
@@ -575,10 +575,10 @@ class RehearsalMixIn {
         MeiElement *b;
 };
 
-class ScoredefVisCmnMixIn {
+class ScoreDefVisCmnMixIn {
     public:
-        explicit ScoredefVisCmnMixIn(MeiElement *b);
-        virtual ~ScoredefVisCmnMixIn();
+        explicit ScoreDefVisCmnMixIn(MeiElement *b);
+        virtual ~ScoreDefVisCmnMixIn();
         /** \brief determines whether to display guitar chord grids.
          */
         MeiAttribute* getGridShow();
@@ -694,10 +694,10 @@ class TupletVisMixIn {
         MeiElement *b;
 };
 
-class TupletspanLogMixIn {
+class TupletSpanLogMixIn {
     public:
-        explicit TupletspanLogMixIn(MeiElement *b);
-        virtual ~TupletspanLogMixIn();
+        explicit TupletSpanLogMixIn(MeiElement *b);
+        virtual ~TupletSpanLogMixIn();
         /** \brief records the duration of a feature using the relative durational values provided
          *  by the data.DURATION datatype.
          */

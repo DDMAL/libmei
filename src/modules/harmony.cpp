@@ -20,38 +20,38 @@ mei::Barre::~Barre() {}
 
 /* include <barre> */
 
-mei::Chorddef::Chorddef() :
+mei::ChordDef::ChordDef() :
     MeiElement("chordDef"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Chorddef, "chordDef");
-mei::Chorddef::~Chorddef() {}
+REGISTER_DEFINITION(mei::ChordDef, "chordDef");
+mei::ChordDef::~ChordDef() {}
 
-MeiAttribute* mei::Chorddef::getPos() {
+MeiAttribute* mei::ChordDef::getPos() {
     if (!hasAttribute("pos")) {
         throw AttributeNotFoundException("pos");
     }
     return getAttribute("pos");
 };
 
-void mei::Chorddef::setPos(std::string _pos) {
+void mei::ChordDef::setPos(std::string _pos) {
     if (!hasAttribute("pos")) {
         MeiAttribute *a = new MeiAttribute("pos", _pos);
         addAttribute(a);
     }
 };
 
-bool mei::Chorddef::hasPos() {
+bool mei::ChordDef::hasPos() {
     return hasAttribute("pos");
 };
 
-void mei::Chorddef::removePos() {
+void mei::ChordDef::removePos() {
     removeAttribute("pos");
 };
 /* include <chordDef> */
 
-mei::Chordmember::Chordmember() :
+mei::ChordMember::ChordMember() :
     MeiElement("chordMember"),
     m_Common(this),
     m_AccidentalPerformed(this),
@@ -61,39 +61,39 @@ mei::Chordmember::Chordmember() :
     m_Octave(this)
 {
 }
-REGISTER_DEFINITION(mei::Chordmember, "chordMember");
-mei::Chordmember::~Chordmember() {}
+REGISTER_DEFINITION(mei::ChordMember, "chordMember");
+mei::ChordMember::~ChordMember() {}
 
-MeiAttribute* mei::Chordmember::getFing() {
+MeiAttribute* mei::ChordMember::getFing() {
     if (!hasAttribute("fing")) {
         throw AttributeNotFoundException("fing");
     }
     return getAttribute("fing");
 };
 
-void mei::Chordmember::setFing(std::string _fing) {
+void mei::ChordMember::setFing(std::string _fing) {
     if (!hasAttribute("fing")) {
         MeiAttribute *a = new MeiAttribute("fing", _fing);
         addAttribute(a);
     }
 };
 
-bool mei::Chordmember::hasFing() {
+bool mei::ChordMember::hasFing() {
     return hasAttribute("fing");
 };
 
-void mei::Chordmember::removeFing() {
+void mei::ChordMember::removeFing() {
     removeAttribute("fing");
 };
 /* include <chordMember> */
 
-mei::Chordtable::Chordtable() :
+mei::ChordTable::ChordTable() :
     MeiElement("chordTable"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Chordtable, "chordTable");
-mei::Chordtable::~Chordtable() {}
+REGISTER_DEFINITION(mei::ChordTable, "chordTable");
+mei::ChordTable::~ChordTable() {}
 
 /* include <chordTable> */
 

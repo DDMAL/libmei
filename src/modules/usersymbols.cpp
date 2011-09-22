@@ -7,7 +7,7 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
-mei::Anchoredtext::Anchoredtext() :
+mei::AnchoredText::AnchoredText() :
     MeiElement("anchoredText"),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -22,8 +22,8 @@ mei::Anchoredtext::Anchoredtext() :
     m_Xy(this)
 {
 }
-REGISTER_DEFINITION(mei::Anchoredtext, "anchoredText");
-mei::Anchoredtext::~Anchoredtext() {}
+REGISTER_DEFINITION(mei::AnchoredText, "anchoredText");
+mei::AnchoredText::~AnchoredText() {}
 
 /* include <anchoredText> */
 
@@ -122,24 +122,24 @@ void mei::Symbol::removeRef() {
 };
 /* include <symbol> */
 
-mei::Symboldef::Symboldef() :
+mei::SymbolDef::SymbolDef() :
     MeiElement("symbolDef"),
     m_Common(this),
     m_Coordinated(this)
 {
 }
-REGISTER_DEFINITION(mei::Symboldef, "symbolDef");
-mei::Symboldef::~Symboldef() {}
+REGISTER_DEFINITION(mei::SymbolDef, "symbolDef");
+mei::SymbolDef::~SymbolDef() {}
 
 /* include <symbolDef> */
 
-mei::Symboltable::Symboltable() :
+mei::SymbolTable::SymbolTable() :
     MeiElement("symbolTable"),
     m_Common(this)
 {
 }
-REGISTER_DEFINITION(mei::Symboltable, "symbolTable");
-mei::Symboltable::~Symboltable() {}
+REGISTER_DEFINITION(mei::SymbolTable, "symbolTable");
+mei::SymbolTable::~SymbolTable() {}
 
 /* include <symbolTable> */
 

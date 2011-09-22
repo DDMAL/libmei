@@ -95,10 +95,10 @@ class MEI_EXPORT Chan : public MeiElement {
  * 
  *  The value of the num attribute must be in the range 0-127.
  */
-class MEI_EXPORT Chanpr : public MeiElement {
+class MEI_EXPORT ChanPr : public MeiElement {
     public:
-        Chanpr();
-        virtual ~Chanpr();
+        ChanPr();
+        virtual ~ChanPr();
 
 /* include <chanPr> */
 
@@ -111,7 +111,7 @@ class MEI_EXPORT Chanpr : public MeiElement {
         MidinumberMixIn    m_Midinumber;
 
     private:
-        REGISTER_DECLARATION(Chanpr);
+        REGISTER_DECLARATION(ChanPr);
 };
 
 /** \brief cue ― MIDI cue point.
@@ -179,10 +179,10 @@ class MEI_EXPORT Marker : public MeiElement {
 
 /** \brief meta text ― MIDI text meta-event.
  */
-class MEI_EXPORT Metatext : public MeiElement {
+class MEI_EXPORT MetaText : public MeiElement {
     public:
-        Metatext();
-        virtual ~Metatext();
+        MetaText();
+        virtual ~MetaText();
 
 /* include <metaText> */
 
@@ -194,7 +194,7 @@ class MEI_EXPORT Metatext : public MeiElement {
         TimestampMusicalMixIn    m_TimestampMusical;
 
     private:
-        REGISTER_DECLARATION(Metatext);
+        REGISTER_DECLARATION(MetaText);
 };
 
 /** \brief midi ― Container for elements that contain information useful when generating
@@ -222,10 +222,10 @@ class MEI_EXPORT Midi : public MeiElement {
 
 /** \brief note-off ― MIDI note-off event.
  */
-class MEI_EXPORT Noteoff : public MeiElement {
+class MEI_EXPORT NoteOff : public MeiElement {
     public:
-        Noteoff();
-        virtual ~Noteoff();
+        NoteOff();
+        virtual ~NoteOff();
 
 /* include <noteOff> */
 
@@ -238,15 +238,15 @@ class MEI_EXPORT Noteoff : public MeiElement {
         MidinumberMixIn    m_Midinumber;
 
     private:
-        REGISTER_DECLARATION(Noteoff);
+        REGISTER_DECLARATION(NoteOff);
 };
 
 /** \brief note-on ― MIDI note-on event.
  */
-class MEI_EXPORT Noteon : public MeiElement {
+class MEI_EXPORT NoteOn : public MeiElement {
     public:
-        Noteon();
-        virtual ~Noteon();
+        NoteOn();
+        virtual ~NoteOn();
 
 /* include <noteOn> */
 
@@ -259,7 +259,7 @@ class MEI_EXPORT Noteon : public MeiElement {
         MidinumberMixIn    m_Midinumber;
 
     private:
-        REGISTER_DECLARATION(Noteon);
+        REGISTER_DECLARATION(NoteOn);
 };
 
 /** \brief port ― MIDI port.
@@ -310,10 +310,10 @@ class MEI_EXPORT Prog : public MeiElement {
 
 /** \brief sequence number ― MIDI sequence number.
  */
-class MEI_EXPORT Seqnum : public MeiElement {
+class MEI_EXPORT SeqNum : public MeiElement {
     public:
-        Seqnum();
-        virtual ~Seqnum();
+        SeqNum();
+        virtual ~SeqNum();
         /** \brief along with numbase, describes duration as a ratio.
          * 
          *  num is the first value in the ratio, while numbase is the second.
@@ -333,15 +333,15 @@ class MEI_EXPORT Seqnum : public MeiElement {
         TimestampMusicalMixIn    m_TimestampMusical;
 
     private:
-        REGISTER_DECLARATION(Seqnum);
+        REGISTER_DECLARATION(SeqNum);
 };
 
 /** \brief track name ― MIDI track/sequence name.
  */
-class MEI_EXPORT Trkname : public MeiElement {
+class MEI_EXPORT TrkName : public MeiElement {
     public:
-        Trkname();
-        virtual ~Trkname();
+        TrkName();
+        virtual ~TrkName();
 
 /* include <trkName> */
 
@@ -353,7 +353,7 @@ class MEI_EXPORT Trkname : public MeiElement {
         TimestampMusicalMixIn    m_TimestampMusical;
 
     private:
-        REGISTER_DECLARATION(Trkname);
+        REGISTER_DECLARATION(TrkName);
 };
 
 /** \brief velocity ― MIDI Note-on/off velocity.
