@@ -36,17 +36,18 @@ int main (int argc, const char * argv[]) {
             in = getFileType(finPath);
 
             foutPath = string(argv[2]);
-            cout << "file path out: " << foutPath << endl;    
+            cout << "file path out: " << foutPath << endl;  
             out = getFileType(foutPath);
         }
 
         if (in == MXML && out == MEI) {
             // begin parser and conversion
+            cout << "Converting from MusicXML to MEI" << endl;
             using namespace mxmltomei;
-            MXMLParser *parser = new MXMLParser(finPath);
-            
-            // clean up
-            delete parser;
+            MXMLParser p(finPath);
+            p.begin();
+
+            cout << "Conversion complete, wrote to file: " << foutPath << endl;
         } else if (in == MEI && out == MXML) {
             cout << "MEI to MXML conversion in development." << endl;
         } else {

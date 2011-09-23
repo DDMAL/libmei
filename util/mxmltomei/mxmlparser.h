@@ -11,6 +11,8 @@
 #define MXMLPARSER_H
 
 #include <string>
+#include <libxml/parser.h>
+#include <libxml/tree.h>
 
 namespace mxmltomei {
 
@@ -20,11 +22,13 @@ class MXMLParser
         MXMLParser(const std::string mxmlFilePath);
         ~MXMLParser();
 
+        void begin();
+
     private:
         const std::string mxmlFilePath;
+
+        void convert(xmlNode *node);
     };
 }
-
-
 
 #endif

@@ -10,10 +10,29 @@
 #include <iostream>
 #include "mxmlparser.h"
     
-//using namespace mxmltomei;
+using namespace mxmltomei;
 
-mxmltomei::MXMLParser::MXMLParser(const std::string mxmlFilePath)
+MXMLParser::MXMLParser(const std::string mxmlFilePath)
 : mxmlFilePath(mxmlFilePath) {
 }
 
-mxmltomei::MXMLParser::~MXMLParser() {};
+MXMLParser::~MXMLParser() {};
+
+void MXMLParser::begin() {
+    // validate XML DTD and read file into memory in tree format (DOM)
+    xmlDoc *doc = xmlReadFile((char *)mxmlFilePath.c_str(), NULL, XML_PARSE_DTDVALID);
+    if (doc != NULL) {
+        xmlNode *rootElement = xmlDocGetRootElement(doc);
+        convert(rootElement);
+    } else {
+        std::cerr << "Error: unable to open file " << mxmlFilePath << std::endl;
+    }
+}
+
+void MXMLParser::convert(xmlNode *node) {
+    for (xmlNode* curNode = node; curNode; curNode = curNode->next) {
+        std::cout << curNode->name << std::endl;
+
+        convert(curNode->children);
+    }
+}
