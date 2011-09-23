@@ -10,6 +10,8 @@
 #include <iostream>
 #include <string>
 
+#include "mxmlparser.h"
+
 using namespace std;
 
 // Global var declarations
@@ -30,40 +32,27 @@ int main (int argc, const char * argv[]) {
             displayHelp();
         } else {
             finPath = string(argv[1]);
-            cout << "file path in: " << finPath << endl;
-                
-            switch (in = getFileType(finPath)) {
-                case MXML:
-                    cout << "Convert from MusicXML to MEI" << endl;
-                    break;
-                case MXML_COMP:
-                    displayHelp();
-                    break;
-                case MEI:
-                    cout << "MEI to MXML conversion in development." << endl;
-                    break;
-                case INVAL:
-                    displayHelp();
-                }
+            cout << "file path in: " << finPath << endl;           
+            in = getFileType(finPath);
 
-                foutPath = string(argv[2]);
-                cout << "file path out: " << foutPath << endl;
-                
-                out = getFileType(foutPath);
-                if (out == INVAL) {
-                    displayHelp();
-                }
-                if (out == MXML || out == MXML_COMP) {
-                    if (in == MXML || in == MXML_COMP) {
-                        displayHelp();
-                    }
-                } else {
-                    if (in == MEI) {
-                        displayHelp();
-                    }
-                }
-            }
+            foutPath = string(argv[2]);
+            cout << "file path out: " << foutPath << endl;    
+            out = getFileType(foutPath);
         }
+
+        if (in == MXML && out == MEI) {
+            // begin parser and conversion
+            using namespace mxmltomei;
+            MXMLParser *parser = new MXMLParser(finPath);
+            
+            // clean up
+            delete parser;
+        } else if (in == MEI && out == MXML) {
+            cout << "MEI to MXML conversion in development." << endl;
+        } else {
+            displayHelp();
+        }
+    }
     return 0;
 }
 
