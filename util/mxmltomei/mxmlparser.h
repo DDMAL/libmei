@@ -13,6 +13,8 @@
 #include <string>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
+#include <libxslt/xsltInternals.h>
+#include <libxslt/transform.h>
 
 namespace mxmltomei {
 
@@ -26,8 +28,10 @@ class MXMLParser
 
     private:
         const std::string mxmlFilePath;
+        xmlDoc *doc;
 
-        void convert(xmlNode *node);
+        void partToScore();
+        void convertToMei(xmlNode *node);
     };
 }
 
