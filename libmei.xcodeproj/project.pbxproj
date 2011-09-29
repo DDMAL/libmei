@@ -105,6 +105,7 @@
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
 		825732E1142D09AA00F3868D /* mxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 825732E0142D09AA00F3868D /* mxmlparser.cpp */; };
 		827EF456142CE661007B9789 /* mxmltomei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 827EF455142CE661007B9789 /* mxmltomei.cpp */; };
+		828D9CD71434DD42008DEF7B /* parttime.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 825732E31431308800F3868D /* parttime.xsl */; };
 		82C136A0142CDC5200D052A0 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CB63A13214C430054C2DC /* meiattribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B3CB63F13214C430054C2DC /* meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB63B13214C430054C2DC /* meiattribute.cpp */; };
@@ -140,12 +141,13 @@
 		};
 		82C13694142CDC3500D052A0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = usr/share/man/man1;
+			buildActionMask = 12;
+			dstPath = Resources;
 			dstSubfolderSpec = 7;
 			files = (
+				828D9CD71434DD42008DEF7B /* parttime.xsl in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B2D4890E13FEC60B001E2022 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;

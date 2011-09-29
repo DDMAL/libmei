@@ -53,10 +53,13 @@ void MXMLParser::begin() {
  *  \return string to file path of temporary MusicXML file in timewise format
  */
 void MXMLParser::partToScore() {
-    // TODO: remove hardcoded path of xsl file, replace with relative path
-	xsltStylesheet *xsl = xsltParseStylesheetFile((const xmlChar*)"/Users/gburlet/Documents/work/libmei/util/mxmltomei/Resources/parttime.xsl");
-    //xsltStylesheet *xsl = xsltParseStylesheetFile((const xmlChar*)"/Users/gburlet/Documents/work/libmei/util/mxmltomei/parttime.xsl");
-	xmlDoc *result = xsltApplyStylesheet(xsl, doc, NULL);
+    xsltStylesheet *xsl = xsltParseStylesheetFile((const xmlChar*)"Resources/parttime.xsl");
+    if(!xsl) {
+        std::cerr << "Error: can not find parttime.xsl" << std::endl;
+        exit(0);
+    }
+
+    xmlDoc *result = xsltApplyStylesheet(xsl, doc, NULL);
 
     // debug
 	//xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/timewise.xml", result);
