@@ -9,11 +9,15 @@
 
 #include <iostream>
 #include "mxmlparser.h"
-    
-using namespace mxmltomei;
+
+using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
+using mei::MXMLParser;
 
 MXMLParser::MXMLParser(const std::string mxmlFilePath)
-: mxmlFilePath(mxmlFilePath), doc(NULL) {
+: mxmlFilePath(mxmlFilePath), doc(NULL), meiDoc(NULL) {
 }
 
 MXMLParser::~MXMLParser() {};
@@ -40,8 +44,12 @@ void MXMLParser::begin() {
         } else {
             // MusicXMS file is score-timewise, continue conversion
             std::cout << "Converting to MEI format ..." << std::endl;
+
+            meiDoc = new mei::MeiDocument();
+
             convertToMei(rootElement);
             xmlFreeDoc(doc);
+            delete meiDoc;
         }
     } else {
         std::cerr << "Error: unable to open file " << mxmlFilePath << std::endl;
@@ -62,7 +70,7 @@ void MXMLParser::partToScore() {
     xmlDoc *result = xsltApplyStylesheet(xsl, doc, NULL);
 
     // debug
-	//xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/timewise.xml", result);
+	//xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/helloworld_timewise.xml", result);
 
 	xmlFreeDoc(doc);
 	xsltFreeStylesheet(xsl);
@@ -71,18 +79,43 @@ void MXMLParser::partToScore() {
     std::cout << "success." << std::endl;
 }
 
-void MXMLParser::convertToMei(xmlNode *node) {
-    for (xmlNode* curNode = node; curNode; curNode = curNode->next) {
-        std::cout << "name: " << curNode->name << std::endl;
+void MXMLParser::convertToMei(xmlNode *parentNode) {
+    for(xmlNodePtr curNode = parentNode->children; curNode; curNode = curNode->next) {
+        if (curNode->type == XML_ELEMENT_NODE) {
+            // handle element node
+            std::cout << "name: " << curNode->name << std::endl;
 
-        /*if(std::string((const char*)curNode->name) == "score-part") {
-            xmlChar *key = xmlNodeListGetString(doc, curNode->xmlChildrenNode, 1);
-	        std::cout << "text: " << std::string((const char *)key) << std::endl;
-		    xmlFree(key);
-        }*/
-
-        //std::cout << "content: " << curNode->content << std::endl;
-        //std::cout << "attributes: " << curNode->properties << std::endl;
-        convertToMei(curNode->children);
+            // check for attributes
+            std::string id = "";
+            if (curNode->properties) {
+                for (xmlAttr *curattr = curNode->properties; curattr; curattr = curattr->next) {
+                    if (curattr->atype == XML_ATTRIBUTE_ID) {
+                        /* we store the ID on the element, not as an attribute. This will be serialized out
+                         *   on export
+                         */
+                        id = (const char*)curattr->children->content;
+                    } else {
+                        string attrname = (const char*)curattr->name;
+                        // values are rendered as children of the attribute
+                        string attrvalue = (const char*)curattr->children->content;
+                        
+                        // do something with attribute
+                        cout << "attr: " << attrname << "=" << attrvalue << endl; 
+                    }
+                }
+            }
+            convertToMei(curNode);
+        } else if (curNode->type == XML_TEXT_NODE) {
+            std::string content = std::string((char*)curNode->content); 
+            // check if content is only whitespaces
+            content.erase(remove_if(content.begin(), content.end(), isspace), content.end());
+            if (!content.empty()) {
+                // inject content
+                std::cout << "content: " << content << std::endl;
+            }
+        } else if (curNode->type == XML_COMMENT_NODE) {
+            // add xml comment
+            // string((const char*)curNode->content);
+        }
     }
 }

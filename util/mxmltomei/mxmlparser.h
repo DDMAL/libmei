@@ -16,7 +16,10 @@
 #include <libxslt/xsltInternals.h>
 #include <libxslt/transform.h>
 
-namespace mxmltomei {
+#include "meidocument.h"
+#include "mei.h"
+
+namespace mei {
 
 class MXMLParser 
     {
@@ -29,6 +32,7 @@ class MXMLParser
     private:
         const std::string mxmlFilePath;
         xmlDoc *doc;
+        mei::MeiDocument *meiDoc;
 
         void partToScore();
         void convertToMei(xmlNode *node);
