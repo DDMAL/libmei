@@ -1,0 +1,5 @@
+/* <facsmixin> */
+
+        void getCoords();
+
+/* </facsmixin> */
