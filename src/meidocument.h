@@ -81,9 +81,10 @@ class MEI_EXPORT MeiDocument {
 
         /** \brief Returns the flattened document tree */
         const std::vector<MeiElement*> &getFlattenedTree();
-    
-        MeiElement* lookBack(int startpos, std::string elName);
-        MeiElement* lookBack(int startpos, std::string elName, bool isAncestor);
+        
+        /** \brief Returns the most immediate previous element elName, given a starting point
+         */
+        MeiElement* lookBack(MeiElement* fromHere, std::string elName);
 
     private:
         /** \brief Flattens the current document tree

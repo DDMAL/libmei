@@ -55,30 +55,30 @@ void mei::NoteGesTablatureMixIn::removeTabString() {
     b->removeAttribute("tab.string");
 };
 
-mei::StaffdefGesTablatureMixIn::StaffdefGesTablatureMixIn(MeiElement *b) {
+mei::StaffDefGesTablatureMixIn::StaffDefGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::StaffdefGesTablatureMixIn::~StaffdefGesTablatureMixIn() {}
-MeiAttribute* mei::StaffdefGesTablatureMixIn::getTabStrings() {
+mei::StaffDefGesTablatureMixIn::~StaffDefGesTablatureMixIn() {}
+MeiAttribute* mei::StaffDefGesTablatureMixIn::getTabStrings() {
     if (!b->hasAttribute("tab.strings")) {
         throw AttributeNotFoundException("tab.strings");
     }
     return b->getAttribute("tab.strings");
 };
 
-void mei::StaffdefGesTablatureMixIn::setTabStrings(std::string _tabstrings) {
+void mei::StaffDefGesTablatureMixIn::setTabStrings(std::string _tabstrings) {
     if (!b->hasAttribute("tab.strings")) {
         MeiAttribute *a = new MeiAttribute("tab.strings", _tabstrings);
         b->addAttribute(a);
     }
 };
 
-bool mei::StaffdefGesTablatureMixIn::hasTabStrings() {
+bool mei::StaffDefGesTablatureMixIn::hasTabStrings() {
     return b->hasAttribute("tab.strings");
 };
 
-void mei::StaffdefGesTablatureMixIn::removeTabStrings() {
+void mei::StaffDefGesTablatureMixIn::removeTabStrings() {
     b->removeAttribute("tab.strings");
 };
 

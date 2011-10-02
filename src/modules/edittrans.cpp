@@ -135,7 +135,7 @@ mei::Gap::~Gap() {}
 
 /* include <gap> */
 
-mei::Handshift::Handshift() :
+mei::HandShift::HandShift() :
     MeiElement("handShift"),
     m_Common(this),
     m_Edit(this),
@@ -145,70 +145,70 @@ mei::Handshift::Handshift() :
     m_Medium(this)
 {
 }
-REGISTER_DEFINITION(mei::Handshift, "handShift");
-mei::Handshift::~Handshift() {}
+REGISTER_DEFINITION(mei::HandShift, "handShift");
+mei::HandShift::~HandShift() {}
 
-MeiAttribute* mei::Handshift::getCharacter() {
+MeiAttribute* mei::HandShift::getCharacter() {
     if (!hasAttribute("character")) {
         throw AttributeNotFoundException("character");
     }
     return getAttribute("character");
 };
 
-void mei::Handshift::setCharacter(std::string _character) {
+void mei::HandShift::setCharacter(std::string _character) {
     if (!hasAttribute("character")) {
         MeiAttribute *a = new MeiAttribute("character", _character);
         addAttribute(a);
     }
 };
 
-bool mei::Handshift::hasCharacter() {
+bool mei::HandShift::hasCharacter() {
     return hasAttribute("character");
 };
 
-void mei::Handshift::removeCharacter() {
+void mei::HandShift::removeCharacter() {
     removeAttribute("character");
 };
-MeiAttribute* mei::Handshift::getNew() {
+MeiAttribute* mei::HandShift::getNew() {
     if (!hasAttribute("new")) {
         throw AttributeNotFoundException("new");
     }
     return getAttribute("new");
 };
 
-void mei::Handshift::setNew(std::string _new) {
+void mei::HandShift::setNew(std::string _new) {
     if (!hasAttribute("new")) {
         MeiAttribute *a = new MeiAttribute("new", _new);
         addAttribute(a);
     }
 };
 
-bool mei::Handshift::hasNew() {
+bool mei::HandShift::hasNew() {
     return hasAttribute("new");
 };
 
-void mei::Handshift::removeNew() {
+void mei::HandShift::removeNew() {
     removeAttribute("new");
 };
-MeiAttribute* mei::Handshift::getOld() {
+MeiAttribute* mei::HandShift::getOld() {
     if (!hasAttribute("old")) {
         throw AttributeNotFoundException("old");
     }
     return getAttribute("old");
 };
 
-void mei::Handshift::setOld(std::string _old) {
+void mei::HandShift::setOld(std::string _old) {
     if (!hasAttribute("old")) {
         MeiAttribute *a = new MeiAttribute("old", _old);
         addAttribute(a);
     }
 };
 
-bool mei::Handshift::hasOld() {
+bool mei::HandShift::hasOld() {
     return hasAttribute("old");
 };
 
-void mei::Handshift::removeOld() {
+void mei::HandShift::removeOld() {
     removeAttribute("old");
 };
 /* include <handShift> */

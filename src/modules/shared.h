@@ -27,7 +27,9 @@
 #include "meielement.h"
 #include "meinamespace.h"
 #include "exceptions.h"
-/* #include_block */
+
+#include "meielement.h"
+#include "meidocument.h"
 
 #include "mei.h"
 #include "sharedmixins.h"
@@ -161,10 +163,10 @@ class MEI_EXPORT Actor : public MeiElement {
  *  address. This element is modelled on elements in Encoded Archival Description
  *  (EAD) and the Text Encoding Initiative (TEI).
  */
-class MEI_EXPORT Addrline : public MeiElement {
+class MEI_EXPORT AddrLine : public MeiElement {
     public:
-        Addrline();
-        virtual ~Addrline();
+        AddrLine();
+        virtual ~AddrLine();
 
 /* include <addrLine> */
 
@@ -173,7 +175,7 @@ class MEI_EXPORT Addrline : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Addrline);
+        REGISTER_DECLARATION(AddrLine);
 };
 
 /** \brief address ― Contains a postal address, for example of a publisher, an
@@ -287,17 +289,17 @@ class MEI_EXPORT Artic : public MeiElement {
  *  visual characteristics of the bar line can be discerned, largely duplicate those
  *  of measure, the use of barLine is not necessary within measure elements in CMN.
  */
-class MEI_EXPORT Barline : public MeiElement {
+class MEI_EXPORT BarLine : public MeiElement {
     public:
-        Barline();
-        virtual ~Barline();
+        BarLine();
+        virtual ~BarLine();
 
 /* include <barLine> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
-        BarlineLogMixIn    m_BarlineLog;
+        BarLineLogMixIn    m_BarLineLog;
         MeterconformanceBarMixIn    m_MeterconformanceBar;
         BarplacementMixIn    m_Barplacement;
         ColorMixIn    m_Color;
@@ -308,7 +310,7 @@ class MEI_EXPORT Barline : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Barline);
+        REGISTER_DECLARATION(BarLine);
 };
 
 /** \brief bibliographic reference ― Provides a citation for a published work.
@@ -376,10 +378,10 @@ class MEI_EXPORT Caption : public MeiElement {
 /** \brief cast list group ― Groups one or more individual castItem elements within a
  *  cast list.
  */
-class MEI_EXPORT Castgrp : public MeiElement {
+class MEI_EXPORT CastGrp : public MeiElement {
     public:
-        Castgrp();
-        virtual ~Castgrp();
+        CastGrp();
+        virtual ~CastGrp();
 
 /* include <castGrp> */
 
@@ -388,16 +390,16 @@ class MEI_EXPORT Castgrp : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Castgrp);
+        REGISTER_DECLARATION(CastGrp);
 };
 
 /** \brief cast list item ― Contains a single entry within a cast list, describing either
  *  a single role or a list of non-speaking roles.
  */
-class MEI_EXPORT Castitem : public MeiElement {
+class MEI_EXPORT CastItem : public MeiElement {
     public:
-        Castitem();
-        virtual ~Castitem();
+        CastItem();
+        virtual ~CastItem();
 
 /* include <castItem> */
 
@@ -406,15 +408,15 @@ class MEI_EXPORT Castitem : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Castitem);
+        REGISTER_DECLARATION(CastItem);
 };
 
 /** \brief cast list ― Contains a single cast list or dramatis personae.
  */
-class MEI_EXPORT Castlist : public MeiElement {
+class MEI_EXPORT CastList : public MeiElement {
     public:
-        Castlist();
-        virtual ~Castlist();
+        CastList();
+        virtual ~CastList();
 
 /* include <castList> */
 
@@ -423,7 +425,7 @@ class MEI_EXPORT Castlist : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Castlist);
+        REGISTER_DECLARATION(CastList);
 };
 
 /** \brief chord ― A simultaneous sounding of two or more notes in the same layer *with
@@ -478,10 +480,11 @@ class MEI_EXPORT Chord : public MeiElement {
 /** \brief clef ― Indication of the exact location of a particular note on the staff and,
  *  therefore, the other notes as well.
  * 
- *  This element provides an alternative to the staff element's clef.* attributes.
- *  It should be used when specific display info, such as size or color, needs to be
- *  recorded for the clef or when multiple, simultaneous clefs occur on a single
- *  staff.
+ *  This element can be used as an alternative to the staff element's clef.*
+ *  attributes. It should be used when specific display info, such as size or color,
+ *  needs to be recorded for the clef or when multiple, simultaneous clefs occur on
+ *  a single staff. This element may also be used within the staff context to
+ *  indicate changes of clef.
  */
 class MEI_EXPORT Clef : public MeiElement {
     public:
@@ -494,6 +497,7 @@ class MEI_EXPORT Clef : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        ClefLogMixIn    m_ClefLog;
         ClefshapeMixIn    m_Clefshape;
         LinelocMixIn    m_Lineloc;
         OctaveMixIn    m_Octave;
@@ -505,14 +509,14 @@ class MEI_EXPORT Clef : public MeiElement {
         REGISTER_DECLARATION(Clef);
 };
 
-/** \brief clef change ― A temporary change of clef.
+/** \brief clef group ― A set of simultaneously-occurring clefs
  */
-class MEI_EXPORT Clefchange : public MeiElement {
+class MEI_EXPORT ClefGrp : public MeiElement {
     public:
-        Clefchange();
-        virtual ~Clefchange();
+        ClefGrp();
+        virtual ~ClefGrp();
 
-/* include <clefChange> */
+/* include <clefGrp> */
 
         CommonMixIn    m_Common;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -520,17 +524,11 @@ class MEI_EXPORT Clefchange : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         FacsimileMixIn    m_Facsimile;
-        ClefshapeMixIn    m_Clefshape;
-        LinelocMixIn    m_Lineloc;
-        OctaveMixIn    m_Octave;
-        OctavedisplacementMixIn    m_Octavedisplacement;
-        AltsymMixIn    m_Altsym;
-        ColorMixIn    m_Color;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Clefchange);
+        REGISTER_DECLARATION(ClefGrp);
 };
 
 /** \brief custos ― Symbol placed at the end of a line of music to indicate the first
@@ -893,10 +891,10 @@ class MEI_EXPORT Group : public MeiElement {
  *  It may be used when exact placement or editorial details for the grouping symbol
  *  must be recorded.
  */
-class MEI_EXPORT Grpsym : public MeiElement {
+class MEI_EXPORT GrpSym : public MeiElement {
     public:
-        Grpsym();
-        virtual ~Grpsym();
+        GrpSym();
+        virtual ~GrpSym();
 
 /* include <grpSym> */
 
@@ -911,7 +909,7 @@ class MEI_EXPORT Grpsym : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Grpsym);
+        REGISTER_DECLARATION(GrpSym);
 };
 
 /** \brief identifier ― An alpha-numeric string that establishes the identity of the
@@ -940,10 +938,10 @@ class MEI_EXPORT Identifier : public MeiElement {
 
 /** \brief incipit ― The opening words or music of a composition.
  * 
- *  The <p> and <lg> elements are permitted in order to accommodate a text incipit,
- *  while <score> is available to provide an MEI-encoded musical incipit. An incipit
- *  encoded in another text format can be included in a CDATA section inside the
- *  <incipCode> element.
+ *  The <incipText> element may be used to capture a text incipit, while <score> is
+ *  available to provide an MEI-encoded musical incipit. Images of an incipit may be
+ *  referenced using the >graphic< element. An incipit encoded in a text format
+ *  other than MEI may be placed in the <incipCode> element.
  */
 class MEI_EXPORT Incip : public MeiElement {
     public:
@@ -966,10 +964,10 @@ class MEI_EXPORT Incip : public MeiElement {
  *  a group of staves, or a layer. MIDI prog elements may then change the instrument
  *  as necessary.
  */
-class MEI_EXPORT Instrdef : public MeiElement {
+class MEI_EXPORT InstrDef : public MeiElement {
     public:
-        Instrdef();
-        virtual ~Instrdef();
+        InstrDef();
+        virtual ~InstrDef();
 
 /* include <instrDef> */
 
@@ -978,22 +976,22 @@ class MEI_EXPORT Instrdef : public MeiElement {
         MidiinstrumentMixIn    m_Midiinstrument;
 
     private:
-        REGISTER_DECLARATION(Instrdef);
+        REGISTER_DECLARATION(InstrDef);
 };
 
 /** \brief instrument group ― Collects MIDI instrument definitions.
  */
-class MEI_EXPORT Instrgrp : public MeiElement {
+class MEI_EXPORT InstrGrp : public MeiElement {
     public:
-        Instrgrp();
-        virtual ~Instrgrp();
+        InstrGrp();
+        virtual ~InstrGrp();
 
 /* include <instrGrp> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Instrgrp);
+        REGISTER_DECLARATION(InstrGrp);
 };
 
 /** \brief key accidental ― Accidental in a key signature.
@@ -1001,10 +999,10 @@ class MEI_EXPORT Instrgrp : public MeiElement {
  *  It is a semantic error not to provide either the x and y pair of attributes or
  *  the staffloc attribute.
  */
-class MEI_EXPORT Keyaccid : public MeiElement {
+class MEI_EXPORT KeyAccid : public MeiElement {
     public:
-        Keyaccid();
-        virtual ~Keyaccid();
+        KeyAccid();
+        virtual ~KeyAccid();
         /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
@@ -1024,16 +1022,16 @@ class MEI_EXPORT Keyaccid : public MeiElement {
         XyMixIn    m_Xy;
 
     private:
-        REGISTER_DECLARATION(Keyaccid);
+        REGISTER_DECLARATION(KeyAccid);
 };
 
 /** \brief key signature ― This element may be used as an alternative to the key.*
  *  attributes (especially key.sig.mixed) on scoreDef and staffDef.
  */
-class MEI_EXPORT Keysig : public MeiElement {
+class MEI_EXPORT KeySig : public MeiElement {
     public:
-        Keysig();
-        virtual ~Keysig();
+        KeySig();
+        virtual ~KeySig();
         /** \brief indicates major, minor, or other tonality.
          */
         MeiAttribute* getMode();
@@ -1049,10 +1047,10 @@ class MEI_EXPORT Keysig : public MeiElement {
         PitchMixIn    m_Pitch;
 
     private:
-        REGISTER_DECLARATION(Keysig);
+        REGISTER_DECLARATION(KeySig);
 };
 
-/** \brief label ― A text string that identifies a staff or staff group.
+/** \brief label ― A text string that identifies a staff, staff group, or contentItem.
  */
 class MEI_EXPORT Label : public MeiElement {
     public:
@@ -1073,8 +1071,12 @@ class MEI_EXPORT Label : public MeiElement {
 /** \brief layer ― An independent stream of events on a staff.
  * 
  *  The term 'layer' is used instead of 'voice' in order to avoid confusion between
- *  'voice' and 'voice leading'. The n attribute is used to establish a connection
- *  back to the appropriate layerDef element.
+ *  'voice' and 'voice leading'. The def attribute may be used to create a
+ *  connection with a layerDef element where logical and visual information about
+ *  the layer is recorded. Alternatively, the n attribute may be used as a reference
+ *  to a layerDef element with the same value in its n attribute. If neither def nor
+ *  n attributes are present, then encoding order of the layers is presumed to match
+ *  the encoding order of the layer definitions.
  */
 class MEI_EXPORT Layer : public MeiElement {
     public:
@@ -1086,6 +1088,7 @@ class MEI_EXPORT Layer : public MeiElement {
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
+        LayerLogMixIn    m_LayerLog;
         MeterconformanceMixIn    m_Meterconformance;
         VisibilityMixIn    m_Visibility;
         CommonAnlMixIn    m_CommonAnl;
@@ -1097,10 +1100,10 @@ class MEI_EXPORT Layer : public MeiElement {
 
 /** \brief layer definition ― Container for layer meta-information.
  */
-class MEI_EXPORT Layerdef : public MeiElement {
+class MEI_EXPORT LayerDef : public MeiElement {
     public:
-        Layerdef();
-        virtual ~Layerdef();
+        LayerDef();
+        virtual ~LayerDef();
 
 /* include <layerDef> */
 
@@ -1116,7 +1119,7 @@ class MEI_EXPORT Layerdef : public MeiElement {
         InstrumentidentMixIn    m_Instrumentident;
 
     private:
-        REGISTER_DECLARATION(Layerdef);
+        REGISTER_DECLARATION(LayerDef);
 };
 
 /** \brief line break ― An empty formatting element that forces text to begin on a new
@@ -1279,7 +1282,15 @@ class MEI_EXPORT Note : public MeiElement {
         Note();
         virtual ~Note();
 
-/* include <note> */
+        std::string getLayerIdent();
+        MeiElement* getLayer();
+
+        std::string getStaffIdent();
+        MeiElement* getStaff();
+
+        MeiElement* getSystem();
+
+
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1485,10 +1496,10 @@ class MEI_EXPORT Pb : public MeiElement {
  *  with an illustration. It may or may not function as a description of the
  *  illustration.
  */
-class MEI_EXPORT Pgdesc : public MeiElement {
+class MEI_EXPORT PgDesc : public MeiElement {
     public:
-        Pgdesc();
-        virtual ~Pgdesc();
+        PgDesc();
+        virtual ~PgDesc();
 
 /* include <pgDesc> */
 
@@ -1496,7 +1507,7 @@ class MEI_EXPORT Pgdesc : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Pgdesc);
+        REGISTER_DECLARATION(PgDesc);
 };
 
 /** \brief page footer ― A running footer on the first page.
@@ -1505,10 +1516,10 @@ class MEI_EXPORT Pgdesc : public MeiElement {
  *  numbers may be indicated with a processing instruction. The pgHead* and pgFoot*
  *  elements should *not* be used to encode textual notes/annotations.
  */
-class MEI_EXPORT Pgfoot : public MeiElement {
+class MEI_EXPORT PgFoot : public MeiElement {
     public:
-        Pgfoot();
-        virtual ~Pgfoot();
+        PgFoot();
+        virtual ~PgFoot();
 
 /* include <pgFoot> */
 
@@ -1517,7 +1528,7 @@ class MEI_EXPORT Pgfoot : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Pgfoot);
+        REGISTER_DECLARATION(PgFoot);
 };
 
 /** \brief page footer 2 ― A running header on the pages following the first.
@@ -1526,10 +1537,10 @@ class MEI_EXPORT Pgfoot : public MeiElement {
  *  numbers may be indicated with a processing instruction. The pgHead* and pgFoot*
  *  elements should *not* be used to encode textual notes/annotations.
  */
-class MEI_EXPORT Pgfoot2 : public MeiElement {
+class MEI_EXPORT PgFoot2 : public MeiElement {
     public:
-        Pgfoot2();
-        virtual ~Pgfoot2();
+        PgFoot2();
+        virtual ~PgFoot2();
 
 /* include <pgFoot2> */
 
@@ -1538,7 +1549,7 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Pgfoot2);
+        REGISTER_DECLARATION(PgFoot2);
 };
 
 /** \brief page header ― A running header on the first page.
@@ -1549,10 +1560,10 @@ class MEI_EXPORT Pgfoot2 : public MeiElement {
  *  and pgFoot* elements should *not* be used to encode textual notes/annotations.
  *  Auto-generated page numbers may be indicated with a processing instruction.
  */
-class MEI_EXPORT Pghead : public MeiElement {
+class MEI_EXPORT PgHead : public MeiElement {
     public:
-        Pghead();
-        virtual ~Pghead();
+        PgHead();
+        virtual ~PgHead();
 
 /* include <pgHead> */
 
@@ -1561,7 +1572,7 @@ class MEI_EXPORT Pghead : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Pghead);
+        REGISTER_DECLARATION(PgHead);
 };
 
 /** \brief page header 2 ― A running header on the pages following the first.
@@ -1570,10 +1581,10 @@ class MEI_EXPORT Pghead : public MeiElement {
  *  elements should *not* be used to encode textual notes/annotations. Auto-
  *  generated page numbers may be indicated with a processing instruction.
  */
-class MEI_EXPORT Pghead2 : public MeiElement {
+class MEI_EXPORT PgHead2 : public MeiElement {
     public:
-        Pghead2();
-        virtual ~Pghead2();
+        PgHead2();
+        virtual ~PgHead2();
 
 /* include <pgHead2> */
 
@@ -1582,7 +1593,7 @@ class MEI_EXPORT Pghead2 : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Pghead2);
+        REGISTER_DECLARATION(PgHead2);
 };
 
 /** \brief phrase ― Historically, a phrase mark indicated a "unified melodic idea", while
@@ -1724,7 +1735,15 @@ class MEI_EXPORT Rest : public MeiElement {
         Rest();
         virtual ~Rest();
 
-/* include <rest> */
+        std::string getLayerIdent();
+        MeiElement* getLayer();
+
+        std::string getStaffIdent();
+        MeiElement* getStaff();
+
+        MeiElement* getSystem();
+
+
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1775,10 +1794,10 @@ class MEI_EXPORT Role : public MeiElement {
 
 /** \brief role description ― Describes a character's role in a drama.
  */
-class MEI_EXPORT Roledesc : public MeiElement {
+class MEI_EXPORT RoleDesc : public MeiElement {
     public:
-        Roledesc();
-        virtual ~Roledesc();
+        RoleDesc();
+        virtual ~RoleDesc();
 
 /* include <roleDesc> */
 
@@ -1787,7 +1806,7 @@ class MEI_EXPORT Roledesc : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Roledesc);
+        REGISTER_DECLARATION(RoleDesc);
 };
 
 /** \brief system break ― An empty formatting element that forces notation to begin on a
@@ -1840,17 +1859,17 @@ class MEI_EXPORT Score : public MeiElement {
 
 /** \brief score definition ― Container for score meta-information.
  */
-class MEI_EXPORT Scoredef : public MeiElement {
+class MEI_EXPORT ScoreDef : public MeiElement {
     public:
-        Scoredef();
-        virtual ~Scoredef();
+        ScoreDef();
+        virtual ~ScoreDef();
 
 /* include <scoreDef> */
 
         CommonMixIn    m_Common;
         CleffingLogMixIn    m_CleffingLog;
         DurationDefaultMixIn    m_DurationDefault;
-        KeysigsLogMixIn    m_KeysigsLog;
+        KeySigsLogMixIn    m_KeySigsLog;
         MetersLogMixIn    m_MetersLog;
         OctavedefaultMixIn    m_Octavedefault;
         TranspositionMixIn    m_Transposition;
@@ -1858,31 +1877,31 @@ class MEI_EXPORT Scoredef : public MeiElement {
         MensurationLogMixIn    m_MensurationLog;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
-        ScoredefVisMixIn    m_ScoredefVis;
+        ScoreDefVisMixIn    m_ScoreDefVis;
         BarplacementMixIn    m_Barplacement;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeysigsVisMixIn    m_KeysigsVis;
+        KeySigsVisMixIn    m_KeySigsVis;
         LyricstyleMixIn    m_Lyricstyle;
         MetersVisMixIn    m_MetersVis;
         MultinummeasuresMixIn    m_Multinummeasures;
         OnelinestaffMixIn    m_Onelinestaff;
         TextstyleMixIn    m_Textstyle;
-        ScoredefVisCmnMixIn    m_ScoredefVisCmn;
+        ScoreDefVisCmnMixIn    m_ScoreDefVisCmn;
         BeamingVisMixIn    m_BeamingVis;
         PianopedalsMixIn    m_Pianopedals;
         RehearsalMixIn    m_Rehearsal;
         SlurrendMixIn    m_Slurrend;
         TierendMixIn    m_Tierend;
         MensurationVisMixIn    m_MensurationVis;
-        ScoredefGesMixIn    m_ScoredefGes;
+        ScoreDefGesMixIn    m_ScoreDefGes;
         ChannelizedMixIn    m_Channelized;
         TimebaseMixIn    m_Timebase;
         MiditempoMixIn    m_Miditempo;
         MmtempoMixIn    m_Mmtempo;
 
     private:
-        REGISTER_DECLARATION(Scoredef);
+        REGISTER_DECLARATION(ScoreDef);
 };
 
 /** \brief section ― Container for actual music data.
@@ -1977,11 +1996,12 @@ class MEI_EXPORT Stack : public MeiElement {
  * 
  *  In MEI, however, <staff> is a grouping element for individual 'strands' of
  *  notes, rests, etc. that may or may not be rendered on staff lines; that is,
- *  diastematic and non-diastematic signs. The n attribute functions as a connection
- *  back to the appropriate staffDef element where logical and visual information
- *  about the staff is recorded. If the n attribute is omitted, encoding order is
- *  presumed to match the staff order. Of course, if data is supplied for only a
- *  subset of staves found in a printed source, the n attribute must be supplied.
+ *  diastematic and non-diastematic signs. The def attribute may be used to create a
+ *  connection with a staffDef element where logical and visual information about
+ *  the staff is recorded. Alternatively, the n attribute may be used as a reference
+ *  to a staffDef element with the same value in its n attribute. If neither def nor
+ *  n attributes are present, then the encoding order of the staves is presumed to
+ *  match the encoding order of the staff defintions.
  */
 class MEI_EXPORT Staff : public MeiElement {
     public:
@@ -1993,6 +2013,7 @@ class MEI_EXPORT Staff : public MeiElement {
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
+        StaffLogMixIn    m_StaffLog;
         MeterconformanceMixIn    m_Meterconformance;
         VisibilityMixIn    m_Visibility;
         CommonAnlMixIn    m_CommonAnl;
@@ -2004,10 +2025,10 @@ class MEI_EXPORT Staff : public MeiElement {
 
 /** \brief staff definition ― Container for staff meta-information.
  */
-class MEI_EXPORT Staffdef : public MeiElement {
+class MEI_EXPORT StaffDef : public MeiElement {
     public:
-        Staffdef();
-        virtual ~Staffdef();
+        StaffDef();
+        virtual ~StaffDef();
 
 /* include <staffDef> */
 
@@ -2015,19 +2036,19 @@ class MEI_EXPORT Staffdef : public MeiElement {
         DeclaringMixIn    m_Declaring;
         CleffingLogMixIn    m_CleffingLog;
         DurationDefaultMixIn    m_DurationDefault;
-        KeysigsLogMixIn    m_KeysigsLog;
+        KeySigsLogMixIn    m_KeySigsLog;
         MetersLogMixIn    m_MetersLog;
         OctavedefaultMixIn    m_Octavedefault;
         TranspositionMixIn    m_Transposition;
         BeamingLogMixIn    m_BeamingLog;
-        StaffdefLogMensuralMixIn    m_StaffdefLogMensural;
+        StaffDefLogMensuralMixIn    m_StaffDefLogMensural;
         MensurationLogMixIn    m_MensurationLog;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
-        StaffdefVisMixIn    m_StaffdefVis;
+        StaffDefVisMixIn    m_StaffDefVis;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeysigsVisMixIn    m_KeysigsVis;
+        KeySigsVisMixIn    m_KeySigsVis;
         LabelsAddlMixIn    m_LabelsAddl;
         LyricstyleMixIn    m_Lyricstyle;
         MetersVisMixIn    m_MetersVis;
@@ -2044,10 +2065,10 @@ class MEI_EXPORT Staffdef : public MeiElement {
         MensurationVisMixIn    m_MensurationVis;
         InstrumentidentMixIn    m_Instrumentident;
         TimebaseMixIn    m_Timebase;
-        StaffdefGesTablatureMixIn    m_StaffdefGesTablature;
+        StaffDefGesTablatureMixIn    m_StaffDefGesTablature;
 
     private:
-        REGISTER_DECLARATION(Staffdef);
+        REGISTER_DECLARATION(StaffDef);
 };
 
 /** \brief staff group ― A group of bracketed or braced staves.
@@ -2056,24 +2077,24 @@ class MEI_EXPORT Staffdef : public MeiElement {
  *  single staves. See Read, p. 35-38, examples p. 434, 438. System is the more
  *  proper name for this concept (Read, p. 37-38).
  */
-class MEI_EXPORT Staffgrp : public MeiElement {
+class MEI_EXPORT StaffGrp : public MeiElement {
     public:
-        Staffgrp();
-        virtual ~Staffgrp();
+        StaffGrp();
+        virtual ~StaffGrp();
 
 /* include <staffGrp> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
-        StaffgrpVisMixIn    m_StaffgrpVis;
+        StaffGrpVisMixIn    m_StaffGrpVis;
         LabelsAddlMixIn    m_LabelsAddl;
         StaffgroupingsymMixIn    m_Staffgroupingsym;
         VisibilityMixIn    m_Visibility;
         InstrumentidentMixIn    m_Instrumentident;
 
     private:
-        REGISTER_DECLARATION(Staffgrp);
+        REGISTER_DECLARATION(StaffGrp);
 };
 
 /** \brief syllable ― Individual lyric syllable.
@@ -2192,10 +2213,10 @@ class MEI_EXPORT Title : public MeiElement {
  *  provided. This element is modelled on an element in Encoded Archival Description
  *  (EAD).
  */
-class MEI_EXPORT Titlepage : public MeiElement {
+class MEI_EXPORT TitlePage : public MeiElement {
     public:
-        Titlepage();
-        virtual ~Titlepage();
+        TitlePage();
+        virtual ~TitlePage();
 
 /* include <titlePage> */
 
@@ -2204,7 +2225,7 @@ class MEI_EXPORT Titlepage : public MeiElement {
         LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(Titlepage);
+        REGISTER_DECLARATION(TitlePage);
 };
 }
 #endif  // SHARED_H_

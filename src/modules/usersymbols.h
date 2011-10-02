@@ -51,10 +51,10 @@ namespace mei {
  *  offsets from the absolute coordinates or from the location of the referenced
  *  element.
  */
-class MEI_EXPORT Anchoredtext : public MeiElement {
+class MEI_EXPORT AnchoredText : public MeiElement {
     public:
-        Anchoredtext();
-        virtual ~Anchoredtext();
+        AnchoredText();
+        virtual ~AnchoredText();
 
 /* include <anchoredText> */
 
@@ -71,7 +71,7 @@ class MEI_EXPORT Anchoredtext : public MeiElement {
         XyMixIn    m_Xy;
 
     private:
-        REGISTER_DECLARATION(Anchoredtext);
+        REGISTER_DECLARATION(AnchoredText);
 };
 
 /** \brief curve ― A curved line that cannot be represented by a more specific element,
@@ -208,17 +208,18 @@ class MEI_EXPORT Symbol : public MeiElement {
 
 /** \brief symbol definition ― Declaration of an individual symbol in a symbolTable.
  */
-class MEI_EXPORT Symboldef : public MeiElement {
+class MEI_EXPORT SymbolDef : public MeiElement {
     public:
-        Symboldef();
-        virtual ~Symboldef();
+        SymbolDef();
+        virtual ~SymbolDef();
 
 /* include <symbolDef> */
 
         CommonMixIn    m_Common;
+        CoordinatedMixIn    m_Coordinated;
 
     private:
-        REGISTER_DECLARATION(Symboldef);
+        REGISTER_DECLARATION(SymbolDef);
 };
 
 /** \brief symbol table ― Contains individual, user-defined symbols.
@@ -226,17 +227,17 @@ class MEI_EXPORT Symboldef : public MeiElement {
  *  Like a chord table, a symbolTable may be shared between mei instances through
  *  the use of an external parsed entity containing the symbolTable to be shared.
  */
-class MEI_EXPORT Symboltable : public MeiElement {
+class MEI_EXPORT SymbolTable : public MeiElement {
     public:
-        Symboltable();
-        virtual ~Symboltable();
+        SymbolTable();
+        virtual ~SymbolTable();
 
 /* include <symbolTable> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Symboltable);
+        REGISTER_DECLARATION(SymbolTable);
 };
 }
 #endif  // USERSYMBOLS_H_

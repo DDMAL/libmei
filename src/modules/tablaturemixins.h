@@ -53,10 +53,10 @@ class NoteGesTablatureMixIn {
         MeiElement *b;
 };
 
-class StaffdefGesTablatureMixIn {
+class StaffDefGesTablatureMixIn {
     public:
-        explicit StaffdefGesTablatureMixIn(MeiElement *b);
-        virtual ~StaffdefGesTablatureMixIn();
+        explicit StaffDefGesTablatureMixIn(MeiElement *b);
+        virtual ~StaffDefGesTablatureMixIn();
         /** \brief provides a written pitch and octave for each open string, e.g.
          * 
          *  "e3 a3 d4 g4 b4 e5" for standard guitar tuning. It should contain the number of

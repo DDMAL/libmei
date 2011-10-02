@@ -69,10 +69,10 @@ class MEI_EXPORT Barre : public MeiElement {
  *  <chordMember> sub-elements record the individual pitches of the chord. <barre
  *  >sub-elements may be used when a single finger is used to stop multiple strings.
  */
-class MEI_EXPORT Chorddef : public MeiElement {
+class MEI_EXPORT ChordDef : public MeiElement {
     public:
-        Chorddef();
-        virtual ~Chorddef();
+        ChordDef();
+        virtual ~ChordDef();
         /** \brief records the fret position at which the chord tablature is to be played.
          */
         MeiAttribute* getPos();
@@ -85,7 +85,7 @@ class MEI_EXPORT Chorddef : public MeiElement {
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Chorddef);
+        REGISTER_DECLARATION(ChordDef);
 };
 
 /** \brief chord member ― An individual pitch in a chord defined by a <chordDef> element.
@@ -96,10 +96,10 @@ class MEI_EXPORT Chorddef : public MeiElement {
  *  above the bass. Of course, for the bass note itself, inth should be set to '0'.
  *  The fret at which a finger should be placed is recorded in the fret attribute.
  */
-class MEI_EXPORT Chordmember : public MeiElement {
+class MEI_EXPORT ChordMember : public MeiElement {
     public:
-        Chordmember();
-        virtual ~Chordmember();
+        ChordMember();
+        virtual ~ChordMember();
         /** \brief indicates which finger, if any, should be used to play an individual string.
          * 
          *  The values 'x' and 'o' indicated muffled and open strings, respectively.
@@ -119,7 +119,7 @@ class MEI_EXPORT Chordmember : public MeiElement {
         OctaveMixIn    m_Octave;
 
     private:
-        REGISTER_DECLARATION(Chordmember);
+        REGISTER_DECLARATION(ChordMember);
 };
 
 /** \brief chord table ― Chord/tablature look-up table.
@@ -127,17 +127,17 @@ class MEI_EXPORT Chordmember : public MeiElement {
  *  A table may be shared between MEI instances through the use of an external
  *  parsed entity containing the look-up table to be shared.
  */
-class MEI_EXPORT Chordtable : public MeiElement {
+class MEI_EXPORT ChordTable : public MeiElement {
     public:
-        Chordtable();
-        virtual ~Chordtable();
+        ChordTable();
+        virtual ~ChordTable();
 
 /* include <chordTable> */
 
         CommonMixIn    m_Common;
 
     private:
-        REGISTER_DECLARATION(Chordtable);
+        REGISTER_DECLARATION(ChordTable);
 };
 
 /** \brief Figure (figured bass) ― Single element of a figured bass indication.

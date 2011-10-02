@@ -175,19 +175,19 @@ class AuthorizedMixIn {
         /** \brief the web-accessible location of the controlled vocabulary from which the value is
          *  taken.
          */
-        MeiAttribute* getAuthuri();
-        void setAuthuri(std::string _authURI);
-        bool hasAuthuri();
-        void removeAuthuri();
+        MeiAttribute* getAuthURI();
+        void setAuthURI(std::string _authURI);
+        bool hasAuthURI();
+        void removeAuthURI();
 
     private:
         MeiElement *b;
 };
 
-class BarlineLogMixIn {
+class BarLineLogMixIn {
     public:
-        explicit BarlineLogMixIn(MeiElement *b);
-        virtual ~BarlineLogMixIn();
+        explicit BarLineLogMixIn(MeiElement *b);
+        virtual ~BarLineLogMixIn();
         /** \brief describes the line style of the curve.
          */
         MeiAttribute* getRend();
@@ -314,6 +314,23 @@ class ChordVisMixIn {
         void setCluster(std::string _cluster);
         bool hasCluster();
         void removeCluster();
+
+    private:
+        MeiElement *b;
+};
+
+class ClefLogMixIn {
+    public:
+        explicit ClefLogMixIn(MeiElement *b);
+        virtual ~ClefLogMixIn();
+        /** \brief records the function of the clef.
+         * 
+         *  A "cautionary" clef does not change the following pitches.
+         */
+        MeiAttribute* getCautionary();
+        void setCautionary(std::string _cautionary);
+        bool hasCautionary();
+        void removeCautionary();
 
     private:
         MeiElement *b;
@@ -883,10 +900,10 @@ class JoinedMixIn {
         MeiElement *b;
 };
 
-class KeysigsLogMixIn {
+class KeySigsLogMixIn {
     public:
-        explicit KeysigsLogMixIn(MeiElement *b);
-        virtual ~KeysigsLogMixIn();
+        explicit KeySigsLogMixIn(MeiElement *b);
+        virtual ~KeySigsLogMixIn();
         /** \brief contains an accidental for the tonic key, if one is required, e.g., if key.pname
          *  equals 'c' and key.accid equals 's', then a tonic of C# is indicated.
          */
@@ -934,10 +951,10 @@ class KeysigsLogMixIn {
         MeiElement *b;
 };
 
-class KeysigsVisMixIn {
+class KeySigsVisMixIn {
     public:
-        explicit KeysigsVisMixIn(MeiElement *b);
-        virtual ~KeysigsVisMixIn();
+        explicit KeySigsVisMixIn(MeiElement *b);
+        virtual ~KeySigsVisMixIn();
         /** \brief indicates whether the key signature should be displayed.
          */
         MeiAttribute* getKeySigShow();
@@ -987,6 +1004,21 @@ class LangMixIn {
         void setLang(std::string _lang);
         bool hasLang();
         void removeLang();
+
+    private:
+        MeiElement *b;
+};
+
+class LayerLogMixIn {
+    public:
+        explicit LayerLogMixIn(MeiElement *b);
+        virtual ~LayerLogMixIn();
+        /** \brief provides a mechanism for linking the layer to a layerDef element.
+         */
+        MeiAttribute* getDef();
+        void setDef(std::string _def);
+        bool hasDef();
+        void removeDef();
 
     private:
         MeiElement *b;
@@ -1651,10 +1683,10 @@ class ScalableMixIn {
         MeiElement *b;
 };
 
-class ScoredefGesMixIn {
+class ScoreDefGesMixIn {
     public:
-        explicit ScoredefGesMixIn(MeiElement *b);
-        virtual ~ScoredefGesMixIn();
+        explicit ScoreDefGesMixIn(MeiElement *b);
+        virtual ~ScoreDefGesMixIn();
         /** \brief holds the pitch name of a tuning reference pitch.
          */
         MeiAttribute* getTunePname();
@@ -1678,10 +1710,10 @@ class ScoredefGesMixIn {
         MeiElement *b;
 };
 
-class ScoredefVisMixIn {
+class ScoreDefVisMixIn {
     public:
-        explicit ScoredefVisMixIn(MeiElement *b);
-        virtual ~ScoredefVisMixIn();
+        explicit ScoreDefVisMixIn(MeiElement *b);
+        virtual ~ScoreDefVisMixIn();
         /** \brief describes where ending marks should be displayed.
          */
         MeiAttribute* getEndingRend();
@@ -1900,10 +1932,25 @@ class SpaceVisMixIn {
         MeiElement *b;
 };
 
-class StaffdefVisMixIn {
+class StaffLogMixIn {
     public:
-        explicit StaffdefVisMixIn(MeiElement *b);
-        virtual ~StaffdefVisMixIn();
+        explicit StaffLogMixIn(MeiElement *b);
+        virtual ~StaffLogMixIn();
+        /** \brief provides a mechanism for linking the layer to a layerDef element.
+         */
+        MeiAttribute* getDef();
+        void setDef(std::string _def);
+        bool hasDef();
+        void removeDef();
+
+    private:
+        MeiElement *b;
+};
+
+class StaffDefVisMixIn {
+    public:
+        explicit StaffDefVisMixIn(MeiElement *b);
+        virtual ~StaffDefVisMixIn();
         /** \brief determines whether to display guitar chord grids.
          */
         MeiAttribute* getGridShow();
@@ -1955,10 +2002,10 @@ class StaffdefVisMixIn {
         MeiElement *b;
 };
 
-class StaffgrpVisMixIn {
+class StaffGrpVisMixIn {
     public:
-        explicit StaffgrpVisMixIn(MeiElement *b);
-        virtual ~StaffgrpVisMixIn();
+        explicit StaffGrpVisMixIn(MeiElement *b);
+        virtual ~StaffGrpVisMixIn();
         /** \brief indicates whether bar lines go across the space between staves (true) or are
          *  only drawn across the lines of each staff (false).
          */

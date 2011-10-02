@@ -205,10 +205,10 @@ class RestVisMensuralMixIn {
         MeiElement *b;
 };
 
-class StaffdefLogMensuralMixIn {
+class StaffDefLogMensuralMixIn {
     public:
-        explicit StaffdefLogMensuralMixIn(MeiElement *b);
-        virtual ~StaffdefLogMensuralMixIn();
+        explicit StaffDefLogMensuralMixIn(MeiElement *b);
+        virtual ~StaffDefLogMensuralMixIn();
         /** \brief Together, proport.num and proport.numbase specify a proportional change as a
          *  ratio, e.g., 1:3.
          * 

@@ -5,8 +5,14 @@
 #include "meielement.h"
 #include "meidocument.h"
 #include <vector>
+#include <algorithm>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 using std::vector;
+using std::find;
 using mei::MeiElement;
 using mei::MeiDocument;
 using std::string;
@@ -37,12 +43,13 @@ mei::Arpeg::Arpeg() :
 REGISTER_DEFINITION(mei::Arpeg, "arpeg");
 mei::Arpeg::~Arpeg() {}
 
+/* include <arpeg> */
 
-mei::Btrem::Btrem() :
+mei::BTrem::BTrem() :
     MeiElement("bTrem"),
     m_Common(this),
     m_Facsimile(this),
-    m_BtremLog(this),
+    m_BTremLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -54,9 +61,10 @@ mei::Btrem::Btrem() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Btrem, "bTrem");
-mei::Btrem::~Btrem() {}
+REGISTER_DEFINITION(mei::BTrem, "bTrem");
+mei::BTrem::~BTrem() {}
 
+/* include <bTrem> */
 
 mei::Beam::Beam() :
     MeiElement("beam"),
@@ -75,8 +83,9 @@ mei::Beam::Beam() :
 REGISTER_DEFINITION(mei::Beam, "beam");
 mei::Beam::~Beam() {}
 
+/* include <beam> */
 
-mei::Beamspan::Beamspan() :
+mei::BeamSpan::BeamSpan() :
     MeiElement("beamSpan"),
     m_Common(this),
     m_Facsimile(this),
@@ -95,11 +104,12 @@ mei::Beamspan::Beamspan() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Beamspan, "beamSpan");
-mei::Beamspan::~Beamspan() {}
+REGISTER_DEFINITION(mei::BeamSpan, "beamSpan");
+mei::BeamSpan::~BeamSpan() {}
 
+/* include <beamSpan> */
 
-mei::Beatrpt::Beatrpt() :
+mei::BeatRpt::BeatRpt() :
     MeiElement("beatRpt"),
     m_Common(this),
     m_Facsimile(this),
@@ -107,7 +117,7 @@ mei::Beatrpt::Beatrpt() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_BeatrptVis(this),
+    m_BeatRptVis(this),
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
@@ -115,9 +125,10 @@ mei::Beatrpt::Beatrpt() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Beatrpt, "beatRpt");
-mei::Beatrpt::~Beatrpt() {}
+REGISTER_DEFINITION(mei::BeatRpt, "beatRpt");
+mei::BeatRpt::~BeatRpt() {}
 
+/* include <beatRpt> */
 
 mei::Bend::Bend() :
     MeiElement("bend"),
@@ -149,6 +160,7 @@ mei::Bend::Bend() :
 REGISTER_DEFINITION(mei::Bend, "bend");
 mei::Bend::~Bend() {}
 
+/* include <bend> */
 
 mei::Breath::Breath() :
     MeiElement("breath"),
@@ -175,8 +187,9 @@ mei::Breath::Breath() :
 REGISTER_DEFINITION(mei::Breath, "breath");
 mei::Breath::~Breath() {}
 
+/* include <breath> */
 
-mei::Ftrem::Ftrem() :
+mei::FTrem::FTrem() :
     MeiElement("fTrem"),
     m_Common(this),
     m_Facsimile(this),
@@ -185,14 +198,15 @@ mei::Ftrem::Ftrem() :
     m_Staffident(this),
     m_Layerident(this),
     m_Slashcount(this),
-    m_FtremGes(this),
+    m_FTremGes(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Ftrem, "fTrem");
-mei::Ftrem::~Ftrem() {}
+REGISTER_DEFINITION(mei::FTrem, "fTrem");
+mei::FTrem::~FTrem() {}
 
+/* include <fTrem> */
 
 mei::Fermata::Fermata() :
     MeiElement("fermata"),
@@ -221,6 +235,7 @@ mei::Fermata::Fermata() :
 REGISTER_DEFINITION(mei::Fermata, "fermata");
 mei::Fermata::~Fermata() {}
 
+/* include <fermata> */
 
 mei::Gliss::Gliss() :
     MeiElement("gliss"),
@@ -251,6 +266,7 @@ mei::Gliss::Gliss() :
 REGISTER_DEFINITION(mei::Gliss, "gliss");
 mei::Gliss::~Gliss() {}
 
+/* include <gliss> */
 
 mei::Hairpin::Hairpin() :
     MeiElement("hairpin"),
@@ -284,8 +300,9 @@ mei::Hairpin::Hairpin() :
 REGISTER_DEFINITION(mei::Hairpin, "hairpin");
 mei::Hairpin::~Hairpin() {}
 
+/* include <hairpin> */
 
-mei::Halfmrpt::Halfmrpt() :
+mei::HalfmRpt::HalfmRpt() :
     MeiElement("halfmRpt"),
     m_Common(this),
     m_Facsimile(this),
@@ -304,15 +321,16 @@ mei::Halfmrpt::Halfmrpt() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Halfmrpt, "halfmRpt");
-mei::Halfmrpt::~Halfmrpt() {}
+REGISTER_DEFINITION(mei::HalfmRpt, "halfmRpt");
+mei::HalfmRpt::~HalfmRpt() {}
 
+/* include <halfmRpt> */
 
-mei::Harppedal::Harppedal() :
+mei::HarpPedal::HarpPedal() :
     MeiElement("harpPedal"),
     m_Common(this),
     m_Facsimile(this),
-    m_HarppedalLog(this),
+    m_HarpPedalLog(this),
     m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -331,11 +349,12 @@ mei::Harppedal::Harppedal() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Harppedal, "harpPedal");
-mei::Harppedal::~Harppedal() {}
+REGISTER_DEFINITION(mei::HarpPedal, "harpPedal");
+mei::HarpPedal::~HarpPedal() {}
 
+/* include <harpPedal> */
 
-mei::Mrest::Mrest() :
+mei::MRest::MRest() :
     MeiElement("mRest"),
     m_Common(this),
     m_Facsimile(this),
@@ -359,11 +378,12 @@ mei::Mrest::Mrest() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Mrest, "mRest");
-mei::Mrest::~Mrest() {}
+REGISTER_DEFINITION(mei::MRest, "mRest");
+mei::MRest::~MRest() {}
 
+/* include <mRest> */
 
-mei::Mrpt::Mrpt() :
+mei::MRpt::MRpt() :
     MeiElement("mRpt"),
     m_Common(this),
     m_Facsimile(this),
@@ -378,11 +398,12 @@ mei::Mrpt::Mrpt() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Mrpt, "mRpt");
-mei::Mrpt::~Mrpt() {}
+REGISTER_DEFINITION(mei::MRpt, "mRpt");
+mei::MRpt::~MRpt() {}
 
+/* include <mRpt> */
 
-mei::Mrpt2::Mrpt2() :
+mei::MRpt2::MRpt2() :
     MeiElement("mRpt2"),
     m_Common(this),
     m_Facsimile(this),
@@ -397,11 +418,12 @@ mei::Mrpt2::Mrpt2() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Mrpt2, "mRpt2");
-mei::Mrpt2::~Mrpt2() {}
+REGISTER_DEFINITION(mei::MRpt2, "mRpt2");
+mei::MRpt2::~MRpt2() {}
 
+/* include <mRpt2> */
 
-mei::Mspace::Mspace() :
+mei::MSpace::MSpace() :
     MeiElement("mSpace"),
     m_Common(this),
     m_Facsimile(this),
@@ -421,9 +443,10 @@ mei::Mspace::Mspace() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Mspace, "mSpace");
-mei::Mspace::~Mspace() {}
+REGISTER_DEFINITION(mei::MSpace, "mSpace");
+mei::MSpace::~MSpace() {}
 
+/* include <mSpace> */
 
 mei::Measure::Measure() :
     MeiElement("measure"),
@@ -446,8 +469,9 @@ mei::Measure::Measure() :
 REGISTER_DEFINITION(mei::Measure, "measure");
 mei::Measure::~Measure() {}
 
+/* include <measure> */
 
-mei::Multirest::Multirest() :
+mei::MultiRest::MultiRest() :
     MeiElement("multiRest"),
     m_Common(this),
     m_Facsimile(this),
@@ -456,7 +480,7 @@ mei::Multirest::Multirest() :
     m_Staffident(this),
     m_Layerident(this),
     m_Numbered(this),
-    m_MultirestVis(this),
+    m_MultiRestVis(this),
     m_Altsym(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
@@ -464,11 +488,12 @@ mei::Multirest::Multirest() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Multirest, "multiRest");
-mei::Multirest::~Multirest() {}
+REGISTER_DEFINITION(mei::MultiRest, "multiRest");
+mei::MultiRest::~MultiRest() {}
 
+/* include <multiRest> */
 
-mei::Multirpt::Multirpt() :
+mei::MultiRpt::MultiRpt() :
     MeiElement("multiRpt"),
     m_Common(this),
     m_Facsimile(this),
@@ -483,9 +508,10 @@ mei::Multirpt::Multirpt() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Multirpt, "multiRpt");
-mei::Multirpt::~Multirpt() {}
+REGISTER_DEFINITION(mei::MultiRpt, "multiRpt");
+mei::MultiRpt::~MultiRpt() {}
 
+/* include <multiRpt> */
 
 mei::Octave::Octave() :
     MeiElement("octave"),
@@ -516,6 +542,7 @@ mei::Octave::Octave() :
 REGISTER_DEFINITION(mei::Octave, "octave");
 mei::Octave::~Octave() {}
 
+/* include <octave> */
 
 mei::Ossia::Ossia() :
     MeiElement("ossia"),
@@ -528,6 +555,7 @@ mei::Ossia::Ossia() :
 REGISTER_DEFINITION(mei::Ossia, "ossia");
 mei::Ossia::~Ossia() {}
 
+/* include <ossia> */
 
 mei::Pedal::Pedal() :
     MeiElement("pedal"),
@@ -555,6 +583,7 @@ mei::Pedal::Pedal() :
 REGISTER_DEFINITION(mei::Pedal, "pedal");
 mei::Pedal::~Pedal() {}
 
+/* include <pedal> */
 
 mei::Reh::Reh() :
     MeiElement("reh"),
@@ -578,6 +607,7 @@ mei::Reh::Reh() :
 REGISTER_DEFINITION(mei::Reh, "reh");
 mei::Reh::~Reh() {}
 
+/* include <reh> */
 
 mei::Slur::Slur() :
     MeiElement("slur"),
@@ -612,6 +642,7 @@ mei::Slur::Slur() :
 REGISTER_DEFINITION(mei::Slur, "slur");
 mei::Slur::~Slur() {}
 
+/* include <slur> */
 
 mei::Tie::Tie() :
     MeiElement("tie"),
@@ -654,12 +685,28 @@ std::vector<mei::MeiElement*> mei::Tie::getMembers() {
     MeiElement* startElement = doc->getElementById(startid);
     MeiElement* endElement = doc->getElementById(endid);
 
+    vector<MeiElement*> flat = doc->getFlattenedTree();
     vector<MeiElement*> res;
-    res.push_back(startElement);
-    res.push_back(endElement);
+    string staff = this->attachedToStaff();
 
+    for (unsigned int i = startElement->getPositionInDocument(); i <= endElement->getPositionInDocument(); ++i) {
+        if (flat[i]->getName() == "note" || flat[i]->getName() == "rest") {
+            if(flat[i]->getAncestor("staff")->getAttribute("n")->getValue() == staff) {
+                res.push_back(flat[i]);
+            }
+        }
+    }
     return res;
 }
+
+string mei::Tie::attachedToStaff() {
+    return this->getAttribute("staff")->getValue();
+}
+
+MeiElement* mei::Tie::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 
 mei::Tuplet::Tuplet() :
@@ -686,12 +733,13 @@ mei::Tuplet::Tuplet() :
 REGISTER_DEFINITION(mei::Tuplet, "tuplet");
 mei::Tuplet::~Tuplet() {}
 
+/* include <tuplet> */
 
-mei::Tupletspan::Tupletspan() :
+mei::TupletSpan::TupletSpan() :
     MeiElement("tupletSpan"),
     m_Common(this),
     m_Facsimile(this),
-    m_TupletspanLog(this),
+    m_TupletSpanLog(this),
     m_Plist(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -709,9 +757,10 @@ mei::Tupletspan::Tupletspan() :
     m_Alignment(this)
 {
 }
-REGISTER_DEFINITION(mei::Tupletspan, "tupletSpan");
-mei::Tupletspan::~Tupletspan() {}
+REGISTER_DEFINITION(mei::TupletSpan, "tupletSpan");
+mei::TupletSpan::~TupletSpan() {}
 
+/* include <tupletSpan> */
 
 
 

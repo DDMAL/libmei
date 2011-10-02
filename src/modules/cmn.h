@@ -60,6 +60,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
         Arpeg();
         virtual ~Arpeg();
 
+/* include <arpeg> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -95,15 +96,16 @@ class MEI_EXPORT Arpeg : public MeiElement {
  *  <chord> element for a complete visual representation. See Read, p. 394, ex.
  *  23-21, line 5.
  */
-class MEI_EXPORT Btrem : public MeiElement {
+class MEI_EXPORT BTrem : public MeiElement {
     public:
-        Btrem();
-        virtual ~Btrem();
+        BTrem();
+        virtual ~BTrem();
 
+/* include <bTrem> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        BtremLogMixIn    m_BtremLog;
+        BTremLogMixIn    m_BTremLog;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -115,7 +117,7 @@ class MEI_EXPORT Btrem : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Btrem);
+        REGISTER_DECLARATION(BTrem);
 };
 
 /** \brief beam ― A container for a series of explicitly beamed events that begins and
@@ -132,6 +134,7 @@ class MEI_EXPORT Beam : public MeiElement {
         Beam();
         virtual ~Beam();
 
+/* include <beam> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -156,11 +159,12 @@ class MEI_EXPORT Beam : public MeiElement {
  *  either a dur, dur.ges or endid attribute. It is a semantic error not to specify
  *  one starting and one ending type of attribute.
  */
-class MEI_EXPORT Beamspan : public MeiElement {
+class MEI_EXPORT BeamSpan : public MeiElement {
     public:
-        Beamspan();
-        virtual ~Beamspan();
+        BeamSpan();
+        virtual ~BeamSpan();
 
+/* include <beamSpan> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -179,7 +183,7 @@ class MEI_EXPORT Beamspan : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Beamspan);
+        REGISTER_DECLARATION(BeamSpan);
 };
 
 /** \brief beat repeat ― An indication that material on a preceding beat should be
@@ -189,11 +193,12 @@ class MEI_EXPORT Beamspan : public MeiElement {
  *  When these parts require durations longer or shorter than a beat, however, note
  *  elements with appropriately-shaped note heads should be employed.
  */
-class MEI_EXPORT Beatrpt : public MeiElement {
+class MEI_EXPORT BeatRpt : public MeiElement {
     public:
-        Beatrpt();
-        virtual ~Beatrpt();
+        BeatRpt();
+        virtual ~BeatRpt();
 
+/* include <beatRpt> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -201,7 +206,7 @@ class MEI_EXPORT Beatrpt : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
-        BeatrptVisMixIn    m_BeatrptVis;
+        BeatRptVisMixIn    m_BeatRptVis;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ExpandableMixIn    m_Expandable;
@@ -209,7 +214,7 @@ class MEI_EXPORT Beatrpt : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Beatrpt);
+        REGISTER_DECLARATION(BeatRpt);
 };
 
 /** \brief bend ― A variation in pitch (often micro-tonal) upwards or downwards during
@@ -228,6 +233,7 @@ class MEI_EXPORT Bend : public MeiElement {
         Bend();
         virtual ~Bend();
 
+/* include <bend> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -272,6 +278,7 @@ class MEI_EXPORT Breath : public MeiElement {
         Breath();
         virtual ~Breath();
 
+/* include <breath> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -305,11 +312,12 @@ class MEI_EXPORT Breath : public MeiElement {
  *  attribute records the number of slashes required — 4ths or 8ths=1, 16ths=2,
  *  32nds=3, 64ths=4, 128ths=5, 256ths=6.
  */
-class MEI_EXPORT Ftrem : public MeiElement {
+class MEI_EXPORT FTrem : public MeiElement {
     public:
-        Ftrem();
-        virtual ~Ftrem();
+        FTrem();
+        virtual ~FTrem();
 
+/* include <fTrem> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -318,12 +326,12 @@ class MEI_EXPORT Ftrem : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         SlashcountMixIn    m_Slashcount;
-        FtremGesMixIn    m_FtremGes;
+        FTremGesMixIn    m_FTremGes;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Ftrem);
+        REGISTER_DECLARATION(FTrem);
 };
 
 /** \brief fermata ― An indication placed over a note or rest to indicate that it should
@@ -343,6 +351,7 @@ class MEI_EXPORT Fermata : public MeiElement {
         Fermata();
         virtual ~Fermata();
 
+/* include <fermata> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -387,6 +396,7 @@ class MEI_EXPORT Gliss : public MeiElement {
         Gliss();
         virtual ~Gliss();
 
+/* include <gliss> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -430,6 +440,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
         Hairpin();
         virtual ~Hairpin();
 
+/* include <hairpin> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -463,11 +474,12 @@ class MEI_EXPORT Hairpin : public MeiElement {
 
 /** \brief half-measure repeat ― A half-measure repeat in any meter.
  */
-class MEI_EXPORT Halfmrpt : public MeiElement {
+class MEI_EXPORT HalfmRpt : public MeiElement {
     public:
-        Halfmrpt();
-        virtual ~Halfmrpt();
+        HalfmRpt();
+        virtual ~HalfmRpt();
 
+/* include <halfmRpt> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -486,7 +498,7 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Halfmrpt);
+        REGISTER_DECLARATION(HalfmRpt);
 };
 
 /** \brief harp pedal ― Harp pedal diagram.
@@ -495,15 +507,16 @@ class MEI_EXPORT Halfmrpt : public MeiElement {
  *  tstamp, tstamp.ges, tstamp.real or startid attribute. It is a semantic error not
  *  to specify a starting point attribute.
  */
-class MEI_EXPORT Harppedal : public MeiElement {
+class MEI_EXPORT HarpPedal : public MeiElement {
     public:
-        Harppedal();
-        virtual ~Harppedal();
+        HarpPedal();
+        virtual ~HarpPedal();
 
+/* include <harpPedal> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        HarppedalLogMixIn    m_HarppedalLog;
+        HarpPedalLogMixIn    m_HarpPedalLog;
         PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -522,7 +535,7 @@ class MEI_EXPORT Harppedal : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Harppedal);
+        REGISTER_DECLARATION(HarpPedal);
 };
 
 /** \brief measure rest ― Complete measure rest in any meter (Read, p.
@@ -530,11 +543,12 @@ class MEI_EXPORT Harppedal : public MeiElement {
  *  97-98). Automatically-generated numbering of consecutive measures of rest may be
  *  controlled via the multi.number attribute on the scoreDef or staffDef elements.
  */
-class MEI_EXPORT Mrest : public MeiElement {
+class MEI_EXPORT MRest : public MeiElement {
     public:
-        Mrest();
-        virtual ~Mrest();
+        MRest();
+        virtual ~MRest();
 
+/* include <mRest> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -558,7 +572,7 @@ class MEI_EXPORT Mrest : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Mrest);
+        REGISTER_DECLARATION(MRest);
 };
 
 /** \brief measure repeat ― An indication that the previous measure should be repeated.
@@ -566,11 +580,12 @@ class MEI_EXPORT Mrest : public MeiElement {
  *  The automated numbering of consecutive measures of rest may be controlled via
  *  the multi.number attribute on the scoreDef or staffDef elements.
  */
-class MEI_EXPORT Mrpt : public MeiElement {
+class MEI_EXPORT MRpt : public MeiElement {
     public:
-        Mrpt();
-        virtual ~Mrpt();
+        MRpt();
+        virtual ~MRpt();
 
+/* include <mRpt> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -585,17 +600,18 @@ class MEI_EXPORT Mrpt : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Mrpt);
+        REGISTER_DECLARATION(MRpt);
 };
 
 /** \brief 2-measure repeat ― An indication that the previous two measures should be
  *  repeated.
  */
-class MEI_EXPORT Mrpt2 : public MeiElement {
+class MEI_EXPORT MRpt2 : public MeiElement {
     public:
-        Mrpt2();
-        virtual ~Mrpt2();
+        MRpt2();
+        virtual ~MRpt2();
 
+/* include <mRpt2> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -610,7 +626,7 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Mrpt2);
+        REGISTER_DECLARATION(MRpt2);
 };
 
 /** \brief measure space ― Complete measure consisting of empty space in any meter.
@@ -618,11 +634,12 @@ class MEI_EXPORT Mrpt2 : public MeiElement {
  *  The automated numbering of consecutive measures of space may be controlled via
  *  the multi.number attribute on the scoreDef or staffDef elements.
  */
-class MEI_EXPORT Mspace : public MeiElement {
+class MEI_EXPORT MSpace : public MeiElement {
     public:
-        Mspace();
-        virtual ~Mspace();
+        MSpace();
+        virtual ~MSpace();
 
+/* include <mSpace> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -642,7 +659,7 @@ class MEI_EXPORT Mspace : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Mspace);
+        REGISTER_DECLARATION(MSpace);
 };
 
 /** \brief measure ― "Unit of musical time consisting of a fixed number of note-values of
@@ -658,6 +675,7 @@ class MEI_EXPORT Measure : public MeiElement {
         Measure();
         virtual ~Measure();
 
+/* include <measure> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
@@ -684,11 +702,12 @@ class MEI_EXPORT Measure : public MeiElement {
  *  The num attribute can used to store a number to be rendered along with the note.
  *  See Read, p. 102-105.
  */
-class MEI_EXPORT Multirest : public MeiElement {
+class MEI_EXPORT MultiRest : public MeiElement {
     public:
-        Multirest();
-        virtual ~Multirest();
+        MultiRest();
+        virtual ~MultiRest();
 
+/* include <multiRest> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -697,7 +716,7 @@ class MEI_EXPORT Multirest : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         NumberedMixIn    m_Numbered;
-        MultirestVisMixIn    m_MultirestVis;
+        MultiRestVisMixIn    m_MultiRestVis;
         AltsymMixIn    m_Altsym;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
@@ -705,7 +724,7 @@ class MEI_EXPORT Multirest : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Multirest);
+        REGISTER_DECLARATION(MultiRest);
 };
 
 /** \brief multi-repeat ― Multiple repeated measures.
@@ -715,11 +734,12 @@ class MEI_EXPORT Multirest : public MeiElement {
  *  non-standard practices often found in manuscript. The num attribute records the
  *  number of measures to be repeated.
  */
-class MEI_EXPORT Multirpt : public MeiElement {
+class MEI_EXPORT MultiRpt : public MeiElement {
     public:
-        Multirpt();
-        virtual ~Multirpt();
+        MultiRpt();
+        virtual ~MultiRpt();
 
+/* include <multiRpt> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -734,7 +754,7 @@ class MEI_EXPORT Multirpt : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Multirpt);
+        REGISTER_DECLARATION(MultiRpt);
 };
 
 /** \brief octave ― An indication that a passage should be performed one or more octaves
@@ -756,6 +776,7 @@ class MEI_EXPORT Octave : public MeiElement {
         Octave();
         virtual ~Octave();
 
+/* include <octave> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -799,6 +820,7 @@ class MEI_EXPORT Ossia : public MeiElement {
         Ossia();
         virtual ~Ossia();
 
+/* include <ossia> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -820,6 +842,7 @@ class MEI_EXPORT Pedal : public MeiElement {
         Pedal();
         virtual ~Pedal();
 
+/* include <pedal> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -857,6 +880,7 @@ class MEI_EXPORT Reh : public MeiElement {
         Reh();
         virtual ~Reh();
 
+/* include <reh> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -901,6 +925,7 @@ class MEI_EXPORT Slur : public MeiElement {
         Slur();
         virtual ~Slur();
 
+/* include <slur> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -944,7 +969,9 @@ class MEI_EXPORT Tie : public MeiElement {
         Tie();
         virtual ~Tie();
 
-        /** A comment to test the documentation **/
+        MeiElement* getSystem();
+        std::string attachedToStaff();
+
         std::vector<mei::MeiElement*> getMembers();
 
 
@@ -1000,6 +1027,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
         Tuplet();
         virtual ~Tuplet();
 
+/* include <tuplet> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1031,15 +1059,16 @@ class MEI_EXPORT Tuplet : public MeiElement {
  *  recorded using a dur, dur.ges or endid attribute. It is a semantic error not to
  *  specify one starting and one ending type of attribute.
  */
-class MEI_EXPORT Tupletspan : public MeiElement {
+class MEI_EXPORT TupletSpan : public MeiElement {
     public:
-        Tupletspan();
-        virtual ~Tupletspan();
+        TupletSpan();
+        virtual ~TupletSpan();
 
+/* include <tupletSpan> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TupletspanLogMixIn    m_TupletspanLog;
+        TupletSpanLogMixIn    m_TupletSpanLog;
         PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -1057,7 +1086,7 @@ class MEI_EXPORT Tupletspan : public MeiElement {
         AlignmentMixIn    m_Alignment;
 
     private:
-        REGISTER_DECLARATION(Tupletspan);
+        REGISTER_DECLARATION(TupletSpan);
 };
 }
 #endif  // CMN_H_

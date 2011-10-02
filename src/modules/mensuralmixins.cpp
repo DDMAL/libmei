@@ -427,51 +427,51 @@ void mei::RestVisMensuralMixIn::removeSpaces() {
     b->removeAttribute("spaces");
 };
 
-mei::StaffdefLogMensuralMixIn::StaffdefLogMensuralMixIn(MeiElement *b) {
+mei::StaffDefLogMensuralMixIn::StaffDefLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::StaffdefLogMensuralMixIn::~StaffdefLogMensuralMixIn() {}
-MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNum() {
+mei::StaffDefLogMensuralMixIn::~StaffDefLogMensuralMixIn() {}
+MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNum() {
     if (!b->hasAttribute("proport.num")) {
         throw AttributeNotFoundException("proport.num");
     }
     return b->getAttribute("proport.num");
 };
 
-void mei::StaffdefLogMensuralMixIn::setProportNum(std::string _proportnum) {
+void mei::StaffDefLogMensuralMixIn::setProportNum(std::string _proportnum) {
     if (!b->hasAttribute("proport.num")) {
         MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
         b->addAttribute(a);
     }
 };
 
-bool mei::StaffdefLogMensuralMixIn::hasProportNum() {
+bool mei::StaffDefLogMensuralMixIn::hasProportNum() {
     return b->hasAttribute("proport.num");
 };
 
-void mei::StaffdefLogMensuralMixIn::removeProportNum() {
+void mei::StaffDefLogMensuralMixIn::removeProportNum() {
     b->removeAttribute("proport.num");
 };
-MeiAttribute* mei::StaffdefLogMensuralMixIn::getProportNumbase() {
+MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNumbase() {
     if (!b->hasAttribute("proport.numbase")) {
         throw AttributeNotFoundException("proport.numbase");
     }
     return b->getAttribute("proport.numbase");
 };
 
-void mei::StaffdefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
+void mei::StaffDefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
     if (!b->hasAttribute("proport.numbase")) {
         MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
         b->addAttribute(a);
     }
 };
 
-bool mei::StaffdefLogMensuralMixIn::hasProportNumbase() {
+bool mei::StaffDefLogMensuralMixIn::hasProportNumbase() {
     return b->hasAttribute("proport.numbase");
 };
 
-void mei::StaffdefLogMensuralMixIn::removeProportNumbase() {
+void mei::StaffDefLogMensuralMixIn::removeProportNumbase() {
     b->removeAttribute("proport.numbase");
 };
 
