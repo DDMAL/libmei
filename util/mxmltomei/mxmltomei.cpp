@@ -46,7 +46,7 @@ int main (int argc, const char * argv[]) {
             using namespace mei;
             MXMLParser *p = new MXMLParser(finPath);
             p->begin();
-
+            p->output(foutPath);
             delete p;
             cout << "Conversion complete, wrote to file: " << foutPath << endl;
         } else if (in == MEI && out == MXML) {

@@ -20,7 +20,9 @@ MXMLParser::MXMLParser(const std::string mxmlFilePath)
 : mxmlFilePath(mxmlFilePath), doc(NULL), meiDoc(NULL) {
 }
 
-MXMLParser::~MXMLParser() {};
+MXMLParser::~MXMLParser() {
+    delete meiDoc;    
+};
 
 void MXMLParser::begin() {
     // validate XML DTD and read file into memory in tree format (DOM)
@@ -45,11 +47,12 @@ void MXMLParser::begin() {
             // MusicXMS file is score-timewise, continue conversion
             std::cout << "Converting to MEI format ..." << std::endl;
 
-            meiDoc = new mei::MeiDocument();
+            meiDoc = new MeiDocument();
+            
+            // TODO: if MusicXML opus tags present, convert to meiCorpus by calling convertToMei for each included movement
 
             convertToMei(rootElement);
             xmlFreeDoc(doc);
-            delete meiDoc;
         }
     } else {
         std::cerr << "Error: unable to open file " << mxmlFilePath << std::endl;
@@ -70,7 +73,7 @@ void MXMLParser::partToScore() {
     xmlDoc *result = xsltApplyStylesheet(xsl, doc, NULL);
 
     // debug
-	//xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/helloworld_timewise.xml", result);
+	// xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/Dichterliebe01_timewise.xml", result);
 
 	xmlFreeDoc(doc);
 	xsltFreeStylesheet(xsl);
@@ -80,19 +83,112 @@ void MXMLParser::partToScore() {
 }
 
 void MXMLParser::convertToMei(xmlNode *parentNode) {
+    using namespace mei;
+    Mei *m = new Mei();
+
+    /* MEI HEADER ELEMENTS */
+    MeiHead* mh = new MeiHead();
+    FileDesc *fd = new FileDesc();
+    TitleStmt *ts = new TitleStmt();
+    Title *t = new Title();
+    
+    ts->addChild(t);
+    fd->addChild(ts);
+    mh->addChild(fd);
+    m->addChild(mh);
+    meiDoc->setRootElement(m); // this will need to be modified once OPUS functionality is included
+
     for(xmlNodePtr curNode = parentNode->children; curNode; curNode = curNode->next) {
         if (curNode->type == XML_ELEMENT_NODE) {
             // handle element node
-            std::cout << "name: " << curNode->name << std::endl;
+            string eleName((const char *)curNode->name);
+            cout << "name: " << eleName << endl;
 
-            // check for attributes
-            std::string id = "";
+            /* MEIHEAD ELEMENTS */
+            if (eleName == "work") {
+                //fd->addChild(handleWork(curNode));
+            } else if (eleName == "movement-number") {
+                xmlChar * c = xmlNodeGetContent(curNode);
+                if(c) {
+                    /*Identifier *id = new Identifier();
+                    id->setValue(string((const char *)c));
+                    t->addChild(id);*/
+                }
+                xmlFree(c);
+            } else if (eleName == "movement-title") {
+                xmlChar * c = xmlNodeGetContent(curNode);
+                if(c) {
+                    t->setValue(string((const char *)c));
+                    t->m_Typed.setType("main");
+                }
+                xmlFree(c);
+            } else if (eleName == "identification") {
+                handleIdentification(curNode, t, fd);
+            } else if (eleName == "defaults") {
+
+            } else if (eleName == "credit") {
+                // may be multiple credits
+            } else if (eleName == "part-list") {
+
+            } else if (eleName == "measure") {
+                // may be multiple measures
+            }
+        } else if (curNode->type == XML_COMMENT_NODE) {
+            // add xml comment
+            // string((const char*)curNode->content);
+            continue;
+        }
+    }
+}
+
+void MXMLParser::output(const string outputPath) {
+    XmlExport::meiDocumentToFile(meiDoc, outputPath);
+}
+
+/* ask Andrew about series
+mei::SeriesStmt * MXMLParser::handleWork(xmlNode *workNode) {
+    using namespace mei;
+    SeriesStmt * ss = new SeriesStmt();
+
+    for(xmlNodePtr curNode = workNode->children; curNode; curNode = curNode->next) {
+        if (curNode->type == XML_ELEMENT_NODE) {
+            string eleName((const char *)curNode->name);
+
+            if (eleName == "work-number") {
+                xmlChar * c = xmlNodeGetContent(curNode);
+                if(c) {
+                    
+                }
+                xmlFree(c);
+            } else if (eleName == "work-title") {
+                xmlChar * c = xmlNodeGetContent(curNode);
+                if(c) {
+                    
+                }
+                xmlFree(c);
+            } else if (eleName == "opus") {
+                // TODO: handle opus tag
+                continue;
+            }
+        }
+    }
+    return ss;
+}
+*/
+
+void MXMLParser::handleIdentification(xmlNode *curNode, mei::Title *t, mei::FileDesc *fd) {
+    // parse identification tags. 
+    // add creator tags -> respstmt to title parent
+    // add encoding tags -> sourcedesc to filedesc parent
+}
+
+
+
+        // check for element attributes
+            /*std::string id = "";
             if (curNode->properties) {
                 for (xmlAttr *curattr = curNode->properties; curattr; curattr = curattr->next) {
                     if (curattr->atype == XML_ATTRIBUTE_ID) {
-                        /* we store the ID on the element, not as an attribute. This will be serialized out
-                         *   on export
-                         */
                         id = (const char*)curattr->children->content;
                     } else {
                         string attrname = (const char*)curattr->name;
@@ -100,22 +196,18 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
                         string attrvalue = (const char*)curattr->children->content;
                         
                         // do something with attribute
-                        cout << "attr: " << attrname << "=" << attrvalue << endl; 
+                        //cout << "attr: " << attrname << "=" << attrvalue << endl;
                     }
                 }
             }
-            convertToMei(curNode);
-        } else if (curNode->type == XML_TEXT_NODE) {
-            std::string content = std::string((char*)curNode->content); 
-            // check if content is only whitespaces
-            content.erase(remove_if(content.begin(), content.end(), isspace), content.end());
-            if (!content.empty()) {
-                // inject content
-                std::cout << "content: " << content << std::endl;
+
+            // check for content
+            if (curNode->children && curNode->children->type == XML_TEXT_NODE) {
+                string content = string((char*)curNode->children->content); 
+                // check if content is only whitespaces
+                content.erase(remove_if(content.begin(), content.end(), isspace), content.end());
+                if (!content.empty()) {
+                    // inject content
+                    //std::cout << "content: " << content << std::endl;
+                }
             }
-        } else if (curNode->type == XML_COMMENT_NODE) {
-            // add xml comment
-            // string((const char*)curNode->content);
-        }
-    }
-}

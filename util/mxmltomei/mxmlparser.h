@@ -15,9 +15,11 @@
 #include <libxml/tree.h>
 #include <libxslt/xsltInternals.h>
 #include <libxslt/transform.h>
-
-#include "meidocument.h"
-#include "mei.h"
+    
+#include <mei/shared.h>
+#include <mei/header.h>
+#include <mei/cmn.h>
+#include <mei/xmlexport.h>
 
 namespace mei {
 
@@ -28,14 +30,17 @@ class MXMLParser
         ~MXMLParser();
 
         void begin();
+        void output(const std::string outputPath);
 
     private:
         const std::string mxmlFilePath;
         xmlDoc *doc;
-        mei::MeiDocument *meiDoc;
+        MeiDocument *meiDoc;
 
         void partToScore();
         void convertToMei(xmlNode *node);
+        SeriesStmt * handleWork(xmlNode *workNode);
+        void handleIdentification(xmlNode *curNode, Title *t, FileDesc *fd);
     };
 }
 
