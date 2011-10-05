@@ -66,6 +66,13 @@ public:
     ~NoVersionFoundException() throw() {}
 };
 
+class MEI_EXPORT ElementNotRegisteredException : public MeiException {
+public:
+    explicit ElementNotRegisteredException(const std::string &what) :
+    MeiException("That element name " + what + " was not registered with the factory and could not be created.") {}
+    ~ElementNotRegisteredException() throw() {}
+};
+
 
 class MEI_EXPORT FooBarException : public MeiException {
 public:

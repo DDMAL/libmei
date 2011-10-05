@@ -335,10 +335,10 @@ struct MeiFactory {
      * macros. The ID is optional. If it is not given, a new ID will be generated.
      * \return an instance of the element, or NULL if the type doesn't exist.
      */
-    static MeiElement* createInstance(std::string const& s, std::string const& id) {
+    static MeiElement* createInstance(std::string const& s, std::string const& id) throw(ElementNotRegisteredException) {
         default_map::iterator it = getMap()->find(s);
         if (it == getMap()->end()) {
-            return NULL;
+            throw ElementNotRegisteredException(s);
         }
         return it->second(id);
     }
