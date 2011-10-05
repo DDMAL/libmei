@@ -20,13 +20,13 @@ using mei::Layer;
 
 
 // Testing the shared module, since it's the biggest of them all. If this works, the others should too...
-TEST(MeiShared, NoteConstructorTest) {
+TEST(TestMeiShared, NoteConstructorTest) {
     Note* n = new Note();
     
     ASSERT_EQ("note", n->getName());
 };
 
-TEST(MeiShared, NoteDefinedMethodsTest) {
+TEST(TestMeiShared, NoteDefinedMethodsTest) {
     // some methods are defined on Note(), and some are defined on a mixin.
     // test the methods that are defined on note first.
     
@@ -45,7 +45,7 @@ TEST(MeiShared, NoteDefinedMethodsTest) {
     ASSERT_FALSE(n->m_NoteLogMensural.hasLig());
 }
 
-TEST(MeiShared, NoteDefinedBaseMethodsTest) {
+TEST(TestMeiShared, NoteDefinedBaseMethodsTest) {
     //test the interaction between the defined methods and the base methods.
     Note * n = new Note();
     
@@ -60,7 +60,7 @@ TEST(MeiShared, NoteDefinedBaseMethodsTest) {
     ASSERT_FALSE(n->m_NoteVis.hasHeadshape());
 }
 
-TEST(MeiShared, NoteMixinMethodsTest) {
+TEST(TestMeiShared, NoteMixinMethodsTest) {
     Note *n = new Note();
     
     ASSERT_FALSE(n->m_Color.hasColor());
@@ -73,7 +73,7 @@ TEST(MeiShared, NoteMixinMethodsTest) {
 }
 
 
-TEST(MeiShared, NoteMixinBaseMethodsTest) {
+TEST(TestMeiShared, NoteMixinBaseMethodsTest) {
     // test the interaction between the special mixins and the base methods.
     Note *n = new Note();
     
@@ -86,7 +86,7 @@ TEST(MeiShared, NoteMixinBaseMethodsTest) {
     ASSERT_FALSE(n->m_Color.hasColor());
 }
 
-TEST(MeiShared, NamespacedElementTest) {
+TEST(TestMeiShared, NamespacedElementTest) {
     Note* n = new Note();
     n->m_Common.setBase("foobar");
     ASSERT_TRUE(n->m_Common.hasBase());

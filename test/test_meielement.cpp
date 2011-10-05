@@ -30,12 +30,12 @@ using mei::Accid;
 using mei::Note;
 
 
-TEST(MeiElementTest, TestConstructor) {
+TEST(TestMeiElement, TestConstructor) {
     MeiElement *m = new MeiElement("note");
     ASSERT_EQ("note", m->getName());
 }
 
-TEST(MeiElementTest, TestGetSet) {
+TEST(TestMeiElement, TestGetSet) {
     MeiElement *p = new MeiElement("p");
     p->setValue("this is a sentence");
     ASSERT_EQ("this is a sentence", p->getValue());
@@ -49,13 +49,13 @@ TEST(MeiElementTest, TestGetSet) {
     ASSERT_EQ("somenamespace", p->getNs());
 }
 
-TEST(MeiElementTest, TestGetNoAttribute) {
+TEST(TestMeiElement, TestGetNoAttribute) {
     MeiElement *p = new MeiElement("note");
     ASSERT_EQ(NULL, p->getAttribute("color"));
 }
 
 // Adding an attribute to an element sets the attr's element.
-TEST(MeiElementTest, TestAttributeLink) {
+TEST(TestMeiElement, TestAttributeLink) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *a = new MeiAttribute("pname", "c");
     p->addAttribute(a);
@@ -73,7 +73,7 @@ TEST(MeiElementTest, TestAttributeLink) {
     ASSERT_EQ(p, c->getElement());
 }
 
-TEST(MeiElementTest, TestGetSetHasAttributes) {
+TEST(TestMeiElement, TestGetSetHasAttributes) {
     MeiElement *p = new MeiElement("note");
 
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");
@@ -95,7 +95,7 @@ TEST(MeiElementTest, TestGetSetHasAttributes) {
     ASSERT_EQ(2, p->getAttributes().size());
 }
 
-TEST(MeiElementTest, TestAddAttribute) {
+TEST(TestMeiElement, TestAddAttribute) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");
     MeiAttribute *attr2 = new MeiAttribute("pname", "d");
@@ -108,7 +108,7 @@ TEST(MeiElementTest, TestAddAttribute) {
     ASSERT_EQ("d", p->getAttribute("pname")->getValue());
 }
 
-TEST(MeiElementTest, TestAddAttributeByStrings) {
+TEST(TestMeiElement, TestAddAttributeByStrings) {
     MeiElement *p = new MeiElement("note");
     p->addAttribute("pname", "c");
     
@@ -116,7 +116,7 @@ TEST(MeiElementTest, TestAddAttributeByStrings) {
     ASSERT_EQ("c", p->getAttribute("pname")->getValue());
 }
 
-TEST(MeiElementTest, TestRemoveAttribute) {
+TEST(TestMeiElement, TestRemoveAttribute) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");
 
@@ -127,7 +127,7 @@ TEST(MeiElementTest, TestRemoveAttribute) {
     ASSERT_FALSE(p->hasAttribute("pname"));
 }
 
-TEST(MeiElementTest, TestConstGetAttributes) {
+TEST(TestMeiElement, TestConstGetAttributes) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");
     MeiAttribute *attr2 = new MeiAttribute("oct", "4");    
@@ -144,7 +144,7 @@ TEST(MeiElementTest, TestConstGetAttributes) {
 }
 
 // If we get a pointer to an attribute, we can change it
-TEST(MeiElementTest, TestChangeAttributeValue) {
+TEST(TestMeiElement, TestChangeAttributeValue) {
     MeiElement *p = new MeiElement("note");
     MeiAttribute *attr1 = new MeiAttribute("pname", "c");
     p->addAttribute(attr1);
@@ -154,7 +154,7 @@ TEST(MeiElementTest, TestChangeAttributeValue) {
     ASSERT_EQ("d", p->getAttribute("pname")->getValue());
 }
 
-TEST(MeiElementTest, TestGetSetParent) {
+TEST(TestMeiElement, TestGetSetParent) {
     MeiElement *s = new Staff();
     MeiElement *n = new Note();
     ASSERT_EQ(NULL, n->getParent());
@@ -168,7 +168,7 @@ TEST(MeiElementTest, TestGetSetParent) {
     ASSERT_EQ(n->getParent()->getName(), "layer");
 }
 
-TEST(MeiElementTest, TestAddChild) {
+TEST(TestMeiElement, TestAddChild) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
     c1->addAttribute(new MeiAttribute("x", "y"));
@@ -185,7 +185,7 @@ TEST(MeiElementTest, TestAddChild) {
     ASSERT_EQ(2, p->getChildren().size());
 }
 
-TEST(MeiElementTest, TestAddChildWithParent) {
+TEST(TestMeiElement, TestAddChildWithParent) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
     
@@ -193,7 +193,7 @@ TEST(MeiElementTest, TestAddChildWithParent) {
     ASSERT_EQ(p, c1->getParent());
 }
 
-TEST(MeiElementTest, TestAddChildBefore) {
+TEST(TestMeiElement, TestAddChildBefore) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new MeiElement("accid");
     MeiElement *c2 = new MeiElement("accid");
@@ -218,7 +218,7 @@ TEST(MeiElementTest, TestAddChildBefore) {
     ASSERT_EQ(4, p->getChildren().size());
 }
 
-TEST(MeiElementTest, TestSetChildren) {
+TEST(TestMeiElement, TestSetChildren) {
     MeiElement *p = new Note();
     MeiElement *ch1 = new Accid();
     MeiElement *ch2 = new mei::Dot();
@@ -240,7 +240,7 @@ TEST(MeiElementTest, TestSetChildren) {
     ASSERT_EQ(3, p->getChildren().size());
 }
 
-TEST(MeiElementTest, TestHasChildren) {
+TEST(TestMeiElement, TestHasChildren) {
     MeiElement *p = new Note();
     ASSERT_FALSE(p->hasChildren());
     
@@ -250,7 +250,7 @@ TEST(MeiElementTest, TestHasChildren) {
     ASSERT_FALSE(p->hasChildren("artic"));
 }
 
-TEST(MeiElementTest, TestConstGetChildren) {
+TEST(TestMeiElement, TestConstGetChildren) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c2 = new Accid();
     MeiElement *c3 = new Note();
@@ -265,7 +265,7 @@ TEST(MeiElementTest, TestConstGetChildren) {
     ASSERT_EQ(2, p->getChildren().size());
 }
 
-TEST(MeiElementTest, TestGetChildrenByName) {
+TEST(TestMeiElement, TestGetChildrenByName) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
     MeiElement *c2 = new Accid();
@@ -280,7 +280,7 @@ TEST(MeiElementTest, TestGetChildrenByName) {
     ASSERT_EQ(2, get.size());  
 }
 
-TEST(MeiElementTest, TestChangeChildValue) {
+TEST(TestMeiElement, TestChangeChildValue) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c = new Note();
     c->addAttribute(new MeiAttribute("pname", "c"));
@@ -290,7 +290,7 @@ TEST(MeiElementTest, TestChangeChildValue) {
     ASSERT_EQ("d", p->getChildren()[0]->getAttribute("pname")->getValue());
 }
 
-TEST(MeiElementTest, TestRemoveChild) {
+TEST(TestMeiElement, TestRemoveChild) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
 
@@ -303,7 +303,7 @@ TEST(MeiElementTest, TestRemoveChild) {
     ASSERT_EQ(0, p->getChildren().size());
 }
 
-TEST(MeiElementTest, TestRemoveChildByName) {
+TEST(TestMeiElement, TestRemoveChildByName) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
     MeiElement *c2 = new Accid();
@@ -324,7 +324,7 @@ TEST(MeiElementTest, TestRemoveChildByName) {
     ASSERT_TRUE(p->hasChildren("note"));
 }
 
-TEST(MeiElementTest, TestDeleteChildren) {
+TEST(TestMeiElement, TestDeleteChildren) {
     MeiElement *p = new MeiElement("note");
     MeiElement *c1 = new Accid();
     MeiElement *c2 = new Accid();
@@ -340,7 +340,7 @@ TEST(MeiElementTest, TestDeleteChildren) {
     ASSERT_EQ(0, p->getChildren().size());
 }
 
-TEST(MeiElementTest, GetAncestorTest) {
+TEST(TestMeiElement, GetAncestorTest) {
     MeiElement *m1 = new MeiElement("music");
     string musicId = m1->getId();
     MeiElement *b1 = new MeiElement("body");
@@ -364,7 +364,7 @@ TEST(MeiElementTest, GetAncestorTest) {
     ASSERT_EQ(NULL, a1->getAncestor("mei"));
 }
 
-TEST(MeiElementTest, GetDescendentsTest) {
+TEST(TestMeiElement, GetDescendentsTest) {
     MeiElement *m1 = new MeiElement("music");
     string musicId = m1->getId();
     MeiElement *b1 = new MeiElement("body");
@@ -386,7 +386,7 @@ TEST(MeiElementTest, GetDescendentsTest) {
     
 }
 
-TEST(MeiElementTest, GetPeersTest) {
+TEST(TestMeiElement, GetPeersTest) {
     MeiElement *m1 = new MeiElement("music");
     string musicId = m1->getId();
     MeiElement *b1 = new MeiElement("body");
@@ -415,7 +415,7 @@ TEST(MeiElementTest, GetPeersTest) {
     
 }
 
-TEST(MeiElementTest, GetPositionInDocument) {
+TEST(TestMeiElement, GetPositionInDocument) {
     MeiElement* m = new MeiElement("mei");
     MeiElement *m1 = new MeiElement("music");
     string musicId = m1->getId();
