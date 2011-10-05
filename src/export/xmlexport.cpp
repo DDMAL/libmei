@@ -94,7 +94,7 @@ XmlExportImpl::~XmlExportImpl() {
 void XmlExportImpl::init() {
     MeiElement *root = this->meiDocument->getRootElement();
     // Copy the version from the document into the root element
-    static_cast<Mei*>(root)->m_Meiversion.setMeiversion(meiDocument->getVersion());
+    root->addAttribute("meiversion", meiDocument->getVersion());
 
     xmlNode* xroot = this->meiElementToXmlNode(root);
 
