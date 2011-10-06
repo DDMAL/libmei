@@ -40,7 +40,7 @@ class MXMLParser
         void partToScore();
         void convertToMei(xmlNode *node);
         SeriesStmt * handleWork(xmlNode *workNode);
-        void handleIdentification(xmlNode *curNode, Title *t, FileDesc *fd);
+        void handleIdentification(xmlNode *identNode, TitleStmt *ts);
     };
 }
 
