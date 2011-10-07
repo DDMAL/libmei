@@ -76,6 +76,11 @@ class MEI_EXPORT MeiDocument {
          */
         std::vector<MeiElement*> getElementsByName(std::string name);
 
+        /** \brief Gets an element's position in the flattened
+         *      tree representation.
+         */
+        int getPositionInDocument(MeiElement* element);
+
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 

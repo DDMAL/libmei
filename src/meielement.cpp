@@ -341,14 +341,7 @@ int mei::MeiElement::getPositionInDocument() {
     if (!this->document) {
         return -1;
     }
-
-    vector<MeiElement*> els = this->document->getFlattenedTree();
-    vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), this);
-    if (pos != els.end()) {
-        return pos - els.begin();
-    }
-    
-    return -1;  // this element was not found in the document
+    return this->document->getPositionInDocument(this);
 }
 
 void mei::MeiElement::print() {
