@@ -375,11 +375,11 @@ void mei::MeiElement::print(int level) {
     }
 }
 
-mei::MeiElement* mei::MeiElement::lookBack(string elName) {
+mei::MeiElement* mei::MeiElement::lookBack(string name) {
     if(!this->document) {
         return NULL;
     }
-    return this->document->lookBack(this, elName);
+    return this->document->lookBack(this, name);
 }
 
 const vector<mei::MeiElement*> mei::MeiElement::flatten() {
