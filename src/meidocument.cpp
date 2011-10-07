@@ -140,9 +140,9 @@ const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedTree() {
     return flattenedDoc;
 }
 
-MeiElement* mei::MeiDocument::lookBack(MeiElement* fromHere, std::string elName) {
+MeiElement* mei::MeiDocument::lookBack(MeiElement* from, std::string name) {
     // this skips the element at startpos, so that the first result is its immediate neighbour.
-    vector<MeiElement*>::iterator pos = find(flattenedDoc.begin(), flattenedDoc.end(), fromHere);
+    vector<MeiElement*>::iterator pos = find(flattenedDoc.begin(), flattenedDoc.end(), from);
     
     if (pos == flattenedDoc.end()) {
         return NULL;
@@ -157,7 +157,7 @@ MeiElement* mei::MeiDocument::lookBack(MeiElement* fromHere, std::string elName)
 
     // topsy turvy world, where ++ is actually -- (iterating backwards..sdrawkcab gnitareti)
     for (vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
-        if ((*iter) == fromHere) {
+        if ((*iter)->getName() == name) {
             return (*iter);
         }
     }
