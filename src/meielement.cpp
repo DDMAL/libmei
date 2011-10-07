@@ -317,6 +317,18 @@ vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     return res;
 }
 
+vector<mei::MeiElement*> mei::MeiElement::getDescendantsByName(string name) {
+    vector<mei::MeiElement*> res;
+    vector<mei::MeiElement*> desc = this->flatten();
+
+    for (vector<MeiElement*>::iterator iter = desc.begin(); iter != desc.end(); ++iter) {
+        if ((*iter)->getName() == name) {
+            res.push_back(*iter);
+        }
+    }
+    return res;
+}
+
 vector<mei::MeiElement*> mei::MeiElement::getPeers() {
     if (this->parent) {
         return this->parent->getChildren();

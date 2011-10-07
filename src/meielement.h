@@ -262,6 +262,12 @@ class MEI_EXPORT MeiElement
         std::vector<MeiElement*> getDescendants();
 
         /**
+         *  \brief Get all descendants of the current element that match
+         *     a given name
+         */
+        std::vector<MeiElement*> getDescendantsByName(std::string name);
+
+        /**
          *  \brief Get all the peer elements of the current element.
          *      Note that this will return a list of all the children
          *      of this objects parent, including itself. This is done
