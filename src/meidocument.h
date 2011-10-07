@@ -89,7 +89,7 @@ class MEI_EXPORT MeiDocument {
         
         /** \brief Returns the most immediate previous element elName, given a starting point
          */
-        MeiElement* lookBack(MeiElement* fromHere, std::string elName);
+        MeiElement* lookBack(MeiElement* from, std::string name);
 
     private:
         /** \brief Flattens the current document tree
