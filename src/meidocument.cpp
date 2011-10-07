@@ -148,8 +148,8 @@ MeiElement* mei::MeiDocument::lookBack(MeiElement* from, std::string name) {
         return NULL;
     }
     
-    /* since we'll be iterating backwards, we want to find the reverse
-     * difference, so we subtract the position from the size.
+    /* since we'll be iterating backwards from the <from> position, 
+     * we want to find the reverse difference. We subtract the position from the size.
      * We add 1 so that we can skip the element itself and start at the
      * preceding element.
      */
