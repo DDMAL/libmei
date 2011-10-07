@@ -1,6 +1,6 @@
-/*
- *  libmei: Music Encoding Initiative
+/** \mainpage
  *
+ * \htmlinclude README.html
  */
 
 #ifndef MEI_H_
