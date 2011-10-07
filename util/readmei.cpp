@@ -10,55 +10,41 @@ using std::endl;
 
 #include <mei/meielement.h>
 #include <mei/meidocument.h>
-#include <libxml/xmlreader.h>
+#include <mei/shared.h>
+#include <mei/cmn.h>
+#include <mei/meiattribute.h>
+
+#include <mei/xmlexport.h>
+#include <mei/xmlimport.h>
+
+using namespace mei;
 
 int main(int argc, char **argv) {
-    MeiNs ns1;
-    MeiNs ns2;
-    
-    ns1.href = "http://www.example1.com";
-    ns1.prefix = "link";
-    
-    ns2.href = "http://example12.ca";
-    ns2.prefix = "show";
-    
-    MeiElement* el = new MeiElement("mei", ns1);
-    MeiElement neume = MeiElement("neume", ns1);
-	MeiElement n = MeiElement("note", ns2); 
-	MeiElement o = MeiElement("octave", ns2);
-	MeiElement p = MeiElement("accidental", ns2);
+    MeiElement *el = new Mei();
+	MeiElement *n = new Note();
+	MeiElement *o = new Slur();
 
-    
-    MeiAttribute a1 = MeiAttribute("accid", "s");
-    MeiAttribute a2 = MeiAttribute("artic", "stacc");
-    MeiAttribute ver = MeiAttribute("meiversion", "2011-04");
-    
-    MeiAttribute b1 = MeiAttribute("accid", "f");
+    MeiAttribute *a1 = new MeiAttribute("accid", "s");
+    MeiAttribute *a2 = new MeiAttribute("artic", "stacc");
+    MeiAttribute *ver = new MeiAttribute("meiversion", "2011-04");
 
-    n.addAttribute(a1);
-    n.addAttribute(a2);
-    o.addAttribute(b1);
-    
-    neume.addChild(n);
-	neume.addChild(o);
-	neume.addChild(p);
-        
-    el->addChild(neume);
-   // el->print(4);
+    MeiAttribute *b1 = new MeiAttribute("accid", "f");
+
+    n->addAttribute(a1);
+    n->addAttribute(a2);
+    o->addAttribute(b1);
+
     el->addAttribute(ver);
-    
-    MeiDocument* meidoc = new MeiDocument("example1.xml","UTF-8");
+    el->addChild(n);
+    el->addChild(o);
+
+    MeiDocument* meidoc = new MeiDocument();
     meidoc->setRootElement(el);
-    
-    meidoc->WriteToXml(meidoc);
-    
-   // if (argc > 1) {
-    
-    MeiDocument* Doc = MeiDocument::ReadFromXml("example1.xml","UTF-8");
-    Doc->getRootElement()->print(4);
-    
-  //  }
-	
-    
+
+    XmlExport::meiDocumentToFile(meidoc, "example.mei");
+
+    MeiDocument* newdoc = XmlImport::documentFromFile("example.mei");
+    newdoc->getRootElement()->print();
+
 	return 0;
 }

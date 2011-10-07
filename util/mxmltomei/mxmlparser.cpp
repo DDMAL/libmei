@@ -75,6 +75,18 @@ void MXMLParser::partToScore() {
     // debug
 	// xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/Dichterliebe01_timewise.xml", result);
 
+    // debug :: for applying xslt to xml files
+    /*xsltStylesheet *xsl2 = xsltParseStylesheetFile((const xmlChar*)"/Users/gburlet/Documents/work/musicxml2mei-2.2.3.xsl");
+    if(!xsl2) {
+        std::cerr << "Error: can not find .xsl" << std::endl;
+        exit(0);
+    }
+
+    xmlDoc *result2 = xsltApplyStylesheet(xsl2, xmlReadFile("/Users/gburlet/Documents/work/Dichterliebe01.xml", NULL, 0), NULL);
+    xmlSaveFile("/Users/gburlet/Documents/work/libmei/util/mxmltomei/Dichterliebe01.mei", result2);
+
+    xsltFreeStylesheet(xsl2);*/
+
 	xmlFreeDoc(doc);
 	xsltFreeStylesheet(xsl);
     
@@ -91,8 +103,7 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
     FileDesc *fd = new FileDesc();
     TitleStmt *ts = new TitleStmt();
     Title *t = new Title();
-    
-    ts->addChild(t);
+        
     fd->addChild(ts);
     mh->addChild(fd);
     m->addChild(mh);
@@ -106,24 +117,31 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
 
             /* MEIHEAD ELEMENTS */
             if (eleName == "work") {
-                //fd->addChild(handleWork(curNode));
+                fd->addChild(handleWork(curNode));
             } else if (eleName == "movement-number") {
                 xmlChar * c = xmlNodeGetContent(curNode);
                 if(c) {
-                    /*Identifier *id = new Identifier();
+                    Identifier *id = new Identifier();
                     id->setValue(string((const char *)c));
-                    t->addChild(id);*/
+                    t->addChild(id);
                 }
                 xmlFree(c);
             } else if (eleName == "movement-title") {
                 xmlChar * c = xmlNodeGetContent(curNode);
                 if(c) {
                     t->setValue(string((const char *)c));
-                    t->m_Typed.setType("main");
+                    ts->addChild(t);
                 }
                 xmlFree(c);
             } else if (eleName == "identification") {
-                handleIdentification(curNode, t, fd);
+                handleIdentification(curNode, ts);
+
+                // copy filedesc to sourcedesc
+                SourceDesc *sd = new SourceDesc();
+                Source *src = new Source();
+                src->setChildren(fd->getChildren());
+                sd->addChild(src);
+                fd->addChild(sd);
             } else if (eleName == "defaults") {
 
             } else if (eleName == "credit") {
@@ -145,10 +163,11 @@ void MXMLParser::output(const string outputPath) {
     XmlExport::meiDocumentToFile(meiDoc, outputPath);
 }
 
-/* ask Andrew about series
+/* check this, may need to be under <workDesc> tag in MEI instead of <seriesDesc> */
 mei::SeriesStmt * MXMLParser::handleWork(xmlNode *workNode) {
     using namespace mei;
     SeriesStmt * ss = new SeriesStmt();
+    Identifier *id = NULL;
 
     for(xmlNodePtr curNode = workNode->children; curNode; curNode = curNode->next) {
         if (curNode->type == XML_ELEMENT_NODE) {
@@ -157,13 +176,21 @@ mei::SeriesStmt * MXMLParser::handleWork(xmlNode *workNode) {
             if (eleName == "work-number") {
                 xmlChar * c = xmlNodeGetContent(curNode);
                 if(c) {
-                    
+                    id = new Identifier();
+                    id->setValue(string((const char *)c));
+                    ss->addChild(id);
                 }
                 xmlFree(c);
             } else if (eleName == "work-title") {
                 xmlChar * c = xmlNodeGetContent(curNode);
                 if(c) {
-                    
+                    Title *t = new Title();
+                    t->setValue(string((const char *)c));
+                    if (id) {
+                        ss->addChildBefore(id, t);
+                    } else {
+                        ss->addChild(t);
+                    }
                 }
                 xmlFree(c);
             } else if (eleName == "opus") {
@@ -174,12 +201,98 @@ mei::SeriesStmt * MXMLParser::handleWork(xmlNode *workNode) {
     }
     return ss;
 }
-*/
 
-void MXMLParser::handleIdentification(xmlNode *curNode, mei::Title *t, mei::FileDesc *fd) {
+void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
     // parse identification tags. 
     // add creator tags -> respstmt to title parent
     // add encoding tags -> sourcedesc to filedesc parent
+    using namespace mei;
+    
+    for(xmlNodePtr curNode = identNode->children; curNode; curNode = curNode->next) {
+        if (curNode->type == XML_ELEMENT_NODE) {
+            string eleName((const char *)curNode->name);
+
+            if (eleName == "creator") {
+                xmlChar * c = xmlNodeGetContent(curNode);
+                if(c) {
+                    RespStmt *rs = new RespStmt();
+                    
+                    Name *n = new Name();
+                    n->setValue(string((const char *)c));
+
+                    // get responsibility
+                    xmlChar type[] = "type";
+                    if (xmlHasProp(curNode, type)) {
+                        Resp *r = new Resp();
+                        xmlChar * resp = xmlGetProp(curNode, type);
+                        r->setValue(string((const char *)resp));
+                        rs->addChild(r);
+                        xmlFree(resp);
+                    }
+                    rs->addChild(n);
+                    ts->addChild(rs);
+                }
+                xmlFree(c);
+            } else if (eleName == "rights") {                
+                xmlChar * rights = xmlNodeGetContent(curNode);
+                if(rights) {
+                    PubStmt *ps = new PubStmt();
+                    Availability * a = new Availability();
+                    UseRestrict * ur = new UseRestrict();
+                    ur->setValue(string((const char *)rights));
+
+                    a->addChild(ur);
+                    ps->addChild(a);
+
+                    FileDesc *fd = dynamic_cast<FileDesc*>(ts->getAncestor("fileDesc"));
+                    fd->addChild(ps);
+                }
+                xmlFree(rights);
+            } else if (eleName == "encoding") {
+                EncodingDesc *ed = new EncodingDesc();
+                ProjectDesc *pd = new ProjectDesc();
+                P *lastP = NULL;
+
+                for(xmlNodePtr encodeNode = curNode->children; encodeNode; encodeNode = encodeNode->next) {
+                    if (curNode->type == XML_ELEMENT_NODE) {
+                        string encodeEleName((const char *)encodeNode->name);
+                        if (encodeEleName == "software") {
+                            P *p = new P();
+                            lastP = p;
+
+                            xmlChar * soft = xmlNodeGetContent(encodeNode);
+                            if(soft) {
+                                p->setValue(string((const char *)soft));
+                                pd->addChild(p);
+                            }
+                            xmlFree(soft);
+                        } else if (encodeEleName == "encoding-date") {
+                            Date *date = new Date();
+                            xmlChar * encDate = xmlNodeGetContent(encodeNode);
+                            if(encDate) {
+                                date->setValue(string((const char *)encDate));
+                                if (lastP) {
+                                    lastP->addChild(date);
+                                } else {
+                                    P *p = new P();
+                                    p->addChild(date);
+                                    pd->addChild(p);
+                                }
+                            }
+                            xmlFree(encDate);
+                        } else if (encodeEleName == "supports") {
+                            // TODO
+                            continue;
+                        }
+                    }
+                }
+
+                MeiHead *mh = dynamic_cast<MeiHead*>(ts->getAncestor("meiHead"));
+                ed->addChild(pd);
+                mh->addChild(ed);
+            }
+        }
+    }
 }
 
 
@@ -210,4 +323,4 @@ void MXMLParser::handleIdentification(xmlNode *curNode, mei::Title *t, mei::File
                     // inject content
                     //std::cout << "content: " << content << std::endl;
                 }
-            }
+            }*/
