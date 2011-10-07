@@ -303,6 +303,14 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
     return parent->getAncestor(name);
 }
 
+mei::MeiElement* mei::MeiElement::hasAncestor(string name) {
+    MeiElement* m = getAncestor(name);
+    if (m != NULL) {
+        return TRUE;
+    }
+    return FALSE
+}
+
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     vector<mei::MeiElement*> res = this->flatten();
     res.erase(res.begin());

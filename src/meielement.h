@@ -244,11 +244,17 @@ class MEI_EXPORT MeiElement
         bool hasChildren(std::string cname);
 
         /**
-         *  \brief Get the ancestor with a given name
+         *  \brief Get the ancestor with a given element name
          *
          *  \return MeiElement, or NULL if no ancestor is found.
          */
         MeiElement* getAncestor(std::string name);
+
+        /**
+         *  \brief Returns TRUE if this element has an ancestor element 
+         *     with a given name; FALSE otherwise
+         */   
+        bool hasAncestor(std::string name);
 
         /**
          *  \brief Get all descendants of the current element.
