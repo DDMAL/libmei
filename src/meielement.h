@@ -287,7 +287,7 @@ class MEI_EXPORT MeiElement
         /** \brief Looks backwards from this element. Wrapper around the document->lookBack()
          *     method.
          */
-        MeiElement* lookBack(std::string elName);
+        MeiElement* lookBack(std::string name);
         
         const std::vector<MeiElement*> flatten();
 
