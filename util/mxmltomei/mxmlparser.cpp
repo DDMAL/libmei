@@ -101,6 +101,8 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
     /* MEI HEADER ELEMENTS */
     MeiHead* mh = new MeiHead();
     FileDesc *fd = new FileDesc();
+    SourceDesc *sd = new SourceDesc();
+    Source *src = new Source();
     TitleStmt *ts = new TitleStmt();
     Title *t = new Title();
         
@@ -137,13 +139,11 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
                 handleIdentification(curNode, ts);
 
                 // copy filedesc to sourcedesc
-                SourceDesc *sd = new SourceDesc();
-                Source *src = new Source();
                 src->setChildren(fd->getChildren());
                 sd->addChild(src);
                 fd->addChild(sd);
             } else if (eleName == "defaults") {
-
+                //src->addChild(handleDefaults(curNode));
             } else if (eleName == "credit") {
                 // may be multiple credits
             } else if (eleName == "part-list") {
@@ -174,25 +174,23 @@ mei::SeriesStmt * MXMLParser::handleWork(xmlNode *workNode) {
             string eleName((const char *)curNode->name);
 
             if (eleName == "work-number") {
-                xmlChar * c = xmlNodeGetContent(curNode);
-                if(c) {
+                string c = getContent(curNode);
+                if(!c.empty()) {
                     id = new Identifier();
-                    id->setValue(string((const char *)c));
+                    id->setValue(c);
                     ss->addChild(id);
                 }
-                xmlFree(c);
             } else if (eleName == "work-title") {
-                xmlChar * c = xmlNodeGetContent(curNode);
-                if(c) {
+                string c = getContent(curNode);
+                if(!c.empty()) {
                     Title *t = new Title();
-                    t->setValue(string((const char *)c));
+                    t->setValue(c);
                     if (id) {
                         ss->addChildBefore(id, t);
                     } else {
                         ss->addChild(t);
                     }
                 }
-                xmlFree(c);
             } else if (eleName == "opus") {
                 // TODO: handle opus tag
                 continue;
@@ -213,33 +211,30 @@ void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
             string eleName((const char *)curNode->name);
 
             if (eleName == "creator") {
-                xmlChar * c = xmlNodeGetContent(curNode);
-                if(c) {
+                string c = getContent(curNode);
+                if(!c.empty()) {
                     RespStmt *rs = new RespStmt();
                     
                     Name *n = new Name();
-                    n->setValue(string((const char *)c));
+                    n->setValue(c);
 
                     // get responsibility
-                    xmlChar type[] = "type";
-                    if (xmlHasProp(curNode, type)) {
+                    string resp = getAttribute(curNode, "type");
+                    if (!resp.empty()) {
                         Resp *r = new Resp();
-                        xmlChar * resp = xmlGetProp(curNode, type);
-                        r->setValue(string((const char *)resp));
+                        r->setValue(resp);
                         rs->addChild(r);
-                        xmlFree(resp);
                     }
                     rs->addChild(n);
                     ts->addChild(rs);
                 }
-                xmlFree(c);
             } else if (eleName == "rights") {                
-                xmlChar * rights = xmlNodeGetContent(curNode);
-                if(rights) {
+                string rights = getContent(curNode);
+                if(!rights.empty()) {
                     PubStmt *ps = new PubStmt();
                     Availability * a = new Availability();
                     UseRestrict * ur = new UseRestrict();
-                    ur->setValue(string((const char *)rights));
+                    ur->setValue(rights);
 
                     a->addChild(ur);
                     ps->addChild(a);
@@ -247,7 +242,6 @@ void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
                     FileDesc *fd = dynamic_cast<FileDesc*>(ts->getAncestor("fileDesc"));
                     fd->addChild(ps);
                 }
-                xmlFree(rights);
             } else if (eleName == "encoding") {
                 EncodingDesc *ed = new EncodingDesc();
                 ProjectDesc *pd = new ProjectDesc();
@@ -260,17 +254,16 @@ void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
                             P *p = new P();
                             lastP = p;
 
-                            xmlChar * soft = xmlNodeGetContent(encodeNode);
-                            if(soft) {
-                                p->setValue(string((const char *)soft));
+                            string soft = getContent(encodeNode);
+                            if(!soft.empty()) {
+                                p->setValue(soft);
                                 pd->addChild(p);
                             }
-                            xmlFree(soft);
                         } else if (encodeEleName == "encoding-date") {
                             Date *date = new Date();
-                            xmlChar * encDate = xmlNodeGetContent(encodeNode);
-                            if(encDate) {
-                                date->setValue(string((const char *)encDate));
+                            string encDate = getContent(encodeNode);
+                            if(!encDate.empty()) {
+                                date->setValue(encDate);
                                 if (lastP) {
                                     lastP->addChild(date);
                                 } else {
@@ -279,7 +272,6 @@ void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
                                     pd->addChild(p);
                                 }
                             }
-                            xmlFree(encDate);
                         } else if (encodeEleName == "supports") {
                             // TODO
                             continue;
@@ -295,32 +287,57 @@ void MXMLParser::handleIdentification(xmlNode *identNode, mei::TitleStmt *ts) {
     }
 }
 
+/*mei::PhysDesc * MXMLParser::handleDefaults(xmlNode *defaultNode) {
+    
+} */
+
+/* Helper function */
+string MXMLParser::getContent(xmlNode *node) {
+    xmlChar * c = xmlNodeGetContent(node);
+    string content;
+    if(c) {
+        content.append((const char *)c);
+        // remove whitespace
+        content.erase(remove_if(content.begin(), content.end(), isspace), content.end());
+    }
+
+    xmlFree(c);
+    return content;
+}
+
+/* Helper function
+ * 
+ * Given an attribute name, retrieve the single attribute
+ */
+string MXMLParser::getAttribute(xmlNode *node, string attName) {
+    string att;
+    xmlChar *type = new xmlChar[attName.size()+1];
+    strcpy((char *)type, attName.c_str());
+    if (xmlHasProp(node, type)) {
+        xmlChar * attVal = xmlGetProp(node, type);
+        att.append((const char *)attVal);
+        xmlFree(attVal);
+    }
+    delete[] type;
+    return att;
+}
 
 
-        // check for element attributes
-            /*std::string id = "";
-            if (curNode->properties) {
-                for (xmlAttr *curattr = curNode->properties; curattr; curattr = curattr->next) {
-                    if (curattr->atype == XML_ATTRIBUTE_ID) {
-                        id = (const char*)curattr->children->content;
-                    } else {
-                        string attrname = (const char*)curattr->name;
-                        // values are rendered as children of the attribute
-                        string attrvalue = (const char*)curattr->children->content;
-                        
-                        // do something with attribute
-                        //cout << "attr: " << attrname << "=" << attrvalue << endl;
-                    }
-                }
+/*
+    // check for element attributes
+    std::string id = "";
+    if (curNode->properties) {
+        for (xmlAttr *curattr = curNode->properties; curattr; curattr = curattr->next) {
+            if (curattr->atype == XML_ATTRIBUTE_ID) {
+                id = (const char*)curattr->children->content;
+            } else {
+                string attrname = (const char*)curattr->name;
+                // values are rendered as children of the attribute
+                string attrvalue = (const char*)curattr->children->content;
+                
+                // do something with attribute
+                //cout << "attr: " << attrname << "=" << attrvalue << endl;
             }
-
-            // check for content
-            if (curNode->children && curNode->children->type == XML_TEXT_NODE) {
-                string content = string((char*)curNode->children->content); 
-                // check if content is only whitespaces
-                content.erase(remove_if(content.begin(), content.end(), isspace), content.end());
-                if (!content.empty()) {
-                    // inject content
-                    //std::cout << "content: " << content << std::endl;
-                }
-            }*/
+        }
+    }
+*/

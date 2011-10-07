@@ -39,8 +39,11 @@ class MXMLParser
 
         void partToScore();
         void convertToMei(xmlNode *node);
+        std::string getContent(xmlNode *node);
+        std::string getAttribute(xmlNode *node, std::string attName);
         SeriesStmt * handleWork(xmlNode *workNode);
         void handleIdentification(xmlNode *identNode, TitleStmt *ts);
+        //PhysDesc * handleDefaults(xmlNode *defaultNode);
     };
 }
 
