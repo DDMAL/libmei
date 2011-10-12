@@ -109,7 +109,8 @@
 		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1B63DA91445D89200029BB7 /* meicommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DA81445D89200029BB7 /* meicommon.h */; };
+		A1B63DA91445D89200029BB7 /* meicommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DA81445D89200029BB7 /* meicommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B63DAB1445DA3200029BB7 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DAA1445DA3200029BB7 /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
 		B2E397BB1401A52200161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -270,6 +271,7 @@
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
 		A1B63DA81445D89200029BB7 /* meicommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meicommon.h; path = src/meicommon.h; sourceTree = "<group>"; };
+		A1B63DAA1445DA3200029BB7 /* mei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mei.h; sourceTree = "<group>"; };
 		B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meidocument.cpp; path = test/test_meidocument.cpp; sourceTree = "<group>"; };
 		B2E397B514018B3E00161BD2 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 		B2E397BC1401B1E000161BD2 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
@@ -387,7 +389,6 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A1B63DA81445D89200029BB7 /* meicommon.h */,
 				0514A63F13FD6B8E00310111 /* Export */,
 				0514A63D13FD6B8500310111 /* Import */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
@@ -400,6 +401,8 @@
 				9B2EE931133117D700C94712 /* exceptions.h */,
 				053321C21402DBF400B89665 /* meinamespace.cpp */,
 				053321C31402DBF400B89665 /* meinamespace.h */,
+				A1B63DAA1445DA3200029BB7 /* mei.h */,
+				A1B63DA81445D89200029BB7 /* meicommon.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				053321CD1402F79700B89665 /* meinamespace.h in Headers */,
 				B2E397BE1401B7ED00161BD2 /* exceptions.h in Headers */,
 				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
+				A1B63DAB1445DA3200029BB7 /* mei.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

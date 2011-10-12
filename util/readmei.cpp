@@ -8,11 +8,10 @@
 using std::cout;
 using std::endl;
 
-#include <mei/meielement.h>
-#include <mei/meidocument.h>
+#include <mei/mei.h>
+
 #include <mei/shared.h>
 #include <mei/cmn.h>
-#include <mei/meiattribute.h>
 
 #include <mei/xmlexport.h>
 #include <mei/xmlimport.h>

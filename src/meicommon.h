@@ -3,8 +3,8 @@
  * \htmlinclude README.html
  */
 
-#ifndef MEI_H_
-#define MEI_H_
+#ifndef MEICOMMON_H_
+#define MEICOMMON_H_
 
 #include <string>
 
@@ -27,4 +27,4 @@ const std::string MEI_NS = "http://www.music-encoding.org/ns/mei";
 const std::string MEI_PREFIX = "mei";
 const std::string MEI_ENCODING = "UTF-8";
 
-#endif
+#endif  // MEICOMMON_H_
