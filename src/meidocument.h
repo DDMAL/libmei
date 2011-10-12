@@ -28,7 +28,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "mei.h"
+#include "meicommon.h"
 #include "meielement.h"
 #include "meinamespace.h"
 

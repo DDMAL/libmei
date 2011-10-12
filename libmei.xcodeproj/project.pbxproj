@@ -97,7 +97,6 @@
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
 		05CED9A5142A7292003A8CB6 /* test_cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CED9A2142A726F003A8CB6 /* test_cmn.cpp */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
-		61DBCCD71312C86F00B46918 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
 		825732E1142D09AA00F3868D /* mxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 825732E0142D09AA00F3868D /* mxmlparser.cpp */; };
@@ -110,6 +109,7 @@
 		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B63DA91445D89200029BB7 /* meicommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DA81445D89200029BB7 /* meicommon.h */; };
 		B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
 		B2E397BB1401A52200161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -251,7 +251,6 @@
 		05CED9A2142A726F003A8CB6 /* test_cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_cmn.cpp; path = test/test_cmn.cpp; sourceTree = "<group>"; };
 		5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiProj.xcconfig; sourceTree = "<group>"; };
 		5073E0C709E734A800EC74B6 /* libmeiTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiTarget.xcconfig; sourceTree = "<group>"; };
-		617B4322130450C900EBBE7F /* mei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mei.h; path = src/mei.h; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
 		617B43441304560400EBBE7F /* readmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readmei; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +269,7 @@
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
+		A1B63DA81445D89200029BB7 /* meicommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meicommon.h; path = src/meicommon.h; sourceTree = "<group>"; };
 		B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meidocument.cpp; path = test/test_meidocument.cpp; sourceTree = "<group>"; };
 		B2E397B514018B3E00161BD2 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 		B2E397BC1401B1E000161BD2 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
@@ -387,10 +387,10 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A1B63DA81445D89200029BB7 /* meicommon.h */,
 				0514A63F13FD6B8E00310111 /* Export */,
 				0514A63D13FD6B8500310111 /* Import */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
-				617B4322130450C900EBBE7F /* mei.h */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
 				9BE4E743131D570100A59F5D /* meielement.cpp */,
 				9B3CB63A13214C430054C2DC /* meiattribute.h */,
@@ -558,7 +558,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */,
-				61DBCCD71312C86F00B46918 /* mei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
 				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
 				0514A69213FDAB5200310111 /* analysismixins.h in Headers */,
@@ -601,6 +600,7 @@
 				B2E397BD1401B1E000161BD2 /* xmlexport.h in Headers */,
 				053321CD1402F79700B89665 /* meinamespace.h in Headers */,
 				B2E397BE1401B7ED00161BD2 /* exceptions.h in Headers */,
+				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

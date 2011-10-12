@@ -29,7 +29,7 @@
 #include <vector>
 #include <map>
 
-#include "mei.h"
+#include "meicommon.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 

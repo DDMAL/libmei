@@ -29,7 +29,7 @@
 #include "exceptions.h"
 /* #include_block */
 
-#include "mei.h"
+#include "meicommon.h"
 #include "sharedmixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"

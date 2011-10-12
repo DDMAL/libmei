@@ -13,7 +13,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "mei.h"
+#include "meicommon.h"
 
 namespace mei {
 

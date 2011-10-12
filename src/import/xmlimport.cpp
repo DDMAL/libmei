@@ -14,7 +14,6 @@
 #include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
-#include "mei.h"
 
 using std::string;
 using std::vector;
