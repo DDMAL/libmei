@@ -11,6 +11,10 @@
 #define MXMLPARSER_H
 
 #include <string>
+#include <vector>
+#include <map>
+#include <stdlib.h>
+#include <sstream>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <libxslt/xsltInternals.h>
@@ -43,7 +47,14 @@ class MXMLParser
         std::string getAttribute(xmlNode *node, std::string attName);
         SeriesStmt * handleWork(xmlNode *workNode);
         void handleIdentification(xmlNode *identNode, TitleStmt *ts);
-        //PhysDesc * handleDefaults(xmlNode *defaultNode);
+
+        /**
+         * \brief handles <part> tag
+         * \return map of part ID to part name
+         */
+        std::map<std::string,std::string> handleParts(xmlNode *partsNode);
+        void handlePartAttributes(xmlNode *attr, Score *score, std::string pname, bool createLocalScoreDef);
+        void handleMeasure(xmlNode *measureNode, Score *score, std::map<std::string,std::string> parts);
     };
 }
 
