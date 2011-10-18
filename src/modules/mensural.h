@@ -51,6 +51,7 @@ namespace mei {
 class MEI_EXPORT Ligature : public MeiElement {
     public:
         Ligature();
+        Ligature(const Ligature& other);
         virtual ~Ligature();
 
 /* include <ligature> */
@@ -76,6 +77,7 @@ class MEI_EXPORT Ligature : public MeiElement {
 class MEI_EXPORT Mensur : public MeiElement {
     public:
         Mensur();
+        Mensur(const Mensur& other);
         virtual ~Mensur();
 
 /* include <mensur> */
@@ -106,6 +108,7 @@ class MEI_EXPORT Mensur : public MeiElement {
 class MEI_EXPORT Proport : public MeiElement {
     public:
         Proport();
+        Proport(const Proport& other);
         virtual ~Proport();
 
 /* include <proport> */

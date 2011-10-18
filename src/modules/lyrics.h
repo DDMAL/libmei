@@ -51,6 +51,7 @@ namespace mei {
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
         Lyrics();
+        Lyrics(const Lyrics& other);
         virtual ~Lyrics();
 
 /* include <lyrics> */
@@ -78,6 +79,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
 class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
+        Verse(const Verse& other);
         virtual ~Verse();
 
 /* include <verse> */

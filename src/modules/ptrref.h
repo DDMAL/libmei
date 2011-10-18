@@ -43,6 +43,7 @@ namespace mei {
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
+        Ptr(const Ptr& other);
         virtual ~Ptr();
 
 /* include <ptr> */
@@ -64,6 +65,7 @@ class MEI_EXPORT Ptr : public MeiElement {
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
+        Ref(const Ref& other);
         virtual ~Ref();
 
 /* include <ref> */

@@ -48,6 +48,7 @@ namespace mei {
 class MEI_EXPORT Barre : public MeiElement {
     public:
         Barre();
+        Barre(const Barre& other);
         virtual ~Barre();
 
 /* include <barre> */
@@ -72,6 +73,7 @@ class MEI_EXPORT Barre : public MeiElement {
 class MEI_EXPORT ChordDef : public MeiElement {
     public:
         ChordDef();
+        ChordDef(const ChordDef& other);
         virtual ~ChordDef();
         /** \brief records the fret position at which the chord tablature is to be played.
          */
@@ -99,6 +101,7 @@ class MEI_EXPORT ChordDef : public MeiElement {
 class MEI_EXPORT ChordMember : public MeiElement {
     public:
         ChordMember();
+        ChordMember(const ChordMember& other);
         virtual ~ChordMember();
         /** \brief indicates which finger, if any, should be used to play an individual string.
          * 
@@ -130,6 +133,7 @@ class MEI_EXPORT ChordMember : public MeiElement {
 class MEI_EXPORT ChordTable : public MeiElement {
     public:
         ChordTable();
+        ChordTable(const ChordTable& other);
         virtual ~ChordTable();
 
 /* include <chordTable> */
@@ -145,6 +149,7 @@ class MEI_EXPORT ChordTable : public MeiElement {
 class MEI_EXPORT F : public MeiElement {
     public:
         F();
+        F(const F& other);
         virtual ~F();
         /** \brief indicates the presence of an extension symbol, typically a dash or underscore,
          *  drawn from the end of the harmonic indication to the point indicated by the dur
@@ -172,6 +177,7 @@ class MEI_EXPORT F : public MeiElement {
 class MEI_EXPORT Fb : public MeiElement {
     public:
         Fb();
+        Fb(const Fb& other);
         virtual ~Fb();
 
 /* include <fb> */
@@ -198,6 +204,7 @@ class MEI_EXPORT Fb : public MeiElement {
 class MEI_EXPORT Harm : public MeiElement {
     public:
         Harm();
+        Harm(const Harm& other);
         virtual ~Harm();
 
 /* include <harm> */

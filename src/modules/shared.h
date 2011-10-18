@@ -75,6 +75,7 @@ namespace mei {
 class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
+        Abbr(const Abbr& other);
         virtual ~Abbr();
         /** \brief records the expansion of a text abbreviation.
          */
@@ -112,6 +113,7 @@ class MEI_EXPORT Abbr : public MeiElement {
 class MEI_EXPORT Accid : public MeiElement {
     public:
         Accid();
+        Accid(const Accid& other);
         virtual ~Accid();
 
 /* include <accid> */
@@ -145,6 +147,7 @@ class MEI_EXPORT Accid : public MeiElement {
 class MEI_EXPORT Actor : public MeiElement {
     public:
         Actor();
+        Actor(const Actor& other);
         virtual ~Actor();
 
 /* include <actor> */
@@ -166,6 +169,7 @@ class MEI_EXPORT Actor : public MeiElement {
 class MEI_EXPORT AddrLine : public MeiElement {
     public:
         AddrLine();
+        AddrLine(const AddrLine& other);
         virtual ~AddrLine();
 
 /* include <addrLine> */
@@ -186,6 +190,7 @@ class MEI_EXPORT AddrLine : public MeiElement {
 class MEI_EXPORT Address : public MeiElement {
     public:
         Address();
+        Address(const Address& other);
         virtual ~Address();
 
 /* include <address> */
@@ -215,6 +220,7 @@ class MEI_EXPORT Address : public MeiElement {
 class MEI_EXPORT Annot : public MeiElement {
     public:
         Annot();
+        Annot(const Annot& other);
         virtual ~Annot();
 
 /* include <annot> */
@@ -253,6 +259,7 @@ class MEI_EXPORT Annot : public MeiElement {
 class MEI_EXPORT Artic : public MeiElement {
     public:
         Artic();
+        Artic(const Artic& other);
         virtual ~Artic();
 
 /* include <artic> */
@@ -292,6 +299,7 @@ class MEI_EXPORT Artic : public MeiElement {
 class MEI_EXPORT BarLine : public MeiElement {
     public:
         BarLine();
+        BarLine(const BarLine& other);
         virtual ~BarLine();
 
 /* include <barLine> */
@@ -323,6 +331,7 @@ class MEI_EXPORT BarLine : public MeiElement {
 class MEI_EXPORT Bibl : public MeiElement {
     public:
         Bibl();
+        Bibl(const Bibl& other);
         virtual ~Bibl();
 
 /* include <bibl> */
@@ -347,6 +356,7 @@ class MEI_EXPORT Bibl : public MeiElement {
 class MEI_EXPORT Body : public MeiElement {
     public:
         Body();
+        Body(const Body& other);
         virtual ~Body();
 
 /* include <body> */
@@ -363,6 +373,7 @@ class MEI_EXPORT Body : public MeiElement {
 class MEI_EXPORT Caption : public MeiElement {
     public:
         Caption();
+        Caption(const Caption& other);
         virtual ~Caption();
 
 /* include <caption> */
@@ -381,6 +392,7 @@ class MEI_EXPORT Caption : public MeiElement {
 class MEI_EXPORT CastGrp : public MeiElement {
     public:
         CastGrp();
+        CastGrp(const CastGrp& other);
         virtual ~CastGrp();
 
 /* include <castGrp> */
@@ -399,6 +411,7 @@ class MEI_EXPORT CastGrp : public MeiElement {
 class MEI_EXPORT CastItem : public MeiElement {
     public:
         CastItem();
+        CastItem(const CastItem& other);
         virtual ~CastItem();
 
 /* include <castItem> */
@@ -416,6 +429,7 @@ class MEI_EXPORT CastItem : public MeiElement {
 class MEI_EXPORT CastList : public MeiElement {
     public:
         CastList();
+        CastList(const CastList& other);
         virtual ~CastList();
 
 /* include <castList> */
@@ -434,6 +448,7 @@ class MEI_EXPORT CastList : public MeiElement {
 class MEI_EXPORT Chord : public MeiElement {
     public:
         Chord();
+        Chord(const Chord& other);
         virtual ~Chord();
 
 /* include <chord> */
@@ -489,6 +504,7 @@ class MEI_EXPORT Chord : public MeiElement {
 class MEI_EXPORT Clef : public MeiElement {
     public:
         Clef();
+        Clef(const Clef& other);
         virtual ~Clef();
 
 /* include <clef> */
@@ -514,6 +530,7 @@ class MEI_EXPORT Clef : public MeiElement {
 class MEI_EXPORT ClefGrp : public MeiElement {
     public:
         ClefGrp();
+        ClefGrp(const ClefGrp& other);
         virtual ~ClefGrp();
 
 /* include <clefGrp> */
@@ -542,6 +559,7 @@ class MEI_EXPORT ClefGrp : public MeiElement {
 class MEI_EXPORT Custos : public MeiElement {
     public:
         Custos();
+        Custos(const Custos& other);
         virtual ~Custos();
 
 /* include <custos> */
@@ -573,6 +591,7 @@ class MEI_EXPORT Custos : public MeiElement {
 class MEI_EXPORT Date : public MeiElement {
     public:
         Date();
+        Date(const Date& other);
         virtual ~Date();
         /** \brief provides a regularized, authorized value.
          */
@@ -612,6 +631,7 @@ class MEI_EXPORT Date : public MeiElement {
 class MEI_EXPORT Dir : public MeiElement {
     public:
         Dir();
+        Dir(const Dir& other);
         virtual ~Dir();
 
 /* include <dir> */
@@ -653,6 +673,7 @@ class MEI_EXPORT Dir : public MeiElement {
 class MEI_EXPORT Dot : public MeiElement {
     public:
         Dot();
+        Dot(const Dot& other);
         virtual ~Dot();
 
 /* include <dot> */
@@ -693,6 +714,7 @@ class MEI_EXPORT Dot : public MeiElement {
 class MEI_EXPORT Dynam : public MeiElement {
     public:
         Dynam();
+        Dynam(const Dynam& other);
         virtual ~Dynam();
 
 /* include <dynam> */
@@ -736,6 +758,7 @@ class MEI_EXPORT Dynam : public MeiElement {
 class MEI_EXPORT Edition : public MeiElement {
     public:
         Edition();
+        Edition(const Edition& other);
         virtual ~Edition();
 
 /* include <edition> */
@@ -758,6 +781,7 @@ class MEI_EXPORT Edition : public MeiElement {
 class MEI_EXPORT Ending : public MeiElement {
     public:
         Ending();
+        Ending(const Ending& other);
         virtual ~Ending();
 
 /* include <ending> */
@@ -793,6 +817,7 @@ class MEI_EXPORT Ending : public MeiElement {
 class MEI_EXPORT Expan : public MeiElement {
     public:
         Expan();
+        Expan(const Expan& other);
         virtual ~Expan();
         /** \brief captures the unabbreviated form of the text.
          */
@@ -829,6 +854,7 @@ class MEI_EXPORT Expan : public MeiElement {
 class MEI_EXPORT Expansion : public MeiElement {
     public:
         Expansion();
+        Expansion(const Expansion& other);
         virtual ~Expansion();
 
 /* include <expansion> */
@@ -851,6 +877,7 @@ class MEI_EXPORT Expansion : public MeiElement {
 class MEI_EXPORT Fw : public MeiElement {
     public:
         Fw();
+        Fw(const Fw& other);
         virtual ~Fw();
 
 /* include <fw> */
@@ -873,6 +900,7 @@ class MEI_EXPORT Fw : public MeiElement {
 class MEI_EXPORT Group : public MeiElement {
     public:
         Group();
+        Group(const Group& other);
         virtual ~Group();
 
 /* include <group> */
@@ -894,6 +922,7 @@ class MEI_EXPORT Group : public MeiElement {
 class MEI_EXPORT GrpSym : public MeiElement {
     public:
         GrpSym();
+        GrpSym(const GrpSym& other);
         virtual ~GrpSym();
 
 /* include <grpSym> */
@@ -923,6 +952,7 @@ class MEI_EXPORT GrpSym : public MeiElement {
 class MEI_EXPORT Identifier : public MeiElement {
     public:
         Identifier();
+        Identifier(const Identifier& other);
         virtual ~Identifier();
 
 /* include <identifier> */
@@ -946,6 +976,7 @@ class MEI_EXPORT Identifier : public MeiElement {
 class MEI_EXPORT Incip : public MeiElement {
     public:
         Incip();
+        Incip(const Incip& other);
         virtual ~Incip();
 
 /* include <incip> */
@@ -967,6 +998,7 @@ class MEI_EXPORT Incip : public MeiElement {
 class MEI_EXPORT InstrDef : public MeiElement {
     public:
         InstrDef();
+        InstrDef(const InstrDef& other);
         virtual ~InstrDef();
 
 /* include <instrDef> */
@@ -984,6 +1016,7 @@ class MEI_EXPORT InstrDef : public MeiElement {
 class MEI_EXPORT InstrGrp : public MeiElement {
     public:
         InstrGrp();
+        InstrGrp(const InstrGrp& other);
         virtual ~InstrGrp();
 
 /* include <instrGrp> */
@@ -1002,6 +1035,7 @@ class MEI_EXPORT InstrGrp : public MeiElement {
 class MEI_EXPORT KeyAccid : public MeiElement {
     public:
         KeyAccid();
+        KeyAccid(const KeyAccid& other);
         virtual ~KeyAccid();
         /** \brief records the function of the dot.
          */
@@ -1031,6 +1065,7 @@ class MEI_EXPORT KeyAccid : public MeiElement {
 class MEI_EXPORT KeySig : public MeiElement {
     public:
         KeySig();
+        KeySig(const KeySig& other);
         virtual ~KeySig();
         /** \brief indicates major, minor, or other tonality.
          */
@@ -1055,6 +1090,7 @@ class MEI_EXPORT KeySig : public MeiElement {
 class MEI_EXPORT Label : public MeiElement {
     public:
         Label();
+        Label(const Label& other);
         virtual ~Label();
 
 /* include <label> */
@@ -1081,6 +1117,7 @@ class MEI_EXPORT Label : public MeiElement {
 class MEI_EXPORT Layer : public MeiElement {
     public:
         Layer();
+        Layer(const Layer& other);
         virtual ~Layer();
 
 /* include <layer> */
@@ -1103,6 +1140,7 @@ class MEI_EXPORT Layer : public MeiElement {
 class MEI_EXPORT LayerDef : public MeiElement {
     public:
         LayerDef();
+        LayerDef(const LayerDef& other);
         virtual ~LayerDef();
 
 /* include <layerDef> */
@@ -1134,6 +1172,7 @@ class MEI_EXPORT LayerDef : public MeiElement {
 class MEI_EXPORT Lb : public MeiElement {
     public:
         Lb();
+        Lb(const Lb& other);
         virtual ~Lb();
         /** \brief records the function of an accidental.
          */
@@ -1173,6 +1212,7 @@ class MEI_EXPORT Lb : public MeiElement {
 class MEI_EXPORT Mdiv : public MeiElement {
     public:
         Mdiv();
+        Mdiv(const Mdiv& other);
         virtual ~Mdiv();
 
 /* include <mdiv> */
@@ -1196,6 +1236,7 @@ class MEI_EXPORT Mdiv : public MeiElement {
 class MEI_EXPORT Mei : public MeiElement {
     public:
         Mei();
+        Mei(const Mei& other);
         virtual ~Mei();
 
 /* include <mei> */
@@ -1211,6 +1252,7 @@ class MEI_EXPORT Mei : public MeiElement {
 class MEI_EXPORT Music : public MeiElement {
     public:
         Music();
+        Music(const Music& other);
         virtual ~Music();
 
 /* include <music> */
@@ -1245,6 +1287,7 @@ class MEI_EXPORT Music : public MeiElement {
 class MEI_EXPORT Name : public MeiElement {
     public:
         Name();
+        Name(const Name& other);
         virtual ~Name();
 
 /* include <name> */
@@ -1280,6 +1323,7 @@ class MEI_EXPORT Name : public MeiElement {
 class MEI_EXPORT Note : public MeiElement {
     public:
         Note();
+        Note(const Note& other);
         virtual ~Note();
 
         std::string getLayerIdent();
@@ -1355,6 +1399,7 @@ class MEI_EXPORT Note : public MeiElement {
 class MEI_EXPORT Num : public MeiElement {
     public:
         Num();
+        Num(const Num& other);
         virtual ~Num();
 
 /* include <num> */
@@ -1378,6 +1423,7 @@ class MEI_EXPORT Num : public MeiElement {
 class MEI_EXPORT P : public MeiElement {
     public:
         P();
+        P(const P& other);
         virtual ~P();
 
 /* include <p> */
@@ -1397,6 +1443,7 @@ class MEI_EXPORT P : public MeiElement {
 class MEI_EXPORT Pad : public MeiElement {
     public:
         Pad();
+        Pad(const Pad& other);
         virtual ~Pad();
 
 /* include <pad> */
@@ -1428,6 +1475,7 @@ class MEI_EXPORT Pad : public MeiElement {
 class MEI_EXPORT Part : public MeiElement {
     public:
         Part();
+        Part(const Part& other);
         virtual ~Part();
 
 /* include <part> */
@@ -1447,6 +1495,7 @@ class MEI_EXPORT Part : public MeiElement {
 class MEI_EXPORT Parts : public MeiElement {
     public:
         Parts();
+        Parts(const Parts& other);
         virtual ~Parts();
 
 /* include <parts> */
@@ -1472,6 +1521,7 @@ class MEI_EXPORT Parts : public MeiElement {
 class MEI_EXPORT Pb : public MeiElement {
     public:
         Pb();
+        Pb(const Pb& other);
         virtual ~Pb();
 
 /* include <pb> */
@@ -1499,6 +1549,7 @@ class MEI_EXPORT Pb : public MeiElement {
 class MEI_EXPORT PgDesc : public MeiElement {
     public:
         PgDesc();
+        PgDesc(const PgDesc& other);
         virtual ~PgDesc();
 
 /* include <pgDesc> */
@@ -1519,6 +1570,7 @@ class MEI_EXPORT PgDesc : public MeiElement {
 class MEI_EXPORT PgFoot : public MeiElement {
     public:
         PgFoot();
+        PgFoot(const PgFoot& other);
         virtual ~PgFoot();
 
 /* include <pgFoot> */
@@ -1540,6 +1592,7 @@ class MEI_EXPORT PgFoot : public MeiElement {
 class MEI_EXPORT PgFoot2 : public MeiElement {
     public:
         PgFoot2();
+        PgFoot2(const PgFoot2& other);
         virtual ~PgFoot2();
 
 /* include <pgFoot2> */
@@ -1563,6 +1616,7 @@ class MEI_EXPORT PgFoot2 : public MeiElement {
 class MEI_EXPORT PgHead : public MeiElement {
     public:
         PgHead();
+        PgHead(const PgHead& other);
         virtual ~PgHead();
 
 /* include <pgHead> */
@@ -1584,6 +1638,7 @@ class MEI_EXPORT PgHead : public MeiElement {
 class MEI_EXPORT PgHead2 : public MeiElement {
     public:
         PgHead2();
+        PgHead2(const PgHead2& other);
         virtual ~PgHead2();
 
 /* include <pgHead2> */
@@ -1615,6 +1670,7 @@ class MEI_EXPORT PgHead2 : public MeiElement {
 class MEI_EXPORT Phrase : public MeiElement {
     public:
         Phrase();
+        Phrase(const Phrase& other);
         virtual ~Phrase();
 
 /* include <phrase> */
@@ -1658,6 +1714,7 @@ class MEI_EXPORT Phrase : public MeiElement {
 class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
+        Rend(const Rend& other);
         virtual ~Rend();
         /** \brief used to extend the values of the rend attribute.
          */
@@ -1708,6 +1765,7 @@ class MEI_EXPORT Rend : public MeiElement {
 class MEI_EXPORT Repository : public MeiElement {
     public:
         Repository();
+        Repository(const Repository& other);
         virtual ~Repository();
 
 /* include <repository> */
@@ -1733,6 +1791,7 @@ class MEI_EXPORT Repository : public MeiElement {
 class MEI_EXPORT Rest : public MeiElement {
     public:
         Rest();
+        Rest(const Rest& other);
         virtual ~Rest();
 
         std::string getLayerIdent();
@@ -1780,6 +1839,7 @@ class MEI_EXPORT Rest : public MeiElement {
 class MEI_EXPORT Role : public MeiElement {
     public:
         Role();
+        Role(const Role& other);
         virtual ~Role();
 
 /* include <role> */
@@ -1797,6 +1857,7 @@ class MEI_EXPORT Role : public MeiElement {
 class MEI_EXPORT RoleDesc : public MeiElement {
     public:
         RoleDesc();
+        RoleDesc(const RoleDesc& other);
         virtual ~RoleDesc();
 
 /* include <roleDesc> */
@@ -1818,6 +1879,7 @@ class MEI_EXPORT RoleDesc : public MeiElement {
 class MEI_EXPORT Sb : public MeiElement {
     public:
         Sb();
+        Sb(const Sb& other);
         virtual ~Sb();
 
 /* include <sb> */
@@ -1843,6 +1905,7 @@ class MEI_EXPORT Sb : public MeiElement {
 class MEI_EXPORT Score : public MeiElement {
     public:
         Score();
+        Score(const Score& other);
         virtual ~Score();
 
 /* include <score> */
@@ -1862,6 +1925,7 @@ class MEI_EXPORT Score : public MeiElement {
 class MEI_EXPORT ScoreDef : public MeiElement {
     public:
         ScoreDef();
+        ScoreDef(const ScoreDef& other);
         virtual ~ScoreDef();
 
 /* include <scoreDef> */
@@ -1912,6 +1976,7 @@ class MEI_EXPORT ScoreDef : public MeiElement {
 class MEI_EXPORT Section : public MeiElement {
     public:
         Section();
+        Section(const Section& other);
         virtual ~Section();
 
 /* include <section> */
@@ -1937,6 +2002,7 @@ class MEI_EXPORT Section : public MeiElement {
 class MEI_EXPORT Space : public MeiElement {
     public:
         Space();
+        Space(const Space& other);
         virtual ~Space();
 
 /* include <space> */
@@ -1966,6 +2032,7 @@ class MEI_EXPORT Space : public MeiElement {
 class MEI_EXPORT Stack : public MeiElement {
     public:
         Stack();
+        Stack(const Stack& other);
         virtual ~Stack();
         /** \brief indicates the delimiter used to mark the portions of text that are to be
          *  stacked.
@@ -2006,6 +2073,7 @@ class MEI_EXPORT Stack : public MeiElement {
 class MEI_EXPORT Staff : public MeiElement {
     public:
         Staff();
+        Staff(const Staff& other);
         virtual ~Staff();
 
 /* include <staff> */
@@ -2028,6 +2096,7 @@ class MEI_EXPORT Staff : public MeiElement {
 class MEI_EXPORT StaffDef : public MeiElement {
     public:
         StaffDef();
+        StaffDef(const StaffDef& other);
         virtual ~StaffDef();
 
 /* include <staffDef> */
@@ -2080,6 +2149,7 @@ class MEI_EXPORT StaffDef : public MeiElement {
 class MEI_EXPORT StaffGrp : public MeiElement {
     public:
         StaffGrp();
+        StaffGrp(const StaffGrp& other);
         virtual ~StaffGrp();
 
 /* include <staffGrp> */
@@ -2106,6 +2176,7 @@ class MEI_EXPORT StaffGrp : public MeiElement {
 class MEI_EXPORT Syl : public MeiElement {
     public:
         Syl();
+        Syl(const Syl& other);
         virtual ~Syl();
 
 /* include <syl> */
@@ -2138,6 +2209,7 @@ class MEI_EXPORT Syl : public MeiElement {
 class MEI_EXPORT Tempo : public MeiElement {
     public:
         Tempo();
+        Tempo(const Tempo& other);
         virtual ~Tempo();
 
 /* include <tempo> */
@@ -2185,6 +2257,7 @@ class MEI_EXPORT Tempo : public MeiElement {
 class MEI_EXPORT Title : public MeiElement {
     public:
         Title();
+        Title(const Title& other);
         virtual ~Title();
         /** \brief indicates the bibliographic level for a title.
          */
@@ -2216,6 +2289,7 @@ class MEI_EXPORT Title : public MeiElement {
 class MEI_EXPORT TitlePage : public MeiElement {
     public:
         TitlePage();
+        TitlePage(const TitlePage& other);
         virtual ~TitlePage();
 
 /* include <titlePage> */

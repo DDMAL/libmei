@@ -67,7 +67,12 @@ class MEI_EXPORT MeiElement
          */
         MeiElement(std::string name);
 
-        virtual ~MeiElement() {}
+        /*
+         * \brief Copy constructor
+         */
+        MeiElement(const MeiElement& otherElement);       
+
+        virtual ~MeiElement();
 
         /** \brief Get the id of this element.
          */

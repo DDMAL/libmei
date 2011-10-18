@@ -16,6 +16,13 @@ mei::Ptr::Ptr() :
 }
 REGISTER_DEFINITION(mei::Ptr, "ptr");
 mei::Ptr::~Ptr() {}
+mei::Ptr::Ptr(const Ptr& other) :
+    MeiElement(other), 
+    m_Common(this),
+    m_Internetmedia(this),
+    m_Pointing(this)
+{
+}
 
 /* include <ptr> */
 
@@ -29,6 +36,14 @@ mei::Ref::Ref() :
 }
 REGISTER_DEFINITION(mei::Ref, "ref");
 mei::Ref::~Ref() {}
+mei::Ref::Ref(const Ref& other) :
+    MeiElement(other), 
+    m_Common(this),
+    m_Internetmedia(this),
+    m_Lang(this),
+    m_Pointing(this)
+{
+}
 
 /* include <ref> */
 

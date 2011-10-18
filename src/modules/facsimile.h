@@ -44,6 +44,7 @@ namespace mei {
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
+        Facsimile(const Facsimile& other);
         virtual ~Facsimile();
 
 /* include <facsimile> */
@@ -66,6 +67,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
 class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
+        Surface(const Surface& other);
         virtual ~Surface();
 
 /* include <surface> */
@@ -87,6 +89,7 @@ class MEI_EXPORT Surface : public MeiElement {
 class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
+        Zone(const Zone& other);
         virtual ~Zone();
 
 /* include <zone> */

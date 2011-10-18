@@ -47,6 +47,7 @@ namespace mei {
 class MEI_EXPORT Timeline : public MeiElement {
     public:
         Timeline();
+        Timeline(const Timeline& other);
         virtual ~Timeline();
         /** \brief holds the identifier of an <avFile> element that references an external digital
          *  media file.
@@ -83,6 +84,7 @@ class MEI_EXPORT Timeline : public MeiElement {
 class MEI_EXPORT When : public MeiElement {
     public:
         When();
+        When(const When& other);
         virtual ~When();
         /** \brief provides an absolute value for the time associated with a point on a timeline.
          * 

@@ -44,6 +44,7 @@ namespace mei {
 class MEI_EXPORT Back : public MeiElement {
     public:
         Back();
+        Back(const Back& other);
         virtual ~Back();
 
 /* include <back> */
@@ -66,6 +67,7 @@ class MEI_EXPORT Back : public MeiElement {
 class MEI_EXPORT Div : public MeiElement {
     public:
         Div();
+        Div(const Div& other);
         virtual ~Div();
 
 /* include <div> */
@@ -93,6 +95,7 @@ class MEI_EXPORT Div : public MeiElement {
 class MEI_EXPORT Front : public MeiElement {
     public:
         Front();
+        Front(const Front& other);
         virtual ~Front();
 
 /* include <front> */
@@ -116,6 +119,7 @@ class MEI_EXPORT Front : public MeiElement {
 class MEI_EXPORT Head : public MeiElement {
     public:
         Head();
+        Head(const Head& other);
         virtual ~Head();
 
 /* include <head> */
@@ -137,6 +141,7 @@ class MEI_EXPORT Head : public MeiElement {
 class MEI_EXPORT Item : public MeiElement {
     public:
         Item();
+        Item(const Item& other);
         virtual ~Item();
 
 /* include <item> */
@@ -158,6 +163,7 @@ class MEI_EXPORT Item : public MeiElement {
 class MEI_EXPORT L : public MeiElement {
     public:
         L();
+        L(const L& other);
         virtual ~L();
 
 /* include <l> */
@@ -178,6 +184,7 @@ class MEI_EXPORT L : public MeiElement {
 class MEI_EXPORT Lg : public MeiElement {
     public:
         Lg();
+        Lg(const Lg& other);
         virtual ~Lg();
 
 /* include <lg> */
@@ -201,6 +208,7 @@ class MEI_EXPORT Lg : public MeiElement {
 class MEI_EXPORT List : public MeiElement {
     public:
         List();
+        List(const List& other);
         virtual ~List();
         /** \brief records the function of the dot.
          */
@@ -232,6 +240,7 @@ class MEI_EXPORT List : public MeiElement {
 class MEI_EXPORT Quote : public MeiElement {
     public:
         Quote();
+        Quote(const Quote& other);
         virtual ~Quote();
 
 /* include <quote> */

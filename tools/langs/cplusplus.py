@@ -87,6 +87,7 @@ ELEMENT_CLASS_HEAD_TEMPLATE = """
 class MEI_EXPORT {elementNameUpper} : public MeiElement {{
     public:
         {elementNameUpper}();
+        {elementNameUpper}(const {elementNameUpper}& other);
         virtual ~{elementNameUpper}();
 {methods}
 /* include <{elementName}> */
@@ -102,6 +103,11 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper
 }}
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 mei::{elementNameUpper}::~{elementNameUpper}() {{}}
+mei::{elementNameUpper}::{elementNameUpper}(const {elementNameUpper}& other) :
+    MeiElement(other), 
+{onlyMixIns}
+{{
+}}
 
 {methods}/* include <{elementNameLower}> */
 
@@ -378,6 +384,7 @@ def __create_element_classes(schema):
         for element, atgroups in sorted(elements.iteritems()):
             attribute_methods = ""
             element_mixins = "\n    MeiElement(\"{0}\"),\n".format(element)
+            element_onlymixins = ""
             for attribute in atgroups:
                 if isinstance(attribute, types.ListType):
                     for sda in attribute:
@@ -403,12 +410,15 @@ def __create_element_classes(schema):
                         attribute_methods += METHODS_IMPL_TEMPLATE.format(**methstr)
                 else:
                     element_mixins += "    m_{0}(this),\n".format(schema.cc(schema.strpatt(attribute)))
+                    element_onlymixins += "    m_{0}(this),\n".format(schema.cc(schema.strpatt(attribute)))
             element_mixins = element_mixins.rstrip(",\n")
+            element_onlymixins = element_onlymixins.rstrip(",\n")
             
             consvars = {
                 'elementNameUpper': schema.cc(element),
                 'elementNameLower': element,
                 'mixIns': element_mixins,
+                'onlyMixIns': element_onlymixins,
                 'methods': attribute_methods
             }
             

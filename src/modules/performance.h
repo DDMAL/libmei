@@ -43,6 +43,7 @@ namespace mei {
 class MEI_EXPORT AvFile : public MeiElement {
     public:
         AvFile();
+        AvFile(const AvFile& other);
         virtual ~AvFile();
 
 /* include <avFile> */
@@ -66,6 +67,7 @@ class MEI_EXPORT AvFile : public MeiElement {
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
+        Clip(const Clip& other);
         virtual ~Clip();
         /** \brief indication of the absolute start time.
          */
@@ -108,6 +110,7 @@ class MEI_EXPORT Clip : public MeiElement {
 class MEI_EXPORT Performance : public MeiElement {
     public:
         Performance();
+        Performance(const Performance& other);
         virtual ~Performance();
 
 /* include <performance> */
@@ -129,6 +132,7 @@ class MEI_EXPORT Performance : public MeiElement {
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
+        Recording(const Recording& other);
         virtual ~Recording();
         /** \brief indication of the absolute start time.
          */

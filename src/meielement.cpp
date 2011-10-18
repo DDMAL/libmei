@@ -28,6 +28,30 @@ mei::MeiElement::MeiElement(string name) {
     generateAndSetId();
 }
 
+mei::MeiElement::~MeiElement() {
+    vector<MeiAttribute*>::iterator it;
+    for(it = attributes.begin(); it != attributes.end(); it++) {
+        delete *it;
+    }
+}
+
+mei::MeiElement::MeiElement(const MeiElement& ele) 
+: name(ele.name), value(ele.value), tail(ele.tail), ns(ele.ns), parent(ele.parent), document(ele.document) {
+    // deep copy child elements
+    vector<MeiElement*>::const_iterator ele_it;
+    for(ele_it=ele.children.begin(); ele_it != ele.children.end(); ele_it++) {
+        // recursive copy constructors, yay!
+        children.push_back(new MeiElement(**ele_it));
+    }
+
+    // deep copy element attributes
+    // use default MeiAttribute since no dynamic mem pointers in MeiAttribute
+    vector<MeiAttribute*>::const_iterator attr_it;
+    for(attr_it=ele.attributes.begin(); attr_it != ele.attributes.end(); attr_it++) {
+        attributes.push_back(new MeiAttribute(**attr_it));
+    }
+}
+
 extern "C"
 {
 #ifdef WIN32

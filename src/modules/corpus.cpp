@@ -15,6 +15,12 @@ mei::MeiCorpus::MeiCorpus() :
 }
 REGISTER_DEFINITION(mei::MeiCorpus, "meiCorpus");
 mei::MeiCorpus::~MeiCorpus() {}
+mei::MeiCorpus::MeiCorpus(const MeiCorpus& other) :
+    MeiElement(other), 
+    m_Common(this),
+    m_Meiversion(this)
+{
+}
 
 /* include <meiCorpus> */
 

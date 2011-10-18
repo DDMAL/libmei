@@ -51,6 +51,7 @@ namespace mei {
 class MEI_EXPORT CorpName : public MeiElement {
     public:
         CorpName();
+        CorpName(const CorpName& other);
         virtual ~CorpName();
 
 /* include <corpName> */
@@ -84,6 +85,7 @@ class MEI_EXPORT CorpName : public MeiElement {
 class MEI_EXPORT GeogName : public MeiElement {
     public:
         GeogName();
+        GeogName(const GeogName& other);
         virtual ~GeogName();
 
 /* include <geogName> */
@@ -113,6 +115,7 @@ class MEI_EXPORT GeogName : public MeiElement {
 class MEI_EXPORT PeriodName : public MeiElement {
     public:
         PeriodName();
+        PeriodName(const PeriodName& other);
         virtual ~PeriodName();
 
 /* include <periodName> */
@@ -145,6 +148,7 @@ class MEI_EXPORT PeriodName : public MeiElement {
 class MEI_EXPORT PersName : public MeiElement {
     public:
         PersName();
+        PersName(const PersName& other);
         virtual ~PersName();
 
 /* include <persName> */
@@ -176,6 +180,7 @@ class MEI_EXPORT PersName : public MeiElement {
 class MEI_EXPORT StyleName : public MeiElement {
     public:
         StyleName();
+        StyleName(const StyleName& other);
         virtual ~StyleName();
 
 /* include <styleName> */

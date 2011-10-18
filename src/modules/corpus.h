@@ -47,6 +47,7 @@ namespace mei {
 class MEI_EXPORT MeiCorpus : public MeiElement {
     public:
         MeiCorpus();
+        MeiCorpus(const MeiCorpus& other);
         virtual ~MeiCorpus();
 
 /* include <meiCorpus> */

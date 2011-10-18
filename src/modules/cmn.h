@@ -58,6 +58,7 @@ namespace mei {
 class MEI_EXPORT Arpeg : public MeiElement {
     public:
         Arpeg();
+        Arpeg(const Arpeg& other);
         virtual ~Arpeg();
 
 /* include <arpeg> */
@@ -99,6 +100,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
 class MEI_EXPORT BTrem : public MeiElement {
     public:
         BTrem();
+        BTrem(const BTrem& other);
         virtual ~BTrem();
 
 /* include <bTrem> */
@@ -132,6 +134,7 @@ class MEI_EXPORT BTrem : public MeiElement {
 class MEI_EXPORT Beam : public MeiElement {
     public:
         Beam();
+        Beam(const Beam& other);
         virtual ~Beam();
 
 /* include <beam> */
@@ -162,6 +165,7 @@ class MEI_EXPORT Beam : public MeiElement {
 class MEI_EXPORT BeamSpan : public MeiElement {
     public:
         BeamSpan();
+        BeamSpan(const BeamSpan& other);
         virtual ~BeamSpan();
 
 /* include <beamSpan> */
@@ -196,6 +200,7 @@ class MEI_EXPORT BeamSpan : public MeiElement {
 class MEI_EXPORT BeatRpt : public MeiElement {
     public:
         BeatRpt();
+        BeatRpt(const BeatRpt& other);
         virtual ~BeatRpt();
 
 /* include <beatRpt> */
@@ -231,6 +236,7 @@ class MEI_EXPORT BeatRpt : public MeiElement {
 class MEI_EXPORT Bend : public MeiElement {
     public:
         Bend();
+        Bend(const Bend& other);
         virtual ~Bend();
 
 /* include <bend> */
@@ -276,6 +282,7 @@ class MEI_EXPORT Bend : public MeiElement {
 class MEI_EXPORT Breath : public MeiElement {
     public:
         Breath();
+        Breath(const Breath& other);
         virtual ~Breath();
 
 /* include <breath> */
@@ -315,6 +322,7 @@ class MEI_EXPORT Breath : public MeiElement {
 class MEI_EXPORT FTrem : public MeiElement {
     public:
         FTrem();
+        FTrem(const FTrem& other);
         virtual ~FTrem();
 
 /* include <fTrem> */
@@ -349,6 +357,7 @@ class MEI_EXPORT FTrem : public MeiElement {
 class MEI_EXPORT Fermata : public MeiElement {
     public:
         Fermata();
+        Fermata(const Fermata& other);
         virtual ~Fermata();
 
 /* include <fermata> */
@@ -394,6 +403,7 @@ class MEI_EXPORT Fermata : public MeiElement {
 class MEI_EXPORT Gliss : public MeiElement {
     public:
         Gliss();
+        Gliss(const Gliss& other);
         virtual ~Gliss();
 
 /* include <gliss> */
@@ -438,6 +448,7 @@ class MEI_EXPORT Gliss : public MeiElement {
 class MEI_EXPORT Hairpin : public MeiElement {
     public:
         Hairpin();
+        Hairpin(const Hairpin& other);
         virtual ~Hairpin();
 
 /* include <hairpin> */
@@ -477,6 +488,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
 class MEI_EXPORT HalfmRpt : public MeiElement {
     public:
         HalfmRpt();
+        HalfmRpt(const HalfmRpt& other);
         virtual ~HalfmRpt();
 
 /* include <halfmRpt> */
@@ -510,6 +522,7 @@ class MEI_EXPORT HalfmRpt : public MeiElement {
 class MEI_EXPORT HarpPedal : public MeiElement {
     public:
         HarpPedal();
+        HarpPedal(const HarpPedal& other);
         virtual ~HarpPedal();
 
 /* include <harpPedal> */
@@ -546,6 +559,7 @@ class MEI_EXPORT HarpPedal : public MeiElement {
 class MEI_EXPORT MRest : public MeiElement {
     public:
         MRest();
+        MRest(const MRest& other);
         virtual ~MRest();
 
 /* include <mRest> */
@@ -583,6 +597,7 @@ class MEI_EXPORT MRest : public MeiElement {
 class MEI_EXPORT MRpt : public MeiElement {
     public:
         MRpt();
+        MRpt(const MRpt& other);
         virtual ~MRpt();
 
 /* include <mRpt> */
@@ -609,6 +624,7 @@ class MEI_EXPORT MRpt : public MeiElement {
 class MEI_EXPORT MRpt2 : public MeiElement {
     public:
         MRpt2();
+        MRpt2(const MRpt2& other);
         virtual ~MRpt2();
 
 /* include <mRpt2> */
@@ -637,6 +653,7 @@ class MEI_EXPORT MRpt2 : public MeiElement {
 class MEI_EXPORT MSpace : public MeiElement {
     public:
         MSpace();
+        MSpace(const MSpace& other);
         virtual ~MSpace();
 
 /* include <mSpace> */
@@ -673,6 +690,7 @@ class MEI_EXPORT MSpace : public MeiElement {
 class MEI_EXPORT Measure : public MeiElement {
     public:
         Measure();
+        Measure(const Measure& other);
         virtual ~Measure();
 
 /* include <measure> */
@@ -705,6 +723,7 @@ class MEI_EXPORT Measure : public MeiElement {
 class MEI_EXPORT MultiRest : public MeiElement {
     public:
         MultiRest();
+        MultiRest(const MultiRest& other);
         virtual ~MultiRest();
 
 /* include <multiRest> */
@@ -737,6 +756,7 @@ class MEI_EXPORT MultiRest : public MeiElement {
 class MEI_EXPORT MultiRpt : public MeiElement {
     public:
         MultiRpt();
+        MultiRpt(const MultiRpt& other);
         virtual ~MultiRpt();
 
 /* include <multiRpt> */
@@ -774,6 +794,7 @@ class MEI_EXPORT MultiRpt : public MeiElement {
 class MEI_EXPORT Octave : public MeiElement {
     public:
         Octave();
+        Octave(const Octave& other);
         virtual ~Octave();
 
 /* include <octave> */
@@ -818,6 +839,7 @@ class MEI_EXPORT Octave : public MeiElement {
 class MEI_EXPORT Ossia : public MeiElement {
     public:
         Ossia();
+        Ossia(const Ossia& other);
         virtual ~Ossia();
 
 /* include <ossia> */
@@ -840,6 +862,7 @@ class MEI_EXPORT Ossia : public MeiElement {
 class MEI_EXPORT Pedal : public MeiElement {
     public:
         Pedal();
+        Pedal(const Pedal& other);
         virtual ~Pedal();
 
 /* include <pedal> */
@@ -878,6 +901,7 @@ class MEI_EXPORT Pedal : public MeiElement {
 class MEI_EXPORT Reh : public MeiElement {
     public:
         Reh();
+        Reh(const Reh& other);
         virtual ~Reh();
 
 /* include <reh> */
@@ -923,6 +947,7 @@ class MEI_EXPORT Reh : public MeiElement {
 class MEI_EXPORT Slur : public MeiElement {
     public:
         Slur();
+        Slur(const Slur& other);
         virtual ~Slur();
 
 /* include <slur> */
@@ -967,6 +992,7 @@ class MEI_EXPORT Slur : public MeiElement {
 class MEI_EXPORT Tie : public MeiElement {
     public:
         Tie();
+        Tie(const Tie& other);
         virtual ~Tie();
 
         MeiElement* getSystem();
@@ -1025,6 +1051,7 @@ class MEI_EXPORT Tie : public MeiElement {
 class MEI_EXPORT Tuplet : public MeiElement {
     public:
         Tuplet();
+        Tuplet(const Tuplet& other);
         virtual ~Tuplet();
 
 /* include <tuplet> */
@@ -1062,6 +1089,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
 class MEI_EXPORT TupletSpan : public MeiElement {
     public:
         TupletSpan();
+        TupletSpan(const TupletSpan& other);
         virtual ~TupletSpan();
 
 /* include <tupletSpan> */
