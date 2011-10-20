@@ -41,12 +41,10 @@ TEST(TestMeiElement, TestGetSet) {
     ASSERT_EQ("this is a sentence", p->getValue());
 
     p->setTail("atail");
-    p->setNs("somenamespace");
 
     // We know an id is 'm-<uuid>', so we can check the length
     ASSERT_EQ(38, p->getId().length());
     ASSERT_EQ("atail", p->getTail());
-    ASSERT_EQ("somenamespace", p->getNs());
 }
 
 TEST(TestMeiElement, TestGetNoAttribute) {
