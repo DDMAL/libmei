@@ -79,14 +79,6 @@ const string mei::MeiElement::getName() {
     return this->name;
 }
 
-const string mei::MeiElement::getNs() {
-    return this->ns;
-}
-
-void mei::MeiElement::setNs(string ns) {
-    this->ns = ns;
-}
-
 const string mei::MeiElement::getValue() {
     return this->value;
 }
