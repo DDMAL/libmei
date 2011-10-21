@@ -30,6 +30,7 @@
 #include <map>
 
 #include "meicommon.h"
+#include "meinamespace.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 
@@ -87,15 +88,6 @@ class MEI_EXPORT MeiElement
         /** \brief Get the name of this element
          */
         const std::string getName();
-
-        /** \brief Return the namespace associated with the Mei Element
-         */
-        const std::string getNs();
-        /** \brief Set the namespace for this element.
-         *
-         *  If not given, the default MEI namespace will be used.
-         */
-        void setNs(std::string ns);
 
         /** \brief get the xml tail of an Mei Element
          *
