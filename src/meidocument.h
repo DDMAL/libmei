@@ -28,7 +28,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "mei.h"
+#include "meicommon.h"
 #include "meielement.h"
 #include "meinamespace.h"
 
@@ -76,6 +76,11 @@ class MEI_EXPORT MeiDocument {
          */
         std::vector<MeiElement*> getElementsByName(std::string name);
 
+        /** \brief Gets an element's position in the flattened
+         *      tree representation.
+         */
+        int getPositionInDocument(MeiElement* element);
+
         void addIdMap(std::string, MeiElement*);
         void rmIdMap(std::string id);
 
@@ -84,7 +89,7 @@ class MEI_EXPORT MeiDocument {
         
         /** \brief Returns the most immediate previous element elName, given a starting point
          */
-        MeiElement* lookBack(MeiElement* fromHere, std::string elName);
+        MeiElement* lookBack(MeiElement* from, std::string name);
 
     private:
         /** \brief Flattens the current document tree

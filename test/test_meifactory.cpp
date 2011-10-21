@@ -7,28 +7,29 @@
 //
 
 #include <gtest/gtest.h>
-#include <iostream>
 #include <mei/shared.h>
 #include <mei/meielement.h>
+#include <mei/exceptions.h>
 
+using mei::ElementNotRegisteredException;
 using mei::MeiElement;
 using mei::MeiFactory;
 using mei::Note;
 
-TEST(MeiFactoryTest, TestFactoryStart) {
+TEST(TestMeiFactory, TestFactoryStart) {
     MeiElement *e = MeiFactory::createInstance("note", "anid");
     ASSERT_EQ("note", e->getName());
     ASSERT_EQ("anid", e->getId());
 }
 
-TEST(MeiFactoryTest, TestFactoryStartDefaultId) {
+TEST(TestMeiFactory, TestFactoryStartDefaultId) {
     // Empty ID makes a random one
     MeiElement *e = MeiFactory::createInstance("note", "");
     ASSERT_EQ("note", e->getName());
     ASSERT_EQ(38, e->getId().length());
 }
 
-TEST(MeiFactoryTest, TestFactoryWithMixins) {
+TEST(TestMeiFactory, TestFactoryWithMixins) {
     Note *e = dynamic_cast<Note*>(MeiFactory::createInstance("note", "anid"));
     
     
@@ -37,4 +38,8 @@ TEST(MeiFactoryTest, TestFactoryWithMixins) {
     // only note has these methods.
     e->m_NoteVis.setHeadshape("diamond");
     ASSERT_EQ("diamond", e->m_NoteVis.getHeadshape()->getValue());
+}
+
+TEST(TestMeiFactory, TestFactoryBadElement) {
+    ASSERT_THROW(MeiFactory::createInstance("badelement", ""), ElementNotRegisteredException);
 }

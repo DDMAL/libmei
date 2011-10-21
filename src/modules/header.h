@@ -29,7 +29,7 @@
 #include "exceptions.h"
 /* #include_block */
 
-#include "mei.h"
+#include "meicommon.h"
 #include "sharedmixins.h"
 #include "headermixins.h"
 #include "edittransmixins.h"
@@ -739,6 +739,7 @@ class MEI_EXPORT IncipText : public MeiElement {
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
+        PointingMixIn    m_Pointing;
         InternetmediaMixIn    m_Internetmedia;
 
     private:

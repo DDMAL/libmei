@@ -31,7 +31,7 @@
 #include "meielement.h"
 #include "meidocument.h"
 
-#include "mei.h"
+#include "meicommon.h"
 #include "sharedmixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"
@@ -936,7 +936,7 @@ class MEI_EXPORT Identifier : public MeiElement {
         REGISTER_DECLARATION(Identifier);
 };
 
-/** \brief incipit ― The opening words or music of a composition.
+/** \brief incipit ― The opening music and/or words of a composition.
  * 
  *  The <incipText> element may be used to capture a text incipit, while <score> is
  *  available to provide an MEI-encoded musical incipit. Images of an incipit may be

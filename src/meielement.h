@@ -29,7 +29,8 @@
 #include <vector>
 #include <map>
 
-#include "mei.h"
+#include "meicommon.h"
+#include "meinamespace.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 
@@ -80,15 +81,6 @@ class MEI_EXPORT MeiElement
         /** \brief Get the name of this element
          */
         const std::string getName();
-
-        /** \brief Return the namespace associated with the Mei Element
-         */
-        const std::string getNs();
-        /** \brief Set the namespace for this element.
-         *
-         *  If not given, the default MEI namespace will be used.
-         */
-        void setNs(std::string ns);
 
         /** \brief get the xml tail of an Mei Element
          *
@@ -244,16 +236,28 @@ class MEI_EXPORT MeiElement
         bool hasChildren(std::string cname);
 
         /**
-         *  \brief Get the ancestor with a given name
+         *  \brief Get the ancestor with a given element name
          *
          *  \return MeiElement, or NULL if no ancestor is found.
          */
         MeiElement* getAncestor(std::string name);
 
         /**
+         *  \brief Returns TRUE if this element has an ancestor element 
+         *     with a given name; FALSE otherwise
+         */   
+        bool hasAncestor(std::string name);
+
+        /**
          *  \brief Get all descendants of the current element.
          */
         std::vector<MeiElement*> getDescendants();
+
+        /**
+         *  \brief Get all descendants of the current element that match
+         *     a given name
+         */
+        std::vector<MeiElement*> getDescendantsByName(std::string name);
 
         /**
          *  \brief Get all the peer elements of the current element.
@@ -281,7 +285,7 @@ class MEI_EXPORT MeiElement
         /** \brief Looks backwards from this element. Wrapper around the document->lookBack()
          *     method.
          */
-        MeiElement* lookBack(std::string elName);
+        MeiElement* lookBack(std::string name);
         
         const std::vector<MeiElement*> flatten();
 
@@ -294,12 +298,12 @@ class MEI_EXPORT MeiElement
         void print(int l);
         template<typename T> static MeiElement* createT(std::string id);
 
+        void updateDocument();
     private:
         /**
          * Call back to the document to update its internal representation
          * of the flatened element tree.
          */
-        void updateDocument();
         void generateAndSetId();
         std::string id;
         void setId(std::string id);
@@ -335,10 +339,10 @@ struct MeiFactory {
      * macros. The ID is optional. If it is not given, a new ID will be generated.
      * \return an instance of the element, or NULL if the type doesn't exist.
      */
-    static MeiElement* createInstance(std::string const& s, std::string const& id) {
+    static MeiElement* createInstance(std::string const& s, std::string const& id) throw(ElementNotRegisteredException) {
         default_map::iterator it = getMap()->find(s);
         if (it == getMap()->end()) {
-            return NULL;
+            throw ElementNotRegisteredException(s);
         }
         return it->second(id);
     }

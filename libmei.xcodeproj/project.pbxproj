@@ -83,7 +83,6 @@
 		0514A6D713FDABAB00310111 /* tablaturemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68A13FD6D6000310111 /* tablaturemixins.cpp */; };
 		0514A6D813FDABAB00310111 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68C13FD6D6000310111 /* text.cpp */; };
 		0514A6D913FDABAB00310111 /* usersymbols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A68E13FD6D6000310111 /* usersymbols.cpp */; };
-		0514A6DA13FDB42200310111 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		053321C41402DBF400B89665 /* meinamespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053321C21402DBF400B89665 /* meinamespace.cpp */; };
 		053321CD1402F79700B89665 /* meinamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 053321C31402DBF400B89665 /* meinamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		053C409614040E710003363C /* badversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409314040D560003363C /* badversion.mei */; };
@@ -96,11 +95,8 @@
 		05C9B31B13FC0BD000E68B21 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C9B31913FC0BC300E68B21 /* gtest.framework */; };
 		05C9B31C13FC2D2C00E68B21 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
-		05CEA57813FC78B00009A15E /* runmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56913FC78520009A15E /* runmei.cpp */; };
-		05CED9A3142A726F003A8CB6 /* test_cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CED9A2142A726F003A8CB6 /* test_cmn.cpp */; };
 		05CED9A5142A7292003A8CB6 /* test_cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CED9A2142A726F003A8CB6 /* test_cmn.cpp */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
-		61DBCCD71312C86F00B46918 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = 617B4322130450C900EBBE7F /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
 		825732E1142D09AA00F3868D /* mxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 825732E0142D09AA00F3868D /* mxmlparser.cpp */; };
@@ -113,6 +109,8 @@
 		9BDC643D132A905F0062255E /* meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC6438132A90430062255E /* meidocument.cpp */; };
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B63DA91445D89200029BB7 /* meicommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DA81445D89200029BB7 /* meicommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B63DAB1445DA3200029BB7 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DAA1445DA3200029BB7 /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
 		B2E397BB1401A52200161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,15 +120,6 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		05138CE314192BCC0093C907 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		05CEA56C13FC78890009A15E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -259,13 +248,10 @@
 		05B6605714017A2800D54F9A /* test_xmloutput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmloutput.cpp; path = test/test_xmloutput.cpp; sourceTree = "<group>"; };
 		05C9B31913FC0BC300E68B21 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = Library/Frameworks/gtest.framework; sourceTree = SDKROOT; };
 		05CEA56513FC61CB0009A15E /* test_meifactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meifactory.cpp; path = test/test_meifactory.cpp; sourceTree = "<group>"; };
-		05CEA56913FC78520009A15E /* runmei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = runmei.cpp; path = util/runmei.cpp; sourceTree = "<group>"; };
-		05CEA56E13FC78890009A15E /* runmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = runmei; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CEA57A13FC7E570009A15E /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = Library/Frameworks/gtest.framework; sourceTree = SDKROOT; };
 		05CED9A2142A726F003A8CB6 /* test_cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_cmn.cpp; path = test/test_cmn.cpp; sourceTree = "<group>"; };
 		5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiProj.xcconfig; sourceTree = "<group>"; };
 		5073E0C709E734A800EC74B6 /* libmeiTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiTarget.xcconfig; sourceTree = "<group>"; };
-		617B4322130450C900EBBE7F /* mei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mei.h; path = src/mei.h; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
 		617B43441304560400EBBE7F /* readmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readmei; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +270,8 @@
 		9BDC6438132A90430062255E /* meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meidocument.cpp; path = src/meidocument.cpp; sourceTree = "<group>"; };
 		9BE4E742131D570100A59F5D /* meielement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meielement.h; path = src/meielement.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9BE4E743131D570100A59F5D /* meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meielement.cpp; path = src/meielement.cpp; sourceTree = "<group>"; };
+		A1B63DA81445D89200029BB7 /* meicommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meicommon.h; path = src/meicommon.h; sourceTree = "<group>"; };
+		A1B63DAA1445DA3200029BB7 /* mei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mei.h; sourceTree = "<group>"; };
 		B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meidocument.cpp; path = test/test_meidocument.cpp; sourceTree = "<group>"; };
 		B2E397B514018B3E00161BD2 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 		B2E397BC1401B1E000161BD2 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
@@ -294,14 +282,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		05CEA56B13FC78890009A15E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0514A6DA13FDB42200310111 /* mei.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +326,6 @@
 				617B43441304560400EBBE7F /* readmei */,
 				61DBCC271312C04000B46918 /* mei_test */,
 				61DBCCCF1312C85D00B46918 /* mei.framework */,
-				05CEA56E13FC78890009A15E /* runmei */,
 				05138CE514192BCC0093C907 /* mei-update */,
 				82C13696142CDC3500D052A0 /* mxmltomei */,
 			);
@@ -413,7 +392,6 @@
 				0514A63F13FD6B8E00310111 /* Export */,
 				0514A63D13FD6B8500310111 /* Import */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
-				617B4322130450C900EBBE7F /* mei.h */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
 				9BE4E743131D570100A59F5D /* meielement.cpp */,
 				9B3CB63A13214C430054C2DC /* meiattribute.h */,
@@ -423,6 +401,8 @@
 				9B2EE931133117D700C94712 /* exceptions.h */,
 				053321C21402DBF400B89665 /* meinamespace.cpp */,
 				053321C31402DBF400B89665 /* meinamespace.h */,
+				A1B63DAA1445DA3200029BB7 /* mei.h */,
+				A1B63DA81445D89200029BB7 /* meicommon.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -457,7 +437,6 @@
 			children = (
 				827EF453142CE661007B9789 /* mxmltomei */,
 				05138CDD14192B910093C907 /* meiconverter */,
-				05CEA56913FC78520009A15E /* runmei.cpp */,
 				617B43351304540E00EBBE7F /* readmei.cpp */,
 			);
 			name = Util;
@@ -582,7 +561,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B3CB63E13214C430054C2DC /* meiattribute.h in Headers */,
-				61DBCCD71312C86F00B46918 /* mei.h in Headers */,
 				9BE4E761131D678000A59F5D /* meielement.h in Headers */,
 				9BDC643C132A905F0062255E /* meidocument.h in Headers */,
 				0514A69213FDAB5200310111 /* analysismixins.h in Headers */,
@@ -625,6 +603,8 @@
 				B2E397BD1401B1E000161BD2 /* xmlexport.h in Headers */,
 				053321CD1402F79700B89665 /* meinamespace.h in Headers */,
 				B2E397BE1401B7ED00161BD2 /* exceptions.h in Headers */,
+				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
+				A1B63DAB1445DA3200029BB7 /* mei.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,23 +626,6 @@
 			name = "mei-update";
 			productName = "mei-update";
 			productReference = 05138CE514192BCC0093C907 /* mei-update */;
-			productType = "com.apple.product-type.tool";
-		};
-		05CEA56D13FC78890009A15E /* runmei */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 05CEA57513FC78890009A15E /* Build configuration list for PBXNativeTarget "runmei" */;
-			buildPhases = (
-				05CEA56A13FC78890009A15E /* Sources */,
-				05CEA56B13FC78890009A15E /* Frameworks */,
-				05CEA56C13FC78890009A15E /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = runmei;
-			productName = runmei;
-			productReference = 05CEA56E13FC78890009A15E /* runmei */;
 			productType = "com.apple.product-type.tool";
 		};
 		617B43431304560400EBBE7F /* readmei */ = {
@@ -759,7 +722,6 @@
 				617B43431304560400EBBE7F /* readmei */,
 				61DBCC261312C04000B46918 /* mei_test */,
 				61DBCCCE1312C85D00B46918 /* mei */,
-				05CEA56D13FC78890009A15E /* runmei */,
 				05138CE414192BCC0093C907 /* mei-update */,
 				82C13695142CDC3500D052A0 /* mxmltomei */,
 			);
@@ -785,20 +747,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05CEA56A13FC78890009A15E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05CEA57813FC78B00009A15E /* runmei.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		617B43411304560400EBBE7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
-				05CED9A3142A726F003A8CB6 /* test_cmn.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,45 +858,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		05CEA57613FC78890009A15E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		05CEA57713FC78890009A15E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1197,15 +1111,6 @@
 			buildConfigurations = (
 				05138CED14192BCC0093C907 /* Debug */,
 				05138CEE14192BCC0093C907 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		05CEA57513FC78890009A15E /* Build configuration list for PBXNativeTarget "runmei" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				05CEA57613FC78890009A15E /* Debug */,
-				05CEA57713FC78890009A15E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

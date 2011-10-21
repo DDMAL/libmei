@@ -479,6 +479,7 @@ mei::IncipText::IncipText() :
     m_Common(this),
     m_Bibl(this),
     m_Lang(this),
+    m_Pointing(this),
     m_Internetmedia(this)
 {
 }

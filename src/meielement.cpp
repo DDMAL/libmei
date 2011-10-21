@@ -79,14 +79,6 @@ const string mei::MeiElement::getName() {
     return this->name;
 }
 
-const string mei::MeiElement::getNs() {
-    return this->ns;
-}
-
-void mei::MeiElement::setNs(string ns) {
-    this->ns = ns;
-}
-
 const string mei::MeiElement::getValue() {
     return this->value;
 }
@@ -303,9 +295,29 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
     return parent->getAncestor(name);
 }
 
+bool mei::MeiElement::hasAncestor(string name) {
+    MeiElement* m = getAncestor(name);
+    if (m != NULL) {
+        return true;
+    }
+    return false;
+}
+
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     vector<mei::MeiElement*> res = this->flatten();
     res.erase(res.begin());
+    return res;
+}
+
+vector<mei::MeiElement*> mei::MeiElement::getDescendantsByName(string name) {
+    vector<mei::MeiElement*> res;
+    vector<mei::MeiElement*> desc = this->flatten();
+
+    for (vector<MeiElement*>::iterator iter = desc.begin(); iter != desc.end(); ++iter) {
+        if ((*iter)->getName() == name) {
+            res.push_back(*iter);
+        }
+    }
     return res;
 }
 
@@ -321,14 +333,7 @@ int mei::MeiElement::getPositionInDocument() {
     if (!this->document) {
         return -1;
     }
-
-    vector<MeiElement*> els = this->document->getFlattenedTree();
-    vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), this);
-    if (pos != els.end()) {
-        return pos - els.begin();
-    }
-    
-    return -1;  // this element was not found in the document
+    return this->document->getPositionInDocument(this);
 }
 
 void mei::MeiElement::print() {
@@ -337,10 +342,6 @@ void mei::MeiElement::print() {
 
 void mei::MeiElement::print(int level) {
     printf("%*s ", level + (int)getName().length(), getName().c_str());
-
-    if (this->getNs().size()>0) {
-        printf("{%s} ", this->getNs().c_str());
-    }
 
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
@@ -362,11 +363,11 @@ void mei::MeiElement::print(int level) {
     }
 }
 
-mei::MeiElement* mei::MeiElement::lookBack(string elName) {
+mei::MeiElement* mei::MeiElement::lookBack(string name) {
     if(!this->document) {
         return NULL;
     }
-    return this->document->lookBack(this, elName);
+    return this->document->lookBack(this, name);
 }
 
 const vector<mei::MeiElement*> mei::MeiElement::flatten() {

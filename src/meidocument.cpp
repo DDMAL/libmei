@@ -127,20 +127,29 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     return ret;
 }
 
+int mei::MeiDocument::getPositionInDocument(MeiElement* element) {
+    vector<MeiElement*> els = this->getFlattenedTree();
+    vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), element);
+    if (pos != els.end()) {
+        return pos - els.begin();
+    }
+    return -1;
+}
+
 const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedTree() {
     return flattenedDoc;
 }
 
-MeiElement* mei::MeiDocument::lookBack(MeiElement* fromHere, std::string elName) {
+MeiElement* mei::MeiDocument::lookBack(MeiElement* from, std::string name) {
     // this skips the element at startpos, so that the first result is its immediate neighbour.
-    vector<MeiElement*>::iterator pos = find(flattenedDoc.begin(), flattenedDoc.end(), fromHere);
+    vector<MeiElement*>::iterator pos = find(flattenedDoc.begin(), flattenedDoc.end(), from);
     
     if (pos == flattenedDoc.end()) {
         return NULL;
     }
     
-    /* since we'll be iterating backwards, we want to find the reverse
-     * difference, so we subtract the position from the size.
+    /* since we'll be iterating backwards from the <from> position, 
+     * we want to find the reverse difference. We subtract the position from the size.
      * We add 1 so that we can skip the element itself and start at the
      * preceding element.
      */
@@ -148,7 +157,7 @@ MeiElement* mei::MeiDocument::lookBack(MeiElement* fromHere, std::string elName)
 
     // topsy turvy world, where ++ is actually -- (iterating backwards..sdrawkcab gnitareti)
     for (vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
-        if ((*iter) == fromHere) {
+        if ((*iter)->getName() == name) {
             return (*iter);
         }
     }

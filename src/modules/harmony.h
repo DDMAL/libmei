@@ -29,7 +29,7 @@
 #include "exceptions.h"
 /* #include_block */
 
-#include "mei.h"
+#include "meicommon.h"
 #include "sharedmixins.h"
 #include "harmonymixins.h"
 #include "analysismixins.h"

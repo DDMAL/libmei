@@ -27,7 +27,7 @@
 
 #include <string>
 
-#include "mei.h"
+#include "meicommon.h"
 #include "meinamespace.h"
 
 namespace mei {

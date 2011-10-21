@@ -31,7 +31,7 @@
 #include "meielement.h"
 #include "meidocument.h"
 
-#include "mei.h"
+#include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "cmnmixins.h"
