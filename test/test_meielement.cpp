@@ -455,7 +455,6 @@ TEST(TestMeiElement, CopyConstructor) {
     ASSERT_EQ("diamond", n2->m_NoteVis.getHeadshape()->getValue());
     ASSERT_EQ("c", n2->m_Pitch.getPname()->getValue());
 
-    n2->removeAttribute("pname");
     n2->m_Pitch.setPname("a");
 
     ASSERT_EQ("a", n2->m_Pitch.getPname()->getValue());
