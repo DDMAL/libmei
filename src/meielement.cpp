@@ -36,23 +36,19 @@ mei::MeiElement::~MeiElement() {
 }
 
 mei::MeiElement::MeiElement(const MeiElement& ele) 
-: name(ele.name), value(ele.value), tail(ele.tail), ns(ele.ns), parent(ele.parent), document(ele.document) {
+: name(ele.name), value(ele.value), tail(ele.tail), ns(ele.ns), parent(ele.parent), document(NULL) {
     // deep copy child elements
     vector<MeiElement*>::const_iterator ele_it;
     for(ele_it=ele.children.begin(); ele_it != ele.children.end(); ele_it++) {
         // recursive copy constructors, yay!
-        children.push_back(new MeiElement(**ele_it));
+        this->addChild(new MeiElement(**ele_it));
     }
 
     // copy element attributes
     // use default MeiAttribute copy constructor with shallow pointer copy for MeiElement
     vector<MeiAttribute*>::const_iterator attr_it;
     for(attr_it=ele.attributes.begin(); attr_it != ele.attributes.end(); attr_it++) {
-        MeiAttribute *newAttr = new MeiAttribute(**attr_it);
-        // reset MeiElement pointer - no other way to do this
-        newAttr->setElement(this);
-        attributes.push_back(newAttr);
-
+        this->addAttribute(new MeiAttribute(**attr_it));
     }
 }
 

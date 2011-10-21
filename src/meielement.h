@@ -69,6 +69,8 @@ class MEI_EXPORT MeiElement
 
         /*
          * \brief Copy constructor
+         *
+         * The copied element will not be tied to a document
          */
         MeiElement(const MeiElement& ele);       
 
