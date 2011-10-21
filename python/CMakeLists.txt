@@ -4,6 +4,7 @@ INCLUDE(CMakeFindFrameworks)
 FIND_PACKAGE(PythonInterp)
 FIND_PACKAGE(PythonLibs)
 FIND_PACKAGE(Boost COMPONENTS python)
+FIND_LIBRARY(MeiFW NAMES mei)
 
 # Search for the python framework on Apple.
 CMAKE_FIND_FRAMEWORKS(Python)
@@ -23,6 +24,7 @@ ENDIF(Python_FRAMEWORKS)
 ENABLE_TESTING()
 INCLUDE_DIRECTORIES(/usr/local/include ~/Library/Frameworks ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 LINK_DIRECTORIES(/usr/local/lib ~/Library/Frameworks)
-LINK_LIBRARIES(${Boost_LIBRARIES} python2.7 mei) # Deprecated but so convenient!
+#add_library( pymei SHARED pymei.cpp )
 
-PYTHON_ADD_MODULE(meielement MeiElement.cpp)
+PYTHON_ADD_MODULE(pymei pymei.cpp)
+target_link_libraries(pymei ${Boost_LIBRARIES} python2.7 ${MeiFW})
