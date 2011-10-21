@@ -174,9 +174,12 @@ void mei::MeiElement::addAttribute(string attrname, string attrvalue) {
 
 void mei::MeiElement::removeAttribute(string name) {
     vector<MeiAttribute*>::iterator iter = attributes.begin();
+    MeiAttribute *temp;
     while (iter != attributes.end()) {
         if ((*iter)->getName() == name) {
+            temp = (*iter);
             iter = attributes.erase(iter);
+            delete temp;
         } else {
             ++iter;
         }
