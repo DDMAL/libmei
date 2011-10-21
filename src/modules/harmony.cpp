@@ -49,10 +49,8 @@ MeiAttribute* mei::ChordDef::getPos() {
 };
 
 void mei::ChordDef::setPos(std::string _pos) {
-    if (!hasAttribute("pos")) {
-        MeiAttribute *a = new MeiAttribute("pos", _pos);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("pos", _pos);
+    addAttribute(a);
 };
 
 bool mei::ChordDef::hasPos() {
@@ -95,10 +93,8 @@ MeiAttribute* mei::ChordMember::getFing() {
 };
 
 void mei::ChordMember::setFing(std::string _fing) {
-    if (!hasAttribute("fing")) {
-        MeiAttribute *a = new MeiAttribute("fing", _fing);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("fing", _fing);
+    addAttribute(a);
 };
 
 bool mei::ChordMember::hasFing() {
@@ -154,10 +150,8 @@ MeiAttribute* mei::F::getExtender() {
 };
 
 void mei::F::setExtender(std::string _extender) {
-    if (!hasAttribute("extender")) {
-        MeiAttribute *a = new MeiAttribute("extender", _extender);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("extender", _extender);
+    addAttribute(a);
 };
 
 bool mei::F::hasExtender() {

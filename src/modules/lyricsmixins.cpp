@@ -20,10 +20,8 @@ MeiAttribute* mei::VerseLogMixIn::getRefrain() {
 };
 
 void mei::VerseLogMixIn::setRefrain(std::string _refrain) {
-    if (!b->hasAttribute("refrain")) {
-        MeiAttribute *a = new MeiAttribute("refrain", _refrain);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("refrain", _refrain);
+    b->addAttribute(a);
 };
 
 bool mei::VerseLogMixIn::hasRefrain() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::VerseLogMixIn::getRhythm() {
 };
 
 void mei::VerseLogMixIn::setRhythm(std::string _rhythm) {
-    if (!b->hasAttribute("rhythm")) {
-        MeiAttribute *a = new MeiAttribute("rhythm", _rhythm);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rhythm", _rhythm);
+    b->addAttribute(a);
 };
 
 bool mei::VerseLogMixIn::hasRhythm() {

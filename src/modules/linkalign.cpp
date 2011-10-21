@@ -28,10 +28,8 @@ MeiAttribute* mei::Timeline::getAvref() {
 };
 
 void mei::Timeline::setAvref(std::string _avref) {
-    if (!hasAttribute("avref")) {
-        MeiAttribute *a = new MeiAttribute("avref", _avref);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("avref", _avref);
+    addAttribute(a);
 };
 
 bool mei::Timeline::hasAvref() {
@@ -49,10 +47,8 @@ MeiAttribute* mei::Timeline::getOrigin() {
 };
 
 void mei::Timeline::setOrigin(std::string _origin) {
-    if (!hasAttribute("origin")) {
-        MeiAttribute *a = new MeiAttribute("origin", _origin);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("origin", _origin);
+    addAttribute(a);
 };
 
 bool mei::Timeline::hasOrigin() {
@@ -87,10 +83,8 @@ MeiAttribute* mei::When::getAbsolute() {
 };
 
 void mei::When::setAbsolute(std::string _absolute) {
-    if (!hasAttribute("absolute")) {
-        MeiAttribute *a = new MeiAttribute("absolute", _absolute);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("absolute", _absolute);
+    addAttribute(a);
 };
 
 bool mei::When::hasAbsolute() {
@@ -108,10 +102,8 @@ MeiAttribute* mei::When::getInterval() {
 };
 
 void mei::When::setInterval(std::string _interval) {
-    if (!hasAttribute("interval")) {
-        MeiAttribute *a = new MeiAttribute("interval", _interval);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("interval", _interval);
+    addAttribute(a);
 };
 
 bool mei::When::hasInterval() {
@@ -129,10 +121,8 @@ MeiAttribute* mei::When::getInttype() {
 };
 
 void mei::When::setInttype(std::string _inttype) {
-    if (!hasAttribute("inttype")) {
-        MeiAttribute *a = new MeiAttribute("inttype", _inttype);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("inttype", _inttype);
+    addAttribute(a);
 };
 
 bool mei::When::hasInttype() {
@@ -150,10 +140,8 @@ MeiAttribute* mei::When::getSince() {
 };
 
 void mei::When::setSince(std::string _since) {
-    if (!hasAttribute("since")) {
-        MeiAttribute *a = new MeiAttribute("since", _since);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("since", _since);
+    addAttribute(a);
 };
 
 bool mei::When::hasSince() {

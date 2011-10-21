@@ -20,10 +20,8 @@ MeiAttribute* mei::FacsimileMixIn::getFacs() {
 };
 
 void mei::FacsimileMixIn::setFacs(std::string _facs) {
-    if (!b->hasAttribute("facs")) {
-        MeiAttribute *a = new MeiAttribute("facs", _facs);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("facs", _facs);
+    b->addAttribute(a);
 };
 
 bool mei::FacsimileMixIn::hasFacs() {

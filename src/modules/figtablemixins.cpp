@@ -20,10 +20,8 @@ MeiAttribute* mei::TabularMixIn::getColspan() {
 };
 
 void mei::TabularMixIn::setColspan(std::string _colspan) {
-    if (!b->hasAttribute("colspan")) {
-        MeiAttribute *a = new MeiAttribute("colspan", _colspan);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("colspan", _colspan);
+    b->addAttribute(a);
 };
 
 bool mei::TabularMixIn::hasColspan() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::TabularMixIn::getRowspan() {
 };
 
 void mei::TabularMixIn::setRowspan(std::string _rowspan) {
-    if (!b->hasAttribute("rowspan")) {
-        MeiAttribute *a = new MeiAttribute("rowspan", _rowspan);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rowspan", _rowspan);
+    b->addAttribute(a);
 };
 
 bool mei::TabularMixIn::hasRowspan() {

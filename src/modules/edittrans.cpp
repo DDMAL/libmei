@@ -105,10 +105,8 @@ MeiAttribute* mei::Damage::getDegree() {
 };
 
 void mei::Damage::setDegree(std::string _degree) {
-    if (!hasAttribute("degree")) {
-        MeiAttribute *a = new MeiAttribute("degree", _degree);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("degree", _degree);
+    addAttribute(a);
 };
 
 bool mei::Damage::hasDegree() {
@@ -147,10 +145,8 @@ MeiAttribute* mei::Del::getRend() {
 };
 
 void mei::Del::setRend(std::string _rend) {
-    if (!hasAttribute("rend")) {
-        MeiAttribute *a = new MeiAttribute("rend", _rend);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rend", _rend);
+    addAttribute(a);
 };
 
 bool mei::Del::hasRend() {
@@ -222,10 +218,8 @@ MeiAttribute* mei::HandShift::getCharacter() {
 };
 
 void mei::HandShift::setCharacter(std::string _character) {
-    if (!hasAttribute("character")) {
-        MeiAttribute *a = new MeiAttribute("character", _character);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("character", _character);
+    addAttribute(a);
 };
 
 bool mei::HandShift::hasCharacter() {
@@ -243,10 +237,8 @@ MeiAttribute* mei::HandShift::getNew() {
 };
 
 void mei::HandShift::setNew(std::string _new) {
-    if (!hasAttribute("new")) {
-        MeiAttribute *a = new MeiAttribute("new", _new);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("new", _new);
+    addAttribute(a);
 };
 
 bool mei::HandShift::hasNew() {
@@ -264,10 +256,8 @@ MeiAttribute* mei::HandShift::getOld() {
 };
 
 void mei::HandShift::setOld(std::string _old) {
-    if (!hasAttribute("old")) {
-        MeiAttribute *a = new MeiAttribute("old", _old);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("old", _old);
+    addAttribute(a);
 };
 
 bool mei::HandShift::hasOld() {
@@ -356,10 +346,8 @@ MeiAttribute* mei::Restore::getDesc() {
 };
 
 void mei::Restore::setDesc(std::string _desc) {
-    if (!hasAttribute("desc")) {
-        MeiAttribute *a = new MeiAttribute("desc", _desc);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("desc", _desc);
+    addAttribute(a);
 };
 
 bool mei::Restore::hasDesc() {

@@ -443,4 +443,22 @@ TEST(TestMeiElement, GetPositionInDocument) {
     
 }
 
+TEST(TestMeiElement, CopyConstructor) {
+    Note *n1 = new Note();
+    n1->m_NoteVis.setHeadshape("diamond");
+    n1->m_Pitch.setPname("c");
 
+    Note *n2 = new Note(*n1);
+
+    ASSERT_NE(n1->getId(),n2->getId());
+    ASSERT_EQ(n1->getAttributes().size(), n2->getAttributes().size());
+    ASSERT_EQ("diamond", n2->m_NoteVis.getHeadshape()->getValue());
+    ASSERT_EQ("c", n2->m_Pitch.getPname()->getValue());
+
+    n2->removeAttribute("pname");
+    n2->m_Pitch.setPname("a");
+
+    ASSERT_EQ("a", n2->m_Pitch.getPname()->getValue());
+    ASSERT_EQ("c", n1->m_Pitch.getPname()->getValue());
+    
+}

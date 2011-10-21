@@ -16,7 +16,7 @@ NS_PREFIX_MAP = {
     "http://www.w3.org/1999/xlink": "xlink"
 }
 
-AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani"
+AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet"
 
 METHODS_HEADER_TEMPLATE = """{documentation}
         MeiAttribute* get{attNameUpper}();
@@ -33,10 +33,8 @@ METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() {
 }};
 
 void mei::{className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
-    if (!{accessor}hasAttribute("{attNameLower}")) {{
-        MeiAttribute *a = new MeiAttribute("{attNameLower}", _{attNameLowerJoined});{namespaceCompat}
-        {accessor}addAttribute(a);
-    }}
+    MeiAttribute *a = new MeiAttribute("{attNameLower}", _{attNameLowerJoined});{namespaceCompat}
+    {accessor}addAttribute(a);
 }};
 
 bool mei::{className}::has{attNameUpper}() {{

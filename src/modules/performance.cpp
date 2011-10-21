@@ -57,10 +57,8 @@ MeiAttribute* mei::Clip::getBegin() {
 };
 
 void mei::Clip::setBegin(std::string _begin) {
-    if (!hasAttribute("begin")) {
-        MeiAttribute *a = new MeiAttribute("begin", _begin);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("begin", _begin);
+    addAttribute(a);
 };
 
 bool mei::Clip::hasBegin() {
@@ -78,10 +76,8 @@ MeiAttribute* mei::Clip::getEnd() {
 };
 
 void mei::Clip::setEnd(std::string _end) {
-    if (!hasAttribute("end")) {
-        MeiAttribute *a = new MeiAttribute("end", _end);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("end", _end);
+    addAttribute(a);
 };
 
 bool mei::Clip::hasEnd() {
@@ -99,10 +95,8 @@ MeiAttribute* mei::Clip::getBetype() {
 };
 
 void mei::Clip::setBetype(std::string _betype) {
-    if (!hasAttribute("betype")) {
-        MeiAttribute *a = new MeiAttribute("betype", _betype);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("betype", _betype);
+    addAttribute(a);
 };
 
 bool mei::Clip::hasBetype() {
@@ -156,10 +150,8 @@ MeiAttribute* mei::Recording::getBegin() {
 };
 
 void mei::Recording::setBegin(std::string _begin) {
-    if (!hasAttribute("begin")) {
-        MeiAttribute *a = new MeiAttribute("begin", _begin);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("begin", _begin);
+    addAttribute(a);
 };
 
 bool mei::Recording::hasBegin() {
@@ -177,10 +169,8 @@ MeiAttribute* mei::Recording::getEnd() {
 };
 
 void mei::Recording::setEnd(std::string _end) {
-    if (!hasAttribute("end")) {
-        MeiAttribute *a = new MeiAttribute("end", _end);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("end", _end);
+    addAttribute(a);
 };
 
 bool mei::Recording::hasEnd() {
@@ -198,10 +188,8 @@ MeiAttribute* mei::Recording::getBetype() {
 };
 
 void mei::Recording::setBetype(std::string _betype) {
-    if (!hasAttribute("betype")) {
-        MeiAttribute *a = new MeiAttribute("betype", _betype);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("betype", _betype);
+    addAttribute(a);
 };
 
 bool mei::Recording::hasBetype() {

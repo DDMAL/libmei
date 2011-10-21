@@ -78,10 +78,8 @@ MeiAttribute* mei::Graphic::getHeight() {
 };
 
 void mei::Graphic::setHeight(std::string _height) {
-    if (!hasAttribute("height")) {
-        MeiAttribute *a = new MeiAttribute("height", _height);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("height", _height);
+    addAttribute(a);
 };
 
 bool mei::Graphic::hasHeight() {

@@ -70,7 +70,7 @@ class MEI_EXPORT MeiElement
         /*
          * \brief Copy constructor
          */
-        MeiElement(const MeiElement& otherElement);       
+        MeiElement(const MeiElement& ele);       
 
         virtual ~MeiElement();
 

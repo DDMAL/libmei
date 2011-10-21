@@ -181,10 +181,8 @@ MeiAttribute* mei::Symbol::getRef() {
 };
 
 void mei::Symbol::setRef(std::string _ref) {
-    if (!hasAttribute("ref")) {
-        MeiAttribute *a = new MeiAttribute("ref", _ref);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("ref", _ref);
+    addAttribute(a);
 };
 
 bool mei::Symbol::hasRef() {

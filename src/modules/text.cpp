@@ -179,10 +179,8 @@ MeiAttribute* mei::List::getForm() {
 };
 
 void mei::List::setForm(std::string _form) {
-    if (!hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    addAttribute(a);
 };
 
 bool mei::List::hasForm() {

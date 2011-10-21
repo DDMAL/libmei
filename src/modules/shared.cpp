@@ -57,10 +57,8 @@ MeiAttribute* mei::Abbr::getExpan() {
 };
 
 void mei::Abbr::setExpan(std::string _expan) {
-    if (!hasAttribute("expan")) {
-        MeiAttribute *a = new MeiAttribute("expan", _expan);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("expan", _expan);
+    addAttribute(a);
 };
 
 bool mei::Abbr::hasExpan() {
@@ -646,10 +644,8 @@ MeiAttribute* mei::Date::getReg() {
 };
 
 void mei::Date::setReg(std::string _reg) {
-    if (!hasAttribute("reg")) {
-        MeiAttribute *a = new MeiAttribute("reg", _reg);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("reg", _reg);
+    addAttribute(a);
 };
 
 bool mei::Date::hasReg() {
@@ -897,10 +893,8 @@ MeiAttribute* mei::Expan::getAbbr() {
 };
 
 void mei::Expan::setAbbr(std::string _abbr) {
-    if (!hasAttribute("abbr")) {
-        MeiAttribute *a = new MeiAttribute("abbr", _abbr);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("abbr", _abbr);
+    addAttribute(a);
 };
 
 bool mei::Expan::hasAbbr() {
@@ -1111,10 +1105,8 @@ MeiAttribute* mei::KeyAccid::getForm() {
 };
 
 void mei::KeyAccid::setForm(std::string _form) {
-    if (!hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    addAttribute(a);
 };
 
 bool mei::KeyAccid::hasForm() {
@@ -1153,10 +1145,8 @@ MeiAttribute* mei::KeySig::getMode() {
 };
 
 void mei::KeySig::setMode(std::string _mode) {
-    if (!hasAttribute("mode")) {
-        MeiAttribute *a = new MeiAttribute("mode", _mode);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mode", _mode);
+    addAttribute(a);
 };
 
 bool mei::KeySig::hasMode() {
@@ -1278,10 +1268,8 @@ MeiAttribute* mei::Lb::getFunc() {
 };
 
 void mei::Lb::setFunc(std::string _func) {
-    if (!hasAttribute("func")) {
-        MeiAttribute *a = new MeiAttribute("func", _func);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("func", _func);
+    addAttribute(a);
 };
 
 bool mei::Lb::hasFunc() {
@@ -1837,10 +1825,8 @@ MeiAttribute* mei::Rend::getAltrend() {
 };
 
 void mei::Rend::setAltrend(std::string _altrend) {
-    if (!hasAttribute("altrend")) {
-        MeiAttribute *a = new MeiAttribute("altrend", _altrend);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("altrend", _altrend);
+    addAttribute(a);
 };
 
 bool mei::Rend::hasAltrend() {
@@ -1858,10 +1844,8 @@ MeiAttribute* mei::Rend::getRend() {
 };
 
 void mei::Rend::setRend(std::string _rend) {
-    if (!hasAttribute("rend")) {
-        MeiAttribute *a = new MeiAttribute("rend", _rend);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rend", _rend);
+    addAttribute(a);
 };
 
 bool mei::Rend::hasRend() {
@@ -1879,10 +1863,8 @@ MeiAttribute* mei::Rend::getRotation() {
 };
 
 void mei::Rend::setRotation(std::string _rotation) {
-    if (!hasAttribute("rotation")) {
-        MeiAttribute *a = new MeiAttribute("rotation", _rotation);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rotation", _rotation);
+    addAttribute(a);
 };
 
 bool mei::Rend::hasRotation() {
@@ -1900,10 +1882,8 @@ MeiAttribute* mei::Rend::getValign() {
 };
 
 void mei::Rend::setValign(std::string _valign) {
-    if (!hasAttribute("valign")) {
-        MeiAttribute *a = new MeiAttribute("valign", _valign);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("valign", _valign);
+    addAttribute(a);
 };
 
 bool mei::Rend::hasValign() {
@@ -2288,10 +2268,8 @@ MeiAttribute* mei::Stack::getDelim() {
 };
 
 void mei::Stack::setDelim(std::string _delim) {
-    if (!hasAttribute("delim")) {
-        MeiAttribute *a = new MeiAttribute("delim", _delim);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("delim", _delim);
+    addAttribute(a);
 };
 
 bool mei::Stack::hasDelim() {
@@ -2309,10 +2287,8 @@ MeiAttribute* mei::Stack::getAlign() {
 };
 
 void mei::Stack::setAlign(std::string _align) {
-    if (!hasAttribute("align")) {
-        MeiAttribute *a = new MeiAttribute("align", _align);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("align", _align);
+    addAttribute(a);
 };
 
 bool mei::Stack::hasAlign() {
@@ -2584,10 +2560,8 @@ MeiAttribute* mei::Title::getLevel() {
 };
 
 void mei::Title::setLevel(std::string _level) {
-    if (!hasAttribute("level")) {
-        MeiAttribute *a = new MeiAttribute("level", _level);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("level", _level);
+    addAttribute(a);
 };
 
 bool mei::Title::hasLevel() {

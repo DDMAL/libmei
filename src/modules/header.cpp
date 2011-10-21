@@ -104,10 +104,8 @@ MeiAttribute* mei::Application::getVersion() {
 };
 
 void mei::Application::setVersion(std::string _version) {
-    if (!hasAttribute("version")) {
-        MeiAttribute *a = new MeiAttribute("version", _version);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("version", _version);
+    addAttribute(a);
 };
 
 bool mei::Application::hasVersion() {
@@ -296,10 +294,8 @@ MeiAttribute* mei::Correction::getCorrlevel() {
 };
 
 void mei::Correction::setCorrlevel(std::string _corrlevel) {
-    if (!hasAttribute("corrlevel")) {
-        MeiAttribute *a = new MeiAttribute("corrlevel", _corrlevel);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("corrlevel", _corrlevel);
+    addAttribute(a);
 };
 
 bool mei::Correction::hasCorrlevel() {
@@ -572,10 +568,8 @@ MeiAttribute* mei::Hand::getInitial() {
 };
 
 void mei::Hand::setInitial(std::string _initial) {
-    if (!hasAttribute("initial")) {
-        MeiAttribute *a = new MeiAttribute("initial", _initial);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("initial", _initial);
+    addAttribute(a);
 };
 
 bool mei::Hand::hasInitial() {
@@ -646,12 +640,10 @@ MeiAttribute* mei::IncipCode::getSpace() {
 };
 
 void mei::IncipCode::setSpace(std::string _space) {
-    if (!hasAttribute("space")) {
-        MeiAttribute *a = new MeiAttribute("space", _space);
+    MeiAttribute *a = new MeiAttribute("space", _space);
         MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
         a->setNamespace(s);
-        addAttribute(a);
-    }
+    addAttribute(a);
 };
 
 bool mei::IncipCode::hasSpace() {
@@ -669,10 +661,8 @@ MeiAttribute* mei::IncipCode::getForm() {
 };
 
 void mei::IncipCode::setForm(std::string _form) {
-    if (!hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    addAttribute(a);
 };
 
 bool mei::IncipCode::hasForm() {
@@ -753,10 +743,8 @@ MeiAttribute* mei::InstrVoice::getCount() {
 };
 
 void mei::InstrVoice::setCount(std::string _count) {
-    if (!hasAttribute("count")) {
-        MeiAttribute *a = new MeiAttribute("count", _count);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("count", _count);
+    addAttribute(a);
 };
 
 bool mei::InstrVoice::hasCount() {
@@ -774,10 +762,8 @@ MeiAttribute* mei::InstrVoice::getSolo() {
 };
 
 void mei::InstrVoice::setSolo(std::string _solo) {
-    if (!hasAttribute("solo")) {
-        MeiAttribute *a = new MeiAttribute("solo", _solo);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("solo", _solo);
+    addAttribute(a);
 };
 
 bool mei::InstrVoice::hasSolo() {
@@ -837,10 +823,8 @@ MeiAttribute* mei::Key::getMode() {
 };
 
 void mei::Key::setMode(std::string _mode) {
-    if (!hasAttribute("mode")) {
-        MeiAttribute *a = new MeiAttribute("mode", _mode);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mode", _mode);
+    addAttribute(a);
 };
 
 bool mei::Key::hasMode() {
@@ -917,10 +901,8 @@ MeiAttribute* mei::MeiHead::getType() {
 };
 
 void mei::MeiHead::setType(std::string _type) {
-    if (!hasAttribute("type")) {
-        MeiAttribute *a = new MeiAttribute("type", _type);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("type", _type);
+    addAttribute(a);
 };
 
 bool mei::MeiHead::hasType() {
@@ -1202,10 +1184,8 @@ MeiAttribute* mei::RelatedItem::getRel() {
 };
 
 void mei::RelatedItem::setRel(std::string _rel) {
-    if (!hasAttribute("rel")) {
-        MeiAttribute *a = new MeiAttribute("rel", _rel);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rel", _rel);
+    addAttribute(a);
 };
 
 bool mei::RelatedItem::hasRel() {
@@ -1424,10 +1404,8 @@ MeiAttribute* mei::Term::getClasscode() {
 };
 
 void mei::Term::setClasscode(std::string _classcode) {
-    if (!hasAttribute("classcode")) {
-        MeiAttribute *a = new MeiAttribute("classcode", _classcode);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("classcode", _classcode);
+    addAttribute(a);
 };
 
 bool mei::Term::hasClasscode() {
@@ -1462,10 +1440,8 @@ MeiAttribute* mei::TermList::getClasscode() {
 };
 
 void mei::TermList::setClasscode(std::string _classcode) {
-    if (!hasAttribute("classcode")) {
-        MeiAttribute *a = new MeiAttribute("classcode", _classcode);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("classcode", _classcode);
+    addAttribute(a);
 };
 
 bool mei::TermList::hasClasscode() {

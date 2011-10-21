@@ -44,11 +44,15 @@ mei::MeiElement::MeiElement(const MeiElement& ele)
         children.push_back(new MeiElement(**ele_it));
     }
 
-    // deep copy element attributes
-    // use default MeiAttribute since no dynamic mem pointers in MeiAttribute
+    // copy element attributes
+    // use default MeiAttribute copy constructor with shallow pointer copy for MeiElement
     vector<MeiAttribute*>::const_iterator attr_it;
     for(attr_it=ele.attributes.begin(); attr_it != ele.attributes.end(); attr_it++) {
-        attributes.push_back(new MeiAttribute(**attr_it));
+        MeiAttribute *newAttr = new MeiAttribute(**attr_it);
+        // reset MeiElement pointer - no other way to do this
+        newAttr->setElement(this);
+        attributes.push_back(newAttr);
+
     }
 }
 

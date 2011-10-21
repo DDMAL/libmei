@@ -67,10 +67,8 @@ MeiAttribute* mei::Chan::getNum() {
 };
 
 void mei::Chan::setNum(std::string _num) {
-    if (!hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    addAttribute(a);
 };
 
 bool mei::Chan::hasNum() {
@@ -371,10 +369,8 @@ MeiAttribute* mei::SeqNum::getNum() {
 };
 
 void mei::SeqNum::setNum(std::string _num) {
-    if (!hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    addAttribute(a);
 };
 
 bool mei::SeqNum::hasNum() {
@@ -444,10 +440,8 @@ MeiAttribute* mei::Vel::getForm() {
 };
 
 void mei::Vel::setForm(std::string _form) {
-    if (!hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    addAttribute(a);
 };
 
 bool mei::Vel::hasForm() {

@@ -20,10 +20,8 @@ MeiAttribute* mei::NoteGesTablatureMixIn::getTabFret() {
 };
 
 void mei::NoteGesTablatureMixIn::setTabFret(std::string _tabfret) {
-    if (!b->hasAttribute("tab.fret")) {
-        MeiAttribute *a = new MeiAttribute("tab.fret", _tabfret);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("tab.fret", _tabfret);
+    b->addAttribute(a);
 };
 
 bool mei::NoteGesTablatureMixIn::hasTabFret() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::NoteGesTablatureMixIn::getTabString() {
 };
 
 void mei::NoteGesTablatureMixIn::setTabString(std::string _tabstring) {
-    if (!b->hasAttribute("tab.string")) {
-        MeiAttribute *a = new MeiAttribute("tab.string", _tabstring);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("tab.string", _tabstring);
+    b->addAttribute(a);
 };
 
 bool mei::NoteGesTablatureMixIn::hasTabString() {
@@ -68,10 +64,8 @@ MeiAttribute* mei::StaffDefGesTablatureMixIn::getTabStrings() {
 };
 
 void mei::StaffDefGesTablatureMixIn::setTabStrings(std::string _tabstrings) {
-    if (!b->hasAttribute("tab.strings")) {
-        MeiAttribute *a = new MeiAttribute("tab.strings", _tabstrings);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("tab.strings", _tabstrings);
+    b->addAttribute(a);
 };
 
 bool mei::StaffDefGesTablatureMixIn::hasTabStrings() {
