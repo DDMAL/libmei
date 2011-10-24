@@ -95,7 +95,6 @@
 		05C9B31B13FC0BD000E68B21 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C9B31913FC0BC300E68B21 /* gtest.framework */; };
 		05C9B31C13FC2D2C00E68B21 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
-		05CED9A5142A7292003A8CB6 /* test_cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CED9A2142A726F003A8CB6 /* test_cmn.cpp */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
@@ -110,6 +109,8 @@
 		9BE4E760131D677900A59F5D /* meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4E743131D570100A59F5D /* meielement.cpp */; };
 		9BE4E761131D678000A59F5D /* meielement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE4E742131D570100A59F5D /* meielement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1B63DA91445D89200029BB7 /* meicommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B63DA81445D89200029BB7 /* meicommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1F5D1791455D90100CE6CE6 /* mei.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F5D1781455B93C00CE6CE6 /* mei.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1F5D17A1455D96C00CE6CE6 /* test_cmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CED9A2142A726F003A8CB6 /* test_cmn.cpp */; };
 		B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */; };
 		B2D4890F13FEC61D001E2022 /* beethoven.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E41313FE18B30005B735 /* beethoven.mei */; };
 		B2E397BB1401A52200161BD2 /* xmlimport.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E397B514018B3E00161BD2 /* xmlimport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -603,6 +604,7 @@
 				053321CD1402F79700B89665 /* meinamespace.h in Headers */,
 				B2E397BE1401B7ED00161BD2 /* exceptions.h in Headers */,
 				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
+				A1F5D1791455D90100CE6CE6 /* mei.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,11 +762,11 @@
 				61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */,
 				058359E813FB2F8700919769 /* test_meielement.cpp in Sources */,
 				058359E913FB2F8700919769 /* test_shared.cpp in Sources */,
-				05CED9A5142A7292003A8CB6 /* test_cmn.cpp in Sources */,
 				05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */,
 				0514A69113FDAAF500310111 /* test_xmlinput.cpp in Sources */,
 				05B6605814017D8400D54F9A /* test_xmloutput.cpp in Sources */,
 				B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */,
+				A1F5D17A1455D96C00CE6CE6 /* test_cmn.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
