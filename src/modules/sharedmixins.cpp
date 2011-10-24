@@ -741,9 +741,8 @@ MeiAttribute* mei::CommonMixIn::getBase() {
 };
 
 void mei::CommonMixIn::setBase(std::string _base) {
-    MeiAttribute *a = new MeiAttribute("base", _base);
-        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "base", _base);
     b->addAttribute(a);
 };
 
@@ -1672,9 +1671,8 @@ MeiAttribute* mei::LangMixIn::getLang() {
 };
 
 void mei::LangMixIn::setLang(std::string _lang) {
-    MeiAttribute *a = new MeiAttribute("lang", _lang);
-        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "lang", _lang);
     b->addAttribute(a);
 };
 
@@ -2659,9 +2657,8 @@ MeiAttribute* mei::PointingMixIn::getActuate() {
 };
 
 void mei::PointingMixIn::setActuate(std::string _actuate) {
-    MeiAttribute *a = new MeiAttribute("actuate", _actuate);
-        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "actuate", _actuate);
     b->addAttribute(a);
 };
 
@@ -2680,9 +2677,8 @@ MeiAttribute* mei::PointingMixIn::getRole() {
 };
 
 void mei::PointingMixIn::setRole(std::string _role) {
-    MeiAttribute *a = new MeiAttribute("role", _role);
-        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "role", _role);
     b->addAttribute(a);
 };
 
@@ -2701,9 +2697,8 @@ MeiAttribute* mei::PointingMixIn::getShow() {
 };
 
 void mei::PointingMixIn::setShow(std::string _show) {
-    MeiAttribute *a = new MeiAttribute("show", _show);
-        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "show", _show);
     b->addAttribute(a);
 };
 
@@ -2760,9 +2755,8 @@ MeiAttribute* mei::PointingMixIn::getTitle() {
 };
 
 void mei::PointingMixIn::setTitle(std::string _title) {
-    MeiAttribute *a = new MeiAttribute("title", _title);
-        MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "title", _title);
     b->addAttribute(a);
 };
 
