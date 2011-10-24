@@ -101,6 +101,7 @@ void XmlExportImpl::init() {
     xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
     xmlDocSetRootElement(xmldoc, xroot);
     this->xmlDocOutput = xmldoc;
+    documentRootNode = NULL;
 }
 
 xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
@@ -117,6 +118,7 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
                 xmlNewNs(curxmlnode, (const xmlChar*)(*iter)->getHref().c_str(), (const xmlChar*)(*iter)->getPrefix().c_str());
             }
         }
+        documentRootNode = curxmlnode;
     }
 
     if (el->hasId()) {
@@ -125,16 +127,17 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     }
 
     vector<MeiAttribute*> ats = el->getAttributes();
-    for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter !=ats.end(); ++iter) {
+    for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter != ats.end(); ++iter) {
         string attrname = (*iter)->getName();
         string attrvalue = (*iter)->getValue();
 
         if ((*iter)->hasNamespace()) {
             MeiNamespace* atns = (*iter)->getNamespace();
-            attrname = atns->getPrefix() + ":" + attrname;
+            xmlNsPtr ns = xmlNewNs(documentRootNode, (const xmlChar*)atns->getHref().c_str(), (const xmlChar*)atns->getPrefix().c_str());
+            xmlNewNsProp(curxmlnode, ns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+        } else {
+            xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
         }
-
-        xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
     }
 
     // Add child for text node
