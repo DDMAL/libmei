@@ -256,7 +256,6 @@
 		617B43441304560400EBBE7F /* readmei */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readmei; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCCF1312C85D00B46918 /* mei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = mei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		61DBCCD01312C85E00B46918 /* mei-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mei-Info.plist"; sourceTree = "<group>"; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
 		825732DE142D099D00F3868D /* mxmlparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mxmlparser.h; sourceTree = "<group>"; };
 		825732E0142D09AA00F3868D /* mxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mxmlparser.cpp; sourceTree = "<group>"; };
@@ -373,7 +372,6 @@
 				08FB77ACFE841707C02AAC07 /* Source */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DDFF38A45A11DB9C8B /* Products */,
-				61DBCCD01312C85E00B46918 /* mei-Info.plist */,
 			);
 			name = libmei;
 			sourceTree = "<group>";
@@ -872,7 +870,6 @@
 		};
 		1DEB916508733D950010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1009,7 +1006,6 @@
 				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2/;
-				INFOPLIST_FILE = "mei-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "";
@@ -1036,7 +1032,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "mei-Info.plist";
 				INSTALL_PATH = "/Library/Frameworks/$(EXECUTABLE_PATH)";
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "";
