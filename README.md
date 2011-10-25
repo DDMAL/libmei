@@ -4,24 +4,49 @@ LibMEI
 LibMEI is a C++ library for reading and writing [MEI](http://music-encoding.org) files
 
 It is developed by the [Distributed Digital Music Archives and Libraries Lab](http://ddmal.music.mcgill.ca/)
-at the Schulich School of Music at McGill University
+at the Schulich School of Music at McGill University, Montréal, Canada
 
 License
 -------
 LibMEI is released under the MIT license.
 
-Developing
-----------
-An Xcode project file is included that should let you develop libMEI on OSX. There is also a cmake file for Linux.
+Compilation & Usage
+-------------------
 
-We use googletest for unit testing.
+We provide an XCode project for OSX and a cmake script for Linux.
 
-To create new files:
+To build on Linux, simply
 
-1. Go to File -> New File -> C and C++ -> C++ File
-2. Ensure the checkbox for creaing a .h file is selected
-3. Choose file location to be in the src folder
-4. Once created, add the header file to Targets -> libmei -> Copy Headers
-5. Right-click on the header file, choose "Set Role" and set it to "Public"
+    mkdir build; cd build
+    cmake ..
+    make
+    sudo make install
 
-For every src <file>.cpp/h you create, create a test/<file>_test.cpp. For test files, no header files are needed. Uncheck the box that also creates a .h file
+To use libmei, include
+
+    #include <mei/mei.h>
+
+We provide two sample applications to demonstrate use. ```util/readmei.cpp``` is a trivial
+example of reading and writing MEI, and making a change to the document structure.
+```util/mxmltomei``` contains a tool to convert between MusicXML and MEI. This tool is
+still in active development.
+
+More detailed information about compilation and use is available at the
+libmei wiki: https://github.com/DDMAL/libmei/wiki
+
+Authors
+-------
+
+* Andrew Hankinson
+* Alastair Porter
+* Greg Burlet
+* Jamie Klassen
+* Mahtab Ghamsari
+
+Development of LibMEI was made possible with funding from the
+Social Sciences and Humanities Research Council of Canada
+
+Contributions
+-------------
+We welcome bug reports, feature requests, and patches to the libmei project page:
+https://github.com/DDMAL/libmei
