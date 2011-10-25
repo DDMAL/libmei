@@ -5,7 +5,6 @@
 
 /* <tie> */
         MeiElement* getSystem();
-        std::string attachedToStaff();
 
         std::vector<mei::MeiElement*> getMembers();
 

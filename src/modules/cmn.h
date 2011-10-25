@@ -996,7 +996,6 @@ class MEI_EXPORT Tie : public MeiElement {
         virtual ~Tie();
 
         MeiElement* getSystem();
-        std::string attachedToStaff();
 
         std::vector<mei::MeiElement*> getMembers();
 

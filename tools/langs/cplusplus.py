@@ -33,7 +33,7 @@ METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() {
 }};
 
 void mei::{className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
-    MeiAttribute *a = new MeiAttribute("{attNameLower}", _{attNameLowerJoined});{namespaceCompat}
+    {namespaceDefinition}MeiAttribute *a = new MeiAttribute({attrNs}"{attNameLower}", _{attNameLowerJoined});
     {accessor}addAttribute(a);
 }};
 
@@ -46,8 +46,7 @@ void mei::{className}::remove{attNameUpper}() {{
 }};
 """
 
-NAMESPACE_TEMPLATE = """\n        MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");
-        a->setNamespace(s);"""
+NAMESPACE_TEMPLATE = """MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");\n    """
 
 
 CLASSES_IMPL_TEMPLATE = """#include "{moduleNameLower}.h"
@@ -266,16 +265,19 @@ def __create_mixin_classes(schema):
                         "prefix": NS_PREFIX_MAP[ns],
                         "href": ns
                     }
-                    nscompat = NAMESPACE_TEMPLATE.format(**nssubstr)
+                    nsDef = NAMESPACE_TEMPLATE.format(**nssubstr)
+                    attrNs = "s, "
                 else:
-                    nscompat = ""
+                    nsDef = ""
+                    attrNs = ""
 
                 attsubstr = {
                     "className": "{0}MixIn".format(schema.cc(schema.strpatt(gp))),
                     "attNameUpper": schema.cc(att),
                     "attNameLower": att,
                     "attNameLowerJoined": schema.strpdot(att),
-                    "namespaceCompat": nscompat,
+                    "namespaceDefinition": nsDef,
+                    "attrNs": attrNs,
                     "accessor": "b->", # we need this for mixins
                 }
                 methods += METHODS_IMPL_TEMPLATE.format(**attsubstr)
@@ -393,16 +395,19 @@ def __create_element_classes(schema):
                                 "prefix": NS_PREFIX_MAP[ns],
                                 "href": ns
                             }
-                            nscompat = NAMESPACE_TEMPLATE.format(**nssubstr)
+                            nsDef = NAMESPACE_TEMPLATE.format(**nssubstr)
+                            attrNs = "s, "
                         else:
-                            nscompat = ""
+                            nsDef = ""
+                            attrNs = ""
 
                         methstr = {
                             "className":schema.cc(element),
                             "attNameUpper": schema.cc(schema.strpatt(sda)),
                             "attNameLower": sda,
                             "attNameLowerJoined": schema.strpdot(sda),
-                            "namespaceCompat": nscompat,
+                            "namespaceDefinition": nsDef,
+                            "attrNs": attrNs,
                             "accessor": "", # we need this for mixins, but not for elements.
                         }
                         attribute_methods += METHODS_IMPL_TEMPLATE.format(**methstr)

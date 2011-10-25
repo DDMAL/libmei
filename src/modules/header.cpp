@@ -640,9 +640,8 @@ MeiAttribute* mei::IncipCode::getSpace() {
 };
 
 void mei::IncipCode::setSpace(std::string _space) {
-    MeiAttribute *a = new MeiAttribute("space", _space);
-        MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
-        a->setNamespace(s);
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "space", _space);
     addAttribute(a);
 };
 
