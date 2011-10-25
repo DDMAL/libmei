@@ -10,6 +10,7 @@ import string
 import codecs
 import subprocess
 import tempfile
+import shutil
 import re
 
 from argparse import ArgumentParser
@@ -40,18 +41,16 @@ class MeiSchema(object):
         # self.customization = etree.parse(customization_file)
         self.outdir = outdir
 
-        self.active_modules = []
+        self.active_modules = [] # the modules active in the resulting output
         self.element_structure = {} # the element structure.
         self.attribute_group_structure = {} # the attribute group structure
         self.inverse_attribute_group_structure = {} # inverted, so we can map attgroups to modules
         
-        # self.set_active_modules()
         self.get_elements()
         self.get_attribute_groups()
         self.invert_attribute_group_structure()
-        
-        # pdb.set_trace()
-    
+        self.set_active_modules()
+
     def get_elements(self):
         elements = [m for m in self.schema.xpath("//tei:elementSpec", namespaces=TEI_NS)]
         for element in elements:
@@ -117,23 +116,9 @@ class MeiSchema(object):
             for attgroup in groups:
                 self.inverse_attribute_group_structure[attgroup] = module
     
-    # def set_active_modules(self):
-    #     modules = [m for m in self.schema.xpath("//tei:moduleRef", namespaces=TEI_NS)]
-    #     for module in modules:
-    #         mname = module.get("key").split(".")[-1]
-    #         if mname == "MEI":
-    #             continue
-                
-    #         if mname not in self.active_modules:
-    #             self.active_modules.append(mname)
-            
-    #         if mname not in self.element_structure.keys():
-    #             self.element_structure[mname] = {}
-                
-    #         if mname not in self.attribute_group_structure.keys():
-    #             self.attribute_group_structure[mname] = {}
-        
-    #     self.active_modules.sort()
+    def set_active_modules(self):
+        self.active_modules = self.element_structure.keys()
+        self.active_modules.sort()
     
     def __get_membership(self, member, resarr):
         member_attgroup = member.xpath("//tei:classSpec[@type=$att][@ident=$nm]", att="atts", nm=member.get("key"), namespaces=TEI_NS)
@@ -152,10 +137,6 @@ class MeiSchema(object):
             
         for mship in m2s:
             self.__get_membership(mship, resarr)
-    
-    # def __get_is_active(self, el):
-    #     # gets whether or not the thing is in the active modules list.
-    #     return el.get("module").split(".")[-1] in self.active_modules
     
     def strpatt(self, name):
         """ Returns a version of the string with any leading att. stripped. """
@@ -184,10 +165,9 @@ class MeiSchema(object):
         else:
             return ""
 
-def parse_with_roma(source, customization):
-    tdir = tempfile.mkdtemp()
+def parse_with_roma(source, customization, outdir):
     p = subprocess.call([PATH_TO_ROMA, "--xsl=" + PATH_TO_TEI_STYLESHEET, "--localsource="+ source, 
-                            "--compile", "--nodtd", "--noxsd", "--norelax", customization, tdir])
+                            "--compile", "--nodtd", "--noxsd", "--norelax", customization, outdir])
     compiled_odd = os.path.join(tdir, os.path.basename(customization) + ".compiled")
     return compiled_odd
 
@@ -219,7 +199,9 @@ if __name__ == "__main__":
 
     lg.debug(args.compiled)
 
+
     if not args.compiled:
+        tdir = tempfile.mkdtemp()
         if not os.path.exists(args.source):
             p.error("Cannot find source file {0}".format(args.source))
             sys.exit(1)
@@ -227,8 +209,9 @@ if __name__ == "__main__":
             p.error("Cannot find customization file {0}".format(args.customization))
             sys.exit(1)
 
-        compiled_odd = parse_with_roma(args.source, args.customization)
+        compiled_odd = parse_with_roma(args.source, args.customization, tdir)
     else:
+        tdir = None
         compiled_odd = args.compiled
 
     cf = codecs.open(compiled_odd, 'r', 'utf-8')
@@ -245,4 +228,7 @@ if __name__ == "__main__":
     if args.includes:
         cpp.parse_includes(args.outdir, args.includes)
     
+    # clean up tempdir
+    if tdir:
+        shutil.rmtree(tdir)
     cf.close()
