@@ -17,15 +17,16 @@
 #include <sstream>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
+#include <libxml/xpath.h>
 #include <libxslt/xsltInternals.h>
 #include <libxslt/transform.h>
-    
+
 #include <mei/shared.h>
 #include <mei/header.h>
 #include <mei/cmn.h>
 #include <mei/xmlexport.h>
 
-namespace mei {
+namespace mparser {
 
 class MXMLParser 
     {
@@ -39,22 +40,27 @@ class MXMLParser
     private:
         const std::string mxmlFilePath;
         xmlDoc *doc;
-        MeiDocument *meiDoc;
+        mei::MeiDocument *meiDoc;
 
         void partToScore();
         void convertToMei(xmlNode *node);
+		void fifth2mei(std::string &fifths);
         std::string getContent(xmlNode *node);
+		std::string getContent(xmlChar *xpath, xmlNode* context = NULL, int i = 0);
         std::string getAttribute(xmlNode *node, std::string attName);
-        SeriesStmt * handleWork(xmlNode *workNode);
-        void handleIdentification(xmlNode *identNode, TitleStmt *ts);
+		xmlXPathObject* getNodeSet(xmlChar *xpath, xmlNode *context = NULL);
+        mei::SeriesStmt * handleWork(xmlNode *workNode);
+        void handleIdentification(xmlNode *identNode, mei::TitleStmt *ts);
 
         /**
          * \brief handles <part> tag
          * \return map of part ID to part name
          */
-        std::map<std::string,std::string> handleParts(xmlNode *partsNode);
-        void handlePartAttributes(xmlNode *attr, Score *score, std::string pname, bool createLocalScoreDef);
-        void handleMeasure(xmlNode *measureNode, Score *score, std::map<std::string,std::string> parts);
+        void handleParts(xmlNode *partsNode, mei::Score *score);
+        void handlePartAttributes(xmlNode *attr, mei::Score *score, std::string pname, bool createLocalScoreDef);
+        void handleMeasure(xmlNode *measureNode, mei::Score *score, std::map<std::string,std::string> parts);
+
+		std::string int2str(int i);
     };
 }
 
