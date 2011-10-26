@@ -32,7 +32,7 @@ mei::Mordent::Mordent() :
 REGISTER_DEFINITION(mei::Mordent, "mordent");
 mei::Mordent::~Mordent() {}
 mei::Mordent::Mordent(const Mordent& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_MordentLog(this),
@@ -85,7 +85,7 @@ mei::Trill::Trill() :
 REGISTER_DEFINITION(mei::Trill, "trill");
 mei::Trill::~Trill() {}
 mei::Trill::Trill(const Trill& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -138,7 +138,7 @@ mei::Turn::Turn() :
 REGISTER_DEFINITION(mei::Turn, "turn");
 mei::Turn::~Turn() {}
 mei::Turn::Turn(const Turn& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TurnLog(this),

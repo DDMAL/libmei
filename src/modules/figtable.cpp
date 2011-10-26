@@ -17,7 +17,7 @@ mei::Fig::Fig() :
 REGISTER_DEFINITION(mei::Fig, "fig");
 mei::Fig::~Fig() {}
 mei::Fig::Fig(const Fig& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Xy(this)
@@ -35,7 +35,7 @@ mei::FigDesc::FigDesc() :
 REGISTER_DEFINITION(mei::FigDesc, "figDesc");
 mei::FigDesc::~FigDesc() {}
 mei::FigDesc::FigDesc(const FigDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Lang(this)
 {
@@ -58,7 +58,7 @@ mei::Graphic::Graphic() :
 REGISTER_DEFINITION(mei::Graphic, "graphic");
 mei::Graphic::~Graphic() {}
 mei::Graphic::Graphic(const Graphic& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this),
     m_Internetmedia(this),
@@ -102,7 +102,7 @@ mei::Table::Table() :
 REGISTER_DEFINITION(mei::Table, "table");
 mei::Table::~Table() {}
 mei::Table::Table(const Table& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -124,7 +124,7 @@ mei::Td::Td() :
 REGISTER_DEFINITION(mei::Td, "td");
 mei::Td::~Td() {}
 mei::Td::Td(const Td& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -147,7 +147,7 @@ mei::Th::Th() :
 REGISTER_DEFINITION(mei::Th, "th");
 mei::Th::~Th() {}
 mei::Th::Th(const Th& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -169,7 +169,7 @@ mei::Tr::Tr() :
 REGISTER_DEFINITION(mei::Tr, "tr");
 mei::Tr::~Tr() {}
 mei::Tr::Tr(const Tr& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),

@@ -101,7 +101,7 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 mei::{elementNameUpper}::~{elementNameUpper}() {{}}
 mei::{elementNameUpper}::{elementNameUpper}(const {elementNameUpper}& other) :
-    MeiElement(other), 
+    MeiElement(other),
 {onlyMixIns}
 {{
 }}

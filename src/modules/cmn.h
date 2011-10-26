@@ -30,6 +30,7 @@
 
 #include "meielement.h"
 #include "meidocument.h"
+#include <vector>
 
 #include "meicommon.h"
 #include "sharedmixins.h"

@@ -1,6 +1,7 @@
 /* #include_block */
 #include "meielement.h"
 #include "meidocument.h"
+#include <vector>
 /* #include_block */
 
 /* <tie> */

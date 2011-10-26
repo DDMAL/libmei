@@ -17,7 +17,7 @@ mei::AccessRestrict::AccessRestrict() :
 REGISTER_DEFINITION(mei::AccessRestrict, "accessRestrict");
 mei::AccessRestrict::~AccessRestrict() {}
 mei::AccessRestrict::AccessRestrict(const AccessRestrict& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -36,7 +36,7 @@ mei::AcqSource::AcqSource() :
 REGISTER_DEFINITION(mei::AcqSource, "acqSource");
 mei::AcqSource::~AcqSource() {}
 mei::AcqSource::AcqSource(const AcqSource& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Lang(this)
@@ -55,7 +55,7 @@ mei::AltId::AltId() :
 REGISTER_DEFINITION(mei::AltId, "altId");
 mei::AltId::~AltId() {}
 mei::AltId::AltId(const AltId& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Typed(this)
@@ -72,7 +72,7 @@ mei::AppInfo::AppInfo() :
 REGISTER_DEFINITION(mei::AppInfo, "appInfo");
 mei::AppInfo::~AppInfo() {}
 mei::AppInfo::AppInfo(const AppInfo& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -89,7 +89,7 @@ mei::Application::Application() :
 REGISTER_DEFINITION(mei::Application, "application");
 mei::Application::~Application() {}
 mei::Application::Application(const Application& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Datable(this),
     m_Typed(this)
@@ -127,7 +127,7 @@ mei::Availability::Availability() :
 REGISTER_DEFINITION(mei::Availability, "availability");
 mei::Availability::~Availability() {}
 mei::Availability::Availability(const Availability& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Datapointing(this)
@@ -145,7 +145,7 @@ mei::Change::Change() :
 REGISTER_DEFINITION(mei::Change, "change");
 mei::Change::~Change() {}
 mei::Change::Change(const Change& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -163,7 +163,7 @@ mei::ChangeDesc::ChangeDesc() :
 REGISTER_DEFINITION(mei::ChangeDesc, "changeDesc");
 mei::ChangeDesc::~ChangeDesc() {}
 mei::ChangeDesc::ChangeDesc(const ChangeDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -182,7 +182,7 @@ mei::ClassCode::ClassCode() :
 REGISTER_DEFINITION(mei::ClassCode, "classCode");
 mei::ClassCode::~ClassCode() {}
 mei::ClassCode::ClassCode(const ClassCode& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Authorized(this),
     m_Bibl(this)
@@ -201,7 +201,7 @@ mei::Classification::Classification() :
 REGISTER_DEFINITION(mei::Classification, "classification");
 mei::Classification::~Classification() {}
 mei::Classification::Classification(const Classification& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this)
@@ -220,7 +220,7 @@ mei::Condition::Condition() :
 REGISTER_DEFINITION(mei::Condition, "condition");
 mei::Condition::~Condition() {}
 mei::Condition::Condition(const Condition& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -238,7 +238,7 @@ mei::ContentItem::ContentItem() :
 REGISTER_DEFINITION(mei::ContentItem, "contentItem");
 mei::ContentItem::~ContentItem() {}
 mei::ContentItem::ContentItem(const ContentItem& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this)
 {
@@ -256,7 +256,7 @@ mei::Contents::Contents() :
 REGISTER_DEFINITION(mei::Contents, "contents");
 mei::Contents::~Contents() {}
 mei::Contents::Contents(const Contents& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Pointing(this)
@@ -277,7 +277,7 @@ mei::Correction::Correction() :
 REGISTER_DEFINITION(mei::Correction, "correction");
 mei::Correction::~Correction() {}
 mei::Correction::Correction(const Correction& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -317,7 +317,7 @@ mei::Creation::Creation() :
 REGISTER_DEFINITION(mei::Creation, "creation");
 mei::Creation::~Creation() {}
 mei::Creation::Creation(const Creation& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -336,7 +336,7 @@ mei::Dimensions::Dimensions() :
 REGISTER_DEFINITION(mei::Dimensions, "dimensions");
 mei::Dimensions::~Dimensions() {}
 mei::Dimensions::Dimensions(const Dimensions& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Measurement(this)
@@ -355,7 +355,7 @@ mei::EditionStmt::EditionStmt() :
 REGISTER_DEFINITION(mei::EditionStmt, "editionStmt");
 mei::EditionStmt::~EditionStmt() {}
 mei::EditionStmt::EditionStmt(const EditionStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -375,7 +375,7 @@ mei::EditorialDecl::EditorialDecl() :
 REGISTER_DEFINITION(mei::EditorialDecl, "editorialDecl");
 mei::EditorialDecl::~EditorialDecl() {}
 mei::EditorialDecl::EditorialDecl(const EditorialDecl& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -394,7 +394,7 @@ mei::EncodingDesc::EncodingDesc() :
 REGISTER_DEFINITION(mei::EncodingDesc, "encodingDesc");
 mei::EncodingDesc::~EncodingDesc() {}
 mei::EncodingDesc::EncodingDesc(const EncodingDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this)
 {
@@ -411,7 +411,7 @@ mei::Ensemble::Ensemble() :
 REGISTER_DEFINITION(mei::Ensemble, "ensemble");
 mei::Ensemble::~Ensemble() {}
 mei::Ensemble::Ensemble(const Ensemble& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -434,7 +434,7 @@ mei::Event::Event() :
 REGISTER_DEFINITION(mei::Event, "event");
 mei::Event::~Event() {}
 mei::Event::Event(const Event& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Calendared(this),
     m_Common(this),
@@ -458,7 +458,7 @@ mei::EventList::EventList() :
 REGISTER_DEFINITION(mei::EventList, "eventList");
 mei::EventList::~EventList() {}
 mei::EventList::EventList(const EventList& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Typed(this)
@@ -477,7 +477,7 @@ mei::ExhibHist::ExhibHist() :
 REGISTER_DEFINITION(mei::ExhibHist, "exhibHist");
 mei::ExhibHist::~ExhibHist() {}
 mei::ExhibHist::ExhibHist(const ExhibHist& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -496,7 +496,7 @@ mei::Extent::Extent() :
 REGISTER_DEFINITION(mei::Extent, "extent");
 mei::Extent::~Extent() {}
 mei::Extent::Extent(const Extent& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Measurement(this)
@@ -514,7 +514,7 @@ mei::FileDesc::FileDesc() :
 REGISTER_DEFINITION(mei::FileDesc, "fileDesc");
 mei::FileDesc::~FileDesc() {}
 mei::FileDesc::FileDesc(const FileDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this)
 {
@@ -531,7 +531,7 @@ mei::Fingerprint::Fingerprint() :
 REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
 mei::Fingerprint::~Fingerprint() {}
 mei::Fingerprint::Fingerprint(const Fingerprint& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Lang(this)
 {
@@ -551,7 +551,7 @@ mei::Hand::Hand() :
 REGISTER_DEFINITION(mei::Hand, "hand");
 mei::Hand::~Hand() {}
 mei::Hand::Hand(const Hand& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this),
@@ -590,7 +590,7 @@ mei::HandList::HandList() :
 REGISTER_DEFINITION(mei::HandList, "handList");
 mei::HandList::~HandList() {}
 mei::HandList::HandList(const HandList& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -607,7 +607,7 @@ mei::History::History() :
 REGISTER_DEFINITION(mei::History, "history");
 mei::History::~History() {}
 mei::History::History(const History& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -625,7 +625,7 @@ mei::IncipCode::IncipCode() :
 REGISTER_DEFINITION(mei::IncipCode, "incipCode");
 mei::IncipCode::~IncipCode() {}
 mei::IncipCode::IncipCode(const IncipCode& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Internetmedia(this)
@@ -685,7 +685,7 @@ mei::IncipText::IncipText() :
 REGISTER_DEFINITION(mei::IncipText, "incipText");
 mei::IncipText::~IncipText() {}
 mei::IncipText::IncipText(const IncipText& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this),
@@ -706,7 +706,7 @@ mei::Inscription::Inscription() :
 REGISTER_DEFINITION(mei::Inscription, "inscription");
 mei::Inscription::~Inscription() {}
 mei::Inscription::Inscription(const Inscription& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -726,7 +726,7 @@ mei::InstrVoice::InstrVoice() :
 REGISTER_DEFINITION(mei::InstrVoice, "instrVoice");
 mei::InstrVoice::~InstrVoice() {}
 mei::InstrVoice::InstrVoice(const InstrVoice& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this),
@@ -785,7 +785,7 @@ mei::Interpretation::Interpretation() :
 REGISTER_DEFINITION(mei::Interpretation, "interpretation");
 mei::Interpretation::~Interpretation() {}
 mei::Interpretation::Interpretation(const Interpretation& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -806,7 +806,7 @@ mei::Key::Key() :
 REGISTER_DEFINITION(mei::Key, "key");
 mei::Key::~Key() {}
 mei::Key::Key(const Key& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Accidental(this),
@@ -845,7 +845,7 @@ mei::LangUsage::LangUsage() :
 REGISTER_DEFINITION(mei::LangUsage, "langUsage");
 mei::LangUsage::~LangUsage() {}
 mei::LangUsage::LangUsage(const LangUsage& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this)
@@ -864,7 +864,7 @@ mei::Language::Language() :
 REGISTER_DEFINITION(mei::Language, "language");
 mei::Language::~Language() {}
 mei::Language::Language(const Language& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this)
@@ -884,7 +884,7 @@ mei::MeiHead::MeiHead() :
 REGISTER_DEFINITION(mei::MeiHead, "meiHead");
 mei::MeiHead::~MeiHead() {}
 mei::MeiHead::MeiHead(const MeiHead& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Lang(this),
@@ -922,7 +922,7 @@ mei::Meter::Meter() :
 REGISTER_DEFINITION(mei::Meter, "meter");
 mei::Meter::~Meter() {}
 mei::Meter::Meter(const Meter& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_MetersLog(this),
     m_MetersVis(this)
 {
@@ -942,7 +942,7 @@ mei::Normalization::Normalization() :
 REGISTER_DEFINITION(mei::Normalization, "normalization");
 mei::Normalization::~Normalization() {}
 mei::Normalization::Normalization(const Normalization& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -962,7 +962,7 @@ mei::NotesStmt::NotesStmt() :
 REGISTER_DEFINITION(mei::NotesStmt, "notesStmt");
 mei::NotesStmt::~NotesStmt() {}
 mei::NotesStmt::NotesStmt(const NotesStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -980,7 +980,7 @@ mei::PerfMedium::PerfMedium() :
 REGISTER_DEFINITION(mei::PerfMedium, "perfMedium");
 mei::PerfMedium::~PerfMedium() {}
 mei::PerfMedium::PerfMedium(const PerfMedium& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this)
@@ -998,7 +998,7 @@ mei::Performer::Performer() :
 REGISTER_DEFINITION(mei::Performer, "performer");
 mei::Performer::~Performer() {}
 mei::Performer::Performer(const Performer& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1015,7 +1015,7 @@ mei::PhysDesc::PhysDesc() :
 REGISTER_DEFINITION(mei::PhysDesc, "physDesc");
 mei::PhysDesc::~PhysDesc() {}
 mei::PhysDesc::PhysDesc(const PhysDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1032,7 +1032,7 @@ mei::PhysLoc::PhysLoc() :
 REGISTER_DEFINITION(mei::PhysLoc, "physLoc");
 mei::PhysLoc::~PhysLoc() {}
 mei::PhysLoc::PhysLoc(const PhysLoc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1051,7 +1051,7 @@ mei::PhysMedium::PhysMedium() :
 REGISTER_DEFINITION(mei::PhysMedium, "physMedium");
 mei::PhysMedium::~PhysMedium() {}
 mei::PhysMedium::PhysMedium(const PhysMedium& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Authorized(this),
@@ -1071,7 +1071,7 @@ mei::PlateNum::PlateNum() :
 REGISTER_DEFINITION(mei::PlateNum, "plateNum");
 mei::PlateNum::~PlateNum() {}
 mei::PlateNum::PlateNum(const PlateNum& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Facsimile(this)
@@ -1090,7 +1090,7 @@ mei::Price::Price() :
 REGISTER_DEFINITION(mei::Price, "price");
 mei::Price::~Price() {}
 mei::Price::Price(const Price& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Measurement(this)
@@ -1110,7 +1110,7 @@ mei::ProjectDesc::ProjectDesc() :
 REGISTER_DEFINITION(mei::ProjectDesc, "projectDesc");
 mei::ProjectDesc::~ProjectDesc() {}
 mei::ProjectDesc::ProjectDesc(const ProjectDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -1130,7 +1130,7 @@ mei::Provenance::Provenance() :
 REGISTER_DEFINITION(mei::Provenance, "provenance");
 mei::Provenance::~Provenance() {}
 mei::Provenance::Provenance(const Provenance& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -1148,7 +1148,7 @@ mei::PubStmt::PubStmt() :
 REGISTER_DEFINITION(mei::PubStmt, "pubStmt");
 mei::PubStmt::~PubStmt() {}
 mei::PubStmt::PubStmt(const PubStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1167,7 +1167,7 @@ mei::RelatedItem::RelatedItem() :
 REGISTER_DEFINITION(mei::RelatedItem, "relatedItem");
 mei::RelatedItem::~RelatedItem() {}
 mei::RelatedItem::RelatedItem(const RelatedItem& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Datapointing(this),
     m_Common(this),
     m_Bibl(this),
@@ -1204,7 +1204,7 @@ mei::Resp::Resp() :
 REGISTER_DEFINITION(mei::Resp, "resp");
 mei::Resp::~Resp() {}
 mei::Resp::Resp(const Resp& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Authorized(this)
 {
 }
@@ -1220,7 +1220,7 @@ mei::RespStmt::RespStmt() :
 REGISTER_DEFINITION(mei::RespStmt, "respStmt");
 mei::RespStmt::~RespStmt() {}
 mei::RespStmt::RespStmt(const RespStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this)
 {
@@ -1237,7 +1237,7 @@ mei::RevisionDesc::RevisionDesc() :
 REGISTER_DEFINITION(mei::RevisionDesc, "revisionDesc");
 mei::RevisionDesc::~RevisionDesc() {}
 mei::RevisionDesc::RevisionDesc(const RevisionDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1256,7 +1256,7 @@ mei::SamplingDecl::SamplingDecl() :
 REGISTER_DEFINITION(mei::SamplingDecl, "samplingDecl");
 mei::SamplingDecl::~SamplingDecl() {}
 mei::SamplingDecl::SamplingDecl(const SamplingDecl& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -1277,7 +1277,7 @@ mei::Segmentation::Segmentation() :
 REGISTER_DEFINITION(mei::Segmentation, "segmentation");
 mei::Segmentation::~Segmentation() {}
 mei::Segmentation::Segmentation(const Segmentation& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -1296,7 +1296,7 @@ mei::SeriesStmt::SeriesStmt() :
 REGISTER_DEFINITION(mei::SeriesStmt, "seriesStmt");
 mei::SeriesStmt::~SeriesStmt() {}
 mei::SeriesStmt::SeriesStmt(const SeriesStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1315,7 +1315,7 @@ mei::Source::Source() :
 REGISTER_DEFINITION(mei::Source, "source");
 mei::Source::~Source() {}
 mei::Source::Source(const Source& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Datapointing(this),
     m_Common(this),
     m_Bibl(this),
@@ -1333,7 +1333,7 @@ mei::SourceDesc::SourceDesc() :
 REGISTER_DEFINITION(mei::SourceDesc, "sourceDesc");
 mei::SourceDesc::~SourceDesc() {}
 mei::SourceDesc::SourceDesc(const SourceDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -1351,7 +1351,7 @@ mei::StdVals::StdVals() :
 REGISTER_DEFINITION(mei::StdVals, "stdVals");
 mei::StdVals::~StdVals() {}
 mei::StdVals::StdVals(const StdVals& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Datapointing(this),
@@ -1371,7 +1371,7 @@ mei::SysReq::SysReq() :
 REGISTER_DEFINITION(mei::SysReq, "sysReq");
 mei::SysReq::~SysReq() {}
 mei::SysReq::SysReq(const SysReq& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Lang(this)
@@ -1389,7 +1389,7 @@ mei::Term::Term() :
 REGISTER_DEFINITION(mei::Term, "term");
 mei::Term::~Term() {}
 mei::Term::Term(const Term& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1425,7 +1425,7 @@ mei::TermList::TermList() :
 REGISTER_DEFINITION(mei::TermList, "termList");
 mei::TermList::~TermList() {}
 mei::TermList::TermList(const TermList& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1461,7 +1461,7 @@ mei::TitleStmt::TitleStmt() :
 REGISTER_DEFINITION(mei::TitleStmt, "titleStmt");
 mei::TitleStmt::~TitleStmt() {}
 mei::TitleStmt::TitleStmt(const TitleStmt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this)
 {
@@ -1478,7 +1478,7 @@ mei::TreatHist::TreatHist() :
 REGISTER_DEFINITION(mei::TreatHist, "treatHist");
 mei::TreatHist::~TreatHist() {}
 mei::TreatHist::TreatHist(const TreatHist& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1495,7 +1495,7 @@ mei::TreatSched::TreatSched() :
 REGISTER_DEFINITION(mei::TreatSched, "treatSched");
 mei::TreatSched::~TreatSched() {}
 mei::TreatSched::TreatSched(const TreatSched& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1512,7 +1512,7 @@ mei::Unpub::Unpub() :
 REGISTER_DEFINITION(mei::Unpub, "unpub");
 mei::Unpub::~Unpub() {}
 mei::Unpub::Unpub(const Unpub& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1529,7 +1529,7 @@ mei::UseRestrict::UseRestrict() :
 REGISTER_DEFINITION(mei::UseRestrict, "useRestrict");
 mei::UseRestrict::~UseRestrict() {}
 mei::UseRestrict::UseRestrict(const UseRestrict& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this)
 {
@@ -1547,7 +1547,7 @@ mei::Watermark::Watermark() :
 REGISTER_DEFINITION(mei::Watermark, "watermark");
 mei::Watermark::~Watermark() {}
 mei::Watermark::Watermark(const Watermark& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Bibl(this),
     m_Facsimile(this)
@@ -1566,7 +1566,7 @@ mei::Work::Work() :
 REGISTER_DEFINITION(mei::Work, "work");
 mei::Work::~Work() {}
 mei::Work::Work(const Work& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Datapointing(this),
     m_Common(this),
     m_Bibl(this)
@@ -1583,7 +1583,7 @@ mei::WorkDesc::WorkDesc() :
 REGISTER_DEFINITION(mei::WorkDesc, "workDesc");
 mei::WorkDesc::~WorkDesc() {}
 mei::WorkDesc::WorkDesc(const WorkDesc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }

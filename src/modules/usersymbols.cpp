@@ -25,7 +25,7 @@ mei::AnchoredText::AnchoredText() :
 REGISTER_DEFINITION(mei::AnchoredText, "anchoredText");
 mei::AnchoredText::~AnchoredText() {}
 mei::AnchoredText::AnchoredText(const AnchoredText& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -67,7 +67,7 @@ mei::Curve::Curve() :
 REGISTER_DEFINITION(mei::Curve, "curve");
 mei::Curve::~Curve() {}
 mei::Curve::Curve(const Curve& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Color(this),
@@ -115,7 +115,7 @@ mei::Line::Line() :
 REGISTER_DEFINITION(mei::Line, "line");
 mei::Line::~Line() {}
 mei::Line::Line(const Line& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Color(this),
@@ -157,7 +157,7 @@ mei::Symbol::Symbol() :
 REGISTER_DEFINITION(mei::Symbol, "symbol");
 mei::Symbol::~Symbol() {}
 mei::Symbol::Symbol(const Symbol& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Color(this),
@@ -203,7 +203,7 @@ mei::SymbolDef::SymbolDef() :
 REGISTER_DEFINITION(mei::SymbolDef, "symbolDef");
 mei::SymbolDef::~SymbolDef() {}
 mei::SymbolDef::SymbolDef(const SymbolDef& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Coordinated(this)
 {
@@ -219,7 +219,7 @@ mei::SymbolTable::SymbolTable() :
 REGISTER_DEFINITION(mei::SymbolTable, "symbolTable");
 mei::SymbolTable::~SymbolTable() {}
 mei::SymbolTable::SymbolTable(const SymbolTable& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }

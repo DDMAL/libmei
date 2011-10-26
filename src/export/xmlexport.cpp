@@ -46,9 +46,7 @@ XmlExport::XmlExport(MeiDocument *doc) : impl(new XmlExportImpl(doc)) {
 }
 
 XmlExport::~XmlExport() {
-    if (impl) {
-        delete impl;
-    }
+    delete impl;
 }
 
 bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {

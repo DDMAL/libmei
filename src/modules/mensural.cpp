@@ -19,7 +19,7 @@ mei::Ligature::Ligature() :
 REGISTER_DEFINITION(mei::Ligature, "ligature");
 mei::Ligature::~Ligature() {}
 mei::Ligature::Ligature(const Ligature& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_LigatureLog(this),
@@ -48,7 +48,7 @@ mei::Mensur::Mensur() :
 REGISTER_DEFINITION(mei::Mensur, "mensur");
 mei::Mensur::~Mensur() {}
 mei::Mensur::Mensur(const Mensur& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_MensurLog(this),
@@ -77,7 +77,7 @@ mei::Proport::Proport() :
 REGISTER_DEFINITION(mei::Proport, "proport");
 mei::Proport::~Proport() {}
 mei::Proport::Proport(const Proport& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_DurationRatio(this),

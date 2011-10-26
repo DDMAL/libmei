@@ -15,7 +15,7 @@ mei::Timeline::Timeline() :
 REGISTER_DEFINITION(mei::Timeline, "timeline");
 mei::Timeline::~Timeline() {}
 mei::Timeline::Timeline(const Timeline& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -69,7 +69,7 @@ mei::When::When() :
 REGISTER_DEFINITION(mei::When, "when");
 mei::When::~When() {}
 mei::When::When(const When& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Datapointing(this)
 {

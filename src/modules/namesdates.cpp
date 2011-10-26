@@ -26,7 +26,7 @@ mei::CorpName::CorpName() :
 REGISTER_DEFINITION(mei::CorpName, "corpName");
 mei::CorpName::~CorpName() {}
 mei::CorpName::CorpName(const CorpName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Datable(this),
@@ -62,7 +62,7 @@ mei::GeogName::GeogName() :
 REGISTER_DEFINITION(mei::GeogName, "geogName");
 mei::GeogName::~GeogName() {}
 mei::GeogName::GeogName(const GeogName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Edit(this),
@@ -98,7 +98,7 @@ mei::PeriodName::PeriodName() :
 REGISTER_DEFINITION(mei::PeriodName, "periodName");
 mei::PeriodName::~PeriodName() {}
 mei::PeriodName::PeriodName(const PeriodName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Datable(this),
@@ -135,7 +135,7 @@ mei::PersName::PersName() :
 REGISTER_DEFINITION(mei::PersName, "persName");
 mei::PersName::~PersName() {}
 mei::PersName::PersName(const PersName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Datable(this),
@@ -171,7 +171,7 @@ mei::StyleName::StyleName() :
 REGISTER_DEFINITION(mei::StyleName, "styleName");
 mei::StyleName::~StyleName() {}
 mei::StyleName::StyleName(const StyleName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Bibl(this),
     m_Common(this),
     m_Edit(this),

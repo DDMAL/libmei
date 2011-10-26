@@ -41,7 +41,7 @@ std::vector<mei::MeiElement*> mei::Tie::getMembers() {
             if (tree[i]->getName() == "note" || tree[i]->getName() == "rest") {
                 Staff *parentStaff = dynamic_cast<Staff*>(tree[i]->getAncestor("staff"));
                 MeiAttribute *parentStaffN = parentStaff->m_Common.getN();
-                if(parentStaffN && parentStaffN->getValue() == staffName) {
+                if (parentStaffN && parentStaffN->getValue() == staffName) {
                     res.push_back(tree[i]);
                 }
             }

@@ -22,7 +22,7 @@ mei::Cc::Cc() :
 REGISTER_DEFINITION(mei::Cc, "cc");
 mei::Cc::~Cc() {}
 mei::Cc::Cc(const Cc& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -49,7 +49,7 @@ mei::Chan::Chan() :
 REGISTER_DEFINITION(mei::Chan, "chan");
 mei::Chan::~Chan() {}
 mei::Chan::Chan(const Chan& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -94,7 +94,7 @@ mei::ChanPr::ChanPr() :
 REGISTER_DEFINITION(mei::ChanPr, "chanPr");
 mei::ChanPr::~ChanPr() {}
 mei::ChanPr::ChanPr(const ChanPr& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -120,7 +120,7 @@ mei::Cue::Cue() :
 REGISTER_DEFINITION(mei::Cue, "cue");
 mei::Cue::~Cue() {}
 mei::Cue::Cue(const Cue& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -145,7 +145,7 @@ mei::Hex::Hex() :
 REGISTER_DEFINITION(mei::Hex, "hex");
 mei::Hex::~Hex() {}
 mei::Hex::Hex(const Hex& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -170,7 +170,7 @@ mei::Marker::Marker() :
 REGISTER_DEFINITION(mei::Marker, "marker");
 mei::Marker::~Marker() {}
 mei::Marker::Marker(const Marker& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -195,7 +195,7 @@ mei::MetaText::MetaText() :
 REGISTER_DEFINITION(mei::MetaText, "metaText");
 mei::MetaText::~MetaText() {}
 mei::MetaText::MetaText(const MetaText& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -219,7 +219,7 @@ mei::Midi::Midi() :
 REGISTER_DEFINITION(mei::Midi, "midi");
 mei::Midi::~Midi() {}
 mei::Midi::Midi(const Midi& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Staffident(this),
     m_Layerident(this),
@@ -244,7 +244,7 @@ mei::NoteOff::NoteOff() :
 REGISTER_DEFINITION(mei::NoteOff, "noteOff");
 mei::NoteOff::~NoteOff() {}
 mei::NoteOff::NoteOff(const NoteOff& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -271,7 +271,7 @@ mei::NoteOn::NoteOn() :
 REGISTER_DEFINITION(mei::NoteOn, "noteOn");
 mei::NoteOn::~NoteOn() {}
 mei::NoteOn::NoteOn(const NoteOn& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -298,7 +298,7 @@ mei::Port::Port() :
 REGISTER_DEFINITION(mei::Port, "port");
 mei::Port::~Port() {}
 mei::Port::Port(const Port& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -325,7 +325,7 @@ mei::Prog::Prog() :
 REGISTER_DEFINITION(mei::Prog, "prog");
 mei::Prog::~Prog() {}
 mei::Prog::Prog(const Prog& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -351,7 +351,7 @@ mei::SeqNum::SeqNum() :
 REGISTER_DEFINITION(mei::SeqNum, "seqNum");
 mei::SeqNum::~SeqNum() {}
 mei::SeqNum::SeqNum(const SeqNum& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -395,7 +395,7 @@ mei::TrkName::TrkName() :
 REGISTER_DEFINITION(mei::TrkName, "trkName");
 mei::TrkName::~TrkName() {}
 mei::TrkName::TrkName(const TrkName& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
@@ -421,7 +421,7 @@ mei::Vel::Vel() :
 REGISTER_DEFINITION(mei::Vel, "vel");
 mei::Vel::~Vel() {}
 mei::Vel::Vel(const Vel& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
