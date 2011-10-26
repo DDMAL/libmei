@@ -31,6 +31,10 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
+MeiDocument* XmlImport::documentFromFile(const string filename) {
+    return documentFromFile(filename.c_str());
+}
+
 MeiDocument* XmlImport::documentFromFile(const char *filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
@@ -50,6 +54,10 @@ XmlImportImpl::XmlImportImpl() {
     xmlMeiDocument = NULL;
     meiDocument = NULL;
     rootMeiElement = NULL;
+}
+
+MeiDocument* XmlImportImpl::documentFromFile(const string filename) {
+    return documentFromFile(filename.c_str());
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
