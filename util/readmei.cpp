@@ -2,11 +2,13 @@
  *  libmei: Music Encoding Initiative
  *
  *  A simple example to demonstrate using libmei to read an MEI file.
+ *
+ *  Note that the changes made to the input file might not necessarily make
+ *  sense musically...
  */
 
 #include <iostream>
-using std::cout;
-using std::endl;
+#include <string>
 
 #include <mei/mei.h>
 
@@ -16,34 +18,50 @@ using std::endl;
 #include <mei/xmlexport.h>
 #include <mei/xmlimport.h>
 
+using std::cout;
+using std::endl;
+using std::cerr;
+using std::string;
+
 using namespace mei;
 
 int main(int argc, char **argv) {
-    MeiElement *el = new Mei();
-	MeiElement *n = new Note();
-	MeiElement *o = new Slur();
+    if (argc < 3) {
+        cerr << "usage: " << argv[0] << " input output" << endl;
+        cerr << "       Use this program on beethoven.mei" << endl;
+        return 1;
+    }
 
-    MeiAttribute *a1 = new MeiAttribute("accid", "s");
-    MeiAttribute *a2 = new MeiAttribute("artic", "stacc");
-    MeiAttribute *ver = new MeiAttribute("meiversion", "2011-04");
+    MeiDocument* doc = XmlImport::documentFromFile(string(argv[1]));
 
-    MeiAttribute *b1 = new MeiAttribute("accid", "f");
+    // Find an element
+    MeiElement *note1 = doc->getElementById("d1e111");
+    MeiElement *note2 = doc->getElementById("d1e218");
+    MeiElement *note3 = doc->getElementById("d1e295");
 
-    n->addAttribute(a1);
-    n->addAttribute(a2);
-    o->addAttribute(b1);
+    if (note1) {
+        // Get an element's parent
+        MeiElement *layer = note1->getParent();
+        // Remove element
+        layer->removeChild(note2);
+        layer->removeChild(note3);
 
-    el->addAttribute(ver);
-    el->addChild(n);
-    el->addChild(o);
+        // Make a new note with attributes
+        MeiAttribute *a1 = new MeiAttribute("accid", "s");
+        MeiAttribute *a2 = new MeiAttribute("artic", "stacc");
+        Note *newnote = new Note();
+        newnote->addAttribute(a1);
+        newnote->addAttribute(a2);
+        // Change attributes of a note with helper methods
+        newnote->m_Pitch.setPname("g");
+        newnote->m_Octave.setOct("5");
 
-    MeiDocument* meidoc = new MeiDocument();
-    meidoc->setRootElement(el);
+        // Add a child
+        layer->addChildBefore(note1, newnote);
+    }
 
-    XmlExport::meiDocumentToFile(meidoc, "example.mei");
-
-    MeiDocument* newdoc = XmlImport::documentFromFile("example.mei");
-    newdoc->getRootElement()->print();
+    // Save out again
+    XmlExport::meiDocumentToFile(doc, string(argv[2]));
 
 	return 0;
 }
