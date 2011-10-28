@@ -58,7 +58,7 @@ class MXMLParser
          */
         void handleParts(xmlNode *partsNode, mei::Score *score);
         void handlePartAttributes(xmlNode *attr, mei::Score *score, std::string pname, bool createLocalScoreDef);
-        void handleMeasure(xmlNode *measureNode, mei::Score *score, std::map<std::string,std::string> parts);
+        void handleMeasures();
 
 		std::string int2str(int i);
     };

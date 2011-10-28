@@ -144,17 +144,37 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
                 // may be multiple credits
             } else if (eleName == "part-list") {
             	handleParts(curNode, score);
-            } else if (eleName == "measure") {
-                // likely be multiple measures
-                // if key changes (<attributes> tag present in <measure>) then start a NEW section
-                //handleMeasure(curNode, score, partid2name);
-            }
-        } else if (curNode->type == XML_COMMENT_NODE) {
-            // add xml comment
-            // string((const char*)curNode->content);
-            continue;
-        }
-    }    
+            } 
+        }    
+	}
+
+	/*
+	 * MEASURES
+	 */
+	handleMeasures();
+}
+
+void MXMLParser::handleMeasures() {
+	// partition measures into sections based on end criterion
+	// get measure indices of section changes
+	vector<string> sectPartition; //store as string to avoid converting str2int and int2str for comparisons
+
+	string query = "//measure[part/barline/repeat[@direction='backward'] or \
+					following-sibling::measure[1][part/barline[@location='left']/repeat[@direction='forward']] or \
+					part/barline/ending[@type='stop'] or part/barline[@location='right']/bar-style='light-light' or \
+					following-sibling::measure[1][part/barline/ending[@type='start']] or \
+					following-sibling::measure[1][part/attributes[time or key]]]";
+	xmlXPathObject *result = getNodeSet((xmlChar*)query.c_str());
+	if (result) {	
+		xmlNodeSet *nodeset = result->nodesetval;	
+		for (int iMeas = 0; iMeas < nodeset->nodeNr; iMeas++) {
+			xmlNode *measNode = nodeset->nodeTab[iMeas];
+			// get measure index
+			string mIndex = getAttribute(measNode, "number");
+			sectPartition.push_back(mIndex);
+		}
+		xmlXPathFreeObject(result);
+	}
 }
 
 void MXMLParser::output(const string outputPath) {
@@ -561,24 +581,6 @@ void MXMLParser::handleParts(xmlNode *partsNode, mei::Score *score) {
 	// add parts to scoredef
 	sd_global->addChild(sg_global);
 	
-	
-	/*int staffCount = 0;
-	xmlXPathObject *result;
-	result = getNodeSet((xmlChar*)"//part-list/score-part");
-	if (result) {
-		staffCount += result->nodesetval->nodeNr;
-		xmlXPathFreeObject(result);
-	}
-
-	result = getNodeSet((xmlChar*)"//measure[@number='1']/part/attributes/staves");
-	if (result) {
-		xmlNodeSetPtr nodes = result->nodesetval;
-		for(int i = 0; i < nodes->nodeNr; i++) {
-			staffCount += atoi(getContent(nodes->nodeTab[i]).c_str()) - 1;
-		}
-		xmlXPathFreeObject(result);
-	}*/
-
 }
 
 void MXMLParser::fifth2mei(string &fifths) {
