@@ -19,6 +19,23 @@ using std::cerr;
 using std::endl;
 using mparser::MXMLParser;
 
+/*
+ * Mei Element pointer exception subclass
+ */
+MXMLParser::NullMeiPointer::NullMeiPointer(const std::string& eleName) 
+: msg(eleName) {}
+
+MXMLParser::NullMeiPointer::~NullMeiPointer() throw() {}
+
+const char* MXMLParser::NullMeiPointer::what() const throw()
+{
+	std::string fullError = "Error: referenced null MeiElement pointer -> " + msg;
+	return fullError.c_str();
+}
+
+/*
+ * Parser Class
+ */
 MXMLParser::MXMLParser(const std::string mxmlFilePath)
 : mxmlFilePath(mxmlFilePath), doc(NULL), meiDoc(NULL) {
 }
@@ -151,17 +168,17 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
 	/*
 	 * MEASURES
 	 */
-	handleMeasures();
+	handleMeasures(score);
 }
 
-void MXMLParser::handleMeasures() {
+void MXMLParser::handleMeasures(mei::Score * score) throw(NullMeiPointer) {
 	// partition measures into sections based on end criterion
 	// get measure indices of section changes
-	vector<string> sectPartition; //store as string to avoid converting str2int and int2str for comparisons
+	map<string,mei::MeiElement*> mPartition; // measure number -> [section/ending]
 
 	string query = "//measure[part/barline/repeat[@direction='backward'] or \
 					following-sibling::measure[1][part/barline[@location='left']/repeat[@direction='forward']] or \
-					part/barline/ending[@type='stop'] or part/barline[@location='right']/bar-style='light-light' or \
+					part/barline/ending[@type='stop'] or \
 					following-sibling::measure[1][part/barline/ending[@type='start']] or \
 					following-sibling::measure[1][part/attributes[time or key]]]";
 	xmlXPathObject *result = getNodeSet((xmlChar*)query.c_str());
@@ -169,9 +186,69 @@ void MXMLParser::handleMeasures() {
 		xmlNodeSet *nodeset = result->nodesetval;	
 		for (int iMeas = 0; iMeas < nodeset->nodeNr; iMeas++) {
 			xmlNode *measNode = nodeset->nodeTab[iMeas];
-			// get measure index
-			string mIndex = getAttribute(measNode, "number");
-			sectPartition.push_back(mIndex);
+			// get measure index, shift over one such that new partitions start on that index vs. the measure before
+			string mIndex = int2str(atoi(getAttribute(measNode, "number").c_str()) + 1);
+
+			// determine whether section or ending
+			// ending is a special section
+			result = getNodeSet((xmlChar*)"following-sibling::measure[1]/part/barline/ending[@type='start']", measNode);
+			if (result) {
+				mPartition[mIndex] = new mei::Ending();
+				string eNum = getAttribute(result->nodesetval->nodeTab[0], "number");
+				dynamic_cast<mei::Ending*>(mPartition[mIndex])->m_Common.setN(eNum);
+			} else {
+				mPartition[mIndex] = new mei::Section();
+			}
+		}
+		xmlXPathFreeObject(result);
+	}
+
+	mei::MeiElement *curPart = new mei::Section();
+	score->addChild(curPart);
+	result = getNodeSet((xmlChar*)"//measure");
+	if (result) {	
+		xmlNodeSet *nodeset = result->nodesetval;	
+		// for each measure
+		for (int iMeas = 1; iMeas <= nodeset->nodeNr; iMeas++) {
+			xmlNode *measNode = nodeset->nodeTab[iMeas-1];
+			
+			// if partition boundary, start new section/ending
+			map<string,mei::MeiElement*>::const_iterator sit = mPartition.find(int2str(iMeas));
+			if (sit != mPartition.end()) {
+				curPart = sit->second;
+				score->addChild(curPart);
+			}
+
+			// Sanity check: if curSec not set, something went wrong
+			if (!curPart) {
+				throw NullMeiPointer("Section");
+			}
+
+			// add measure 
+			mei::Measure *curMeas = new mei::Measure();
+			curMeas->m_Common.setN(getAttribute(measNode, "number"));
+			curPart->addChild(curMeas);
+
+			// check page/system breaks
+			if (getNodeSet((xmlChar*)"child::part[print/@new-page='yes']", measNode)) {
+				mei::Pb *pb = new mei::Pb();
+				// page number
+				string pageNum = getContent((xmlChar*)"child::part[print/@new-page='yes'][1]/print/@page-number", measNode);
+				if (!pageNum.empty()) {
+					pb->m_Common.setN(pageNum);
+				}
+				curPart->addChild(pb);
+			}
+			if (getNodeSet((xmlChar*)"child::part[print/@new-system='yes']", measNode)) {
+				curPart->addChild(new mei::Sb());
+			}
+
+			// local scoredef
+
+			// for each staff
+				// for each layer
+					// handle notes/rests/lyrics	
+			
 		}
 		xmlXPathFreeObject(result);
 	}

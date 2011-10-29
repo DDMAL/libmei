@@ -15,6 +15,7 @@
 #include <map>
 #include <stdlib.h>
 #include <sstream>
+#include <exception>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <libxml/xpath.h>
@@ -37,6 +38,17 @@ class MXMLParser
         void begin();
         void output(const std::string outputPath);
 
+		class NullMeiPointer: public std::exception
+		{
+			public:
+				NullMeiPointer(const std::string& eleName = "unknown element");
+				~NullMeiPointer() throw();
+			
+				virtual const char* what() const throw();			
+			private:
+				std::string msg;
+		};
+
     private:
         const std::string mxmlFilePath;
         xmlDoc *doc;
@@ -58,7 +70,7 @@ class MXMLParser
          */
         void handleParts(xmlNode *partsNode, mei::Score *score);
         void handlePartAttributes(xmlNode *attr, mei::Score *score, std::string pname, bool createLocalScoreDef);
-        void handleMeasures();
+        void handleMeasures(mei::Score *score) throw(NullMeiPointer);
 
 		std::string int2str(int i);
     };
