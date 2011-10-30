@@ -171,7 +171,7 @@ void MXMLParser::convertToMei(xmlNode *parentNode) {
 	handleMeasures(score);
 }
 
-void MXMLParser::handleMeasures(mei::Score * score) throw(NullMeiPointer) {
+void MXMLParser::handleMeasures(mei::Score * score) throw(NullMeiPointer) {		
 	// partition measures into sections based on end criterion
 	// get measure indices of section changes
 	map<string,mei::MeiElement*> mPartition; // measure number -> [section/ending]
@@ -227,6 +227,105 @@ void MXMLParser::handleMeasures(mei::Score * score) throw(NullMeiPointer) {
 			// add measure 
 			mei::Measure *curMeas = new mei::Measure();
 			curMeas->m_Common.setN(getAttribute(measNode, "number"));
+
+			// set measure attributes
+			// bar-style conversions
+			map<string,string> lbarStyle; // mxml bar-style -> MEI measurelog
+			map<string,string> rbarStyle;
+			lbarStyle["dotted"] = "dotted"; rbarStyle["dotted"] = "dotted";
+			lbarStyle["dashed"] = "dashed"; rbarStyle["dashed"] = "dashed";
+			lbarStyle["light-light"] = "dbl"; rbarStyle["light-light"] = "dbl";
+			lbarStyle["none"] = "invis"; rbarStyle["none"] = "invis";
+	
+			// map left bar-style
+			string lBar = getContent((xmlChar*)"part/barline[@location='left']/bar-style", measNode);
+			if (!lBar.empty()) {
+				// light-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='backward'", measNode)) {
+					if (getNodeSet((xmlChar*)"preceding-sibling::measure[1]/part/barline/repeat/@direction='backward'", measNode)) {
+						lbarStyle["light-heavy"] = "rptend";
+					} else {
+						lbarStyle["light-heavy"] = "end";
+					}
+				} else {
+					lbarStyle["light-heavy"] = "end";
+				}
+				// heavy-light
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='forward'", measNode)) {
+					lbarStyle["heavy-light"] = "rptstart";
+				} else {
+					lbarStyle["heavy-light"] = "dbl";
+				}
+				// heavy-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='forward' and preceding-sibling::measure[1]/part/barline/repeat/@direction='backward'", measNode)) {
+					lbarStyle["heavy-heavy"] = "rptboth";
+				} else {
+					lbarStyle["heavy-heavy"] = "dbl";
+				}
+			
+				curMeas->m_MeasureLog.setLeft(lbarStyle[lBar]);
+			}
+
+			// map right bar-style
+			string rBar;
+			// when following measure has left barline set, set right barline on the current measure
+			if (getNodeSet((xmlChar*)"following-sibling::measure[1]/part/barline[@location='left']/bar-style", measNode)) {
+				// heavy-light
+				if (getNodeSet((xmlChar*)"following-sibling::measure[1]/part/barline/repeat/@direction='forward'", measNode)) {
+					if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='backward'", measNode)) {
+						rbarStyle["heavy-light"] = "rptboth";
+					} else {
+						rbarStyle["heavy-light"] = "rptstart";
+					}
+				} else {
+					rbarStyle["heavy-light"] = "dbl";
+				}
+				// light-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='backward'", measNode)) {
+					rbarStyle["light-heavy"] = "rptend";
+				} else {
+					rbarStyle["light-heavy"] = "end";
+				}
+				// heavy-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='backward' and following-sibling::measure[1]/part/barline/repeat/@direction='forward'", measNode)) {
+					rbarStyle["heavy-heavy"] = "rptboth";
+				} else {
+					rbarStyle["heavy-heavy"] = "dbl";
+				}
+				
+				rBar = getContent((xmlChar*)"following-sibling::measure[1]/part[1]/barline/bar-style", measNode);
+			} else if (getNodeSet((xmlChar*)"part/barline[@location='right']/bar-style", measNode)) {
+				// set right barline normally
+				// light-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat/@direction='backward'", measNode)) {
+					if (getNodeSet((xmlChar*)"following-sibling::measure[1]/part/barline/repeat/@direction='forward'", measNode)) {
+						rbarStyle["light-heavy"] = "rptboth";
+					} else {
+						rbarStyle["light-heavy"] = "rptend";
+					}
+				} else {
+					rbarStyle["light-heavy"] = "end";
+				}
+				// heavy-light
+				if (getNodeSet((xmlChar*)"following-sibling::measure[1]/part/barline/repeat[@direction='forward']", measNode)) {
+					rbarStyle["heavy-light"] = "rptstart";
+				} else {
+					rbarStyle["heavy-light"] = "dbl";
+				}
+				// heavy-heavy
+				if (getNodeSet((xmlChar*)"part/barline/repeat[@direction='backward'] and following-sibling::measure[1]/part/barline/repeat[@direction='forward']", measNode)) {
+					rbarStyle["heavy-heavy"] = "rptboth";
+				} else {
+					rbarStyle["heavy-heavy"] = "dbl";
+				}
+		
+				rBar = getContent((xmlChar*)"part[1]/barline/bar-style", measNode);
+			}
+
+			if (!rBar.empty()) {
+				curMeas->m_MeasureLog.setRight(rbarStyle[rBar]);
+			}
+			
 			curPart->addChild(curMeas);
 
 			// check page/system breaks
@@ -244,6 +343,7 @@ void MXMLParser::handleMeasures(mei::Score * score) throw(NullMeiPointer) {
 			}
 
 			// local scoredef
+			// check for new attributes -> new staffdef etc (l: 1218)
 
 			// for each staff
 				// for each layer
