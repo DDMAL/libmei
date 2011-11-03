@@ -39,6 +39,13 @@ mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
     this->element = NULL;
 }
 
+mei::MeiAttribute::MeiAttribute(MeiNamespace *ns, string attrname, string attrvalue) {
+    this->name = attrname;
+    this->value = attrvalue;
+    this->ns = ns;
+    this->element = NULL;
+}
+
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
     return (this->name == other.name &&
             this->value == other.value &&
@@ -47,10 +54,6 @@ bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
 
 string mei::MeiAttribute::getName() {
     return this->name;
-}
-
-void mei::MeiAttribute::setName(string attrname) {
-    this->name = attrname;
 }
 
 string mei::MeiAttribute::getValue() {
@@ -75,8 +78,4 @@ bool mei::MeiAttribute::hasNamespace() {
 
 MeiNamespace* mei::MeiAttribute::getNamespace() {
     return this->ns;
-}
-
-void mei::MeiAttribute::setNamespace(MeiNamespace *ns) {
-    this->ns = ns;
 }

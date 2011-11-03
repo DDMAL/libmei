@@ -48,6 +48,8 @@ namespace mei {
         public:
             /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
             MeiAttribute(std::string attrname, std::string attrvalue);
+            MeiAttribute(MeiNamespace *ns, std::string attrname, std::string attrvalue);
+
 
             virtual ~MeiAttribute() {}
 
@@ -59,9 +61,6 @@ namespace mei {
              *  \return string containing the attribute name.
              */
             std::string getName();
-
-            /** \brief Set/Change the name of an attribute*/
-            void setName(std::string attrname);
 
             /** \brief Get the value of the attribute.
              *  \return A string indicating the attribute value
@@ -76,8 +75,6 @@ namespace mei {
 
             bool hasNamespace();
             MeiNamespace* getNamespace();
-            void setNamespace(MeiNamespace* ns);
-
         private:
             std::string name;
             std::string value;

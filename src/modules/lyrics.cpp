@@ -23,7 +23,7 @@ mei::Lyrics::Lyrics() :
 REGISTER_DEFINITION(mei::Lyrics, "lyrics");
 mei::Lyrics::~Lyrics() {}
 mei::Lyrics::Lyrics(const Lyrics& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -55,7 +55,7 @@ mei::Verse::Verse() :
 REGISTER_DEFINITION(mei::Verse, "verse");
 mei::Verse::~Verse() {}
 mei::Verse::Verse(const Verse& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),

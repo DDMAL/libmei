@@ -21,7 +21,7 @@ mei::Add::Add() :
 REGISTER_DEFINITION(mei::Add, "add");
 mei::Add::~Add() {}
 mei::Add::Add(const Add& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Edit(this),
@@ -42,7 +42,7 @@ mei::Choice::Choice() :
 REGISTER_DEFINITION(mei::Choice, "choice");
 mei::Choice::~Choice() {}
 mei::Choice::Choice(const Choice& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -62,7 +62,7 @@ mei::Corr::Corr() :
 REGISTER_DEFINITION(mei::Corr, "corr");
 mei::Corr::~Corr() {}
 mei::Corr::Corr(const Corr& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Edit(this),
     m_Responsibility(this),
@@ -87,7 +87,7 @@ mei::Damage::Damage() :
 REGISTER_DEFINITION(mei::Damage, "damage");
 mei::Damage::~Damage() {}
 mei::Damage::Damage(const Damage& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Agentident(this),
     m_Common(this),
     m_Extent(this),
@@ -129,7 +129,7 @@ mei::Del::Del() :
 REGISTER_DEFINITION(mei::Del, "del");
 mei::Del::~Del() {}
 mei::Del::Del(const Del& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Handident(this),
@@ -173,7 +173,7 @@ mei::Gap::Gap() :
 REGISTER_DEFINITION(mei::Gap, "gap");
 mei::Gap::~Gap() {}
 mei::Gap::Gap(const Gap& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Edit(this),
     m_Responsibility(this),
@@ -200,7 +200,7 @@ mei::HandShift::HandShift() :
 REGISTER_DEFINITION(mei::HandShift, "handShift");
 mei::HandShift::~HandShift() {}
 mei::HandShift::HandShift(const HandShift& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Edit(this),
     m_Responsibility(this),
@@ -282,7 +282,7 @@ mei::Orig::Orig() :
 REGISTER_DEFINITION(mei::Orig, "orig");
 mei::Orig::~Orig() {}
 mei::Orig::Orig(const Orig& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Edit(this),
     m_Responsibility(this),
@@ -306,7 +306,7 @@ mei::Reg::Reg() :
 REGISTER_DEFINITION(mei::Reg, "reg");
 mei::Reg::~Reg() {}
 mei::Reg::Reg(const Reg& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Authorized(this),
     m_Edit(this),
@@ -329,7 +329,7 @@ mei::Restore::Restore() :
 REGISTER_DEFINITION(mei::Restore, "restore");
 mei::Restore::~Restore() {}
 mei::Restore::Restore(const Restore& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Handident(this),
@@ -368,7 +368,7 @@ mei::Sic::Sic() :
 REGISTER_DEFINITION(mei::Sic, "sic");
 mei::Sic::~Sic() {}
 mei::Sic::Sic(const Sic& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this)
 {
@@ -389,7 +389,7 @@ mei::Subst::Subst() :
 REGISTER_DEFINITION(mei::Subst, "subst");
 mei::Subst::~Subst() {}
 mei::Subst::Subst(const Subst& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Edit(this),
     m_Responsibility(this),
@@ -415,7 +415,7 @@ mei::Supplied::Supplied() :
 REGISTER_DEFINITION(mei::Supplied, "supplied");
 mei::Supplied::~Supplied() {}
 mei::Supplied::Supplied(const Supplied& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Agentident(this),
     m_Common(this),
     m_Edit(this),
@@ -443,7 +443,7 @@ mei::Unclear::Unclear() :
 REGISTER_DEFINITION(mei::Unclear, "unclear");
 mei::Unclear::~Unclear() {}
 mei::Unclear::Unclear(const Unclear& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Agentident(this),
     m_Common(this),
     m_Edit(this),

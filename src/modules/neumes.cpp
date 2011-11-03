@@ -21,7 +21,7 @@ mei::Ineume::Ineume() :
 REGISTER_DEFINITION(mei::Ineume, "ineume");
 mei::Ineume::~Ineume() {}
 mei::Ineume::Ineume(const Ineume& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
@@ -42,7 +42,7 @@ mei::Syllable::Syllable() :
 REGISTER_DEFINITION(mei::Syllable, "syllable");
 mei::Syllable::~Syllable() {}
 mei::Syllable::Syllable(const Syllable& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -78,7 +78,7 @@ mei::Uneume::Uneume() :
 REGISTER_DEFINITION(mei::Uneume, "uneume");
 mei::Uneume::~Uneume() {}
 mei::Uneume::Uneume(const Uneume& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),

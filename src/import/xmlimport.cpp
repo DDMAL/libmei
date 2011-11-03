@@ -31,6 +31,10 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
+MeiDocument* XmlImport::documentFromFile(const string filename) {
+    return documentFromFile(filename.c_str());
+}
+
 MeiDocument* XmlImport::documentFromFile(const char *filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
@@ -50,6 +54,10 @@ XmlImportImpl::XmlImportImpl() {
     xmlMeiDocument = NULL;
     meiDocument = NULL;
     rootMeiElement = NULL;
+}
+
+MeiDocument* XmlImportImpl::documentFromFile(const string filename) {
+    return documentFromFile(filename.c_str());
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
@@ -113,19 +121,18 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
                 string attrname = (const char*)curattr->name;
                 // values are rendered as children of the attribute *facepalm*
                 string attrvalue = (const char*)curattr->children->content;
-                MeiAttribute *a = new MeiAttribute(attrname, attrvalue);
 
+                MeiNamespace* meins = NULL;
                 if (curattr->ns) {
                     if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
                         string prefix = (const char*)curattr->ns->prefix;
                         string href = (const char*)curattr->ns->href;
-                        MeiNamespace* meins = new MeiNamespace(prefix, href);
-                        a->setNamespace(meins);
+                        meins = new MeiNamespace(prefix, href);
                     } else {
-                        MeiNamespace* meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
-                        a->setNamespace(meins);
+                        meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
                     }
                 }
+                MeiAttribute *a = new MeiAttribute(meins, attrname, attrvalue);
 
                 attributes.push_back(a);
             }

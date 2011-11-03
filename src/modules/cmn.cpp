@@ -4,6 +4,7 @@
 
 #include "meielement.h"
 #include "meidocument.h"
+#include <mei/shared.h>
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -15,6 +16,7 @@ using std::vector;
 using std::find;
 using mei::MeiElement;
 using mei::MeiDocument;
+using mei::Staff;
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
@@ -43,7 +45,7 @@ mei::Arpeg::Arpeg() :
 REGISTER_DEFINITION(mei::Arpeg, "arpeg");
 mei::Arpeg::~Arpeg() {}
 mei::Arpeg::Arpeg(const Arpeg& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_ArpegLog(this),
@@ -84,7 +86,7 @@ mei::BTrem::BTrem() :
 REGISTER_DEFINITION(mei::BTrem, "bTrem");
 mei::BTrem::~BTrem() {}
 mei::BTrem::BTrem(const BTrem& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_BTremLog(this),
@@ -119,7 +121,7 @@ mei::Beam::Beam() :
 REGISTER_DEFINITION(mei::Beam, "beam");
 mei::Beam::~Beam() {}
 mei::Beam::Beam(const Beam& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -157,7 +159,7 @@ mei::BeamSpan::BeamSpan() :
 REGISTER_DEFINITION(mei::BeamSpan, "beamSpan");
 mei::BeamSpan::~BeamSpan() {}
 mei::BeamSpan::BeamSpan(const BeamSpan& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -197,7 +199,7 @@ mei::BeatRpt::BeatRpt() :
 REGISTER_DEFINITION(mei::BeatRpt, "beatRpt");
 mei::BeatRpt::~BeatRpt() {}
 mei::BeatRpt::BeatRpt(const BeatRpt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -245,7 +247,7 @@ mei::Bend::Bend() :
 REGISTER_DEFINITION(mei::Bend, "bend");
 mei::Bend::~Bend() {}
 mei::Bend::Bend(const Bend& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -299,7 +301,7 @@ mei::Breath::Breath() :
 REGISTER_DEFINITION(mei::Breath, "breath");
 mei::Breath::~Breath() {}
 mei::Breath::Breath(const Breath& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -340,7 +342,7 @@ mei::FTrem::FTrem() :
 REGISTER_DEFINITION(mei::FTrem, "fTrem");
 mei::FTrem::~FTrem() {}
 mei::FTrem::FTrem(const FTrem& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -383,7 +385,7 @@ mei::Fermata::Fermata() :
 REGISTER_DEFINITION(mei::Fermata, "fermata");
 mei::Fermata::~Fermata() {}
 mei::Fermata::Fermata(const Fermata& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -438,7 +440,7 @@ mei::Gliss::Gliss() :
 REGISTER_DEFINITION(mei::Gliss, "gliss");
 mei::Gliss::~Gliss() {}
 mei::Gliss::Gliss(const Gliss& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Plist(this),
@@ -498,7 +500,7 @@ mei::Hairpin::Hairpin() :
 REGISTER_DEFINITION(mei::Hairpin, "hairpin");
 mei::Hairpin::~Hairpin() {}
 mei::Hairpin::Hairpin(const Hairpin& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_HairpinLog(this),
@@ -551,7 +553,7 @@ mei::HalfmRpt::HalfmRpt() :
 REGISTER_DEFINITION(mei::HalfmRpt, "halfmRpt");
 mei::HalfmRpt::~HalfmRpt() {}
 mei::HalfmRpt::HalfmRpt(const HalfmRpt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -598,7 +600,7 @@ mei::HarpPedal::HarpPedal() :
 REGISTER_DEFINITION(mei::HarpPedal, "harpPedal");
 mei::HarpPedal::~HarpPedal() {}
 mei::HarpPedal::HarpPedal(const HarpPedal& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_HarpPedalLog(this),
@@ -650,7 +652,7 @@ mei::MRest::MRest() :
 REGISTER_DEFINITION(mei::MRest, "mRest");
 mei::MRest::~MRest() {}
 mei::MRest::MRest(const MRest& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -694,7 +696,7 @@ mei::MRpt::MRpt() :
 REGISTER_DEFINITION(mei::MRpt, "mRpt");
 mei::MRpt::~MRpt() {}
 mei::MRpt::MRpt(const MRpt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -729,7 +731,7 @@ mei::MRpt2::MRpt2() :
 REGISTER_DEFINITION(mei::MRpt2, "mRpt2");
 mei::MRpt2::~MRpt2() {}
 mei::MRpt2::MRpt2(const MRpt2& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -769,7 +771,7 @@ mei::MSpace::MSpace() :
 REGISTER_DEFINITION(mei::MSpace, "mSpace");
 mei::MSpace::~MSpace() {}
 mei::MSpace::MSpace(const MSpace& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -812,7 +814,7 @@ mei::Measure::Measure() :
 REGISTER_DEFINITION(mei::Measure, "measure");
 mei::Measure::~Measure() {}
 mei::Measure::Measure(const Measure& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this),
     m_Facsimile(this),
@@ -852,7 +854,7 @@ mei::MultiRest::MultiRest() :
 REGISTER_DEFINITION(mei::MultiRest, "multiRest");
 mei::MultiRest::~MultiRest() {}
 mei::MultiRest::MultiRest(const MultiRest& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -889,7 +891,7 @@ mei::MultiRpt::MultiRpt() :
 REGISTER_DEFINITION(mei::MultiRpt, "multiRpt");
 mei::MultiRpt::~MultiRpt() {}
 mei::MultiRpt::MultiRpt(const MultiRpt& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
@@ -935,7 +937,7 @@ mei::Octave::Octave() :
 REGISTER_DEFINITION(mei::Octave, "octave");
 mei::Octave::~Octave() {}
 mei::Octave::Octave(const Octave& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_OctaveLog(this),
@@ -974,7 +976,7 @@ mei::Ossia::Ossia() :
 REGISTER_DEFINITION(mei::Ossia, "ossia");
 mei::Ossia::~Ossia() {}
 mei::Ossia::Ossia(const Ossia& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_CommonAnl(this),
@@ -1010,7 +1012,7 @@ mei::Pedal::Pedal() :
 REGISTER_DEFINITION(mei::Pedal, "pedal");
 mei::Pedal::~Pedal() {}
 mei::Pedal::Pedal(const Pedal& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_PedalLog(this),
@@ -1057,7 +1059,7 @@ mei::Reh::Reh() :
 REGISTER_DEFINITION(mei::Reh, "reh");
 mei::Reh::~Reh() {}
 mei::Reh::Reh(const Reh& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Staffident(this),
@@ -1111,7 +1113,7 @@ mei::Slur::Slur() :
 REGISTER_DEFINITION(mei::Slur, "slur");
 mei::Slur::~Slur() {}
 mei::Slur::Slur(const Slur& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
@@ -1174,7 +1176,7 @@ mei::Tie::Tie() :
 REGISTER_DEFINITION(mei::Tie, "tie");
 mei::Tie::~Tie() {}
 mei::Tie::Tie(const Tie& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
@@ -1202,32 +1204,37 @@ mei::Tie::Tie(const Tie& other) :
 {
 }
 
+/**
+ * \brief get all members of this tie.
+ * An element is a member of the tie if it lies between the elements specified
+ * by the startid and endid attributes of the tie.
+ * The elements must be children of a Staff element that has the same name as the 'n' attribute of
+ * this tie. If this tie has no startid, endid, or n attibute, no members will be returned.
+ */
 std::vector<mei::MeiElement*> mei::Tie::getMembers() {
-    // gets the member notes of the tie.
-    MeiDocument* doc = this->getDocument();
+    MeiAttribute *end = m_Startendid.getEndid();
+    MeiAttribute *start = m_Startid.getStartid();
 
-    string startid = this->getAttribute("startid")->getValue();
-    string endid = this->getAttribute("endid")->getValue();
-
-    MeiElement* startElement = doc->getElementById(startid);
-    MeiElement* endElement = doc->getElementById(endid);
-
-    vector<MeiElement*> flat = doc->getFlattenedTree();
+    vector<MeiElement*> tree = getDocument()->getFlattenedTree();
     vector<MeiElement*> res;
-    string staff = this->attachedToStaff();
 
-    for (unsigned int i = startElement->getPositionInDocument(); i <= endElement->getPositionInDocument(); ++i) {
-        if (flat[i]->getName() == "note" || flat[i]->getName() == "rest") {
-            if(flat[i]->getAncestor("staff")->getAttribute("n")->getValue() == staff) {
-                res.push_back(flat[i]);
+    MeiAttribute *staff = m_Staffident.getStaff();
+    if (staff && start && end) {
+        string staffName = staff->getValue();
+        MeiElement* startElement = getDocument()->getElementById(start->getValue());
+        MeiElement* endElement = getDocument()->getElementById(end->getValue());
+
+        for (unsigned int i = startElement->getPositionInDocument(); i <= endElement->getPositionInDocument(); ++i) {
+            if (tree[i]->getName() == "note" || tree[i]->getName() == "rest") {
+                Staff *parentStaff = dynamic_cast<Staff*>(tree[i]->getAncestor("staff"));
+                MeiAttribute *parentStaffN = parentStaff->m_Common.getN();
+                if (parentStaffN && parentStaffN->getValue() == staffName) {
+                    res.push_back(tree[i]);
+                }
             }
         }
     }
     return res;
-}
-
-string mei::Tie::attachedToStaff() {
-    return this->getAttribute("staff")->getValue();
 }
 
 MeiElement* mei::Tie::getSystem() {
@@ -1260,7 +1267,7 @@ mei::Tuplet::Tuplet() :
 REGISTER_DEFINITION(mei::Tuplet, "tuplet");
 mei::Tuplet::~Tuplet() {}
 mei::Tuplet::Tuplet(const Tuplet& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TupletLog(this),
@@ -1308,7 +1315,7 @@ mei::TupletSpan::TupletSpan() :
 REGISTER_DEFINITION(mei::TupletSpan, "tupletSpan");
 mei::TupletSpan::~TupletSpan() {}
 mei::TupletSpan::TupletSpan(const TupletSpan& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_TupletSpanLog(this),

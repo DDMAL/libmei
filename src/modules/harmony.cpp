@@ -18,7 +18,7 @@ mei::Barre::Barre() :
 REGISTER_DEFINITION(mei::Barre, "barre");
 mei::Barre::~Barre() {}
 mei::Barre::Barre(const Barre& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Fretlocation(this),
     m_Startendid(this),
@@ -36,7 +36,7 @@ mei::ChordDef::ChordDef() :
 REGISTER_DEFINITION(mei::ChordDef, "chordDef");
 mei::ChordDef::~ChordDef() {}
 mei::ChordDef::ChordDef(const ChordDef& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -75,7 +75,7 @@ mei::ChordMember::ChordMember() :
 REGISTER_DEFINITION(mei::ChordMember, "chordMember");
 mei::ChordMember::~ChordMember() {}
 mei::ChordMember::ChordMember(const ChordMember& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_AccidentalPerformed(this),
     m_Fretlocation(this),
@@ -114,7 +114,7 @@ mei::ChordTable::ChordTable() :
 REGISTER_DEFINITION(mei::ChordTable, "chordTable");
 mei::ChordTable::~ChordTable() {}
 mei::ChordTable::ChordTable(const ChordTable& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this)
 {
 }
@@ -133,7 +133,7 @@ mei::F::F() :
 REGISTER_DEFINITION(mei::F, "f");
 mei::F::~F() {}
 mei::F::F(const F& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -174,7 +174,7 @@ mei::Fb::Fb() :
 REGISTER_DEFINITION(mei::Fb, "fb");
 mei::Fb::~Fb() {}
 mei::Fb::Fb(const Fb& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -213,7 +213,7 @@ mei::Harm::Harm() :
 REGISTER_DEFINITION(mei::Harm, "harm");
 mei::Harm::~Harm() {}
 mei::Harm::Harm(const Harm& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
     m_HarmLog(this),

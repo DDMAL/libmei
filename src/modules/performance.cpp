@@ -20,7 +20,7 @@ mei::AvFile::AvFile() :
 REGISTER_DEFINITION(mei::AvFile, "avFile");
 mei::AvFile::~AvFile() {}
 mei::AvFile::AvFile(const AvFile& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this),
     m_Internetmedia(this),
@@ -42,7 +42,7 @@ mei::Clip::Clip() :
 REGISTER_DEFINITION(mei::Clip, "clip");
 mei::Clip::~Clip() {}
 mei::Clip::Clip(const Clip& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this),
     m_Startid(this)
@@ -117,7 +117,7 @@ mei::Performance::Performance() :
 REGISTER_DEFINITION(mei::Performance, "performance");
 mei::Performance::~Performance() {}
 mei::Performance::Performance(const Performance& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this)
 {
@@ -135,7 +135,7 @@ mei::Recording::Recording() :
 REGISTER_DEFINITION(mei::Recording, "recording");
 mei::Recording::~Recording() {}
 mei::Recording::Recording(const Recording& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this),
     m_Startid(this)

@@ -16,7 +16,7 @@ mei::Facsimile::Facsimile() :
 REGISTER_DEFINITION(mei::Facsimile, "facsimile");
 mei::Facsimile::~Facsimile() {}
 mei::Facsimile::Facsimile(const Facsimile& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Declaring(this)
 {
@@ -36,7 +36,7 @@ mei::Surface::Surface() :
 REGISTER_DEFINITION(mei::Surface, "surface");
 mei::Surface::~Surface() {}
 mei::Surface::Surface(const Surface& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Coordinated(this),
     m_Datapointing(this),
@@ -57,7 +57,7 @@ mei::Zone::Zone() :
 REGISTER_DEFINITION(mei::Zone, "zone");
 mei::Zone::~Zone() {}
 mei::Zone::Zone(const Zone& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Coordinated(this),
     m_Datapointing(this)

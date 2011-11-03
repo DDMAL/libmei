@@ -16,7 +16,7 @@ mei::App::App() :
 REGISTER_DEFINITION(mei::App, "app");
 mei::App::~App() {}
 mei::App::App(const App& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Typed(this)
 {
@@ -41,7 +41,7 @@ mei::Lem::Lem() :
 REGISTER_DEFINITION(mei::Lem, "lem");
 mei::Lem::~Lem() {}
 mei::Lem::Lem(const Lem& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Crit(this),
     m_Handident(this),
@@ -74,7 +74,7 @@ mei::Rdg::Rdg() :
 REGISTER_DEFINITION(mei::Rdg, "rdg");
 mei::Rdg::~Rdg() {}
 mei::Rdg::Rdg(const Rdg& other) :
-    MeiElement(other), 
+    MeiElement(other),
     m_Common(this),
     m_Crit(this),
     m_Handident(this),

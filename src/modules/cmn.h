@@ -30,6 +30,7 @@
 
 #include "meielement.h"
 #include "meidocument.h"
+#include <vector>
 
 #include "meicommon.h"
 #include "sharedmixins.h"
@@ -996,7 +997,6 @@ class MEI_EXPORT Tie : public MeiElement {
         virtual ~Tie();
 
         MeiElement* getSystem();
-        std::string attachedToStaff();
 
         std::vector<mei::MeiElement*> getMembers();
 
