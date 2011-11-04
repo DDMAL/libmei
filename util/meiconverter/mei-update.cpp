@@ -127,9 +127,13 @@ void Convert(xmlNode* node) {
             if (curnode->properties) {
                 xmlAttr* curattr = curnode->properties;
                 while (curattr) {
-                    if (string((const char*)curattr->name) == "meiversion") {
+                    string tagname = string((const char*)curattr->name);
+                    if (tagname == "meiversion"){
                         xmlSetProp(curnode, curattr->name, (const xmlChar*)"2012");
                         break;
+                    } else if (tagname == "version") {
+                        curattr->name = (const xmlChar*)"meiversion";
+                        xmlSetProp(curnode, curattr->name, (const xmlChar*)"2012");
                     } else {
                         curattr = curattr->next;
                     }
