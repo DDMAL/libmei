@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -46,6 +46,7 @@ namespace mei {
 class MEI_EXPORT Cc : public MeiElement {
     public:
         Cc();
+        Cc(const Cc& other);
         virtual ~Cc();
 
 /* include <cc> */
@@ -68,6 +69,7 @@ class MEI_EXPORT Cc : public MeiElement {
 class MEI_EXPORT Chan : public MeiElement {
     public:
         Chan();
+        Chan(const Chan& other);
         virtual ~Chan();
         /** \brief along with numbase, describes duration as a ratio.
          * 
@@ -98,6 +100,7 @@ class MEI_EXPORT Chan : public MeiElement {
 class MEI_EXPORT ChanPr : public MeiElement {
     public:
         ChanPr();
+        ChanPr(const ChanPr& other);
         virtual ~ChanPr();
 
 /* include <chanPr> */
@@ -119,6 +122,7 @@ class MEI_EXPORT ChanPr : public MeiElement {
 class MEI_EXPORT Cue : public MeiElement {
     public:
         Cue();
+        Cue(const Cue& other);
         virtual ~Cue();
 
 /* include <cue> */
@@ -142,6 +146,7 @@ class MEI_EXPORT Cue : public MeiElement {
 class MEI_EXPORT Hex : public MeiElement {
     public:
         Hex();
+        Hex(const Hex& other);
         virtual ~Hex();
 
 /* include <hex> */
@@ -162,6 +167,7 @@ class MEI_EXPORT Hex : public MeiElement {
 class MEI_EXPORT Marker : public MeiElement {
     public:
         Marker();
+        Marker(const Marker& other);
         virtual ~Marker();
 
 /* include <marker> */
@@ -182,6 +188,7 @@ class MEI_EXPORT Marker : public MeiElement {
 class MEI_EXPORT MetaText : public MeiElement {
     public:
         MetaText();
+        MetaText(const MetaText& other);
         virtual ~MetaText();
 
 /* include <metaText> */
@@ -206,6 +213,7 @@ class MEI_EXPORT MetaText : public MeiElement {
 class MEI_EXPORT Midi : public MeiElement {
     public:
         Midi();
+        Midi(const Midi& other);
         virtual ~Midi();
 
 /* include <midi> */
@@ -225,6 +233,7 @@ class MEI_EXPORT Midi : public MeiElement {
 class MEI_EXPORT NoteOff : public MeiElement {
     public:
         NoteOff();
+        NoteOff(const NoteOff& other);
         virtual ~NoteOff();
 
 /* include <noteOff> */
@@ -246,6 +255,7 @@ class MEI_EXPORT NoteOff : public MeiElement {
 class MEI_EXPORT NoteOn : public MeiElement {
     public:
         NoteOn();
+        NoteOn(const NoteOn& other);
         virtual ~NoteOn();
 
 /* include <noteOn> */
@@ -269,6 +279,7 @@ class MEI_EXPORT NoteOn : public MeiElement {
 class MEI_EXPORT Port : public MeiElement {
     public:
         Port();
+        Port(const Port& other);
         virtual ~Port();
 
 /* include <port> */
@@ -292,6 +303,7 @@ class MEI_EXPORT Port : public MeiElement {
 class MEI_EXPORT Prog : public MeiElement {
     public:
         Prog();
+        Prog(const Prog& other);
         virtual ~Prog();
 
 /* include <prog> */
@@ -313,6 +325,7 @@ class MEI_EXPORT Prog : public MeiElement {
 class MEI_EXPORT SeqNum : public MeiElement {
     public:
         SeqNum();
+        SeqNum(const SeqNum& other);
         virtual ~SeqNum();
         /** \brief along with numbase, describes duration as a ratio.
          * 
@@ -341,6 +354,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
 class MEI_EXPORT TrkName : public MeiElement {
     public:
         TrkName();
+        TrkName(const TrkName& other);
         virtual ~TrkName();
 
 /* include <trkName> */
@@ -363,6 +377,7 @@ class MEI_EXPORT TrkName : public MeiElement {
 class MEI_EXPORT Vel : public MeiElement {
     public:
         Vel();
+        Vel(const Vel& other);
         virtual ~Vel();
         /** \brief records the function of the dot.
          */

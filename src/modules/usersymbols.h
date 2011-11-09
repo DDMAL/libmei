@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -54,6 +54,7 @@ namespace mei {
 class MEI_EXPORT AnchoredText : public MeiElement {
     public:
         AnchoredText();
+        AnchoredText(const AnchoredText& other);
         virtual ~AnchoredText();
 
 /* include <anchoredText> */
@@ -96,6 +97,7 @@ class MEI_EXPORT AnchoredText : public MeiElement {
 class MEI_EXPORT Curve : public MeiElement {
     public:
         Curve();
+        Curve(const Curve& other);
         virtual ~Curve();
 
 /* include <curve> */
@@ -140,6 +142,7 @@ class MEI_EXPORT Curve : public MeiElement {
 class MEI_EXPORT Line : public MeiElement {
     public:
         Line();
+        Line(const Line& other);
         virtual ~Line();
 
 /* include <line> */
@@ -179,6 +182,7 @@ class MEI_EXPORT Line : public MeiElement {
 class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
+        Symbol(const Symbol& other);
         virtual ~Symbol();
         /** \brief contains a reference to a previously-declared user-defined symbol.
          */
@@ -211,6 +215,7 @@ class MEI_EXPORT Symbol : public MeiElement {
 class MEI_EXPORT SymbolDef : public MeiElement {
     public:
         SymbolDef();
+        SymbolDef(const SymbolDef& other);
         virtual ~SymbolDef();
 
 /* include <symbolDef> */
@@ -230,6 +235,7 @@ class MEI_EXPORT SymbolDef : public MeiElement {
 class MEI_EXPORT SymbolTable : public MeiElement {
     public:
         SymbolTable();
+        SymbolTable(const SymbolTable& other);
         virtual ~SymbolTable();
 
 /* include <symbolTable> */

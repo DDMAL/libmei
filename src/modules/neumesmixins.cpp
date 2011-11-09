@@ -20,10 +20,8 @@ MeiAttribute* mei::IneumeLogMixIn::getForm() {
 };
 
 void mei::IneumeLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::IneumeLogMixIn::hasForm() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::IneumeLogMixIn::getName() {
 };
 
 void mei::IneumeLogMixIn::setName(std::string _name) {
-    if (!b->hasAttribute("name")) {
-        MeiAttribute *a = new MeiAttribute("name", _name);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("name", _name);
+    b->addAttribute(a);
 };
 
 bool mei::IneumeLogMixIn::hasName() {
@@ -68,10 +64,8 @@ MeiAttribute* mei::UneumeLogMixIn::getForm() {
 };
 
 void mei::UneumeLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::UneumeLogMixIn::hasForm() {
@@ -89,10 +83,8 @@ MeiAttribute* mei::UneumeLogMixIn::getName() {
 };
 
 void mei::UneumeLogMixIn::setName(std::string _name) {
-    if (!b->hasAttribute("name")) {
-        MeiAttribute *a = new MeiAttribute("name", _name);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("name", _name);
+    b->addAttribute(a);
 };
 
 bool mei::UneumeLogMixIn::hasName() {

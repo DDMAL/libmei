@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -47,6 +47,7 @@ namespace mei {
 class MEI_EXPORT Timeline : public MeiElement {
     public:
         Timeline();
+        Timeline(const Timeline& other);
         virtual ~Timeline();
         /** \brief holds the identifier of an <avFile> element that references an external digital
          *  media file.
@@ -83,6 +84,7 @@ class MEI_EXPORT Timeline : public MeiElement {
 class MEI_EXPORT When : public MeiElement {
     public:
         When();
+        When(const When& other);
         virtual ~When();
         /** \brief provides an absolute value for the time associated with a point on a timeline.
          * 

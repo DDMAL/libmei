@@ -28,6 +28,30 @@ mei::MeiElement::MeiElement(string name) {
     generateAndSetId();
 }
 
+mei::MeiElement::~MeiElement() {
+    vector<MeiAttribute*>::iterator it;
+    for (it = attributes.begin(); it != attributes.end(); ++it) {
+        delete *it;
+    }
+}
+
+mei::MeiElement::MeiElement(const MeiElement& ele) :
+ name(ele.name), value(ele.value), tail(ele.tail), ns(ele.ns), parent(ele.parent), document(NULL) {
+    // deep copy child elements
+    vector<MeiElement*>::const_iterator ele_it;
+    for (ele_it = ele.children.begin(); ele_it != ele.children.end(); ++ele_it) {
+        // recursive copy constructors, yay!
+        this->addChild(new MeiElement(**ele_it));
+    }
+
+    // copy element attributes
+    // use default MeiAttribute copy constructor with shallow pointer copy for MeiElement
+    vector<MeiAttribute*>::const_iterator attr_it;
+    for (attr_it = ele.attributes.begin(); attr_it != ele.attributes.end(); ++attr_it) {
+        this->addAttribute(new MeiAttribute(**attr_it));
+    }
+}
+
 extern "C"
 {
 #ifdef WIN32
@@ -142,9 +166,12 @@ void mei::MeiElement::addAttribute(string attrname, string attrvalue) {
 
 void mei::MeiElement::removeAttribute(string name) {
     vector<MeiAttribute*>::iterator iter = attributes.begin();
+    MeiAttribute *temp;
     while (iter != attributes.end()) {
         if ((*iter)->getName() == name) {
+            temp = (*iter);
             iter = attributes.erase(iter);
+            delete temp;
         } else {
             ++iter;
         }
@@ -176,7 +203,7 @@ MeiDocument* mei::MeiElement::getDocument() {
 }
 
 void mei::MeiElement::removeDocument() {
-    if(document) {
+    if (document) {
         this->document->rmIdMap(id);
         this->document = NULL;
     }
@@ -364,7 +391,7 @@ void mei::MeiElement::print(int level) {
 }
 
 mei::MeiElement* mei::MeiElement::lookBack(string name) {
-    if(!this->document) {
+    if (!this->document) {
         return NULL;
     }
     return this->document->lookBack(this, name);

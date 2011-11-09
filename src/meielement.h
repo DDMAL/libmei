@@ -68,7 +68,14 @@ class MEI_EXPORT MeiElement
          */
         MeiElement(std::string name);
 
-        virtual ~MeiElement() {}
+        /*
+         * \brief Copy constructor
+         *
+         * The copied element will not be tied to a document
+         */
+        MeiElement(const MeiElement& ele);
+
+        virtual ~MeiElement();
 
         /** \brief Get the id of this element.
          */
@@ -120,7 +127,7 @@ class MEI_EXPORT MeiElement
          * this element, it is replaced.
          */
         void addAttribute(MeiAttribute *attribute);
-    
+
         /**
          * \brief Add an attribute attrname with a value attrvalue. 
          *  Creates an MeiAttribute object and adds it to the element.
@@ -271,7 +278,7 @@ class MEI_EXPORT MeiElement
          *  \return A vector of MeiElements (possibly empty).
          */
         std::vector<MeiElement*> getPeers();
-        
+
         /** \brief Gets this item's position in the flattened document structure.
          *      Position is numbered by the order the elements occur, so the first
          *      element is 0, the next 1, and so on.
@@ -286,7 +293,7 @@ class MEI_EXPORT MeiElement
          *     method.
          */
         MeiElement* lookBack(std::string name);
-        
+
         const std::vector<MeiElement*> flatten();
 
         /** \brief Print a tree of elements with this one at the root. */

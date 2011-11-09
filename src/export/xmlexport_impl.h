@@ -47,6 +47,7 @@ namespace mei {
 
         MeiDocument* meiDocument;
         xmlDocPtr xmlDocOutput;
+        xmlNodePtr documentRootNode;
     };
 }
 

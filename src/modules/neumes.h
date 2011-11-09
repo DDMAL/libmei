@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -46,6 +46,7 @@ namespace mei {
 class MEI_EXPORT Ineume : public MeiElement {
     public:
         Ineume();
+        Ineume(const Ineume& other);
         virtual ~Ineume();
 
 /* include <ineume> */
@@ -70,6 +71,7 @@ class MEI_EXPORT Ineume : public MeiElement {
 class MEI_EXPORT Syllable : public MeiElement {
     public:
         Syllable();
+        Syllable(const Syllable& other);
         virtual ~Syllable();
 
 /* include <syllable> */
@@ -89,6 +91,7 @@ class MEI_EXPORT Syllable : public MeiElement {
 class MEI_EXPORT Uneume : public MeiElement {
     public:
         Uneume();
+        Uneume(const Uneume& other);
         virtual ~Uneume();
 
 /* include <uneume> */

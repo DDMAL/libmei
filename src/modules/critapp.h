@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -50,6 +50,7 @@ namespace mei {
 class MEI_EXPORT App : public MeiElement {
     public:
         App();
+        App(const App& other);
         virtual ~App();
 
 /* include <app> */
@@ -76,6 +77,7 @@ class MEI_EXPORT App : public MeiElement {
 class MEI_EXPORT Lem : public MeiElement {
     public:
         Lem();
+        Lem(const Lem& other);
         virtual ~Lem();
 
 /* include <lem> */
@@ -105,6 +107,7 @@ class MEI_EXPORT Lem : public MeiElement {
 class MEI_EXPORT Rdg : public MeiElement {
     public:
         Rdg();
+        Rdg(const Rdg& other);
         virtual ~Rdg();
 
 /* include <rdg> */

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -43,6 +43,7 @@ namespace mei {
 class MEI_EXPORT Ptr : public MeiElement {
     public:
         Ptr();
+        Ptr(const Ptr& other);
         virtual ~Ptr();
 
 /* include <ptr> */
@@ -64,6 +65,7 @@ class MEI_EXPORT Ptr : public MeiElement {
 class MEI_EXPORT Ref : public MeiElement {
     public:
         Ref();
+        Ref(const Ref& other);
         virtual ~Ref();
 
 /* include <ref> */

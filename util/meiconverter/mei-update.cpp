@@ -76,7 +76,7 @@ void Convert(xmlNode* node) {
         } else if (string((const char*)curnode->name) == "classcode") {
             xmlNodeSetName(curnode, (const xmlChar*)"classCode");
         } else if (string((const char*)curnode->name) == "clefchange") {
-            xmlNodeSetName(curnode, (const xmlChar*)"clefChange");
+            xmlNodeSetName(curnode, (const xmlChar*)"clef");
         } else if (string((const char*)curnode->name) == "contentitem") {
             xmlNodeSetName(curnode, (const xmlChar*)"contentItem");
         } else if (string((const char*)curnode->name) == "corpname") {
@@ -127,9 +127,13 @@ void Convert(xmlNode* node) {
             if (curnode->properties) {
                 xmlAttr* curattr = curnode->properties;
                 while (curattr) {
-                    if (string((const char*)curattr->name) == "meiversion") {
-                        xmlSetProp(curnode, curattr->name, (const xmlChar*)"2011-05");
+                    string tagname = string((const char*)curattr->name);
+                    if (tagname == "meiversion"){
+                        xmlSetProp(curnode, curattr->name, (const xmlChar*)"2012");
                         break;
+                    } else if (tagname == "version") {
+                        curattr->name = (const xmlChar*)"meiversion";
+                        xmlSetProp(curnode, curattr->name, (const xmlChar*)"2012");
                     } else {
                         curattr = curattr->next;
                     }

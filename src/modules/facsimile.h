@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -44,6 +44,7 @@ namespace mei {
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
         Facsimile();
+        Facsimile(const Facsimile& other);
         virtual ~Facsimile();
 
 /* include <facsimile> */
@@ -66,6 +67,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
 class MEI_EXPORT Surface : public MeiElement {
     public:
         Surface();
+        Surface(const Surface& other);
         virtual ~Surface();
 
 /* include <surface> */
@@ -87,6 +89,7 @@ class MEI_EXPORT Surface : public MeiElement {
 class MEI_EXPORT Zone : public MeiElement {
     public:
         Zone();
+        Zone(const Zone& other);
         virtual ~Zone();
 
 /* include <zone> */

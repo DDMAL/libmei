@@ -20,10 +20,8 @@ MeiAttribute* mei::CritMixIn::getCause() {
 };
 
 void mei::CritMixIn::setCause(std::string _cause) {
-    if (!b->hasAttribute("cause")) {
-        MeiAttribute *a = new MeiAttribute("cause", _cause);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("cause", _cause);
+    b->addAttribute(a);
 };
 
 bool mei::CritMixIn::hasCause() {
@@ -47,10 +45,8 @@ MeiAttribute* mei::SourceMixIn::getSource() {
 };
 
 void mei::SourceMixIn::setSource(std::string _source) {
-    if (!b->hasAttribute("source")) {
-        MeiAttribute *a = new MeiAttribute("source", _source);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("source", _source);
+    b->addAttribute(a);
 };
 
 bool mei::SourceMixIn::hasSource() {

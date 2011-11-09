@@ -20,10 +20,8 @@ MeiAttribute* mei::LigatureLogMixIn::getForm() {
 };
 
 void mei::LigatureLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::LigatureLogMixIn::hasForm() {
@@ -47,10 +45,8 @@ MeiAttribute* mei::MensurLogMixIn::getModusmaior() {
 };
 
 void mei::MensurLogMixIn::setModusmaior(std::string _modusmaior) {
-    if (!b->hasAttribute("modusmaior")) {
-        MeiAttribute *a = new MeiAttribute("modusmaior", _modusmaior);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("modusmaior", _modusmaior);
+    b->addAttribute(a);
 };
 
 bool mei::MensurLogMixIn::hasModusmaior() {
@@ -68,10 +64,8 @@ MeiAttribute* mei::MensurLogMixIn::getModusminor() {
 };
 
 void mei::MensurLogMixIn::setModusminor(std::string _modusminor) {
-    if (!b->hasAttribute("modusminor")) {
-        MeiAttribute *a = new MeiAttribute("modusminor", _modusminor);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("modusminor", _modusminor);
+    b->addAttribute(a);
 };
 
 bool mei::MensurLogMixIn::hasModusminor() {
@@ -89,10 +83,8 @@ MeiAttribute* mei::MensurLogMixIn::getProlatio() {
 };
 
 void mei::MensurLogMixIn::setProlatio(std::string _prolatio) {
-    if (!b->hasAttribute("prolatio")) {
-        MeiAttribute *a = new MeiAttribute("prolatio", _prolatio);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("prolatio", _prolatio);
+    b->addAttribute(a);
 };
 
 bool mei::MensurLogMixIn::hasProlatio() {
@@ -110,10 +102,8 @@ MeiAttribute* mei::MensurLogMixIn::getTempus() {
 };
 
 void mei::MensurLogMixIn::setTempus(std::string _tempus) {
-    if (!b->hasAttribute("tempus")) {
-        MeiAttribute *a = new MeiAttribute("tempus", _tempus);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("tempus", _tempus);
+    b->addAttribute(a);
 };
 
 bool mei::MensurLogMixIn::hasTempus() {
@@ -137,10 +127,8 @@ MeiAttribute* mei::MensurVisMixIn::getDot() {
 };
 
 void mei::MensurVisMixIn::setDot(std::string _dot) {
-    if (!b->hasAttribute("dot")) {
-        MeiAttribute *a = new MeiAttribute("dot", _dot);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("dot", _dot);
+    b->addAttribute(a);
 };
 
 bool mei::MensurVisMixIn::hasDot() {
@@ -158,10 +146,8 @@ MeiAttribute* mei::MensurVisMixIn::getForm() {
 };
 
 void mei::MensurVisMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::MensurVisMixIn::hasForm() {
@@ -179,10 +165,8 @@ MeiAttribute* mei::MensurVisMixIn::getOrient() {
 };
 
 void mei::MensurVisMixIn::setOrient(std::string _orient) {
-    if (!b->hasAttribute("orient")) {
-        MeiAttribute *a = new MeiAttribute("orient", _orient);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("orient", _orient);
+    b->addAttribute(a);
 };
 
 bool mei::MensurVisMixIn::hasOrient() {
@@ -200,10 +184,8 @@ MeiAttribute* mei::MensurVisMixIn::getSign() {
 };
 
 void mei::MensurVisMixIn::setSign(std::string _sign) {
-    if (!b->hasAttribute("sign")) {
-        MeiAttribute *a = new MeiAttribute("sign", _sign);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("sign", _sign);
+    b->addAttribute(a);
 };
 
 bool mei::MensurVisMixIn::hasSign() {
@@ -227,10 +209,8 @@ MeiAttribute* mei::MensurationLogMixIn::getMensurDot() {
 };
 
 void mei::MensurationLogMixIn::setMensurDot(std::string _mensurdot) {
-    if (!b->hasAttribute("mensur.dot")) {
-        MeiAttribute *a = new MeiAttribute("mensur.dot", _mensurdot);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.dot", _mensurdot);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationLogMixIn::hasMensurDot() {
@@ -248,10 +228,8 @@ MeiAttribute* mei::MensurationLogMixIn::getMensurOrient() {
 };
 
 void mei::MensurationLogMixIn::setMensurOrient(std::string _mensurorient) {
-    if (!b->hasAttribute("mensur.orient")) {
-        MeiAttribute *a = new MeiAttribute("mensur.orient", _mensurorient);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.orient", _mensurorient);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationLogMixIn::hasMensurOrient() {
@@ -269,10 +247,8 @@ MeiAttribute* mei::MensurationLogMixIn::getMensurSign() {
 };
 
 void mei::MensurationLogMixIn::setMensurSign(std::string _mensursign) {
-    if (!b->hasAttribute("mensur.sign")) {
-        MeiAttribute *a = new MeiAttribute("mensur.sign", _mensursign);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.sign", _mensursign);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationLogMixIn::hasMensurSign() {
@@ -290,10 +266,8 @@ MeiAttribute* mei::MensurationLogMixIn::getMensurSlash() {
 };
 
 void mei::MensurationLogMixIn::setMensurSlash(std::string _mensurslash) {
-    if (!b->hasAttribute("mensur.slash")) {
-        MeiAttribute *a = new MeiAttribute("mensur.slash", _mensurslash);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.slash", _mensurslash);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationLogMixIn::hasMensurSlash() {
@@ -317,10 +291,8 @@ MeiAttribute* mei::MensurationVisMixIn::getMensurForm() {
 };
 
 void mei::MensurationVisMixIn::setMensurForm(std::string _mensurform) {
-    if (!b->hasAttribute("mensur.form")) {
-        MeiAttribute *a = new MeiAttribute("mensur.form", _mensurform);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.form", _mensurform);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationVisMixIn::hasMensurForm() {
@@ -338,10 +310,8 @@ MeiAttribute* mei::MensurationVisMixIn::getMensurLoc() {
 };
 
 void mei::MensurationVisMixIn::setMensurLoc(std::string _mensurloc) {
-    if (!b->hasAttribute("mensur.loc")) {
-        MeiAttribute *a = new MeiAttribute("mensur.loc", _mensurloc);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.loc", _mensurloc);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationVisMixIn::hasMensurLoc() {
@@ -359,10 +329,8 @@ MeiAttribute* mei::MensurationVisMixIn::getMensurSize() {
 };
 
 void mei::MensurationVisMixIn::setMensurSize(std::string _mensursize) {
-    if (!b->hasAttribute("mensur.size")) {
-        MeiAttribute *a = new MeiAttribute("mensur.size", _mensursize);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mensur.size", _mensursize);
+    b->addAttribute(a);
 };
 
 bool mei::MensurationVisMixIn::hasMensurSize() {
@@ -386,10 +354,8 @@ MeiAttribute* mei::NoteLogMensuralMixIn::getLig() {
 };
 
 void mei::NoteLogMensuralMixIn::setLig(std::string _lig) {
-    if (!b->hasAttribute("lig")) {
-        MeiAttribute *a = new MeiAttribute("lig", _lig);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("lig", _lig);
+    b->addAttribute(a);
 };
 
 bool mei::NoteLogMensuralMixIn::hasLig() {
@@ -413,10 +379,8 @@ MeiAttribute* mei::RestVisMensuralMixIn::getSpaces() {
 };
 
 void mei::RestVisMensuralMixIn::setSpaces(std::string _spaces) {
-    if (!b->hasAttribute("spaces")) {
-        MeiAttribute *a = new MeiAttribute("spaces", _spaces);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("spaces", _spaces);
+    b->addAttribute(a);
 };
 
 bool mei::RestVisMensuralMixIn::hasSpaces() {
@@ -440,10 +404,8 @@ MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNum() {
 };
 
 void mei::StaffDefLogMensuralMixIn::setProportNum(std::string _proportnum) {
-    if (!b->hasAttribute("proport.num")) {
-        MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
+    b->addAttribute(a);
 };
 
 bool mei::StaffDefLogMensuralMixIn::hasProportNum() {
@@ -461,10 +423,8 @@ MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNumbase() {
 };
 
 void mei::StaffDefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
-    if (!b->hasAttribute("proport.numbase")) {
-        MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
+    b->addAttribute(a);
 };
 
 bool mei::StaffDefLogMensuralMixIn::hasProportNumbase() {

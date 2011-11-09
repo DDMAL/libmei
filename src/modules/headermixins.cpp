@@ -20,10 +20,8 @@ MeiAttribute* mei::RegularmethodMixIn::getMethod() {
 };
 
 void mei::RegularmethodMixIn::setMethod(std::string _method) {
-    if (!b->hasAttribute("method")) {
-        MeiAttribute *a = new MeiAttribute("method", _method);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("method", _method);
+    b->addAttribute(a);
 };
 
 bool mei::RegularmethodMixIn::hasMethod() {

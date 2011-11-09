@@ -20,10 +20,8 @@ MeiAttribute* mei::CommonAnlMixIn::getCopyof() {
 };
 
 void mei::CommonAnlMixIn::setCopyof(std::string _copyof) {
-    if (!b->hasAttribute("copyof")) {
-        MeiAttribute *a = new MeiAttribute("copyof", _copyof);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("copyof", _copyof);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasCopyof() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::CommonAnlMixIn::getCorresp() {
 };
 
 void mei::CommonAnlMixIn::setCorresp(std::string _corresp) {
-    if (!b->hasAttribute("corresp")) {
-        MeiAttribute *a = new MeiAttribute("corresp", _corresp);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("corresp", _corresp);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasCorresp() {
@@ -62,10 +58,8 @@ MeiAttribute* mei::CommonAnlMixIn::getNext() {
 };
 
 void mei::CommonAnlMixIn::setNext(std::string _next) {
-    if (!b->hasAttribute("next")) {
-        MeiAttribute *a = new MeiAttribute("next", _next);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("next", _next);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasNext() {
@@ -83,10 +77,8 @@ MeiAttribute* mei::CommonAnlMixIn::getPrev() {
 };
 
 void mei::CommonAnlMixIn::setPrev(std::string _prev) {
-    if (!b->hasAttribute("prev")) {
-        MeiAttribute *a = new MeiAttribute("prev", _prev);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("prev", _prev);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasPrev() {
@@ -104,10 +96,8 @@ MeiAttribute* mei::CommonAnlMixIn::getSameas() {
 };
 
 void mei::CommonAnlMixIn::setSameas(std::string _sameas) {
-    if (!b->hasAttribute("sameas")) {
-        MeiAttribute *a = new MeiAttribute("sameas", _sameas);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("sameas", _sameas);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasSameas() {
@@ -125,10 +115,8 @@ MeiAttribute* mei::CommonAnlMixIn::getSynch() {
 };
 
 void mei::CommonAnlMixIn::setSynch(std::string _synch) {
-    if (!b->hasAttribute("synch")) {
-        MeiAttribute *a = new MeiAttribute("synch", _synch);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("synch", _synch);
+    b->addAttribute(a);
 };
 
 bool mei::CommonAnlMixIn::hasSynch() {
@@ -152,10 +140,8 @@ MeiAttribute* mei::HarmonicfunctionMixIn::getHfunc() {
 };
 
 void mei::HarmonicfunctionMixIn::setHfunc(std::string _hfunc) {
-    if (!b->hasAttribute("hfunc")) {
-        MeiAttribute *a = new MeiAttribute("hfunc", _hfunc);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("hfunc", _hfunc);
+    b->addAttribute(a);
 };
 
 bool mei::HarmonicfunctionMixIn::hasHfunc() {
@@ -179,10 +165,8 @@ MeiAttribute* mei::IntervalharmonicMixIn::getInth() {
 };
 
 void mei::IntervalharmonicMixIn::setInth(std::string _inth) {
-    if (!b->hasAttribute("inth")) {
-        MeiAttribute *a = new MeiAttribute("inth", _inth);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("inth", _inth);
+    b->addAttribute(a);
 };
 
 bool mei::IntervalharmonicMixIn::hasInth() {
@@ -206,10 +190,8 @@ MeiAttribute* mei::IntervallicdescMixIn::getIntm() {
 };
 
 void mei::IntervallicdescMixIn::setIntm(std::string _intm) {
-    if (!b->hasAttribute("intm")) {
-        MeiAttribute *a = new MeiAttribute("intm", _intm);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("intm", _intm);
+    b->addAttribute(a);
 };
 
 bool mei::IntervallicdescMixIn::hasIntm() {
@@ -233,10 +215,8 @@ MeiAttribute* mei::MelodicfunctionMixIn::getMfunc() {
 };
 
 void mei::MelodicfunctionMixIn::setMfunc(std::string _mfunc) {
-    if (!b->hasAttribute("mfunc")) {
-        MeiAttribute *a = new MeiAttribute("mfunc", _mfunc);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("mfunc", _mfunc);
+    b->addAttribute(a);
 };
 
 bool mei::MelodicfunctionMixIn::hasMfunc() {
@@ -260,10 +240,8 @@ MeiAttribute* mei::PitchclassMixIn::getPclass() {
 };
 
 void mei::PitchclassMixIn::setPclass(std::string _pclass) {
-    if (!b->hasAttribute("pclass")) {
-        MeiAttribute *a = new MeiAttribute("pclass", _pclass);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("pclass", _pclass);
+    b->addAttribute(a);
 };
 
 bool mei::PitchclassMixIn::hasPclass() {
@@ -287,10 +265,8 @@ MeiAttribute* mei::SolfaMixIn::getPsolfa() {
 };
 
 void mei::SolfaMixIn::setPsolfa(std::string _psolfa) {
-    if (!b->hasAttribute("psolfa")) {
-        MeiAttribute *a = new MeiAttribute("psolfa", _psolfa);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("psolfa", _psolfa);
+    b->addAttribute(a);
 };
 
 bool mei::SolfaMixIn::hasPsolfa() {

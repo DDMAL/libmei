@@ -20,10 +20,8 @@ MeiAttribute* mei::AlignmentMixIn::getWhen() {
 };
 
 void mei::AlignmentMixIn::setWhen(std::string _when) {
-    if (!b->hasAttribute("when")) {
-        MeiAttribute *a = new MeiAttribute("when", _when);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("when", _when);
+    b->addAttribute(a);
 };
 
 bool mei::AlignmentMixIn::hasWhen() {

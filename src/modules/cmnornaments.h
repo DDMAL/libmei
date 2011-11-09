@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -49,6 +49,7 @@ namespace mei {
 class MEI_EXPORT Mordent : public MeiElement {
     public:
         Mordent();
+        Mordent(const Mordent& other);
         virtual ~Mordent();
 
 /* include <mordent> */
@@ -92,6 +93,7 @@ class MEI_EXPORT Mordent : public MeiElement {
 class MEI_EXPORT Trill : public MeiElement {
     public:
         Trill();
+        Trill(const Trill& other);
         virtual ~Trill();
 
 /* include <trill> */
@@ -134,6 +136,7 @@ class MEI_EXPORT Trill : public MeiElement {
 class MEI_EXPORT Turn : public MeiElement {
     public:
         Turn();
+        Turn(const Turn& other);
         virtual ~Turn();
 
 /* include <turn> */

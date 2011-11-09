@@ -20,10 +20,8 @@ MeiAttribute* mei::ChannelizedMixIn::getMidiChannel() {
 };
 
 void mei::ChannelizedMixIn::setMidiChannel(std::string _midichannel) {
-    if (!b->hasAttribute("midi.channel")) {
-        MeiAttribute *a = new MeiAttribute("midi.channel", _midichannel);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.channel", _midichannel);
+    b->addAttribute(a);
 };
 
 bool mei::ChannelizedMixIn::hasMidiChannel() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::ChannelizedMixIn::getMidiDuty() {
 };
 
 void mei::ChannelizedMixIn::setMidiDuty(std::string _mididuty) {
-    if (!b->hasAttribute("midi.duty")) {
-        MeiAttribute *a = new MeiAttribute("midi.duty", _mididuty);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.duty", _mididuty);
+    b->addAttribute(a);
 };
 
 bool mei::ChannelizedMixIn::hasMidiDuty() {
@@ -62,10 +58,8 @@ MeiAttribute* mei::ChannelizedMixIn::getMidiPort() {
 };
 
 void mei::ChannelizedMixIn::setMidiPort(std::string _midiport) {
-    if (!b->hasAttribute("midi.port")) {
-        MeiAttribute *a = new MeiAttribute("midi.port", _midiport);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.port", _midiport);
+    b->addAttribute(a);
 };
 
 bool mei::ChannelizedMixIn::hasMidiPort() {
@@ -83,10 +77,8 @@ MeiAttribute* mei::ChannelizedMixIn::getMidiTrack() {
 };
 
 void mei::ChannelizedMixIn::setMidiTrack(std::string _miditrack) {
-    if (!b->hasAttribute("midi.track")) {
-        MeiAttribute *a = new MeiAttribute("midi.track", _miditrack);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.track", _miditrack);
+    b->addAttribute(a);
 };
 
 bool mei::ChannelizedMixIn::hasMidiTrack() {
@@ -110,10 +102,8 @@ MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrnum() {
 };
 
 void mei::MidiinstrumentMixIn::setMidiInstrnum(std::string _midiinstrnum) {
-    if (!b->hasAttribute("midi.instrnum")) {
-        MeiAttribute *a = new MeiAttribute("midi.instrnum", _midiinstrnum);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.instrnum", _midiinstrnum);
+    b->addAttribute(a);
 };
 
 bool mei::MidiinstrumentMixIn::hasMidiInstrnum() {
@@ -131,10 +121,8 @@ MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrname() {
 };
 
 void mei::MidiinstrumentMixIn::setMidiInstrname(std::string _midiinstrname) {
-    if (!b->hasAttribute("midi.instrname")) {
-        MeiAttribute *a = new MeiAttribute("midi.instrname", _midiinstrname);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.instrname", _midiinstrname);
+    b->addAttribute(a);
 };
 
 bool mei::MidiinstrumentMixIn::hasMidiInstrname() {
@@ -158,10 +146,8 @@ MeiAttribute* mei::MidinumberMixIn::getNum() {
 };
 
 void mei::MidinumberMixIn::setNum(std::string _num) {
-    if (!b->hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    b->addAttribute(a);
 };
 
 bool mei::MidinumberMixIn::hasNum() {
@@ -185,10 +171,8 @@ MeiAttribute* mei::MiditempoMixIn::getMidiTempo() {
 };
 
 void mei::MiditempoMixIn::setMidiTempo(std::string _miditempo) {
-    if (!b->hasAttribute("midi.tempo")) {
-        MeiAttribute *a = new MeiAttribute("midi.tempo", _miditempo);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("midi.tempo", _miditempo);
+    b->addAttribute(a);
 };
 
 bool mei::MiditempoMixIn::hasMidiTempo() {
@@ -212,10 +196,8 @@ MeiAttribute* mei::MidivalueMixIn::getVal() {
 };
 
 void mei::MidivalueMixIn::setVal(std::string _val) {
-    if (!b->hasAttribute("val")) {
-        MeiAttribute *a = new MeiAttribute("val", _val);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("val", _val);
+    b->addAttribute(a);
 };
 
 bool mei::MidivalueMixIn::hasVal() {
@@ -239,10 +221,8 @@ MeiAttribute* mei::TimebaseMixIn::getPpq() {
 };
 
 void mei::TimebaseMixIn::setPpq(std::string _ppq) {
-    if (!b->hasAttribute("ppq")) {
-        MeiAttribute *a = new MeiAttribute("ppq", _ppq);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("ppq", _ppq);
+    b->addAttribute(a);
 };
 
 bool mei::TimebaseMixIn::hasPpq() {
