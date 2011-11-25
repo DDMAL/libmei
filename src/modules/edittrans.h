@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -53,6 +53,7 @@ namespace mei {
 class MEI_EXPORT Add : public MeiElement {
     public:
         Add();
+        Add(const Add& other);
         virtual ~Add();
 
 /* include <add> */
@@ -82,6 +83,7 @@ class MEI_EXPORT Add : public MeiElement {
 class MEI_EXPORT Choice : public MeiElement {
     public:
         Choice();
+        Choice(const Choice& other);
         virtual ~Choice();
 
 /* include <choice> */
@@ -105,6 +107,7 @@ class MEI_EXPORT Choice : public MeiElement {
 class MEI_EXPORT Corr : public MeiElement {
     public:
         Corr();
+        Corr(const Corr& other);
         virtual ~Corr();
 
 /* include <corr> */
@@ -138,6 +141,7 @@ class MEI_EXPORT Corr : public MeiElement {
 class MEI_EXPORT Damage : public MeiElement {
     public:
         Damage();
+        Damage(const Damage& other);
         virtual ~Damage();
         /** \brief records the degree of damage.
          */
@@ -175,6 +179,7 @@ class MEI_EXPORT Damage : public MeiElement {
 class MEI_EXPORT Del : public MeiElement {
     public:
         Del();
+        Del(const Del& other);
         virtual ~Del();
         /** \brief describes the line style of the curve.
          */
@@ -219,6 +224,7 @@ class MEI_EXPORT Del : public MeiElement {
 class MEI_EXPORT Gap : public MeiElement {
     public:
         Gap();
+        Gap(const Gap& other);
         virtual ~Gap();
 
 /* include <gap> */
@@ -253,6 +259,7 @@ class MEI_EXPORT Gap : public MeiElement {
 class MEI_EXPORT HandShift : public MeiElement {
     public:
         HandShift();
+        HandShift(const HandShift& other);
         virtual ~HandShift();
         /** \brief describes the character of the new hand.
          */
@@ -303,6 +310,7 @@ class MEI_EXPORT HandShift : public MeiElement {
 class MEI_EXPORT Orig : public MeiElement {
     public:
         Orig();
+        Orig(const Orig& other);
         virtual ~Orig();
 
 /* include <orig> */
@@ -332,6 +340,7 @@ class MEI_EXPORT Orig : public MeiElement {
 class MEI_EXPORT Reg : public MeiElement {
     public:
         Reg();
+        Reg(const Reg& other);
         virtual ~Reg();
 
 /* include <reg> */
@@ -362,6 +371,7 @@ class MEI_EXPORT Reg : public MeiElement {
 class MEI_EXPORT Restore : public MeiElement {
     public:
         Restore();
+        Restore(const Restore& other);
         virtual ~Restore();
         /** \brief provides a description of the means of restoration.
          */
@@ -391,6 +401,7 @@ class MEI_EXPORT Restore : public MeiElement {
 class MEI_EXPORT Sic : public MeiElement {
     public:
         Sic();
+        Sic(const Sic& other);
         virtual ~Sic();
 
 /* include <sic> */
@@ -410,6 +421,7 @@ class MEI_EXPORT Sic : public MeiElement {
 class MEI_EXPORT Subst : public MeiElement {
     public:
         Subst();
+        Subst(const Subst& other);
         virtual ~Subst();
 
 /* include <subst> */
@@ -444,6 +456,7 @@ class MEI_EXPORT Subst : public MeiElement {
 class MEI_EXPORT Supplied : public MeiElement {
     public:
         Supplied();
+        Supplied(const Supplied& other);
         virtual ~Supplied();
 
 /* include <supplied> */
@@ -478,6 +491,7 @@ class MEI_EXPORT Supplied : public MeiElement {
 class MEI_EXPORT Unclear : public MeiElement {
     public:
         Unclear();
+        Unclear(const Unclear& other);
         virtual ~Unclear();
 
 /* include <unclear> */

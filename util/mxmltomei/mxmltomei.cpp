@@ -43,10 +43,17 @@ int main (int argc, const char * argv[]) {
         if (in == MXML && out == MEI) {
             // begin parser and conversion
             cout << "Converting from MusicXML to MEI" << endl;
-            using namespace mei;
-            MXMLParser *p = new MXMLParser(finPath);
-            p->begin();
-            p->output(foutPath);
+            mparser::MXMLParser *p = new mparser::MXMLParser(finPath);
+			
+			try {	
+            	p->begin();
+   			} 
+			catch(mparser::MXMLParser::NullMeiPointer& e)
+			{
+				cout << e.what() << endl;
+				exit(-1);
+			}
+			p->output(foutPath);
             delete p;
             cout << "Conversion complete, wrote to file: " << foutPath << endl;
         } else if (in == MEI && out == MXML) {

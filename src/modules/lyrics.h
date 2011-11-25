@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -51,6 +51,7 @@ namespace mei {
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
         Lyrics();
+        Lyrics(const Lyrics& other);
         virtual ~Lyrics();
 
 /* include <lyrics> */
@@ -78,6 +79,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
 class MEI_EXPORT Verse : public MeiElement {
     public:
         Verse();
+        Verse(const Verse& other);
         virtual ~Verse();
 
 /* include <verse> */

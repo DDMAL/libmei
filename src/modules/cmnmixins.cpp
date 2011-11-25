@@ -20,10 +20,8 @@ MeiAttribute* mei::ArpegLogMixIn::getOrder() {
 };
 
 void mei::ArpegLogMixIn::setOrder(std::string _order) {
-    if (!b->hasAttribute("order")) {
-        MeiAttribute *a = new MeiAttribute("order", _order);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("order", _order);
+    b->addAttribute(a);
 };
 
 bool mei::ArpegLogMixIn::hasOrder() {
@@ -47,10 +45,8 @@ MeiAttribute* mei::ArpegVisMixIn::getArrow() {
 };
 
 void mei::ArpegVisMixIn::setArrow(std::string _arrow) {
-    if (!b->hasAttribute("arrow")) {
-        MeiAttribute *a = new MeiAttribute("arrow", _arrow);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("arrow", _arrow);
+    b->addAttribute(a);
 };
 
 bool mei::ArpegVisMixIn::hasArrow() {
@@ -74,10 +70,8 @@ MeiAttribute* mei::BTremLogMixIn::getForm() {
 };
 
 void mei::BTremLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::BTremLogMixIn::hasForm() {
@@ -101,10 +95,8 @@ MeiAttribute* mei::BeamedMixIn::getBeam() {
 };
 
 void mei::BeamedMixIn::setBeam(std::string _beam) {
-    if (!b->hasAttribute("beam")) {
-        MeiAttribute *a = new MeiAttribute("beam", _beam);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("beam", _beam);
+    b->addAttribute(a);
 };
 
 bool mei::BeamedMixIn::hasBeam() {
@@ -128,10 +120,8 @@ MeiAttribute* mei::BeamedwithMixIn::getBeamWith() {
 };
 
 void mei::BeamedwithMixIn::setBeamWith(std::string _beamwith) {
-    if (!b->hasAttribute("beam.with")) {
-        MeiAttribute *a = new MeiAttribute("beam.with", _beamwith);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("beam.with", _beamwith);
+    b->addAttribute(a);
 };
 
 bool mei::BeamedwithMixIn::hasBeamWith() {
@@ -155,10 +145,8 @@ MeiAttribute* mei::BeamingLogMixIn::getBeamGroup() {
 };
 
 void mei::BeamingLogMixIn::setBeamGroup(std::string _beamgroup) {
-    if (!b->hasAttribute("beam.group")) {
-        MeiAttribute *a = new MeiAttribute("beam.group", _beamgroup);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("beam.group", _beamgroup);
+    b->addAttribute(a);
 };
 
 bool mei::BeamingLogMixIn::hasBeamGroup() {
@@ -176,10 +164,8 @@ MeiAttribute* mei::BeamingLogMixIn::getBeamRests() {
 };
 
 void mei::BeamingLogMixIn::setBeamRests(std::string _beamrests) {
-    if (!b->hasAttribute("beam.rests")) {
-        MeiAttribute *a = new MeiAttribute("beam.rests", _beamrests);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("beam.rests", _beamrests);
+    b->addAttribute(a);
 };
 
 bool mei::BeamingLogMixIn::hasBeamRests() {
@@ -203,10 +189,8 @@ MeiAttribute* mei::BeamrendMixIn::getRend() {
 };
 
 void mei::BeamrendMixIn::setRend(std::string _rend) {
-    if (!b->hasAttribute("rend")) {
-        MeiAttribute *a = new MeiAttribute("rend", _rend);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rend", _rend);
+    b->addAttribute(a);
 };
 
 bool mei::BeamrendMixIn::hasRend() {
@@ -224,10 +208,8 @@ MeiAttribute* mei::BeamrendMixIn::getSlope() {
 };
 
 void mei::BeamrendMixIn::setSlope(std::string _slope) {
-    if (!b->hasAttribute("slope")) {
-        MeiAttribute *a = new MeiAttribute("slope", _slope);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("slope", _slope);
+    b->addAttribute(a);
 };
 
 bool mei::BeamrendMixIn::hasSlope() {
@@ -251,10 +233,8 @@ MeiAttribute* mei::BeamsecondaryMixIn::getBreaksec() {
 };
 
 void mei::BeamsecondaryMixIn::setBreaksec(std::string _breaksec) {
-    if (!b->hasAttribute("breaksec")) {
-        MeiAttribute *a = new MeiAttribute("breaksec", _breaksec);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("breaksec", _breaksec);
+    b->addAttribute(a);
 };
 
 bool mei::BeamsecondaryMixIn::hasBreaksec() {
@@ -278,10 +258,8 @@ MeiAttribute* mei::BeatRptVisMixIn::getRend() {
 };
 
 void mei::BeatRptVisMixIn::setRend(std::string _rend) {
-    if (!b->hasAttribute("rend")) {
-        MeiAttribute *a = new MeiAttribute("rend", _rend);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rend", _rend);
+    b->addAttribute(a);
 };
 
 bool mei::BeatRptVisMixIn::hasRend() {
@@ -305,10 +283,8 @@ MeiAttribute* mei::BendGesMixIn::getAmount() {
 };
 
 void mei::BendGesMixIn::setAmount(std::string _amount) {
-    if (!b->hasAttribute("amount")) {
-        MeiAttribute *a = new MeiAttribute("amount", _amount);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("amount", _amount);
+    b->addAttribute(a);
 };
 
 bool mei::BendGesMixIn::hasAmount() {
@@ -332,10 +308,8 @@ MeiAttribute* mei::CutoutMixIn::getCutout() {
 };
 
 void mei::CutoutMixIn::setCutout(std::string _cutout) {
-    if (!b->hasAttribute("cutout")) {
-        MeiAttribute *a = new MeiAttribute("cutout", _cutout);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("cutout", _cutout);
+    b->addAttribute(a);
 };
 
 bool mei::CutoutMixIn::hasCutout() {
@@ -359,10 +333,8 @@ MeiAttribute* mei::ExpandableMixIn::getExpand() {
 };
 
 void mei::ExpandableMixIn::setExpand(std::string _expand) {
-    if (!b->hasAttribute("expand")) {
-        MeiAttribute *a = new MeiAttribute("expand", _expand);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("expand", _expand);
+    b->addAttribute(a);
 };
 
 bool mei::ExpandableMixIn::hasExpand() {
@@ -386,10 +358,8 @@ MeiAttribute* mei::FTremGesMixIn::getForm() {
 };
 
 void mei::FTremGesMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::FTremGesMixIn::hasForm() {
@@ -413,10 +383,8 @@ MeiAttribute* mei::FermataVisMixIn::getForm() {
 };
 
 void mei::FermataVisMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::FermataVisMixIn::hasForm() {
@@ -434,10 +402,8 @@ MeiAttribute* mei::FermataVisMixIn::getShape() {
 };
 
 void mei::FermataVisMixIn::setShape(std::string _shape) {
-    if (!b->hasAttribute("shape")) {
-        MeiAttribute *a = new MeiAttribute("shape", _shape);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("shape", _shape);
+    b->addAttribute(a);
 };
 
 bool mei::FermataVisMixIn::hasShape() {
@@ -461,10 +427,8 @@ MeiAttribute* mei::GlissVisMixIn::getText() {
 };
 
 void mei::GlissVisMixIn::setText(std::string _text) {
-    if (!b->hasAttribute("text")) {
-        MeiAttribute *a = new MeiAttribute("text", _text);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("text", _text);
+    b->addAttribute(a);
 };
 
 bool mei::GlissVisMixIn::hasText() {
@@ -488,10 +452,8 @@ MeiAttribute* mei::GracedMixIn::getGrace() {
 };
 
 void mei::GracedMixIn::setGrace(std::string _grace) {
-    if (!b->hasAttribute("grace")) {
-        MeiAttribute *a = new MeiAttribute("grace", _grace);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("grace", _grace);
+    b->addAttribute(a);
 };
 
 bool mei::GracedMixIn::hasGrace() {
@@ -509,10 +471,8 @@ MeiAttribute* mei::GracedMixIn::getGraceTime() {
 };
 
 void mei::GracedMixIn::setGraceTime(std::string _gracetime) {
-    if (!b->hasAttribute("grace.time")) {
-        MeiAttribute *a = new MeiAttribute("grace.time", _gracetime);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("grace.time", _gracetime);
+    b->addAttribute(a);
 };
 
 bool mei::GracedMixIn::hasGraceTime() {
@@ -536,10 +496,8 @@ MeiAttribute* mei::HairpinLogMixIn::getForm() {
 };
 
 void mei::HairpinLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::HairpinLogMixIn::hasForm() {
@@ -563,10 +521,8 @@ MeiAttribute* mei::HairpinVisMixIn::getOpening() {
 };
 
 void mei::HairpinVisMixIn::setOpening(std::string _opening) {
-    if (!b->hasAttribute("opening")) {
-        MeiAttribute *a = new MeiAttribute("opening", _opening);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("opening", _opening);
+    b->addAttribute(a);
 };
 
 bool mei::HairpinVisMixIn::hasOpening() {
@@ -590,10 +546,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getC() {
 };
 
 void mei::HarpPedalLogMixIn::setC(std::string _c) {
-    if (!b->hasAttribute("c")) {
-        MeiAttribute *a = new MeiAttribute("c", _c);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("c", _c);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasC() {
@@ -611,10 +565,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getD() {
 };
 
 void mei::HarpPedalLogMixIn::setD(std::string _d) {
-    if (!b->hasAttribute("d")) {
-        MeiAttribute *a = new MeiAttribute("d", _d);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("d", _d);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasD() {
@@ -632,10 +584,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getE() {
 };
 
 void mei::HarpPedalLogMixIn::setE(std::string _e) {
-    if (!b->hasAttribute("e")) {
-        MeiAttribute *a = new MeiAttribute("e", _e);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("e", _e);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasE() {
@@ -653,10 +603,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getF() {
 };
 
 void mei::HarpPedalLogMixIn::setF(std::string _f) {
-    if (!b->hasAttribute("f")) {
-        MeiAttribute *a = new MeiAttribute("f", _f);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("f", _f);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasF() {
@@ -674,10 +622,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getG() {
 };
 
 void mei::HarpPedalLogMixIn::setG(std::string _g) {
-    if (!b->hasAttribute("g")) {
-        MeiAttribute *a = new MeiAttribute("g", _g);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("g", _g);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasG() {
@@ -695,10 +641,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getA() {
 };
 
 void mei::HarpPedalLogMixIn::setA(std::string _a) {
-    if (!b->hasAttribute("a")) {
-        MeiAttribute *a = new MeiAttribute("a", _a);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("a", _a);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasA() {
@@ -716,10 +660,8 @@ MeiAttribute* mei::HarpPedalLogMixIn::getB() {
 };
 
 void mei::HarpPedalLogMixIn::setB(std::string _b) {
-    if (!b->hasAttribute("b")) {
-        MeiAttribute *a = new MeiAttribute("b", _b);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("b", _b);
+    b->addAttribute(a);
 };
 
 bool mei::HarpPedalLogMixIn::hasB() {
@@ -743,10 +685,8 @@ MeiAttribute* mei::LvpresentMixIn::getLv() {
 };
 
 void mei::LvpresentMixIn::setLv(std::string _lv) {
-    if (!b->hasAttribute("lv")) {
-        MeiAttribute *a = new MeiAttribute("lv", _lv);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("lv", _lv);
+    b->addAttribute(a);
 };
 
 bool mei::LvpresentMixIn::hasLv() {
@@ -770,10 +710,8 @@ MeiAttribute* mei::MultiRestVisMixIn::getBlock() {
 };
 
 void mei::MultiRestVisMixIn::setBlock(std::string _block) {
-    if (!b->hasAttribute("block")) {
-        MeiAttribute *a = new MeiAttribute("block", _block);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("block", _block);
+    b->addAttribute(a);
 };
 
 bool mei::MultiRestVisMixIn::hasBlock() {
@@ -797,10 +735,8 @@ MeiAttribute* mei::NoteGesCmnMixIn::getGliss() {
 };
 
 void mei::NoteGesCmnMixIn::setGliss(std::string _gliss) {
-    if (!b->hasAttribute("gliss")) {
-        MeiAttribute *a = new MeiAttribute("gliss", _gliss);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("gliss", _gliss);
+    b->addAttribute(a);
 };
 
 bool mei::NoteGesCmnMixIn::hasGliss() {
@@ -824,10 +760,8 @@ MeiAttribute* mei::NumberedMixIn::getNum() {
 };
 
 void mei::NumberedMixIn::setNum(std::string _num) {
-    if (!b->hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    b->addAttribute(a);
 };
 
 bool mei::NumberedMixIn::hasNum() {
@@ -851,10 +785,8 @@ MeiAttribute* mei::NumberplacementMixIn::getNumPlace() {
 };
 
 void mei::NumberplacementMixIn::setNumPlace(std::string _numplace) {
-    if (!b->hasAttribute("num.place")) {
-        MeiAttribute *a = new MeiAttribute("num.place", _numplace);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num.place", _numplace);
+    b->addAttribute(a);
 };
 
 bool mei::NumberplacementMixIn::hasNumPlace() {
@@ -872,10 +804,8 @@ MeiAttribute* mei::NumberplacementMixIn::getNumVisible() {
 };
 
 void mei::NumberplacementMixIn::setNumVisible(std::string _numvisible) {
-    if (!b->hasAttribute("num.visible")) {
-        MeiAttribute *a = new MeiAttribute("num.visible", _numvisible);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num.visible", _numvisible);
+    b->addAttribute(a);
 };
 
 bool mei::NumberplacementMixIn::hasNumVisible() {
@@ -899,10 +829,8 @@ MeiAttribute* mei::OctaveLogMixIn::getColl() {
 };
 
 void mei::OctaveLogMixIn::setColl(std::string _coll) {
-    if (!b->hasAttribute("coll")) {
-        MeiAttribute *a = new MeiAttribute("coll", _coll);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("coll", _coll);
+    b->addAttribute(a);
 };
 
 bool mei::OctaveLogMixIn::hasColl() {
@@ -926,10 +854,8 @@ MeiAttribute* mei::PedalLogMixIn::getDir() {
 };
 
 void mei::PedalLogMixIn::setDir(std::string _dir) {
-    if (!b->hasAttribute("dir")) {
-        MeiAttribute *a = new MeiAttribute("dir", _dir);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("dir", _dir);
+    b->addAttribute(a);
 };
 
 bool mei::PedalLogMixIn::hasDir() {
@@ -953,10 +879,8 @@ MeiAttribute* mei::PedalVisMixIn::getStyle() {
 };
 
 void mei::PedalVisMixIn::setStyle(std::string _style) {
-    if (!b->hasAttribute("style")) {
-        MeiAttribute *a = new MeiAttribute("style", _style);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("style", _style);
+    b->addAttribute(a);
 };
 
 bool mei::PedalVisMixIn::hasStyle() {
@@ -980,10 +904,8 @@ MeiAttribute* mei::PianopedalsMixIn::getPedalStyle() {
 };
 
 void mei::PianopedalsMixIn::setPedalStyle(std::string _pedalstyle) {
-    if (!b->hasAttribute("pedal.style")) {
-        MeiAttribute *a = new MeiAttribute("pedal.style", _pedalstyle);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("pedal.style", _pedalstyle);
+    b->addAttribute(a);
 };
 
 bool mei::PianopedalsMixIn::hasPedalStyle() {
@@ -1007,10 +929,8 @@ MeiAttribute* mei::RehearsalMixIn::getRehEnclose() {
 };
 
 void mei::RehearsalMixIn::setRehEnclose(std::string _rehenclose) {
-    if (!b->hasAttribute("reh.enclose")) {
-        MeiAttribute *a = new MeiAttribute("reh.enclose", _rehenclose);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("reh.enclose", _rehenclose);
+    b->addAttribute(a);
 };
 
 bool mei::RehearsalMixIn::hasRehEnclose() {
@@ -1034,10 +954,8 @@ MeiAttribute* mei::ScoreDefVisCmnMixIn::getGridShow() {
 };
 
 void mei::ScoreDefVisCmnMixIn::setGridShow(std::string _gridshow) {
-    if (!b->hasAttribute("grid.show")) {
-        MeiAttribute *a = new MeiAttribute("grid.show", _gridshow);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("grid.show", _gridshow);
+    b->addAttribute(a);
 };
 
 bool mei::ScoreDefVisCmnMixIn::hasGridShow() {
@@ -1061,10 +979,8 @@ MeiAttribute* mei::SlurrendMixIn::getSlurRend() {
 };
 
 void mei::SlurrendMixIn::setSlurRend(std::string _slurrend) {
-    if (!b->hasAttribute("slur.rend")) {
-        MeiAttribute *a = new MeiAttribute("slur.rend", _slurrend);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("slur.rend", _slurrend);
+    b->addAttribute(a);
 };
 
 bool mei::SlurrendMixIn::hasSlurRend() {
@@ -1088,10 +1004,8 @@ MeiAttribute* mei::StemmedCmnMixIn::getStemMod() {
 };
 
 void mei::StemmedCmnMixIn::setStemMod(std::string _stemmod) {
-    if (!b->hasAttribute("stem.mod")) {
-        MeiAttribute *a = new MeiAttribute("stem.mod", _stemmod);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("stem.mod", _stemmod);
+    b->addAttribute(a);
 };
 
 bool mei::StemmedCmnMixIn::hasStemMod() {
@@ -1109,10 +1023,8 @@ MeiAttribute* mei::StemmedCmnMixIn::getStemWith() {
 };
 
 void mei::StemmedCmnMixIn::setStemWith(std::string _stemwith) {
-    if (!b->hasAttribute("stem.with")) {
-        MeiAttribute *a = new MeiAttribute("stem.with", _stemwith);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("stem.with", _stemwith);
+    b->addAttribute(a);
 };
 
 bool mei::StemmedCmnMixIn::hasStemWith() {
@@ -1136,10 +1048,8 @@ MeiAttribute* mei::TierendMixIn::getTieRend() {
 };
 
 void mei::TierendMixIn::setTieRend(std::string _tierend) {
-    if (!b->hasAttribute("tie.rend")) {
-        MeiAttribute *a = new MeiAttribute("tie.rend", _tierend);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("tie.rend", _tierend);
+    b->addAttribute(a);
 };
 
 bool mei::TierendMixIn::hasTieRend() {
@@ -1163,10 +1073,8 @@ MeiAttribute* mei::TupletLogMixIn::getDur() {
 };
 
 void mei::TupletLogMixIn::setDur(std::string _dur) {
-    if (!b->hasAttribute("dur")) {
-        MeiAttribute *a = new MeiAttribute("dur", _dur);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("dur", _dur);
+    b->addAttribute(a);
 };
 
 bool mei::TupletLogMixIn::hasDur() {
@@ -1190,10 +1098,8 @@ MeiAttribute* mei::TupletVisMixIn::getBracketPlace() {
 };
 
 void mei::TupletVisMixIn::setBracketPlace(std::string _bracketplace) {
-    if (!b->hasAttribute("bracket.place")) {
-        MeiAttribute *a = new MeiAttribute("bracket.place", _bracketplace);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("bracket.place", _bracketplace);
+    b->addAttribute(a);
 };
 
 bool mei::TupletVisMixIn::hasBracketPlace() {
@@ -1211,10 +1117,8 @@ MeiAttribute* mei::TupletVisMixIn::getBracketVisible() {
 };
 
 void mei::TupletVisMixIn::setBracketVisible(std::string _bracketvisible) {
-    if (!b->hasAttribute("bracket.visible")) {
-        MeiAttribute *a = new MeiAttribute("bracket.visible", _bracketvisible);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("bracket.visible", _bracketvisible);
+    b->addAttribute(a);
 };
 
 bool mei::TupletVisMixIn::hasBracketVisible() {
@@ -1232,10 +1136,8 @@ MeiAttribute* mei::TupletVisMixIn::getDurVisible() {
 };
 
 void mei::TupletVisMixIn::setDurVisible(std::string _durvisible) {
-    if (!b->hasAttribute("dur.visible")) {
-        MeiAttribute *a = new MeiAttribute("dur.visible", _durvisible);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("dur.visible", _durvisible);
+    b->addAttribute(a);
 };
 
 bool mei::TupletVisMixIn::hasDurVisible() {
@@ -1253,10 +1155,8 @@ MeiAttribute* mei::TupletVisMixIn::getNumFormat() {
 };
 
 void mei::TupletVisMixIn::setNumFormat(std::string _numformat) {
-    if (!b->hasAttribute("num.format")) {
-        MeiAttribute *a = new MeiAttribute("num.format", _numformat);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num.format", _numformat);
+    b->addAttribute(a);
 };
 
 bool mei::TupletVisMixIn::hasNumFormat() {
@@ -1280,10 +1180,8 @@ MeiAttribute* mei::TupletSpanLogMixIn::getDur() {
 };
 
 void mei::TupletSpanLogMixIn::setDur(std::string _dur) {
-    if (!b->hasAttribute("dur")) {
-        MeiAttribute *a = new MeiAttribute("dur", _dur);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("dur", _dur);
+    b->addAttribute(a);
 };
 
 bool mei::TupletSpanLogMixIn::hasDur() {

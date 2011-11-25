@@ -22,7 +22,7 @@
     #endif
 #endif
 
-const std::string MEI_VERSION = "2011-05";
+const std::string MEI_VERSION = "2012";
 const std::string MEI_NS = "http://www.music-encoding.org/ns/mei";
 const std::string MEI_PREFIX = "mei";
 const std::string MEI_ENCODING = "UTF-8";

@@ -21,6 +21,18 @@ mei::Cc::Cc() :
 }
 REGISTER_DEFINITION(mei::Cc, "cc");
 mei::Cc::~Cc() {}
+mei::Cc::Cc(const Cc& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this),
+    m_Midivalue(this)
+{
+}
 
 /* include <cc> */
 
@@ -36,6 +48,16 @@ mei::Chan::Chan() :
 }
 REGISTER_DEFINITION(mei::Chan, "chan");
 mei::Chan::~Chan() {}
+mei::Chan::Chan(const Chan& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 MeiAttribute* mei::Chan::getNum() {
     if (!hasAttribute("num")) {
@@ -45,10 +67,8 @@ MeiAttribute* mei::Chan::getNum() {
 };
 
 void mei::Chan::setNum(std::string _num) {
-    if (!hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    addAttribute(a);
 };
 
 bool mei::Chan::hasNum() {
@@ -73,6 +93,17 @@ mei::ChanPr::ChanPr() :
 }
 REGISTER_DEFINITION(mei::ChanPr, "chanPr");
 mei::ChanPr::~ChanPr() {}
+mei::ChanPr::ChanPr(const ChanPr& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 /* include <chanPr> */
 
@@ -88,6 +119,16 @@ mei::Cue::Cue() :
 }
 REGISTER_DEFINITION(mei::Cue, "cue");
 mei::Cue::~Cue() {}
+mei::Cue::Cue(const Cue& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 /* include <cue> */
 
@@ -103,6 +144,16 @@ mei::Hex::Hex() :
 }
 REGISTER_DEFINITION(mei::Hex, "hex");
 mei::Hex::~Hex() {}
+mei::Hex::Hex(const Hex& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 /* include <hex> */
 
@@ -118,6 +169,16 @@ mei::Marker::Marker() :
 }
 REGISTER_DEFINITION(mei::Marker, "marker");
 mei::Marker::~Marker() {}
+mei::Marker::Marker(const Marker& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 /* include <marker> */
 
@@ -133,6 +194,16 @@ mei::MetaText::MetaText() :
 }
 REGISTER_DEFINITION(mei::MetaText, "metaText");
 mei::MetaText::~MetaText() {}
+mei::MetaText::MetaText(const MetaText& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 /* include <metaText> */
 
@@ -147,6 +218,15 @@ mei::Midi::Midi() :
 }
 REGISTER_DEFINITION(mei::Midi, "midi");
 mei::Midi::~Midi() {}
+mei::Midi::Midi(const Midi& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_CommonAnl(this),
+    m_Alignment(this)
+{
+}
 
 /* include <midi> */
 
@@ -163,6 +243,17 @@ mei::NoteOff::NoteOff() :
 }
 REGISTER_DEFINITION(mei::NoteOff, "noteOff");
 mei::NoteOff::~NoteOff() {}
+mei::NoteOff::NoteOff(const NoteOff& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 /* include <noteOff> */
 
@@ -179,6 +270,17 @@ mei::NoteOn::NoteOn() :
 }
 REGISTER_DEFINITION(mei::NoteOn, "noteOn");
 mei::NoteOn::~NoteOn() {}
+mei::NoteOn::NoteOn(const NoteOn& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 /* include <noteOn> */
 
@@ -195,6 +297,17 @@ mei::Port::Port() :
 }
 REGISTER_DEFINITION(mei::Port, "port");
 mei::Port::~Port() {}
+mei::Port::Port(const Port& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 /* include <port> */
 
@@ -211,6 +324,17 @@ mei::Prog::Prog() :
 }
 REGISTER_DEFINITION(mei::Prog, "prog");
 mei::Prog::~Prog() {}
+mei::Prog::Prog(const Prog& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 /* include <prog> */
 
@@ -226,6 +350,16 @@ mei::SeqNum::SeqNum() :
 }
 REGISTER_DEFINITION(mei::SeqNum, "seqNum");
 mei::SeqNum::~SeqNum() {}
+mei::SeqNum::SeqNum(const SeqNum& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 MeiAttribute* mei::SeqNum::getNum() {
     if (!hasAttribute("num")) {
@@ -235,10 +369,8 @@ MeiAttribute* mei::SeqNum::getNum() {
 };
 
 void mei::SeqNum::setNum(std::string _num) {
-    if (!hasAttribute("num")) {
-        MeiAttribute *a = new MeiAttribute("num", _num);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("num", _num);
+    addAttribute(a);
 };
 
 bool mei::SeqNum::hasNum() {
@@ -262,6 +394,16 @@ mei::TrkName::TrkName() :
 }
 REGISTER_DEFINITION(mei::TrkName, "trkName");
 mei::TrkName::~TrkName() {}
+mei::TrkName::TrkName(const TrkName& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this)
+{
+}
 
 /* include <trkName> */
 
@@ -278,6 +420,17 @@ mei::Vel::Vel() :
 }
 REGISTER_DEFINITION(mei::Vel, "vel");
 mei::Vel::~Vel() {}
+mei::Vel::Vel(const Vel& other) :
+    MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Common(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_TimestampMusical(this),
+    m_Midinumber(this)
+{
+}
 
 MeiAttribute* mei::Vel::getForm() {
     if (!hasAttribute("form")) {
@@ -287,10 +440,8 @@ MeiAttribute* mei::Vel::getForm() {
 };
 
 void mei::Vel::setForm(std::string _form) {
-    if (!hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    addAttribute(a);
 };
 
 bool mei::Vel::hasForm() {
