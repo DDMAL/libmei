@@ -69,13 +69,13 @@ BOOST_PYTHON_MODULE(pymei) {
         .def("removeChild", &MeiElement::removeChild)
         .def("hasChildren", hasChildrenBool)
         .def("hasChildren", hasChildrenArgs)
-        .def("getAncestor", &MeiElement::getAncestor)
+        .def("getAncestor", &MeiElement::getAncestor, return_value_policy<manage_new_object>())
         .def("hasAncestor", &MeiElement::hasAncestor)
         .def("getDescendants", &MeiElement::getDescendants)
         .def("getDescendantsByName", &MeiElement::getDescendantsByName)
         .def("getPeers", &MeiElement::getPeers)
         .def("getPositionInDocument", &MeiElement::getPositionInDocument)
-        .def("lookBack", &MeiElement::lookBack)
+        // .def("lookBack", &MeiElement::lookBack)
         .def("flatten", &MeiElement::flatten)
         .def("print", printAll)
         .def("print", printLvl)
@@ -88,8 +88,8 @@ BOOST_PYTHON_MODULE(pymei) {
         .def("getValue", &MeiAttribute::getValue)
         .def("setValue", &MeiAttribute::setValue)
         .def("hasNamespace", &MeiAttribute::hasNamespace)
-        .def("getNamespace", &MeiAttribute::getNamespace)
-        .def("setNamespace", &MeiAttribute::hasNamespace)
+        .def("getNamespace", &MeiAttribute::getNamespace, return_value_policy<manage_new_object>())
+        .def("setNamespace", &MeiAttribute::setNamespace)
     ;
 
     class_<MeiDocument>("MeiDocument", init<>())
@@ -100,13 +100,13 @@ BOOST_PYTHON_MODULE(pymei) {
         .def("getVersion", &MeiDocument::getVersion)
         .def("getRootElement", &MeiDocument::getRootElement, return_value_policy<manage_new_object>())
         .def("setRootElement", &MeiDocument::setRootElement)
-        .def("getElementById", &MeiDocument::getElementById, return_value_policy<manage_new_object>())
+        //.def("getElementById", &MeiDocument::getElementById, return_value_policy<manage_new_object>())
         .def("getElementsByName", &MeiDocument::getElementsByName)
         .def("getPositionInDocument", &MeiDocument::getPositionInDocument)
         .def("addIdMap", &MeiDocument::addIdMap)
         .def("rmIdMap", &MeiDocument::rmIdMap)
         .def("getFlattenedTree", &MeiDocument::getFlattenedTree, return_value_policy<copy_const_reference>())
-        .def("lookBack", &MeiDocument::lookBack)
+        // .def("lookBack", &MeiDocument::lookBack)
 
     ;
 }
