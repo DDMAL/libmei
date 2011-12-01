@@ -20,10 +20,8 @@ MeiAttribute* mei::FretlocationMixIn::getFret() {
 };
 
 void mei::FretlocationMixIn::setFret(std::string _fret) {
-    if (!b->hasAttribute("fret")) {
-        MeiAttribute *a = new MeiAttribute("fret", _fret);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("fret", _fret);
+    b->addAttribute(a);
 };
 
 bool mei::FretlocationMixIn::hasFret() {
@@ -47,10 +45,8 @@ MeiAttribute* mei::HarmLogMixIn::getChordref() {
 };
 
 void mei::HarmLogMixIn::setChordref(std::string _chordref) {
-    if (!b->hasAttribute("chordref")) {
-        MeiAttribute *a = new MeiAttribute("chordref", _chordref);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("chordref", _chordref);
+    b->addAttribute(a);
 };
 
 bool mei::HarmLogMixIn::hasChordref() {
@@ -74,10 +70,8 @@ MeiAttribute* mei::HarmVisMixIn::getExtender() {
 };
 
 void mei::HarmVisMixIn::setExtender(std::string _extender) {
-    if (!b->hasAttribute("extender")) {
-        MeiAttribute *a = new MeiAttribute("extender", _extender);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("extender", _extender);
+    b->addAttribute(a);
 };
 
 bool mei::HarmVisMixIn::hasExtender() {
@@ -95,10 +89,8 @@ MeiAttribute* mei::HarmVisMixIn::getRendgrid() {
 };
 
 void mei::HarmVisMixIn::setRendgrid(std::string _rendgrid) {
-    if (!b->hasAttribute("rendgrid")) {
-        MeiAttribute *a = new MeiAttribute("rendgrid", _rendgrid);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("rendgrid", _rendgrid);
+    b->addAttribute(a);
 };
 
 bool mei::HarmVisMixIn::hasRendgrid() {

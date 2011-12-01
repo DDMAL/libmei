@@ -20,10 +20,8 @@ MeiAttribute* mei::MordentLogMixIn::getForm() {
 };
 
 void mei::MordentLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::MordentLogMixIn::hasForm() {
@@ -41,10 +39,8 @@ MeiAttribute* mei::MordentLogMixIn::getLong() {
 };
 
 void mei::MordentLogMixIn::setLong(std::string _long) {
-    if (!b->hasAttribute("long")) {
-        MeiAttribute *a = new MeiAttribute("long", _long);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("long", _long);
+    b->addAttribute(a);
 };
 
 bool mei::MordentLogMixIn::hasLong() {
@@ -68,10 +64,8 @@ MeiAttribute* mei::OrnamentaccidMixIn::getAccidupper() {
 };
 
 void mei::OrnamentaccidMixIn::setAccidupper(std::string _accidupper) {
-    if (!b->hasAttribute("accidupper")) {
-        MeiAttribute *a = new MeiAttribute("accidupper", _accidupper);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("accidupper", _accidupper);
+    b->addAttribute(a);
 };
 
 bool mei::OrnamentaccidMixIn::hasAccidupper() {
@@ -89,10 +83,8 @@ MeiAttribute* mei::OrnamentaccidMixIn::getAccidlower() {
 };
 
 void mei::OrnamentaccidMixIn::setAccidlower(std::string _accidlower) {
-    if (!b->hasAttribute("accidlower")) {
-        MeiAttribute *a = new MeiAttribute("accidlower", _accidlower);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("accidlower", _accidlower);
+    b->addAttribute(a);
 };
 
 bool mei::OrnamentaccidMixIn::hasAccidlower() {
@@ -116,10 +108,8 @@ MeiAttribute* mei::TurnLogMixIn::getDelayed() {
 };
 
 void mei::TurnLogMixIn::setDelayed(std::string _delayed) {
-    if (!b->hasAttribute("delayed")) {
-        MeiAttribute *a = new MeiAttribute("delayed", _delayed);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("delayed", _delayed);
+    b->addAttribute(a);
 };
 
 bool mei::TurnLogMixIn::hasDelayed() {
@@ -137,10 +127,8 @@ MeiAttribute* mei::TurnLogMixIn::getForm() {
 };
 
 void mei::TurnLogMixIn::setForm(std::string _form) {
-    if (!b->hasAttribute("form")) {
-        MeiAttribute *a = new MeiAttribute("form", _form);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("form", _form);
+    b->addAttribute(a);
 };
 
 bool mei::TurnLogMixIn::hasForm() {

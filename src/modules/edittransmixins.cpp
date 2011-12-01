@@ -20,10 +20,8 @@ MeiAttribute* mei::AgentidentMixIn::getAgent() {
 };
 
 void mei::AgentidentMixIn::setAgent(std::string _agent) {
-    if (!b->hasAttribute("agent")) {
-        MeiAttribute *a = new MeiAttribute("agent", _agent);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("agent", _agent);
+    b->addAttribute(a);
 };
 
 bool mei::AgentidentMixIn::hasAgent() {
@@ -47,10 +45,8 @@ MeiAttribute* mei::EditMixIn::getCert() {
 };
 
 void mei::EditMixIn::setCert(std::string _cert) {
-    if (!b->hasAttribute("cert")) {
-        MeiAttribute *a = new MeiAttribute("cert", _cert);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("cert", _cert);
+    b->addAttribute(a);
 };
 
 bool mei::EditMixIn::hasCert() {
@@ -68,10 +64,8 @@ MeiAttribute* mei::EditMixIn::getEvidence() {
 };
 
 void mei::EditMixIn::setEvidence(std::string _evidence) {
-    if (!b->hasAttribute("evidence")) {
-        MeiAttribute *a = new MeiAttribute("evidence", _evidence);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("evidence", _evidence);
+    b->addAttribute(a);
 };
 
 bool mei::EditMixIn::hasEvidence() {
@@ -95,10 +89,8 @@ MeiAttribute* mei::ExtentMixIn::getExtent() {
 };
 
 void mei::ExtentMixIn::setExtent(std::string _extent) {
-    if (!b->hasAttribute("extent")) {
-        MeiAttribute *a = new MeiAttribute("extent", _extent);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("extent", _extent);
+    b->addAttribute(a);
 };
 
 bool mei::ExtentMixIn::hasExtent() {
@@ -122,10 +114,8 @@ MeiAttribute* mei::ReasonidentMixIn::getReason() {
 };
 
 void mei::ReasonidentMixIn::setReason(std::string _reason) {
-    if (!b->hasAttribute("reason")) {
-        MeiAttribute *a = new MeiAttribute("reason", _reason);
-        b->addAttribute(a);
-    }
+    MeiAttribute *a = new MeiAttribute("reason", _reason);
+    b->addAttribute(a);
 };
 
 bool mei::ReasonidentMixIn::hasReason() {

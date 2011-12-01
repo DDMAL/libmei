@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -46,6 +46,7 @@ namespace mei {
 class MEI_EXPORT Fig : public MeiElement {
     public:
         Fig();
+        Fig(const Fig& other);
         virtual ~Fig();
 
 /* include <fig> */
@@ -71,6 +72,7 @@ class MEI_EXPORT Fig : public MeiElement {
 class MEI_EXPORT FigDesc : public MeiElement {
     public:
         FigDesc();
+        FigDesc(const FigDesc& other);
         virtual ~FigDesc();
 
 /* include <figDesc> */
@@ -90,6 +92,7 @@ class MEI_EXPORT FigDesc : public MeiElement {
 class MEI_EXPORT Graphic : public MeiElement {
     public:
         Graphic();
+        Graphic(const Graphic& other);
         virtual ~Graphic();
         /** \brief measurement of the vertical dimension of an image.
          */
@@ -121,6 +124,7 @@ class MEI_EXPORT Graphic : public MeiElement {
 class MEI_EXPORT Table : public MeiElement {
     public:
         Table();
+        Table(const Table& other);
         virtual ~Table();
 
 /* include <table> */
@@ -143,6 +147,7 @@ class MEI_EXPORT Table : public MeiElement {
 class MEI_EXPORT Td : public MeiElement {
     public:
         Td();
+        Td(const Td& other);
         virtual ~Td();
 
 /* include <td> */
@@ -166,6 +171,7 @@ class MEI_EXPORT Td : public MeiElement {
 class MEI_EXPORT Th : public MeiElement {
     public:
         Th();
+        Th(const Th& other);
         virtual ~Th();
 
 /* include <th> */
@@ -190,6 +196,7 @@ class MEI_EXPORT Th : public MeiElement {
 class MEI_EXPORT Tr : public MeiElement {
     public:
         Tr();
+        Tr(const Tr& other);
         virtual ~Tr();
 
 /* include <tr> */
