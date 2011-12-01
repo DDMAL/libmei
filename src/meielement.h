@@ -31,7 +31,6 @@
 
 #include "meicommon.h"
 #include "meinamespace.h"
-#include "meidocument.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 
