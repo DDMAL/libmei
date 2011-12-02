@@ -222,11 +222,16 @@ if __name__ == "__main__":
         os.mkdir(args.outdir)
     
     schema = MeiSchema(cf, args.outdir)
-    import langs.cplusplus as cpp
-    cpp.create(schema)
     
-    if args.includes:
-        cpp.parse_includes(args.outdir, args.includes)
+    if "cpp" in args.lang:
+        import langs.cplusplus as cpp
+        cpp.create(schema)
+        if args.includes:
+            cpp.parse_includes(args.outdir, args.includes)
+
+    if "python" in args.lang:
+        import langs.python as py
+        py.create(schema)
     
     # clean up tempdir
     if tdir:
