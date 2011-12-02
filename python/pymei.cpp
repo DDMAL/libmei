@@ -4,6 +4,7 @@
 #include <mei/meiattribute.h>
 #include <mei/meidocument.h>
 #include <mei/xmlimport.h>
+#include <mei/xmlexport.h>
 
 #include <boost/python.hpp>
 #include <boost/python/tuple.hpp>
@@ -21,6 +22,7 @@ using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::MeiDocument;
 using mei::XmlImport;
+using mei::XmlExport;
 
 typedef vector<MeiElement*> MeiElementList;
 typedef vector<MeiAttribute*> MeiAttributeList;
@@ -89,6 +91,14 @@ BOOST_PYTHON_MODULE(pymei) {
 
         .def("documentFromFile", &XmlImport::documentFromFile, return_value_policy<manage_new_object>())
         .staticmethod("documentFromFile")
+    ;
+
+    class_<XmlExport>("XmlExport", init<MeiDocument*>())
+        .def("meiDocumentToFile", &XmlExport::meiDocumentToFile)
+        .staticmethod("meiDocumentToFile")
+
+        .def("meiDocumentToText", &XmlExport::meiDocumentToText)
+        .staticmethod("meiDocumentToText")
     ;
 
     class_<MeiDocument, MeiDocument*>("MeiDocument", init<>())
