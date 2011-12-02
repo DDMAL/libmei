@@ -44,8 +44,6 @@ bool MeiElementList_NEqualWrap(const MeiElementList x, const MeiElementList y) {
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 
-
-
 BOOST_PYTHON_MODULE(pymei) {
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
@@ -64,7 +62,7 @@ BOOST_PYTHON_MODULE(pymei) {
     //     .def(vector_indexing_suite<MeiElementListRef>())
     // ;
 
-    class_<MeiNamespace>("MeiNamespace", init<string, string>())
+    class_<MeiNamespace, MeiNamespace*>("MeiNamespace", init<string, string>())
         .def("__eq__", &MeiNamespace_EqualWrap)
         .def("__ne__", &MeiNamespace_NEqualWrap)
         .def("getHref", &MeiNamespace::getHref)
@@ -86,11 +84,14 @@ BOOST_PYTHON_MODULE(pymei) {
     // MeiDocument* (XmlImport::*documentFromFileStr)(const string) = &XmlImport::documentFromFile;
     
     class_<XmlImport>("XmlImport", init<>())
-        .def("toMeiDocument", &XmlImport::documentFromText, return_value_policy<manage_new_object>())
-        .staticmethod("toMeiDocument")
+        .def("documentFromText", &XmlImport::documentFromText, return_value_policy<manage_new_object>())
+        .staticmethod("documentFromText")
+
+        .def("documentFromFile", &XmlImport::documentFromFile, return_value_policy<manage_new_object>())
+        .staticmethod("documentFromFile")
     ;
 
-    class_<MeiDocument>("MeiDocument", init<>())
+    class_<MeiDocument, MeiDocument*>("MeiDocument", init<>())
         .def("__eq__", &MeiDocument_EqualWrap)
         .def("__ne__", &MeiDocument_NEqualWrap)
         .def("hasNamespace", &MeiDocument::hasNamespace)
@@ -113,12 +114,12 @@ BOOST_PYTHON_MODULE(pymei) {
         .def("lookBack", &MeiDocument::lookBack, return_value_policy<reference_existing_object>())
     ;
 
-    class_<MeiElement, boost::noncopyable>("MeiElement", init<string>())
+    class_<MeiElement, MeiElement*>("MeiElement", init<string>())
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
         .def("getId", &MeiElement::getId)
         .def("hasId", &MeiElement::hasId)
-        .def("getName", &MeiElement::getName)
+        .def("getName", &MeiElement::getName, return_value_policy<return_by_value>())
         .def("getTail", &MeiElement::getTail)
         .def("setTail", &MeiElement::setTail)
         .def("getValue", &MeiElement::getValue)
@@ -159,7 +160,7 @@ BOOST_PYTHON_MODULE(pymei) {
         .def("updateDocument", &MeiElement::updateDocument)
     ;
 
-    class_<MeiAttribute>("MeiAttribute", init<string, string>())
+    class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
         .def("getName", &MeiAttribute::getName)
