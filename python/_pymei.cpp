@@ -26,7 +26,6 @@ using mei::XmlExport;
 
 typedef vector<MeiElement*> MeiElementList;
 typedef vector<MeiAttribute*> MeiAttributeList;
-// typedef vector<MeiElement*>& MeiElementListRef;
 
 bool MeiElement_EqualWrap(const MeiElement* x, const MeiElement* y) { return x == y; }
 bool MeiElement_NEqualWrap(const MeiElement* x, const MeiElement* y) { return x != y; }
@@ -47,6 +46,9 @@ bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 
 BOOST_PYTHON_MODULE(_pymei) {
+
+    docstring_options local_docstring_options(true, true, false);
+
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
         .def("__eq__", &MeiElementList_EqualWrap)
@@ -82,8 +84,6 @@ BOOST_PYTHON_MODULE(_pymei) {
     
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
 
-
-
     // MeiDocument* (XmlImport::*documentFromFileStr)(const string) = &XmlImport::documentFromFile;
     
     class_<XmlImport>("XmlImport", init<>())
@@ -110,8 +110,13 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("getNamespaces", &MeiDocument::getNamespaces)
         .def("addNamespace", &MeiDocument::addNamespace)
         .def("getVersion", &MeiDocument::getVersion)
+        .add_property("version", &MeiDocument::getVersion)
         .def("getRootElement", &MeiDocument::getRootElement, return_value_policy<reference_existing_object>())
         .def("setRootElement", &MeiDocument::setRootElement)
+        .add_property("root", 
+            make_function(&MeiDocument::getRootElement, return_value_policy<reference_existing_object>()),
+            make_function(&MeiDocument::setRootElement)
+        )
         /* 
             MeiDocument has both a private and public function named getElementById. We expose
             the public one above and use it here.
@@ -129,13 +134,27 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
         .def("getId", &MeiElement::getId)
+        .add_property("id", &MeiElement::getId)
+
         .def("hasId", &MeiElement::hasId)
         .def("getName", &MeiElement::getName, return_value_policy<return_by_value>())
+        .add_property("name", &MeiElement::getName)
+
         .def("getTail", &MeiElement::getTail)
         .def("setTail", &MeiElement::setTail)
+        .add_property("tail", &MeiElement::getTail, &MeiElement::setTail)
+
         .def("getValue", &MeiElement::getValue)
         .def("setValue", &MeiElement::setValue)
-        .def("getAttributes", &MeiElement::getAttributes, return_value_policy<reference_existing_object>()) 
+        .add_property("value", &MeiElement::getValue, &MeiElement::setValue)
+
+        .def("getAttributes", &MeiElement::getAttributes, return_value_policy<reference_existing_object>())
+        .def("setAttributes", &MeiElement::setAttributes)
+        .add_property("attributes",
+            make_function(&MeiElement::getAttributes, return_value_policy<reference_existing_object>()),
+            make_function(&MeiElement::setAttributes)
+        )
+
         .def("addAttribute", addAttributeByObject)
         .def("addAttribute", addAttributeByString)
         .def("getAttribute", &MeiElement::getAttribute, return_value_policy<reference_existing_object>())
@@ -149,9 +168,19 @@ BOOST_PYTHON_MODULE(_pymei) {
         */
         .def("setDocument", setDocument)
         .def("getDocument", &MeiElement::getDocument, return_value_policy<reference_existing_object>())
+        .add_property("document", 
+            make_function(&MeiElement::getDocument, return_value_policy<reference_existing_object>()),
+            make_function(&MeiElement::setDocument)
+        )
+
         .def("addChild", &MeiElement::addChild)
         .def("setChildren", &MeiElement::setChildren)
         .def("getChildren", &MeiElement::getChildren, return_value_policy<reference_existing_object>())
+        .add_property("children", 
+            make_function(&MeiElement::getChildren, return_value_policy<reference_existing_object>()), 
+            make_function(&MeiElement::setChildren)
+        )
+
         .def("getChildrenByName", &MeiElement::getChildrenByName)
         .def("deleteAllChildren", &MeiElement::deleteAllChildren)
         .def("removeChildrenWithName", &MeiElement::removeChildrenWithName)
@@ -175,8 +204,12 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
         .def("getName", &MeiAttribute::getName)
+        .add_property("name", &MeiAttribute::getName)
+        
         .def("getValue", &MeiAttribute::getValue)
         .def("setValue", &MeiAttribute::setValue)
+        .add_property("value", &MeiAttribute::getValue, &MeiAttribute::setValue)
+
         .def("hasNamespace", &MeiAttribute::hasNamespace)
         .def("getNamespace", &MeiAttribute::getNamespace, return_value_policy<reference_existing_object>())
     ;
