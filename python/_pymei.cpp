@@ -46,7 +46,7 @@ bool MeiElementList_NEqualWrap(const MeiElementList x, const MeiElementList y) {
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 
-BOOST_PYTHON_MODULE(pymei) {
+BOOST_PYTHON_MODULE(_pymei) {
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
         .def("__eq__", &MeiElementList_EqualWrap)
@@ -58,6 +58,7 @@ BOOST_PYTHON_MODULE(pymei) {
         .def(vector_indexing_suite<MeiAttributeList>())
         .def("__eq__", &MeiAttributeList_EqualWrap)
         .def("__ne__", &MeiAttributeList_NEqualWrap)
+        .def("__iter__", boost::python::iterator<MeiAttributeList>())
     ;
 
     // class_<MeiElementListRef>("MeiElementListRef")
@@ -93,7 +94,7 @@ BOOST_PYTHON_MODULE(pymei) {
         .staticmethod("documentFromFile")
     ;
 
-    class_<XmlExport>("XmlExport", init<MeiDocument*>())
+    class_<XmlExport>("XmlExport", boost::python::no_init)
         .def("meiDocumentToFile", &XmlExport::meiDocumentToFile)
         .staticmethod("meiDocumentToFile")
 
