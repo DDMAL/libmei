@@ -41,9 +41,11 @@ bool MeiNamespace_NEqualWrap(const MeiNamespace* x, const MeiNamespace* y) { ret
 
 bool MeiElementList_EqualWrap(const MeiElementList x, const MeiElementList y) { return x == y; }
 bool MeiElementList_NEqualWrap(const MeiElementList x, const MeiElementList y) { return x != y; }
+bool MeiElementList_NonZero(const MeiElementList x) { return !x.empty(); }
 
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
+bool MeiAttributeList_NonZero(const MeiAttributeList x) { return !x.empty(); }
 
 BOOST_PYTHON_MODULE(_pymei) {
 
@@ -54,6 +56,7 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("__eq__", &MeiElementList_EqualWrap)
         .def("__ne__", &MeiElementList_NEqualWrap)
         .def("__iter__", boost::python::iterator<MeiElementList>())
+        .def("__nonzero__", &MeiElementList_NonZero)
     ;
 
     class_<MeiAttributeList>("MeiAttributeList")
@@ -61,6 +64,7 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("__eq__", &MeiAttributeList_EqualWrap)
         .def("__ne__", &MeiAttributeList_NEqualWrap)
         .def("__iter__", boost::python::iterator<MeiAttributeList>())
+        .def("__nonzero__", &MeiAttributeList_NonZero)
     ;
 
     // class_<MeiElementListRef>("MeiElementListRef")
@@ -161,7 +165,12 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("removeAttribute", &MeiElement::removeAttribute)
         .def("hasAttribute", &MeiElement::hasAttribute)
         .def("hasParent", &MeiElement::hasParent)
+        .def("setParent", &MeiElement::setParent)
         .def("getParent", &MeiElement::getParent, return_value_policy<reference_existing_object>())
+        .add_property("parent",
+            make_function(&MeiElement::getParent, return_value_policy<reference_existing_object>()),
+            make_function(&MeiElement::setParent)
+        )
         
         /* boost doesn't seem to like the forward declaration of MeiDocument in MeiElement.
             This construction for setDocument avoids this by explicitly masking it above
