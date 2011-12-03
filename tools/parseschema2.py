@@ -32,7 +32,7 @@ TEI_RNG_NS = {"tei":"http://www.tei-c.org/ns/1.0","rng":"http://relaxng.org/ns/s
 
 # Roma is used to generate the compiled ODD file
 PATH_TO_ROMA = "/usr/local/bin/roma2"
-PATH_TO_TEI_STYLESHEET = "/usr/local/share/tei/stylesheet"
+PATH_TO_TEI_STYLESHEET = "/usr/local/share/xml/tei/stylesheet"
 
 class MeiSchema(object):
     def __init__(self, oddfile, outdir):

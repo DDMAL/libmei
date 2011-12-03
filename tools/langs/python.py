@@ -6,20 +6,20 @@ lg = logging.getLogger('schemaparser')
 LANG_NAME="Python"
 
 MODULE_TEMPLATE = """
-    {license}
+{license}
 
-    from _pymei import MeiElement
+from _pymei import MeiElement
 
-    {classes}
+{classes}
 """
 
 MODULE_CLASS_TEMPLATE = """
-    class {className}_(MeiElement):
-        def __init__(self):
-            MeiElement.__init__(self, {className})
+class {className}_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "{className}")
 """
 
-LICENSE = """/*
+LICENSE = """\"\"\"
     Copyright (c) 2011 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
@@ -40,9 +40,9 @@ LICENSE = """/*
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/"""
+\"\"\""""
 
-
+AUTHORS = "Andrew Hankinson"
 
 def create(schema):
     lg.debug("Begin Python Output...")
@@ -54,7 +54,7 @@ def create(schema):
 def __create_python_classes(schema):
     lg.debug("Creating Python Modules")
 
-    for module, elements in sorted(schema.element_structure.iteritems())
+    for module, elements in sorted(schema.element_structure.iteritems()):
         if not elements:
             continue
         class_output = ""
@@ -62,13 +62,13 @@ def __create_python_classes(schema):
 
         for element, atgroups in sorted(elements.iteritems()):
             methstr = {
-                "className": schema.cc(element)
+                "className": element
             }
             class_output += MODULE_CLASS_TEMPLATE.format(**methstr)
         
         modstr = {
             "classes": class_output,
-            "license": LICENSE,
+            "license": LICENSE.format(authors=AUTHORS),
         }
         module_output = MODULE_TEMPLATE.format(**modstr)
 
