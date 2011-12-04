@@ -15,7 +15,7 @@ setup(
         Extension(os.path.join("pymei","_pymei"), 
             [os.path.join("src","_pymei.cpp")],
             libraries=["boost_python-mt"],
-            extra_link_args=["-framework", "mei"])
+            extra_link_args=["-framework", "mei"]),
     ],
     test_suite="pymei_testsuite"
 )
