@@ -1,8 +1,9 @@
 # testing suite
 import unittest
 import os
+import pymei
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, XmlImport
-from exceptions import RuntimeError
+from pymei.exceptions import VersionMismatchException, NoVersionFoundException
 
 class XmlImportTest(unittest.TestCase):
 
@@ -44,7 +45,14 @@ class XmlImportTest(unittest.TestCase):
         self.assertNotEqual(None, doc)
     
     def test_badversionexception(self):
-        self.assertRaises(RuntimeError, XmlImport.documentFromFile(os.path.join("test", "testdocs", "badversion.mei")))
+        with self.assertRaises(VersionMismatchException) as cm:
+            XmlImport.documentFromFile(os.path.join("test", "testdocs", "badversion.mei"))
+        self.assertTrue(isinstance(cm.exception, VersionMismatchException))
+    
+    def test_noversionexception(self):
+        with self.assertRaises(NoVersionFoundException) as cm:
+            XmlImport.documentFromFile(os.path.join("test", "testdocs", "noversion.mei"))
+        self.assertTrue(isinstance(cm.exception, NoVersionFoundException))
 
 def suite():
     test_suite = unittest.makeSuite(XmlImportTest, 'test')
