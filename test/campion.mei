@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?oxygen SCHSchema="http://music-encoding.org/mei/schemata/2010-05/rng/mei-all.rng"?>
 <?oxygen RNGSchema="http://music-encoding.org/mei/schemata/2010-05/rng/mei-all.rng"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="2011-05">
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="2012">
   <meiHead>
     <fileDesc>
       <titleStmt>
