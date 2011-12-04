@@ -1,1 +1,1 @@
-from _pymei import *
+from _libmei import *
