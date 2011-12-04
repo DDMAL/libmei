@@ -12,10 +12,16 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     ext_modules = [
-        Extension(os.path.join("pymei","_pymei"), 
-            [os.path.join("src","_pymei.cpp")],
+        Extension(os.path.join("pymei","_libmei"), 
+            [os.path.join("src","_libmei.cpp")],
             libraries=["boost_python-mt"],
-            extra_link_args=["-framework", "mei"]),
+            extra_link_args=["-framework", "mei"]
+        ),
+        Extension(os.path.join("pymei","_libmei_exceptions"), 
+            [os.path.join("src","_libmei_exceptions.cpp")],
+            libraries=["boost_python-mt"],
+            extra_link_args=["-framework", "mei"]
+        ),
     ],
     test_suite="pymei_testsuite"
 )
