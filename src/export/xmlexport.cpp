@@ -89,7 +89,11 @@ XmlExportImpl::~XmlExportImpl() {
     xmlCleanupParser();
 }
 
-void XmlExportImpl::init() {
+void XmlExportImpl::init() throw(DocumentRootNotSetException) {
+    if (!this->meiDocument->getRootElement()) {
+        throw DocumentRootNotSetException("");
+    }
+
     MeiElement *root = this->meiDocument->getRootElement();
     // Copy the version from the document into the root element
     root->addAttribute("meiversion", meiDocument->getVersion());
