@@ -141,6 +141,8 @@ MeiAttribute* mei::MeiElement::getAttribute(string name) {
 }
 
 bool mei::MeiElement::hasAttribute(string name) {
+    if (attributes.empty()) return false;
+    
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         if ((*iter)->getName() == name) return true;
     }
