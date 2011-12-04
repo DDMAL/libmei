@@ -55,54 +55,8 @@ bool MeiNamespaceList_EqualWrap(const MeiNamespaceList x, const MeiNamespaceList
 bool MeiNamespaceList_NEqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x != y; }
 bool MeiNamespaceList_NonZero(const MeiNamespaceList x) { return !x.empty(); }
 
-
-// object pyMeiExceptionType;
-// object pyVersionMismatchExceptionType;
-
-// void MeiExceptionTranslate(mei::MeiException const& e) {
-//     // object(pythonExceptionInstance(e));
-//     cout << "MeiException" << endl;
-//     PyErr_SetObject(pyMeiExceptionType.ptr(), object(e).ptr());
-// }
-
-// void VersionMismatchExceptionTranslate(mei::VersionMismatchException const& e) {
-//     // object(pythonExceptionInstance(e));
-//     cout << "Version Mismatch Ha" << endl;
-//     assert(pyVersionMismatchExceptionType != NULL);
-//     object pythonExceptionInstance(e);
-//     // PyErr_SetString(pyVersionMismatchExceptionType, e.what());
-//     // PyErr_SetObject(pyVersionMismatchExceptionType.ptr(), pythonExceptionInstance.ptr());
-//     PyErr_SetString(pyVersionMismatchExceptionType.ptr(), "Well hello, good lookin'!");
-//     throw_error_already_set();
-// }
-
-
-BOOST_PYTHON_MODULE(_pymei) {
+BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
-
-    // object meiexception = class_<mei::MeiException>("MeiException", init<string>());
-    // pyMeiExceptionType = meiexception;
-    // register_exception_translator<mei::MeiException>(&MeiExceptionTranslate);
-
-    // object versionmismatch = class_<mei::VersionMismatchException>("VersionMismatchException", init<string>());
-    // pyVersionMismatchExceptionType = versionmismatch;
-    // register_exception_translator<mei::VersionMismatchException>(&VersionMismatchExceptionTranslate);
-    
-
-    // class_<mei::DuplicateAttributeException>("DuplicateAttributeException", init<string>())
-    // ;
-
-    // class_<mei::AttributeNotFoundException>("AttributeNotFoundException", init<string>())
-    // ;
-
-    // class_<mei::ChildNotFoundException>("ChildNotFoundException", init<string>())
-    // ;
-
-    // class_<mei::NoVersionFoundException>("NoVersionFoundException", init<string>())
-    // ;
-
-    // class_<mei::ElementNotRegisteredException>("ElementNotRegisteredException", init<string>())
-    // ;
 
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
@@ -198,7 +152,8 @@ BOOST_PYTHON_MODULE(_pymei) {
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
         .def("getId", &MeiElement::getId)
-        .add_property("id", &MeiElement::getId)
+        .def("setId", &MeiElement::setId)
+        .add_property("id", &MeiElement::getId, &MeiElement::setId)
 
         .def("hasId", &MeiElement::hasId)
         .def("getName", &MeiElement::getName, return_value_policy<return_by_value>())
@@ -271,6 +226,7 @@ BOOST_PYTHON_MODULE(_pymei) {
     ;
 
     class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())
+        .def(init<MeiNamespace*, string, string>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
         .def("getName", &MeiAttribute::getName)
