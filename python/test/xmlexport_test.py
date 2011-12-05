@@ -5,6 +5,7 @@ import tempfile
 import shutil
 import pymei
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, MeiNamespace, XmlImport, XmlExport
+from pymei.exceptions import DocumentRootNotSetException
 
 class XmlExportTest(unittest.TestCase):
 
@@ -31,6 +32,11 @@ class XmlExportTest(unittest.TestCase):
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
 
+    def test_documentrootnotset(self):
+        doc = MeiDocument()
+        with self.assertRaises(DocumentRootNotSetException) as cm:
+            ret = XmlExport.meiDocumentToText(doc)
+        self.assertTrue(isinstance(cm.exception, DocumentRootNotSetException))
     
     def test_exportvalueandtail(self):
         doc = MeiDocument()
@@ -85,22 +91,23 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my aw
         doc = MeiDocument()
         root = MeiElement("mei")
         root.id = "myid"
+        doc.root = root
 
-        # xlink = MeiNamespace("xlink", "http://www.w3.org/1999/xlink")
-        # attr = MeiAttribute(xlink, "title", "my awesome thing")
-        # music = MeiElement("music")
-        # music.id = "musid"
+        xlink = MeiNamespace("xlink", "http://www.w3.org/1999/xlink")
+        attr = MeiAttribute(xlink, "title", "my awesome thing")
+        music = MeiElement("music")
+        music.id = "musid"
 
-        # music.addAttribute(attr)
-        # music.value = "mus!"
-        # root.addChild(music)
+        music.addAttribute(attr)
+        music.value = "mus!"
+        root.addChild(music)
 
         expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2011-05\">\n  <music \
+xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2012\">\n  <music \
 xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
         
         ret = XmlExport.meiDocumentToText(doc)
-#         self.assertEqual(expected, ret)
+        self.assertEqual(expected, ret)
     
     def tearDown(self):
         if os.path.exists(self.tempdir):
