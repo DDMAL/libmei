@@ -47,7 +47,7 @@ def switch_tie(meifile, tstamp = False, keep_id = False):
                 # atts = {'xml:id': generate_mei_id()}
                 atts = MeiAttributeList()
                 if tstamp:
-                    atts.append(MeiAttribute("tstamp", time.id_to_tstamp(n)))
+                    atts.append(MeiAttribute("tstamp", str(time.id_to_tstamp(n))))
                     # atts['tstamp'] =  time.id_to_tstamp(n)
                 if keep_id or (not keep_id and not tstamp):
                     atts.append(MeiAttribute("startid", n.id)) 
@@ -57,6 +57,6 @@ def switch_tie(meifile, tstamp = False, keep_id = False):
                 tie.attributes = atts
                 
                 #add tie to measure
-                measure.add_child(tie)
+                measure.addChild(tie)
         #remove tie attribute
         n.removeAttribute('tie')
