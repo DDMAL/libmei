@@ -8,7 +8,7 @@ LANG_NAME="Python"
 MODULE_TEMPLATE = """
 {license}
 
-from _pymei import MeiElement
+from pymei import MeiElement
 
 {classes}
 """
@@ -76,6 +76,8 @@ def __create_python_classes(schema):
         fmi.write(module_output)
         fmi.close()
         lg.debug("\tCreated {0}.py".format(module.lower()))
+    
+    open(os.path.join(schema.outdir, "__init__.py"), 'w').close()
 
 
 
