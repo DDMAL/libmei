@@ -62,7 +62,7 @@ extern "C"
 }
 
 void mei::MeiElement::generateAndSetId() {
-#ifdef WIN
+#ifdef WIN32
     UUID uuid;
     UuidCreate(&uuid);
 
