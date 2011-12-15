@@ -52,6 +52,13 @@ mei::MeiDocument::MeiDocument() {
     this->namespaces.push_back(mei);
 }
 
+mei::MeiDocument::~MeiDocument() {
+    vector<MeiElement*>::iterator iter;
+    for(iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {
+       delete *iter; 
+    }
+}
+
 bool mei::MeiDocument::hasNamespace(string href) {
     if (this->namespaces.empty()) return false;
     for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {

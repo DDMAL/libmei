@@ -48,6 +48,7 @@ class MEI_EXPORT MeiDocument {
          * \brief Create a new document.
          */
         MeiDocument();
+        ~MeiDocument();
 
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);
