@@ -31,10 +31,6 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
-MeiDocument* XmlImport::documentFromFile(const string filename) {
-    return documentFromFile(filename.c_str());
-}
-
 MeiDocument* XmlImport::documentFromFile(const char *filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
@@ -56,10 +52,6 @@ XmlImportImpl::XmlImportImpl() {
     rootMeiElement = NULL;
 }
 
-MeiDocument* XmlImportImpl::documentFromFile(const string filename) {
-    return documentFromFile(filename.c_str());
-}
-
 MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
@@ -75,7 +67,8 @@ MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
 
 MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlDoc *doc = NULL;
-    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, 0);
+    int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOBLANKS | XML_PARSE_COMPACT;
+    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, options);
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 

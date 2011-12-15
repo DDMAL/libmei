@@ -115,6 +115,8 @@ MIXIN_CLASS_HEAD_TEMPLATE = """class {attGroupNameUpper}MixIn {{
         explicit {attGroupNameUpper}MixIn(MeiElement *b);
         virtual ~{attGroupNameUpper}MixIn();
 {methods}
+/* include <{mixinNameLower}> */
+
     private:
         MeiElement *b;
 }};
@@ -127,6 +129,7 @@ MIXIN_CLASS_IMPL_CONS_TEMPLATE = """mei::{attGroupNameUpper}MixIn::{attGroupName
 
 mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}}
 {methods}
+/* include <{mixinNameLower}> */
 """
 
 ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
@@ -222,7 +225,8 @@ def __create_mixin_classes(schema):
                 
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
-                "methods": methods
+                "methods": methods,
+                "mixinNameLower": "{0}mixin".format(att)
             }
             classes += MIXIN_CLASS_HEAD_TEMPLATE.format(**clsubstr)
         
@@ -284,7 +288,8 @@ def __create_mixin_classes(schema):
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
-                "methods": methods
+                "methods": methods,
+                "mixinNameLower": "{0}mixin".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
             
@@ -449,9 +454,6 @@ def parse_includes(file_dir, includes_dir):
         for f in fn:
             if f.startswith("."):
                 continue
-            if "mixins" in f:
-                continue
-            
             methods, inc = __process_include(f, includes, includes_dir)
             if methods:
                 __parse_codefile(methods, inc, dp, f)

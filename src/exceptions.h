@@ -73,6 +73,12 @@ public:
     ~ElementNotRegisteredException() throw() {}
 };
 
+class MEI_EXPORT DocumentRootNotSetException : public MeiException {
+public:
+    explicit DocumentRootNotSetException(const std::string &what) :
+        MeiException("The document root was not set. Cannot export.") {}
+    ~DocumentRootNotSetException() throw () {}
+};
 
 class MEI_EXPORT FooBarException : public MeiException {
 public:

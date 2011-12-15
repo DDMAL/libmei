@@ -38,7 +38,6 @@ namespace mei {
              *  into an xmlNode for processing by the _MeiXmlStruct class.
              */
             MeiDocument* documentFromFile(const char* filename);
-            MeiDocument* documentFromFile(const std::string filename);
             MeiDocument* documentFromText(std::string text);
 
             XmlImportImpl();

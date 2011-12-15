@@ -77,7 +77,7 @@ TEST(TestXmlMeiExport, ExportComment) {
 
 // Test that adding a namespace to an attribute makes it turn up on the
 // root element
-TEST(TestXmlMeiExmport, ExportNamespace) {
+TEST(TestXmlMeiExport, ExportNamespace) {
     MeiDocument *d = new MeiDocument();
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
@@ -93,7 +93,7 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my aw
 
 // Test that adding a namespace to an attribute makes it turn up on the
 // root element
-TEST(TestXmlMeiExmport, ExportNamespace2) {
+TEST(TestXmlMeiExport, ExportNamespace2) {
     MeiDocument *d = new MeiDocument();
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
@@ -109,4 +109,9 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2011-0
 xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n";
     string ret = XmlExport::meiDocumentToText(d);
     ASSERT_EQ(expected, ret);
+}
+
+TEST(TextXmlMeiExport, ThrowsDocumentRootException) {
+    MeiDocument *d = new MeiDocument();
+    ASSERT_THROW(XmlExport::meiDocumentToText(d), mei::DocumentRootNotSetException);
 }

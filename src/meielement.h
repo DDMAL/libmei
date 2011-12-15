@@ -81,6 +81,13 @@ class MEI_EXPORT MeiElement
          */
         const std::string getId();
 
+        /** \brief Set an element's ID. 
+         *   This is not always necessary since an element
+         *   that does not have an ID will be assigned a 
+         *   random UUID string automatically if the ID is not set.
+         */
+        void setId(std::string id);
+
         /** \brief Checks if the ID of the element is set.
          */
         bool hasId();
@@ -313,7 +320,6 @@ class MEI_EXPORT MeiElement
          */
         void generateAndSetId();
         std::string id;
-        void setId(std::string id);
         std::string name;
         std::string value;
         std::string tail;

@@ -38,7 +38,9 @@ namespace mei {
         friend class mei::XmlExport;
         XmlExportImpl(MeiDocument *doc);
         virtual ~XmlExportImpl();
-        void init();
+        
+        void init() throw(DocumentRootNotSetException);
+
         xmlNode* meiElementToXmlNode(MeiElement *el);
         void outputToFile(const char* filename);
 
