@@ -4,7 +4,8 @@
 
 #include "meielement.h"
 #include "meidocument.h"
-#include <mei/shared.h>
+#include "shared.h"
+
 #include <vector>
 #include <algorithm>
 #include <iostream>
