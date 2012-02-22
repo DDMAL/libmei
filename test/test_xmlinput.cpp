@@ -27,7 +27,7 @@ using std::vector;
 // Test that the value and tail members of elements are set correctly
 TEST(TestMeiXmlImport, SetValueAndTail) {
     // Not a valid looking document, but representative of what is being tested
-    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"i\" meiversion=\"2011-05\"><note>noteinner</note>notetail<tie><p>pinner</p></tie>tietail</mei>";
+    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"i\" meiversion=\"2012\"><note>noteinner</note>notetail<tie><p>pinner</p></tie>tietail</mei>";
 
     MeiDocument *doc = mei::XmlImport::documentFromText(input);
     MeiElement *e = doc->getRootElement();

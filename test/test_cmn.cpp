@@ -33,7 +33,7 @@ using std::string;
 /* Create an MEI Document for testing. */
 MeiDocument* createMeiDocument() {
     string doctxt = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?> \
-        <mei xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2011-05\"> \
+        <mei xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2012\"> \
         <meiHead xml:id=\"id-meihead\"></meiHead> \
         <music xml:id=\"id-music\"><body xml:id=\"id-body\"> \
             <section xml:id=\"id-section\"> \
