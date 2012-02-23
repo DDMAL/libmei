@@ -112,6 +112,10 @@ class MeiSchema(object):
         attribute_groups = [m for m in self.schema.xpath("//tei:classSpec[@type=$at]", at="atts", namespaces=TEI_NS)]
         for group in attribute_groups:
             group_name = group.get("ident")
+            
+            if group_name == "att.id":
+                continue
+                
             group_module = group.get("module").split(".")[-1]
             attdefs = group.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
             if not attdefs:
@@ -149,6 +153,8 @@ class MeiSchema(object):
             return
 
         if member_attgroup.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS):
+            if member_attgroup.get("ident") == "att.id":
+                return
             resarr.append(member_attgroup.get("ident"))
         m2s = member_attgroup.xpath("./tei:classes/tei:memberOf", namespaces=TEI_NS)
         
