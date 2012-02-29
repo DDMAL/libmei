@@ -258,6 +258,8 @@ if __name__ == "__main__":
     if "python" in args.lang:
         import langs.python as py
         py.create(schema)
+        if args.includes:
+            py.parse_includes(args.outdir, args.includes)
     
     # clean up tempdir
     if tdir:
