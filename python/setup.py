@@ -29,7 +29,7 @@ else:
 setup(
     name = 'pymei',
     long_description = longdesc,
-    version = '0.1',
+    version = '2.0a',
     url = "http://github.com/DDMAL/libmei",
     include_package_data=True,
     packages=find_packages(),
