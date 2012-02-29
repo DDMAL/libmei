@@ -51,5 +51,6 @@ void mei::VerseLogMixIn::removeRhythm() {
     b->removeAttribute("rhythm");
 };
 
+/* include <rhythmmixin> */
 
 

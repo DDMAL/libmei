@@ -32,6 +32,7 @@ void mei::AccidLogMixIn::removeFunc() {
     b->removeAttribute("func");
 };
 
+/* include <funcmixin> */
 mei::AccidVisMixIn::AccidVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -57,6 +58,7 @@ void mei::AccidVisMixIn::removePlace() {
     b->removeAttribute("place");
 };
 
+/* include <placemixin> */
 mei::AccidentalMixIn::AccidentalMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -82,6 +84,7 @@ void mei::AccidentalMixIn::removeAccid() {
     b->removeAttribute("accid");
 };
 
+/* include <accidmixin> */
 mei::AccidentalPerformedMixIn::AccidentalPerformedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -107,6 +110,7 @@ void mei::AccidentalPerformedMixIn::removeAccidGes() {
     b->removeAttribute("accid.ges");
 };
 
+/* include <accid.gesmixin> */
 mei::AltsymMixIn::AltsymMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -132,6 +136,7 @@ void mei::AltsymMixIn::removeAltsym() {
     b->removeAttribute("altsym");
 };
 
+/* include <altsymmixin> */
 mei::ArticulationMixIn::ArticulationMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -157,6 +162,7 @@ void mei::ArticulationMixIn::removeArtic() {
     b->removeAttribute("artic");
 };
 
+/* include <articmixin> */
 mei::ArticulationPerformedMixIn::ArticulationPerformedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -182,6 +188,7 @@ void mei::ArticulationPerformedMixIn::removeArticGes() {
     b->removeAttribute("artic.ges");
 };
 
+/* include <artic.gesmixin> */
 mei::AugmentdotsMixIn::AugmentdotsMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -207,6 +214,7 @@ void mei::AugmentdotsMixIn::removeDots() {
     b->removeAttribute("dots");
 };
 
+/* include <dotsmixin> */
 mei::AuthorizedMixIn::AuthorizedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -251,6 +259,7 @@ void mei::AuthorizedMixIn::removeAuthURI() {
     b->removeAttribute("authURI");
 };
 
+/* include <authURImixin> */
 mei::BarLineLogMixIn::BarLineLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -276,6 +285,7 @@ void mei::BarLineLogMixIn::removeRend() {
     b->removeAttribute("rend");
 };
 
+/* include <rendmixin> */
 mei::BarplacementMixIn::BarplacementMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -320,6 +330,7 @@ void mei::BarplacementMixIn::removeTaktplace() {
     b->removeAttribute("taktplace");
 };
 
+/* include <taktplacemixin> */
 mei::BeamingVisMixIn::BeamingVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -364,6 +375,7 @@ void mei::BeamingVisMixIn::removeBeamSlope() {
     b->removeAttribute("beam.slope");
 };
 
+/* include <beam.slopemixin> */
 mei::BiblMixIn::BiblMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -389,6 +401,7 @@ void mei::BiblMixIn::removeAnalog() {
     b->removeAttribute("analog");
 };
 
+/* include <analogmixin> */
 mei::CalendaredMixIn::CalendaredMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -414,6 +427,7 @@ void mei::CalendaredMixIn::removeCalendar() {
     b->removeAttribute("calendar");
 };
 
+/* include <calendarmixin> */
 mei::CanonicalMixIn::CanonicalMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -439,6 +453,7 @@ void mei::CanonicalMixIn::removeDbkey() {
     b->removeAttribute("dbkey");
 };
 
+/* include <dbkeymixin> */
 mei::ChordVisMixIn::ChordVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -464,6 +479,7 @@ void mei::ChordVisMixIn::removeCluster() {
     b->removeAttribute("cluster");
 };
 
+/* include <clustermixin> */
 mei::ClefLogMixIn::ClefLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -489,6 +505,7 @@ void mei::ClefLogMixIn::removeCautionary() {
     b->removeAttribute("cautionary");
 };
 
+/* include <cautionarymixin> */
 mei::CleffingLogMixIn::CleffingLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -571,6 +588,7 @@ void mei::CleffingLogMixIn::removeClefDisPlace() {
     b->removeAttribute("clef.dis.place");
 };
 
+/* include <clef.dis.placemixin> */
 mei::CleffingVisMixIn::CleffingVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -615,6 +633,7 @@ void mei::CleffingVisMixIn::removeClefVisible() {
     b->removeAttribute("clef.visible");
 };
 
+/* include <clef.visiblemixin> */
 mei::ClefshapeMixIn::ClefshapeMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -640,6 +659,7 @@ void mei::ClefshapeMixIn::removeShape() {
     b->removeAttribute("shape");
 };
 
+/* include <shapemixin> */
 mei::ColorMixIn::ColorMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -665,6 +685,7 @@ void mei::ColorMixIn::removeColor() {
     b->removeAttribute("color");
 };
 
+/* include <colormixin> */
 mei::ColorationMixIn::ColorationMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -690,6 +711,7 @@ void mei::ColorationMixIn::removeColored() {
     b->removeAttribute("colored");
 };
 
+/* include <coloredmixin> */
 mei::CommonMixIn::CommonMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -754,6 +776,7 @@ void mei::CommonMixIn::removeBase() {
     b->removeAttribute("base");
 };
 
+/* include <basemixin> */
 mei::CoordinatedMixIn::CoordinatedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -836,6 +859,7 @@ void mei::CoordinatedMixIn::removeLry() {
     b->removeAttribute("lry");
 };
 
+/* include <lrymixin> */
 mei::CurvatureMixIn::CurvatureMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -899,6 +923,7 @@ void mei::CurvatureMixIn::removeCurvedir() {
     b->removeAttribute("curvedir");
 };
 
+/* include <curvedirmixin> */
 mei::CurverendMixIn::CurverendMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -924,6 +949,7 @@ void mei::CurverendMixIn::removeRend() {
     b->removeAttribute("rend");
 };
 
+/* include <rendmixin> */
 mei::CustosLogMixIn::CustosLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -949,6 +975,7 @@ void mei::CustosLogMixIn::removeTarget() {
     b->removeAttribute("target");
 };
 
+/* include <targetmixin> */
 mei::DatableMixIn::DatableMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1031,6 +1058,7 @@ void mei::DatableMixIn::removeStartdate() {
     b->removeAttribute("startdate");
 };
 
+/* include <startdatemixin> */
 mei::DatapointingMixIn::DatapointingMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1056,6 +1084,7 @@ void mei::DatapointingMixIn::removeData() {
     b->removeAttribute("data");
 };
 
+/* include <datamixin> */
 mei::DeclaringMixIn::DeclaringMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1081,6 +1110,7 @@ void mei::DeclaringMixIn::removeDecls() {
     b->removeAttribute("decls");
 };
 
+/* include <declsmixin> */
 mei::DistancesMixIn::DistancesMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1144,6 +1174,7 @@ void mei::DistancesMixIn::removeTextDist() {
     b->removeAttribute("text.dist");
 };
 
+/* include <text.distmixin> */
 mei::DotLogMixIn::DotLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1169,6 +1200,7 @@ void mei::DotLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
+/* include <formmixin> */
 mei::DurationDefaultMixIn::DurationDefaultMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1194,6 +1226,7 @@ void mei::DurationDefaultMixIn::removeDurDefault() {
     b->removeAttribute("dur.default");
 };
 
+/* include <dur.defaultmixin> */
 mei::DurationMusicalMixIn::DurationMusicalMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1219,6 +1252,7 @@ void mei::DurationMusicalMixIn::removeDur() {
     b->removeAttribute("dur");
 };
 
+/* include <durmixin> */
 mei::DurationPerformedMixIn::DurationPerformedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1244,6 +1278,7 @@ void mei::DurationPerformedMixIn::removeDurGes() {
     b->removeAttribute("dur.ges");
 };
 
+/* include <dur.gesmixin> */
 mei::DurationRatioMixIn::DurationRatioMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1288,6 +1323,7 @@ void mei::DurationRatioMixIn::removeNumbase() {
     b->removeAttribute("numbase");
 };
 
+/* include <numbasemixin> */
 mei::DurationTimestampMixIn::DurationTimestampMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1313,6 +1349,7 @@ void mei::DurationTimestampMixIn::removeDur() {
     b->removeAttribute("dur");
 };
 
+/* include <durmixin> */
 mei::EnclosingcharsMixIn::EnclosingcharsMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1338,6 +1375,7 @@ void mei::EnclosingcharsMixIn::removeEnclose() {
     b->removeAttribute("enclose");
 };
 
+/* include <enclosemixin> */
 mei::FermatapresentMixIn::FermatapresentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1363,6 +1401,7 @@ void mei::FermatapresentMixIn::removeFermata() {
     b->removeAttribute("fermata");
 };
 
+/* include <fermatamixin> */
 mei::HandidentMixIn::HandidentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1388,6 +1427,7 @@ void mei::HandidentMixIn::removeHand() {
     b->removeAttribute("hand");
 };
 
+/* include <handmixin> */
 mei::HorizontalalignMixIn::HorizontalalignMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1413,6 +1453,7 @@ void mei::HorizontalalignMixIn::removeHalign() {
     b->removeAttribute("halign");
 };
 
+/* include <halignmixin> */
 mei::InstrumentidentMixIn::InstrumentidentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1438,6 +1479,7 @@ void mei::InstrumentidentMixIn::removeInstr() {
     b->removeAttribute("instr");
 };
 
+/* include <instrmixin> */
 mei::InternetmediaMixIn::InternetmediaMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1463,6 +1505,7 @@ void mei::InternetmediaMixIn::removeMimetype() {
     b->removeAttribute("mimetype");
 };
 
+/* include <mimetypemixin> */
 mei::JoinedMixIn::JoinedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1488,6 +1531,7 @@ void mei::JoinedMixIn::removeJoin() {
     b->removeAttribute("join");
 };
 
+/* include <joinmixin> */
 mei::KeySigsLogMixIn::KeySigsLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1589,6 +1633,7 @@ void mei::KeySigsLogMixIn::removeKeySigMixed() {
     b->removeAttribute("key.sig.mixed");
 };
 
+/* include <key.sig.mixedmixin> */
 mei::KeySigsVisMixIn::KeySigsVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1633,6 +1678,7 @@ void mei::KeySigsVisMixIn::removeKeySigShowchange() {
     b->removeAttribute("key.sig.showchange");
 };
 
+/* include <key.sig.showchangemixin> */
 mei::LabelsAddlMixIn::LabelsAddlMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1658,6 +1704,7 @@ void mei::LabelsAddlMixIn::removeLabelAbbr() {
     b->removeAttribute("label.abbr");
 };
 
+/* include <label.abbrmixin> */
 mei::LangMixIn::LangMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1684,6 +1731,7 @@ void mei::LangMixIn::removeLang() {
     b->removeAttribute("lang");
 };
 
+/* include <langmixin> */
 mei::LayerLogMixIn::LayerLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1709,6 +1757,7 @@ void mei::LayerLogMixIn::removeDef() {
     b->removeAttribute("def");
 };
 
+/* include <defmixin> */
 mei::LayeridentMixIn::LayeridentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1734,6 +1783,7 @@ void mei::LayeridentMixIn::removeLayer() {
     b->removeAttribute("layer");
 };
 
+/* include <layermixin> */
 mei::LinelocMixIn::LinelocMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1759,6 +1809,7 @@ void mei::LinelocMixIn::removeLine() {
     b->removeAttribute("line");
 };
 
+/* include <linemixin> */
 mei::LinerendMixIn::LinerendMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1784,6 +1835,7 @@ void mei::LinerendMixIn::removeRend() {
     b->removeAttribute("rend");
 };
 
+/* include <rendmixin> */
 mei::LyricstyleMixIn::LyricstyleMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1904,6 +1956,7 @@ void mei::LyricstyleMixIn::removeLyricWeight() {
     b->removeAttribute("lyric.weight");
 };
 
+/* include <lyric.weightmixin> */
 mei::MeasureLogMixIn::MeasureLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1948,6 +2001,7 @@ void mei::MeasureLogMixIn::removeRight() {
     b->removeAttribute("right");
 };
 
+/* include <rightmixin> */
 mei::MeasurementMixIn::MeasurementMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1973,6 +2027,7 @@ void mei::MeasurementMixIn::removeUnit() {
     b->removeAttribute("unit");
 };
 
+/* include <unitmixin> */
 mei::MediumMixIn::MediumMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1998,6 +2053,7 @@ void mei::MediumMixIn::removeMedium() {
     b->removeAttribute("medium");
 };
 
+/* include <mediummixin> */
 mei::MeiversionMixIn::MeiversionMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2023,6 +2079,7 @@ void mei::MeiversionMixIn::removeMeiversion() {
     b->removeAttribute("meiversion");
 };
 
+/* include <meiversionmixin> */
 mei::MeterconformanceMixIn::MeterconformanceMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2048,6 +2105,7 @@ void mei::MeterconformanceMixIn::removeMetcon() {
     b->removeAttribute("metcon");
 };
 
+/* include <metconmixin> */
 mei::MeterconformanceBarMixIn::MeterconformanceBarMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2092,6 +2150,7 @@ void mei::MeterconformanceBarMixIn::removeControl() {
     b->removeAttribute("control");
 };
 
+/* include <controlmixin> */
 mei::MetersLogMixIn::MetersLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2136,6 +2195,7 @@ void mei::MetersLogMixIn::removeMeterUnit() {
     b->removeAttribute("meter.unit");
 };
 
+/* include <meter.unitmixin> */
 mei::MetersVisMixIn::MetersVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2199,6 +2259,7 @@ void mei::MetersVisMixIn::removeMeterSym() {
     b->removeAttribute("meter.sym");
 };
 
+/* include <meter.symmixin> */
 mei::MmtempoMixIn::MmtempoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2224,6 +2285,7 @@ void mei::MmtempoMixIn::removeMm() {
     b->removeAttribute("mm");
 };
 
+/* include <mmmixin> */
 mei::MultinummeasuresMixIn::MultinummeasuresMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2249,6 +2311,7 @@ void mei::MultinummeasuresMixIn::removeMultiNumber() {
     b->removeAttribute("multi.number");
 };
 
+/* include <multi.numbermixin> */
 mei::NameMixIn::NameMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2293,6 +2356,7 @@ void mei::NameMixIn::removeRole() {
     b->removeAttribute("role");
 };
 
+/* include <rolemixin> */
 mei::NoteGesMixIn::NoteGesMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2356,6 +2420,7 @@ void mei::NoteGesMixIn::removePnum() {
     b->removeAttribute("pnum");
 };
 
+/* include <pnummixin> */
 mei::NoteVisMixIn::NoteVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2381,6 +2446,7 @@ void mei::NoteVisMixIn::removeHeadshape() {
     b->removeAttribute("headshape");
 };
 
+/* include <headshapemixin> */
 mei::OctaveMixIn::OctaveMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2406,6 +2472,7 @@ void mei::OctaveMixIn::removeOct() {
     b->removeAttribute("oct");
 };
 
+/* include <octmixin> */
 mei::OctavedefaultMixIn::OctavedefaultMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2431,6 +2498,7 @@ void mei::OctavedefaultMixIn::removeOctaveDefault() {
     b->removeAttribute("octave.default");
 };
 
+/* include <octave.defaultmixin> */
 mei::OctavedisplacementMixIn::OctavedisplacementMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2475,6 +2543,7 @@ void mei::OctavedisplacementMixIn::removeDisPlace() {
     b->removeAttribute("dis.place");
 };
 
+/* include <dis.placemixin> */
 mei::OnelinestaffMixIn::OnelinestaffMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2500,6 +2569,7 @@ void mei::OnelinestaffMixIn::removeOntheline() {
     b->removeAttribute("ontheline");
 };
 
+/* include <onthelinemixin> */
 mei::PadLogMixIn::PadLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2525,6 +2595,7 @@ void mei::PadLogMixIn::removeNum() {
     b->removeAttribute("num");
 };
 
+/* include <nummixin> */
 mei::PbVisMixIn::PbVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2550,6 +2621,7 @@ void mei::PbVisMixIn::removeFunc() {
     b->removeAttribute("func");
 };
 
+/* include <funcmixin> */
 mei::PitchMixIn::PitchMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2575,6 +2647,7 @@ void mei::PitchMixIn::removePname() {
     b->removeAttribute("pname");
 };
 
+/* include <pnamemixin> */
 mei::PlacementMixIn::PlacementMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2600,6 +2673,7 @@ void mei::PlacementMixIn::removePlace() {
     b->removeAttribute("place");
 };
 
+/* include <placemixin> */
 mei::PlistMixIn::PlistMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2644,6 +2718,7 @@ void mei::PlistMixIn::removeEvaluate() {
     b->removeAttribute("evaluate");
 };
 
+/* include <evaluatemixin> */
 mei::PointingMixIn::PointingMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2768,6 +2843,7 @@ void mei::PointingMixIn::removeTitle() {
     b->removeAttribute("title");
 };
 
+/* include <titlemixin> */
 mei::RegularizedMixIn::RegularizedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2793,6 +2869,7 @@ void mei::RegularizedMixIn::removeReg() {
     b->removeAttribute("reg");
 };
 
+/* include <regmixin> */
 mei::RelativesizeMixIn::RelativesizeMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2818,6 +2895,7 @@ void mei::RelativesizeMixIn::removeSize() {
     b->removeAttribute("size");
 };
 
+/* include <sizemixin> */
 mei::ResponsibilityMixIn::ResponsibilityMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2843,6 +2921,7 @@ void mei::ResponsibilityMixIn::removeResp() {
     b->removeAttribute("resp");
 };
 
+/* include <respmixin> */
 mei::SbVisMixIn::SbVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2868,6 +2947,7 @@ void mei::SbVisMixIn::removeRend() {
     b->removeAttribute("rend");
 };
 
+/* include <rendmixin> */
 mei::ScalableMixIn::ScalableMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2893,6 +2973,7 @@ void mei::ScalableMixIn::removeScale() {
     b->removeAttribute("scale");
 };
 
+/* include <scalemixin> */
 mei::ScoreDefGesMixIn::ScoreDefGesMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2956,6 +3037,7 @@ void mei::ScoreDefGesMixIn::removeTuneTemper() {
     b->removeAttribute("tune.temper");
 };
 
+/* include <tune.tempermixin> */
 mei::ScoreDefVisMixIn::ScoreDefVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3361,6 +3443,7 @@ void mei::ScoreDefVisMixIn::removeSystemTopmar() {
     b->removeAttribute("system.topmar");
 };
 
+/* include <system.topmarmixin> */
 mei::SectionVisMixIn::SectionVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3386,6 +3469,7 @@ void mei::SectionVisMixIn::removeRestart() {
     b->removeAttribute("restart");
 };
 
+/* include <restartmixin> */
 mei::SequenceMixIn::SequenceMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3411,6 +3495,7 @@ void mei::SequenceMixIn::removeSeq() {
     b->removeAttribute("seq");
 };
 
+/* include <seqmixin> */
 mei::SlashcountMixIn::SlashcountMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3436,6 +3521,7 @@ void mei::SlashcountMixIn::removeSlash() {
     b->removeAttribute("slash");
 };
 
+/* include <slashmixin> */
 mei::SlurpresentMixIn::SlurpresentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3461,6 +3547,7 @@ void mei::SlurpresentMixIn::removeSlur() {
     b->removeAttribute("slur");
 };
 
+/* include <slurmixin> */
 mei::SpaceVisMixIn::SpaceVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3486,6 +3573,7 @@ void mei::SpaceVisMixIn::removeCompressable() {
     b->removeAttribute("compressable");
 };
 
+/* include <compressablemixin> */
 mei::StaffLogMixIn::StaffLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3511,6 +3599,7 @@ void mei::StaffLogMixIn::removeDef() {
     b->removeAttribute("def");
 };
 
+/* include <defmixin> */
 mei::StaffDefVisMixIn::StaffDefVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3631,6 +3720,7 @@ void mei::StaffDefVisMixIn::removeSpacing() {
     b->removeAttribute("spacing");
 };
 
+/* include <spacingmixin> */
 mei::StaffGrpVisMixIn::StaffGrpVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3656,6 +3746,7 @@ void mei::StaffGrpVisMixIn::removeBarthru() {
     b->removeAttribute("barthru");
 };
 
+/* include <barthrumixin> */
 mei::StaffgroupingsymMixIn::StaffgroupingsymMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3681,6 +3772,7 @@ void mei::StaffgroupingsymMixIn::removeSymbol() {
     b->removeAttribute("symbol");
 };
 
+/* include <symbolmixin> */
 mei::StaffidentMixIn::StaffidentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3706,6 +3798,7 @@ void mei::StaffidentMixIn::removeStaff() {
     b->removeAttribute("staff");
 };
 
+/* include <staffmixin> */
 mei::StafflocMixIn::StafflocMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3731,6 +3824,7 @@ void mei::StafflocMixIn::removeLoc() {
     b->removeAttribute("loc");
 };
 
+/* include <locmixin> */
 mei::StartendidMixIn::StartendidMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3756,6 +3850,7 @@ void mei::StartendidMixIn::removeEndid() {
     b->removeAttribute("endid");
 };
 
+/* include <endidmixin> */
 mei::StartidMixIn::StartidMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3781,6 +3876,7 @@ void mei::StartidMixIn::removeStartid() {
     b->removeAttribute("startid");
 };
 
+/* include <startidmixin> */
 mei::StemmedMixIn::StemmedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3882,6 +3978,7 @@ void mei::StemmedMixIn::removeStemY() {
     b->removeAttribute("stem.y");
 };
 
+/* include <stem.ymixin> */
 mei::SylLogMixIn::SylLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3926,6 +4023,7 @@ void mei::SylLogMixIn::removeWordpos() {
     b->removeAttribute("wordpos");
 };
 
+/* include <wordposmixin> */
 mei::SyltextMixIn::SyltextMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3951,6 +4049,7 @@ void mei::SyltextMixIn::removeSyl() {
     b->removeAttribute("syl");
 };
 
+/* include <sylmixin> */
 mei::TextstyleMixIn::TextstyleMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4052,6 +4151,7 @@ void mei::TextstyleMixIn::removeTextWeight() {
     b->removeAttribute("text.weight");
 };
 
+/* include <text.weightmixin> */
 mei::TiepresentMixIn::TiepresentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4077,6 +4177,7 @@ void mei::TiepresentMixIn::removeTie() {
     b->removeAttribute("tie");
 };
 
+/* include <tiemixin> */
 mei::TimestampMusicalMixIn::TimestampMusicalMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4102,6 +4203,7 @@ void mei::TimestampMusicalMixIn::removeTstamp() {
     b->removeAttribute("tstamp");
 };
 
+/* include <tstampmixin> */
 mei::TimestampPerformedMixIn::TimestampPerformedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4146,6 +4248,7 @@ void mei::TimestampPerformedMixIn::removeTstampReal() {
     b->removeAttribute("tstamp.real");
 };
 
+/* include <tstamp.realmixin> */
 mei::TranspositionMixIn::TranspositionMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4190,6 +4293,7 @@ void mei::TranspositionMixIn::removeTransSemi() {
     b->removeAttribute("trans.semi");
 };
 
+/* include <trans.semimixin> */
 mei::TupletpresentMixIn::TupletpresentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4215,6 +4319,7 @@ void mei::TupletpresentMixIn::removeTuplet() {
     b->removeAttribute("tuplet");
 };
 
+/* include <tupletmixin> */
 mei::TypedMixIn::TypedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4259,6 +4364,7 @@ void mei::TypedMixIn::removeSubtype() {
     b->removeAttribute("subtype");
 };
 
+/* include <subtypemixin> */
 mei::TypographyMixIn::TypographyMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4360,6 +4466,7 @@ void mei::TypographyMixIn::removeFontweight() {
     b->removeAttribute("fontweight");
 };
 
+/* include <fontweightmixin> */
 mei::VisibilityMixIn::VisibilityMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4385,6 +4492,7 @@ void mei::VisibilityMixIn::removeVisible() {
     b->removeAttribute("visible");
 };
 
+/* include <visiblemixin> */
 mei::VisualoffsetHoMixIn::VisualoffsetHoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4410,6 +4518,7 @@ void mei::VisualoffsetHoMixIn::removeHo() {
     b->removeAttribute("ho");
 };
 
+/* include <homixin> */
 mei::VisualoffsetToMixIn::VisualoffsetToMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4435,6 +4544,7 @@ void mei::VisualoffsetToMixIn::removeTo() {
     b->removeAttribute("to");
 };
 
+/* include <tomixin> */
 mei::VisualoffsetVoMixIn::VisualoffsetVoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4460,6 +4570,7 @@ void mei::VisualoffsetVoMixIn::removeVo() {
     b->removeAttribute("vo");
 };
 
+/* include <vomixin> */
 mei::Visualoffset2HoMixIn::Visualoffset2HoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4504,6 +4615,7 @@ void mei::Visualoffset2HoMixIn::removeEndho() {
     b->removeAttribute("endho");
 };
 
+/* include <endhomixin> */
 mei::Visualoffset2ToMixIn::Visualoffset2ToMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4548,6 +4660,7 @@ void mei::Visualoffset2ToMixIn::removeEndto() {
     b->removeAttribute("endto");
 };
 
+/* include <endtomixin> */
 mei::Visualoffset2VoMixIn::Visualoffset2VoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4592,6 +4705,7 @@ void mei::Visualoffset2VoMixIn::removeEndvo() {
     b->removeAttribute("endvo");
 };
 
+/* include <endvomixin> */
 mei::WidthMixIn::WidthMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4617,6 +4731,7 @@ void mei::WidthMixIn::removeWidth() {
     b->removeAttribute("width");
 };
 
+/* include <widthmixin> */
 mei::XyMixIn::XyMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4661,6 +4776,7 @@ void mei::XyMixIn::removeY() {
     b->removeAttribute("y");
 };
 
+/* include <ymixin> */
 mei::Xy2MixIn::Xy2MixIn(MeiElement *b) {
     this->b = b;
 };
@@ -4705,5 +4821,6 @@ void mei::Xy2MixIn::removeY2() {
     b->removeAttribute("y2");
 };
 
+/* include <y2mixin> */
 
 

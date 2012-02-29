@@ -38,10 +38,7 @@
 
 
 namespace mei {
-/** \brief control change ― MIDI parameter/control change.
- * 
- *  The num attribute specifies parameter number, while val contains the parameter
- *  value. Each must fall in the range 0-127.
+/** \brief 
  */
 class MEI_EXPORT Cc : public MeiElement {
     public:
@@ -64,16 +61,14 @@ class MEI_EXPORT Cc : public MeiElement {
         REGISTER_DECLARATION(Cc);
 };
 
-/** \brief channel ― MIDI channel assignment.
+/** \brief 
  */
 class MEI_EXPORT Chan : public MeiElement {
     public:
         Chan();
         Chan(const Chan& other);
         virtual ~Chan();
-        /** \brief along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief 
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -93,9 +88,7 @@ class MEI_EXPORT Chan : public MeiElement {
         REGISTER_DECLARATION(Chan);
 };
 
-/** \brief channel pressure ― MIDI channel pressure/after touch.
- * 
- *  The value of the num attribute must be in the range 0-127.
+/** \brief 
  */
 class MEI_EXPORT ChanPr : public MeiElement {
     public:
@@ -117,7 +110,7 @@ class MEI_EXPORT ChanPr : public MeiElement {
         REGISTER_DECLARATION(ChanPr);
 };
 
-/** \brief cue ― MIDI cue point.
+/** \brief 
  */
 class MEI_EXPORT Cue : public MeiElement {
     public:
@@ -138,10 +131,7 @@ class MEI_EXPORT Cue : public MeiElement {
         REGISTER_DECLARATION(Cue);
 };
 
-/** \brief hex ― Arbitrary MIDI data in hexadecimal form.
- * 
- *  The element's content must be wrapped in a CDATA section to avoid parsing
- *  errors.
+/** \brief 
  */
 class MEI_EXPORT Hex : public MeiElement {
     public:
@@ -162,7 +152,7 @@ class MEI_EXPORT Hex : public MeiElement {
         REGISTER_DECLARATION(Hex);
 };
 
-/** \brief marker ― MIDI marker meta-event.
+/** \brief 
  */
 class MEI_EXPORT Marker : public MeiElement {
     public:
@@ -183,7 +173,7 @@ class MEI_EXPORT Marker : public MeiElement {
         REGISTER_DECLARATION(Marker);
 };
 
-/** \brief meta text ― MIDI text meta-event.
+/** \brief 
  */
 class MEI_EXPORT MetaText : public MeiElement {
     public:
@@ -204,11 +194,7 @@ class MEI_EXPORT MetaText : public MeiElement {
         REGISTER_DECLARATION(MetaText);
 };
 
-/** \brief midi ― Container for elements that contain information useful when generating
- *  MIDI output.
- * 
- *  The n attribute can be used to differentiate between multiple MIDI data streams,
- *  e.g. quantized/unquantized, straight/swing, ornamented/as notated, etc.
+/** \brief 
  */
 class MEI_EXPORT Midi : public MeiElement {
     public:
@@ -228,7 +214,7 @@ class MEI_EXPORT Midi : public MeiElement {
         REGISTER_DECLARATION(Midi);
 };
 
-/** \brief note-off ― MIDI note-off event.
+/** \brief 
  */
 class MEI_EXPORT NoteOff : public MeiElement {
     public:
@@ -250,7 +236,7 @@ class MEI_EXPORT NoteOff : public MeiElement {
         REGISTER_DECLARATION(NoteOff);
 };
 
-/** \brief note-on ― MIDI note-on event.
+/** \brief 
  */
 class MEI_EXPORT NoteOn : public MeiElement {
     public:
@@ -272,9 +258,7 @@ class MEI_EXPORT NoteOn : public MeiElement {
         REGISTER_DECLARATION(NoteOn);
 };
 
-/** \brief port ― MIDI port.
- * 
- *  The num attribute must be in the range 0-127.
+/** \brief 
  */
 class MEI_EXPORT Port : public MeiElement {
     public:
@@ -296,9 +280,7 @@ class MEI_EXPORT Port : public MeiElement {
         REGISTER_DECLARATION(Port);
 };
 
-/** \brief program ― MIDI program change.
- * 
- *  The num attribute must be in the range 0-127.
+/** \brief 
  */
 class MEI_EXPORT Prog : public MeiElement {
     public:
@@ -320,16 +302,14 @@ class MEI_EXPORT Prog : public MeiElement {
         REGISTER_DECLARATION(Prog);
 };
 
-/** \brief sequence number ― MIDI sequence number.
+/** \brief 
  */
 class MEI_EXPORT SeqNum : public MeiElement {
     public:
         SeqNum();
         SeqNum(const SeqNum& other);
         virtual ~SeqNum();
-        /** \brief along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief 
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -349,7 +329,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
         REGISTER_DECLARATION(SeqNum);
 };
 
-/** \brief track name ― MIDI track/sequence name.
+/** \brief 
  */
 class MEI_EXPORT TrkName : public MeiElement {
     public:
@@ -370,16 +350,14 @@ class MEI_EXPORT TrkName : public MeiElement {
         REGISTER_DECLARATION(TrkName);
 };
 
-/** \brief velocity ― MIDI Note-on/off velocity.
- * 
- *  The num attribute must be in the range 0-127.
+/** \brief 
  */
 class MEI_EXPORT Vel : public MeiElement {
     public:
         Vel();
         Vel(const Vel& other);
         virtual ~Vel();
-        /** \brief records the function of the dot.
+        /** \brief 
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);

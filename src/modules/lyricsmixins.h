@@ -36,23 +36,20 @@ class VerseLogMixIn {
     public:
         explicit VerseLogMixIn(MeiElement *b);
         virtual ~VerseLogMixIn();
-        /** \brief used to indicate a common, usually centered, refrain (Mup User's Guide, p.
-         * 
-         *  44).
+        /** \brief 
          */
         MeiAttribute* getRefrain();
         void setRefrain(std::string _refrain);
         bool hasRefrain();
         void removeRefrain();
-        /** \brief used to specify a rhythm for the lyric syllables that differs from that of the
-         *  notes on the staff, e.g.
-         * 
-         *  '4,4,4,4' when the rhythm of the notes is '4.,8,4.,8'.
+        /** \brief 
          */
         MeiAttribute* getRhythm();
         void setRhythm(std::string _rhythm);
         bool hasRhythm();
         void removeRhythm();
+
+/* include <rhythmmixin> */
 
     private:
         MeiElement *b;

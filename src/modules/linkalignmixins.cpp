@@ -32,5 +32,6 @@ void mei::AlignmentMixIn::removeWhen() {
     b->removeAttribute("when");
 };
 
+/* include <whenmixin> */
 
 

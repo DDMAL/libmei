@@ -36,18 +36,20 @@ class NoteGesTablatureMixIn {
     public:
         explicit NoteGesTablatureMixIn(MeiElement *b);
         virtual ~NoteGesTablatureMixIn();
-        /** \brief records the fret at which a string should be stopped.
+        /** \brief 
          */
         MeiAttribute* getTabFret();
         void setTabFret(std::string _tabfret);
         bool hasTabFret();
         void removeTabFret();
-        /** \brief records which string is to be played.
+        /** \brief 
          */
         MeiAttribute* getTabString();
         void setTabString(std::string _tabstring);
         bool hasTabString();
         void removeTabString();
+
+/* include <tab.stringmixin> */
 
     private:
         MeiElement *b;
@@ -57,17 +59,14 @@ class StaffDefGesTablatureMixIn {
     public:
         explicit StaffDefGesTablatureMixIn(MeiElement *b);
         virtual ~StaffDefGesTablatureMixIn();
-        /** \brief provides a written pitch and octave for each open string, e.g.
-         * 
-         *  "e3 a3 d4 g4 b4 e5" for standard guitar tuning. It should contain the number of
-         *  tokens indicated by the lines attribute. Chromatic alteration may be indicated
-         *  with '-', or 'f', (flat) and '#', or 's' (sharp). Multiple sharps and flats are
-         *  not permitted.
+        /** \brief 
          */
         MeiAttribute* getTabStrings();
         void setTabStrings(std::string _tabstrings);
         bool hasTabStrings();
         void removeTabStrings();
+
+/* include <tab.stringsmixin> */
 
     private:
         MeiElement *b;

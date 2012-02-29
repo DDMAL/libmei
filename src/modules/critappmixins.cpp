@@ -32,6 +32,7 @@ void mei::CritMixIn::removeCause() {
     b->removeAttribute("cause");
 };
 
+/* include <causemixin> */
 mei::SourceMixIn::SourceMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -57,5 +58,6 @@ void mei::SourceMixIn::removeSource() {
     b->removeAttribute("source");
 };
 
+/* include <sourcemixin> */
 
 

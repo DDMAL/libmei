@@ -36,12 +36,14 @@ class RegularmethodMixIn {
     public:
         explicit RegularmethodMixIn(MeiElement *b);
         virtual ~RegularmethodMixIn();
-        /** \brief indicates the method employed to mark corrections and normalizations.
+        /** \brief 
          */
         MeiAttribute* getMethod();
         void setMethod(std::string _method);
         bool hasMethod();
         void removeMethod();
+
+/* include <methodmixin> */
 
     private:
         MeiElement *b;

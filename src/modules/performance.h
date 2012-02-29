@@ -36,9 +36,7 @@
 
 
 namespace mei {
-/** \brief avFile ― References an external digital audio or video file.
- * 
- *  This element is analogous to the <graphic> element in the figtable module.
+/** \brief 
  */
 class MEI_EXPORT AvFile : public MeiElement {
     public:
@@ -59,32 +57,26 @@ class MEI_EXPORT AvFile : public MeiElement {
         REGISTER_DECLARATION(AvFile);
 };
 
-/** \brief clip ― Defines a time segment of interest within a digital audio or video
- *  recording.
- * 
- *  This element is analogous to the <zone> element in the facsimile module.
+/** \brief 
  */
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
         Clip(const Clip& other);
         virtual ~Clip();
-        /** \brief indication of the absolute start time.
+        /** \brief 
          */
         MeiAttribute* getBegin();
         void setBegin(std::string _begin);
         bool hasBegin();
         void removeBegin();
-        /** \brief indication of the absolute end time.
+        /** \brief 
          */
         MeiAttribute* getEnd();
         void setEnd(std::string _end);
         bool hasEnd();
         void removeEnd();
-        /** \brief type of values used in the begin/end attributes.
-         * 
-         *  The begin and end attributes can only be interpreted meaningfully in conjunction
-         *  with this attribute.
+        /** \brief 
          */
         MeiAttribute* getBetype();
         void setBetype(std::string _betype);
@@ -101,11 +93,7 @@ class MEI_EXPORT Clip : public MeiElement {
         REGISTER_DECLARATION(Clip);
 };
 
-/** \brief performance ― Groups one or more recorded performances.
- * 
- *  The decls attribute may be used to link the collection with a particular source
- *  described in the header. This element is analogous to the <facsimile> element in
- *  the facsimile module.
+/** \brief 
  */
 class MEI_EXPORT Performance : public MeiElement {
     public:
@@ -122,34 +110,26 @@ class MEI_EXPORT Performance : public MeiElement {
         REGISTER_DECLARATION(Performance);
 };
 
-/** \brief recording ― Defines a performance in terms of a group of one or more digital
- *  audio or video representations.
- * 
- *  The startid attribute may be used to hold a reference to the first feature
- *  occurring in this performance. This element is analogous to the <surface>
- *  element in the facsimile module.
+/** \brief 
  */
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
         Recording(const Recording& other);
         virtual ~Recording();
-        /** \brief indication of the absolute start time.
+        /** \brief 
          */
         MeiAttribute* getBegin();
         void setBegin(std::string _begin);
         bool hasBegin();
         void removeBegin();
-        /** \brief indication of the absolute end time.
+        /** \brief 
          */
         MeiAttribute* getEnd();
         void setEnd(std::string _end);
         bool hasEnd();
         void removeEnd();
-        /** \brief type of values used in the begin/end attributes.
-         * 
-         *  The begin and end attributes can only be interpreted meaningfully in conjunction
-         *  with this attribute.
+        /** \brief 
          */
         MeiAttribute* getBetype();
         void setBetype(std::string _betype);

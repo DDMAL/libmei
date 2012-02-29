@@ -127,6 +127,7 @@ void mei::CommonAnlMixIn::removeSynch() {
     b->removeAttribute("synch");
 };
 
+/* include <synchmixin> */
 mei::HarmonicfunctionMixIn::HarmonicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -152,6 +153,7 @@ void mei::HarmonicfunctionMixIn::removeHfunc() {
     b->removeAttribute("hfunc");
 };
 
+/* include <hfuncmixin> */
 mei::IntervalharmonicMixIn::IntervalharmonicMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -177,6 +179,7 @@ void mei::IntervalharmonicMixIn::removeInth() {
     b->removeAttribute("inth");
 };
 
+/* include <inthmixin> */
 mei::IntervallicdescMixIn::IntervallicdescMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -202,6 +205,7 @@ void mei::IntervallicdescMixIn::removeIntm() {
     b->removeAttribute("intm");
 };
 
+/* include <intmmixin> */
 mei::MelodicfunctionMixIn::MelodicfunctionMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -227,6 +231,7 @@ void mei::MelodicfunctionMixIn::removeMfunc() {
     b->removeAttribute("mfunc");
 };
 
+/* include <mfuncmixin> */
 mei::PitchclassMixIn::PitchclassMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -252,6 +257,7 @@ void mei::PitchclassMixIn::removePclass() {
     b->removeAttribute("pclass");
 };
 
+/* include <pclassmixin> */
 mei::SolfaMixIn::SolfaMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -277,5 +283,6 @@ void mei::SolfaMixIn::removePsolfa() {
     b->removeAttribute("psolfa");
 };
 
+/* include <psolfamixin> */
 
 

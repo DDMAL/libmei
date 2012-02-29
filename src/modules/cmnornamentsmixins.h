@@ -36,19 +36,20 @@ class MordentLogMixIn {
     public:
         explicit MordentLogMixIn(MeiElement *b);
         virtual ~MordentLogMixIn();
-        /** \brief records the function of the dot.
+        /** \brief 
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief When the long attribute is set to 'yes', a double or long mordent, consisting of
-         *  5 notes, is indicated.
+        /** \brief 
          */
         MeiAttribute* getLong();
         void setLong(std::string _long);
         bool hasLong();
         void removeLong();
+
+/* include <longmixin> */
 
     private:
         MeiElement *b;
@@ -58,18 +59,20 @@ class OrnamentaccidMixIn {
     public:
         explicit OrnamentaccidMixIn(MeiElement *b);
         virtual ~OrnamentaccidMixIn();
-        /** \brief records the written accidental associated with an upper neighboring note.
+        /** \brief 
          */
         MeiAttribute* getAccidupper();
         void setAccidupper(std::string _accidupper);
         bool hasAccidupper();
         void removeAccidupper();
-        /** \brief records the written accidental associated with a lower neighboring note.
+        /** \brief 
          */
         MeiAttribute* getAccidlower();
         void setAccidlower(std::string _accidlower);
         bool hasAccidlower();
         void removeAccidlower();
+
+/* include <accidlowermixin> */
 
     private:
         MeiElement *b;
@@ -79,21 +82,20 @@ class TurnLogMixIn {
     public:
         explicit TurnLogMixIn(MeiElement *b);
         virtual ~TurnLogMixIn();
-        /** \brief When the delayed attribute is set to 'true', the turn begins on the second half
-         *  of the beat.
-         * 
-         *  See Read, p. 246.
+        /** \brief 
          */
         MeiAttribute* getDelayed();
         void setDelayed(std::string _delayed);
         bool hasDelayed();
         void removeDelayed();
-        /** \brief records the function of the dot.
+        /** \brief 
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
+
+/* include <formmixin> */
 
     private:
         MeiElement *b;

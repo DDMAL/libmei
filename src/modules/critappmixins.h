@@ -36,13 +36,14 @@ class CritMixIn {
     public:
         explicit CritMixIn(MeiElement *b);
         virtual ~CritMixIn();
-        /** \brief classifies the cause for the variant reading, according to any appropriate
-         *  typology of possible origins.
+        /** \brief 
          */
         MeiAttribute* getCause();
         void setCause(std::string _cause);
         bool hasCause();
         void removeCause();
+
+/* include <causemixin> */
 
     private:
         MeiElement *b;
@@ -52,16 +53,14 @@ class SourceMixIn {
     public:
         explicit SourceMixIn(MeiElement *b);
         virtual ~SourceMixIn();
-        /** \brief contains a list of one or more pointers indicating the sources which attest to a
-         *  given reading.
-         * 
-         *  Each value should correspond to the ID of a <source> element located in the
-         *  document header.
+        /** \brief 
          */
         MeiAttribute* getSource();
         void setSource(std::string _source);
         bool hasSource();
         void removeSource();
+
+/* include <sourcemixin> */
 
     private:
         MeiElement *b;

@@ -313,7 +313,26 @@ mei::BarLine::BarLine(const BarLine& other) :
 {
 }
 
-/* include <barLine> */
+string mei::BarLine::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::BarLine::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::BarLine::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::BarLine::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::BarLine::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Bibl::Bibl() :
     MeiElement("bibl"),
@@ -508,7 +527,26 @@ mei::Chord::Chord(const Chord& other) :
 {
 }
 
-/* include <chord> */
+string mei::Chord::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Chord::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Chord::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Chord::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Chord::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Clef::Clef() :
     MeiElement("clef"),
@@ -543,7 +581,26 @@ mei::Clef::Clef(const Clef& other) :
 {
 }
 
-/* include <clef> */
+string mei::Clef::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Clef::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Clef::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Clef::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Clef::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::ClefGrp::ClefGrp() :
     MeiElement("clefGrp"),
@@ -605,7 +662,26 @@ mei::Custos::Custos(const Custos& other) :
 {
 }
 
-/* include <custos> */
+string mei::Custos::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Custos::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Custos::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Custos::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Custos::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Date::Date() :
     MeiElement("date"),
@@ -1497,7 +1573,6 @@ MeiElement* mei::Note::getSystem() {
 }
 
 
-
 mei::Num::Num() :
     MeiElement("num"),
     m_Common(this),
@@ -1565,7 +1640,26 @@ mei::Pad::Pad(const Pad& other) :
 {
 }
 
-/* include <pad> */
+string mei::Pad::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Pad::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Pad::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Pad::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Pad::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Part::Part() :
     MeiElement("part"),
@@ -2241,7 +2335,26 @@ mei::Space::Space(const Space& other) :
 {
 }
 
-/* include <space> */
+string mei::Space::getLayerIdent() {
+    return this->getAncestor("layer")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Space::getLayer() {
+    return this->getAncestor("layer");
+}
+
+string mei::Space::getStaffIdent() {
+    return this->getAncestor("staff")->getAttribute("n")->getValue();
+}
+
+MeiElement* mei::Space::getStaff() {
+    return this->getAncestor("staff");
+}
+
+MeiElement* mei::Space::getSystem() {
+    return this->lookBack("sb");
+}
+
 
 mei::Stack::Stack() :
     MeiElement("stack"),

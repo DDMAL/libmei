@@ -89,6 +89,7 @@ void mei::ChannelizedMixIn::removeMidiTrack() {
     b->removeAttribute("midi.track");
 };
 
+/* include <midi.trackmixin> */
 mei::MidiinstrumentMixIn::MidiinstrumentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -133,6 +134,7 @@ void mei::MidiinstrumentMixIn::removeMidiInstrname() {
     b->removeAttribute("midi.instrname");
 };
 
+/* include <midi.instrnamemixin> */
 mei::MidinumberMixIn::MidinumberMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -158,6 +160,7 @@ void mei::MidinumberMixIn::removeNum() {
     b->removeAttribute("num");
 };
 
+/* include <nummixin> */
 mei::MiditempoMixIn::MiditempoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -183,6 +186,7 @@ void mei::MiditempoMixIn::removeMidiTempo() {
     b->removeAttribute("midi.tempo");
 };
 
+/* include <midi.tempomixin> */
 mei::MidivalueMixIn::MidivalueMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -208,6 +212,7 @@ void mei::MidivalueMixIn::removeVal() {
     b->removeAttribute("val");
 };
 
+/* include <valmixin> */
 mei::TimebaseMixIn::TimebaseMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -233,5 +238,6 @@ void mei::TimebaseMixIn::removePpq() {
     b->removeAttribute("ppq");
 };
 
+/* include <ppqmixin> */
 
 
