@@ -265,3 +265,5 @@ if __name__ == "__main__":
     if tdir:
         shutil.rmtree(tdir)
     cf.close()
+
+    sys.exit(0)
