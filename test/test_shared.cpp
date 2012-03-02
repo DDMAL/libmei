@@ -9,12 +9,14 @@
 #include <iostream>
 #include <gtest/gtest.h>
 #include <mei/shared.h>
+#include <mei/header.h>
 #include <mei/meielement.h>
 #include <mei/meinamespace.h>
 using mei::MeiAttribute;
 using mei::MeiElement;
 using mei::MeiNamespace;
 using mei::Note;
+using mei::Hand;
 using mei::Accid;
 using mei::Layer;
 
@@ -26,23 +28,21 @@ TEST(TestMeiShared, NoteConstructorTest) {
     ASSERT_EQ("note", n->getName());
 };
 
-TEST(TestMeiShared, NoteDefinedMethodsTest) {
-    // some methods are defined on Note(), and some are defined on a mixin.
-    // test the methods that are defined on note first.
+TEST(TestMeiShared, HandDefinedMethodsTest) {
+    // some methods are defined on Hand(), and some are defined on a mixin.
+    // test the methods that are defined on hand first.
     
-    Note* n = new Note();
+    Hand* h = new Hand();
     
-    n->m_NoteVis.setHeadshape("diamond");
+    h->setInitial("true");
     
-    ASSERT_TRUE(n->m_NoteVis.hasHeadshape());
+    ASSERT_TRUE(h->hasInitial());
     
-    ASSERT_EQ("diamond", n->m_NoteVis.getHeadshape()->getValue());
+    ASSERT_EQ("true", h->getInitial()->getValue());
     
-    MeiAttribute* v = n->m_NoteVis.getHeadshape();
-    ASSERT_EQ("diamond", v->getValue());
-    ASSERT_EQ("headshape", v->getName());
-    
-    ASSERT_FALSE(n->m_NoteLogMensural.hasLig());
+    MeiAttribute* i = h->getInitial();
+    ASSERT_EQ("true", i->getValue());
+    ASSERT_EQ("initial", i->getName());
 }
 
 TEST(TestMeiShared, NoteDefinedBaseMethodsTest) {
