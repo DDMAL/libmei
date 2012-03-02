@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,28 +28,35 @@ from pymei import MeiElement
 class barre_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "barre")
+    # <barre>
 
 class chordDef_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "chordDef")
+    # <chordDef>
 
 class chordMember_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "chordMember")
+    # <chordMember>
 
 class chordTable_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "chordTable")
+    # <chordTable>
 
 class f_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "f")
+    # <f>
 
 class fb_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "fb")
+    # <fb>
 
 class harm_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "harm")
+    # <harm>
 

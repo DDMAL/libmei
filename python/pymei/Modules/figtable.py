@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,28 +28,35 @@ from pymei import MeiElement
 class fig_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "fig")
+    # <fig>
 
 class figDesc_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "figDesc")
+    # <figDesc>
 
 class graphic_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "graphic")
+    # <graphic>
 
 class table_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "table")
+    # <table>
 
 class td_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "td")
+    # <td>
 
 class th_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "th")
+    # <th>
 
 class tr_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "tr")
+    # <tr>
 

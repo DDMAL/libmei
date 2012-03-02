@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,56 +28,70 @@ from pymei import MeiElement
 class add_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "add")
+    # <add>
 
 class choice_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "choice")
+    # <choice>
 
 class corr_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "corr")
+    # <corr>
 
 class damage_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "damage")
+    # <damage>
 
 class del_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "del")
+    # <del>
 
 class gap_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "gap")
+    # <gap>
 
 class handShift_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "handShift")
+    # <handShift>
 
 class orig_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "orig")
+    # <orig>
 
 class reg_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "reg")
+    # <reg>
 
 class restore_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "restore")
+    # <restore>
 
 class sic_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "sic")
+    # <sic>
 
 class subst_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "subst")
+    # <subst>
 
 class supplied_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "supplied")
+    # <supplied>
 
 class unclear_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "unclear")
+    # <unclear>
 

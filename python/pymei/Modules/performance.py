@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,16 +28,20 @@ from pymei import MeiElement
 class avFile_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "avFile")
+    # <avFile>
 
 class clip_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "clip")
+    # <clip>
 
 class performance_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "performance")
+    # <performance>
 
 class recording_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "recording")
+    # <recording>
 

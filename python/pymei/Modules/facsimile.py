@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,12 +28,15 @@ from pymei import MeiElement
 class facsimile_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "facsimile")
+    # <facsimile>
 
 class surface_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "surface")
+    # <surface>
 
 class zone_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "zone")
+    # <zone>
 

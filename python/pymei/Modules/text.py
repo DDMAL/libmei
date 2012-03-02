@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,36 +28,45 @@ from pymei import MeiElement
 class back_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "back")
+    # <back>
 
 class div_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "div")
+    # <div>
 
 class front_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "front")
+    # <front>
 
 class head_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "head")
+    # <head>
 
 class item_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "item")
+    # <item>
 
 class l_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "l")
+    # <l>
 
 class lg_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "lg")
+    # <lg>
 
 class list_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "list")
+    # <list>
 
 class quote_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "quote")
+    # <quote>
 

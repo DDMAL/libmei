@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,24 +28,30 @@ from pymei import MeiElement
 class anchoredText_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "anchoredText")
+    # <anchoredText>
 
 class curve_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "curve")
+    # <curve>
 
 class line_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "line")
+    # <line>
 
 class symbol_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "symbol")
+    # <symbol>
 
 class symbolDef_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "symbolDef")
+    # <symbolDef>
 
 class symbolTable_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "symbolTable")
+    # <symbolTable>
 
