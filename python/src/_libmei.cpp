@@ -142,7 +142,7 @@ BOOST_PYTHON_MODULE(_libmei) {
         .staticmethod("meiDocumentToText")
     ;
 
-    class_<MeiDocument, MeiDocument*>("MeiDocument", init<>())
+    class_<MeiDocument, MeiDocument*>("MeiDocument", init<optional<string> >())
         .def("__eq__", &MeiDocument_EqualWrap)
         .def("__ne__", &MeiDocument_NEqualWrap)
         .def("hasNamespace", &MeiDocument::hasNamespace)
