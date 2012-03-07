@@ -38,7 +38,7 @@ class XmlImport {
         /** public interfaces for importing. Each of these will convert their input
          *  into an xmlNode for processing by the _MeiXmlStruct class.
          */
-        static MeiDocument* documentFromFile(const char* filename);
+        static MeiDocument* documentFromFile(std::string filename);
         static MeiDocument* documentFromText(std::string text);
     private:
         XmlImportImpl *impl;

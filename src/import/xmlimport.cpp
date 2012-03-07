@@ -31,7 +31,7 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
-MeiDocument* XmlImport::documentFromFile(const char *filename) {
+MeiDocument* XmlImport::documentFromFile(string filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
     delete import;
@@ -52,7 +52,7 @@ XmlImportImpl::XmlImportImpl() {
     rootMeiElement = NULL;
 }
 
-MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
+MeiDocument* XmlImportImpl::documentFromFile(string filename) {
     xmlDoc *doc = NULL;
     doc = xmlReadFile(filename, NULL, 0);
     this->xmlMeiDocument = doc;

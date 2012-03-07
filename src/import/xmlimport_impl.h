@@ -37,7 +37,7 @@ namespace mei {
             /** public interfaces for importing. Each of these will convert their input
              *  into an xmlNode for processing by the _MeiXmlStruct class.
              */
-            MeiDocument* documentFromFile(const char* filename);
+            MeiDocument* documentFromFile(std::string filename);
             MeiDocument* documentFromText(std::string text);
 
             XmlImportImpl();
