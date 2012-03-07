@@ -80,6 +80,13 @@ public:
     ~DocumentRootNotSetException() throw () {}
 };
 
+class MEI_EXPORT FileWriteFailureException : public MeiException {
+public:
+    explicit FileWriteFailureException(const std::string &what) :
+    MeiException("There was an error writing the file " + what + ".") {}
+    ~FileWriteFailureException() throw () {}
+};
+    
 class MEI_EXPORT FooBarException : public MeiException {
 public:
     explicit FooBarException(const std::string &what) : MeiException("blahblah") {}

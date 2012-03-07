@@ -14,6 +14,7 @@
 #include <mei/meielement.h>
 #include <mei/meinamespace.h>
 #include <mei/meiattribute.h>
+#include <mei/exceptions.h>
 
 #include <string>
 
@@ -111,7 +112,14 @@ xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n";
     ASSERT_EQ(expected, ret);
 }
 
-TEST(TextXmlMeiExport, ThrowsDocumentRootException) {
+TEST(TestXmlMeiExport, ThrowsDocumentRootException) {
     MeiDocument *d = new MeiDocument();
     ASSERT_THROW(XmlExport::meiDocumentToText(d), mei::DocumentRootNotSetException);
+}
+
+TEST(TestXmlMeiExport, ThrowsFileWriteFailureException) {
+    MeiDocument *d = new MeiDocument();
+    MeiElement *m = new MeiElement("mei");
+    d->setRootElement(m);
+    ASSERT_THROW(XmlExport::meiDocumentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
 }

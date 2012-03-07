@@ -18,6 +18,7 @@
 #include "meidocument.h"
 #include "meielement.h"
 #include "shared.h"
+#include "exceptions.h"
 
 using std::string;
 using std::vector;
@@ -60,11 +61,13 @@ string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
 }
 
 
-bool XmlExportImpl::meiDocumentToFile(string filename) {
+bool XmlExportImpl::meiDocumentToFile(string filename) throw(FileWriteFailureException) {
     xmlKeepBlanksDefault(0);
-    xmlSaveFormatFileEnc(filename.c_str(), xmlDocOutput, "UTF-8", 1);
-
-    return true;
+    if (xmlSaveFormatFileEnc(filename.c_str(), xmlDocOutput, "UTF-8", 1) == -1) {
+        throw FileWriteFailureException(filename);
+    } else {
+        return true;
+    }
 }
 
 string XmlExportImpl::meiDocumentToText() {
