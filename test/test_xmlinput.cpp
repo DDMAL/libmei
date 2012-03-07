@@ -30,6 +30,8 @@ TEST(TestMeiXmlImport, SetValueAndTail) {
     string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"i\" meiversion=\"2012\"><note>noteinner</note>notetail<tie><p>pinner</p></tie>tietail</mei>";
 
     MeiDocument *doc = mei::XmlImport::documentFromText(input);
+    ASSERT_EQ(doc->getVersion(), "2012");
+    
     MeiElement *e = doc->getRootElement();
     ASSERT_EQ("mei", e->getName());
     ASSERT_EQ(2, e->getChildren().size());

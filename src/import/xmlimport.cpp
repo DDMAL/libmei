@@ -89,7 +89,11 @@ MeiDocument* XmlImportImpl::documentFromText(string text) {
 }
 
 void XmlImportImpl::init() {
-    MeiDocument *doc = new MeiDocument();
+    // get mei version from document
+    xmlAttrPtr meiversAttr = xmlHasProp(this->rootXmlNode, (const xmlChar*)"meiversion");
+    string meiVersion = string((const char*)meiversAttr->children->content);
+    
+    MeiDocument *doc = new MeiDocument(meiVersion);
     this->meiDocument = doc;
 
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
@@ -178,7 +182,7 @@ bool XmlImportImpl::checkCompatibility(xmlNode *r) throw(NoVersionFoundException
     xmlAttrPtr meivers = xmlHasProp(r, (const xmlChar*)"meiversion");
     if (meivers == NULL) {
         throw NoVersionFoundException("");
-    } else if (string((const char*)meivers->children->content) != MEI_VERSION) {
+    } else if (MEI_VERSION.find(string((const char*)meivers->children->content)) == MEI_VERSION.end()) {
         throw VersionMismatchException(string((const char*)meivers->children->content));
     } else {
         return true;

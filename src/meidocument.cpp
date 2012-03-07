@@ -44,9 +44,9 @@ using std::endl;
 using mei::MeiElement;
 using mei::MeiNamespace;
 
-mei::MeiDocument::MeiDocument() {
+mei::MeiDocument::MeiDocument(string meiVers) {
     this->root = NULL;
-    this->meiVersion = MEI_VERSION;
+    this->meiVersion = meiVers;
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
