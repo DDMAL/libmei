@@ -23,7 +23,7 @@ from _libmei import *
 import types
 
 def read(filename):
-    if type(filename) is types.UnicodeType:
+    if isinstance(filename, types.UnicodeType):
         filename = str(filename)
     doc = XmlImport.documentFromFile(filename)
     return doc
