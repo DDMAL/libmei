@@ -39,6 +39,22 @@ class XmlImportTest(unittest.TestCase):
         el = doc.getElementById("d1e41")
         self.assertEqual("c", el.getAttribute("pname").value)
         self.assertEqual("4", el.getAttribute("oct").value)
+
+    def test_readmethod_string(self):
+        fn = os.path.join("test", "testdocs", "beethoven.mei")
+        doc = XmlImport.read(fn)
+        self.assertNotEqual(None, doc)
+        el = doc.getElementById("d1e41")
+        self.assertEqual("c", el.getAttribute("pname").value)
+        self.assertEqual("4", el.getAttribute("oct").value)
+
+    def test_readmethod_unicode(self):
+        fn = unicode(os.path.join("test", "testdocs", "beethoven.mei"))
+        doc = XmlImport.read(fn)
+        self.assertNotEqual(None, doc)
+        el = doc.getElementById("d1e41")
+        self.assertEqual("c", el.getAttribute("pname").value)
+        self.assertEqual("4", el.getAttribute("oct").value)
     
     def test_readlargefile(self):
         doc = XmlImport.documentFromFile(os.path.join("test", "testdocs", "beethoven_no5.mei"))
