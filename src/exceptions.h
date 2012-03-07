@@ -87,6 +87,13 @@ public:
     ~FileWriteFailureException() throw () {}
 };
     
+class MEI_EXPORT MalformedFileException : public MeiException {
+public:
+    explicit MalformedFileException(const std::string &what) :
+    MeiException("The file " + what + " is malformed.") {}
+    ~MalformedFileException() throw () {}
+};
+    
 class MEI_EXPORT FooBarException : public MeiException {
 public:
     explicit FooBarException(const std::string &what) : MeiException("blahblah") {}
