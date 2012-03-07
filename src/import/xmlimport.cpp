@@ -54,7 +54,7 @@ XmlImportImpl::XmlImportImpl() {
 
 MeiDocument* XmlImportImpl::documentFromFile(string filename) {
     xmlDoc *doc = NULL;
-    doc = xmlReadFile(filename, NULL, 0);
+    doc = xmlReadFile(filename.c_str(), NULL, 0);
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 
