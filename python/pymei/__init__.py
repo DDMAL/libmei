@@ -23,6 +23,7 @@ from _libmei import *
 import types
 
 def read(filename):
+    """ Extra wrapper to make sure we can handle unicode filenames. """
     if isinstance(filename, types.UnicodeType):
         filename = str(filename)
     doc = XmlImport.documentFromFile(filename)

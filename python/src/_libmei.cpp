@@ -39,6 +39,7 @@
 #include <vector>
 #include <string>
 #include <exception>
+#include <sstream>
 
 using namespace boost::python;
 using namespace std;
@@ -56,27 +57,59 @@ typedef vector<MeiNamespace*> MeiNamespaceList;
 
 bool MeiElement_EqualWrap(const MeiElement* x, const MeiElement* y) { return x == y; }
 bool MeiElement_NEqualWrap(const MeiElement* x, const MeiElement* y) { return x != y; }
+string MeiElement_Print(MeiElement* x) { return "<MeiElement " + x->getName() + ":" + x->getId() + ">"; }
 
 bool MeiDocument_EqualWrap(const MeiDocument* x, const MeiDocument* y) { return x == y; }
 bool MeiDocument_NEqualWrap(const MeiDocument* x, const MeiDocument* y) { return x != y; }
+string MeiDocument_Print(MeiDocument *x) { return "<MeiDocument " + x->getVersion() + ">"; }
 
 bool MeiAttribute_EqualWrap(const MeiAttribute* x, const MeiAttribute* y) { return x == y; }
 bool MeiAttribute_NEqualWrap(const MeiAttribute* x, const MeiAttribute* y) { return x != y; }
+string MeiAttribute_Print(MeiAttribute* x) { return "<MeiAttribute " + x->getName() + ":" + x->getValue() + ">"; }
 
 bool MeiNamespace_EqualWrap(const MeiNamespace* x, const MeiNamespace* y) { return x == y; }
 bool MeiNamespace_NEqualWrap(const MeiNamespace* x, const MeiNamespace* y) { return x != y; }
+string MeiNamespace_Print(MeiNamespace* x) { return "<MeiNamespace " + x->getPrefix() + ":" + x->getHref() + ">"; }
 
 bool MeiElementList_EqualWrap(const MeiElementList x, const MeiElementList y) { return x == y; }
 bool MeiElementList_NEqualWrap(const MeiElementList x, const MeiElementList y) { return x != y; }
 bool MeiElementList_NonZero(const MeiElementList x) { return !x.empty(); }
+string MeiElementList_Print(MeiElementList x) {
+    stringstream res;
+    res << "[ ";
+    for(vector<MeiElement*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
+        res << "<MeiElement " << (*iter)->getName() << ":" << (*iter)->getId()  << "> ";
+    }
+    res << "]";
+    return res.str();
+}
 
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 bool MeiAttributeList_NonZero(const MeiAttributeList x) { return !x.empty(); }
+string MeiAttributeList_Print(MeiAttributeList x) {
+    stringstream res;
+    res << "[ ";
+    for(vector<MeiAttribute*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
+        res << "<MeiAttribute " << (*iter)->getName() << ":" << (*iter)->getValue()  << "> ";
+    }
+    res << "]";
+    return res.str();
+}
 
 bool MeiNamespaceList_EqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x == y; }
 bool MeiNamespaceList_NEqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x != y; }
 bool MeiNamespaceList_NonZero(const MeiNamespaceList x) { return !x.empty(); }
+string MeiNamespaceList_Print(MeiNamespaceList x) {
+    stringstream res;
+    res << "[ ";
+    for(vector<MeiNamespace*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
+        res << "<MeiNamespace " << (*iter)->getPrefix() << ":" << (*iter)->getHref()  << "> ";
+    }
+    res << "]";
+    return res.str();
+}
+
 
 BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
@@ -87,6 +120,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__ne__", &MeiElementList_NEqualWrap)
         .def("__iter__", boost::python::iterator<MeiElementList>())
         .def("__nonzero__", &MeiElementList_NonZero)
+        .def("__str__", &MeiElementList_Print)
+        .def("__repr__", &MeiElementList_Print)
     ;
 
     class_<MeiAttributeList>("MeiAttributeList")
@@ -95,6 +130,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__ne__", &MeiAttributeList_NEqualWrap)
         .def("__iter__", boost::python::iterator<MeiAttributeList>())
         .def("__nonzero__", &MeiAttributeList_NonZero)
+        .def("__str__", &MeiAttributeList_Print)
+        .def("__repr__", &MeiAttributeList_Print)
     ;
 
     class_<MeiNamespaceList>("MeiNamespaceList")
@@ -103,11 +140,15 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__ne__", &MeiNamespaceList_NEqualWrap)
         .def("__iter__", boost::python::iterator<MeiNamespaceList>())
         .def("__nonzero__", &MeiNamespaceList_NonZero)
+        .def("__str__", &MeiNamespaceList_Print)
+        .def("__repr__", &MeiNamespaceList_Print)
     ;
 
     class_<MeiNamespace, MeiNamespace*>("MeiNamespace", init<string, string>())
         .def("__eq__", &MeiNamespace_EqualWrap)
         .def("__ne__", &MeiNamespace_NEqualWrap)
+        .def("__str__", &MeiNamespace_Print)
+        .def("__repr__", &MeiNamespace_Print)
         .def("getHref", &MeiNamespace::getHref)
         .add_property("href", &MeiNamespace::getHref)
         .def("getPrefix", &MeiNamespace::getPrefix)
@@ -145,9 +186,13 @@ BOOST_PYTHON_MODULE(_libmei) {
     class_<MeiDocument, MeiDocument*>("MeiDocument", init<optional<string> >())
         .def("__eq__", &MeiDocument_EqualWrap)
         .def("__ne__", &MeiDocument_NEqualWrap)
+        .def("__str__", &MeiDocument_Print)
+        .def("__repr__", &MeiDocument_Print)
         .def("hasNamespace", &MeiDocument::hasNamespace)
         .def("getNamespace", &MeiDocument::getNamespace, return_value_policy<reference_existing_object>())
         .def("getNamespaces", &MeiDocument::getNamespaces)
+        .add_property("namespaces", &MeiDocument::getNamespaces)
+
         .def("addNamespace", &MeiDocument::addNamespace)
         .def("getVersion", &MeiDocument::getVersion)
         .add_property("version", &MeiDocument::getVersion)
@@ -174,6 +219,9 @@ BOOST_PYTHON_MODULE(_libmei) {
         // .def(init<const MeiElement&>())
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
+        .def("__str__", &MeiElement_Print)
+        .def("__repr__", &MeiElement_Print)
+
         .def("getId", &MeiElement::getId)
         .def("setId", &MeiElement::setId)
         .add_property("id", &MeiElement::getId, &MeiElement::setId)
@@ -243,8 +291,6 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("getPositionInDocument", &MeiElement::getPositionInDocument)
         .def("lookBack", &MeiElement::lookBack, return_value_policy<reference_existing_object>())
         .def("flatten", &MeiElement::flatten)
-        .def("print", printAll)
-        .def("print", printLvl)
         .def("updateDocument", &MeiElement::updateDocument)
     ;
 
@@ -252,6 +298,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def(init<MeiNamespace*, string, string>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
+        .def("__str__", &MeiAttribute_Print)
+        .def("__repr__", &MeiAttribute_Print)
         .def("getName", &MeiAttribute::getName)
         .add_property("name", &MeiAttribute::getName)
         
