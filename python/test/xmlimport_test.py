@@ -3,7 +3,7 @@ import unittest
 import os
 import pymei
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, XmlImport
-from pymei.exceptions import VersionMismatchException, NoVersionFoundException
+from pymei.exceptions import VersionMismatchException, NoVersionFoundException, MalformedFileException
 
 class XmlImportTest(unittest.TestCase):
 
@@ -69,6 +69,12 @@ class XmlImportTest(unittest.TestCase):
         with self.assertRaises(NoVersionFoundException) as cm:
             XmlImport.documentFromFile(os.path.join("test", "testdocs", "noversion.mei"))
         self.assertTrue(isinstance(cm.exception, NoVersionFoundException))
+
+    def test_malformedexception(self):
+        with self.assertRaises(MalformedFileException) as cm:
+            XmlImport.documentFromFile(os.path.join("test", "testdocs", "malformed.mei"))
+        self.assertTrue(isinstance(cm.exception, MalformedFileException))
+
 
 def suite():
     test_suite = unittest.makeSuite(XmlImportTest, 'test')

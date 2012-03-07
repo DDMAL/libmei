@@ -41,6 +41,8 @@ object pyChildNotFoundExceptionType;
 object pyNoVersionFoundExceptionType;
 object pyElementNotRegisteredExceptionType;
 object pyDocumentRootNotSetExceptionType;
+object pyFileWriteFailureExceptionType;
+object pyMalformedFileExceptionType;
 
 void MeiExceptionTranslate(mei::MeiException const& e) {
     assert(pyMeiExceptionType != NULL);
@@ -95,6 +97,20 @@ void DocumentRootNotSetExceptionTranslate(mei::DocumentRootNotSetException const
     assert(pyDocumentRootNotSetExceptionType != NULL);
     object pythonExceptionInstance(e);
     PyErr_SetObject(pyDocumentRootNotSetExceptionType.ptr(), pythonExceptionInstance.ptr());
+    throw_error_already_set();
+}
+
+void FileWriteFailureExceptionTranslate(mei::FileWriteFailureException const& e) {
+    assert(pyFileWriteFailureExceptionType != NULL);
+    object pythonExceptionInstance(e);
+    PyErr_SetObject(pyFileWriteFailureExceptionType.ptr(), pythonExceptionInstance.ptr());
+    throw_error_already_set();
+}
+
+void MalformedFileExceptionTranslate(mei::MalformedFileException const& e) {
+    assert(pyMalformedFileExceptionType != NULL);
+    object pythonExceptionInstance(e);
+    PyErr_SetObject(pyMalformedFileExceptionType.ptr(), pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
@@ -155,5 +171,19 @@ BOOST_PYTHON_MODULE(_libmei_exceptions) {
     ;
     pyDocumentRootNotSetExceptionType = noroot;
     register_exception_translator<mei::DocumentRootNotSetException>(&DocumentRootNotSetExceptionTranslate);
+
+    object filewrite = class_<mei::FileWriteFailureException>("FileWriteFailureException", init<string>())
+        .def("what", &mei::FileWriteFailureException::what)
+        .add_property("message", &mei::FileWriteFailureException::what)
+    ;
+    pyFileWriteFailureExceptionType = filewrite;
+    register_exception_translator<mei::FileWriteFailureException>(&FileWriteFailureExceptionTranslate);
+
+    object malformed = class_<mei::MalformedFileException>("MalformedFileException", init<string>())
+        .def("what", &mei::MalformedFileException::what)
+        .add_property("message", &mei::MalformedFileException::what)
+    ;
+    pyMalformedFileExceptionType = malformed;
+    register_exception_translator<mei::MalformedFileException>(&MalformedFileExceptionTranslate);
 
 }

@@ -5,7 +5,7 @@ import tempfile
 import shutil
 import pymei
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, MeiNamespace, XmlImport, XmlExport
-from pymei.exceptions import DocumentRootNotSetException
+from pymei.exceptions import DocumentRootNotSetException, FileWriteFailureException
 
 class XmlExportTest(unittest.TestCase):
 
@@ -37,6 +37,15 @@ class XmlExportTest(unittest.TestCase):
         with self.assertRaises(DocumentRootNotSetException) as cm:
             ret = XmlExport.meiDocumentToText(doc)
         self.assertTrue(isinstance(cm.exception, DocumentRootNotSetException))
+
+    def test_documentwritefailure(self):
+        doc = MeiDocument()
+        root = MeiElement("mei")
+        root.id = "myid"
+        doc.root = root
+        with self.assertRaises(FileWriteFailureException) as cm:
+            ret = XmlExport.meiDocumentToFile(doc, "C:/StupidPath")
+        self.assertTrue(isinstance(cm.exception, FileWriteFailureException))
     
     def test_exportvalueandtail(self):
         doc = MeiDocument()
