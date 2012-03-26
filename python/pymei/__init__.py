@@ -29,3 +29,10 @@ def read(filename):
     doc = XmlImport.documentFromFile(filename)
     return doc
 XmlImport.read = staticmethod(read)
+
+def write(mei, filename):
+    """ Write an MEI document to a file """
+    if isinstance(filename, types.UnicodeType):
+        filename = str(filename)
+    XmlExport.meiDocumentToFile(mei, filename)
+XmlExport.write = staticmethod(write)
