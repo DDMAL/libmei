@@ -38,8 +38,9 @@ namespace mei {
         friend class mei::XmlExport;
         XmlExportImpl(MeiDocument *doc);
         virtual ~XmlExportImpl();
-        
+
         void init() throw(DocumentRootNotSetException);
+        void initRootElement(MeiElement* root);
 
         xmlNode* meiElementToXmlNode(MeiElement *el);
         void outputToFile(const char* filename);
@@ -47,6 +48,7 @@ namespace mei {
         bool meiDocumentToFile(std::string filename) throw(FileWriteFailureException);
         std::string meiDocumentToText();
 
+        MeiElement* rootElement;
         MeiDocument* meiDocument;
         xmlDocPtr xmlDocOutput;
         xmlNodePtr documentRootNode;

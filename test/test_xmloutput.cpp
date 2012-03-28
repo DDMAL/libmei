@@ -123,3 +123,22 @@ TEST(TestXmlMeiExport, ThrowsFileWriteFailureException) {
     d->setRootElement(m);
     ASSERT_THROW(XmlExport::meiDocumentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
 }
+
+TEST(TestXmlMeiExport, TestElementToText) {
+    MeiElement *neume = mei::MeiFactory::createInstance("neume", "neumeid");
+    MeiElement *nc = mei::MeiFactory::createInstance("nc", "ncid");
+    MeiElement *note = mei::MeiFactory::createInstance("note", "noteid");
+
+    note->addAttribute("pname", "c");
+    note->addAttribute("oct", "3");
+
+    neume->addChild(nc);
+    nc->addChild(note);
+
+    string expected = "<?xml version=\"1.0\"?>\n<neume xmlns=\"http://www.music-encoding.org/ns/mei\" \
+xml:id=\"neumeid\">\n  <nc xml:id=\"ncid\">\n    \
+<note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </nc>\n</neume>\n";
+
+    string ret = XmlExport::meiElementToText(neume);
+    ASSERT_EQ(expected, ret);
+}
