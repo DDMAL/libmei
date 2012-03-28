@@ -1,6 +1,6 @@
-/*    
+/*
     Copyright (c) 2011 Andrew Hankinson
-    
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -162,11 +162,11 @@ BOOST_PYTHON_MODULE(_libmei) {
     bool (MeiElement::*hasChildrenArgs)(string) = &MeiElement::hasChildren;
     void (MeiElement::*printAll)() = &MeiElement::print;
     void (MeiElement::*printLvl)(int) = &MeiElement::print;
-    
+
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
 
     // MeiDocument* (XmlImport::*documentFromFileStr)(const string) = &XmlImport::documentFromFile;
-    
+
     class_<XmlImport>("XmlImport", init<>())
         .def("documentFromText", &XmlImport::documentFromText, return_value_policy<manage_new_object>())
         .staticmethod("documentFromText")
@@ -181,6 +181,9 @@ BOOST_PYTHON_MODULE(_libmei) {
 
         .def("meiDocumentToText", &XmlExport::meiDocumentToText)
         .staticmethod("meiDocumentToText")
+
+        .def("meiElementToText", &XmlExport::meiElementToText)
+        .staticmethod("meiElementToText")
     ;
 
     class_<MeiDocument, MeiDocument*>("MeiDocument", init<optional<string> >())
@@ -198,11 +201,11 @@ BOOST_PYTHON_MODULE(_libmei) {
         .add_property("version", &MeiDocument::getVersion)
         .def("getRootElement", &MeiDocument::getRootElement, return_value_policy<reference_existing_object>())
         .def("setRootElement", &MeiDocument::setRootElement)
-        .add_property("root", 
+        .add_property("root",
             make_function(&MeiDocument::getRootElement, return_value_policy<reference_existing_object>()),
             make_function(&MeiDocument::setRootElement)
         )
-        /* 
+        /*
             MeiDocument has both a private and public function named getElementById. We expose
             the public one above and use it here.
         */
@@ -257,13 +260,13 @@ BOOST_PYTHON_MODULE(_libmei) {
             make_function(&MeiElement::getParent, return_value_policy<reference_existing_object>()),
             make_function(&MeiElement::setParent)
         )
-        
+
         /* boost doesn't seem to like the forward declaration of MeiDocument in MeiElement.
             This construction for setDocument avoids this by explicitly masking it above
         */
         .def("setDocument", setDocument)
         .def("getDocument", &MeiElement::getDocument, return_value_policy<reference_existing_object>())
-        .add_property("document", 
+        .add_property("document",
             make_function(&MeiElement::getDocument, return_value_policy<reference_existing_object>()),
             make_function(&MeiElement::setDocument)
         )
@@ -272,8 +275,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("addChildBefore", &MeiElement::addChildBefore)
         .def("setChildren", &MeiElement::setChildren)
         .def("getChildren", &MeiElement::getChildren, return_value_policy<reference_existing_object>())
-        .add_property("children", 
-            make_function(&MeiElement::getChildren, return_value_policy<reference_existing_object>()), 
+        .add_property("children",
+            make_function(&MeiElement::getChildren, return_value_policy<reference_existing_object>()),
             make_function(&MeiElement::setChildren)
         )
 
@@ -302,7 +305,7 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__repr__", &MeiAttribute_Print)
         .def("getName", &MeiAttribute::getName)
         .add_property("name", &MeiAttribute::getName)
-        
+
         .def("getValue", &MeiAttribute::getValue)
         .def("setValue", &MeiAttribute::setValue)
         .add_property("value", &MeiAttribute::getValue, &MeiAttribute::setValue)
