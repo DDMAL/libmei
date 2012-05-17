@@ -99,7 +99,6 @@ XmlExportImpl::~XmlExportImpl() {
     if (xmlDocOutput) {
         xmlFreeDoc(xmlDocOutput);
     }
-    xmlCleanupMemory();
 }
 
 void XmlExportImpl::init() throw(DocumentRootNotSetException) {

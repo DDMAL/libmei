@@ -104,7 +104,6 @@ mei::XmlImportImpl::~XmlImportImpl() {
     if (xmlMeiDocument) {
         xmlFreeDoc(xmlMeiDocument);
     }
-    xmlCleanupMemory();
 }
 
 MeiDocument* XmlImportImpl::getMeiDocument() {
