@@ -93,12 +93,6 @@ public:
     MeiException("The file " + what + " is malformed.") {}
     ~MalformedFileException() throw () {}
 };
-    
-class MEI_EXPORT FooBarException : public MeiException {
-public:
-    explicit FooBarException(const std::string &what) : MeiException("blahblah") {}
-    ~FooBarException() throw() {}
-};
 }
 #endif
 
