@@ -17,6 +17,7 @@
 #include <mei/exceptions.h>
 
 #include <string>
+#include <utility>
 
 using std::string;
 using mei::MeiDocument;
@@ -24,6 +25,8 @@ using mei::MeiElement;
 using mei::XmlExport;
 using mei::MeiNamespace;
 using mei::MeiAttribute;
+using mei::XmlProcessingInstruction;
+using mei::XmlInstructions;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
     MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
@@ -125,20 +128,70 @@ TEST(TestXmlMeiExport, ThrowsFileWriteFailureException) {
 }
 
 TEST(TestXmlMeiExport, TestElementToText) {
-    MeiElement *neume = mei::MeiFactory::createInstance("neume", "neumeid");
-    MeiElement *nc = mei::MeiFactory::createInstance("nc", "ncid");
+    MeiElement *measure = mei::MeiFactory::createInstance("measure", "measureid");
+    MeiElement *layer = mei::MeiFactory::createInstance("layer", "layerid");
     MeiElement *note = mei::MeiFactory::createInstance("note", "noteid");
 
     note->addAttribute("pname", "c");
     note->addAttribute("oct", "3");
 
-    neume->addChild(nc);
-    nc->addChild(note);
+    measure->addChild(layer);
+    layer->addChild(note);
 
-    string expected = "<?xml version=\"1.0\"?>\n<neume xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xml:id=\"neumeid\">\n  <nc xml:id=\"ncid\">\n    \
-<note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </nc>\n</neume>\n";
+    string expected = "<?xml version=\"1.0\"?>\n<measure xmlns=\"http://www.music-encoding.org/ns/mei\" \
+xml:id=\"measureid\">\n  <layer xml:id=\"layerid\">\n    \
+<note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </layer>\n</measure>\n";
 
-    string ret = XmlExport::meiElementToText(neume);
+    string ret = XmlExport::meiElementToText(measure);
     ASSERT_EQ(expected, ret);
+}
+
+TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToFile) {
+    XmlInstructions procinst;
+    
+    std::string name1 = "xml-model";
+    std::string value1 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"";
+    
+    std::string name2 = "xml-model";
+    std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
+    
+    XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
+    XmlProcessingInstruction *xpi2 = new std::pair<std::string, std::string>(name2, value2);
+    
+    procinst.push_back(xpi1);
+    procinst.push_back(xpi2);
+    
+    MeiDocument *d = new MeiDocument();
+    MeiElement *m = new MeiElement("mei");
+    d->setRootElement(m);
+    
+    ASSERT_TRUE(XmlExport::meiDocumentToFile(d, "test-procinst.mei", procinst));
+}
+
+TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToText) {
+    XmlInstructions procinst;
+    
+    std::string name1 = "xml-model";
+    std::string value1 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"";
+    
+    std::string name2 = "xml-model";
+    std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
+    
+    XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
+    XmlProcessingInstruction *xpi2 = new std::pair<std::string, std::string>(name2, value2);
+    
+    procinst.push_back(xpi1);
+    procinst.push_back(xpi2);
+    
+    MeiDocument *d = new MeiDocument();
+    MeiElement *m = new MeiElement("mei");
+    m->setId("1234");
+    d->setRootElement(m);
+    
+    string expected = "<\?xml version=\"1.0\"\?>\n<\?xml-model href=\"mei-2012.rng\" \
+type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"\?>\n<\?xml-model \
+href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"\?>\n<mei \
+xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"1234\" meiversion=\"2012\"/>\n";
+
+    ASSERT_EQ(expected, XmlExport::meiDocumentToText(d, procinst));
 }

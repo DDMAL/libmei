@@ -47,6 +47,7 @@ namespace mei {
 
         bool meiDocumentToFile(std::string filename) throw(FileWriteFailureException);
         std::string meiDocumentToText();
+        void convertProcessingInstructions(XmlInstructions &pi);
 
         MeiElement* rootElement;
         MeiDocument* meiDocument;

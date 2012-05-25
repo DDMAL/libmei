@@ -29,6 +29,8 @@ using mei::MeiFactory;
 using mei::XmlExport;
 using mei::XmlExportImpl;
 using mei::Mei;
+using mei::XmlInstructions;
+using mei::XmlProcessingInstruction;
 
 /*
  XmlImport and XmlExport use a Partial Implementation (PImpl) model for their class structure.
@@ -55,8 +57,20 @@ bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
     return ex->impl->meiDocumentToFile(filename);
 }
 
+bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename, XmlInstructions &pi) {
+    XmlExport *ex = new XmlExport(doc);
+    ex->impl->convertProcessingInstructions(pi);
+    return ex->impl->meiDocumentToFile(filename);
+}
+
 string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
     XmlExport *ex = new XmlExport(doc);
+    return ex->impl->meiDocumentToText();
+}
+
+string XmlExport::meiDocumentToText(mei::MeiDocument *doc, XmlInstructions &pi) {
+    XmlExport *ex = new XmlExport(doc);
+    ex->impl->convertProcessingInstructions(pi);
     return ex->impl->meiDocumentToText();
 }
 
@@ -71,10 +85,21 @@ string XmlExport::meiElementToText(mei::MeiElement *el) {
 
 bool XmlExportImpl::meiDocumentToFile(string filename) throw(FileWriteFailureException) {
     xmlKeepBlanksDefault(0);
-    if (xmlSaveFormatFileEnc(filename.c_str(), xmlDocOutput, "UTF-8", 1) == -1) {
+    if (xmlSaveFormatFileEnc(filename.c_str(), this->xmlDocOutput, "UTF-8", 1) == -1) {
         throw FileWriteFailureException(filename);
     } else {
         return true;
+    }
+}
+
+void XmlExportImpl::convertProcessingInstructions(XmlInstructions &pi) {
+    xmlDocPtr d = this->xmlDocOutput;
+    xmlNodePtr r = xmlDocGetRootElement(d);
+    for (vector<XmlProcessingInstruction*>::iterator iter = pi.begin(); iter != pi.end(); ++iter) {
+        xmlNodePtr p = xmlNewDocPI(d, (xmlChar*)(*iter)->first.c_str(), (xmlChar*)(*iter)->second.c_str());
+        if (p != NULL) {
+            xmlAddPrevSibling(r, p);
+        }
     }
 }
 
@@ -86,7 +111,6 @@ string XmlExportImpl::meiDocumentToText() {
     string s((char*)xmlbuf);
     return s;
 }
-
 
 XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
     this->meiDocument = doc;

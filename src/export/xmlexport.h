@@ -25,13 +25,17 @@
 #define MEI_XMLEXPORT_H_
 
 #include <string>
+#include <vector>
+#include <utility>
 
 #include "meidocument.h"
 
 namespace mei {
 
 class XmlExportImpl;
-
+    
+typedef std::pair<std::string, std::string> XmlProcessingInstruction;
+typedef std::vector<XmlProcessingInstruction*> XmlInstructions;
 /**
  * \brief Export a document to XML.
  */
@@ -39,14 +43,20 @@ class XmlExport {
     public:
         /** \brief Save a document to a file. */
         static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
+        /** \brief Save a document to a file with Processing Instructions. */
+        static bool meiDocumentToFile(MeiDocument *doc, std::string filename, XmlInstructions &pi);
+
         /** \brief Return the XML text of a document. */
         static std::string meiDocumentToText(MeiDocument *doc);
+        /** \brief Return the XML text of a document with Processing Instructions */
+        static std::string meiDocumentToText(MeiDocument *doc, XmlInstructions &pi);
         /** \brief Convert an MeiElement segment to text. */
         static std::string meiElementToText(MeiElement *element);
     virtual ~XmlExport();
     private:
         XmlExport(MeiDocument *doc);
         XmlExportImpl *impl;
+        XmlInstructions *xmlinstructions;
 };
 }
 
