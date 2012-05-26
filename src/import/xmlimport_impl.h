@@ -25,6 +25,7 @@
 #define MEI_XMLIMPORT_IMPL_H_
 
 #include "meidocument.h"
+#include "meixml.h"
 #include <libxml/xmlreader.h>
 #include <string>
 
@@ -49,6 +50,7 @@ namespace mei {
             xmlDoc* xmlMeiDocument;
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
+            XmlInstructions pi;
     };
 }
 

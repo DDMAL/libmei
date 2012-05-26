@@ -28,6 +28,8 @@ using mei::MeiElement;
 using mei::MeiFactory;
 using mei::XmlImport;
 using mei::XmlImportImpl;
+using mei::XmlInstructions;
+using mei::XmlProcessingInstruction;
 
 XmlImport::XmlImport() : impl(new XmlImportImpl) {
 }
@@ -43,9 +45,28 @@ MeiDocument* XmlImport::documentFromFile(string filename) {
     return d;
 }
 
+MeiDocument* XmlImport::documentFromFile(std::string filename, XmlInstructions &inst) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromFile(filename);
+    inst = import->impl->pi;
+    
+    delete import;
+    return d;
+    
+}
+
 MeiDocument* XmlImport::documentFromText(string text) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromText(text);
+    delete import;
+    return d;
+}
+
+MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromText(text);
+    inst = import->impl->pi;
+    
     delete import;
     return d;
 }
@@ -67,6 +88,15 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
         throw MalformedFileException(filename);
     }
     
+    xmlNodePtr child = doc->children;
+    while (child != NULL) {
+        if (child->type == XML_PI_NODE) {
+            XmlProcessingInstruction *xpi = new std::pair<std::string, std::string>((const char*)child->name, (const char*)child->content);
+            this->pi.push_back(xpi);            
+        }
+        child = child->next;
+    }
+    
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 
@@ -81,11 +111,21 @@ MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlDoc *doc = NULL;
     int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOWARNING;
     doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, options);
+    
+    xmlNodePtr child = doc->children;
+    while (child != NULL) {
+        if (child->type == XML_PI_NODE) {
+            XmlProcessingInstruction *xpi = new std::pair<std::string, std::string>((const char*)child->name, (const char*)child->content);
+            this->pi.push_back(xpi);            
+        }
+        child = child->next;
+    }
+    
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 
     if (this->checkCompatibility(this->rootXmlNode)) {
-        this->init();
+        this->init();        
         return this->meiDocument;
     }
     return NULL;
@@ -174,7 +214,6 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
             comment->setValue(string((const char*)child->content));
             obj->addChild(comment);
         }
-
         child = child->next;
     }
     return obj;
