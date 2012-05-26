@@ -29,13 +29,14 @@
 #include <utility>
 
 #include "meidocument.h"
+#include "meixml.h"
+
+using mei::XmlInstructions;
 
 namespace mei {
 
 class XmlExportImpl;
-    
-typedef std::pair<std::string, std::string> XmlProcessingInstruction;
-typedef std::vector<XmlProcessingInstruction*> XmlInstructions;
+
 /**
  * \brief Export a document to XML.
  */

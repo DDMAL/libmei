@@ -14,6 +14,7 @@
 #include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
+#include "meixml.h"
 
 #include <iostream>
 
