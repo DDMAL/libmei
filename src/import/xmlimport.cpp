@@ -58,7 +58,7 @@ XmlImportImpl::XmlImportImpl() {
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(string filename) {
-    xmlDoc *doc = NULL;
+    xmlDocPtr doc = NULL;
     /* XML_PARSE_NOERROR will simply suppress the libxml error messages on malformed XML,
         it won't actually stop it from parsing. */
     doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR | XML_PARSE_NONET | XML_PARSE_NOWARNING);
