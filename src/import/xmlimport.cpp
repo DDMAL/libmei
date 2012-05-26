@@ -61,7 +61,7 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
     xmlDoc *doc = NULL;
     /* XML_PARSE_NOERROR will simply suppress the libxml error messages on malformed XML,
         it won't actually stop it from parsing. */
-    doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR);
+    doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR | XML_PARSE_NONET | XML_PARSE_NOWARNING);
 
     if (doc == NULL) {
         throw MalformedFileException(filename);
@@ -79,7 +79,7 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
 
 MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlDoc *doc = NULL;
-    int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOBLANKS | XML_PARSE_COMPACT;
+    int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOWARNING;
     doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, options);
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
