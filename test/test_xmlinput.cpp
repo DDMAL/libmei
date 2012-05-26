@@ -13,6 +13,7 @@
 #include <mei/meidocument.h>
 #include <mei/exceptions.h>
 #include <mei/shared.h>
+#include <mei/meixml.h>
 
 #include <string>
 #include <vector>
@@ -20,6 +21,7 @@
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::Note;
+using mei::XmlInstructions;
 
 using std::string;
 using std::vector;
@@ -75,4 +77,24 @@ TEST(TestMeiXmlImport, TestNoVersionException) {
 
 TEST(TestMeiXmlImport, TestMalformedFileException) {
     ASSERT_THROW(mei::XmlImport::documentFromFile("malformed.mei"), mei::MalformedFileException);
+}
+
+TEST(TestMeiXmlImport, TestProcessingInstructionImportFromFile) {
+    XmlInstructions inst;
+    mei::XmlImport::documentFromFile("test-procinst.mei", inst);
+    
+    ASSERT_EQ(2, inst.size());
+}
+
+TEST(TestMeiXmlExport, TestProcessingInstructionImportFromText) {
+    XmlInstructions inst;
+    string importstr = "<\?xml version=\"1.0\"\?>\n<\?xml-model href=\"mei-2012.rng\" \
+type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"\?>\n<\?xml-stylesheet \
+href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"\?>\n<mei \
+xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m1234\" meiversion=\"2012\"/>\n";
+    
+    mei::XmlImport::documentFromText(importstr, inst);
+    
+    ASSERT_EQ(2, inst.size());
+    
 }

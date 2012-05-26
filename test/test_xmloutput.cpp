@@ -152,7 +152,7 @@ TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToFile) {
     std::string name1 = "xml-model";
     std::string value1 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"";
     
-    std::string name2 = "xml-model";
+    std::string name2 = "xml-stylesheet";
     std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
     
     XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
@@ -174,7 +174,7 @@ TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToText) {
     std::string name1 = "xml-model";
     std::string value1 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"";
     
-    std::string name2 = "xml-model";
+    std::string name2 = "xml-stylesheet";
     std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
     
     XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
@@ -185,13 +185,13 @@ TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToText) {
     
     MeiDocument *d = new MeiDocument();
     MeiElement *m = new MeiElement("mei");
-    m->setId("1234");
+    m->setId("m1234");
     d->setRootElement(m);
     
     string expected = "<\?xml version=\"1.0\"\?>\n<\?xml-model href=\"mei-2012.rng\" \
-type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"\?>\n<\?xml-model \
+type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"\?>\n<\?xml-stylesheet \
 href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"\?>\n<mei \
-xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"1234\" meiversion=\"2012\"/>\n";
+xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m1234\" meiversion=\"2012\"/>\n";
 
     ASSERT_EQ(expected, XmlExport::meiDocumentToText(d, procinst));
 }
