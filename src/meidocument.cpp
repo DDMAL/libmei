@@ -38,9 +38,6 @@ using std::string;
 using std::vector;
 using std::find;
 
-using std::cout;
-using std::endl;
-
 using mei::MeiElement;
 using mei::MeiNamespace;
 

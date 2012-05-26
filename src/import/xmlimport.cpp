@@ -20,6 +20,8 @@
 
 using std::string;
 using std::vector;
+using std::cout;
+using std::endl;
 
 using mei::MeiDocument;
 using mei::MeiElement;

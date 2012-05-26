@@ -8,9 +8,6 @@
 #include <algorithm>
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 using std::vector;
 using std::find;
 using mei::MeiElement;
