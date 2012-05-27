@@ -245,6 +245,8 @@
 		0550E42D1401C71F0005B735 /* campion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = campion.mei; path = test/campion.mei; sourceTree = "<group>"; };
 		056BCFEF157028DD006E51A4 /* meixml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = meixml.h; path = src/meixml.h; sourceTree = "<group>"; };
 		056BCFF3157165FB006E51A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		056BCFF5157297BF006E51A4 /* _libmei_exceptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _libmei_exceptions.cpp; path = python/src/_libmei_exceptions.cpp; sourceTree = "<group>"; };
+		056BCFF6157297BF006E51A4 /* _libmei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _libmei.cpp; path = python/src/_libmei.cpp; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
 		058359E713FB2F8700919769 /* test_shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_shared.cpp; path = test/test_shared.cpp; sourceTree = "<group>"; };
 		059A88AE1401667A006BA118 /* bach.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = bach.mei; path = test/bach.mei; sourceTree = "<group>"; };
@@ -365,9 +367,19 @@
 			name = Export;
 			sourceTree = "<group>";
 		};
+		056BCFF41572979D006E51A4 /* Python Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				056BCFF5157297BF006E51A4 /* _libmei_exceptions.cpp */,
+				056BCFF6157297BF006E51A4 /* _libmei.cpp */,
+			);
+			name = "Python Bindings";
+			sourceTree = "<group>";
+		};
 		0867D691FE84028FC02AAC07 /* libmei */ = {
 			isa = PBXGroup;
 			children = (
+				056BCFF41572979D006E51A4 /* Python Bindings */,
 				05CEA57A13FC7E570009A15E /* gtest.framework */,
 				617B4333130453F500EBBE7F /* Util */,
 				617B42F113044EE600EBBE7F /* Test */,
