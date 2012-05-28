@@ -22,7 +22,7 @@ class {className}_(MeiElement):
 """
 
 LICENSE = """\"\"\"
-    Copyright (c) 2012 {authors}
+    Copyright (c) 2011-2012 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -44,7 +44,7 @@ LICENSE = """\"\"\"
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 \"\"\""""
 
-AUTHORS = "Andrew Hankinson"
+AUTHORS = "Andrew Hankinson, Alastair Porter"
 
 def create(schema):
     lg.debug("Begin Python Output...")

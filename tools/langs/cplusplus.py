@@ -16,7 +16,7 @@ NS_PREFIX_MAP = {
     "http://www.w3.org/1999/xlink": "xlink"
 }
 
-AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet"
+AUTHORS = "Andrew Hankinson, Alastair Porter"
 
 METHODS_HEADER_TEMPLATE = """{documentation}
         MeiAttribute* get{attNameUpper}();
@@ -136,7 +136,7 @@ ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
 """
 
 LICENSE = """/*
-    Copyright (c) 2012 {authors}
+    Copyright (c) 2011-2012 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
+ Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
 
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files (the
