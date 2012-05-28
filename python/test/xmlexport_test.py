@@ -4,7 +4,7 @@ import os
 import tempfile
 import shutil
 import pymei
-from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, MeiNamespace, XmlImport, XmlExport
+from pymei import *
 from pymei.exceptions import DocumentRootNotSetException, FileWriteFailureException
 
 class XmlExportTest(unittest.TestCase):
@@ -117,7 +117,29 @@ xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
         
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
-    
+
+    def test_exportProcessingInstructions(self):
+        procinst = XmlInstructions()
+
+        xpi1 = XmlProcessingInstruction("xml-model", "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"")
+        xpi2 = XmlProcessingInstruction("xml-stylesheet", "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"")
+        
+        procinst.extend([xpi1, xpi2])
+
+        doc = MeiDocument()
+        root = MeiElement("mei")
+        root.id = "myid"
+        doc.root = root
+
+        ret = XmlExport.meiDocumentToText(doc, procinst)
+
+        expected = "<?xml version=\"1.0\"?>\n<?xml-model href=\"mei-2012.rng\" type=\"application/xml\" \
+schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<?xml-stylesheet href=\"mei-2012.rng\" type=\"application/xml\" \
+schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
+xml:id=\"myid\" meiversion=\"2012\"/>\n"
+        
+        self.assertEqual(expected, ret)
+
     def tearDown(self):
         if os.path.exists(self.tempdir):
             shutil.rmtree(self.tempdir)

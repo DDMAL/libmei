@@ -113,14 +113,32 @@ string MeiNamespaceList_Print(MeiNamespaceList x) {
     return res.str();
 }
 
+string MeiProcessingInstruction_Print(XmlProcessingInstruction x) { return "<XmlProcessingInstruction " + x.getName() + ":" + x.getValue() + ">"; }
+
+string MeiXmlInstructions_Print(XmlInstructions x) {
+    stringstream res;
+    res << "[ ";
+    for (vector<XmlProcessingInstruction*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
+        res << "<XmlProcessingInstruction " << (*iter)->getName() << ":" << (*iter)->getValue() << "> ";
+    }
+    res << "]";
+    return res.str();
+}
 
 BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
 
-    class_<XmlInstructions>("XmlInstructions")
+    class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
+        .def(vector_indexing_suite<XmlInstructions>())
+        .def("__str__", &MeiXmlInstructions_Print)
+        .def("__repr__", &MeiXmlInstructions_Print)
     ;
 
-    class_<XmlProcessingInstruction>("XmlProcessingInstruction")
+    class_<XmlProcessingInstruction, XmlProcessingInstruction*>("XmlProcessingInstruction", init<string, string>())
+        .add_property("name", &XmlProcessingInstruction::getName)
+        .add_property("value", &XmlProcessingInstruction::getValue)
+        .def("__str__", &MeiProcessingInstruction_Print)
+        .def("__repr__", &MeiProcessingInstruction_Print)
     ;
 
     class_<MeiElementList>("MeiElementList")
@@ -174,36 +192,24 @@ BOOST_PYTHON_MODULE(_libmei) {
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     
-    MeiDocument* (XmlImport::*documentFromFileNInstr)(string) = &XmlImport::documentFromFile;
-    MeiDocument* (XmlImport::*documentFromFileInstr)(string, &XmlInstructions) = &XmlImport::documentFromFile;
-    MeiDocument* (XmlImport::*documentFromTextNInstr)(string) = &XmlImport::documentFromText;
-    MeiDocument* (XmlImport::*documentFromTextInstr)(string, &XmlInstructions) = &XmlImport::documentFromText;
-
-    bool (XmlExport::*documentToFileInstr)(string, &XmlInstructions) = &XmlExport::meiDocumentToFile;
-    bool (XmlExport::*documentToFileNInstr)(string) = &XmlExport::meiDocumentToFile;
-    string (XmlExport::*documentToTextInstr)(string, &XmlInstructions) = &XmlExport::meiDocumentToText;
-    string (XmlExport::*documentToTextNInstr)(string) = &XmlExport::meiDocumentToText;
-    
-    // MeiDocument* (XmlImport::*documentFromFileStr)(const string) = &XmlImport::documentFromFile;
-
     class_<XmlImport>("XmlImport", init<>())
-        .def("documentFromText", documentFromTextInstr, return_value_policy<manage_new_object>())
-        .def("documentFromText", documentFromTextNInstr, return_value_policy<manage_new_object>())
-        // .staticmethod("documentFromText")
+        .def("documentFromText", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
+        .def("documentFromText", static_cast<MeiDocument*(*)(string, XmlInstructions&)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
+        .staticmethod("documentFromText")
 
-        .def("documentFromFile", documentFromFileInstr, return_value_policy<manage_new_object>())
-        .def("documentFromFile", documentFromFileNInstr, return_value_policy<manage_new_object>())
-        // .staticmethod("documentFromFile")
+        .def("documentFromFile", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromFile), return_value_policy<manage_new_object>())
+        .def("documentFromFile", static_cast<MeiDocument*(*)(string, XmlInstructions&)>(&XmlImport::documentFromFile), return_value_policy<manage_new_object>())
+        .staticmethod("documentFromFile")
     ;
 
     class_<XmlExport>("XmlExport", boost::python::no_init)
-        .def("meiDocumentToFile", documentToFileInstr)
-        .def("meiDocumentToFile", documentToFileNInstr)
-        // .staticmethod("meiDocumentToFile")
+        .def("meiDocumentToFile", static_cast<bool(*)(MeiDocument*, string)>(&XmlExport::meiDocumentToFile))
+        .def("meiDocumentToFile", static_cast<bool(*)(MeiDocument*, string, XmlInstructions&)>(&XmlExport::meiDocumentToFile))
+        .staticmethod("meiDocumentToFile")
 
-        .def("meiDocumentToText", documentToTextInstr)
-        .def("meiDocumentToText", documentToTextNInstr)
-        // .staticmethod("meiDocumentToText")
+        .def("meiDocumentToText", static_cast<string(*)(MeiDocument*)>(&XmlExport::meiDocumentToText))
+        .def("meiDocumentToText", static_cast<string(*)(MeiDocument*, XmlInstructions&)>(&XmlExport::meiDocumentToText))
+        .staticmethod("meiDocumentToText")
 
         .def("meiElementToText", &XmlExport::meiElementToText)
         .staticmethod("meiElementToText")

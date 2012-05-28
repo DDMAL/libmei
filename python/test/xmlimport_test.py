@@ -2,7 +2,7 @@
 import unittest
 import os
 import pymei
-from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument, XmlImport
+from pymei import *
 from pymei.exceptions import VersionMismatchException, NoVersionFoundException, MalformedFileException
 
 class XmlImportTest(unittest.TestCase):
@@ -39,6 +39,12 @@ class XmlImportTest(unittest.TestCase):
         el = doc.getElementById("d1e41")
         self.assertEqual("c", el.getAttribute("pname").value)
         self.assertEqual("4", el.getAttribute("oct").value)
+
+    def test_readfile_with_procinst(self):
+        procinst = XmlInstructions()
+        doc = XmlImport.documentFromFile(os.path.join("test", "testdocs", "test-procinst.mei"), procinst)
+        self.assertEqual(2, len(procinst))
+        self.assertEqual("xml-model", procinst[0].name)
 
     def test_readmethod_string(self):
         fn = os.path.join("test", "testdocs", "beethoven.mei")
