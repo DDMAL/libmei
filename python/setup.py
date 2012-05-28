@@ -3,7 +3,7 @@ from distutils.core import setup, Extension
 import sys
 import os
 
-longdesc = """ Python Bindings for LibMEI core. """
+longdesc = """ Python Bindings for LibMEI. """
 
 if sys.platform == "darwin":
     link_args = ["-framework", "mei"]
@@ -29,7 +29,7 @@ else:
 setup(
     name = 'pymei',
     long_description = longdesc,
-    version = '2.0a',
+    version = '2.0',
     url = "http://github.com/DDMAL/libmei",
     include_package_data=True,
     packages=find_packages(),
