@@ -24,11 +24,12 @@
 #ifndef MEINAMESPACE_H_
 #define MEINAMESPACE_H_
 
+#include "meicommon.h"
 #include <string>
 
 namespace mei {
 
-class MeiNamespace {
+class MEI_EXPORT MeiNamespace {
 public:
     MeiNamespace(std::string prefix, std::string href);
     ~MeiNamespace();
