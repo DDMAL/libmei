@@ -40,7 +40,7 @@ class XmlExportImpl;
 /**
  * \brief Export a document to XML.
  */
-class XmlExport {
+class MEI_EXPORT XmlExport {
     public:
         /** \brief Save a document to a file. */
         static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
