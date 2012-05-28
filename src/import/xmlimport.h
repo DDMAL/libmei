@@ -32,7 +32,7 @@ namespace mei {
 
 class XmlImportImpl;
 
-class XmlImport {
+class MEI_EXPORT XmlImport {
     public:
         XmlImport();
         virtual ~XmlImport();
