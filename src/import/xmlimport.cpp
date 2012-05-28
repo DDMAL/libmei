@@ -20,8 +20,6 @@
 
 using std::string;
 using std::vector;
-using std::cout;
-using std::endl;
 
 using mei::MeiDocument;
 using mei::MeiElement;
@@ -91,7 +89,7 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
     xmlNodePtr child = doc->children;
     while (child != NULL) {
         if (child->type == XML_PI_NODE) {
-            XmlProcessingInstruction *xpi = new std::pair<std::string, std::string>((const char*)child->name, (const char*)child->content);
+            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
             this->pi.push_back(xpi);            
         }
         child = child->next;
@@ -115,7 +113,7 @@ MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlNodePtr child = doc->children;
     while (child != NULL) {
         if (child->type == XML_PI_NODE) {
-            XmlProcessingInstruction *xpi = new std::pair<std::string, std::string>((const char*)child->name, (const char*)child->content);
+            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
             this->pi.push_back(xpi);            
         }
         child = child->next;
