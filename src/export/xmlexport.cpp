@@ -96,7 +96,7 @@ void XmlExportImpl::convertProcessingInstructions(XmlInstructions &pi) {
     xmlDocPtr d = this->xmlDocOutput;
     xmlNodePtr r = xmlDocGetRootElement(d);
     for (vector<XmlProcessingInstruction*>::iterator iter = pi.begin(); iter != pi.end(); ++iter) {
-        xmlNodePtr p = xmlNewDocPI(d, (xmlChar*)(*iter)->first.c_str(), (xmlChar*)(*iter)->second.c_str());
+        xmlNodePtr p = xmlNewDocPI(d, (xmlChar*)(*iter)->getName().c_str(), (xmlChar*)(*iter)->getValue().c_str());
         if (p != NULL) {
             xmlAddPrevSibling(r, p);
         }
