@@ -155,8 +155,8 @@ TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToFile) {
     std::string name2 = "xml-stylesheet";
     std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
     
-    XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
-    XmlProcessingInstruction *xpi2 = new std::pair<std::string, std::string>(name2, value2);
+    XmlProcessingInstruction *xpi1 = new XmlProcessingInstruction(name1, value1);
+    XmlProcessingInstruction *xpi2 = new XmlProcessingInstruction(name2, value2);
     
     procinst.push_back(xpi1);
     procinst.push_back(xpi2);
@@ -177,8 +177,8 @@ TEST(TestXmlMeiExport, TestXmlProcessingInstructionsToText) {
     std::string name2 = "xml-stylesheet";
     std::string value2 = "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"";
     
-    XmlProcessingInstruction *xpi1 = new std::pair<std::string, std::string>(name1, value1);
-    XmlProcessingInstruction *xpi2 = new std::pair<std::string, std::string>(name2, value2);
+    XmlProcessingInstruction *xpi1 = new XmlProcessingInstruction(name1, value1);
+    XmlProcessingInstruction *xpi2 = new XmlProcessingInstruction(name2, value2);
     
     procinst.push_back(xpi1);
     procinst.push_back(xpi2);
