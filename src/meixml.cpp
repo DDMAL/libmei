@@ -6,4 +6,26 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
+#include "meixml.h"
+
+#include <string>
+
+using std::string;
+
+mei::XmlProcessingInstruction::XmlProcessingInstruction(string name, string value) {
+    this->name = name;
+    this->value = value;
+}
+
+string mei::XmlProcessingInstruction::getName() {
+    return this->name;
+}
+
+string mei::XmlProcessingInstruction::getValue() {
+    return this->value;
+}
+
+mei::XmlProcessingInstruction::~XmlProcessingInstruction() {
+    
+}
+
