@@ -52,5 +52,6 @@ const std::set<std::string> MEI_VERSION(meiVersions, meiVersions+2);
 const std::string MEI_NS = "http://www.music-encoding.org/ns/mei";
 const std::string MEI_PREFIX = "mei";
 const std::string MEI_ENCODING = "UTF-8";
+const std::string LIBMEI_VERSION = "2012.0";
 
 #endif  // MEICOMMON_H_
