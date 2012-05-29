@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani
+ Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
 
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files (the
@@ -25,22 +25,24 @@
 #define MEI_XMLIMPORT_H_
 
 #include "meidocument.h"
+#include "meixml.h"
 #include <string>
 
 namespace mei {
 
 class XmlImportImpl;
 
-class XmlImport {
+class MEI_EXPORT XmlImport {
     public:
         XmlImport();
-    virtual ~XmlImport();
-        /** public interfaces for importing. Each of these will convert their input
-         *  into an xmlNode for processing by the _MeiXmlStruct class.
-         */
-        static MeiDocument* documentFromFile(const char* filename);
-        static MeiDocument* documentFromFile(const std::string filename);
+        virtual ~XmlImport();
+        /** \brief Read in an MEI Document from a filename */
+        static MeiDocument* documentFromFile(std::string filename);
+        static MeiDocument* documentFromFile(std::string filename, XmlInstructions &inst);
+    
+        /** \brief Read in an MEI Document from a string */
         static MeiDocument* documentFromText(std::string text);
+        static MeiDocument* documentFromText(std::string text, XmlInstructions &inst);    
     private:
         XmlImportImpl *impl;
 };

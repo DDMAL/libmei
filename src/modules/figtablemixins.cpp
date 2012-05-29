@@ -51,5 +51,6 @@ void mei::TabularMixIn::removeRowspan() {
     b->removeAttribute("rowspan");
 };
 
+/* include <rowspanmixin> */
 
 

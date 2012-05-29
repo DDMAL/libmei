@@ -32,5 +32,6 @@ void mei::RegularmethodMixIn::removeMethod() {
     b->removeAttribute("method");
 };
 
+/* include <methodmixin> */
 
 

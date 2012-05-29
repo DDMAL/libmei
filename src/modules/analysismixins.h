@@ -36,44 +36,44 @@ class CommonAnlMixIn {
     public:
         explicit CommonAnlMixIn(MeiElement *b);
         virtual ~CommonAnlMixIn();
-        /** \brief points to an element of which the current element is a copy.
+        /** \brief 
          */
         MeiAttribute* getCopyof();
         void setCopyof(std::string _copyof);
         bool hasCopyof();
         void removeCopyof();
-        /** \brief used to point to other elements that correspond to this one in a generic
-         *  fashion.
+        /** \brief 
          */
         MeiAttribute* getCorresp();
         void setCorresp(std::string _corresp);
         bool hasCorresp();
         void removeCorresp();
-        /** \brief used to point to the next event(s) in a user-defined collection.
+        /** \brief 
          */
         MeiAttribute* getNext();
         void setNext(std::string _next);
         bool hasNext();
         void removeNext();
-        /** \brief points to the previous event(s) in a user-defined collection.
+        /** \brief 
          */
         MeiAttribute* getPrev();
         void setPrev(std::string _prev);
         bool hasPrev();
         void removePrev();
-        /** \brief points to an element that is the same as the current element but is not a
-         *  literal copy of the current element.
+        /** \brief 
          */
         MeiAttribute* getSameas();
         void setSameas(std::string _sameas);
         bool hasSameas();
         void removeSameas();
-        /** \brief points to elements that are synchronous with the current element.
+        /** \brief 
          */
         MeiAttribute* getSynch();
         void setSynch(std::string _synch);
         bool hasSynch();
         void removeSynch();
+
+/* include <synchmixin> */
 
     private:
         MeiElement *b;
@@ -83,12 +83,14 @@ class HarmonicfunctionMixIn {
     public:
         explicit HarmonicfunctionMixIn(MeiElement *b);
         virtual ~HarmonicfunctionMixIn();
-        /** \brief describes harmonic function in any convenient typology.
+        /** \brief 
          */
         MeiAttribute* getHfunc();
         void setHfunc(std::string _hfunc);
         bool hasHfunc();
         void removeHfunc();
+
+/* include <hfuncmixin> */
 
     private:
         MeiElement *b;
@@ -98,13 +100,14 @@ class IntervalharmonicMixIn {
     public:
         explicit IntervalharmonicMixIn(MeiElement *b);
         virtual ~IntervalharmonicMixIn();
-        /** \brief encodes the harmonic interval between this note and other pitches occurring at
-         *  the same time.
+        /** \brief 
          */
         MeiAttribute* getInth();
         void setInth(std::string _inth);
         bool hasInth();
         void removeInth();
+
+/* include <inthmixin> */
 
     private:
         MeiElement *b;
@@ -114,15 +117,14 @@ class IntervallicdescMixIn {
     public:
         explicit IntervallicdescMixIn(MeiElement *b);
         virtual ~IntervallicdescMixIn();
-        /** \brief encodes the melodic interval from the previous pitch.
-         * 
-         *  The value may be a general directional indication (u, d, s) or a precise numeric
-         *  value in half steps.
+        /** \brief 
          */
         MeiAttribute* getIntm();
         void setIntm(std::string _intm);
         bool hasIntm();
         void removeIntm();
+
+/* include <intmmixin> */
 
     private:
         MeiElement *b;
@@ -132,12 +134,14 @@ class MelodicfunctionMixIn {
     public:
         explicit MelodicfunctionMixIn(MeiElement *b);
         virtual ~MelodicfunctionMixIn();
-        /** \brief describes melodic function in any convenient typology.
+        /** \brief 
          */
         MeiAttribute* getMfunc();
         void setMfunc(std::string _mfunc);
         bool hasMfunc();
         void removeMfunc();
+
+/* include <mfuncmixin> */
 
     private:
         MeiElement *b;
@@ -147,12 +151,14 @@ class PitchclassMixIn {
     public:
         explicit PitchclassMixIn(MeiElement *b);
         virtual ~PitchclassMixIn();
-        /** \brief holds pitch class information.
+        /** \brief 
          */
         MeiAttribute* getPclass();
         void setPclass(std::string _pclass);
         bool hasPclass();
         void removePclass();
+
+/* include <pclassmixin> */
 
     private:
         MeiElement *b;
@@ -162,13 +168,14 @@ class SolfaMixIn {
     public:
         explicit SolfaMixIn(MeiElement *b);
         virtual ~SolfaMixIn();
-        /** \brief contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
-         *  movable Do system.
+        /** \brief 
          */
         MeiAttribute* getPsolfa();
         void setPsolfa(std::string _psolfa);
         bool hasPsolfa();
         void removePsolfa();
+
+/* include <psolfamixin> */
 
     private:
         MeiElement *b;

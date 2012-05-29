@@ -18,6 +18,7 @@
 #include "meidocument.h"
 #include "meielement.h"
 #include "shared.h"
+#include "exceptions.h"
 
 using std::string;
 using std::vector;
@@ -28,6 +29,8 @@ using mei::MeiFactory;
 using mei::XmlExport;
 using mei::XmlExportImpl;
 using mei::Mei;
+using mei::XmlInstructions;
+using mei::XmlProcessingInstruction;
 
 /*
  XmlImport and XmlExport use a Partial Implementation (PImpl) model for their class structure.
@@ -54,17 +57,50 @@ bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
     return ex->impl->meiDocumentToFile(filename);
 }
 
+bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename, XmlInstructions &pi) {
+    XmlExport *ex = new XmlExport(doc);
+    ex->impl->convertProcessingInstructions(pi);
+    return ex->impl->meiDocumentToFile(filename);
+}
+
 string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
     XmlExport *ex = new XmlExport(doc);
     return ex->impl->meiDocumentToText();
 }
 
+string XmlExport::meiDocumentToText(mei::MeiDocument *doc, XmlInstructions &pi) {
+    XmlExport *ex = new XmlExport(doc);
+    ex->impl->convertProcessingInstructions(pi);
+    return ex->impl->meiDocumentToText();
+}
 
-bool XmlExportImpl::meiDocumentToFile(string filename) {
+/** Convert an element and its children to XML. Will also add
+ * the <?xml > prelude and namespace to the text.
+ */
+string XmlExport::meiElementToText(mei::MeiElement *el) {
+    XmlExport *ex = new XmlExport(NULL);
+    ex->impl->initRootElement(el);
+    return ex->impl->meiDocumentToText();
+}
+
+bool XmlExportImpl::meiDocumentToFile(string filename) throw(FileWriteFailureException) {
     xmlKeepBlanksDefault(0);
-    xmlSaveFormatFileEnc(filename.c_str(), xmlDocOutput, "UTF-8", 1);
+    if (xmlSaveFormatFileEnc(filename.c_str(), this->xmlDocOutput, "UTF-8", 1) == -1) {
+        throw FileWriteFailureException(filename);
+    } else {
+        return true;
+    }
+}
 
-    return true;
+void XmlExportImpl::convertProcessingInstructions(XmlInstructions &pi) {
+    xmlDocPtr d = this->xmlDocOutput;
+    xmlNodePtr r = xmlDocGetRootElement(d);
+    for (vector<XmlProcessingInstruction*>::iterator iter = pi.begin(); iter != pi.end(); ++iter) {
+        xmlNodePtr p = xmlNewDocPI(d, (xmlChar*)(*iter)->getName().c_str(), (xmlChar*)(*iter)->getValue().c_str());
+        if (p != NULL) {
+            xmlAddPrevSibling(r, p);
+        }
+    }
 }
 
 string XmlExportImpl::meiDocumentToText() {
@@ -76,25 +112,44 @@ string XmlExportImpl::meiDocumentToText() {
     return s;
 }
 
-
 XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
     this->meiDocument = doc;
-    this->init();
+    if (doc != NULL) {
+        this->init();
+    }
 }
 
 XmlExportImpl::~XmlExportImpl() {
     if (xmlDocOutput) {
         xmlFreeDoc(xmlDocOutput);
     }
-    xmlCleanupParser();
 }
 
-void XmlExportImpl::init() {
-    MeiElement *root = this->meiDocument->getRootElement();
-    // Copy the version from the document into the root element
-    root->addAttribute("meiversion", meiDocument->getVersion());
+void XmlExportImpl::init() throw(DocumentRootNotSetException) {
+    if (!this->meiDocument->getRootElement()) {
+        throw DocumentRootNotSetException("");
+    }
 
-    xmlNode* xroot = this->meiElementToXmlNode(root);
+    rootElement = this->meiDocument->getRootElement();
+    // Copy the version from the document into the root element
+    rootElement->addAttribute("meiversion", meiDocument->getVersion());
+
+    xmlNode* xroot = this->meiElementToXmlNode(rootElement);
+
+    xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
+    xmlDocSetRootElement(xmldoc, xroot);
+    this->xmlDocOutput = xmldoc;
+    documentRootNode = NULL;
+}
+
+/** Special init method if we don't have a document.
+ * Creates a dummy document for the namespace checks in
+ * meiElementToXmlNode.
+ */
+void XmlExportImpl::initRootElement(MeiElement *root) {
+    meiDocument = new MeiDocument();
+    rootElement = root;
+    xmlNodePtr xroot = this->meiElementToXmlNode(root);
 
     xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
     xmlDocSetRootElement(xmldoc, xroot);
@@ -105,7 +160,7 @@ void XmlExportImpl::init() {
 xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
     xmlNodePtr curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());
 
-    if (el == this->meiDocument->getRootElement()) {
+    if (el == rootElement) {
         // we're working with the root element of this document. We need to set up any global namespaces.
         std::vector<MeiNamespace*> nsps = this->meiDocument->getNamespaces();
         for (std::vector<MeiNamespace*>::iterator iter = nsps.begin(); iter != nsps.end(); ++iter) {

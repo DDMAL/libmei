@@ -1,0 +1,7 @@
+LibMEI is developed primarily by Andrew Hankinson and Alastair Porter at the Distribute Digital Music Archives and Libraries lab, McGill University, Montreal, QC, Canada.
+
+There have been a number of other important contributors:
+
+2011 Mahtab Ghamsari-Esfahani: Project setup, Initial author
+2011 Jamie Klassen: Auto-generation from the MEI specs, MEI Updater Utility
+2012 Greg Burlet: Bug fixes, MusicXML to MEI converter

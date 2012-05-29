@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -47,7 +47,8 @@ class MEI_EXPORT MeiDocument {
         /**
          * \brief Create a new document.
          */
-        MeiDocument();
+        MeiDocument(std::string meiVers = *--MEI_VERSION.end());
+        ~MeiDocument();
 
         bool hasNamespace(std::string href);
         MeiNamespace* getNamespace(std::string href);

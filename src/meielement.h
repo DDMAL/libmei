@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Mahtab Ghamsari-Esfahani, Jamie Klassen, Alastair Porter, Andrew Hankinson
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -80,6 +80,13 @@ class MEI_EXPORT MeiElement
         /** \brief Get the id of this element.
          */
         const std::string getId();
+
+        /** \brief Set an element's ID. 
+         *   This is not always necessary since an element
+         *   that does not have an ID will be assigned a 
+         *   random UUID string automatically if the ID is not set.
+         */
+        void setId(std::string id);
 
         /** \brief Checks if the ID of the element is set.
          */
@@ -313,7 +320,6 @@ class MEI_EXPORT MeiElement
          */
         void generateAndSetId();
         std::string id;
-        void setId(std::string id);
         std::string name;
         std::string value;
         std::string tail;

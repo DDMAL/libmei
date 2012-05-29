@@ -51,6 +51,7 @@ void mei::MordentLogMixIn::removeLong() {
     b->removeAttribute("long");
 };
 
+/* include <longmixin> */
 mei::OrnamentaccidMixIn::OrnamentaccidMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -95,6 +96,7 @@ void mei::OrnamentaccidMixIn::removeAccidlower() {
     b->removeAttribute("accidlower");
 };
 
+/* include <accidlowermixin> */
 mei::TurnLogMixIn::TurnLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -139,5 +141,6 @@ void mei::TurnLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
+/* include <formmixin> */
 
 

@@ -36,30 +36,32 @@ class ChannelizedMixIn {
     public:
         explicit ChannelizedMixIn(MeiElement *b);
         virtual ~ChannelizedMixIn();
-        /** \brief records a MIDI channel value.
+        /** \brief 
          */
         MeiAttribute* getMidiChannel();
         void setMidiChannel(std::string _midichannel);
         bool hasMidiChannel();
         void removeMidiChannel();
-        /** \brief specifies the 'on' part of the duty cycle as a percentage of a note's duration.
+        /** \brief 
          */
         MeiAttribute* getMidiDuty();
         void setMidiDuty(std::string _mididuty);
         bool hasMidiDuty();
         void removeMidiDuty();
-        /** \brief sets the MIDI port value.
+        /** \brief 
          */
         MeiAttribute* getMidiPort();
         void setMidiPort(std::string _midiport);
         bool hasMidiPort();
         void removeMidiPort();
-        /** \brief sets the MIDI track.
+        /** \brief 
          */
         MeiAttribute* getMidiTrack();
         void setMidiTrack(std::string _miditrack);
         bool hasMidiTrack();
         void removeMidiTrack();
+
+/* include <midi.trackmixin> */
 
     private:
         MeiElement *b;
@@ -69,18 +71,20 @@ class MidiinstrumentMixIn {
     public:
         explicit MidiinstrumentMixIn(MeiElement *b);
         virtual ~MidiinstrumentMixIn();
-        /** \brief sets the MIDI instrument number.
+        /** \brief 
          */
         MeiAttribute* getMidiInstrnum();
         void setMidiInstrnum(std::string _midiinstrnum);
         bool hasMidiInstrnum();
         void removeMidiInstrnum();
-        /** \brief provides a General MIDI label for the MIDI instrument.
+        /** \brief 
          */
         MeiAttribute* getMidiInstrname();
         void setMidiInstrname(std::string _midiinstrname);
         bool hasMidiInstrname();
         void removeMidiInstrname();
+
+/* include <midi.instrnamemixin> */
 
     private:
         MeiElement *b;
@@ -90,14 +94,14 @@ class MidinumberMixIn {
     public:
         explicit MidinumberMixIn(MeiElement *b);
         virtual ~MidinumberMixIn();
-        /** \brief along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief 
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
         bool hasNum();
         void removeNum();
+
+/* include <nummixin> */
 
     private:
         MeiElement *b;
@@ -107,13 +111,14 @@ class MiditempoMixIn {
     public:
         explicit MiditempoMixIn(MeiElement *b);
         virtual ~MiditempoMixIn();
-        /** \brief contains a MIDI value, that is, the number of quarter notes per minute in the
-         *  range from 10 to 1000.
+        /** \brief 
          */
         MeiAttribute* getMidiTempo();
         void setMidiTempo(std::string _miditempo);
         bool hasMidiTempo();
         void removeMidiTempo();
+
+/* include <midi.tempomixin> */
 
     private:
         MeiElement *b;
@@ -123,12 +128,14 @@ class MidivalueMixIn {
     public:
         explicit MidivalueMixIn(MeiElement *b);
         virtual ~MidivalueMixIn();
-        /** \brief MIDI number
+        /** \brief 
          */
         MeiAttribute* getVal();
         void setVal(std::string _val);
         bool hasVal();
         void removeVal();
+
+/* include <valmixin> */
 
     private:
         MeiElement *b;
@@ -138,15 +145,14 @@ class TimebaseMixIn {
     public:
         explicit TimebaseMixIn(MeiElement *b);
         virtual ~TimebaseMixIn();
-        /** \brief indicates the number of pulses (sometimes referred to as ticks or divisions) per
-         *  quarter note.
-         * 
-         *  Unlike MIDI, MEI permits different values for a score and individual staves.
+        /** \brief 
          */
         MeiAttribute* getPpq();
         void setPpq(std::string _ppq);
         bool hasPpq();
         void removePpq();
+
+/* include <ppqmixin> */
 
     private:
         MeiElement *b;

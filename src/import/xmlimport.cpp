@@ -14,6 +14,9 @@
 #include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
+#include "meixml.h"
+
+#include <iostream>
 
 using std::string;
 using std::vector;
@@ -23,6 +26,8 @@ using mei::MeiElement;
 using mei::MeiFactory;
 using mei::XmlImport;
 using mei::XmlImportImpl;
+using mei::XmlInstructions;
+using mei::XmlProcessingInstruction;
 
 XmlImport::XmlImport() : impl(new XmlImportImpl) {
 }
@@ -31,20 +36,35 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
-MeiDocument* XmlImport::documentFromFile(const string filename) {
-    return documentFromFile(filename.c_str());
-}
-
-MeiDocument* XmlImport::documentFromFile(const char *filename) {
+MeiDocument* XmlImport::documentFromFile(string filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
     delete import;
     return d;
 }
 
+MeiDocument* XmlImport::documentFromFile(std::string filename, XmlInstructions &inst) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromFile(filename);
+    inst = import->impl->pi;
+    
+    delete import;
+    return d;
+    
+}
+
 MeiDocument* XmlImport::documentFromText(string text) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromText(text);
+    delete import;
+    return d;
+}
+
+MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
+    XmlImport *import = new XmlImport();
+    MeiDocument *d = import->impl->documentFromText(text);
+    inst = import->impl->pi;
+    
     delete import;
     return d;
 }
@@ -56,13 +76,25 @@ XmlImportImpl::XmlImportImpl() {
     rootMeiElement = NULL;
 }
 
-MeiDocument* XmlImportImpl::documentFromFile(const string filename) {
-    return documentFromFile(filename.c_str());
-}
+MeiDocument* XmlImportImpl::documentFromFile(string filename) {
+    xmlDocPtr doc = NULL;
+    /* XML_PARSE_NOERROR will simply suppress the libxml error messages on malformed XML,
+        it won't actually stop it from parsing. */
+    doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR | XML_PARSE_NONET | XML_PARSE_NOWARNING);
 
-MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
-    xmlDoc *doc = NULL;
-    doc = xmlReadFile(filename, NULL, 0);
+    if (doc == NULL) {
+        throw MalformedFileException(filename);
+    }
+    
+    xmlNodePtr child = doc->children;
+    while (child != NULL) {
+        if (child->type == XML_PI_NODE) {
+            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
+            this->pi.push_back(xpi);            
+        }
+        child = child->next;
+    }
+    
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 
@@ -75,19 +107,34 @@ MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
 
 MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlDoc *doc = NULL;
-    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, 0);
+    int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOWARNING;
+    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, options);
+    
+    xmlNodePtr child = doc->children;
+    while (child != NULL) {
+        if (child->type == XML_PI_NODE) {
+            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
+            this->pi.push_back(xpi);            
+        }
+        child = child->next;
+    }
+    
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 
     if (this->checkCompatibility(this->rootXmlNode)) {
-        this->init();
+        this->init();        
         return this->meiDocument;
     }
     return NULL;
 }
 
 void XmlImportImpl::init() {
-    MeiDocument *doc = new MeiDocument();
+    // get mei version from document
+    xmlAttrPtr meiversAttr = xmlHasProp(this->rootXmlNode, (const xmlChar*)"meiversion");
+    string meiVersion = string((const char*)meiversAttr->children->content);
+    
+    MeiDocument *doc = new MeiDocument(meiVersion);
     this->meiDocument = doc;
 
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
@@ -98,7 +145,6 @@ mei::XmlImportImpl::~XmlImportImpl() {
     if (xmlMeiDocument) {
         xmlFreeDoc(xmlMeiDocument);
     }
-    xmlCleanupParser();
 }
 
 MeiDocument* XmlImportImpl::getMeiDocument() {
@@ -166,7 +212,6 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
             comment->setValue(string((const char*)child->content));
             obj->addChild(comment);
         }
-
         child = child->next;
     }
     return obj;
@@ -176,7 +221,7 @@ bool XmlImportImpl::checkCompatibility(xmlNode *r) throw(NoVersionFoundException
     xmlAttrPtr meivers = xmlHasProp(r, (const xmlChar*)"meiversion");
     if (meivers == NULL) {
         throw NoVersionFoundException("");
-    } else if (string((const char*)meivers->children->content) != MEI_VERSION) {
+    } else if (MEI_VERSION.find(string((const char*)meivers->children->content)) == MEI_VERSION.end()) {
         throw VersionMismatchException(string((const char*)meivers->children->content));
     } else {
         return true;

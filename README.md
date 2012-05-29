@@ -34,6 +34,11 @@ still in active development.
 More detailed information about compilation and use is available at the
 libmei wiki: https://github.com/DDMAL/libmei/wiki
 
+Python
+-------
+LibMEI ships with Python bindings using the Boost-Python framework. More information about installing and using
+these bindings can be found in [Installing the Python bindings](https://github.com/DDMAL/libmei/wiki/Installing-the-Python-bindings)
+
 Authors
 -------
 

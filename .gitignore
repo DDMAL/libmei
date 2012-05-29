@@ -20,3 +20,7 @@ build/
 /tools/mei-source.xml
 
 /tools/mei-all.xml
+python/build
+*.so
+python/dist
+pymei.egg-info

@@ -32,6 +32,7 @@ void mei::LigatureLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
+/* include <formmixin> */
 mei::MensurLogMixIn::MensurLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -114,6 +115,7 @@ void mei::MensurLogMixIn::removeTempus() {
     b->removeAttribute("tempus");
 };
 
+/* include <tempusmixin> */
 mei::MensurVisMixIn::MensurVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -196,6 +198,7 @@ void mei::MensurVisMixIn::removeSign() {
     b->removeAttribute("sign");
 };
 
+/* include <signmixin> */
 mei::MensurationLogMixIn::MensurationLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -278,6 +281,7 @@ void mei::MensurationLogMixIn::removeMensurSlash() {
     b->removeAttribute("mensur.slash");
 };
 
+/* include <mensur.slashmixin> */
 mei::MensurationVisMixIn::MensurationVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -341,6 +345,7 @@ void mei::MensurationVisMixIn::removeMensurSize() {
     b->removeAttribute("mensur.size");
 };
 
+/* include <mensur.sizemixin> */
 mei::NoteLogMensuralMixIn::NoteLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -366,6 +371,7 @@ void mei::NoteLogMensuralMixIn::removeLig() {
     b->removeAttribute("lig");
 };
 
+/* include <ligmixin> */
 mei::RestVisMensuralMixIn::RestVisMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -391,6 +397,7 @@ void mei::RestVisMensuralMixIn::removeSpaces() {
     b->removeAttribute("spaces");
 };
 
+/* include <spacesmixin> */
 mei::StaffDefLogMensuralMixIn::StaffDefLogMensuralMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -435,5 +442,6 @@ void mei::StaffDefLogMensuralMixIn::removeProportNumbase() {
     b->removeAttribute("proport.numbase");
 };
 
+/* include <proport.numbasemixin> */
 
 

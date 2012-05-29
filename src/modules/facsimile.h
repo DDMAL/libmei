@@ -34,12 +34,7 @@
 
 
 namespace mei {
-/** \brief facsimile ― Contains a representation of some written source in the form of a
- *  set of images rather than as transcribed or encoded text.
- * 
- *  The decls attribute may be used to link the collection of images with a
- *  particular source described in the header. This element is modelled on an
- *  element in the Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
@@ -56,13 +51,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
         REGISTER_DECLARATION(Facsimile);
 };
 
-/** \brief surface ― Defines a writing surface in terms of a rectangular coordinate
- *  space, optionally grouping one or more graphic representations of that space,
- *  and rectangular zones of interest within it.
- * 
- *  The startid attribute may be used to hold a reference to the first feature
- *  occurring on this surface. This element is modelled on an element in the Text
- *  Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Surface : public MeiElement {
     public:
@@ -82,9 +71,7 @@ class MEI_EXPORT Surface : public MeiElement {
         REGISTER_DECLARATION(Surface);
 };
 
-/** \brief zone ― Defines a rectangular area contained within a surface.
- * 
- *  This element is modelled on an element in the Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Zone : public MeiElement {
     public:

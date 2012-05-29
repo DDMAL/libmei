@@ -32,6 +32,7 @@ void mei::AgentidentMixIn::removeAgent() {
     b->removeAttribute("agent");
 };
 
+/* include <agentmixin> */
 mei::EditMixIn::EditMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -76,6 +77,7 @@ void mei::EditMixIn::removeEvidence() {
     b->removeAttribute("evidence");
 };
 
+/* include <evidencemixin> */
 mei::ExtentMixIn::ExtentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -101,6 +103,7 @@ void mei::ExtentMixIn::removeExtent() {
     b->removeAttribute("extent");
 };
 
+/* include <extentmixin> */
 mei::ReasonidentMixIn::ReasonidentMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -126,5 +129,6 @@ void mei::ReasonidentMixIn::removeReason() {
     b->removeAttribute("reason");
 };
 
+/* include <reasonmixin> */
 
 

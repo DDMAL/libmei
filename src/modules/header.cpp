@@ -446,6 +446,25 @@ mei::Event::Event(const Event& other) :
 {
 }
 
+MeiAttribute* mei::Event::getReg() {
+    if (!hasAttribute("reg")) {
+        throw AttributeNotFoundException("reg");
+    }
+    return getAttribute("reg");
+};
+
+void mei::Event::setReg(std::string _reg) {
+    MeiAttribute *a = new MeiAttribute("reg", _reg);
+    addAttribute(a);
+};
+
+bool mei::Event::hasReg() {
+    return hasAttribute("reg");
+};
+
+void mei::Event::removeReg() {
+    removeAttribute("reg");
+};
 /* include <event> */
 
 mei::EventList::EventList() :

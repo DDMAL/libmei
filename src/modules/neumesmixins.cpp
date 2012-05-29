@@ -51,6 +51,7 @@ void mei::IneumeLogMixIn::removeName() {
     b->removeAttribute("name");
 };
 
+/* include <namemixin> */
 mei::UneumeLogMixIn::UneumeLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -95,5 +96,6 @@ void mei::UneumeLogMixIn::removeName() {
     b->removeAttribute("name");
 };
 
+/* include <namemixin> */
 
 

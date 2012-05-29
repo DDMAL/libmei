@@ -32,5 +32,10 @@ void mei::FacsimileMixIn::removeFacs() {
     b->removeAttribute("facs");
 };
 
+void mei::FacsimileMixIn::getCoords() {
+    return;
+}
+
+
 
 

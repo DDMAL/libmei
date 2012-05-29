@@ -16,7 +16,7 @@ NS_PREFIX_MAP = {
     "http://www.w3.org/1999/xlink": "xlink"
 }
 
-AUTHORS = "Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet"
+AUTHORS = "Andrew Hankinson, Alastair Porter"
 
 METHODS_HEADER_TEMPLATE = """{documentation}
         MeiAttribute* get{attNameUpper}();
@@ -136,7 +136,7 @@ ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
 """
 
 LICENSE = """/*
-    Copyright (c) 2011 {authors}
+    Copyright (c) 2011-2012 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -449,7 +449,6 @@ def parse_includes(file_dir, includes_dir):
     # get the files in the includes directory
     includes = [f for f in os.listdir(includes_dir) if not f.startswith(".")]
 
-
     for dp,dn,fn in os.walk(file_dir):
         for f in fn:
             if f.startswith("."):
@@ -458,14 +457,11 @@ def parse_includes(file_dir, includes_dir):
             if methods:
                 __parse_codefile(methods, inc, dp, f)
 
-
-
 def __process_include(fname, includes, includes_dir):
     name,ext = os.path.splitext(fname)
-    print "Name {0}, Extension {1}".format(name,ext)
     new_methods, includes_block = None, None
     if "{0}.inc".format(fname) in includes:
-        lg.debug("Huzzah! an include was found for {0}".format(fname))
+        lg.debug("\tProcessing include for {0}".format(fname))
         f = open(os.path.join(includes_dir, "{0}.inc".format(fname)), 'r')
         includefile = f.read()
         f.close()

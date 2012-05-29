@@ -38,18 +38,22 @@ using std::string;
 using std::vector;
 using std::find;
 
-using std::cout;
-using std::endl;
-
 using mei::MeiElement;
 using mei::MeiNamespace;
 
-mei::MeiDocument::MeiDocument() {
+mei::MeiDocument::MeiDocument(string meiVers) {
     this->root = NULL;
-    this->meiVersion = MEI_VERSION;
+    this->meiVersion = meiVers;
     // add the default MEI namespace
     MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
     this->namespaces.push_back(mei);
+}
+
+mei::MeiDocument::~MeiDocument() {
+    vector<MeiElement*>::iterator iter;
+    for(iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {
+       delete *iter; 
+    }
 }
 
 bool mei::MeiDocument::hasNamespace(string href) {
@@ -119,9 +123,9 @@ MeiElement* mei::MeiDocument::getElementById(string id) {
 
 vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     vector<MeiElement*> ret;
-    for (map<string, MeiElement*>::iterator iter = idMap.begin(); iter != idMap.end(); ++iter) {
-        if ((*iter).second->getName() == name) {
-            ret.push_back((*iter).second);
+    for (vector<MeiElement*>::iterator iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {
+        if ((*iter)->getName() == name) {
+            ret.push_back((*iter));
         }
     }
     return ret;

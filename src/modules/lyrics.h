@@ -38,15 +38,7 @@
 
 
 namespace mei {
-/** \brief lyrics ― Vocally performed 'text' of a musical composition, such as a song or
- *  opera.
- * 
- *  The staff attribute gives the staff to which the lyrics are attached. If there
- *  is more than one layer on that staff, the layer attribute may be used to
- *  indicate the layer from which the rhythm should be taken. Often, automatic text
- *  underlay may rely on the notes of the indicated staff. When this is not
- *  desirable, however, the rhythm of the lyrics may be recorded in the rhythm
- *  attribute of the parent verse element.
+/** \brief 
  */
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
@@ -70,11 +62,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
         REGISTER_DECLARATION(Lyrics);
 };
 
-/** \brief verse ― Lyric verse.
- * 
- *  The lb element is allowed here in order to facilitate karaoke applications. The
- *  func attribute on lb may be used to distinguish true line ends from line group
- *  ends for these applications.
+/** \brief 
  */
 class MEI_EXPORT Verse : public MeiElement {
     public:

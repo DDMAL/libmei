@@ -25,6 +25,7 @@
 #define MEI_XMLIMPORT_IMPL_H_
 
 #include "meidocument.h"
+#include "meixml.h"
 #include <libxml/xmlreader.h>
 #include <string>
 
@@ -33,12 +34,7 @@ namespace mei {
     class XmlImportImpl {
         private:
             friend class XmlImport;
-
-            /** public interfaces for importing. Each of these will convert their input
-             *  into an xmlNode for processing by the _MeiXmlStruct class.
-             */
-            MeiDocument* documentFromFile(const char* filename);
-            MeiDocument* documentFromFile(const std::string filename);
+            MeiDocument* documentFromFile(std::string filename);
             MeiDocument* documentFromText(std::string text);
 
             XmlImportImpl();
@@ -54,6 +50,7 @@ namespace mei {
             xmlDoc* xmlMeiDocument;
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
+            XmlInstructions pi;
     };
 }
 

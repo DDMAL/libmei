@@ -32,6 +32,7 @@ void mei::FretlocationMixIn::removeFret() {
     b->removeAttribute("fret");
 };
 
+/* include <fretmixin> */
 mei::HarmLogMixIn::HarmLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -57,6 +58,7 @@ void mei::HarmLogMixIn::removeChordref() {
     b->removeAttribute("chordref");
 };
 
+/* include <chordrefmixin> */
 mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -101,5 +103,6 @@ void mei::HarmVisMixIn::removeRendgrid() {
     b->removeAttribute("rendgrid");
 };
 
+/* include <rendgridmixin> */
 
 

@@ -51,6 +51,7 @@ void mei::NoteGesTablatureMixIn::removeTabString() {
     b->removeAttribute("tab.string");
 };
 
+/* include <tab.stringmixin> */
 mei::StaffDefGesTablatureMixIn::StaffDefGesTablatureMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -76,5 +77,6 @@ void mei::StaffDefGesTablatureMixIn::removeTabStrings() {
     b->removeAttribute("tab.strings");
 };
 
+/* include <tab.stringsmixin> */
 
 

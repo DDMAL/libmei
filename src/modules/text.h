@@ -36,10 +36,7 @@
 
 
 namespace mei {
-/** \brief back ― Back matter such as indexes, advertisements, etc.
- * 
- *  following the main part of a text. This element is modelled on an element in the
- *  Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Back : public MeiElement {
     public:
@@ -58,11 +55,7 @@ class MEI_EXPORT Back : public MeiElement {
         REGISTER_DECLARATION(Back);
 };
 
-/** \brief division ― Major structural division of text, such as a preface, chapter or
- *  section.
- * 
- *  Often, the <head> sub-element identifies the <div>'s purpose. This element is
- *  modelled on an element in the Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Div : public MeiElement {
     public:
@@ -82,15 +75,7 @@ class MEI_EXPORT Div : public MeiElement {
         REGISTER_DECLARATION(Div);
 };
 
-/** \brief front ― Bundles prefatory text found before the start of the musical text.
- * 
- *  <titlePage> may be used to transcribe the item's title page. Other front matter
- *  structures, such as a preface, dedication, or table of contents, may be encoded
- *  as textual divisions; that is, as <div>s, with an optional <head> sub-element
- *  describing the nature of the division. The <pb> element is allowed here in order
- *  to accommodate page images, e.g. cover, endpapers, etc. before and after the
- *  actual textual matter. This element is modelled on an element in the Text
- *  Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Front : public MeiElement {
     public:
@@ -109,12 +94,7 @@ class MEI_EXPORT Front : public MeiElement {
         REGISTER_DECLARATION(Front);
 };
 
-/** \brief heading ― Contains any heading, for example, the title of a section of text,
- *  or the heading of a list.
- * 
- *  When <head> is used, it should be the first sub-element, followed by one or more
- *  other elements. This element is modelled on elements in Encoded Archival
- *  Description (EAD), Text Encoding Initiative (TEI), and HTML.
+/** \brief 
  */
 class MEI_EXPORT Head : public MeiElement {
     public:
@@ -133,10 +113,7 @@ class MEI_EXPORT Head : public MeiElement {
         REGISTER_DECLARATION(Head);
 };
 
-/** \brief item ― Single item in a <list>.
- * 
- *  This element is modelled on elements in Encoded Archival Description (EAD), Text
- *  Encoding Initiative (TEI), and HTML.
+/** \brief 
  */
 class MEI_EXPORT Item : public MeiElement {
     public:
@@ -153,12 +130,7 @@ class MEI_EXPORT Item : public MeiElement {
         REGISTER_DECLARATION(Item);
 };
 
-/** \brief line of text ― Contains a single line of text within a line group.
- * 
- *  The n attribute should be used to record a label for the line, i.e., most likely
- *  a line number. Do not confuse this element with the <line> element, which is
- *  used for graphical lines that occur in music notation. This element is modelled
- *  on elements in the Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT L : public MeiElement {
     public:
@@ -176,10 +148,7 @@ class MEI_EXPORT L : public MeiElement {
         REGISTER_DECLARATION(L);
 };
 
-/** \brief line group ― May be used for any section of text that is organized as a group
- *  of lines.
- * 
- *  This element is modelled on an element in the Text Encoding Initiative (TEI).
+/** \brief 
  */
 class MEI_EXPORT Lg : public MeiElement {
     public:
@@ -199,18 +168,14 @@ class MEI_EXPORT Lg : public MeiElement {
         REGISTER_DECLARATION(Lg);
 };
 
-/** \brief list ― A formatting element that contains a series of items separated from one
- *  another and arranged in a linear, often vertical, sequence.
- * 
- *  This element is modelled on elements in Encoded Archival Description (EAD), Text
- *  Encoding Initiative (TEI), and HTML.
+/** \brief 
  */
 class MEI_EXPORT List : public MeiElement {
     public:
         List();
         List(const List& other);
         virtual ~List();
-        /** \brief records the function of the dot.
+        /** \brief 
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -228,14 +193,7 @@ class MEI_EXPORT List : public MeiElement {
         REGISTER_DECLARATION(List);
 };
 
-/** \brief quote ― A formatting element that designates an extended quotation; that is, a
- *  passage attributed to a source external to the text.
- * 
- *  The quotation is normally set off from the text by spacing or other typographic
- *  distinction. The source for the quote may be included in the optional <bibl>
- *  sub-element. Use <rend> for words that are enclosed in quotation marks for
- *  emphasis or for a short quoted phrase that occurs within a line of text. This
- *  element is modelled on elements found in HTML, TEI, and EAD.
+/** \brief 
  */
 class MEI_EXPORT Quote : public MeiElement {
     public:

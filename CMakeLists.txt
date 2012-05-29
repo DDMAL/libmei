@@ -20,13 +20,14 @@ set( MEI_LIB_PATCH_VERSION "1" )
 set( MEI_LIB_VERSION "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}.${MEI_LIB_PATCH_VERSION}" )
 set( MEI_LIB_VERSION_SONAME "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}")
 
-option(MEI_BUILD_TESTS "Build all unit tests" ON)
+option(MEI_BUILD_TESTS "Build all unit tests" OFF)
 option(MEI_TEST_COVERAGE "Build with test coverage support" OFF)
 
-if(MEI_BUILD_TESTS)
-	find_package( GoogleTest REQUIRED )
-	enable_testing()
-endif(MEI_BUILD_TESTS)
+find_package( GoogleTest )
+if (GTEST_FOUND)
+    set(MEI_BUILD_TESTS ON)
+    enable_testing()
+endif(GTEST_FOUND)
 
 set( CPACK_GENERATOR "TBZ2" "DEB" )
 set( CPACK_PACKAGE_VERSION_MAJOR "${MEI_LIB_MAJOR_VERSION}" )
@@ -85,7 +86,7 @@ ADD_DEFINITIONS(
 )
 
 add_library( mei SHARED ${LIBMEI_SRC} )
-target_link_libraries( mei 
+target_link_libraries( mei
 	${OS_SPECIFIC_LINK_LIBRARIES}
 	${LIBXML2_LIBRARIES}
 	${UUID_LIBRARY}
@@ -126,7 +127,7 @@ if( MEI_BUILD_TESTS )
     foreach(file ${files})
       add_mei_test(${file})
     endforeach()
-    
+
 endif( MEI_BUILD_TESTS )
 
 
