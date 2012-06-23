@@ -157,6 +157,9 @@ string MeiXmlInstructions_Print(XmlInstructions x) {
     return res.str();
 }
 
+bool MeiXmlInstructions_EqualWrap(const XmlInstructions x, const XmlInstructions y) { return x == y; }
+bool MeiXmlInstructions_NEqualWrap(const XmlInstructions x, const XmlInstructions y) { return x != y; }
+bool MeiXmlInstructions_NonZero(const XmlInstructions x) { return !x.empty(); }
 XmlProcessingInstruction* MeiXmlInstructions_PopFromList(XmlInstructions* x) {
     XmlProcessingInstruction* t = x->back();
     x->pop_back();
@@ -218,9 +221,14 @@ BOOST_PYTHON_MODULE(_libmei) {
     VectorFromList<MeiElement>();
     VectorFromList<MeiAttribute>();
     VectorFromList<MeiNamespace>();
+    VectorFromList<XmlInstructions>();
 
     class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
         .def(vector_indexing_suite<XmlInstructions>())
+        .def("__eq__", &MeiXmlInstructions_EqualWrap)
+        .def("__ne__", &MeiXmlInstructions_NEqualWrap)
+        .def("__iter__", boost::python::iterator<XmlInstructions>())
+        .def("__nonzero__", &MeiXmlInstructions_NonZero)
         .def("__str__", &MeiXmlInstructions_Print)
         .def("__repr__", &MeiXmlInstructions_Print)
         .def("pop", &MeiXmlInstructions_PopFromList, return_value_policy<reference_existing_object>())
