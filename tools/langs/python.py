@@ -44,7 +44,7 @@ LICENSE = """\"\"\"
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 \"\"\""""
 
-AUTHORS = "Andrew Hankinson, Alastair Porter"
+AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 def create(schema):
     lg.debug("Begin Python Output...")
