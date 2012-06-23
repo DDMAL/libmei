@@ -308,7 +308,35 @@ class MeiElementTest(unittest.TestCase):
 
         # an unattached element will return -1
         self.assertEqual(-1, n4.getPositionInDocument())
-    
+
+    def test_popfromattributes(self):
+        m = MeiElement('mei')
+        m.addAttribute('foo', '1')
+        m.addAttribute('bar', '2')
+        m.addAttribute('baz', '3')
+
+        attrs = m.getAttributes()
+
+        foo = attrs.pop()
+
+        self.assertEqual('3', foo.value)
+        self.assertEqual(2, len(attrs))
+
+    def test_pushtoattributes(self):
+        m = MeiElement('mei')
+        m.addAttribute('foo', '1')
+        m.addAttribute('bar', '2')
+        m.addAttribute('baz', '3')
+
+        attrs = m.getAttributes()
+
+        new = MeiAttribute('hi', 'there')
+
+        attrs.push(new)
+
+        self.assertEqual('there', attrs[0].value)
+        self.assertEqual(4, len(attrs))
+
     # def test_copyconstructor(self):
     #     n1 = MeiElement("note")
     #     noteid = n1.id
