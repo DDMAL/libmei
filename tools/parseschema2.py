@@ -215,16 +215,13 @@ if __name__ == "__main__":
     lang_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
     
     args = p.parse_args()
-    
+
     if args.showlang:
         import langs
         print "Available Output Languages"
         for l in langs.AVAILABLE_LANGS:
             print "\t{0}".format(l)
         sys.exit(0)
-
-    lg.debug(args.compiled)
-
 
     if not args.compiled:
         tdir = tempfile.mkdtemp()
@@ -260,6 +257,10 @@ if __name__ == "__main__":
         py.create(schema)
         if args.includes:
             py.parse_includes(args.outdir, args.includes)
+
+    if "manuscript" in args.lang:
+        import langs.manuscript as ms
+        ms.create(schema)
     
     # clean up tempdir
     if tdir:
