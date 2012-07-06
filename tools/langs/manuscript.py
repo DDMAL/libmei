@@ -167,14 +167,11 @@ convertDictToXml "(meiel) {
 }"
 
 meiDocumentToFile "(meidoc, filename) {
-    xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-8' & Chr(34) & ' ?>\n';
+    xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-8' & Chr(34) & ' ?>
+';
     meiout = xdecl & convertDictToXml(meidoc[0]);
-
-    dir = Sibelius.GetDocumentsFolder();
-    fname = dir & filename;
-
-    Sibelius.CreateTextFile(fname);
-    Sibelius.AppendTextFile(fname, meiout, 0);
+    Sibelius.CreateTextFile(filename);
+    Sibelius.AppendTextFile(filename, meiout, 0);
 
     return true;
 }"
