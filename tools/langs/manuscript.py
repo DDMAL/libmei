@@ -42,52 +42,70 @@ createEntry "(tagname) {
 }"
 
 getChildren "(obj) {
-    c = '';
-    for each Value v in obj {
-        c = v['children'];
-    }
-    return c;
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    return el['children'];
 }"
 
-getAttrs "(obj) {
-    a = '';
-    for each Value v in obj {
-        a = v['attrs'];
-    }
-    return a;
+addChild "(obj, child) {
+    c = getChildren(obj);
+    c.Push(child);
+}"
+
+getAttributes "(obj) {
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    return el['attrs'];
+}"
+
+addAttribute "(obj, attrname, attrval) {
+    a = getAttributes(obj);
+    a[attrname] = attrval;
+}"
+
+removeAttribute "(obj, attrname) {
+    // since there are no delete functions
+    // for dictionaries, we set the attribute
+    // to a blank space and this will get 
+    // removed when converted to XML.
+    a = getAttributes(obj);
+    a[attrname] = ' ';
 }"
 
 getName "(obj) {
-    for each Name n in obj {
-        return n;
-    }
+    n = '';
+    props = obj.GetPropertyNames();
+    return props[0];
 }"
 
 setText "(obj, val) {
-    for each Value v in obj {
-        v['text'] = val;
-    }
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    el['text'] = val;
 }"
+
 getText "(obj) {
-    t = '';
-    for each Value v in obj {
-        t = v['text'];
-    }
-    return t;
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    return el['text'];
 }"
 
 setTail "(obj, val) {
-    for each Value v in obj {
-        v['tail'] = val;
-    }
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    el['tail'] = val;
 }"
 
 getTail "(obj) {
-    t = '';
-    for each Value v in obj {
-        t = v['tail'];
-    }
-    return t;
+    props = obj.GetPropertyNames();
+    objname = props[0];
+    el = obj[objname];
+    return el['tail'];
 }"
 
 createXmlTag "(name, attributesList, isTerminal) {
@@ -112,7 +130,7 @@ convertDictToXml "(meiel) {
     xmlout = '';
     terminalTag = true;
     nm = libmei.getName(meiel);
-    at = libmei.getAttrs(meiel);
+    at = libmei.getAttributes(meiel);
     ch = libmei.getChildren(meiel);
     tx = libmei.getText(meiel);
     tl = libmei.getTail(meiel);
