@@ -221,7 +221,7 @@ BOOST_PYTHON_MODULE(_libmei) {
     VectorFromList<MeiElement>();
     VectorFromList<MeiAttribute>();
     VectorFromList<MeiNamespace>();
-    VectorFromList<XmlInstructions>();
+    VectorFromList<XmlProcessingInstruction>();
 
     class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
         .def(vector_indexing_suite<XmlInstructions>())
