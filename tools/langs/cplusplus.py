@@ -16,7 +16,7 @@ NS_PREFIX_MAP = {
     "http://www.w3.org/1999/xlink": "xlink"
 }
 
-AUTHORS = "Andrew Hankinson, Alastair Porter"
+AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 METHODS_HEADER_TEMPLATE = """{documentation}
         MeiAttribute* get{attNameUpper}();

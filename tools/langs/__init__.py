@@ -1,1 +1,1 @@
-AVAILABLE_LANGS = ["C++", "Python"]
+AVAILABLE_LANGS = ["C++", "Python", "ManuScript"]
