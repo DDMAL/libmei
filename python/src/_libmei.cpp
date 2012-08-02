@@ -51,12 +51,12 @@ using mei::MeiAttribute;
 using mei::MeiDocument;
 using mei::XmlImport;
 using mei::XmlExport;
-using mei::XmlInstructions;
 using mei::XmlProcessingInstruction;
 
 typedef vector<MeiElement*> MeiElementList;
 typedef vector<MeiAttribute*> MeiAttributeList;
 typedef vector<MeiNamespace*> MeiNamespaceList;
+typedef vector<XmlProcessingInstruction*> XmlInstructionList;
 
 bool MeiElement_EqualWrap(const MeiElement* x, const MeiElement* y) { return x == y; }
 bool MeiElement_NEqualWrap(const MeiElement* x, const MeiElement* y) { return x != y; }
@@ -115,7 +115,7 @@ string MeiNamespaceList_Print(MeiNamespaceList x) {
 
 string MeiProcessingInstruction_Print(XmlProcessingInstruction x) { return "<XmlProcessingInstruction " + x.getName() + ":" + x.getValue() + ">"; }
 
-string MeiXmlInstructions_Print(XmlInstructions x) {
+string XmlInstructionList_Print(XmlInstructionList x) {
     stringstream res;
     res << "[ ";
     for (vector<XmlProcessingInstruction*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
@@ -128,10 +128,10 @@ string MeiXmlInstructions_Print(XmlInstructions x) {
 BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
 
-    class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
-        .def(vector_indexing_suite<XmlInstructions>())
-        .def("__str__", &MeiXmlInstructions_Print)
-        .def("__repr__", &MeiXmlInstructions_Print)
+    class_<XmlInstructionList>("XmlInstructionList")
+        .def(vector_indexing_suite<XmlInstructionList>())
+        .def("__str__", &XmlInstructionList_Print)
+        .def("__repr__", &XmlInstructionList_Print)
     ;
 
     class_<XmlProcessingInstruction, XmlProcessingInstruction*>("XmlProcessingInstruction", init<string, string>())
@@ -191,7 +191,7 @@ BOOST_PYTHON_MODULE(_libmei) {
     void (MeiElement::*printLvl)(int) = &MeiElement::print;
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
-    
+
     class_<XmlImport>("XmlImport", init<>())
         .def("documentFromText", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
         .def("documentFromText", static_cast<MeiDocument*(*)(string, XmlInstructions&)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
