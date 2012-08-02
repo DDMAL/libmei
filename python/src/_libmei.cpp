@@ -125,11 +125,60 @@ string XmlInstructionList_Print(XmlInstructionList x) {
     return res.str();
 }
 
+/*
+ * Converter for python lists to vector<T>
+ */
+template<typename T>
+struct VectorFromList {
+    VectorFromList() {
+        converter::registry::push_back(&convertible, &construct, type_id<vector<T*> >());
+    }
+
+    static void* convertible(PyObject* obj_ptr){
+        if (!PySequence_Check(obj_ptr)) {
+            return 0;
+        }
+        else {
+            return obj_ptr;
+        }
+    }
+
+    static void construct(PyObject* obj_ptr, converter::rvalue_from_python_stage1_data* data){
+        // Get pointer to memory where the vector will be constructed
+        void* storage = ((converter::rvalue_from_python_storage<std::vector<T*> >*)(data))->storage.bytes;
+
+        // construct the new vector in place using the python list data
+        new (storage) vector<T*>();
+        vector<T*> *v = (vector<T*>*)(storage);
+        int len = PySequence_Size(obj_ptr);
+        if (len < 0) {
+            abort();
+        }
+
+        v->reserve(len);
+
+        // fill the C++ vector from the Python list data
+        for(int i = 0; i < len; i++) {
+            v->push_back(extract<T*>(PySequence_GetItem(obj_ptr, i)));
+        }
+
+        // stash the pointer location for boost.python
+        data->convertible = storage;
+    }
+};
+
 BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
+    // initialize converters for python lists to MeiElementList,
+    // MeiAttributeList, and MeiNamespaceList
+    VectorFromList<MeiElement>();
+    VectorFromList<MeiAttribute>();
+    VectorFromList<MeiNamespace>();
+    VectorFromList<XmlInstructionList>();
 
     class_<XmlInstructionList>("XmlInstructionList")
         .def(vector_indexing_suite<XmlInstructionList>())
+        .def("__iter__", boost::python::iterator<XmlInstructionList>())
         .def("__str__", &XmlInstructionList_Print)
         .def("__repr__", &XmlInstructionList_Print)
     ;
