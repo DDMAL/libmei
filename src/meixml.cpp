@@ -7,7 +7,6 @@
 //
 
 #include "meixml.h"
-
 #include <string>
 
 using std::string;
@@ -26,6 +25,5 @@ string mei::XmlProcessingInstruction::getValue() {
 }
 
 mei::XmlProcessingInstruction::~XmlProcessingInstruction() {
-    
 }
 
