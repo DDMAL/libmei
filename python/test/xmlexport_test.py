@@ -21,7 +21,7 @@ class XmlExportTest(unittest.TestCase):
         docf = XmlImport.documentFromFile(os.path.join("test", "testdocs", "campion.mei"))
         status = XmlExport.meiDocumentToFile(docf, os.path.join(self.tempdir,"filename.mei"))
         self.assertTrue(status)
-    
+
     def test_exporttostring(self):
         doc = MeiDocument()
         root = MeiElement("mei")
@@ -46,7 +46,7 @@ class XmlExportTest(unittest.TestCase):
         with self.assertRaises(FileWriteFailureException) as cm:
             ret = XmlExport.meiDocumentToFile(doc, "C:/StupidPath")
         self.assertTrue(isinstance(cm.exception, FileWriteFailureException))
-    
+
     def test_exportvalueandtail(self):
         doc = MeiDocument()
         root = MeiElement("mei")
@@ -58,12 +58,12 @@ class XmlExportTest(unittest.TestCase):
         note.value = "value"
         note.tail = "tail"
         root.addChild(note)
-        
+
         expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2012\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
         ret = XmlExport.meiDocumentToText(doc)
 
         self.assertEqual(expected, ret)
-    
+
     def test_exportcomment(self):
         doc = MeiDocument()
         root = MeiElement("mei")
@@ -95,7 +95,7 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my aw
 
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
-    
+
     def test_exportnamespace2(self):
         doc = MeiDocument()
         root = MeiElement("mei")
@@ -114,7 +114,7 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my aw
         expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
 xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2012\">\n  <music \
 xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
-        
+
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
 
@@ -123,7 +123,7 @@ xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
 
         xpi1 = XmlProcessingInstruction("xml-model", "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"")
         xpi2 = XmlProcessingInstruction("xml-stylesheet", "href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"")
-        
+
         procinst.extend([xpi1, xpi2])
 
         doc = MeiDocument()
@@ -137,13 +137,12 @@ xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
 schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<?xml-stylesheet href=\"mei-2012.rng\" type=\"application/xml\" \
 schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
 xml:id=\"myid\" meiversion=\"2012\"/>\n"
-        
+
         self.assertEqual(expected, ret)
 
     def tearDown(self):
         if os.path.exists(self.tempdir):
             shutil.rmtree(self.tempdir)
-
 
 
 def suite():
