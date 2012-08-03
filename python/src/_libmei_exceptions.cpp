@@ -33,157 +33,154 @@
 using namespace boost::python;
 using namespace std;
 
-object pyMeiExceptionType;
-object pyVersionMismatchExceptionType;
-object pyDuplicateAttributeExceptionType;
-object pyAttributeNotFoundExceptionType;
-object pyChildNotFoundExceptionType;
-object pyNoVersionFoundExceptionType;
-object pyElementNotRegisteredExceptionType;
-object pyDocumentRootNotSetExceptionType;
-object pyFileWriteFailureExceptionType;
-object pyMalformedFileExceptionType;
+PyObject* pyMeiExceptionType = NULL;
+PyObject* pyVersionMismatchExceptionType;
+PyObject* pyDuplicateAttributeExceptionType;
+PyObject* pyAttributeNotFoundExceptionType;
+PyObject* pyChildNotFoundExceptionType;
+PyObject* pyNoVersionFoundExceptionType;
+PyObject* pyElementNotRegisteredExceptionType;
+PyObject* pyDocumentRootNotSetExceptionType;
+PyObject* pyFileWriteFailureExceptionType;
+PyObject* pyMalformedFileExceptionType;
 
 void MeiExceptionTranslate(mei::MeiException const& e) {
     assert(pyMeiExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyMeiExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyMeiExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void VersionMismatchExceptionTranslate(mei::VersionMismatchException const& e) {
     assert(pyVersionMismatchExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyVersionMismatchExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyVersionMismatchExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void DuplicateAttributeExceptionTranslate(mei::DuplicateAttributeException const& e) {
     assert(pyDuplicateAttributeExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyDuplicateAttributeExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyDuplicateAttributeExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void AttributeNotFoundExceptionTranslate(mei::AttributeNotFoundException const& e) {
     assert(pyAttributeNotFoundExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyAttributeNotFoundExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyAttributeNotFoundExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void ChildNotFoundExceptionTranslate(mei::ChildNotFoundException const& e) {
     assert(pyChildNotFoundExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyChildNotFoundExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyChildNotFoundExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void NoVersionFoundExceptionTranslate(mei::NoVersionFoundException const& e) {
     assert(pyNoVersionFoundExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyNoVersionFoundExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyNoVersionFoundExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void ElementNotRegisteredExceptionTranslate(mei::ElementNotRegisteredException const& e) {
     assert(pyElementNotRegisteredExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyElementNotRegisteredExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyElementNotRegisteredExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void DocumentRootNotSetExceptionTranslate(mei::DocumentRootNotSetException const& e) {
     assert(pyDocumentRootNotSetExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyDocumentRootNotSetExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyDocumentRootNotSetExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void FileWriteFailureExceptionTranslate(mei::FileWriteFailureException const& e) {
     assert(pyFileWriteFailureExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyFileWriteFailureExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyFileWriteFailureExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
 
 void MalformedFileExceptionTranslate(mei::MalformedFileException const& e) {
     assert(pyMalformedFileExceptionType != NULL);
     object pythonExceptionInstance(e);
-    PyErr_SetObject(pyMalformedFileExceptionType.ptr(), pythonExceptionInstance.ptr());
+    PyErr_SetObject(pyMalformedFileExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
-
-
 BOOST_PYTHON_MODULE(_libmei_exceptions) {
-    object meiexception = class_<mei::MeiException>("MeiException", init<string>())
-        .def("what", &mei::MeiException::what)
+    class_<mei::MeiException> myMeiExceptionClass("MeiException", init<string>());
+    myMeiExceptionClass.def("what", &mei::MeiException::what)
         .add_property("message", &mei::MeiException::what)
     ;
-    pyMeiExceptionType = meiexception;
+    pyMeiExceptionType = myMeiExceptionClass.ptr();
     register_exception_translator<mei::MeiException>(&MeiExceptionTranslate);
 
-    object versionmismatch = class_<mei::VersionMismatchException>("VersionMismatchException", init<string>())
-        .def("what", &mei::VersionMismatchException::what)
+    class_<mei::VersionMismatchException> myVersionMismatchClass("VersionMismatchException", init<string>());
+    myVersionMismatchClass.def("what", &mei::VersionMismatchException::what)
         .add_property("message", &mei::VersionMismatchException::what)
     ;
-    pyVersionMismatchExceptionType = versionmismatch;
+    pyVersionMismatchExceptionType = myVersionMismatchClass.ptr();
     register_exception_translator<mei::VersionMismatchException>(&VersionMismatchExceptionTranslate);
-    
-    object duplicateattr = class_<mei::DuplicateAttributeException>("DuplicateAttributeException", init<string>())
-        .def("what", &mei::DuplicateAttributeException::what)
+
+    class_<mei::DuplicateAttributeException> myDuplicateAttributeClass("DuplicateAttributeException", init<string>());
+    myDuplicateAttributeClass.def("what", &mei::DuplicateAttributeException::what)
         .add_property("message", &mei::DuplicateAttributeException::what)
     ;
-    pyDuplicateAttributeExceptionType = duplicateattr;
+    pyDuplicateAttributeExceptionType = myDuplicateAttributeClass.ptr();
     register_exception_translator<mei::DuplicateAttributeException>(&DuplicateAttributeExceptionTranslate);
 
-    object attrnotfound = class_<mei::AttributeNotFoundException>("AttributeNotFoundException", init<string>())
-        .def("what", &mei::AttributeNotFoundException::what)
+    class_<mei::AttributeNotFoundException> myAttributeNotFoundClass("AttributeNotFoundException", init<string>());
+    myAttributeNotFoundClass.def("what", &mei::AttributeNotFoundException::what)
         .add_property("message", &mei::AttributeNotFoundException::what)
     ;
-    pyAttributeNotFoundExceptionType = attrnotfound;
+    pyAttributeNotFoundExceptionType = myAttributeNotFoundClass.ptr();
     register_exception_translator<mei::AttributeNotFoundException>(&AttributeNotFoundExceptionTranslate);
 
-    object chnotfound = class_<mei::ChildNotFoundException>("ChildNotFoundException", init<string>())
-        .def("what", &mei::ChildNotFoundException::what)
+    class_<mei::ChildNotFoundException> myChildNotFoundClass("ChildNotFoundException", init<string>());
+    myChildNotFoundClass.def("what", &mei::ChildNotFoundException::what)
         .add_property("message", &mei::ChildNotFoundException::what)
     ;
-    pyChildNotFoundExceptionType = chnotfound;
+    pyChildNotFoundExceptionType = myChildNotFoundClass.ptr();
     register_exception_translator<mei::ChildNotFoundException>(&ChildNotFoundExceptionTranslate);
 
-    object noversion = class_<mei::NoVersionFoundException>("NoVersionFoundException", init<string>())
-        .def("what", &mei::NoVersionFoundException::what)
+    class_<mei::NoVersionFoundException> myNoVersionFoundClass("NoVersionFoundException", init<string>());
+    myNoVersionFoundClass.def("what", &mei::NoVersionFoundException::what)
         .add_property("message", &mei::NoVersionFoundException::what)
     ;
-    pyNoVersionFoundExceptionType = noversion;
+    pyNoVersionFoundExceptionType = myNoVersionFoundClass.ptr();
     register_exception_translator<mei::NoVersionFoundException>(&NoVersionFoundExceptionTranslate);
 
-    object notregistered = class_<mei::ElementNotRegisteredException>("ElementNotRegisteredException", init<string>())
-        .def("what", &mei::ElementNotRegisteredException::what)
+    class_<mei::ElementNotRegisteredException> myElementNotRegisteredClass("ElementNotRegisteredException", init<string>());
+    myElementNotRegisteredClass.def("what", &mei::ElementNotRegisteredException::what)
         .add_property("message", &mei::ElementNotRegisteredException::what)
     ;
-    pyElementNotRegisteredExceptionType = noversion;
+    pyElementNotRegisteredExceptionType = myElementNotRegisteredClass.ptr();
     register_exception_translator<mei::ElementNotRegisteredException>(&ElementNotRegisteredExceptionTranslate);
 
-    object noroot = class_<mei::DocumentRootNotSetException>("DocumentRootNotSetException", init<string>())
-        .def("what", &mei::DocumentRootNotSetException::what)
+    class_<mei::DocumentRootNotSetException> myDocumentRootNotSetClass("DocumentRootNotSetException", init<string>());
+    myDocumentRootNotSetClass.def("what", &mei::DocumentRootNotSetException::what)
         .add_property("message", &mei::DocumentRootNotSetException::what)
     ;
-    pyDocumentRootNotSetExceptionType = noroot;
+    pyDocumentRootNotSetExceptionType = myDocumentRootNotSetClass.ptr();
     register_exception_translator<mei::DocumentRootNotSetException>(&DocumentRootNotSetExceptionTranslate);
 
-    object filewrite = class_<mei::FileWriteFailureException>("FileWriteFailureException", init<string>())
-        .def("what", &mei::FileWriteFailureException::what)
+    class_<mei::FileWriteFailureException> myFileWriteFailureClass("FileWriteFailureException", init<string>());
+    myFileWriteFailureClass.def("what", &mei::FileWriteFailureException::what)
         .add_property("message", &mei::FileWriteFailureException::what)
     ;
-    pyFileWriteFailureExceptionType = filewrite;
+    pyFileWriteFailureExceptionType = myFileWriteFailureClass.ptr();
     register_exception_translator<mei::FileWriteFailureException>(&FileWriteFailureExceptionTranslate);
 
-    object malformed = class_<mei::MalformedFileException>("MalformedFileException", init<string>())
-        .def("what", &mei::MalformedFileException::what)
+    class_<mei::MalformedFileException> myMalformedFileClass("MalformedFileException", init<string>());
+    myMalformedFileClass.def("what", &mei::MalformedFileException::what)
         .add_property("message", &mei::MalformedFileException::what)
     ;
-    pyMalformedFileExceptionType = malformed;
+    pyMalformedFileExceptionType = myMalformedFileClass.ptr();
     register_exception_translator<mei::MalformedFileException>(&MalformedFileExceptionTranslate);
-
 }
