@@ -33,7 +33,7 @@
 using namespace boost::python;
 using namespace std;
 
-PyObject* pyMeiExceptionType = NULL;
+PyObject* pyMeiExceptionType;
 PyObject* pyVersionMismatchExceptionType;
 PyObject* pyDuplicateAttributeExceptionType;
 PyObject* pyAttributeNotFoundExceptionType;
@@ -44,11 +44,15 @@ PyObject* pyDocumentRootNotSetExceptionType;
 PyObject* pyFileWriteFailureExceptionType;
 PyObject* pyMalformedFileExceptionType;
 
+// void MeiExceptionTranslate(mei::MeiException const& e) {
+//     assert(pyMeiExceptionType != NULL);
+//     object pythonExceptionInstance(e);
+//     PyErr_SetObject(pyMeiExceptionType, pythonExceptionInstance.ptr());
+//     throw_error_already_set();
+// }
+
 void MeiExceptionTranslate(mei::MeiException const& e) {
-    assert(pyMeiExceptionType != NULL);
-    object pythonExceptionInstance(e);
-    PyErr_SetObject(pyMeiExceptionType, pythonExceptionInstance.ptr());
-    throw_error_already_set();
+    PyErr_SetString(PyExc_RuntimeError, e.what());
 }
 
 void VersionMismatchExceptionTranslate(mei::VersionMismatchException const& e) {
@@ -113,19 +117,35 @@ void MalformedFileExceptionTranslate(mei::MalformedFileException const& e) {
     PyErr_SetObject(pyMalformedFileExceptionType, pythonExceptionInstance.ptr());
     throw_error_already_set();
 }
+
+PyObject* createExceptionClass(const char* name, PyObject* baseTypeObj = PyExc_Exception)
+{
+    using std::string;
+    namespace bp = boost::python;
+
+    string scopeName = bp::extract<string>(bp::scope().attr("__name__"));
+    string qualifiedName0 = scopeName + "." + name;
+    char* qualifiedName1 = const_cast<char*>(qualifiedName0.c_str());
+
+    PyObject* typeObj = PyErr_NewException(qualifiedName1, baseTypeObj, 0);
+    if(!typeObj) bp::throw_error_already_set();
+    bp::scope().attr(name) = bp::handle<>(bp::borrowed(typeObj));
+    return typeObj;
+}
+
 BOOST_PYTHON_MODULE(_libmei_exceptions) {
-    class_<mei::MeiException> myMeiExceptionClass("MeiException", init<string>());
-    myMeiExceptionClass.def("what", &mei::MeiException::what)
-        .add_property("message", &mei::MeiException::what)
-    ;
-    pyMeiExceptionType = myMeiExceptionClass.ptr();
+    // class_<mei::MeiException> myMeiExceptionClass("MeiException", init<string>());
+    // myMeiExceptionClass.def("what", &mei::MeiException::what)
+    //     .add_property("message", &mei::MeiException::what)
+    // ;
+    pyMeiExceptionType = createExceptionClass("MeiException");
     register_exception_translator<mei::MeiException>(&MeiExceptionTranslate);
 
     class_<mei::VersionMismatchException> myVersionMismatchClass("VersionMismatchException", init<string>());
     myVersionMismatchClass.def("what", &mei::VersionMismatchException::what)
         .add_property("message", &mei::VersionMismatchException::what)
     ;
-    pyVersionMismatchExceptionType = myVersionMismatchClass.ptr();
+    pyVersionMismatchExceptionType = createExceptionClass("VersionMismatchException");
     register_exception_translator<mei::VersionMismatchException>(&VersionMismatchExceptionTranslate);
 
     class_<mei::DuplicateAttributeException> myDuplicateAttributeClass("DuplicateAttributeException", init<string>());
