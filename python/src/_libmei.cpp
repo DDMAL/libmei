@@ -36,11 +36,11 @@
 #include <boost/python/iterator.hpp>
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 #include <boost/python/exception_translator.hpp>
+#include <sstream>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <exception>
-#include <sstream>
 
 using namespace boost::python;
 using namespace std;
@@ -81,7 +81,7 @@ string MeiElementList_Print(MeiElementList x) {
     stringstream res;
     res << "[ ";
     for(vector<MeiElement*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<MeiElement " << (*iter)->getName() << ":" << (*iter)->getId()  << "> ";
+        res << "<MeiElement " << (*iter)->getName().c_str() << ":" << (*iter)->getId().c_str() << "> ";
     }
     res << "]";
     return res.str();
@@ -102,10 +102,10 @@ bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 bool MeiAttributeList_NonZero(const MeiAttributeList x) { return !x.empty(); }
 string MeiAttributeList_Print(MeiAttributeList x) {
-    stringstream res;
+    ostringstream res;
     res << "[ ";
     for(vector<MeiAttribute*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<MeiAttribute " << (*iter)->getName() << ":" << (*iter)->getValue()  << "> ";
+        res << "<MeiAttribute " << (*iter)->getName().c_str() << ":" << (*iter)->getValue().c_str()  << "> ";
     }
     res << "]";
     return res.str();
@@ -125,10 +125,10 @@ bool MeiNamespaceList_EqualWrap(const MeiNamespaceList x, const MeiNamespaceList
 bool MeiNamespaceList_NEqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x != y; }
 bool MeiNamespaceList_NonZero(const MeiNamespaceList x) { return !x.empty(); }
 string MeiNamespaceList_Print(MeiNamespaceList x) {
-    stringstream res;
+    ostringstream res;
     res << "[ ";
     for(vector<MeiNamespace*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<MeiNamespace " << (*iter)->getPrefix() << ":" << (*iter)->getHref()  << "> ";
+        res << "<MeiNamespace " << (*iter)->getPrefix().c_str() << ":" << (*iter)->getHref().c_str()  << "> ";
     }
     res << "]";
     return res.str();
@@ -151,7 +151,7 @@ string MeiXmlInstructions_Print(XmlInstructions x) {
     stringstream res;
     res << "[ ";
     for (vector<XmlProcessingInstruction*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<XmlProcessingInstruction " << (*iter)->getName() << ":" << (*iter)->getValue() << "> ";
+        res << "<XmlProcessingInstruction " << (*iter)->getName().c_str() << ":" << (*iter)->getValue().c_str() << "> ";
     }
     res << "]";
     return res.str();
