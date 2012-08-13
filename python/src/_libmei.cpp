@@ -295,8 +295,6 @@ BOOST_PYTHON_MODULE(_libmei) {
     void (MeiElement::*setDocument)(MeiDocument*) = &MeiElement::setDocument;
     bool (MeiElement::*hasChildrenBool)() = &MeiElement::hasChildren;
     bool (MeiElement::*hasChildrenArgs)(string) = &MeiElement::hasChildren;
-    void (MeiElement::*printAll)() = &MeiElement::print;
-    void (MeiElement::*printLvl)(int) = &MeiElement::print;
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     
