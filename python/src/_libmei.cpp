@@ -196,7 +196,7 @@ struct VectorFromList {
         // construct the new vector in place using the python list data
         new (storage) vector<T*>();
         vector<T*> *v = (vector<T*>*)(storage);
-        int len = PySequence_Size(obj_ptr); 
+        long len = PySequence_Size(obj_ptr); 
         if (len < 0) {
             abort();
         }
