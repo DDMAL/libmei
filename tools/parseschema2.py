@@ -27,8 +27,6 @@ if sys.version_info < (2, 7):
 
 from lxml import etree
 import os
-import textwrap
-import string
 import codecs
 import subprocess
 import tempfile
@@ -47,12 +45,15 @@ lg.setLevel(logging.DEBUG)
 lg.addHandler(h)
 
 # globals
-TEI_NS = {"tei":"http://www.tei-c.org/ns/1.0"}
-TEI_RNG_NS = {"tei":"http://www.tei-c.org/ns/1.0","rng":"http://relaxng.org/ns/structure/1.0"}
+TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0"}
+TEI_RNG_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/ns/structure/1.0"}
+NAMESPACES = {'xml': 'http://www.w3.org/XML/1998/namespace',
+                'xlink': 'http://www.w3.org/1999/xlink'}
 
 # Roma is used to generate the compiled ODD file
 PATH_TO_ROMA = "/usr/local/bin/roma"
 PATH_TO_TEI_STYLESHEET = "/usr/local/share/xml/tei/stylesheet"
+
 
 class MeiSchema(object):
     def __init__(self, oddfile, outdir):
@@ -61,11 +62,11 @@ class MeiSchema(object):
         # self.customization = etree.parse(customization_file)
         self.outdir = outdir
 
-        self.active_modules = [] # the modules active in the resulting output
-        self.element_structure = {} # the element structure.
-        self.attribute_group_structure = {} # the attribute group structure
-        self.inverse_attribute_group_structure = {} # inverted, so we can map attgroups to modules
-        
+        self.active_modules = []  # the modules active in the resulting output
+        self.element_structure = {}  # the element structure.
+        self.attribute_group_structure = {}  # the attribute group structure
+        self.inverse_attribute_group_structure = {}  # inverted, so we can map attgroups to modules
+
         self.get_elements()
         self.get_attribute_groups()
         self.invert_attribute_group_structure()
@@ -81,7 +82,7 @@ class MeiSchema(object):
 
             element_name = element.get("ident")
             memberships = []
-            
+
             element_membership = element.xpath("./tei:classes/tei:memberOf", namespaces=TEI_NS)
             for member in element_membership:
                 if member.get("key").split(".")[0] != "att":
@@ -91,7 +92,7 @@ class MeiSchema(object):
 
             # memberships.kesort()
             self.element_structure[modname][element_name] = memberships
-            
+
             # need a way to keep self-defined attributes:
             selfattributes = []
             attdefs = element.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
@@ -99,28 +100,24 @@ class MeiSchema(object):
                 for attdef in attdefs:
                     if attdef.get("ident") == "id":
                         continue
-                    if attdef.get("ns"):
-                        attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
-                    else:
-                        attname = "{0}".format(attdef.get("ident"))
+                    attname = self.__process_att(attdef)
                     selfattributes.append(attname)
 
                 self.element_structure[modname][element_name].append(selfattributes)
-            
-    
+
     def get_attribute_groups(self):
         attribute_groups = [m for m in self.schema.xpath("//tei:classSpec[@type=$at]", at="atts", namespaces=TEI_NS)]
         for group in attribute_groups:
             group_name = group.get("ident")
-            
+
             if group_name == "att.id":
                 continue
-                
+
             group_module = group.get("module").split(".")[-1]
             attdefs = group.xpath("./tei:attList/tei:attDef", namespaces=TEI_NS)
             if not attdefs:
                 continue
-            
+
             if group_module not in self.attribute_group_structure.keys():
                 self.attribute_group_structure[group_module] = {}
 
@@ -128,25 +125,32 @@ class MeiSchema(object):
             for attdef in attdefs:
                 if attdef.get("ident") == "id":
                     continue
-                if attdef.get("ns"):
-                    attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
-                else:
-                    attname = "{0}".format(attdef.get("ident"))
-                
+                attname = self.__process_att(attdef)
                 self.attribute_group_structure[group_module][group_name].append(attname)
-    
+
     def invert_attribute_group_structure(self):
-        for module,groups in self.attribute_group_structure.iteritems():
+        for module, groups in self.attribute_group_structure.iteritems():
             for attgroup in groups:
                 self.inverse_attribute_group_structure[attgroup] = module
-    
+
     def set_active_modules(self):
         self.active_modules = self.element_structure.keys()
         self.active_modules.sort()
-    
+
+    def __process_att(self, attdef):
+        attname = ""
+        if attdef.get("ns"):
+            attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
+        elif ":" in attdef.get("ident"):
+            pfx, att = attdef.get("ident").split(":")
+            attname = "{0}|{1}".format(NAMESPACES[pfx], att)
+        else:
+            attname = "{0}".format(attdef.get("ident"))
+        return attname
+
     def __get_membership(self, member, resarr):
         member_attgroup = member.xpath("//tei:classSpec[@type=$att][@ident=$nm]", att="atts", nm=member.get("key"), namespaces=TEI_NS)
-        
+
         if member_attgroup:
             member_attgroup = member_attgroup[0]
         else:
@@ -157,52 +161,53 @@ class MeiSchema(object):
                 return
             resarr.append(member_attgroup.get("ident"))
         m2s = member_attgroup.xpath("./tei:classes/tei:memberOf", namespaces=TEI_NS)
-        
+
         if not m2s:
             return
-            
+
         for mship in m2s:
             self.__get_membership(mship, resarr)
-    
+
     def strpatt(self, name):
         """ Returns a version of the string with any leading att. stripped. """
         return name.replace("att.", "")
-    
+
     def strpdot(self, name):
         return "".join([n for n in name.split(".")])
-    
+
     def cc(self, name):
         """ Returns a CamelCasedName version of attribute.case.names.
         """
         return "".join([n[0].upper() + n[1:] for n in name.split(".")])
-    
+
     def getattdocs(self, aname):
         """ returns the documentation string for element name, or an empty string if there is none."""
         dsc = self.schema.xpath("//tei:attDef[@ident=$name]/tei:desc/text()", name=aname, namespaces=TEI_NS)
         if dsc:
-            return re.sub('[\s\t]+', ' ', dsc[0]) # strip extraneous whitespace
-        else:
-            return ""
-    
-    def geteldocs(self, ename):
-        dsc = self.schema.xpath("//tei:elementSpec[@ident=$name]/tei:desc/text()", name=ename, namespaces=TEI_NS)
-        if dsc:
-            return re.sub('[\s\t]+', ' ', dsc[0]) # strip extraneous whitespace
+            return re.sub('[\s\t]+', ' ', dsc[0])  # strip extraneous whitespace
         else:
             return ""
 
+    def geteldocs(self, ename):
+        dsc = self.schema.xpath("//tei:elementSpec[@ident=$name]/tei:desc/text()", name=ename, namespaces=TEI_NS)
+        if dsc:
+            return re.sub('[\s\t]+', ' ', dsc[0])  # strip extraneous whitespace
+        else:
+            return ""
+
+
 def parse_with_roma(source, customization, outdir):
-    p = subprocess.call([PATH_TO_ROMA, "--xsl=" + PATH_TO_TEI_STYLESHEET, "--localsource="+ source, 
+    p = subprocess.call([PATH_TO_ROMA, "--xsl=" + PATH_TO_TEI_STYLESHEET, "--localsource="+ source,
                             "--compile", "--nodtd", "--noxsd", "--norelax", customization, outdir], shell=True)
     compiled_odd = os.path.join(tdir, os.path.basename(customization) + ".compiled")
     return compiled_odd
 
 if __name__ == "__main__":
     p = ArgumentParser()
-    
+
     output_group = p.add_argument_group()
     lang_group = p.add_argument_group()
-    
+
     output_group.add_argument("-s", "--source", help="MEI Source file")
     output_group.add_argument("-c", "--customization", help="MEI Customization File")
     output_group.add_argument("-m", "--compiled", help="A compiled ODD file")
@@ -211,9 +216,9 @@ if __name__ == "__main__":
     output_group.add_argument("-i", "--includes", help="Parse external includes from a given directory")
     output_group.add_argument("-g", "--generate", help="Generate an accompanying MEI RNG Schema (must have Roma installed)", action="store_true")
     output_group.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
-    
+
     lang_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
-    
+
     args = p.parse_args()
 
     if args.showlang:
@@ -240,12 +245,12 @@ if __name__ == "__main__":
     cf = codecs.open(compiled_odd, 'r', 'utf-8')
     # sf = codecs.open(args.source,'r', "utf-8")
     # cf = codecs.open(args.customization, 'r', "utf-8")
-    
+
     if not os.path.exists(args.outdir):
         os.mkdir(args.outdir)
-    
+
     schema = MeiSchema(cf, args.outdir)
-    
+
     if "cpp" in args.lang:
         import langs.cplusplus as cpp
         cpp.create(schema)
@@ -261,7 +266,7 @@ if __name__ == "__main__":
     if "manuscript" in args.lang:
         import langs.manuscript as ms
         ms.create(schema)
-    
+
     # clean up tempdir
     if tdir:
         shutil.rmtree(tdir)
