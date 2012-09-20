@@ -36,13 +36,13 @@ class IneumeLogMixIn {
     public:
         explicit IneumeLogMixIn(MeiElement *b);
         virtual ~IneumeLogMixIn();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief 
+        /** \brief records the name of the neume.
          */
         MeiAttribute* getName();
         void setName(std::string _name);
@@ -59,13 +59,13 @@ class UneumeLogMixIn {
     public:
         explicit UneumeLogMixIn(MeiElement *b);
         virtual ~UneumeLogMixIn();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief 
+        /** \brief records the name of the neume.
          */
         MeiAttribute* getName();
         void setName(std::string _name);

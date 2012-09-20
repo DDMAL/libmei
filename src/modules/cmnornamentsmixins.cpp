@@ -52,6 +52,32 @@ void mei::MordentLogMixIn::removeLong() {
 };
 
 /* include <longmixin> */
+mei::OrnamMixIn::OrnamMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::OrnamMixIn::~OrnamMixIn() {}
+MeiAttribute* mei::OrnamMixIn::getOrnam() {
+    if (!b->hasAttribute("ornam")) {
+        throw AttributeNotFoundException("ornam");
+    }
+    return b->getAttribute("ornam");
+};
+
+void mei::OrnamMixIn::setOrnam(std::string _ornam) {
+    MeiAttribute *a = new MeiAttribute("ornam", _ornam);
+    b->addAttribute(a);
+};
+
+bool mei::OrnamMixIn::hasOrnam() {
+    return b->hasAttribute("ornam");
+};
+
+void mei::OrnamMixIn::removeOrnam() {
+    b->removeAttribute("ornam");
+};
+
+/* include <ornammixin> */
 mei::OrnamentaccidMixIn::OrnamentaccidMixIn(MeiElement *b) {
     this->b = b;
 };

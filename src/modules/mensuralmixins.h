@@ -36,7 +36,7 @@ class LigatureLogMixIn {
     public:
         explicit LigatureLogMixIn(MeiElement *b);
         virtual ~LigatureLogMixIn();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -49,99 +49,54 @@ class LigatureLogMixIn {
         MeiElement *b;
 };
 
-class MensurLogMixIn {
-    public:
-        explicit MensurLogMixIn(MeiElement *b);
-        virtual ~MensurLogMixIn();
-        /** \brief 
-         */
-        MeiAttribute* getModusmaior();
-        void setModusmaior(std::string _modusmaior);
-        bool hasModusmaior();
-        void removeModusmaior();
-        /** \brief 
-         */
-        MeiAttribute* getModusminor();
-        void setModusminor(std::string _modusminor);
-        bool hasModusminor();
-        void removeModusminor();
-        /** \brief 
-         */
-        MeiAttribute* getProlatio();
-        void setProlatio(std::string _prolatio);
-        bool hasProlatio();
-        void removeProlatio();
-        /** \brief 
-         */
-        MeiAttribute* getTempus();
-        void setTempus(std::string _tempus);
-        bool hasTempus();
-        void removeTempus();
-
-/* include <tempusmixin> */
-
-    private:
-        MeiElement *b;
-};
-
 class MensurVisMixIn {
     public:
         explicit MensurVisMixIn(MeiElement *b);
         virtual ~MensurVisMixIn();
-        /** \brief 
-         */
-        MeiAttribute* getDot();
-        void setDot(std::string _dot);
-        bool hasDot();
-        void removeDot();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief 
+        /** \brief describes the rotation or reflection of the base symbol.
          */
         MeiAttribute* getOrient();
         void setOrient(std::string _orient);
         bool hasOrient();
         void removeOrient();
-        /** \brief 
-         */
-        MeiAttribute* getSign();
-        void setSign(std::string _sign);
-        bool hasSign();
-        void removeSign();
 
-/* include <signmixin> */
+/* include <orientmixin> */
 
     private:
         MeiElement *b;
 };
 
-class MensurationLogMixIn {
+class MensurDefaultLogMixIn {
     public:
-        explicit MensurationLogMixIn(MeiElement *b);
-        virtual ~MensurationLogMixIn();
-        /** \brief 
+        explicit MensurDefaultLogMixIn(MeiElement *b);
+        virtual ~MensurDefaultLogMixIn();
+        /** \brief determines if a dot is to be added to the base symbol.
          */
         MeiAttribute* getMensurDot();
         void setMensurDot(std::string _mensurdot);
         bool hasMensurDot();
         void removeMensurDot();
-        /** \brief 
+        /** \brief holds the staff location of the mensuration sign.
          */
-        MeiAttribute* getMensurOrient();
-        void setMensurOrient(std::string _mensurorient);
-        bool hasMensurOrient();
-        void removeMensurOrient();
-        /** \brief 
+        MeiAttribute* getMensurLoc();
+        void setMensurLoc(std::string _mensurloc);
+        bool hasMensurLoc();
+        void removeMensurLoc();
+        /** \brief the base symbol in the mensuration sign/time signature of mensural notation.
          */
         MeiAttribute* getMensurSign();
         void setMensurSign(std::string _mensursign);
         bool hasMensurSign();
         void removeMensurSign();
-        /** \brief 
+        /** \brief indicates the number lines added to the mensuration sign.
+         * 
+         *  For example, one slash is added for what we now call 'alla breve'.
          */
         MeiAttribute* getMensurSlash();
         void setMensurSlash(std::string _mensurslash);
@@ -154,23 +109,31 @@ class MensurationLogMixIn {
         MeiElement *b;
 };
 
-class MensurationVisMixIn {
+class MensurDefaultVisMixIn {
     public:
-        explicit MensurationVisMixIn(MeiElement *b);
-        virtual ~MensurationVisMixIn();
-        /** \brief 
+        explicit MensurDefaultVisMixIn(MeiElement *b);
+        virtual ~MensurDefaultVisMixIn();
+        /** \brief records the color of the mensuration sign.
+         * 
+         *  Do not confuse this with the musical term 'color' as used in pre-CMN notation.
+         */
+        MeiAttribute* getMensurColor();
+        void setMensurColor(std::string _mensurcolor);
+        bool hasMensurColor();
+        void removeMensurColor();
+        /** \brief indicates whether the base symbol is written vertically or horizontally.
          */
         MeiAttribute* getMensurForm();
         void setMensurForm(std::string _mensurform);
         bool hasMensurForm();
         void removeMensurForm();
-        /** \brief 
+        /** \brief describes the rotation or reflection of the base symbol.
          */
-        MeiAttribute* getMensurLoc();
-        void setMensurLoc(std::string _mensurloc);
-        bool hasMensurLoc();
-        void removeMensurLoc();
-        /** \brief 
+        MeiAttribute* getMensurOrient();
+        void setMensurOrient(std::string _mensurorient);
+        bool hasMensurOrient();
+        void removeMensurOrient();
+        /** \brief describes the relative size of the mensuration sign.
          */
         MeiAttribute* getMensurSize();
         void setMensurSize(std::string _mensursize);
@@ -187,7 +150,7 @@ class NoteLogMensuralMixIn {
     public:
         explicit NoteLogMensuralMixIn(MeiElement *b);
         virtual ~NoteLogMensuralMixIn();
-        /** \brief 
+        /** \brief indicates this element's participation in a ligature.
          */
         MeiAttribute* getLig();
         void setLig(std::string _lig);
@@ -204,7 +167,7 @@ class RestVisMensuralMixIn {
     public:
         explicit RestVisMensuralMixIn(MeiElement *b);
         virtual ~RestVisMensuralMixIn();
-        /** \brief 
+        /** \brief states how many spaces are covered by the rest.
          */
         MeiAttribute* getSpaces();
         void setSpaces(std::string _spaces);
@@ -221,13 +184,19 @@ class StaffDefLogMensuralMixIn {
     public:
         explicit StaffDefLogMensuralMixIn(MeiElement *b);
         virtual ~StaffDefLogMensuralMixIn();
-        /** \brief 
+        /** \brief Together, proport.num and proport.numbase specify a proportional change as a
+         *  ratio, e.g., 1:3.
+         * 
+         *  Proport.num is for the first value in the ratio.
          */
         MeiAttribute* getProportNum();
         void setProportNum(std::string _proportnum);
         bool hasProportNum();
         void removeProportNum();
-        /** \brief 
+        /** \brief Together, proport.num and proport.numbase specify a proportional change as a
+         *  ratio, e.g., 1:3.
+         * 
+         *  Proport.numbase is for the second value in the ratio.
          */
         MeiAttribute* getProportNumbase();
         void setProportNumbase(std::string _proportnumbase);

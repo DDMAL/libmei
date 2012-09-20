@@ -36,7 +36,9 @@ class AlignmentMixIn {
     public:
         explicit AlignmentMixIn(MeiElement *b);
         virtual ~AlignmentMixIn();
-        /** \brief 
+        /** \brief indicates the point of occurrence of this feature along a time line.
+         * 
+         *  Its value must be the ID of a <when> element.
          */
         MeiAttribute* getWhen();
         void setWhen(std::string _when);

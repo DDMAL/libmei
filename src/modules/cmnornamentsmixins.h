@@ -36,13 +36,14 @@ class MordentLogMixIn {
     public:
         explicit MordentLogMixIn(MeiElement *b);
         virtual ~MordentLogMixIn();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief 
+        /** \brief When the long attribute is set to 'yes', a double or long mordent, consisting of
+         *  5 notes, is indicated.
          */
         MeiAttribute* getLong();
         void setLong(std::string _long);
@@ -55,17 +56,37 @@ class MordentLogMixIn {
         MeiElement *b;
 };
 
+class OrnamMixIn {
+    public:
+        explicit OrnamMixIn(MeiElement *b);
+        virtual ~OrnamMixIn();
+        /** \brief indicates that this element has an attached ornament.
+         * 
+         *  If visual information about the ornament is needed, then one of the elements
+         *  that represents an ornament (mordent, trill, or turn) should be employed.
+         */
+        MeiAttribute* getOrnam();
+        void setOrnam(std::string _ornam);
+        bool hasOrnam();
+        void removeOrnam();
+
+/* include <ornammixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class OrnamentaccidMixIn {
     public:
         explicit OrnamentaccidMixIn(MeiElement *b);
         virtual ~OrnamentaccidMixIn();
-        /** \brief 
+        /** \brief records the written accidental associated with an upper neighboring note.
          */
         MeiAttribute* getAccidupper();
         void setAccidupper(std::string _accidupper);
         bool hasAccidupper();
         void removeAccidupper();
-        /** \brief 
+        /** \brief records the written accidental associated with a lower neighboring note.
          */
         MeiAttribute* getAccidlower();
         void setAccidlower(std::string _accidlower);
@@ -82,13 +103,16 @@ class TurnLogMixIn {
     public:
         explicit TurnLogMixIn(MeiElement *b);
         virtual ~TurnLogMixIn();
-        /** \brief 
+        /** \brief When the delayed attribute is set to 'true', the turn begins on the second half
+         *  of the beat.
+         * 
+         *  See Read, p. 246.
          */
         MeiAttribute* getDelayed();
         void setDelayed(std::string _delayed);
         bool hasDelayed();
         void removeDelayed();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);

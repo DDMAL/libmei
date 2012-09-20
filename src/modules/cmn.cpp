@@ -1,22 +1,7 @@
 #include "cmn.h"
 
 #include <string>
-
-#include "meielement.h"
-#include "meidocument.h"
-#include <mei/shared.h>
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
-using std::cout;
-using std::endl;
-
-using std::vector;
-using std::find;
-using mei::MeiElement;
-using mei::MeiDocument;
-using mei::Staff;
+/* #include_block */
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
@@ -77,8 +62,8 @@ mei::BTrem::BTrem() :
     m_Staffident(this),
     m_Layerident(this),
     m_Numbered(this),
-    m_Slashcount(this),
     m_Numberplacement(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -95,8 +80,8 @@ mei::BTrem::BTrem(const BTrem& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Numbered(this),
-    m_Slashcount(this),
     m_Numberplacement(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -228,6 +213,7 @@ mei::Bend::Bend() :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -257,6 +243,7 @@ mei::Bend::Bend(const Bend& other) :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -329,12 +316,13 @@ mei::FTrem::FTrem() :
     MeiElement("fTrem"),
     m_Common(this),
     m_Facsimile(this),
+    m_FTremLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Slashcount(this),
-    m_FTremGes(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -345,12 +333,13 @@ mei::FTrem::FTrem(const FTrem& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_FTremLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Slashcount(this),
-    m_FTremGes(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -422,6 +411,7 @@ mei::Gliss::Gliss() :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_GlissVis(this),
     m_Color(this),
     m_VisualoffsetHo(this),
@@ -450,6 +440,7 @@ mei::Gliss::Gliss(const Gliss& other) :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_GlissVis(this),
     m_Color(this),
     m_VisualoffsetHo(this),
@@ -629,12 +620,12 @@ mei::MRest::MRest() :
     MeiElement("mRest"),
     m_Common(this),
     m_Facsimile(this),
+    m_DurationMusical(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_VisualoffsetHo(this),
@@ -655,12 +646,12 @@ mei::MRest::MRest(const MRest& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_DurationMusical(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_VisualoffsetHo(this),
@@ -757,7 +748,6 @@ mei::MSpace::MSpace() :
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_Visibility(this),
@@ -779,7 +769,6 @@ mei::MSpace::MSpace(const MSpace& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_Visibility(this),
@@ -833,6 +822,31 @@ mei::Measure::Measure(const Measure& other) :
 }
 
 /* include <measure> */
+
+mei::MeterSig::MeterSig() :
+    MeiElement("meterSig"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_MeterSigLog(this),
+    m_MeterSigVis(this)
+{
+}
+REGISTER_DEFINITION(mei::MeterSig, "meterSig");
+mei::MeterSig::~MeterSig() {}
+mei::MeterSig::MeterSig(const MeterSig& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_MeterSigLog(this),
+    m_MeterSigVis(this)
+{
+}
+
+/* include <meterSig> */
 
 mei::MultiRest::MultiRest() :
     MeiElement("multiRest"),
@@ -1204,44 +1218,7 @@ mei::Tie::Tie(const Tie& other) :
 {
 }
 
-/**
- * \brief get all members of this tie.
- * An element is a member of the tie if it lies between the elements specified
- * by the startid and endid attributes of the tie.
- * The elements must be children of a Staff element that has the same name as the 'n' attribute of
- * this tie. If this tie has no startid, endid, or n attibute, no members will be returned.
- */
-std::vector<mei::MeiElement*> mei::Tie::getMembers() {
-    MeiAttribute *end = m_Startendid.getEndid();
-    MeiAttribute *start = m_Startid.getStartid();
-
-    vector<MeiElement*> tree = getDocument()->getFlattenedTree();
-    vector<MeiElement*> res;
-
-    MeiAttribute *staff = m_Staffident.getStaff();
-    if (staff && start && end) {
-        string staffName = staff->getValue();
-        MeiElement* startElement = getDocument()->getElementById(start->getValue());
-        MeiElement* endElement = getDocument()->getElementById(end->getValue());
-
-        for (unsigned int i = startElement->getPositionInDocument(); i <= endElement->getPositionInDocument(); ++i) {
-            if (tree[i]->getName() == "note" || tree[i]->getName() == "rest") {
-                Staff *parentStaff = dynamic_cast<Staff*>(tree[i]->getAncestor("staff"));
-                MeiAttribute *parentStaffN = parentStaff->m_Common.getN();
-                if (parentStaffN && parentStaffN->getValue() == staffName) {
-                    res.push_back(tree[i]);
-                }
-            }
-        }
-    }
-    return res;
-}
-
-MeiElement* mei::Tie::getSystem() {
-    return this->lookBack("sb");
-}
-
-
+/* include <tie> */
 
 mei::Tuplet::Tuplet() :
     MeiElement("tuplet"),

@@ -38,7 +38,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief – Container for text that is fixed to a particular location, regardless of
+ *  changes made to the layout of the measures around it.
  */
 class MEI_EXPORT AnchoredText : public MeiElement {
     public:
@@ -64,7 +65,8 @@ class MEI_EXPORT AnchoredText : public MeiElement {
         REGISTER_DECLARATION(AnchoredText);
 };
 
-/** \brief 
+/** \brief – A curved line that cannot be represented by a more specific element, such as
+ *  a <slur>.
  */
 class MEI_EXPORT Curve : public MeiElement {
     public:
@@ -97,7 +99,7 @@ class MEI_EXPORT Curve : public MeiElement {
         REGISTER_DECLARATION(Curve);
 };
 
-/** \brief 
+/** \brief – A line that cannot be represented by a more specific element.
  */
 class MEI_EXPORT Line : public MeiElement {
     public:
@@ -129,14 +131,14 @@ class MEI_EXPORT Line : public MeiElement {
         REGISTER_DECLARATION(Line);
 };
 
-/** \brief 
+/** \brief – A reference to a previously defined symbol.
  */
 class MEI_EXPORT Symbol : public MeiElement {
     public:
         Symbol();
         Symbol(const Symbol& other);
         virtual ~Symbol();
-        /** \brief 
+        /** \brief contains a reference to a previously-declared user-defined symbol.
          */
         MeiAttribute* getRef();
         void setRef(std::string _ref);
@@ -162,7 +164,7 @@ class MEI_EXPORT Symbol : public MeiElement {
         REGISTER_DECLARATION(Symbol);
 };
 
-/** \brief 
+/** \brief (symbol definition) – Declaration of an individual symbol in a symbolTable.
  */
 class MEI_EXPORT SymbolDef : public MeiElement {
     public:
@@ -179,7 +181,7 @@ class MEI_EXPORT SymbolDef : public MeiElement {
         REGISTER_DECLARATION(SymbolDef);
 };
 
-/** \brief 
+/** \brief – Contains individual, user-defined symbols.
  */
 class MEI_EXPORT SymbolTable : public MeiElement {
     public:

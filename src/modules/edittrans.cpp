@@ -7,6 +7,56 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
+mei::Abbr::Abbr() :
+    MeiElement("abbr"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Handident(this),
+    m_Sequence(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Abbr, "abbr");
+mei::Abbr::~Abbr() {}
+mei::Abbr::Abbr(const Abbr& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Handident(this),
+    m_Sequence(this),
+    m_Typed(this)
+{
+}
+
+MeiAttribute* mei::Abbr::getExpan() {
+    if (!hasAttribute("expan")) {
+        throw AttributeNotFoundException("expan");
+    }
+    return getAttribute("expan");
+};
+
+void mei::Abbr::setExpan(std::string _expan) {
+    MeiAttribute *a = new MeiAttribute("expan", _expan);
+    addAttribute(a);
+};
+
+bool mei::Abbr::hasExpan() {
+    return hasAttribute("expan");
+};
+
+void mei::Abbr::removeExpan() {
+    removeAttribute("expan");
+};
+/* include <abbr> */
+
 mei::Add::Add() :
     MeiElement("add"),
     m_Common(this),
@@ -158,6 +208,56 @@ void mei::Del::removeRend() {
 };
 /* include <del> */
 
+mei::Expan::Expan() :
+    MeiElement("expan"),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Handident(this),
+    m_Sequence(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Expan, "expan");
+mei::Expan::~Expan() {}
+mei::Expan::Expan(const Expan& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Handident(this),
+    m_Sequence(this),
+    m_Typed(this)
+{
+}
+
+MeiAttribute* mei::Expan::getAbbr() {
+    if (!hasAttribute("abbr")) {
+        throw AttributeNotFoundException("abbr");
+    }
+    return getAttribute("abbr");
+};
+
+void mei::Expan::setAbbr(std::string _abbr) {
+    MeiAttribute *a = new MeiAttribute("abbr", _abbr);
+    addAttribute(a);
+};
+
+bool mei::Expan::hasAbbr() {
+    return hasAttribute("abbr");
+};
+
+void mei::Expan::removeAbbr() {
+    removeAttribute("abbr");
+};
+/* include <expan> */
+
 mei::Gap::Gap() :
     MeiElement("gap"),
     m_Common(this),
@@ -166,8 +266,8 @@ mei::Gap::Gap() :
     m_Source(this),
     m_Extent(this),
     m_Handident(this),
-    m_Measurement(this),
-    m_Reasonident(this)
+    m_Reasonident(this),
+    m_Measurement(this)
 {
 }
 REGISTER_DEFINITION(mei::Gap, "gap");
@@ -180,8 +280,8 @@ mei::Gap::Gap(const Gap& other) :
     m_Source(this),
     m_Extent(this),
     m_Handident(this),
-    m_Measurement(this),
-    m_Reasonident(this)
+    m_Reasonident(this),
+    m_Measurement(this)
 {
 }
 
@@ -320,6 +420,9 @@ mei::Reg::Reg(const Reg& other) :
 mei::Restore::Restore() :
     MeiElement("restore"),
     m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
     m_Facsimile(this),
     m_Handident(this),
     m_Sequence(this),
@@ -331,6 +434,9 @@ mei::Restore::~Restore() {}
 mei::Restore::Restore(const Restore& other) :
     MeiElement(other),
     m_Common(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
     m_Facsimile(this),
     m_Handident(this),
     m_Sequence(this),

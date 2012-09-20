@@ -35,20 +35,24 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief – Provides a set of ordered points in time to which musical elements can be
+ *  linked in order to create a temporal alignment of those elements.
  */
 class MEI_EXPORT Timeline : public MeiElement {
     public:
         Timeline();
         Timeline(const Timeline& other);
         virtual ~Timeline();
-        /** \brief 
+        /** \brief holds the identifier of an <avFile> element that references an external digital
+         *  media file.
          */
         MeiAttribute* getAvref();
         void setAvref(std::string _avref);
         bool hasAvref();
         void removeAvref();
-        /** \brief 
+        /** \brief designates the origin of the timeline, i.e.
+         * 
+         *  the <when> element associated with the beginning of the timeline.
          */
         MeiAttribute* getOrigin();
         void setOrigin(std::string _origin);
@@ -63,32 +67,47 @@ class MEI_EXPORT Timeline : public MeiElement {
         REGISTER_DECLARATION(Timeline);
 };
 
-/** \brief 
+/** \brief – Indicates a point in time either absolutely (using the absolute attribute),
+ *  or relative to other elements in the same timeline element (using the interval
+ *  and since attributes).
  */
 class MEI_EXPORT When : public MeiElement {
     public:
         When();
         When(const When& other);
         virtual ~When();
-        /** \brief 
+        /** \brief provides an absolute value for the time associated with a point on a timeline.
+         * 
+         *  This attribute is required for the element designated as the origin by the
+         *  parent timeline.
          */
         MeiAttribute* getAbsolute();
         void setAbsolute(std::string _absolute);
         bool hasAbsolute();
         void removeAbsolute();
-        /** \brief 
+        /** \brief specifies the time interval between this time point and the one designated by
+         *  the since attribute.
+         * 
+         *  This attribute can only be interpreted meaningfully in conjunction with the
+         *  inttype attribute.
          */
         MeiAttribute* getInterval();
         void setInterval(std::string _interval);
         bool hasInterval();
         void removeInterval();
-        /** \brief 
+        /** \brief specifies the kind of values used in the interval attribute.
          */
         MeiAttribute* getInttype();
         void setInttype(std::string _inttype);
         bool hasInttype();
         void removeInttype();
-        /** \brief 
+        /** \brief identifies the reference point for determining the time of the current when
+         *  element, which is obtained by adding the interval to the time of the reference
+         *  point.
+         * 
+         *  The value should be the ID of another when element in the same timeline. If the
+         *  since attribute is omitted and the absolute attribute is not specified, then the
+         *  reference point is understood to be the immediately preceding when element.
          */
         MeiAttribute* getSince();
         void setSince(std::string _since);

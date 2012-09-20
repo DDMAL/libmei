@@ -34,7 +34,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (pointer) – Defines a pointer to another location, using only attributes to
+ *  describe the destination.
  */
 class MEI_EXPORT Ptr : public MeiElement {
     public:
@@ -52,7 +53,8 @@ class MEI_EXPORT Ptr : public MeiElement {
         REGISTER_DECLARATION(Ptr);
 };
 
-/** \brief 
+/** \brief (reference) – Defines a reference to another location that may contain text
+ *  and sub-elements to describe the destination.
  */
 class MEI_EXPORT Ref : public MeiElement {
     public:

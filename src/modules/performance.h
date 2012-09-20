@@ -32,11 +32,10 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
-#include <string>
 
 
 namespace mei {
-/** \brief 
+/** \brief (audio/video file) – References an external digital audio or video file.
  */
 class MEI_EXPORT AvFile : public MeiElement {
     public:
@@ -57,43 +56,27 @@ class MEI_EXPORT AvFile : public MeiElement {
         REGISTER_DECLARATION(AvFile);
 };
 
-/** \brief 
+/** \brief – Defines a time segment of interest within a recording or within a digital
+ *  audio or video file.
  */
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
         Clip(const Clip& other);
         virtual ~Clip();
-        /** \brief 
-         */
-        MeiAttribute* getBegin();
-        void setBegin(std::string _begin);
-        bool hasBegin();
-        void removeBegin();
-        /** \brief 
-         */
-        MeiAttribute* getEnd();
-        void setEnd(std::string _end);
-        bool hasEnd();
-        void removeEnd();
-        /** \brief 
-         */
-        MeiAttribute* getBetype();
-        void setBetype(std::string _betype);
-        bool hasBetype();
-        void removeBetype();
 
 /* include <clip> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
+        MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
 
     private:
         REGISTER_DECLARATION(Clip);
 };
 
-/** \brief 
+/** \brief – A presentation of one or more musical works.
  */
 class MEI_EXPORT Performance : public MeiElement {
     public:
@@ -110,36 +93,19 @@ class MEI_EXPORT Performance : public MeiElement {
         REGISTER_DECLARATION(Performance);
 };
 
-/** \brief 
+/** \brief – A recorded performance.
  */
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
         Recording(const Recording& other);
         virtual ~Recording();
-        /** \brief 
-         */
-        MeiAttribute* getBegin();
-        void setBegin(std::string _begin);
-        bool hasBegin();
-        void removeBegin();
-        /** \brief 
-         */
-        MeiAttribute* getEnd();
-        void setEnd(std::string _end);
-        bool hasEnd();
-        void removeEnd();
-        /** \brief 
-         */
-        MeiAttribute* getBetype();
-        void setBetype(std::string _betype);
-        bool hasBetype();
-        void removeBetype();
 
 /* include <recording> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
+        MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
 
     private:

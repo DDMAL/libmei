@@ -36,37 +36,39 @@ class CommonAnlMixIn {
     public:
         explicit CommonAnlMixIn(MeiElement *b);
         virtual ~CommonAnlMixIn();
-        /** \brief 
+        /** \brief points to an element of which the current element is a copy.
          */
         MeiAttribute* getCopyof();
         void setCopyof(std::string _copyof);
         bool hasCopyof();
         void removeCopyof();
-        /** \brief 
+        /** \brief used to point to other elements that correspond to this one in a generic
+         *  fashion.
          */
         MeiAttribute* getCorresp();
         void setCorresp(std::string _corresp);
         bool hasCorresp();
         void removeCorresp();
-        /** \brief 
+        /** \brief used to point to the next event(s) in a user-defined collection.
          */
         MeiAttribute* getNext();
         void setNext(std::string _next);
         bool hasNext();
         void removeNext();
-        /** \brief 
+        /** \brief points to the previous event(s) in a user-defined collection.
          */
         MeiAttribute* getPrev();
         void setPrev(std::string _prev);
         bool hasPrev();
         void removePrev();
-        /** \brief 
+        /** \brief points to an element that is the same as the current element but is not a
+         *  literal copy of the current element.
          */
         MeiAttribute* getSameas();
         void setSameas(std::string _sameas);
         bool hasSameas();
         void removeSameas();
-        /** \brief 
+        /** \brief points to elements that are synchronous with the current element.
          */
         MeiAttribute* getSynch();
         void setSynch(std::string _synch);
@@ -83,7 +85,7 @@ class HarmonicfunctionMixIn {
     public:
         explicit HarmonicfunctionMixIn(MeiElement *b);
         virtual ~HarmonicfunctionMixIn();
-        /** \brief 
+        /** \brief describes harmonic function in any convenient typology.
          */
         MeiAttribute* getHfunc();
         void setHfunc(std::string _hfunc);
@@ -100,7 +102,8 @@ class IntervalharmonicMixIn {
     public:
         explicit IntervalharmonicMixIn(MeiElement *b);
         virtual ~IntervalharmonicMixIn();
-        /** \brief 
+        /** \brief encodes the harmonic interval between this note and other pitches occurring at
+         *  the same time.
          */
         MeiAttribute* getInth();
         void setInth(std::string _inth);
@@ -117,7 +120,10 @@ class IntervallicdescMixIn {
     public:
         explicit IntervallicdescMixIn(MeiElement *b);
         virtual ~IntervallicdescMixIn();
-        /** \brief 
+        /** \brief encodes the melodic interval from the previous pitch.
+         * 
+         *  The value may be a general directional indication (u, d, s) or a precise numeric
+         *  value in half steps.
          */
         MeiAttribute* getIntm();
         void setIntm(std::string _intm);
@@ -134,7 +140,7 @@ class MelodicfunctionMixIn {
     public:
         explicit MelodicfunctionMixIn(MeiElement *b);
         virtual ~MelodicfunctionMixIn();
-        /** \brief 
+        /** \brief describes melodic function in any convenient typology.
          */
         MeiAttribute* getMfunc();
         void setMfunc(std::string _mfunc);
@@ -151,7 +157,7 @@ class PitchclassMixIn {
     public:
         explicit PitchclassMixIn(MeiElement *b);
         virtual ~PitchclassMixIn();
-        /** \brief 
+        /** \brief holds pitch class information.
          */
         MeiAttribute* getPclass();
         void setPclass(std::string _pclass);
@@ -168,7 +174,8 @@ class SolfaMixIn {
     public:
         explicit SolfaMixIn(MeiElement *b);
         virtual ~SolfaMixIn();
-        /** \brief 
+        /** \brief contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
+         *  movable Do system.
          */
         MeiAttribute* getPsolfa();
         void setPsolfa(std::string _psolfa);

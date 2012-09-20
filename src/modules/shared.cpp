@@ -1,71 +1,11 @@
 #include "shared.h"
 
 #include <string>
-
-#include "meielement.h"
-#include "meidocument.h"
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
-using std::vector;
-using std::find;
-using mei::MeiElement;
-using mei::MeiDocument;
+/* #include_block */
 using std::string;
 using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
-
-mei::Abbr::Abbr() :
-    MeiElement("abbr"),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-REGISTER_DEFINITION(mei::Abbr, "abbr");
-mei::Abbr::~Abbr() {}
-mei::Abbr::Abbr(const Abbr& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-
-MeiAttribute* mei::Abbr::getExpan() {
-    if (!hasAttribute("expan")) {
-        throw AttributeNotFoundException("expan");
-    }
-    return getAttribute("expan");
-};
-
-void mei::Abbr::setExpan(std::string _expan) {
-    MeiAttribute *a = new MeiAttribute("expan", _expan);
-    addAttribute(a);
-};
-
-bool mei::Abbr::hasExpan() {
-    return hasAttribute("expan");
-};
-
-void mei::Abbr::removeExpan() {
-    removeAttribute("expan");
-};
-/* include <abbr> */
 
 mei::Accid::Accid() :
     MeiElement("accid"),
@@ -80,8 +20,8 @@ mei::Accid::Accid() :
     m_Staffident(this),
     m_Layerident(this),
     m_Staffloc(this),
-    m_AccidVis(this),
     m_Color(this),
+    m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
@@ -105,8 +45,8 @@ mei::Accid::Accid(const Accid& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Staffloc(this),
-    m_AccidVis(this),
     m_Color(this),
+    m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
@@ -310,26 +250,7 @@ mei::BarLine::BarLine(const BarLine& other) :
 {
 }
 
-string mei::BarLine::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::BarLine::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::BarLine::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::BarLine::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::BarLine::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <barLine> */
 
 mei::Bibl::Bibl() :
     MeiElement("bibl"),
@@ -463,6 +384,7 @@ mei::Chord::Chord() :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -503,6 +425,7 @@ mei::Chord::Chord(const Chord& other) :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -524,26 +447,7 @@ mei::Chord::Chord(const Chord& other) :
 {
 }
 
-string mei::Chord::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Chord::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Chord::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Chord::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Chord::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <chord> */
 
 mei::Clef::Clef() :
     MeiElement("clef"),
@@ -578,26 +482,7 @@ mei::Clef::Clef(const Clef& other) :
 {
 }
 
-string mei::Clef::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Clef::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Clef::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Clef::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Clef::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <clef> */
 
 mei::ClefGrp::ClefGrp() :
     MeiElement("clefGrp"),
@@ -659,26 +544,7 @@ mei::Custos::Custos(const Custos& other) :
 {
 }
 
-string mei::Custos::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Custos::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Custos::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Custos::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Custos::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <custos> */
 
 mei::Date::Date() :
     MeiElement("date"),
@@ -709,25 +575,6 @@ mei::Date::Date(const Date& other) :
 {
 }
 
-MeiAttribute* mei::Date::getReg() {
-    if (!hasAttribute("reg")) {
-        throw AttributeNotFoundException("reg");
-    }
-    return getAttribute("reg");
-};
-
-void mei::Date::setReg(std::string _reg) {
-    MeiAttribute *a = new MeiAttribute("reg", _reg);
-    addAttribute(a);
-};
-
-bool mei::Date::hasReg() {
-    return hasAttribute("reg");
-};
-
-void mei::Date::removeReg() {
-    removeAttribute("reg");
-};
 /* include <date> */
 
 mei::Dir::Dir() :
@@ -929,56 +776,6 @@ mei::Ending::Ending(const Ending& other) :
 
 /* include <ending> */
 
-mei::Expan::Expan() :
-    MeiElement("expan"),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-REGISTER_DEFINITION(mei::Expan, "expan");
-mei::Expan::~Expan() {}
-mei::Expan::Expan(const Expan& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-
-MeiAttribute* mei::Expan::getAbbr() {
-    if (!hasAttribute("abbr")) {
-        throw AttributeNotFoundException("abbr");
-    }
-    return getAttribute("abbr");
-};
-
-void mei::Expan::setAbbr(std::string _abbr) {
-    MeiAttribute *a = new MeiAttribute("abbr", _abbr);
-    addAttribute(a);
-};
-
-bool mei::Expan::hasAbbr() {
-    return hasAttribute("abbr");
-};
-
-void mei::Expan::removeAbbr() {
-    removeAttribute("abbr");
-};
-/* include <expan> */
-
 mei::Expansion::Expansion() :
     MeiElement("expansion"),
     m_Common(this),
@@ -1071,6 +868,7 @@ mei::GrpSym::GrpSym(const GrpSym& other) :
 
 mei::Identifier::Identifier() :
     MeiElement("identifier"),
+    m_Authorized(this),
     m_Bibl(this),
     m_Common(this),
     m_Facsimile(this),
@@ -1081,6 +879,7 @@ REGISTER_DEFINITION(mei::Identifier, "identifier");
 mei::Identifier::~Identifier() {}
 mei::Identifier::Identifier(const Identifier& other) :
     MeiElement(other),
+    m_Authorized(this),
     m_Bibl(this),
     m_Common(this),
     m_Facsimile(this),
@@ -1108,40 +907,6 @@ mei::Incip::Incip(const Incip& other) :
 }
 
 /* include <incip> */
-
-mei::InstrDef::InstrDef() :
-    MeiElement("instrDef"),
-    m_Common(this),
-    m_Channelized(this),
-    m_Midiinstrument(this)
-{
-}
-REGISTER_DEFINITION(mei::InstrDef, "instrDef");
-mei::InstrDef::~InstrDef() {}
-mei::InstrDef::InstrDef(const InstrDef& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Channelized(this),
-    m_Midiinstrument(this)
-{
-}
-
-/* include <instrDef> */
-
-mei::InstrGrp::InstrGrp() :
-    MeiElement("instrGrp"),
-    m_Common(this)
-{
-}
-REGISTER_DEFINITION(mei::InstrGrp, "instrGrp");
-mei::InstrGrp::~InstrGrp() {}
-mei::InstrGrp::InstrGrp(const InstrGrp& other) :
-    MeiElement(other),
-    m_Common(this)
-{
-}
-
-/* include <instrGrp> */
 
 mei::KeyAccid::KeyAccid() :
     MeiElement("keyAccid"),
@@ -1195,6 +960,9 @@ mei::KeySig::KeySig() :
     MeiElement("keySig"),
     m_Common(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
 {
@@ -1205,30 +973,14 @@ mei::KeySig::KeySig(const KeySig& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
 {
 }
 
-MeiAttribute* mei::KeySig::getMode() {
-    if (!hasAttribute("mode")) {
-        throw AttributeNotFoundException("mode");
-    }
-    return getAttribute("mode");
-};
-
-void mei::KeySig::setMode(std::string _mode) {
-    MeiAttribute *a = new MeiAttribute("mode", _mode);
-    addAttribute(a);
-};
-
-bool mei::KeySig::hasMode() {
-    return hasAttribute("mode");
-};
-
-void mei::KeySig::removeMode() {
-    removeAttribute("mode");
-};
 /* include <keySig> */
 
 mei::Label::Label() :
@@ -1459,6 +1211,7 @@ mei::Note::Note() :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
@@ -1515,6 +1268,7 @@ mei::Note::Note(const Note& other) :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
@@ -1549,26 +1303,7 @@ mei::Note::Note(const Note& other) :
 {
 }
 
-string mei::Note::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Note::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Note::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Note::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Note::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <note> */
 
 mei::Num::Num() :
     MeiElement("num"),
@@ -1637,26 +1372,7 @@ mei::Pad::Pad(const Pad& other) :
 {
 }
 
-string mei::Pad::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Pad::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Pad::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Pad::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Pad::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <pad> */
 
 mei::Part::Part() :
     MeiElement("part"),
@@ -2076,26 +1792,7 @@ mei::Rest::Rest(const Rest& other) :
 {
 }
 
-string mei::Rest::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Rest::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Rest::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Rest::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Rest::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <rest> */
 
 mei::Role::Role() :
     MeiElement("role"),
@@ -2188,21 +1885,20 @@ mei::ScoreDef::ScoreDef() :
     m_Common(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
@@ -2212,7 +1908,7 @@ mei::ScoreDef::ScoreDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -2227,21 +1923,20 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Common(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
@@ -2251,7 +1946,7 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -2332,26 +2027,7 @@ mei::Space::Space(const Space& other) :
 {
 }
 
-string mei::Space::getLayerIdent() {
-    return this->getAncestor("layer")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Space::getLayer() {
-    return this->getAncestor("layer");
-}
-
-string mei::Space::getStaffIdent() {
-    return this->getAncestor("staff")->getAttribute("n")->getValue();
-}
-
-MeiElement* mei::Space::getStaff() {
-    return this->getAncestor("staff");
-}
-
-MeiElement* mei::Space::getSystem() {
-    return this->lookBack("sb");
-}
-
+/* include <space> */
 
 mei::Stack::Stack() :
     MeiElement("stack"),
@@ -2445,22 +2121,21 @@ mei::StaffDef::StaffDef() :
     m_Declaring(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
     m_StaffDefLogMensural(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -2471,7 +2146,7 @@ mei::StaffDef::StaffDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)
@@ -2485,22 +2160,21 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Declaring(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
     m_StaffDefLogMensural(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -2511,7 +2185,7 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)

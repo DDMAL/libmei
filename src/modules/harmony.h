@@ -39,7 +39,7 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief – An indication of fingering in a chord tablature grid.
  */
 class MEI_EXPORT Barre : public MeiElement {
     public:
@@ -58,14 +58,14 @@ class MEI_EXPORT Barre : public MeiElement {
         REGISTER_DECLARATION(Barre);
 };
 
-/** \brief 
+/** \brief (chord definition) – Chord tablature definition.
  */
 class MEI_EXPORT ChordDef : public MeiElement {
     public:
         ChordDef();
         ChordDef(const ChordDef& other);
         virtual ~ChordDef();
-        /** \brief 
+        /** \brief records the fret position at which the chord tablature is to be played.
          */
         MeiAttribute* getPos();
         void setPos(std::string _pos);
@@ -80,14 +80,16 @@ class MEI_EXPORT ChordDef : public MeiElement {
         REGISTER_DECLARATION(ChordDef);
 };
 
-/** \brief 
+/** \brief – An individual pitch in a chord defined by a <chordDef> element.
  */
 class MEI_EXPORT ChordMember : public MeiElement {
     public:
         ChordMember();
         ChordMember(const ChordMember& other);
         virtual ~ChordMember();
-        /** \brief 
+        /** \brief indicates which finger, if any, should be used to play an individual string.
+         * 
+         *  The values 'x' and 'o' indicated muffled and open strings, respectively.
          */
         MeiAttribute* getFing();
         void setFing(std::string _fing);
@@ -107,7 +109,7 @@ class MEI_EXPORT ChordMember : public MeiElement {
         REGISTER_DECLARATION(ChordMember);
 };
 
-/** \brief 
+/** \brief – Chord/tablature look-up table.
  */
 class MEI_EXPORT ChordTable : public MeiElement {
     public:
@@ -123,14 +125,16 @@ class MEI_EXPORT ChordTable : public MeiElement {
         REGISTER_DECLARATION(ChordTable);
 };
 
-/** \brief 
+/** \brief (figure) – Single element of a figured bass indication.
  */
 class MEI_EXPORT F : public MeiElement {
     public:
         F();
         F(const F& other);
         virtual ~F();
-        /** \brief 
+        /** \brief indicates the presence of an extension symbol, typically a dash or underscore,
+         *  drawn from the end of the harmonic indication to the point indicated by the dur
+         *  attribute.
          */
         MeiAttribute* getExtender();
         void setExtender(std::string _extender);
@@ -149,7 +153,10 @@ class MEI_EXPORT F : public MeiElement {
         REGISTER_DECLARATION(F);
 };
 
-/** \brief 
+/** \brief (figured bass) – Symbols added to a bass line that indicate harmony.
+ * 
+ *  Used to improvise a chordal accompaniment. Sometimes called Generalbass,
+ *  thoroughbass, or basso continuo.
  */
 class MEI_EXPORT Fb : public MeiElement {
     public:
@@ -168,7 +175,8 @@ class MEI_EXPORT Fb : public MeiElement {
         REGISTER_DECLARATION(Fb);
 };
 
-/** \brief 
+/** \brief (harmony) – An indication of harmony, e.g., chord names, tablature grids,
+ *  harmonic analysis, figured bass.
  */
 class MEI_EXPORT Harm : public MeiElement {
     public:

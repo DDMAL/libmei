@@ -38,7 +38,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief – An ornament indicating rapid alternation of the main note with a secondary
+ *  note, usually a step below, but sometimes a step above.
  */
 class MEI_EXPORT Mordent : public MeiElement {
     public:
@@ -71,7 +72,8 @@ class MEI_EXPORT Mordent : public MeiElement {
         REGISTER_DECLARATION(Mordent);
 };
 
-/** \brief 
+/** \brief – Rapid alternation of a note with one (usually at the interval of a second)
+ *  above.
  */
 class MEI_EXPORT Trill : public MeiElement {
     public:
@@ -108,7 +110,8 @@ class MEI_EXPORT Trill : public MeiElement {
         REGISTER_DECLARATION(Trill);
 };
 
-/** \brief 
+/** \brief – An ornament consisting of four notes — the upper neighbor of the written
+ *  note, the written note, the lower neighbor, and the written note.
  */
 class MEI_EXPORT Turn : public MeiElement {
     public:

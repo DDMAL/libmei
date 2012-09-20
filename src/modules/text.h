@@ -36,7 +36,9 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (back matter) – Contains any appendixes, advertisements, indexes, etc.
+ * 
+ *  following the main body of a musical text.
  */
 class MEI_EXPORT Back : public MeiElement {
     public:
@@ -55,7 +57,8 @@ class MEI_EXPORT Back : public MeiElement {
         REGISTER_DECLARATION(Back);
 };
 
-/** \brief 
+/** \brief (division) – Major structural division of text, such as a preface, chapter or
+ *  section.
  */
 class MEI_EXPORT Div : public MeiElement {
     public:
@@ -75,7 +78,8 @@ class MEI_EXPORT Div : public MeiElement {
         REGISTER_DECLARATION(Div);
 };
 
-/** \brief 
+/** \brief (front matter) – Bundles prefatory text found before the start of the musical
+ *  text.
  */
 class MEI_EXPORT Front : public MeiElement {
     public:
@@ -94,7 +98,8 @@ class MEI_EXPORT Front : public MeiElement {
         REGISTER_DECLARATION(Front);
 };
 
-/** \brief 
+/** \brief (heading) – Contains any heading, for example, the title of a section of text,
+ *  or the heading of a list.
  */
 class MEI_EXPORT Head : public MeiElement {
     public:
@@ -113,7 +118,7 @@ class MEI_EXPORT Head : public MeiElement {
         REGISTER_DECLARATION(Head);
 };
 
-/** \brief 
+/** \brief – Single item in a <list>.
  */
 class MEI_EXPORT Item : public MeiElement {
     public:
@@ -130,7 +135,7 @@ class MEI_EXPORT Item : public MeiElement {
         REGISTER_DECLARATION(Item);
 };
 
-/** \brief 
+/** \brief (line of text) – Contains a single line of text within a line group.
  */
 class MEI_EXPORT L : public MeiElement {
     public:
@@ -148,7 +153,11 @@ class MEI_EXPORT L : public MeiElement {
         REGISTER_DECLARATION(L);
 };
 
-/** \brief 
+/** \brief (line group) – May be used for any section of text that is organized as a
+ *  group of lines; however, it is most often used for a group of verse lines
+ *  functioning as a formal unit, e.g.
+ * 
+ *  a stanza, refrain, verse paragraph, etc.
  */
 class MEI_EXPORT Lg : public MeiElement {
     public:
@@ -168,14 +177,15 @@ class MEI_EXPORT Lg : public MeiElement {
         REGISTER_DECLARATION(Lg);
 };
 
-/** \brief 
+/** \brief – A formatting element that contains a series of items separated from one
+ *  another and arranged in a linear, often vertical, sequence.
  */
 class MEI_EXPORT List : public MeiElement {
     public:
         List();
         List(const List& other);
         virtual ~List();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -193,7 +203,9 @@ class MEI_EXPORT List : public MeiElement {
         REGISTER_DECLARATION(List);
 };
 
-/** \brief 
+/** \brief (block quote) – A formatting element that designates an extended quotation;
+ *  that is, a passage attributed to a source external to the text and normally set
+ *  off from the text by spacing or other typographic distinction.
  */
 class MEI_EXPORT Quote : public MeiElement {
     public:

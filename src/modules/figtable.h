@@ -37,7 +37,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (figure) – groups elements representing or containing graphic information such
+ *  as an illustration or figure.
  */
 class MEI_EXPORT Fig : public MeiElement {
     public:
@@ -55,7 +56,9 @@ class MEI_EXPORT Fig : public MeiElement {
         REGISTER_DECLARATION(Fig);
 };
 
-/** \brief 
+/** \brief (figure description) – Contains a brief prose description of the appearance or
+ *  content of a graphic figure, for use when documenting an image without
+ *  displaying it.
  */
 class MEI_EXPORT FigDesc : public MeiElement {
     public:
@@ -72,14 +75,14 @@ class MEI_EXPORT FigDesc : public MeiElement {
         REGISTER_DECLARATION(FigDesc);
 };
 
-/** \brief 
+/** \brief – Indicates the location of an inline graphic, illustration, or figure.
  */
 class MEI_EXPORT Graphic : public MeiElement {
     public:
         Graphic();
         Graphic(const Graphic& other);
         virtual ~Graphic();
-        /** \brief 
+        /** \brief measurement of the vertical dimension of an image.
          */
         MeiAttribute* getHeight();
         void setHeight(std::string _height);
@@ -101,7 +104,7 @@ class MEI_EXPORT Graphic : public MeiElement {
         REGISTER_DECLARATION(Graphic);
 };
 
-/** \brief 
+/** \brief – Contains text displayed in tabular form.
  */
 class MEI_EXPORT Table : public MeiElement {
     public:
@@ -120,7 +123,8 @@ class MEI_EXPORT Table : public MeiElement {
         REGISTER_DECLARATION(Table);
 };
 
-/** \brief 
+/** \brief (table data) – Designates a table cell that contains data as opposed to a cell
+ *  that contains column or row heading information.
  */
 class MEI_EXPORT Td : public MeiElement {
     public:
@@ -140,7 +144,8 @@ class MEI_EXPORT Td : public MeiElement {
         REGISTER_DECLARATION(Td);
 };
 
-/** \brief 
+/** \brief (table header) – Designates a table cell containing column or row heading
+ *  information as opposed to one containing data.
  */
 class MEI_EXPORT Th : public MeiElement {
     public:
@@ -160,7 +165,8 @@ class MEI_EXPORT Th : public MeiElement {
         REGISTER_DECLARATION(Th);
 };
 
-/** \brief 
+/** \brief (table row) – A formatting element that contains one or more cells
+ *  (intersection of a row and a column) in a <table>.
  */
 class MEI_EXPORT Tr : public MeiElement {
     public:

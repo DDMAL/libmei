@@ -157,6 +157,40 @@ mei::Hex::Hex(const Hex& other) :
 
 /* include <hex> */
 
+mei::InstrDef::InstrDef() :
+    MeiElement("instrDef"),
+    m_Common(this),
+    m_Channelized(this),
+    m_Midiinstrument(this)
+{
+}
+REGISTER_DEFINITION(mei::InstrDef, "instrDef");
+mei::InstrDef::~InstrDef() {}
+mei::InstrDef::InstrDef(const InstrDef& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Channelized(this),
+    m_Midiinstrument(this)
+{
+}
+
+/* include <instrDef> */
+
+mei::InstrGrp::InstrGrp() :
+    MeiElement("instrGrp"),
+    m_Common(this)
+{
+}
+REGISTER_DEFINITION(mei::InstrGrp, "instrGrp");
+mei::InstrGrp::~InstrGrp() {}
+mei::InstrGrp::InstrGrp(const InstrGrp& other) :
+    MeiElement(other),
+    m_Common(this)
+{
+}
+
+/* include <instrGrp> */
+
 mei::Marker::Marker() :
     MeiElement("marker"),
     m_CommonAnl(this),

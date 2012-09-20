@@ -357,28 +357,28 @@ void mei::ExpandableMixIn::removeExpand() {
 };
 
 /* include <expandmixin> */
-mei::FTremGesMixIn::FTremGesMixIn(MeiElement *b) {
+mei::FTremLogMixIn::FTremLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::FTremGesMixIn::~FTremGesMixIn() {}
-MeiAttribute* mei::FTremGesMixIn::getForm() {
+mei::FTremLogMixIn::~FTremLogMixIn() {}
+MeiAttribute* mei::FTremLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
         throw AttributeNotFoundException("form");
     }
     return b->getAttribute("form");
 };
 
-void mei::FTremGesMixIn::setForm(std::string _form) {
+void mei::FTremLogMixIn::setForm(std::string _form) {
     MeiAttribute *a = new MeiAttribute("form", _form);
     b->addAttribute(a);
 };
 
-bool mei::FTremGesMixIn::hasForm() {
+bool mei::FTremLogMixIn::hasForm() {
     return b->hasAttribute("form");
 };
 
-void mei::FTremGesMixIn::removeForm() {
+void mei::FTremLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
 
@@ -1093,6 +1093,32 @@ void mei::TierendMixIn::removeTieRend() {
 };
 
 /* include <tie.rendmixin> */
+mei::TremmeasuredMixIn::TremmeasuredMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::TremmeasuredMixIn::~TremmeasuredMixIn() {}
+MeiAttribute* mei::TremmeasuredMixIn::getMeasperf() {
+    if (!b->hasAttribute("measperf")) {
+        throw AttributeNotFoundException("measperf");
+    }
+    return b->getAttribute("measperf");
+};
+
+void mei::TremmeasuredMixIn::setMeasperf(std::string _measperf) {
+    MeiAttribute *a = new MeiAttribute("measperf", _measperf);
+    b->addAttribute(a);
+};
+
+bool mei::TremmeasuredMixIn::hasMeasperf() {
+    return b->hasAttribute("measperf");
+};
+
+void mei::TremmeasuredMixIn::removeMeasperf() {
+    b->removeAttribute("measperf");
+};
+
+/* include <measperfmixin> */
 mei::TupletLogMixIn::TupletLogMixIn(MeiElement *b) {
     this->b = b;
 };

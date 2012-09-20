@@ -33,32 +33,6 @@ void mei::AccidLogMixIn::removeFunc() {
 };
 
 /* include <funcmixin> */
-mei::AccidVisMixIn::AccidVisMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::AccidVisMixIn::~AccidVisMixIn() {}
-MeiAttribute* mei::AccidVisMixIn::getPlace() {
-    if (!b->hasAttribute("place")) {
-        throw AttributeNotFoundException("place");
-    }
-    return b->getAttribute("place");
-};
-
-void mei::AccidVisMixIn::setPlace(std::string _place) {
-    MeiAttribute *a = new MeiAttribute("place", _place);
-    b->addAttribute(a);
-};
-
-bool mei::AccidVisMixIn::hasPlace() {
-    return b->hasAttribute("place");
-};
-
-void mei::AccidVisMixIn::removePlace() {
-    b->removeAttribute("place");
-};
-
-/* include <placemixin> */
 mei::AccidentalMixIn::AccidentalMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1000,6 +974,25 @@ bool mei::DatableMixIn::hasEnddate() {
 void mei::DatableMixIn::removeEnddate() {
     b->removeAttribute("enddate");
 };
+MeiAttribute* mei::DatableMixIn::getIsodate() {
+    if (!b->hasAttribute("isodate")) {
+        throw AttributeNotFoundException("isodate");
+    }
+    return b->getAttribute("isodate");
+};
+
+void mei::DatableMixIn::setIsodate(std::string _isodate) {
+    MeiAttribute *a = new MeiAttribute("isodate", _isodate);
+    b->addAttribute(a);
+};
+
+bool mei::DatableMixIn::hasIsodate() {
+    return b->hasAttribute("isodate");
+};
+
+void mei::DatableMixIn::removeIsodate() {
+    b->removeAttribute("isodate");
+};
 MeiAttribute* mei::DatableMixIn::getNotafter() {
     if (!b->hasAttribute("notafter")) {
         throw AttributeNotFoundException("notafter");
@@ -1532,149 +1525,175 @@ void mei::JoinedMixIn::removeJoin() {
 };
 
 /* include <joinmixin> */
-mei::KeySigsLogMixIn::KeySigsLogMixIn(MeiElement *b) {
+mei::KeySigLogMixIn::KeySigLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::KeySigsLogMixIn::~KeySigsLogMixIn() {}
-MeiAttribute* mei::KeySigsLogMixIn::getKeyAccid() {
+mei::KeySigLogMixIn::~KeySigLogMixIn() {}
+MeiAttribute* mei::KeySigLogMixIn::getMode() {
+    if (!b->hasAttribute("mode")) {
+        throw AttributeNotFoundException("mode");
+    }
+    return b->getAttribute("mode");
+};
+
+void mei::KeySigLogMixIn::setMode(std::string _mode) {
+    MeiAttribute *a = new MeiAttribute("mode", _mode);
+    b->addAttribute(a);
+};
+
+bool mei::KeySigLogMixIn::hasMode() {
+    return b->hasAttribute("mode");
+};
+
+void mei::KeySigLogMixIn::removeMode() {
+    b->removeAttribute("mode");
+};
+
+/* include <modemixin> */
+mei::KeySigDefaultLogMixIn::KeySigDefaultLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::KeySigDefaultLogMixIn::~KeySigDefaultLogMixIn() {}
+MeiAttribute* mei::KeySigDefaultLogMixIn::getKeyAccid() {
     if (!b->hasAttribute("key.accid")) {
         throw AttributeNotFoundException("key.accid");
     }
     return b->getAttribute("key.accid");
 };
 
-void mei::KeySigsLogMixIn::setKeyAccid(std::string _keyaccid) {
+void mei::KeySigDefaultLogMixIn::setKeyAccid(std::string _keyaccid) {
     MeiAttribute *a = new MeiAttribute("key.accid", _keyaccid);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsLogMixIn::hasKeyAccid() {
+bool mei::KeySigDefaultLogMixIn::hasKeyAccid() {
     return b->hasAttribute("key.accid");
 };
 
-void mei::KeySigsLogMixIn::removeKeyAccid() {
+void mei::KeySigDefaultLogMixIn::removeKeyAccid() {
     b->removeAttribute("key.accid");
 };
-MeiAttribute* mei::KeySigsLogMixIn::getKeyMode() {
+MeiAttribute* mei::KeySigDefaultLogMixIn::getKeyMode() {
     if (!b->hasAttribute("key.mode")) {
         throw AttributeNotFoundException("key.mode");
     }
     return b->getAttribute("key.mode");
 };
 
-void mei::KeySigsLogMixIn::setKeyMode(std::string _keymode) {
+void mei::KeySigDefaultLogMixIn::setKeyMode(std::string _keymode) {
     MeiAttribute *a = new MeiAttribute("key.mode", _keymode);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsLogMixIn::hasKeyMode() {
+bool mei::KeySigDefaultLogMixIn::hasKeyMode() {
     return b->hasAttribute("key.mode");
 };
 
-void mei::KeySigsLogMixIn::removeKeyMode() {
+void mei::KeySigDefaultLogMixIn::removeKeyMode() {
     b->removeAttribute("key.mode");
 };
-MeiAttribute* mei::KeySigsLogMixIn::getKeyPname() {
+MeiAttribute* mei::KeySigDefaultLogMixIn::getKeyPname() {
     if (!b->hasAttribute("key.pname")) {
         throw AttributeNotFoundException("key.pname");
     }
     return b->getAttribute("key.pname");
 };
 
-void mei::KeySigsLogMixIn::setKeyPname(std::string _keypname) {
+void mei::KeySigDefaultLogMixIn::setKeyPname(std::string _keypname) {
     MeiAttribute *a = new MeiAttribute("key.pname", _keypname);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsLogMixIn::hasKeyPname() {
+bool mei::KeySigDefaultLogMixIn::hasKeyPname() {
     return b->hasAttribute("key.pname");
 };
 
-void mei::KeySigsLogMixIn::removeKeyPname() {
+void mei::KeySigDefaultLogMixIn::removeKeyPname() {
     b->removeAttribute("key.pname");
 };
-MeiAttribute* mei::KeySigsLogMixIn::getKeySig() {
+MeiAttribute* mei::KeySigDefaultLogMixIn::getKeySig() {
     if (!b->hasAttribute("key.sig")) {
         throw AttributeNotFoundException("key.sig");
     }
     return b->getAttribute("key.sig");
 };
 
-void mei::KeySigsLogMixIn::setKeySig(std::string _keysig) {
+void mei::KeySigDefaultLogMixIn::setKeySig(std::string _keysig) {
     MeiAttribute *a = new MeiAttribute("key.sig", _keysig);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsLogMixIn::hasKeySig() {
+bool mei::KeySigDefaultLogMixIn::hasKeySig() {
     return b->hasAttribute("key.sig");
 };
 
-void mei::KeySigsLogMixIn::removeKeySig() {
+void mei::KeySigDefaultLogMixIn::removeKeySig() {
     b->removeAttribute("key.sig");
 };
-MeiAttribute* mei::KeySigsLogMixIn::getKeySigMixed() {
+MeiAttribute* mei::KeySigDefaultLogMixIn::getKeySigMixed() {
     if (!b->hasAttribute("key.sig.mixed")) {
         throw AttributeNotFoundException("key.sig.mixed");
     }
     return b->getAttribute("key.sig.mixed");
 };
 
-void mei::KeySigsLogMixIn::setKeySigMixed(std::string _keysigmixed) {
+void mei::KeySigDefaultLogMixIn::setKeySigMixed(std::string _keysigmixed) {
     MeiAttribute *a = new MeiAttribute("key.sig.mixed", _keysigmixed);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsLogMixIn::hasKeySigMixed() {
+bool mei::KeySigDefaultLogMixIn::hasKeySigMixed() {
     return b->hasAttribute("key.sig.mixed");
 };
 
-void mei::KeySigsLogMixIn::removeKeySigMixed() {
+void mei::KeySigDefaultLogMixIn::removeKeySigMixed() {
     b->removeAttribute("key.sig.mixed");
 };
 
 /* include <key.sig.mixedmixin> */
-mei::KeySigsVisMixIn::KeySigsVisMixIn(MeiElement *b) {
+mei::KeySigDefaultVisMixIn::KeySigDefaultVisMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::KeySigsVisMixIn::~KeySigsVisMixIn() {}
-MeiAttribute* mei::KeySigsVisMixIn::getKeySigShow() {
+mei::KeySigDefaultVisMixIn::~KeySigDefaultVisMixIn() {}
+MeiAttribute* mei::KeySigDefaultVisMixIn::getKeySigShow() {
     if (!b->hasAttribute("key.sig.show")) {
         throw AttributeNotFoundException("key.sig.show");
     }
     return b->getAttribute("key.sig.show");
 };
 
-void mei::KeySigsVisMixIn::setKeySigShow(std::string _keysigshow) {
+void mei::KeySigDefaultVisMixIn::setKeySigShow(std::string _keysigshow) {
     MeiAttribute *a = new MeiAttribute("key.sig.show", _keysigshow);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsVisMixIn::hasKeySigShow() {
+bool mei::KeySigDefaultVisMixIn::hasKeySigShow() {
     return b->hasAttribute("key.sig.show");
 };
 
-void mei::KeySigsVisMixIn::removeKeySigShow() {
+void mei::KeySigDefaultVisMixIn::removeKeySigShow() {
     b->removeAttribute("key.sig.show");
 };
-MeiAttribute* mei::KeySigsVisMixIn::getKeySigShowchange() {
+MeiAttribute* mei::KeySigDefaultVisMixIn::getKeySigShowchange() {
     if (!b->hasAttribute("key.sig.showchange")) {
         throw AttributeNotFoundException("key.sig.showchange");
     }
     return b->getAttribute("key.sig.showchange");
 };
 
-void mei::KeySigsVisMixIn::setKeySigShowchange(std::string _keysigshowchange) {
+void mei::KeySigDefaultVisMixIn::setKeySigShowchange(std::string _keysigshowchange) {
     MeiAttribute *a = new MeiAttribute("key.sig.showchange", _keysigshowchange);
     b->addAttribute(a);
 };
 
-bool mei::KeySigsVisMixIn::hasKeySigShowchange() {
+bool mei::KeySigDefaultVisMixIn::hasKeySigShowchange() {
     return b->hasAttribute("key.sig.showchange");
 };
 
-void mei::KeySigsVisMixIn::removeKeySigShowchange() {
+void mei::KeySigDefaultVisMixIn::removeKeySigShowchange() {
     b->removeAttribute("key.sig.showchange");
 };
 
@@ -2028,6 +2047,70 @@ void mei::MeasurementMixIn::removeUnit() {
 };
 
 /* include <unitmixin> */
+mei::MediaboundsMixIn::MediaboundsMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MediaboundsMixIn::~MediaboundsMixIn() {}
+MeiAttribute* mei::MediaboundsMixIn::getBegin() {
+    if (!b->hasAttribute("begin")) {
+        throw AttributeNotFoundException("begin");
+    }
+    return b->getAttribute("begin");
+};
+
+void mei::MediaboundsMixIn::setBegin(std::string _begin) {
+    MeiAttribute *a = new MeiAttribute("begin", _begin);
+    b->addAttribute(a);
+};
+
+bool mei::MediaboundsMixIn::hasBegin() {
+    return b->hasAttribute("begin");
+};
+
+void mei::MediaboundsMixIn::removeBegin() {
+    b->removeAttribute("begin");
+};
+MeiAttribute* mei::MediaboundsMixIn::getEnd() {
+    if (!b->hasAttribute("end")) {
+        throw AttributeNotFoundException("end");
+    }
+    return b->getAttribute("end");
+};
+
+void mei::MediaboundsMixIn::setEnd(std::string _end) {
+    MeiAttribute *a = new MeiAttribute("end", _end);
+    b->addAttribute(a);
+};
+
+bool mei::MediaboundsMixIn::hasEnd() {
+    return b->hasAttribute("end");
+};
+
+void mei::MediaboundsMixIn::removeEnd() {
+    b->removeAttribute("end");
+};
+MeiAttribute* mei::MediaboundsMixIn::getBetype() {
+    if (!b->hasAttribute("betype")) {
+        throw AttributeNotFoundException("betype");
+    }
+    return b->getAttribute("betype");
+};
+
+void mei::MediaboundsMixIn::setBetype(std::string _betype) {
+    MeiAttribute *a = new MeiAttribute("betype", _betype);
+    b->addAttribute(a);
+};
+
+bool mei::MediaboundsMixIn::hasBetype() {
+    return b->hasAttribute("betype");
+};
+
+void mei::MediaboundsMixIn::removeBetype() {
+    b->removeAttribute("betype");
+};
+
+/* include <betypemixin> */
 mei::MediumMixIn::MediumMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2080,6 +2163,326 @@ void mei::MeiversionMixIn::removeMeiversion() {
 };
 
 /* include <meiversionmixin> */
+mei::MensurLogMixIn::MensurLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MensurLogMixIn::~MensurLogMixIn() {}
+MeiAttribute* mei::MensurLogMixIn::getDot() {
+    if (!b->hasAttribute("dot")) {
+        throw AttributeNotFoundException("dot");
+    }
+    return b->getAttribute("dot");
+};
+
+void mei::MensurLogMixIn::setDot(std::string _dot) {
+    MeiAttribute *a = new MeiAttribute("dot", _dot);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasDot() {
+    return b->hasAttribute("dot");
+};
+
+void mei::MensurLogMixIn::removeDot() {
+    b->removeAttribute("dot");
+};
+MeiAttribute* mei::MensurLogMixIn::getModusmaior() {
+    if (!b->hasAttribute("modusmaior")) {
+        throw AttributeNotFoundException("modusmaior");
+    }
+    return b->getAttribute("modusmaior");
+};
+
+void mei::MensurLogMixIn::setModusmaior(std::string _modusmaior) {
+    MeiAttribute *a = new MeiAttribute("modusmaior", _modusmaior);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasModusmaior() {
+    return b->hasAttribute("modusmaior");
+};
+
+void mei::MensurLogMixIn::removeModusmaior() {
+    b->removeAttribute("modusmaior");
+};
+MeiAttribute* mei::MensurLogMixIn::getModusminor() {
+    if (!b->hasAttribute("modusminor")) {
+        throw AttributeNotFoundException("modusminor");
+    }
+    return b->getAttribute("modusminor");
+};
+
+void mei::MensurLogMixIn::setModusminor(std::string _modusminor) {
+    MeiAttribute *a = new MeiAttribute("modusminor", _modusminor);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasModusminor() {
+    return b->hasAttribute("modusminor");
+};
+
+void mei::MensurLogMixIn::removeModusminor() {
+    b->removeAttribute("modusminor");
+};
+MeiAttribute* mei::MensurLogMixIn::getProlatio() {
+    if (!b->hasAttribute("prolatio")) {
+        throw AttributeNotFoundException("prolatio");
+    }
+    return b->getAttribute("prolatio");
+};
+
+void mei::MensurLogMixIn::setProlatio(std::string _prolatio) {
+    MeiAttribute *a = new MeiAttribute("prolatio", _prolatio);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasProlatio() {
+    return b->hasAttribute("prolatio");
+};
+
+void mei::MensurLogMixIn::removeProlatio() {
+    b->removeAttribute("prolatio");
+};
+MeiAttribute* mei::MensurLogMixIn::getSign() {
+    if (!b->hasAttribute("sign")) {
+        throw AttributeNotFoundException("sign");
+    }
+    return b->getAttribute("sign");
+};
+
+void mei::MensurLogMixIn::setSign(std::string _sign) {
+    MeiAttribute *a = new MeiAttribute("sign", _sign);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasSign() {
+    return b->hasAttribute("sign");
+};
+
+void mei::MensurLogMixIn::removeSign() {
+    b->removeAttribute("sign");
+};
+MeiAttribute* mei::MensurLogMixIn::getTempus() {
+    if (!b->hasAttribute("tempus")) {
+        throw AttributeNotFoundException("tempus");
+    }
+    return b->getAttribute("tempus");
+};
+
+void mei::MensurLogMixIn::setTempus(std::string _tempus) {
+    MeiAttribute *a = new MeiAttribute("tempus", _tempus);
+    b->addAttribute(a);
+};
+
+bool mei::MensurLogMixIn::hasTempus() {
+    return b->hasAttribute("tempus");
+};
+
+void mei::MensurLogMixIn::removeTempus() {
+    b->removeAttribute("tempus");
+};
+
+/* include <tempusmixin> */
+mei::MeterSigLogMixIn::MeterSigLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MeterSigLogMixIn::~MeterSigLogMixIn() {}
+MeiAttribute* mei::MeterSigLogMixIn::getCount() {
+    if (!b->hasAttribute("count")) {
+        throw AttributeNotFoundException("count");
+    }
+    return b->getAttribute("count");
+};
+
+void mei::MeterSigLogMixIn::setCount(std::string _count) {
+    MeiAttribute *a = new MeiAttribute("count", _count);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigLogMixIn::hasCount() {
+    return b->hasAttribute("count");
+};
+
+void mei::MeterSigLogMixIn::removeCount() {
+    b->removeAttribute("count");
+};
+MeiAttribute* mei::MeterSigLogMixIn::getSym() {
+    if (!b->hasAttribute("sym")) {
+        throw AttributeNotFoundException("sym");
+    }
+    return b->getAttribute("sym");
+};
+
+void mei::MeterSigLogMixIn::setSym(std::string _sym) {
+    MeiAttribute *a = new MeiAttribute("sym", _sym);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigLogMixIn::hasSym() {
+    return b->hasAttribute("sym");
+};
+
+void mei::MeterSigLogMixIn::removeSym() {
+    b->removeAttribute("sym");
+};
+MeiAttribute* mei::MeterSigLogMixIn::getUnit() {
+    if (!b->hasAttribute("unit")) {
+        throw AttributeNotFoundException("unit");
+    }
+    return b->getAttribute("unit");
+};
+
+void mei::MeterSigLogMixIn::setUnit(std::string _unit) {
+    MeiAttribute *a = new MeiAttribute("unit", _unit);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigLogMixIn::hasUnit() {
+    return b->hasAttribute("unit");
+};
+
+void mei::MeterSigLogMixIn::removeUnit() {
+    b->removeAttribute("unit");
+};
+
+/* include <unitmixin> */
+mei::MeterSigVisMixIn::MeterSigVisMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MeterSigVisMixIn::~MeterSigVisMixIn() {}
+MeiAttribute* mei::MeterSigVisMixIn::getRend() {
+    if (!b->hasAttribute("rend")) {
+        throw AttributeNotFoundException("rend");
+    }
+    return b->getAttribute("rend");
+};
+
+void mei::MeterSigVisMixIn::setRend(std::string _rend) {
+    MeiAttribute *a = new MeiAttribute("rend", _rend);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigVisMixIn::hasRend() {
+    return b->hasAttribute("rend");
+};
+
+void mei::MeterSigVisMixIn::removeRend() {
+    b->removeAttribute("rend");
+};
+
+/* include <rendmixin> */
+mei::MeterSigDefaultLogMixIn::MeterSigDefaultLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MeterSigDefaultLogMixIn::~MeterSigDefaultLogMixIn() {}
+MeiAttribute* mei::MeterSigDefaultLogMixIn::getMeterCount() {
+    if (!b->hasAttribute("meter.count")) {
+        throw AttributeNotFoundException("meter.count");
+    }
+    return b->getAttribute("meter.count");
+};
+
+void mei::MeterSigDefaultLogMixIn::setMeterCount(std::string _metercount) {
+    MeiAttribute *a = new MeiAttribute("meter.count", _metercount);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigDefaultLogMixIn::hasMeterCount() {
+    return b->hasAttribute("meter.count");
+};
+
+void mei::MeterSigDefaultLogMixIn::removeMeterCount() {
+    b->removeAttribute("meter.count");
+};
+MeiAttribute* mei::MeterSigDefaultLogMixIn::getMeterUnit() {
+    if (!b->hasAttribute("meter.unit")) {
+        throw AttributeNotFoundException("meter.unit");
+    }
+    return b->getAttribute("meter.unit");
+};
+
+void mei::MeterSigDefaultLogMixIn::setMeterUnit(std::string _meterunit) {
+    MeiAttribute *a = new MeiAttribute("meter.unit", _meterunit);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigDefaultLogMixIn::hasMeterUnit() {
+    return b->hasAttribute("meter.unit");
+};
+
+void mei::MeterSigDefaultLogMixIn::removeMeterUnit() {
+    b->removeAttribute("meter.unit");
+};
+
+/* include <meter.unitmixin> */
+mei::MeterSigDefaultVisMixIn::MeterSigDefaultVisMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MeterSigDefaultVisMixIn::~MeterSigDefaultVisMixIn() {}
+MeiAttribute* mei::MeterSigDefaultVisMixIn::getMeterRend() {
+    if (!b->hasAttribute("meter.rend")) {
+        throw AttributeNotFoundException("meter.rend");
+    }
+    return b->getAttribute("meter.rend");
+};
+
+void mei::MeterSigDefaultVisMixIn::setMeterRend(std::string _meterrend) {
+    MeiAttribute *a = new MeiAttribute("meter.rend", _meterrend);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigDefaultVisMixIn::hasMeterRend() {
+    return b->hasAttribute("meter.rend");
+};
+
+void mei::MeterSigDefaultVisMixIn::removeMeterRend() {
+    b->removeAttribute("meter.rend");
+};
+MeiAttribute* mei::MeterSigDefaultVisMixIn::getMeterShowchange() {
+    if (!b->hasAttribute("meter.showchange")) {
+        throw AttributeNotFoundException("meter.showchange");
+    }
+    return b->getAttribute("meter.showchange");
+};
+
+void mei::MeterSigDefaultVisMixIn::setMeterShowchange(std::string _metershowchange) {
+    MeiAttribute *a = new MeiAttribute("meter.showchange", _metershowchange);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigDefaultVisMixIn::hasMeterShowchange() {
+    return b->hasAttribute("meter.showchange");
+};
+
+void mei::MeterSigDefaultVisMixIn::removeMeterShowchange() {
+    b->removeAttribute("meter.showchange");
+};
+MeiAttribute* mei::MeterSigDefaultVisMixIn::getMeterSym() {
+    if (!b->hasAttribute("meter.sym")) {
+        throw AttributeNotFoundException("meter.sym");
+    }
+    return b->getAttribute("meter.sym");
+};
+
+void mei::MeterSigDefaultVisMixIn::setMeterSym(std::string _metersym) {
+    MeiAttribute *a = new MeiAttribute("meter.sym", _metersym);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigDefaultVisMixIn::hasMeterSym() {
+    return b->hasAttribute("meter.sym");
+};
+
+void mei::MeterSigDefaultVisMixIn::removeMeterSym() {
+    b->removeAttribute("meter.sym");
+};
+
+/* include <meter.symmixin> */
 mei::MeterconformanceMixIn::MeterconformanceMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2151,115 +2554,6 @@ void mei::MeterconformanceBarMixIn::removeControl() {
 };
 
 /* include <controlmixin> */
-mei::MetersLogMixIn::MetersLogMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::MetersLogMixIn::~MetersLogMixIn() {}
-MeiAttribute* mei::MetersLogMixIn::getMeterCount() {
-    if (!b->hasAttribute("meter.count")) {
-        throw AttributeNotFoundException("meter.count");
-    }
-    return b->getAttribute("meter.count");
-};
-
-void mei::MetersLogMixIn::setMeterCount(std::string _metercount) {
-    MeiAttribute *a = new MeiAttribute("meter.count", _metercount);
-    b->addAttribute(a);
-};
-
-bool mei::MetersLogMixIn::hasMeterCount() {
-    return b->hasAttribute("meter.count");
-};
-
-void mei::MetersLogMixIn::removeMeterCount() {
-    b->removeAttribute("meter.count");
-};
-MeiAttribute* mei::MetersLogMixIn::getMeterUnit() {
-    if (!b->hasAttribute("meter.unit")) {
-        throw AttributeNotFoundException("meter.unit");
-    }
-    return b->getAttribute("meter.unit");
-};
-
-void mei::MetersLogMixIn::setMeterUnit(std::string _meterunit) {
-    MeiAttribute *a = new MeiAttribute("meter.unit", _meterunit);
-    b->addAttribute(a);
-};
-
-bool mei::MetersLogMixIn::hasMeterUnit() {
-    return b->hasAttribute("meter.unit");
-};
-
-void mei::MetersLogMixIn::removeMeterUnit() {
-    b->removeAttribute("meter.unit");
-};
-
-/* include <meter.unitmixin> */
-mei::MetersVisMixIn::MetersVisMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::MetersVisMixIn::~MetersVisMixIn() {}
-MeiAttribute* mei::MetersVisMixIn::getMeterRend() {
-    if (!b->hasAttribute("meter.rend")) {
-        throw AttributeNotFoundException("meter.rend");
-    }
-    return b->getAttribute("meter.rend");
-};
-
-void mei::MetersVisMixIn::setMeterRend(std::string _meterrend) {
-    MeiAttribute *a = new MeiAttribute("meter.rend", _meterrend);
-    b->addAttribute(a);
-};
-
-bool mei::MetersVisMixIn::hasMeterRend() {
-    return b->hasAttribute("meter.rend");
-};
-
-void mei::MetersVisMixIn::removeMeterRend() {
-    b->removeAttribute("meter.rend");
-};
-MeiAttribute* mei::MetersVisMixIn::getMeterShowchange() {
-    if (!b->hasAttribute("meter.showchange")) {
-        throw AttributeNotFoundException("meter.showchange");
-    }
-    return b->getAttribute("meter.showchange");
-};
-
-void mei::MetersVisMixIn::setMeterShowchange(std::string _metershowchange) {
-    MeiAttribute *a = new MeiAttribute("meter.showchange", _metershowchange);
-    b->addAttribute(a);
-};
-
-bool mei::MetersVisMixIn::hasMeterShowchange() {
-    return b->hasAttribute("meter.showchange");
-};
-
-void mei::MetersVisMixIn::removeMeterShowchange() {
-    b->removeAttribute("meter.showchange");
-};
-MeiAttribute* mei::MetersVisMixIn::getMeterSym() {
-    if (!b->hasAttribute("meter.sym")) {
-        throw AttributeNotFoundException("meter.sym");
-    }
-    return b->getAttribute("meter.sym");
-};
-
-void mei::MetersVisMixIn::setMeterSym(std::string _metersym) {
-    MeiAttribute *a = new MeiAttribute("meter.sym", _metersym);
-    b->addAttribute(a);
-};
-
-bool mei::MetersVisMixIn::hasMeterSym() {
-    return b->hasAttribute("meter.sym");
-};
-
-void mei::MetersVisMixIn::removeMeterSym() {
-    b->removeAttribute("meter.sym");
-};
-
-/* include <meter.symmixin> */
 mei::MmtempoMixIn::MmtempoMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2844,32 +3138,6 @@ void mei::PointingMixIn::removeTitle() {
 };
 
 /* include <titlemixin> */
-mei::RegularizedMixIn::RegularizedMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::RegularizedMixIn::~RegularizedMixIn() {}
-MeiAttribute* mei::RegularizedMixIn::getReg() {
-    if (!b->hasAttribute("reg")) {
-        throw AttributeNotFoundException("reg");
-    }
-    return b->getAttribute("reg");
-};
-
-void mei::RegularizedMixIn::setReg(std::string _reg) {
-    MeiAttribute *a = new MeiAttribute("reg", _reg);
-    b->addAttribute(a);
-};
-
-bool mei::RegularizedMixIn::hasReg() {
-    return b->hasAttribute("reg");
-};
-
-void mei::RegularizedMixIn::removeReg() {
-    b->removeAttribute("reg");
-};
-
-/* include <regmixin> */
 mei::RelativesizeMixIn::RelativesizeMixIn(MeiElement *b) {
     this->b = b;
 };

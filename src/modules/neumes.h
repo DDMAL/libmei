@@ -38,7 +38,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (interrupted neume) – a graphically interrupted neume; that is, a neume which
+ *  is logically a single entity but is written using multiple signs.
  */
 class MEI_EXPORT Ineume : public MeiElement {
     public:
@@ -60,7 +61,10 @@ class MEI_EXPORT Ineume : public MeiElement {
         REGISTER_DECLARATION(Ineume);
 };
 
-/** \brief 
+/** \brief – Neume notation can be thought of as "neumed text".
+ * 
+ *  Therefore, the syllable element provides high-level organization in this
+ *  repertoire.
  */
 class MEI_EXPORT Syllable : public MeiElement {
     public:
@@ -76,7 +80,7 @@ class MEI_EXPORT Syllable : public MeiElement {
         REGISTER_DECLARATION(Syllable);
 };
 
-/** \brief 
+/** \brief (uninterrupted neume) – A graphically-uninterrupted neume sign.
  */
 class MEI_EXPORT Uneume : public MeiElement {
     public:
