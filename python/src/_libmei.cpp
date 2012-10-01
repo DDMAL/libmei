@@ -354,7 +354,7 @@ BOOST_PYTHON_MODULE(_libmei) {
     ;
 
     class_<MeiElement, MeiElement*>("MeiElement", init<string>())
-        // .def(init<const MeiElement&>())
+        .def(init<const MeiElement&>())
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
         .def("__str__", &MeiElement_Print)

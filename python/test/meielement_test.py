@@ -8,6 +8,24 @@ class MeiElementTest(unittest.TestCase):
     def setUp(self):
         pass
 
+    def test_copy_constructor(self):
+        note = MeiElement("note")
+        note2 = note
+
+        # check that regular pointer referencing in Python works on MeiElements
+        self.assertEqual(note2, note)
+        note.addAttribute('pname', 'c')
+        note3 = MeiElement(note)
+
+        # check that they have been properly copied
+        self.assertNotEqual(note3, note)
+
+        # check that the attributes copied are not the same
+        self.assertNotEqual(note3.getAttribute('pname'), note.getAttribute('pname'))
+
+        # check that the attribute values copied are the same
+        self.assertEqual(note3.getAttribute('pname').value, note.getAttribute('pname').value)
+
     def test_name(self):
         note = MeiElement("note")
         self.assertEqual(note.name, "note")
