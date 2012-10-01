@@ -25,7 +25,7 @@ mei::MeiElement::MeiElement(string name) {
     this->value = "";
     this->parent = NULL;
     this->document = NULL;
-    generateAndSetId();
+    this->generateAndSetId();
 }
 
 mei::MeiElement::~MeiElement() {
@@ -84,7 +84,7 @@ void mei::MeiElement::generateAndSetId() {
     out = "m-" + string(s);
     std::transform(out.begin(), out.end(), out.begin(), ::tolower);
 
-    setId(out);
+    this->setId(out);
 }
 
 const string mei::MeiElement::getId() {
