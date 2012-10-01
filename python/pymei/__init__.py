@@ -22,13 +22,14 @@
 from _libmei import *
 import types
 
+
 def read(filename):
     """ Extra wrapper to make sure we can handle unicode filenames. """
-    if isinstance(filename, types.UnicodeType):
-        filename = str(filename)
+    filename = filename.encode(sys.getfilesystemencoding())
     doc = XmlImport.documentFromFile(filename)
     return doc
 XmlImport.read = staticmethod(read)
+
 
 def write(mei, filename):
     """ Write an MEI document to a file """
