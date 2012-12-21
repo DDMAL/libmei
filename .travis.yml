@@ -5,7 +5,7 @@
 # Since CMake is not directly supported we use erlang VMs
 language: erlang
 
-# We need CMake and QT libraries. Also need uuid and libxml2
+# We need CMake and QT libraries. Also need uuid and libxml2 and gtest
 install:
   - sudo apt-get update >/dev/null 2>&1
   - sudo apt-get install libqt4-dev qt4-qmake libx11-dev cmake >/dev/null 2>&1
@@ -13,11 +13,15 @@ install:
   - sudo apt-get install libxml2-dev
   - sudo apt-get install libgtest-dev
 
-# Build
+# Build gtests and then libmei and run tests
 script:
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - cd ~/builds/Breakend/libmei
   - mkdir build
   - cd build
   - cmake ..
   - make
   - sudo make install
-  - sudo make test
+  - sudo make tests
