@@ -1,55 +1,18 @@
-#
-# # Libmei Travis-CI Hook
-# #
-
-# # Since CMake is not directly supported we use erlang VMs
-# language: erlang
-
-# # We need CMake and QT libraries. Also need uuid and libxml2 and gtest
-# install:
-#   - sudo apt-get update >/dev/null 2>&1
-#   - sudo apt-get install libqt4-dev qt4-qmake libx11-dev cmake >/dev/null 2>&1
-#   - sudo apt-get install uuid-dev
-#   - sudo apt-get install libxml2-dev
-#   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
-#   - unzip -q gtest-1.6.0.zip
-#   - cd gtest-1.6.0
-#   - sudo cmake . 
-#   - sudo make
-#   - cd ..
-#   - sudo cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
-
-# # Build gtests and then libmei and run tests
-# script:
-#   - cd ~/builds/Breakend/libmei
-#   - mkdir build
-#   - cd build
-#   - cmake ..
-#   - make
-#   - sudo make install
-#   - sudo make 
 language: cpp
-compiler: gcc
 before_script:
   - sudo apt-get install uuid-dev
   - sudo apt-get install libxml2-dev
   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
   - unzip -q gtest-1.6.0.zip
   - cd gtest-1.6.0
-  - ls
-  - cd include 
-  - ls
-  - cd ..
   - sudo cmake . 
   - sudo make
-  - ls
+  - sudo make install
   - cd ..
-  - ls
   - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
 script: make
 after_script: make test
 compiler:
-  - clang
   - gcc
 env:
   matrix:
