@@ -14,9 +14,10 @@ install:
   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
   - unzip -q gtest-1.6.0.zip
   - cd gtest-1.6.0
-  - sudo cmake . && make
+  - sudo cmake . 
+  - sudo make
   - cd ..
-  - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
+  - sudo cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
 
 # Build gtests and then libmei and run tests
 script:
