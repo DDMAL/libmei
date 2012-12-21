@@ -26,6 +26,8 @@ option(MEI_TEST_COVERAGE "Build with test coverage support" OFF)
 find_package( GoogleTest )
 if (GTEST_FOUND)
     set(MEI_BUILD_TESTS ON)
+    message ("--Found google tests: ${GTEST_LIBRARY}")
+    message ("--Found google includes: ${GTEST_INCLUDES_DIR")
     enable_testing()
 endif(GTEST_FOUND)
 
