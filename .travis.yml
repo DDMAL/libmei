@@ -11,6 +11,7 @@ install:
   - sudo apt-get install libqt4-dev qt4-qmake libx11-dev cmake >/dev/null 2>&1
   - sudo apt-get install uuid-dev
   - sudo apt-get install libxml2-dev
+  - sudo apt-get install libgtest-dev
 
 # Build
 script:
@@ -19,4 +20,4 @@ script:
   - cmake ..
   - make
   - sudo make install
-  - make test
+  - sudo make test
