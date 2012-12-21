@@ -19,6 +19,9 @@ script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - ls
+  - ls ..
+  - cd src
+  - ls
   - cd ~/builds/Breakend/libmei
   - mkdir build
   - cd build
