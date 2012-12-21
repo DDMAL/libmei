@@ -29,6 +29,7 @@
 #   - sudo make install
 #   - sudo make 
 language: cpp
+compiler: gcc
 before_script:
   - sudo apt-get install uuid-dev
   - sudo apt-get install libxml2-dev
@@ -36,6 +37,9 @@ before_script:
   - unzip -q gtest-1.6.0.zip
   - cd gtest-1.6.0
   - ls
+  - cd include 
+  - ls
+  - cd ..
   - sudo cmake . 
   - sudo make
   - ls
