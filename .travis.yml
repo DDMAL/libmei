@@ -11,7 +11,6 @@ before_script:
   - ls
   - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
 script: 
-  - gcc -I/home/travis/builds/Breakend/libmei/gtest-1.6.0/include
   - sudo make
   - sudo make install
 after_script: sudo make test
