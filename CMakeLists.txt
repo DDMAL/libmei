@@ -24,9 +24,22 @@ option(MEI_BUILD_TESTS "Build all unit tests" OFF)
 option(MEI_TEST_COVERAGE "Build with test coverage support" OFF)
 
 find_package( GoogleTest )
-include_directories(${GTEST_INCLUDE_DIRS})
-set(LIBS ${LIBS} ${GTEST_LIBRARIES})
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}")
+
+if (GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES)
+	message ("-- Found gtest: ${GTEST_LIBRARIES}")
+else (GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES)
+	message(FATAL_ERROR "Could not find gtest")
+	set (GTEST_INCLUDE_DIR "/usr/src/gtest/include")
+	set (GTEST_LIBRARIES "/usr/src/gtest/gtest.lib")
+	set (GTEST_MAIN_LIBRARIES "/usr/src/gtest/gtest_main.lib")
+	if (GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES)
+		message ("-- Found gtest: ${GTEST_LIBRARIES}")
+	else (GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES)
+		message(FATAL_ERROR "Could not find gtest")
+endif (GTEST_INCLUDE_DIR AND GTEST_LIBRARY)
+
+
+
 if (GTEST_FOUND)
     set(MEI_BUILD_TESTS ON)
     enable_testing()
