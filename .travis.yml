@@ -18,6 +18,7 @@ script:
   - cd /usr/src/gtest
   - sudo cmake CMakeLists.txt
   - sudo make
+  - ls
   - cd ~/builds/Breakend/libmei
   - mkdir build
   - cd build
