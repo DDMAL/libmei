@@ -7,11 +7,10 @@ before_script:
   - cd gtest-1.6.0
   - sudo cmake . 
   - sudo make
-  - sudo make install
   - cd ..
   - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
-script: make
-after_script: make test
+script: sudo make
+after_script: sudo make test
 compiler:
   - gcc
 env:
