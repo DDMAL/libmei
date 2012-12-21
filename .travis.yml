@@ -8,6 +8,7 @@ before_script:
   - sudo cmake . 
   - sudo make
   - cd ..
+  - ls
   - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
 script: 
   - sudo make
