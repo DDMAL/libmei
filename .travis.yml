@@ -1,6 +1,22 @@
-language: cpp
-compiler:
-  - gcc
-  - clang
+#
+# Libmei Travis-CI Hook
+#
 
-script: ./configure && make && make test
+# Since CMake is not directly supported we use erlang VMs
+language: erlang
+
+# We need CMake and QT libraries. Also need uuid and libxml2
+install:
+  - sudo apt-get update >/dev/null 2>&1
+  - sudo apt-get install libqt4-dev qt4-qmake libx11-dev cmake >/dev/null 2>&1
+  - sudo apt-get install uuid-dev
+  - sudo apt-get install libxml2-dev
+
+# Build
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - make install
+  - make test
