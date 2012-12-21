@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#include <gtest.h>
+#include <gtest/gtest.h>
 #include <mei/shared.h>
 #include <mei/header.h>
 #include <mei/cmn.h>
