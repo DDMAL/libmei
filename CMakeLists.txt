@@ -23,6 +23,46 @@ set( MEI_LIB_VERSION_SONAME "${MEI_LIB_MAJOR_VERSION}.${MEI_LIB_MINOR_VERSION}")
 option(MEI_BUILD_TESTS "Build all unit tests" OFF)
 option(MEI_TEST_COVERAGE "Build with test coverage support" OFF)
 
+if(GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES AND GTEST_MAIN_LIBRARIES)
+  set(GTEST_FOUND true)
+else(GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES AND GTEST_MAIN_LIBRARIES)
+  set(GTEST_PREFIX "" CACHE PATH "Installation prefix for Google Test")
+  if(GTEST_PREFIX)
+    find_path(_GTEST_INCLUDE_DIR gtest.h
+      PATHS "${GTEST_PREFIX}/include"
+      PATH_SUFFIXES "gtest"
+      NO_DEFAULT_PATH)
+    find_library(_GTEST_LIBRARY gtest
+      PATHS "${GTEST_PREFIX}/lib"
+      NO_DEFAULT_PATH)
+    find_library(_GTEST_MAIN_LIBRARY gtest_main
+      PATHS "${GTEST_PREFIX}/lib"
+      NO_DEFAULT_PATH)
+  else(GTEST_PREFIX)
+    find_path(_GTEST_INCLUDE_DIR gtest.h
+      PATH_SUFFIXES "gtest")
+    find_library(_GTEST_LIBRARY gtest)
+    find_library(_GTEST_MAIN_LIBRARY gtest_main)
+  endif(GTEST_PREFIX)
+  if(_GTEST_INCLUDE_DIR AND _GTEST_LIBRARY AND _GTEST_MAIN_LIBRARY)
+    set(GTEST_FOUND true)
+    set(GTEST_INCLUDE_DIRS ${_GTEST_INCLUDE_DIR} CACHE PATH
+      "Include directories for Google Test framework")
+    set(GTEST_LIBRARIES ${_GTEST_LIBRARY} CACHE FILEPATH
+      "Libraries to link for Google Test framework")
+    set(GTEST_MAIN_LIBRARIES ${_GTEST_MAIN_LIBRARY} CACHE FILEPATH
+      "Libraries to link for Google Test automatic main() definition")
+    mark_as_advanced(GTEST_INCLUDE_DIRS GTEST_LIBRARIES GTEST_MAIN_LIBRARIES)
+    if(NOT GoogleTest_FIND_QUIETLY)
+      message(STATUS "Found Google Test: ${GTEST_LIBRARIES}")
+    endif(NOT GoogleTest_FIND_QUIETLY)
+  else(_GTEST_INCLUDE_DIR AND _GTEST_LIBRARY AND _GTEST_MAIN_LIBRARY)
+    if(GoogleTest_FIND_REQUIRED)
+      message(FATAL_ERROR "Could not find the Google Test framework")
+    endif(GoogleTest_FIND_REQUIRED)
+  endif(_GTEST_INCLUDE_DIR AND _GTEST_LIBRARY AND _GTEST_MAIN_LIBRARY)
+endif(GTEST_INCLUDE_DIRS AND GTEST_LIBRARIES AND GTEST_MAIN_LIBRARIES)
+
 find_package( GoogleTest )
 if (GTEST_FOUND)
     set(MEI_BUILD_TESTS ON)
