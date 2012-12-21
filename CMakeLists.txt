@@ -112,8 +112,8 @@ if( MEI_BUILD_TESTS )
 
 	file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mei)
 	file(GLOB meifiles "test/*.mei")
-	# file(COPY ${LIBMEI_H} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/mei)
-	# file(COPY ${meifiles} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+	file(COPY ${LIBMEI_H} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/mei)
+	file(COPY ${meifiles} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
     macro(add_mei_test _source)
         get_filename_component(_name ${_source} NAME_WE)
