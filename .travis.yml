@@ -19,7 +19,7 @@ script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - cd ~/builds/Breakend/libmei
-  - cmake FindGoogleTest.cmake
+  - make FindGoogleTest.cmake
   - mkdir build
   - cd build
   - cmake ..
