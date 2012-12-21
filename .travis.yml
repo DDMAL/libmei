@@ -35,9 +35,12 @@ before_script:
   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
   - unzip -q gtest-1.6.0.zip
   - cd gtest-1.6.0
+  - ls
   - sudo cmake . 
   - sudo make
+  - ls
   - cd ..
+  - ls
   - cmake -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
 script: make
 after_script: make test
