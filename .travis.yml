@@ -24,4 +24,4 @@ script:
   - cmake ..
   - make
   - sudo make install
-  - sudo make tests
+  - sudo make test
