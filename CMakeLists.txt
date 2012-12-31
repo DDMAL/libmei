@@ -110,8 +110,9 @@ install( FILES ${LIBMEI_H} DESTINATION  include/mei COMPONENT Devel )
 if( MEI_BUILD_TESTS )
 	set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 	include_directories( 
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${GTEST_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_BINARY_DIR}
+        ${GTEST_INCLUDE_DIRS}
+        "gtest-1.6.0/include"
     )
 
 	file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mei)
