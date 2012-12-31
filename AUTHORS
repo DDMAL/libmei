@@ -5,6 +5,7 @@ There have been a number of other important contributors:
 2011 Mahtab Ghamsari-Esfahani: Project setup, Initial author
 2011 Jamie Klassen: Auto-generation from the MEI specs, MEI Updater Utility
 2012 Greg Burlet: Bug fixes, MusicXML to MEI converter, Boost Python superhero
+     Peter Henderson: Travis-CI integration, Windows compatibility
 
 Raffaele Viglianti: Helper methods in the Python Bindings
 Laurent Pugin: Advice and consulting
