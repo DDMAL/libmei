@@ -1,0 +1,18 @@
+language: cpp
+before_script:
+  - sudo apt-get install uuid-dev
+  - sudo apt-get install libxml2-dev
+  - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
+  - unzip -q gtest-1.6.0.zip
+  - cd gtest-1.6.0
+  - sudo cmake . 
+  - sudo make
+  - cd ..
+  - cmake -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
+script: 
+  - make
+after_script: 
+  - make test
+compiler:
+  - gcc
+  - clang
