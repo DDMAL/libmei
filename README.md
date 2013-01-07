@@ -52,18 +52,6 @@ we include a Python script, `parseschema2.py` that will generate custom code for
 
 You can read more about customization and custom compiliation on our [wiki pages](https://github.com/DDMAL/libmei/wiki/Automatic-Code-Generation).
 
-Authors
--------
-
-* Andrew Hankinson
-* Alastair Porter
-* Greg Burlet
-* Jamie Klassen
-* Mahtab Ghamsari
-
-Development of LibMEI was made possible with funding from the
-Social Sciences and Humanities Research Council of Canada
-
 Contributions
 -------------
 We welcome bug reports, feature requests, and patches to the libmei project page:
