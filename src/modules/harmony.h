@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -89,7 +89,9 @@ class MEI_EXPORT ChordMember : public MeiElement {
         virtual ~ChordMember();
         /** \brief indicates which finger, if any, should be used to play an individual string.
          * 
-         *  The values 'x' and 'o' indicated muffled and open strings, respectively.
+         *  The index, middle, ring, and little fingers are represented by the values 1-4,
+         *  while 't' is for the thumb. The values 'x' and 'o' indicate muffled and open
+         *  strings, respectively.
          */
         MeiAttribute* getFing();
         void setFing(std::string _fing);
@@ -194,9 +196,11 @@ class MEI_EXPORT Harm : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         HarmVisMixIn    m_HarmVis;
         PlacementMixIn    m_Placement;
         VisualoffsetHoMixIn    m_VisualoffsetHo;

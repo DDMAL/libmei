@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -164,7 +164,7 @@ class MEI_EXPORT Del : public MeiElement {
         Del();
         Del(const Del& other);
         virtual ~Del();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);

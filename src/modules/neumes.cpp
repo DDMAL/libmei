@@ -14,6 +14,7 @@ mei::Ineume::Ineume() :
     m_Typed(this),
     m_IneumeLog(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -27,6 +28,7 @@ mei::Ineume::Ineume(const Ineume& other) :
     m_Typed(this),
     m_IneumeLog(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -63,6 +65,7 @@ mei::Uneume::Uneume() :
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_Xy(this),
     m_Visibility(this),
@@ -91,6 +94,7 @@ mei::Uneume::Uneume(const Uneume& other) :
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_Xy(this),
     m_Visibility(this),

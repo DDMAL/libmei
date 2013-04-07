@@ -51,7 +51,8 @@ mei::Zone::Zone() :
     MeiElement("zone"),
     m_Common(this),
     m_Coordinated(this),
-    m_Datapointing(this)
+    m_Datapointing(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Zone, "zone");
@@ -60,7 +61,8 @@ mei::Zone::Zone(const Zone& other) :
     MeiElement(other),
     m_Common(this),
     m_Coordinated(this),
-    m_Datapointing(this)
+    m_Datapointing(this),
+    m_Typed(this)
 {
 }
 

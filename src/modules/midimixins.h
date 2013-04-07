@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -83,8 +83,22 @@ class MidiinstrumentMixIn {
         void setMidiInstrname(std::string _midiinstrname);
         bool hasMidiInstrname();
         void removeMidiInstrname();
+        /** \brief sets the instrument's position in a stereo field.
+         * 
+         *  Values of 0 and 1 both pan left, 127 pans right, and 64 pans to the center.
+         */
+        MeiAttribute* getMidiPan();
+        void setMidiPan(std::string _midipan);
+        bool hasMidiPan();
+        void removeMidiPan();
+        /** \brief sets the instrument's volume.
+         */
+        MeiAttribute* getMidiVolume();
+        void setMidiVolume(std::string _midivolume);
+        bool hasMidiVolume();
+        void removeMidiVolume();
 
-/* include <midi.instrnamemixin> */
+/* include <midi.volumemixin> */
 
     private:
         MeiElement *b;

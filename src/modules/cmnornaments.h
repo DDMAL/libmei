@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -90,10 +90,12 @@ class MEI_EXPORT Trill : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        OrnamentaccidMixIn    m_Ornamentaccid;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        OrnamentaccidMixIn    m_Ornamentaccid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         ColorMixIn    m_Color;
         PlacementMixIn    m_Placement;
         VisualoffsetHoMixIn    m_VisualoffsetHo;

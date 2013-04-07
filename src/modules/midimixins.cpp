@@ -133,8 +133,46 @@ bool mei::MidiinstrumentMixIn::hasMidiInstrname() {
 void mei::MidiinstrumentMixIn::removeMidiInstrname() {
     b->removeAttribute("midi.instrname");
 };
+MeiAttribute* mei::MidiinstrumentMixIn::getMidiPan() {
+    if (!b->hasAttribute("midi.pan")) {
+        throw AttributeNotFoundException("midi.pan");
+    }
+    return b->getAttribute("midi.pan");
+};
 
-/* include <midi.instrnamemixin> */
+void mei::MidiinstrumentMixIn::setMidiPan(std::string _midipan) {
+    MeiAttribute *a = new MeiAttribute("midi.pan", _midipan);
+    b->addAttribute(a);
+};
+
+bool mei::MidiinstrumentMixIn::hasMidiPan() {
+    return b->hasAttribute("midi.pan");
+};
+
+void mei::MidiinstrumentMixIn::removeMidiPan() {
+    b->removeAttribute("midi.pan");
+};
+MeiAttribute* mei::MidiinstrumentMixIn::getMidiVolume() {
+    if (!b->hasAttribute("midi.volume")) {
+        throw AttributeNotFoundException("midi.volume");
+    }
+    return b->getAttribute("midi.volume");
+};
+
+void mei::MidiinstrumentMixIn::setMidiVolume(std::string _midivolume) {
+    MeiAttribute *a = new MeiAttribute("midi.volume", _midivolume);
+    b->addAttribute(a);
+};
+
+bool mei::MidiinstrumentMixIn::hasMidiVolume() {
+    return b->hasAttribute("midi.volume");
+};
+
+void mei::MidiinstrumentMixIn::removeMidiVolume() {
+    b->removeAttribute("midi.volume");
+};
+
+/* include <midi.volumemixin> */
 mei::MidinumberMixIn::MidinumberMixIn(MeiElement *b) {
     this->b = b;
 };

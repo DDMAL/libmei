@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -85,14 +85,19 @@ class HarmonicfunctionMixIn {
     public:
         explicit HarmonicfunctionMixIn(MeiElement *b);
         virtual ~HarmonicfunctionMixIn();
-        /** \brief describes harmonic function in any convenient typology.
+        /** \brief captures relative scale degree information using Humdrum **deg syntax -- an
+         *  optional indicator of melodic approach (^ = ascending approach, v = descending
+         *  approach), a scale degree value (1 = tonic ...
+         * 
+         *  7 = leading tone), and an optional indication of chromatic alteration. The
+         *  amount of chromatic alternation is not indicated.
          */
-        MeiAttribute* getHfunc();
-        void setHfunc(std::string _hfunc);
-        bool hasHfunc();
-        void removeHfunc();
+        MeiAttribute* getDeg();
+        void setDeg(std::string _deg);
+        bool hasDeg();
+        void removeDeg();
 
-/* include <hfuncmixin> */
+/* include <degmixin> */
 
     private:
         MeiElement *b;
@@ -122,8 +127,9 @@ class IntervallicdescMixIn {
         virtual ~IntervallicdescMixIn();
         /** \brief encodes the melodic interval from the previous pitch.
          * 
-         *  The value may be a general directional indication (u, d, s) or a precise numeric
-         *  value in half steps.
+         *  The value may be a general directional indication (u, d, s), an indication of
+         *  diatonic interval direction, quality, and size, or a precise numeric value in
+         *  half steps.
          */
         MeiAttribute* getIntm();
         void setIntm(std::string _intm);
@@ -140,7 +146,7 @@ class MelodicfunctionMixIn {
     public:
         explicit MelodicfunctionMixIn(MeiElement *b);
         virtual ~MelodicfunctionMixIn();
-        /** \brief describes melodic function in any convenient typology.
+        /** \brief describes melodic function using Humdrum **embel syntax.
          */
         MeiAttribute* getMfunc();
         void setMfunc(std::string _mfunc);

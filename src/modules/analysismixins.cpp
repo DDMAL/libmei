@@ -133,27 +133,27 @@ mei::HarmonicfunctionMixIn::HarmonicfunctionMixIn(MeiElement *b) {
 };
 
 mei::HarmonicfunctionMixIn::~HarmonicfunctionMixIn() {}
-MeiAttribute* mei::HarmonicfunctionMixIn::getHfunc() {
-    if (!b->hasAttribute("hfunc")) {
-        throw AttributeNotFoundException("hfunc");
+MeiAttribute* mei::HarmonicfunctionMixIn::getDeg() {
+    if (!b->hasAttribute("deg")) {
+        throw AttributeNotFoundException("deg");
     }
-    return b->getAttribute("hfunc");
+    return b->getAttribute("deg");
 };
 
-void mei::HarmonicfunctionMixIn::setHfunc(std::string _hfunc) {
-    MeiAttribute *a = new MeiAttribute("hfunc", _hfunc);
+void mei::HarmonicfunctionMixIn::setDeg(std::string _deg) {
+    MeiAttribute *a = new MeiAttribute("deg", _deg);
     b->addAttribute(a);
 };
 
-bool mei::HarmonicfunctionMixIn::hasHfunc() {
-    return b->hasAttribute("hfunc");
+bool mei::HarmonicfunctionMixIn::hasDeg() {
+    return b->hasAttribute("deg");
 };
 
-void mei::HarmonicfunctionMixIn::removeHfunc() {
-    b->removeAttribute("hfunc");
+void mei::HarmonicfunctionMixIn::removeDeg() {
+    b->removeAttribute("deg");
 };
 
-/* include <hfuncmixin> */
+/* include <degmixin> */
 mei::IntervalharmonicMixIn::IntervalharmonicMixIn(MeiElement *b) {
     this->b = b;
 };

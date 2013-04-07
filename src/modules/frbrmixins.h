@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef FACSIMILEMIXIN_H_
-#define FACSIMILEMIXIN_H_
+#ifndef FRBRMIXIN_H_
+#define FRBRMIXIN_H_
 
 #include "meielement.h"
 #include "meinamespace.h"
@@ -32,22 +32,24 @@
 #include <string>
 
 namespace mei {
-class FacsimileMixIn {
+class RelMixIn {
     public:
-        explicit FacsimileMixIn(MeiElement *b);
-        virtual ~FacsimileMixIn();
-        /** \brief permits the current element to reference a facsimile image or image zone which
-         *  corresponds to it.
+        explicit RelMixIn(MeiElement *b);
+        virtual ~RelMixIn();
+        /** \brief describes the relationship between the <relatedItem> and the resource described
+         *  in the parent element, i.e., <bibl>, <source> or <relatedItem>.
+         * 
+         *  The values are based on MODS version 3.4.
          */
-        MeiAttribute* getFacs();
-        void setFacs(std::string _facs);
-        bool hasFacs();
-        void removeFacs();
+        MeiAttribute* getRel();
+        void setRel(std::string _rel);
+        bool hasRel();
+        void removeRel();
 
-/* include <facsmixin> */
+/* include <relmixin> */
 
     private:
         MeiElement *b;
 };
 }
-#endif  // FACSIMILEMIXIN_H_
+#endif  // FRBRMIXIN_H_

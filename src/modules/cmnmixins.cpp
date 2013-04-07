@@ -1119,32 +1119,6 @@ void mei::TremmeasuredMixIn::removeMeasperf() {
 };
 
 /* include <measperfmixin> */
-mei::TupletLogMixIn::TupletLogMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::TupletLogMixIn::~TupletLogMixIn() {}
-MeiAttribute* mei::TupletLogMixIn::getDur() {
-    if (!b->hasAttribute("dur")) {
-        throw AttributeNotFoundException("dur");
-    }
-    return b->getAttribute("dur");
-};
-
-void mei::TupletLogMixIn::setDur(std::string _dur) {
-    MeiAttribute *a = new MeiAttribute("dur", _dur);
-    b->addAttribute(a);
-};
-
-bool mei::TupletLogMixIn::hasDur() {
-    return b->hasAttribute("dur");
-};
-
-void mei::TupletLogMixIn::removeDur() {
-    b->removeAttribute("dur");
-};
-
-/* include <durmixin> */
 mei::TupletVisMixIn::TupletVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1228,31 +1202,5 @@ void mei::TupletVisMixIn::removeNumFormat() {
 };
 
 /* include <num.formatmixin> */
-mei::TupletSpanLogMixIn::TupletSpanLogMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::TupletSpanLogMixIn::~TupletSpanLogMixIn() {}
-MeiAttribute* mei::TupletSpanLogMixIn::getDur() {
-    if (!b->hasAttribute("dur")) {
-        throw AttributeNotFoundException("dur");
-    }
-    return b->getAttribute("dur");
-};
-
-void mei::TupletSpanLogMixIn::setDur(std::string _dur) {
-    MeiAttribute *a = new MeiAttribute("dur", _dur);
-    b->addAttribute(a);
-};
-
-bool mei::TupletSpanLogMixIn::hasDur() {
-    return b->hasAttribute("dur");
-};
-
-void mei::TupletSpanLogMixIn::removeDur() {
-    b->removeAttribute("dur");
-};
-
-/* include <durmixin> */
 
 

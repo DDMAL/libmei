@@ -78,168 +78,289 @@ void mei::MensurVisMixIn::removeOrient() {
 };
 
 /* include <orientmixin> */
-mei::MensurDefaultLogMixIn::MensurDefaultLogMixIn(MeiElement *b) {
+mei::MensuralLogMixIn::MensuralLogMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::MensurDefaultLogMixIn::~MensurDefaultLogMixIn() {}
-MeiAttribute* mei::MensurDefaultLogMixIn::getMensurDot() {
+mei::MensuralLogMixIn::~MensuralLogMixIn() {}
+MeiAttribute* mei::MensuralLogMixIn::getMensurDot() {
     if (!b->hasAttribute("mensur.dot")) {
         throw AttributeNotFoundException("mensur.dot");
     }
     return b->getAttribute("mensur.dot");
 };
 
-void mei::MensurDefaultLogMixIn::setMensurDot(std::string _mensurdot) {
+void mei::MensuralLogMixIn::setMensurDot(std::string _mensurdot) {
     MeiAttribute *a = new MeiAttribute("mensur.dot", _mensurdot);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultLogMixIn::hasMensurDot() {
+bool mei::MensuralLogMixIn::hasMensurDot() {
     return b->hasAttribute("mensur.dot");
 };
 
-void mei::MensurDefaultLogMixIn::removeMensurDot() {
+void mei::MensuralLogMixIn::removeMensurDot() {
     b->removeAttribute("mensur.dot");
 };
-MeiAttribute* mei::MensurDefaultLogMixIn::getMensurLoc() {
-    if (!b->hasAttribute("mensur.loc")) {
-        throw AttributeNotFoundException("mensur.loc");
-    }
-    return b->getAttribute("mensur.loc");
-};
-
-void mei::MensurDefaultLogMixIn::setMensurLoc(std::string _mensurloc) {
-    MeiAttribute *a = new MeiAttribute("mensur.loc", _mensurloc);
-    b->addAttribute(a);
-};
-
-bool mei::MensurDefaultLogMixIn::hasMensurLoc() {
-    return b->hasAttribute("mensur.loc");
-};
-
-void mei::MensurDefaultLogMixIn::removeMensurLoc() {
-    b->removeAttribute("mensur.loc");
-};
-MeiAttribute* mei::MensurDefaultLogMixIn::getMensurSign() {
+MeiAttribute* mei::MensuralLogMixIn::getMensurSign() {
     if (!b->hasAttribute("mensur.sign")) {
         throw AttributeNotFoundException("mensur.sign");
     }
     return b->getAttribute("mensur.sign");
 };
 
-void mei::MensurDefaultLogMixIn::setMensurSign(std::string _mensursign) {
+void mei::MensuralLogMixIn::setMensurSign(std::string _mensursign) {
     MeiAttribute *a = new MeiAttribute("mensur.sign", _mensursign);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultLogMixIn::hasMensurSign() {
+bool mei::MensuralLogMixIn::hasMensurSign() {
     return b->hasAttribute("mensur.sign");
 };
 
-void mei::MensurDefaultLogMixIn::removeMensurSign() {
+void mei::MensuralLogMixIn::removeMensurSign() {
     b->removeAttribute("mensur.sign");
 };
-MeiAttribute* mei::MensurDefaultLogMixIn::getMensurSlash() {
+MeiAttribute* mei::MensuralLogMixIn::getMensurSlash() {
     if (!b->hasAttribute("mensur.slash")) {
         throw AttributeNotFoundException("mensur.slash");
     }
     return b->getAttribute("mensur.slash");
 };
 
-void mei::MensurDefaultLogMixIn::setMensurSlash(std::string _mensurslash) {
+void mei::MensuralLogMixIn::setMensurSlash(std::string _mensurslash) {
     MeiAttribute *a = new MeiAttribute("mensur.slash", _mensurslash);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultLogMixIn::hasMensurSlash() {
+bool mei::MensuralLogMixIn::hasMensurSlash() {
     return b->hasAttribute("mensur.slash");
 };
 
-void mei::MensurDefaultLogMixIn::removeMensurSlash() {
+void mei::MensuralLogMixIn::removeMensurSlash() {
     b->removeAttribute("mensur.slash");
 };
+MeiAttribute* mei::MensuralLogMixIn::getProportNum() {
+    if (!b->hasAttribute("proport.num")) {
+        throw AttributeNotFoundException("proport.num");
+    }
+    return b->getAttribute("proport.num");
+};
 
-/* include <mensur.slashmixin> */
-mei::MensurDefaultVisMixIn::MensurDefaultVisMixIn(MeiElement *b) {
+void mei::MensuralLogMixIn::setProportNum(std::string _proportnum) {
+    MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralLogMixIn::hasProportNum() {
+    return b->hasAttribute("proport.num");
+};
+
+void mei::MensuralLogMixIn::removeProportNum() {
+    b->removeAttribute("proport.num");
+};
+MeiAttribute* mei::MensuralLogMixIn::getProportNumbase() {
+    if (!b->hasAttribute("proport.numbase")) {
+        throw AttributeNotFoundException("proport.numbase");
+    }
+    return b->getAttribute("proport.numbase");
+};
+
+void mei::MensuralLogMixIn::setProportNumbase(std::string _proportnumbase) {
+    MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralLogMixIn::hasProportNumbase() {
+    return b->hasAttribute("proport.numbase");
+};
+
+void mei::MensuralLogMixIn::removeProportNumbase() {
+    b->removeAttribute("proport.numbase");
+};
+
+/* include <proport.numbasemixin> */
+mei::MensuralSharedMixIn::MensuralSharedMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::MensurDefaultVisMixIn::~MensurDefaultVisMixIn() {}
-MeiAttribute* mei::MensurDefaultVisMixIn::getMensurColor() {
+mei::MensuralSharedMixIn::~MensuralSharedMixIn() {}
+MeiAttribute* mei::MensuralSharedMixIn::getModusmaior() {
+    if (!b->hasAttribute("modusmaior")) {
+        throw AttributeNotFoundException("modusmaior");
+    }
+    return b->getAttribute("modusmaior");
+};
+
+void mei::MensuralSharedMixIn::setModusmaior(std::string _modusmaior) {
+    MeiAttribute *a = new MeiAttribute("modusmaior", _modusmaior);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralSharedMixIn::hasModusmaior() {
+    return b->hasAttribute("modusmaior");
+};
+
+void mei::MensuralSharedMixIn::removeModusmaior() {
+    b->removeAttribute("modusmaior");
+};
+MeiAttribute* mei::MensuralSharedMixIn::getModusminor() {
+    if (!b->hasAttribute("modusminor")) {
+        throw AttributeNotFoundException("modusminor");
+    }
+    return b->getAttribute("modusminor");
+};
+
+void mei::MensuralSharedMixIn::setModusminor(std::string _modusminor) {
+    MeiAttribute *a = new MeiAttribute("modusminor", _modusminor);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralSharedMixIn::hasModusminor() {
+    return b->hasAttribute("modusminor");
+};
+
+void mei::MensuralSharedMixIn::removeModusminor() {
+    b->removeAttribute("modusminor");
+};
+MeiAttribute* mei::MensuralSharedMixIn::getProlatio() {
+    if (!b->hasAttribute("prolatio")) {
+        throw AttributeNotFoundException("prolatio");
+    }
+    return b->getAttribute("prolatio");
+};
+
+void mei::MensuralSharedMixIn::setProlatio(std::string _prolatio) {
+    MeiAttribute *a = new MeiAttribute("prolatio", _prolatio);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralSharedMixIn::hasProlatio() {
+    return b->hasAttribute("prolatio");
+};
+
+void mei::MensuralSharedMixIn::removeProlatio() {
+    b->removeAttribute("prolatio");
+};
+MeiAttribute* mei::MensuralSharedMixIn::getTempus() {
+    if (!b->hasAttribute("tempus")) {
+        throw AttributeNotFoundException("tempus");
+    }
+    return b->getAttribute("tempus");
+};
+
+void mei::MensuralSharedMixIn::setTempus(std::string _tempus) {
+    MeiAttribute *a = new MeiAttribute("tempus", _tempus);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralSharedMixIn::hasTempus() {
+    return b->hasAttribute("tempus");
+};
+
+void mei::MensuralSharedMixIn::removeTempus() {
+    b->removeAttribute("tempus");
+};
+
+/* include <tempusmixin> */
+mei::MensuralVisMixIn::MensuralVisMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MensuralVisMixIn::~MensuralVisMixIn() {}
+MeiAttribute* mei::MensuralVisMixIn::getMensurColor() {
     if (!b->hasAttribute("mensur.color")) {
         throw AttributeNotFoundException("mensur.color");
     }
     return b->getAttribute("mensur.color");
 };
 
-void mei::MensurDefaultVisMixIn::setMensurColor(std::string _mensurcolor) {
+void mei::MensuralVisMixIn::setMensurColor(std::string _mensurcolor) {
     MeiAttribute *a = new MeiAttribute("mensur.color", _mensurcolor);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultVisMixIn::hasMensurColor() {
+bool mei::MensuralVisMixIn::hasMensurColor() {
     return b->hasAttribute("mensur.color");
 };
 
-void mei::MensurDefaultVisMixIn::removeMensurColor() {
+void mei::MensuralVisMixIn::removeMensurColor() {
     b->removeAttribute("mensur.color");
 };
-MeiAttribute* mei::MensurDefaultVisMixIn::getMensurForm() {
+MeiAttribute* mei::MensuralVisMixIn::getMensurForm() {
     if (!b->hasAttribute("mensur.form")) {
         throw AttributeNotFoundException("mensur.form");
     }
     return b->getAttribute("mensur.form");
 };
 
-void mei::MensurDefaultVisMixIn::setMensurForm(std::string _mensurform) {
+void mei::MensuralVisMixIn::setMensurForm(std::string _mensurform) {
     MeiAttribute *a = new MeiAttribute("mensur.form", _mensurform);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultVisMixIn::hasMensurForm() {
+bool mei::MensuralVisMixIn::hasMensurForm() {
     return b->hasAttribute("mensur.form");
 };
 
-void mei::MensurDefaultVisMixIn::removeMensurForm() {
+void mei::MensuralVisMixIn::removeMensurForm() {
     b->removeAttribute("mensur.form");
 };
-MeiAttribute* mei::MensurDefaultVisMixIn::getMensurOrient() {
+MeiAttribute* mei::MensuralVisMixIn::getMensurLoc() {
+    if (!b->hasAttribute("mensur.loc")) {
+        throw AttributeNotFoundException("mensur.loc");
+    }
+    return b->getAttribute("mensur.loc");
+};
+
+void mei::MensuralVisMixIn::setMensurLoc(std::string _mensurloc) {
+    MeiAttribute *a = new MeiAttribute("mensur.loc", _mensurloc);
+    b->addAttribute(a);
+};
+
+bool mei::MensuralVisMixIn::hasMensurLoc() {
+    return b->hasAttribute("mensur.loc");
+};
+
+void mei::MensuralVisMixIn::removeMensurLoc() {
+    b->removeAttribute("mensur.loc");
+};
+MeiAttribute* mei::MensuralVisMixIn::getMensurOrient() {
     if (!b->hasAttribute("mensur.orient")) {
         throw AttributeNotFoundException("mensur.orient");
     }
     return b->getAttribute("mensur.orient");
 };
 
-void mei::MensurDefaultVisMixIn::setMensurOrient(std::string _mensurorient) {
+void mei::MensuralVisMixIn::setMensurOrient(std::string _mensurorient) {
     MeiAttribute *a = new MeiAttribute("mensur.orient", _mensurorient);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultVisMixIn::hasMensurOrient() {
+bool mei::MensuralVisMixIn::hasMensurOrient() {
     return b->hasAttribute("mensur.orient");
 };
 
-void mei::MensurDefaultVisMixIn::removeMensurOrient() {
+void mei::MensuralVisMixIn::removeMensurOrient() {
     b->removeAttribute("mensur.orient");
 };
-MeiAttribute* mei::MensurDefaultVisMixIn::getMensurSize() {
+MeiAttribute* mei::MensuralVisMixIn::getMensurSize() {
     if (!b->hasAttribute("mensur.size")) {
         throw AttributeNotFoundException("mensur.size");
     }
     return b->getAttribute("mensur.size");
 };
 
-void mei::MensurDefaultVisMixIn::setMensurSize(std::string _mensursize) {
+void mei::MensuralVisMixIn::setMensurSize(std::string _mensursize) {
     MeiAttribute *a = new MeiAttribute("mensur.size", _mensursize);
     b->addAttribute(a);
 };
 
-bool mei::MensurDefaultVisMixIn::hasMensurSize() {
+bool mei::MensuralVisMixIn::hasMensurSize() {
     return b->hasAttribute("mensur.size");
 };
 
-void mei::MensurDefaultVisMixIn::removeMensurSize() {
+void mei::MensuralVisMixIn::removeMensurSize() {
     b->removeAttribute("mensur.size");
 };
 
@@ -296,50 +417,5 @@ void mei::RestVisMensuralMixIn::removeSpaces() {
 };
 
 /* include <spacesmixin> */
-mei::StaffDefLogMensuralMixIn::StaffDefLogMensuralMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::StaffDefLogMensuralMixIn::~StaffDefLogMensuralMixIn() {}
-MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNum() {
-    if (!b->hasAttribute("proport.num")) {
-        throw AttributeNotFoundException("proport.num");
-    }
-    return b->getAttribute("proport.num");
-};
-
-void mei::StaffDefLogMensuralMixIn::setProportNum(std::string _proportnum) {
-    MeiAttribute *a = new MeiAttribute("proport.num", _proportnum);
-    b->addAttribute(a);
-};
-
-bool mei::StaffDefLogMensuralMixIn::hasProportNum() {
-    return b->hasAttribute("proport.num");
-};
-
-void mei::StaffDefLogMensuralMixIn::removeProportNum() {
-    b->removeAttribute("proport.num");
-};
-MeiAttribute* mei::StaffDefLogMensuralMixIn::getProportNumbase() {
-    if (!b->hasAttribute("proport.numbase")) {
-        throw AttributeNotFoundException("proport.numbase");
-    }
-    return b->getAttribute("proport.numbase");
-};
-
-void mei::StaffDefLogMensuralMixIn::setProportNumbase(std::string _proportnumbase) {
-    MeiAttribute *a = new MeiAttribute("proport.numbase", _proportnumbase);
-    b->addAttribute(a);
-};
-
-bool mei::StaffDefLogMensuralMixIn::hasProportNumbase() {
-    return b->hasAttribute("proport.numbase");
-};
-
-void mei::StaffDefLogMensuralMixIn::removeProportNumbase() {
-    b->removeAttribute("proport.numbase");
-};
-
-/* include <proport.numbasemixin> */
 
 

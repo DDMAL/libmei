@@ -93,23 +93,6 @@ mei::Head::Head(const Head& other) :
 
 /* include <head> */
 
-mei::Item::Item() :
-    MeiElement("item"),
-    m_Common(this),
-    m_Facsimile(this)
-{
-}
-REGISTER_DEFINITION(mei::Item, "item");
-mei::Item::~Item() {}
-mei::Item::Item(const Item& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Facsimile(this)
-{
-}
-
-/* include <item> */
-
 mei::L::L() :
     MeiElement("l"),
     m_Common(this),
@@ -151,6 +134,23 @@ mei::Lg::Lg(const Lg& other) :
 }
 
 /* include <lg> */
+
+mei::Li::Li() :
+    MeiElement("li"),
+    m_Common(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Li, "li");
+mei::Li::~Li() {}
+mei::Li::Li(const Li& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <li> */
 
 mei::List::List() :
     MeiElement("list"),

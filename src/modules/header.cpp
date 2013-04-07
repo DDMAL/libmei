@@ -117,6 +117,25 @@ void mei::Application::removeVersion() {
 };
 /* include <application> */
 
+mei::Audience::Audience() :
+    MeiElement("audience"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::Audience, "audience");
+mei::Audience::~Audience() {}
+mei::Audience::Audience(const Audience& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <audience> */
+
 mei::Availability::Availability() :
     MeiElement("availability"),
     m_Bibl(this),
@@ -135,6 +154,44 @@ mei::Availability::Availability(const Availability& other) :
 }
 
 /* include <availability> */
+
+mei::CaptureMode::CaptureMode() :
+    MeiElement("captureMode"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::CaptureMode, "captureMode");
+mei::CaptureMode::~CaptureMode() {}
+mei::CaptureMode::CaptureMode(const CaptureMode& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <captureMode> */
+
+mei::CarrierForm::CarrierForm() :
+    MeiElement("carrierForm"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::CarrierForm, "carrierForm");
+mei::CarrierForm::~CarrierForm() {}
+mei::CarrierForm::CarrierForm(const CarrierForm& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <carrierForm> */
 
 mei::Change::Change() :
     MeiElement("change"),
@@ -269,6 +326,25 @@ mei::Contents::Contents(const Contents& other) :
 
 /* include <contents> */
 
+mei::Context::Context() :
+    MeiElement("context"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::Context, "context");
+mei::Context::~Context() {}
+mei::Context::Context(const Context& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <context> */
+
 mei::Correction::Correction() :
     MeiElement("correction"),
     m_Common(this),
@@ -310,25 +386,6 @@ void mei::Correction::removeCorrlevel() {
     removeAttribute("corrlevel");
 };
 /* include <correction> */
-
-mei::Creation::Creation() :
-    MeiElement("creation"),
-    m_Common(this),
-    m_Bibl(this),
-    m_Lang(this)
-{
-}
-REGISTER_DEFINITION(mei::Creation, "creation");
-mei::Creation::~Creation() {}
-mei::Creation::Creation(const Creation& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Bibl(this),
-    m_Lang(this)
-{
-}
-
-/* include <creation> */
 
 mei::Dimensions::Dimensions() :
     MeiElement("dimensions"),
@@ -409,7 +466,9 @@ mei::EncodingDesc::EncodingDesc(const EncodingDesc& other) :
 mei::Ensemble::Ensemble() :
     MeiElement("ensemble"),
     m_Common(this),
-    m_Bibl(this)
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this)
 {
 }
 REGISTER_DEFINITION(mei::Ensemble, "ensemble");
@@ -417,29 +476,12 @@ mei::Ensemble::~Ensemble() {}
 mei::Ensemble::Ensemble(const Ensemble& other) :
     MeiElement(other),
     m_Common(this),
-    m_Bibl(this)
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this)
 {
 }
 
-MeiAttribute* mei::Ensemble::getCode() {
-    if (!hasAttribute("code")) {
-        throw AttributeNotFoundException("code");
-    }
-    return getAttribute("code");
-};
-
-void mei::Ensemble::setCode(std::string _code) {
-    MeiAttribute *a = new MeiAttribute("code", _code);
-    addAttribute(a);
-};
-
-bool mei::Ensemble::hasCode() {
-    return hasAttribute("code");
-};
-
-void mei::Ensemble::removeCode() {
-    removeAttribute("code");
-};
 /* include <ensemble> */
 
 mei::Event::Event() :
@@ -509,24 +551,22 @@ mei::ExhibHist::ExhibHist(const ExhibHist& other) :
 
 /* include <exhibHist> */
 
-mei::Extent::Extent() :
-    MeiElement("extent"),
+mei::FileChar::FileChar() :
+    MeiElement("fileChar"),
     m_Common(this),
-    m_Bibl(this),
-    m_Measurement(this)
+    m_Bibl(this)
 {
 }
-REGISTER_DEFINITION(mei::Extent, "extent");
-mei::Extent::~Extent() {}
-mei::Extent::Extent(const Extent& other) :
+REGISTER_DEFINITION(mei::FileChar, "fileChar");
+mei::FileChar::~FileChar() {}
+mei::FileChar::FileChar(const FileChar& other) :
     MeiElement(other),
     m_Common(this),
-    m_Bibl(this),
-    m_Measurement(this)
+    m_Bibl(this)
 {
 }
 
-/* include <extent> */
+/* include <fileChar> */
 
 mei::FileDesc::FileDesc() :
     MeiElement("fileDesc"),
@@ -544,6 +584,25 @@ mei::FileDesc::FileDesc(const FileDesc& other) :
 }
 
 /* include <fileDesc> */
+
+mei::Fingerprint::Fingerprint() :
+    MeiElement("fingerprint"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::Fingerprint, "fingerprint");
+mei::Fingerprint::~Fingerprint() {}
+mei::Fingerprint::Fingerprint(const Fingerprint& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <fingerprint> */
 
 mei::Hand::Hand() :
     MeiElement("hand"),
@@ -626,7 +685,8 @@ mei::IncipCode::IncipCode() :
     m_Common(this),
     m_Bibl(this),
     m_Internetmedia(this),
-    m_Pointing(this)
+    m_Pointing(this),
+    m_Whitespace(this)
 {
 }
 REGISTER_DEFINITION(mei::IncipCode, "incipCode");
@@ -636,30 +696,11 @@ mei::IncipCode::IncipCode(const IncipCode& other) :
     m_Common(this),
     m_Bibl(this),
     m_Internetmedia(this),
-    m_Pointing(this)
+    m_Pointing(this),
+    m_Whitespace(this)
 {
 }
 
-MeiAttribute* mei::IncipCode::getSpace() {
-    if (!hasAttribute("space")) {
-        throw AttributeNotFoundException("space");
-    }
-    return getAttribute("space");
-};
-
-void mei::IncipCode::setSpace(std::string _space) {
-    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
-    MeiAttribute *a = new MeiAttribute(s, "space", _space);
-    addAttribute(a);
-};
-
-bool mei::IncipCode::hasSpace() {
-    return hasAttribute("space");
-};
-
-void mei::IncipCode::removeSpace() {
-    removeAttribute("space");
-};
 MeiAttribute* mei::IncipCode::getForm() {
     if (!hasAttribute("form")) {
         throw AttributeNotFoundException("form");
@@ -726,8 +767,9 @@ mei::Inscription::Inscription(const Inscription& other) :
 mei::InstrVoice::InstrVoice() :
     MeiElement("instrVoice"),
     m_Common(this),
+    m_Authorized(this),
     m_Bibl(this),
-    m_Authorized(this)
+    m_Coded(this)
 {
 }
 REGISTER_DEFINITION(mei::InstrVoice, "instrVoice");
@@ -735,30 +777,12 @@ mei::InstrVoice::~InstrVoice() {}
 mei::InstrVoice::InstrVoice(const InstrVoice& other) :
     MeiElement(other),
     m_Common(this),
+    m_Authorized(this),
     m_Bibl(this),
-    m_Authorized(this)
+    m_Coded(this)
 {
 }
 
-MeiAttribute* mei::InstrVoice::getCode() {
-    if (!hasAttribute("code")) {
-        throw AttributeNotFoundException("code");
-    }
-    return getAttribute("code");
-};
-
-void mei::InstrVoice::setCode(std::string _code) {
-    MeiAttribute *a = new MeiAttribute("code", _code);
-    addAttribute(a);
-};
-
-bool mei::InstrVoice::hasCode() {
-    return hasAttribute("code");
-};
-
-void mei::InstrVoice::removeCode() {
-    removeAttribute("code");
-};
 MeiAttribute* mei::InstrVoice::getCount() {
     if (!hasAttribute("count")) {
         throw AttributeNotFoundException("count");
@@ -802,7 +826,9 @@ void mei::InstrVoice::removeSolo() {
 mei::InstrVoiceGrp::InstrVoiceGrp() :
     MeiElement("instrVoiceGrp"),
     m_Common(this),
-    m_Bibl(this)
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this)
 {
 }
 REGISTER_DEFINITION(mei::InstrVoiceGrp, "instrVoiceGrp");
@@ -810,7 +836,9 @@ mei::InstrVoiceGrp::~InstrVoiceGrp() {}
 mei::InstrVoiceGrp::InstrVoiceGrp(const InstrVoiceGrp& other) :
     MeiElement(other),
     m_Common(this),
-    m_Bibl(this)
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this)
 {
 }
 
@@ -964,7 +992,7 @@ mei::Mensuration::Mensuration() :
     m_MensurLog(this),
     m_DurationRatio(this),
     m_Slashcount(this),
-    m_Staffloc(this)
+    m_MensuralShared(this)
 {
 }
 REGISTER_DEFINITION(mei::Mensuration, "mensuration");
@@ -976,7 +1004,7 @@ mei::Mensuration::Mensuration(const Mensuration& other) :
     m_MensurLog(this),
     m_DurationRatio(this),
     m_Slashcount(this),
-    m_Staffloc(this)
+    m_MensuralShared(this)
 {
 }
 
@@ -1041,6 +1069,23 @@ mei::NotesStmt::NotesStmt(const NotesStmt& other) :
 
 /* include <notesStmt> */
 
+mei::OtherChar::OtherChar() :
+    MeiElement("otherChar"),
+    m_Common(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::OtherChar, "otherChar");
+mei::OtherChar::~OtherChar() {}
+mei::OtherChar::OtherChar(const OtherChar& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this)
+{
+}
+
+/* include <otherChar> */
+
 mei::PerfMedium::PerfMedium() :
     MeiElement("perfMedium"),
     m_Common(this),
@@ -1076,23 +1121,6 @@ mei::PhysDesc::PhysDesc(const PhysDesc& other) :
 }
 
 /* include <physDesc> */
-
-mei::PhysLoc::PhysLoc() :
-    MeiElement("physLoc"),
-    m_Common(this),
-    m_Bibl(this)
-{
-}
-REGISTER_DEFINITION(mei::PhysLoc, "physLoc");
-mei::PhysLoc::~PhysLoc() {}
-mei::PhysLoc::PhysLoc(const PhysLoc& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Bibl(this)
-{
-}
-
-/* include <physLoc> */
 
 mei::PhysMedium::PhysMedium() :
     MeiElement("physMedium"),
@@ -1133,6 +1161,23 @@ mei::PlateNum::PlateNum(const PlateNum& other) :
 }
 
 /* include <plateNum> */
+
+mei::PlayingSpeed::PlayingSpeed() :
+    MeiElement("playingSpeed"),
+    m_Common(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::PlayingSpeed, "playingSpeed");
+mei::PlayingSpeed::~PlayingSpeed() {}
+mei::PlayingSpeed::PlayingSpeed(const PlayingSpeed& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this)
+{
+}
+
+/* include <playingSpeed> */
 
 mei::Price::Price() :
     MeiElement("price"),
@@ -1210,78 +1255,6 @@ mei::PubStmt::PubStmt(const PubStmt& other) :
 
 /* include <pubStmt> */
 
-mei::RelatedItem::RelatedItem() :
-    MeiElement("relatedItem"),
-    m_Datapointing(this),
-    m_Common(this),
-    m_Bibl(this),
-    m_Pointing(this)
-{
-}
-REGISTER_DEFINITION(mei::RelatedItem, "relatedItem");
-mei::RelatedItem::~RelatedItem() {}
-mei::RelatedItem::RelatedItem(const RelatedItem& other) :
-    MeiElement(other),
-    m_Datapointing(this),
-    m_Common(this),
-    m_Bibl(this),
-    m_Pointing(this)
-{
-}
-
-MeiAttribute* mei::RelatedItem::getRel() {
-    if (!hasAttribute("rel")) {
-        throw AttributeNotFoundException("rel");
-    }
-    return getAttribute("rel");
-};
-
-void mei::RelatedItem::setRel(std::string _rel) {
-    MeiAttribute *a = new MeiAttribute("rel", _rel);
-    addAttribute(a);
-};
-
-bool mei::RelatedItem::hasRel() {
-    return hasAttribute("rel");
-};
-
-void mei::RelatedItem::removeRel() {
-    removeAttribute("rel");
-};
-/* include <relatedItem> */
-
-mei::Resp::Resp() :
-    MeiElement("resp"),
-    m_Authorized(this)
-{
-}
-REGISTER_DEFINITION(mei::Resp, "resp");
-mei::Resp::~Resp() {}
-mei::Resp::Resp(const Resp& other) :
-    MeiElement(other),
-    m_Authorized(this)
-{
-}
-
-/* include <resp> */
-
-mei::RespStmt::RespStmt() :
-    MeiElement("respStmt"),
-    m_Bibl(this),
-    m_Common(this)
-{
-}
-REGISTER_DEFINITION(mei::RespStmt, "respStmt");
-mei::RespStmt::~RespStmt() {}
-mei::RespStmt::RespStmt(const RespStmt& other) :
-    MeiElement(other),
-    m_Bibl(this),
-    m_Common(this)
-{
-}
-
-/* include <respStmt> */
-
 mei::RevisionDesc::RevisionDesc() :
     MeiElement("revisionDesc"),
     m_Common(this),
@@ -1319,6 +1292,25 @@ mei::SamplingDecl::SamplingDecl(const SamplingDecl& other) :
 }
 
 /* include <samplingDecl> */
+
+mei::ScoreFormat::ScoreFormat() :
+    MeiElement("scoreFormat"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::ScoreFormat, "scoreFormat");
+mei::ScoreFormat::~ScoreFormat() {}
+mei::ScoreFormat::ScoreFormat(const ScoreFormat& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <scoreFormat> */
 
 mei::Segmentation::Segmentation() :
     MeiElement("segmentation"),
@@ -1358,11 +1350,30 @@ mei::SeriesStmt::SeriesStmt(const SeriesStmt& other) :
 
 /* include <seriesStmt> */
 
+mei::SoundChan::SoundChan() :
+    MeiElement("soundChan"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::SoundChan, "soundChan");
+mei::SoundChan::~SoundChan() {}
+mei::SoundChan::SoundChan(const SoundChan& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <soundChan> */
+
 mei::Source::Source() :
     MeiElement("source"),
-    m_Datapointing(this),
     m_Common(this),
     m_Bibl(this),
+    m_Datapointing(this),
     m_Pointing(this)
 {
 }
@@ -1370,9 +1381,9 @@ REGISTER_DEFINITION(mei::Source, "source");
 mei::Source::~Source() {}
 mei::Source::Source(const Source& other) :
     MeiElement(other),
-    m_Datapointing(this),
     m_Common(this),
     m_Bibl(this),
+    m_Datapointing(this),
     m_Pointing(this)
 {
 }
@@ -1393,6 +1404,25 @@ mei::SourceDesc::SourceDesc(const SourceDesc& other) :
 }
 
 /* include <sourceDesc> */
+
+mei::SpecRepro::SpecRepro() :
+    MeiElement("specRepro"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::SpecRepro, "specRepro");
+mei::SpecRepro::~SpecRepro() {}
+mei::SpecRepro::SpecRepro(const SpecRepro& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <specRepro> */
 
 mei::StdVals::StdVals() :
     MeiElement("stdVals"),
@@ -1433,6 +1463,25 @@ mei::SysReq::SysReq(const SysReq& other) :
 }
 
 /* include <sysReq> */
+
+mei::TapeConfig::TapeConfig() :
+    MeiElement("tapeConfig"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+REGISTER_DEFINITION(mei::TapeConfig, "tapeConfig");
+mei::TapeConfig::~TapeConfig() {}
+mei::TapeConfig::TapeConfig(const TapeConfig& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this)
+{
+}
+
+/* include <tapeConfig> */
 
 mei::Term::Term() :
     MeiElement("term"),

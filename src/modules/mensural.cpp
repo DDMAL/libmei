@@ -37,10 +37,11 @@ mei::Mensur::Mensur() :
     m_MensurLog(this),
     m_DurationRatio(this),
     m_Slashcount(this),
-    m_Staffloc(this),
+    m_MensuralShared(this),
     m_MensurVis(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -54,10 +55,11 @@ mei::Mensur::Mensur(const Mensur& other) :
     m_MensurLog(this),
     m_DurationRatio(this),
     m_Slashcount(this),
-    m_Staffloc(this),
+    m_MensuralShared(this),
     m_MensurVis(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {

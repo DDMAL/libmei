@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -34,6 +34,7 @@
 #include "headermixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"
+#include "mensuralmixins.h"
 #include "facsimilemixins.h"
 #include <string>
 
@@ -142,6 +143,26 @@ class MEI_EXPORT Application : public MeiElement {
         REGISTER_DECLARATION(Application);
 };
 
+/** \brief – Defines the class of user for which the work is intended, as defined by age
+ *  group (e.g., children, young adults, adults, etc.), educational level (e.g.,
+ *  primary, secondary, etc.), or other categorization.
+ */
+class MEI_EXPORT Audience : public MeiElement {
+    public:
+        Audience();
+        Audience(const Audience& other);
+        virtual ~Audience();
+
+/* include <audience> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(Audience);
+};
+
 /** \brief – Groups elements that describe the availability of and access to a
  *  bibliographic item, including an MEI-encoded document.
  */
@@ -159,6 +180,50 @@ class MEI_EXPORT Availability : public MeiElement {
 
     private:
         REGISTER_DECLARATION(Availability);
+};
+
+/** \brief (capture mode) – The means used to record notation, sound, or images in the
+ *  production of a source/manifestation (e.g., analogue, acoustic, electric,
+ *  digital, optical etc.).
+ */
+class MEI_EXPORT CaptureMode : public MeiElement {
+    public:
+        CaptureMode();
+        CaptureMode(const CaptureMode& other);
+        virtual ~CaptureMode();
+
+/* include <captureMode> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(CaptureMode);
+};
+
+/** \brief (carrier form) – The specific class of material to which the physical carrier
+ *  of the source/manifestation belongs (e.g., sound cassette, videodisc, microfilm
+ *  cartridge, transparency, etc.).
+ * 
+ *  The carrier for a manifestation comprising multiple physical components may
+ *  include more than one form (e.g., a filmstrip with an accompanying booklet, a
+ *  separate sound disc carrying the sound track for a film, etc.).
+ */
+class MEI_EXPORT CarrierForm : public MeiElement {
+    public:
+        CarrierForm();
+        CarrierForm(const CarrierForm& other);
+        virtual ~CarrierForm();
+
+/* include <carrierForm> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(CarrierForm);
 };
 
 /** \brief – Individual change within the revision description.
@@ -292,6 +357,28 @@ class MEI_EXPORT Contents : public MeiElement {
         REGISTER_DECLARATION(Contents);
 };
 
+/** \brief – The historical, social, intellectual, artistic, or other context within
+ *  which the work was originally conceived (e.g., the 17th century restoration of
+ *  the monarchy in England, the aesthetic movement of the late 19th century, etc.)
+ *  or the historical, social, intellectual, artistic, or other context within which
+ *  the expression was realized.
+ */
+class MEI_EXPORT Context : public MeiElement {
+    public:
+        Context();
+        Context(const Context& other);
+        virtual ~Context();
+
+/* include <context> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(Context);
+};
+
 /** \brief – States how and under what circumstances corrections have been made in the
  *  text.
  */
@@ -317,25 +404,6 @@ class MEI_EXPORT Correction : public MeiElement {
 
     private:
         REGISTER_DECLARATION(Correction);
-};
-
-/** \brief – Non-bibliographic details of the creation of an intellectual entity, in
- *  narrative form, such as the date, place, and circumstances of its composition.
- */
-class MEI_EXPORT Creation : public MeiElement {
-    public:
-        Creation();
-        Creation(const Creation& other);
-        virtual ~Creation();
-
-/* include <creation> */
-
-        CommonMixIn    m_Common;
-        BiblMixIn    m_Bibl;
-        LangMixIn    m_Lang;
-
-    private:
-        REGISTER_DECLARATION(Creation);
 };
 
 /** \brief – Information about the physical size of a bibliographic source; usually
@@ -423,17 +491,13 @@ class MEI_EXPORT Ensemble : public MeiElement {
         Ensemble();
         Ensemble(const Ensemble& other);
         virtual ~Ensemble();
-        /** \brief captures one or more coded values for the textual content of this element.
-         */
-        MeiAttribute* getCode();
-        void setCode(std::string _code);
-        bool hasCode();
-        void removeCode();
 
 /* include <ensemble> */
 
         CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
         BiblMixIn    m_Bibl;
+        CodedMixIn    m_Coded;
 
     private:
         REGISTER_DECLARATION(Ensemble);
@@ -501,24 +565,24 @@ class MEI_EXPORT ExhibHist : public MeiElement {
         REGISTER_DECLARATION(ExhibHist);
 };
 
-/** \brief – Used to express size in terms other than physical dimensions, such as number
- *  of pages, number of records in file, number of bytes, performance duration for
- *  music, audio recordings and visual projections, etc.
+/** \brief (file characteristics) – Standards or schemes used to encode the file (e.g.,
+ *  ASCII, SGML, etc.), physical characteristics of the file (e.g., recording
+ *  density, parity, blocking, etc.), and other characteristics that have a bearing
+ *  on how the file can be processed.
  */
-class MEI_EXPORT Extent : public MeiElement {
+class MEI_EXPORT FileChar : public MeiElement {
     public:
-        Extent();
-        Extent(const Extent& other);
-        virtual ~Extent();
+        FileChar();
+        FileChar(const FileChar& other);
+        virtual ~FileChar();
 
-/* include <extent> */
+/* include <fileChar> */
 
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
-        MeasurementMixIn    m_Measurement;
 
     private:
-        REGISTER_DECLARATION(Extent);
+        REGISTER_DECLARATION(FileChar);
 };
 
 /** \brief (file description) – Contains a full bibliographic description of the MEI
@@ -537,6 +601,26 @@ class MEI_EXPORT FileDesc : public MeiElement {
 
     private:
         REGISTER_DECLARATION(FileDesc);
+};
+
+/** \brief – Contains a string that uniquely identifies an item, such as those
+ *  constructed by combining groups of characters transcribed from specified pages
+ *  of a printed item or a file's checksum.
+ */
+class MEI_EXPORT Fingerprint : public MeiElement {
+    public:
+        Fingerprint();
+        Fingerprint(const Fingerprint& other);
+        virtual ~Fingerprint();
+
+/* include <fingerprint> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(Fingerprint);
 };
 
 /** \brief – Defines a distinct scribe or handwriting style.
@@ -607,12 +691,6 @@ class MEI_EXPORT IncipCode : public MeiElement {
         IncipCode();
         IncipCode(const IncipCode& other);
         virtual ~IncipCode();
-        /** \brief 
-         */
-        MeiAttribute* getSpace();
-        void setSpace(std::string _space);
-        bool hasSpace();
-        void removeSpace();
         /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
@@ -626,6 +704,7 @@ class MEI_EXPORT IncipCode : public MeiElement {
         BiblMixIn    m_Bibl;
         InternetmediaMixIn    m_Internetmedia;
         PointingMixIn    m_Pointing;
+        WhitespaceMixIn    m_Whitespace;
 
     private:
         REGISTER_DECLARATION(IncipCode);
@@ -678,14 +757,11 @@ class MEI_EXPORT InstrVoice : public MeiElement {
         InstrVoice();
         InstrVoice(const InstrVoice& other);
         virtual ~InstrVoice();
-        /** \brief captures one or more coded values for the textual content of this element.
-         */
-        MeiAttribute* getCode();
-        void setCode(std::string _code);
-        bool hasCode();
-        void removeCode();
         /** \brief captures the number of beats in a measure, that is, the top number of the meter
          *  signature.
+         * 
+         *  It must contain a decimal number or an additive expression that evaluates to a
+         *  decimal number, such as 2+3.
          */
         MeiAttribute* getCount();
         void setCount(std::string _count);
@@ -703,8 +779,9 @@ class MEI_EXPORT InstrVoice : public MeiElement {
 /* include <instrVoice> */
 
         CommonMixIn    m_Common;
-        BiblMixIn    m_Bibl;
         AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+        CodedMixIn    m_Coded;
 
     private:
         REGISTER_DECLARATION(InstrVoice);
@@ -721,7 +798,9 @@ class MEI_EXPORT InstrVoiceGrp : public MeiElement {
 /* include <instrVoiceGrp> */
 
         CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
         BiblMixIn    m_Bibl;
+        CodedMixIn    m_Coded;
 
     private:
         REGISTER_DECLARATION(InstrVoiceGrp);
@@ -864,7 +943,7 @@ class MEI_EXPORT Mensuration : public MeiElement {
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
         SlashcountMixIn    m_Slashcount;
-        StafflocMixIn    m_Staffloc;
+        MensuralSharedMixIn    m_MensuralShared;
 
     private:
         REGISTER_DECLARATION(Mensuration);
@@ -928,6 +1007,24 @@ class MEI_EXPORT NotesStmt : public MeiElement {
         REGISTER_DECLARATION(NotesStmt);
 };
 
+/** \brief (other distinguishing characteristic) – Any characteristic that serves to
+ *  differentiate a work or expression from another.
+ */
+class MEI_EXPORT OtherChar : public MeiElement {
+    public:
+        OtherChar();
+        OtherChar(const OtherChar& other);
+        virtual ~OtherChar();
+
+/* include <otherChar> */
+
+        CommonMixIn    m_Common;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(OtherChar);
+};
+
 /** \brief (performance medium) – Indicates the number and character of the performing
  *  forces used in a musical composition.
  */
@@ -947,9 +1044,9 @@ class MEI_EXPORT PerfMedium : public MeiElement {
         REGISTER_DECLARATION(PerfMedium);
 };
 
-/** \brief (physical description) – Container for information about the location,
- *  appearance, construction, or handling of physical materials, such as their
- *  dimension, quantity, color, style, and technique of creation.
+/** \brief (physical description) – Container for information about the appearance,
+ *  construction, or handling of physical materials, such as their dimension,
+ *  quantity, color, style, and technique of creation.
  */
 class MEI_EXPORT PhysDesc : public MeiElement {
     public:
@@ -964,24 +1061,6 @@ class MEI_EXPORT PhysDesc : public MeiElement {
 
     private:
         REGISTER_DECLARATION(PhysDesc);
-};
-
-/** \brief (physical location) – Location of the source within a repository, e.g., shelf
- *  mark or other locational information.
- */
-class MEI_EXPORT PhysLoc : public MeiElement {
-    public:
-        PhysLoc();
-        PhysLoc(const PhysLoc& other);
-        virtual ~PhysLoc();
-
-/* include <physLoc> */
-
-        CommonMixIn    m_Common;
-        BiblMixIn    m_Bibl;
-
-    private:
-        REGISTER_DECLARATION(PhysLoc);
 };
 
 /** \brief (physical medium) – Records the physical materials used in the source, such as
@@ -1022,6 +1101,24 @@ class MEI_EXPORT PlateNum : public MeiElement {
 
     private:
         REGISTER_DECLARATION(PlateNum);
+};
+
+/** \brief Playing speed for a sound recording is the speed at which the carrier must be
+ *  operated to produce the sound intended (e.g., 33 1/3 rpm, 19 cm/s, etc.)
+ */
+class MEI_EXPORT PlayingSpeed : public MeiElement {
+    public:
+        PlayingSpeed();
+        PlayingSpeed(const PlayingSpeed& other);
+        virtual ~PlayingSpeed();
+
+/* include <playingSpeed> */
+
+        CommonMixIn    m_Common;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(PlayingSpeed);
 };
 
 /** \brief – The cost of access to a bibliographic item.
@@ -1102,81 +1199,6 @@ class MEI_EXPORT PubStmt : public MeiElement {
         REGISTER_DECLARATION(PubStmt);
 };
 
-/** \brief (related item) – contains or references another bibliographic item which is
- *  related to the present one in some specified manner, for example as a
- *  constituent or alternative version of it.
- */
-class MEI_EXPORT RelatedItem : public MeiElement {
-    public:
-        RelatedItem();
-        RelatedItem(const RelatedItem& other);
-        virtual ~RelatedItem();
-        /** \brief describes the relationship between the <relatedItem> and the resource described
-         *  in the parent element, i.e.
-         * 
-         *  <source> or <relatedItem>. "preceding" indicates a predecessor to the resource;
-         *  "succeeding" applies to a successor to the resource; "original" indicates the
-         *  original form of the resource; "host" provides info concerning an intellectual
-         *  or physical constituent unit of the resource; "otherVersion" indicates a change
-         *  in the intellectual content of the resource not significant enough to be a
-         *  different work; "otherFormat" indicates a change in physical format of the
-         *  resource; "isReferencedBy" applies to a citation or reference to published
-         *  bibliographic descriptions, reviews, abstracts, or indexes of the content of the
-         *  resource; "references" applies to a resource cited or referred to in the
-         *  resource. These values are based on MODS version 3.4.
-         */
-        MeiAttribute* getRel();
-        void setRel(std::string _rel);
-        bool hasRel();
-        void removeRel();
-
-/* include <relatedItem> */
-
-        DatapointingMixIn    m_Datapointing;
-        CommonMixIn    m_Common;
-        BiblMixIn    m_Bibl;
-        PointingMixIn    m_Pointing;
-
-    private:
-        REGISTER_DECLARATION(RelatedItem);
-};
-
-/** \brief (responsibility) – A phrase describing the nature of a person's intellectual
- *  responsibility.
- */
-class MEI_EXPORT Resp : public MeiElement {
-    public:
-        Resp();
-        Resp(const Resp& other);
-        virtual ~Resp();
-
-/* include <resp> */
-
-        AuthorizedMixIn    m_Authorized;
-
-    private:
-        REGISTER_DECLARATION(Resp);
-};
-
-/** \brief (responsibility statement) – Names one or more individuals, groups, or in rare
- *  cases, mechanical processes, responsible for creation or realization of the
- *  intellectual or artistic content.
- */
-class MEI_EXPORT RespStmt : public MeiElement {
-    public:
-        RespStmt();
-        RespStmt(const RespStmt& other);
-        virtual ~RespStmt();
-
-/* include <respStmt> */
-
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-
-    private:
-        REGISTER_DECLARATION(RespStmt);
-};
-
 /** \brief (revision description) – Container for information about alterations that have
  *  been made to an MEI file.
  */
@@ -1213,6 +1235,25 @@ class MEI_EXPORT SamplingDecl : public MeiElement {
 
     private:
         REGISTER_DECLARATION(SamplingDecl);
+};
+
+/** \brief – Describes the type of score used to represent a musical composition (e.g.,
+ *  short score, full score, condensed score, close score, etc.).
+ */
+class MEI_EXPORT ScoreFormat : public MeiElement {
+    public:
+        ScoreFormat();
+        ScoreFormat(const ScoreFormat& other);
+        virtual ~ScoreFormat();
+
+/* include <scoreFormat> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(ScoreFormat);
 };
 
 /** \brief – Describes the principles according to which the musical text has been
@@ -1253,6 +1294,25 @@ class MEI_EXPORT SeriesStmt : public MeiElement {
         REGISTER_DECLARATION(SeriesStmt);
 };
 
+/** \brief (sound channels) – Reflects the number of sound channels used to make a
+ *  recording (monaural, stereophonic, quadraphonic, etc.).
+ */
+class MEI_EXPORT SoundChan : public MeiElement {
+    public:
+        SoundChan();
+        SoundChan(const SoundChan& other);
+        virtual ~SoundChan();
+
+/* include <soundChan> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(SoundChan);
+};
+
 /** \brief – A bibliographic description of a source used in the creation of the
  *  electronic file.
  */
@@ -1264,9 +1324,9 @@ class MEI_EXPORT Source : public MeiElement {
 
 /* include <source> */
 
-        DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
         BiblMixIn    m_Bibl;
+        DatapointingMixIn    m_Datapointing;
         PointingMixIn    m_Pointing;
 
     private:
@@ -1288,6 +1348,27 @@ class MEI_EXPORT SourceDesc : public MeiElement {
 
     private:
         REGISTER_DECLARATION(SourceDesc);
+};
+
+/** \brief (special reproduction characteristic) – The equalization system, noise
+ *  reduction system, etc.
+ * 
+ *  used in making the recording (e.g., NAB, DBX, Dolby, etc.).
+ */
+class MEI_EXPORT SpecRepro : public MeiElement {
+    public:
+        SpecRepro();
+        SpecRepro(const SpecRepro& other);
+        virtual ~SpecRepro();
+
+/* include <specRepro> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(SpecRepro);
 };
 
 /** \brief (standard values) – Specifies the format used when standardized date or number
@@ -1328,6 +1409,25 @@ class MEI_EXPORT SysReq : public MeiElement {
         REGISTER_DECLARATION(SysReq);
 };
 
+/** \brief (tape configuration) – Number of tracks on a sound tape (e.g., eight track,
+ *  twelve track).
+ */
+class MEI_EXPORT TapeConfig : public MeiElement {
+    public:
+        TapeConfig();
+        TapeConfig(const TapeConfig& other);
+        virtual ~TapeConfig();
+
+/* include <tapeConfig> */
+
+        CommonMixIn    m_Common;
+        AuthorizedMixIn    m_Authorized;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(TapeConfig);
+};
+
 /** \brief – Keyword or phrase which describes a resource.
  */
 class MEI_EXPORT Term : public MeiElement {
@@ -1335,8 +1435,7 @@ class MEI_EXPORT Term : public MeiElement {
         Term();
         Term(const Term& other);
         virtual ~Term();
-        /** \brief contains a reference to the controlled vocabulary from which the terms are
-         *  drawn.
+        /** \brief contains a reference to the controlled vocabulary from which the term is drawn.
          * 
          *  The value must match the value of an ID attribute on a classCode element given
          *  elsewhere in the document.
@@ -1362,8 +1461,7 @@ class MEI_EXPORT TermList : public MeiElement {
         TermList();
         TermList(const TermList& other);
         virtual ~TermList();
-        /** \brief contains a reference to the controlled vocabulary from which the terms are
-         *  drawn.
+        /** \brief contains a reference to the controlled vocabulary from which the term is drawn.
          * 
          *  The value must match the value of an ID attribute on a classCode element given
          *  elsewhere in the document.
@@ -1490,9 +1588,9 @@ class MEI_EXPORT Watermark : public MeiElement {
         REGISTER_DECLARATION(Watermark);
 };
 
-/** \brief – Provides a detailed description of the non-bibliographic aspects of a text,
- *  specifically its history, language use, and high-level musical attributes: key,
- *  tempo, meter, and medium of performance.
+/** \brief – Provides a detailed description of a work, specifically its history,
+ *  language use, and high-level musical attributes: key, tempo, meter, and medium
+ *  of performance.
  */
 class MEI_EXPORT Work : public MeiElement {
     public:

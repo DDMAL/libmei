@@ -19,13 +19,14 @@ mei::Accid::Accid() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -44,13 +45,14 @@ mei::Accid::Accid(const Accid& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -123,13 +125,15 @@ mei::Annot::Annot() :
     m_Lang(this),
     m_Source(this),
     m_Typed(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
+    m_Layerident(this),
+    m_Staffident(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
     m_TimestampMusical(this),
+    m_Timestamp2Musical(this),
     m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -147,13 +151,15 @@ mei::Annot::Annot(const Annot& other) :
     m_Lang(this),
     m_Source(this),
     m_Typed(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
+    m_Layerident(this),
+    m_Staffident(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
     m_TimestampMusical(this),
+    m_Timestamp2Musical(this),
     m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -163,6 +169,27 @@ mei::Annot::Annot(const Annot& other) :
 }
 
 /* include <annot> */
+
+mei::Arranger::Arranger() :
+    MeiElement("arranger"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Arranger, "arranger");
+mei::Arranger::~Arranger() {}
+mei::Arranger::Arranger(const Arranger& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <arranger> */
 
 mei::Artic::Artic() :
     MeiElement("artic"),
@@ -175,14 +202,14 @@ mei::Artic::Artic() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -200,20 +227,41 @@ mei::Artic::Artic(const Artic& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
 }
 
 /* include <artic> */
+
+mei::Author::Author() :
+    MeiElement("author"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Author, "author");
+mei::Author::~Author() {}
+mei::Author::Author(const Author& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <author> */
 
 mei::BarLine::BarLine() :
     MeiElement("barLine"),
@@ -272,6 +320,48 @@ mei::Bibl::Bibl(const Bibl& other) :
 }
 
 /* include <bibl> */
+
+mei::BiblList::BiblList() :
+    MeiElement("biblList"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::BiblList, "biblList");
+mei::BiblList::~BiblList() {}
+mei::BiblList::BiblList(const BiblList& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Facsimile(this),
+    m_Lang(this),
+    m_Typed(this)
+{
+}
+
+/* include <biblList> */
+
+mei::BiblScope::BiblScope() :
+    MeiElement("biblScope"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Measurement(this)
+{
+}
+REGISTER_DEFINITION(mei::BiblScope, "biblScope");
+mei::BiblScope::~BiblScope() {}
+mei::BiblScope::BiblScope(const BiblScope& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Measurement(this)
+{
+}
+
+/* include <biblScope> */
 
 mei::Body::Body() :
     MeiElement("body"),
@@ -401,8 +491,7 @@ mei::Chord::Chord() :
     m_Instrumentident(this),
     m_Graced(this),
     m_CommonAnl(this),
-    m_Alignment(this),
-    m_Melodicfunction(this)
+    m_Alignment(this)
 {
 }
 REGISTER_DEFINITION(mei::Chord, "chord");
@@ -442,8 +531,7 @@ mei::Chord::Chord(const Chord& other) :
     m_Instrumentident(this),
     m_Graced(this),
     m_CommonAnl(this),
-    m_Alignment(this),
-    m_Melodicfunction(this)
+    m_Alignment(this)
 {
 }
 
@@ -452,6 +540,10 @@ mei::Chord::Chord(const Chord& other) :
 mei::Clef::Clef() :
     MeiElement("clef"),
     m_Common(this),
+    m_TimestampMusical(this),
+    m_TimestampPerformed(this),
+    m_Staffident(this),
+    m_Layerident(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -469,6 +561,10 @@ mei::Clef::~Clef() {}
 mei::Clef::Clef(const Clef& other) :
     MeiElement(other),
     m_Common(this),
+    m_TimestampMusical(this),
+    m_TimestampPerformed(this),
+    m_Staffident(this),
+    m_Layerident(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this),
@@ -513,6 +609,48 @@ mei::ClefGrp::ClefGrp(const ClefGrp& other) :
 
 /* include <clefGrp> */
 
+mei::Composer::Composer() :
+    MeiElement("composer"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Composer, "composer");
+mei::Composer::~Composer() {}
+mei::Composer::Composer(const Composer& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <composer> */
+
+mei::Creation::Creation() :
+    MeiElement("creation"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this)
+{
+}
+REGISTER_DEFINITION(mei::Creation, "creation");
+mei::Creation::~Creation() {}
+mei::Creation::Creation(const Creation& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this)
+{
+}
+
+/* include <creation> */
+
 mei::Custos::Custos() :
     MeiElement("custos"),
     m_Common(this),
@@ -523,6 +661,7 @@ mei::Custos::Custos() :
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -539,6 +678,7 @@ mei::Custos::Custos(const Custos& other) :
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -588,9 +728,11 @@ mei::Dir::Dir() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -616,9 +758,11 @@ mei::Dir::Dir(const Dir& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -634,6 +778,25 @@ mei::Dir::Dir(const Dir& other) :
 
 /* include <dir> */
 
+mei::Distributor::Distributor() :
+    MeiElement("distributor"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Distributor, "distributor");
+mei::Distributor::~Distributor() {}
+mei::Distributor::Distributor(const Distributor& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <distributor> */
+
 mei::Dot::Dot() :
     MeiElement("dot"),
     m_Common(this),
@@ -644,11 +807,12 @@ mei::Dot::Dot() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -665,11 +829,12 @@ mei::Dot::Dot(const Dot& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -687,9 +852,11 @@ mei::Dynam::Dynam() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -715,9 +882,11 @@ mei::Dynam::Dynam(const Dynam& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -750,6 +919,27 @@ mei::Edition::Edition(const Edition& other) :
 }
 
 /* include <edition> */
+
+mei::Editor::Editor() :
+    MeiElement("editor"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Editor, "editor");
+mei::Editor::~Editor() {}
+mei::Editor::Editor(const Editor& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <editor> */
 
 mei::Ending::Ending() :
     MeiElement("ending"),
@@ -797,6 +987,46 @@ mei::Expansion::Expansion(const Expansion& other) :
 
 /* include <expansion> */
 
+mei::Extent::Extent() :
+    MeiElement("extent"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Measurement(this)
+{
+}
+REGISTER_DEFINITION(mei::Extent, "extent");
+mei::Extent::~Extent() {}
+mei::Extent::Extent(const Extent& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Measurement(this)
+{
+}
+
+/* include <extent> */
+
+mei::Funder::Funder() :
+    MeiElement("funder"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Funder, "funder");
+mei::Funder::~Funder() {}
+mei::Funder::Funder(const Funder& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <funder> */
+
 mei::Fw::Fw() :
     MeiElement("fw"),
     m_Common(this),
@@ -817,6 +1047,27 @@ mei::Fw::Fw(const Fw& other) :
 }
 
 /* include <fw> */
+
+mei::Genre::Genre() :
+    MeiElement("genre"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Genre, "genre");
+mei::Genre::~Genre() {}
+mei::Genre::Genre(const Genre& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <genre> */
 
 mei::Group::Group() :
     MeiElement("group"),
@@ -889,6 +1140,25 @@ mei::Identifier::Identifier(const Identifier& other) :
 
 /* include <identifier> */
 
+mei::Imprint::Imprint() :
+    MeiElement("imprint"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Imprint, "imprint");
+mei::Imprint::~Imprint() {}
+mei::Imprint::Imprint(const Imprint& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <imprint> */
+
 mei::Incip::Incip() :
     MeiElement("incip"),
     m_Common(this),
@@ -910,12 +1180,14 @@ mei::Incip::Incip(const Incip& other) :
 
 mei::KeyAccid::KeyAccid() :
     MeiElement("keyAccid"),
-    m_Accidental(this),
     m_Common(this),
-    m_Enclosingchars(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Accidental(this),
     m_Pitch(this),
     m_Octave(this),
+    m_Enclosingchars(this),
     m_Staffloc(this),
     m_Xy(this)
 {
@@ -924,12 +1196,14 @@ REGISTER_DEFINITION(mei::KeyAccid, "keyAccid");
 mei::KeyAccid::~KeyAccid() {}
 mei::KeyAccid::KeyAccid(const KeyAccid& other) :
     MeiElement(other),
-    m_Accidental(this),
     m_Common(this),
-    m_Enclosingchars(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Accidental(this),
     m_Pitch(this),
     m_Octave(this),
+    m_Enclosingchars(this),
     m_Staffloc(this),
     m_Xy(this)
 {
@@ -1106,6 +1380,48 @@ void mei::Lb::removeFunc() {
 };
 /* include <lb> */
 
+mei::Librettist::Librettist() :
+    MeiElement("librettist"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Librettist, "librettist");
+mei::Librettist::~Librettist() {}
+mei::Librettist::Librettist(const Librettist& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <librettist> */
+
+mei::Lyricist::Lyricist() :
+    MeiElement("lyricist"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::Lyricist, "lyricist");
+mei::Lyricist::~Lyricist() {}
+mei::Lyricist::Lyricist(const Lyricist& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Typed(this)
+{
+}
+
+/* include <lyricist> */
+
 mei::Mdiv::Mdiv() :
     MeiElement("mdiv"),
     m_Common(this),
@@ -1219,6 +1535,7 @@ mei::Note::Note() :
     m_Coloration(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_Stemmed(this),
     m_StemmedCmn(this),
     m_Visibility(this),
@@ -1276,6 +1593,7 @@ mei::Note::Note(const Note& other) :
     m_Coloration(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_Stemmed(this),
     m_StemmedCmn(this),
     m_Visibility(this),
@@ -1549,9 +1867,11 @@ mei::Phrase::Phrase() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -1580,9 +1900,11 @@ mei::Phrase::Phrase(const Phrase& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Augmentdots(this),
+    m_DurationAdditive(this),
     m_Startendid(this),
     m_Startid(this),
-    m_DurationTimestamp(this),
+    m_Timestamp2Musical(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -1603,13 +1925,132 @@ mei::Phrase::Phrase(const Phrase& other) :
 
 /* include <phrase> */
 
+mei::PhysLoc::PhysLoc() :
+    MeiElement("physLoc"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::PhysLoc, "physLoc");
+mei::PhysLoc::~PhysLoc() {}
+mei::PhysLoc::PhysLoc(const PhysLoc& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <physLoc> */
+
+mei::PubPlace::PubPlace() :
+    MeiElement("pubPlace"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::PubPlace, "pubPlace");
+mei::PubPlace::~PubPlace() {}
+mei::PubPlace::PubPlace(const PubPlace& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <pubPlace> */
+
+mei::Publisher::Publisher() :
+    MeiElement("publisher"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Publisher, "publisher");
+mei::Publisher::~Publisher() {}
+mei::Publisher::Publisher(const Publisher& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <publisher> */
+
+mei::Recipient::Recipient() :
+    MeiElement("recipient"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Recipient, "recipient");
+mei::Recipient::~Recipient() {}
+mei::Recipient::Recipient(const Recipient& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <recipient> */
+
+mei::RelatedItem::RelatedItem() :
+    MeiElement("relatedItem"),
+    m_Datapointing(this),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Pointing(this)
+{
+}
+REGISTER_DEFINITION(mei::RelatedItem, "relatedItem");
+mei::RelatedItem::~RelatedItem() {}
+mei::RelatedItem::RelatedItem(const RelatedItem& other) :
+    MeiElement(other),
+    m_Datapointing(this),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Pointing(this)
+{
+}
+
+MeiAttribute* mei::RelatedItem::getRel() {
+    if (!hasAttribute("rel")) {
+        throw AttributeNotFoundException("rel");
+    }
+    return getAttribute("rel");
+};
+
+void mei::RelatedItem::setRel(std::string _rel) {
+    MeiAttribute *a = new MeiAttribute("rel", _rel);
+    addAttribute(a);
+};
+
+bool mei::RelatedItem::hasRel() {
+    return hasAttribute("rel");
+};
+
+void mei::RelatedItem::removeRel() {
+    removeAttribute("rel");
+};
+/* include <relatedItem> */
+
 mei::Rend::Rend() :
     MeiElement("rend"),
     m_Color(this),
     m_Common(this),
+    m_Horizontalalign(this),
     m_Lang(this),
     m_Typography(this),
-    m_Horizontalalign(this)
+    m_Whitespace(this)
 {
 }
 REGISTER_DEFINITION(mei::Rend, "rend");
@@ -1618,9 +2059,10 @@ mei::Rend::Rend(const Rend& other) :
     MeiElement(other),
     m_Color(this),
     m_Common(this),
+    m_Horizontalalign(this),
     m_Lang(this),
     m_Typography(this),
-    m_Horizontalalign(this)
+    m_Whitespace(this)
 {
 }
 
@@ -1731,6 +2173,48 @@ mei::Repository::Repository(const Repository& other) :
 
 /* include <repository> */
 
+mei::Resp::Resp() :
+    MeiElement("resp"),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Resp, "resp");
+mei::Resp::~Resp() {}
+mei::Resp::Resp(const Resp& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Authorized(this),
+    m_Bibl(this),
+    m_Coded(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <resp> */
+
+mei::RespStmt::RespStmt() :
+    MeiElement("respStmt"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::RespStmt, "respStmt");
+mei::RespStmt::~RespStmt() {}
+mei::RespStmt::RespStmt(const RespStmt& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <respStmt> */
+
 mei::Rest::Rest() :
     MeiElement("rest"),
     m_Common(this),
@@ -1746,13 +2230,15 @@ mei::Rest::Rest() :
     m_Beamed(this),
     m_Altsym(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Relativesize(this),
+    m_RestVisMensural(this),
+    m_Staffloc(this),
+    m_StafflocPitched(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_RestVisMensural(this),
-    m_Lineloc(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_DurationRatio(this),
@@ -1777,13 +2263,15 @@ mei::Rest::Rest(const Rest& other) :
     m_Beamed(this),
     m_Altsym(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Relativesize(this),
+    m_RestVisMensural(this),
+    m_Staffloc(this),
+    m_StafflocPitched(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_RestVisMensural(this),
-    m_Lineloc(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_DurationRatio(this),
@@ -1890,8 +2378,8 @@ mei::ScoreDef::ScoreDef() :
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurDefaultLog(this),
-    m_DurationRatio(this),
+    m_MensuralLog(this),
+    m_MensuralShared(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
@@ -1908,7 +2396,7 @@ mei::ScoreDef::ScoreDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurDefaultVis(this),
+    m_MensuralVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -1928,8 +2416,8 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurDefaultLog(this),
-    m_DurationRatio(this),
+    m_MensuralLog(this),
+    m_MensuralShared(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
@@ -1946,7 +2434,7 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurDefaultVis(this),
+    m_MensuralVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -1985,6 +2473,27 @@ mei::Section::Section(const Section& other) :
 }
 
 /* include <section> */
+
+mei::Series::Series() :
+    MeiElement("series"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this)
+{
+}
+REGISTER_DEFINITION(mei::Series, "series");
+mei::Series::~Series() {}
+mei::Series::Series(const Series& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this)
+{
+}
+
+/* include <series> */
 
 mei::Space::Space() :
     MeiElement("space"),
@@ -2028,6 +2537,25 @@ mei::Space::Space(const Space& other) :
 }
 
 /* include <space> */
+
+mei::Sponsor::Sponsor() :
+    MeiElement("sponsor"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::Sponsor, "sponsor");
+mei::Sponsor::~Sponsor() {}
+mei::Sponsor::Sponsor(const Sponsor& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+/* include <sponsor> */
 
 mei::Stack::Stack() :
     MeiElement("stack"),
@@ -2126,9 +2654,8 @@ mei::StaffDef::StaffDef() :
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_StaffDefLogMensural(this),
-    m_MensurDefaultLog(this),
-    m_DurationRatio(this),
+    m_MensuralLog(this),
+    m_MensuralShared(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
@@ -2146,7 +2673,7 @@ mei::StaffDef::StaffDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurDefaultVis(this),
+    m_MensuralVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)
@@ -2165,9 +2692,8 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_StaffDefLogMensural(this),
-    m_MensurDefaultLog(this),
-    m_DurationRatio(this),
+    m_MensuralLog(this),
+    m_MensuralShared(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
@@ -2185,7 +2711,7 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurDefaultVis(this),
+    m_MensuralVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)
@@ -2311,14 +2837,71 @@ mei::Tempo::Tempo(const Tempo& other) :
 
 /* include <tempo> */
 
+mei::TextLang::TextLang() :
+    MeiElement("textLang"),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+REGISTER_DEFINITION(mei::TextLang, "textLang");
+mei::TextLang::~TextLang() {}
+mei::TextLang::TextLang(const TextLang& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Bibl(this),
+    m_Facsimile(this)
+{
+}
+
+MeiAttribute* mei::TextLang::getMainLang() {
+    if (!hasAttribute("mainLang")) {
+        throw AttributeNotFoundException("mainLang");
+    }
+    return getAttribute("mainLang");
+};
+
+void mei::TextLang::setMainLang(std::string _mainLang) {
+    MeiAttribute *a = new MeiAttribute("mainLang", _mainLang);
+    addAttribute(a);
+};
+
+bool mei::TextLang::hasMainLang() {
+    return hasAttribute("mainLang");
+};
+
+void mei::TextLang::removeMainLang() {
+    removeAttribute("mainLang");
+};
+MeiAttribute* mei::TextLang::getOtherLangs() {
+    if (!hasAttribute("otherLangs")) {
+        throw AttributeNotFoundException("otherLangs");
+    }
+    return getAttribute("otherLangs");
+};
+
+void mei::TextLang::setOtherLangs(std::string _otherLangs) {
+    MeiAttribute *a = new MeiAttribute("otherLangs", _otherLangs);
+    addAttribute(a);
+};
+
+bool mei::TextLang::hasOtherLangs() {
+    return hasAttribute("otherLangs");
+};
+
+void mei::TextLang::removeOtherLangs() {
+    removeAttribute("otherLangs");
+};
+/* include <textLang> */
+
 mei::Title::Title() :
     MeiElement("title"),
     m_Common(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }
@@ -2327,11 +2910,11 @@ mei::Title::~Title() {}
 mei::Title::Title(const Title& other) :
     MeiElement(other),
     m_Common(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Name(this),
     m_Authorized(this),
     m_Canonical(this),
+    m_Bibl(this),
+    m_Facsimile(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }

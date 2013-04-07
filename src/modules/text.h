@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -118,23 +118,6 @@ class MEI_EXPORT Head : public MeiElement {
         REGISTER_DECLARATION(Head);
 };
 
-/** \brief – Single item in a <list>.
- */
-class MEI_EXPORT Item : public MeiElement {
-    public:
-        Item();
-        Item(const Item& other);
-        virtual ~Item();
-
-/* include <item> */
-
-        CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-
-    private:
-        REGISTER_DECLARATION(Item);
-};
-
 /** \brief (line of text) – Contains a single line of text within a line group.
  */
 class MEI_EXPORT L : public MeiElement {
@@ -175,6 +158,23 @@ class MEI_EXPORT Lg : public MeiElement {
 
     private:
         REGISTER_DECLARATION(Lg);
+};
+
+/** \brief (list item) – Single item in a <list>.
+ */
+class MEI_EXPORT Li : public MeiElement {
+    public:
+        Li();
+        Li(const Li& other);
+        virtual ~Li();
+
+/* include <li> */
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+
+    private:
+        REGISTER_DECLARATION(Li);
 };
 
 /** \brief – A formatting element that contains a series of items separated from one

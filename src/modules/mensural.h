@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -75,10 +75,11 @@ class MEI_EXPORT Mensur : public MeiElement {
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
         SlashcountMixIn    m_Slashcount;
-        StafflocMixIn    m_Staffloc;
+        MensuralSharedMixIn    m_MensuralShared;
         MensurVisMixIn    m_MensurVis;
         ColorMixIn    m_Color;
         RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 

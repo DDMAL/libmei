@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -35,6 +35,7 @@
 #include "cmnmixins.h"
 #include "analysismixins.h"
 #include "linkalignmixins.h"
+#include <string>
 
 
 namespace mei {
@@ -89,6 +90,8 @@ class MEI_EXPORT BTrem : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationMusicalMixIn    m_DurationMusical;
         NumberedMixIn    m_Numbered;
         NumberplacementMixIn    m_Numberplacement;
         TremmeasuredMixIn    m_Tremmeasured;
@@ -117,6 +120,7 @@ class MEI_EXPORT Beam : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         BeamedwithMixIn    m_Beamedwith;
+        ColorMixIn    m_Color;
         BeamrendMixIn    m_Beamrend;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -143,10 +147,13 @@ class MEI_EXPORT BeamSpan : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        BeamedwithMixIn    m_Beamedwith;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        BeamedwithMixIn    m_Beamedwith;
-        DurationMusicalMixIn    m_DurationMusical;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        ColorMixIn    m_Color;
         BeamrendMixIn    m_Beamrend;
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
@@ -202,9 +209,11 @@ class MEI_EXPORT Bend : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -242,8 +251,11 @@ class MEI_EXPORT Breath : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         PlacementMixIn    m_Placement;
@@ -277,6 +289,8 @@ class MEI_EXPORT FTrem : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationMusicalMixIn    m_DurationMusical;
         SlashcountMixIn    m_Slashcount;
         TremmeasuredMixIn    m_Tremmeasured;
         CommonAnlMixIn    m_CommonAnl;
@@ -343,9 +357,11 @@ class MEI_EXPORT Gliss : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         GlissVisMixIn    m_GlissVis;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
@@ -357,6 +373,7 @@ class MEI_EXPORT Gliss : public MeiElement {
         XyMixIn    m_Xy;
         Xy2MixIn    m_Xy2;
         LinerendMixIn    m_Linerend;
+        DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -385,9 +402,11 @@ class MEI_EXPORT Hairpin : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         HairpinVisMixIn    m_HairpinVis;
         ColorMixIn    m_Color;
         PlacementMixIn    m_Placement;
@@ -491,12 +510,14 @@ class MEI_EXPORT MRest : public MeiElement {
         FermatapresentMixIn    m_Fermatapresent;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
+        RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
+        StafflocPitchedMixIn    m_StafflocPitched;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         VisibilityMixIn    m_Visibility;
         XyMixIn    m_Xy;
-        RelativesizeMixIn    m_Relativesize;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         CommonAnlMixIn    m_CommonAnl;
@@ -571,10 +592,12 @@ class MEI_EXPORT MSpace : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
+        AugmentdotsMixIn    m_Augmentdots;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        DurationMusicalMixIn    m_DurationMusical;
         FermatapresentMixIn    m_Fermatapresent;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
@@ -641,6 +664,32 @@ class MEI_EXPORT MeterSig : public MeiElement {
         REGISTER_DECLARATION(MeterSig);
 };
 
+/** \brief (meter signature group) – Used to capture alternating, interchanging, and
+ *  mixed meter signatures.
+ */
+class MEI_EXPORT MeterSigGrp : public MeiElement {
+    public:
+        MeterSigGrp();
+        MeterSigGrp(const MeterSigGrp& other);
+        virtual ~MeterSigGrp();
+        /** \brief records the function of an accidental.
+         */
+        MeiAttribute* getFunc();
+        void setFunc(std::string _func);
+        bool hasFunc();
+        void removeFunc();
+
+/* include <meterSigGrp> */
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+
+    private:
+        REGISTER_DECLARATION(MeterSigGrp);
+};
+
 /** \brief (multiple rest) – Multiple measures of rest compressed into a single symbol,
  *  frequently found in performer parts.
  */
@@ -661,6 +710,8 @@ class MEI_EXPORT MultiRest : public MeiElement {
         NumberedMixIn    m_Numbered;
         MultiRestVisMixIn    m_MultiRestVis;
         AltsymMixIn    m_Altsym;
+        StafflocMixIn    m_Staffloc;
+        StafflocPitchedMixIn    m_StafflocPitched;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         CommonAnlMixIn    m_CommonAnl;
@@ -715,10 +766,12 @@ class MEI_EXPORT Octave : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         OctavedisplacementMixIn    m_Octavedisplacement;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         XyMixIn    m_Xy;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -836,9 +889,11 @@ class MEI_EXPORT Slur : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -880,7 +935,7 @@ class MEI_EXPORT Tie : public MeiElement {
         LayeridentMixIn    m_Layerident;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -913,17 +968,18 @@ class MEI_EXPORT Tuplet : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TupletLogMixIn    m_TupletLog;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         BeamedwithMixIn    m_Beamedwith;
         AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         DurationRatioMixIn    m_DurationRatio;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         TupletVisMixIn    m_TupletVis;
+        ColorMixIn    m_Color;
         NumberplacementMixIn    m_Numberplacement;
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
@@ -946,7 +1002,6 @@ class MEI_EXPORT TupletSpan : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        TupletSpanLogMixIn    m_TupletSpanLog;
         PlistMixIn    m_Plist;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -954,10 +1009,13 @@ class MEI_EXPORT TupletSpan : public MeiElement {
         LayeridentMixIn    m_Layerident;
         BeamedwithMixIn    m_Beamedwith;
         AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
         DurationRatioMixIn    m_DurationRatio;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         TupletVisMixIn    m_TupletVis;
+        ColorMixIn    m_Color;
         NumberplacementMixIn    m_Numberplacement;
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;

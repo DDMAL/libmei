@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -148,7 +148,7 @@ class BeamrendMixIn {
     public:
         explicit BeamrendMixIn(MeiElement *b);
         virtual ~BeamrendMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -192,7 +192,7 @@ class BeatRptVisMixIn {
     public:
         explicit BeatRptVisMixIn(MeiElement *b);
         virtual ~BeatRptVisMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -714,24 +714,6 @@ class TremmeasuredMixIn {
         MeiElement *b;
 };
 
-class TupletLogMixIn {
-    public:
-        explicit TupletLogMixIn(MeiElement *b);
-        virtual ~TupletLogMixIn();
-        /** \brief records the duration of a feature using the relative durational values provided
-         *  by the data.DURATION datatype.
-         */
-        MeiAttribute* getDur();
-        void setDur(std::string _dur);
-        bool hasDur();
-        void removeDur();
-
-/* include <durmixin> */
-
-    private:
-        MeiElement *b;
-};
-
 class TupletVisMixIn {
     public:
         explicit TupletVisMixIn(MeiElement *b);
@@ -763,24 +745,6 @@ class TupletVisMixIn {
         void removeNumFormat();
 
 /* include <num.formatmixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class TupletSpanLogMixIn {
-    public:
-        explicit TupletSpanLogMixIn(MeiElement *b);
-        virtual ~TupletSpanLogMixIn();
-        /** \brief records the duration of a feature using the relative durational values provided
-         *  by the data.DURATION datatype.
-         */
-        MeiAttribute* getDur();
-        void setDur(std::string _dur);
-        bool hasDur();
-        void removeDur();
-
-/* include <durmixin> */
 
     private:
         MeiElement *b;

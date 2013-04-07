@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -188,7 +188,7 @@ class BarLineLogMixIn {
     public:
         explicit BarLineLogMixIn(MeiElement *b);
         virtual ~BarLineLogMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -236,6 +236,12 @@ class BeamingVisMixIn {
     public:
         explicit BeamingVisMixIn(MeiElement *b);
         virtual ~BeamingVisMixIn();
+        /** \brief Color of beams, including those associated with tuplets.
+         */
+        MeiAttribute* getBeamColor();
+        void setBeamColor(std::string _beamcolor);
+        bool hasBeamColor();
+        void removeBeamColor();
         /** \brief encodes whether a beam is "feathered" and in which direction.
          */
         MeiAttribute* getBeamRend();
@@ -425,6 +431,23 @@ class ClefshapeMixIn {
         MeiElement *b;
 };
 
+class CodedMixIn {
+    public:
+        explicit CodedMixIn(MeiElement *b);
+        virtual ~CodedMixIn();
+        /** \brief captures one or more coded values for the textual content of this element.
+         */
+        MeiAttribute* getCode();
+        void setCode(std::string _code);
+        bool hasCode();
+        void removeCode();
+
+/* include <codemixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class ColorMixIn {
     public:
         explicit ColorMixIn(MeiElement *b);
@@ -573,7 +596,7 @@ class CurverendMixIn {
     public:
         explicit CurverendMixIn(MeiElement *b);
         virtual ~CurverendMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -590,8 +613,8 @@ class CustosLogMixIn {
     public:
         explicit CustosLogMixIn(MeiElement *b);
         virtual ~CustosLogMixIn();
-        /** \brief allows the use of one or more previously-undeclared URIs to identify an external
-         *  electronic object.
+        /** \brief encodes the target note when its pitch differs from the pitch at which the
+         *  custos appears.
          */
         MeiAttribute* getTarget();
         void setTarget(std::string _target);
@@ -684,7 +707,7 @@ class DistancesMixIn {
     public:
         explicit DistancesMixIn(MeiElement *b);
         virtual ~DistancesMixIn();
-        /** \brief records the distance from the staff for dynamic marks in 1/2 inter-line units.
+        /** \brief records the default distance from the staff for dynamic marks.
          */
         MeiAttribute* getDynamDist();
         void setDynamDist(std::string _dynamdist);
@@ -727,6 +750,28 @@ class DotLogMixIn {
         MeiElement *b;
 };
 
+class DurationAdditiveMixIn {
+    public:
+        explicit DurationAdditiveMixIn(MeiElement *b);
+        virtual ~DurationAdditiveMixIn();
+        /** \brief records duration using ident dotted, relative durational values provided by the
+         *  data.DURATION datatype.
+         * 
+         *  When the duration is "irrational", as is sometimes the case with tuplets,
+         *  multiple space-separated values that add up to the total duration may be used.
+         *  When dotted values are present, the dots attribute must be ignored.
+         */
+        MeiAttribute* getDur();
+        void setDur(std::string _dur);
+        bool hasDur();
+        void removeDur();
+
+/* include <durmixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class DurationDefaultMixIn {
     public:
         explicit DurationDefaultMixIn(MeiElement *b);
@@ -740,8 +785,24 @@ class DurationDefaultMixIn {
         void setDurDefault(std::string _durdefault);
         bool hasDurDefault();
         void removeDurDefault();
+        /** \brief along with numbase.default, describes the default duration as a ratio.
+         * 
+         *  num.default is the first value in the ratio.
+         */
+        MeiAttribute* getNumDefault();
+        void setNumDefault(std::string _numdefault);
+        bool hasNumDefault();
+        void removeNumDefault();
+        /** \brief along with num.default, describes the default duration as a ratio.
+         * 
+         *  numbase.default is the second value in the ratio.
+         */
+        MeiAttribute* getNumbaseDefault();
+        void setNumbaseDefault(std::string _numbasedefault);
+        bool hasNumbaseDefault();
+        void removeNumbaseDefault();
 
-/* include <dur.defaultmixin> */
+/* include <numbase.defaultmixin> */
 
     private:
         MeiElement *b;
@@ -751,8 +812,12 @@ class DurationMusicalMixIn {
     public:
         explicit DurationMusicalMixIn(MeiElement *b);
         virtual ~DurationMusicalMixIn();
-        /** \brief records the duration of a feature using the relative durational values provided
-         *  by the data.DURATION datatype.
+        /** \brief records duration using ident dotted, relative durational values provided by the
+         *  data.DURATION datatype.
+         * 
+         *  When the duration is "irrational", as is sometimes the case with tuplets,
+         *  multiple space-separated values that add up to the total duration may be used.
+         *  When dotted values are present, the dots attribute must be ignored.
          */
         MeiAttribute* getDur();
         void setDur(std::string _dur);
@@ -769,11 +834,11 @@ class DurationPerformedMixIn {
     public:
         explicit DurationPerformedMixIn(MeiElement *b);
         virtual ~DurationPerformedMixIn();
-        /** \brief records performed duration information that differs from written duration.
+        /** \brief records performed duration information that differs from the written duration.
          * 
-         *  Its value may be expressed in any convenient form, such as measures[s]+
-         *  beat[s].beatpart, ppq (MIDI clicks), Humdrum **recip values, or MusicXML
-         *  'divisions', etc.
+         *  Its value may be expressed in several forms; that is, ppq (MIDI clicks and
+         *  MusicXML 'divisions'), Humdrum **recip values, beats, seconds, or mensural
+         *  duration values.
          */
         MeiAttribute* getDurGes();
         void setDurGes(std::string _durges);
@@ -808,24 +873,6 @@ class DurationRatioMixIn {
         void removeNumbase();
 
 /* include <numbasemixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class DurationTimestampMixIn {
-    public:
-        explicit DurationTimestampMixIn(MeiElement *b);
-        virtual ~DurationTimestampMixIn();
-        /** \brief records the duration of a feature using the relative durational values provided
-         *  by the data.DURATION datatype.
-         */
-        MeiAttribute* getDur();
-        void setDur(std::string _dur);
-        bool hasDur();
-        void removeDur();
-
-/* include <durmixin> */
 
     private:
         MeiElement *b;
@@ -1157,7 +1204,7 @@ class LinerendMixIn {
     public:
         explicit LinerendMixIn(MeiElement *b);
         virtual ~LinerendMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -1343,38 +1390,14 @@ class MensurLogMixIn {
         void setDot(std::string _dot);
         bool hasDot();
         void removeDot();
-        /** \brief describes the maxima-long relationship.
-         */
-        MeiAttribute* getModusmaior();
-        void setModusmaior(std::string _modusmaior);
-        bool hasModusmaior();
-        void removeModusmaior();
-        /** \brief describes the long-breve relationship.
-         */
-        MeiAttribute* getModusminor();
-        void setModusminor(std::string _modusminor);
-        bool hasModusminor();
-        void removeModusminor();
-        /** \brief describes the semibreve-minim relationship.
-         */
-        MeiAttribute* getProlatio();
-        void setProlatio(std::string _prolatio);
-        bool hasProlatio();
-        void removeProlatio();
         /** \brief the base symbol in the mensuration sign/time signature of mensural notation.
          */
         MeiAttribute* getSign();
         void setSign(std::string _sign);
         bool hasSign();
         void removeSign();
-        /** \brief describes the breve-semibreve relationship.
-         */
-        MeiAttribute* getTempus();
-        void setTempus(std::string _tempus);
-        bool hasTempus();
-        void removeTempus();
 
-/* include <tempusmixin> */
+/* include <signmixin> */
 
     private:
         MeiElement *b;
@@ -1386,6 +1409,9 @@ class MeterSigLogMixIn {
         virtual ~MeterSigLogMixIn();
         /** \brief captures the number of beats in a measure, that is, the top number of the meter
          *  signature.
+         * 
+         *  It must contain a decimal number or an additive expression that evaluates to a
+         *  decimal number, such as 2+3.
          */
         MeiAttribute* getCount();
         void setCount(std::string _count);
@@ -1415,7 +1441,7 @@ class MeterSigVisMixIn {
     public:
         explicit MeterSigVisMixIn(MeiElement *b);
         virtual ~MeterSigVisMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -1434,6 +1460,9 @@ class MeterSigDefaultLogMixIn {
         virtual ~MeterSigDefaultLogMixIn();
         /** \brief captures the number of beats in a measure, that is, the top number of the meter
          *  signature.
+         * 
+         *  It must contain a decimal number or an additive expression that evaluates to a
+         *  decimal number, such as 2+3.
          */
         MeiAttribute* getMeterCount();
         void setMeterCount(std::string _metercount);
@@ -1535,8 +1564,8 @@ class MmtempoMixIn {
     public:
         explicit MmtempoMixIn(MeiElement *b);
         virtual ~MmtempoMixIn();
-        /** \brief used to describe tempo in terms of beats (meter signature denominator) per
-         *  minute, ala M.M.
+        /** \brief used to describe tempo in terms of beats (often the meter signature denominator)
+         *  per minute, ala M.M.
          * 
          *  (Maezel's Metronome).
          */
@@ -1544,8 +1573,20 @@ class MmtempoMixIn {
         void setMm(std::string _mm);
         bool hasMm();
         void removeMm();
+        /** \brief captures the metronomic unit.
+         */
+        MeiAttribute* getMmUnit();
+        void setMmUnit(std::string _mmunit);
+        bool hasMmUnit();
+        void removeMmUnit();
+        /** \brief records the number of augmentation dots required by a dotted metronome unit.
+         */
+        MeiAttribute* getMmDots();
+        void setMmDots(std::string _mmdots);
+        bool hasMmDots();
+        void removeMmDots();
 
-/* include <mmmixin> */
+/* include <mm.dotsmixin> */
 
     private:
         MeiElement *b;
@@ -1838,8 +1879,8 @@ class PointingMixIn {
         void setShow(std::string _show);
         bool hasShow();
         void removeShow();
-        /** \brief allows the use of one or more previously-undeclared URIs to identify an external
-         *  electronic object.
+        /** \brief encodes the target note when its pitch differs from the pitch at which the
+         *  custos appears.
          */
         MeiAttribute* getTarget();
         void setTarget(std::string _target);
@@ -1906,7 +1947,7 @@ class SbVisMixIn {
     public:
         explicit SbVisMixIn(MeiElement *b);
         virtual ~SbVisMixIn();
-        /** \brief describes the line style of the curve.
+        /** \brief records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -2001,44 +2042,39 @@ class ScoreDefVisMixIn {
         void setOptimize(std::string _optimize);
         bool hasOptimize();
         void removeOptimize();
-        /** \brief describes the physical height of the rendered output page.
+        /** \brief specifies the height of the page; may be expressed in real-world units or staff
+         *  steps.
          */
         MeiAttribute* getPageHeight();
         void setPageHeight(std::string _pageheight);
         bool hasPageHeight();
         void removePageHeight();
-        /** \brief describes the physical width of the rendered output page.
+        /** \brief describes the width of the page; may be expressed in real-world units or staff
+         *  steps.
          */
         MeiAttribute* getPageWidth();
         void setPageWidth(std::string _pagewidth);
         bool hasPageWidth();
         void removePageWidth();
-        /** \brief contains the real-world measurement units (inches, centimeters, millimeters)
-         *  used to describe the rendered page height, width, and margins.
-         */
-        MeiAttribute* getPageUnits();
-        void setPageUnits(std::string _pageunits);
-        bool hasPageUnits();
-        void removePageUnits();
-        /** \brief indicates the amount of whitespace at the top of a rendered score page.
+        /** \brief indicates the amount of whitespace at the top of a page.
          */
         MeiAttribute* getPageTopmar();
         void setPageTopmar(std::string _pagetopmar);
         bool hasPageTopmar();
         void removePageTopmar();
-        /** \brief indicates the amount of whitespace at the bottom of a rendered score page.
+        /** \brief indicates the amount of whitespace at the bottom of a page.
          */
         MeiAttribute* getPageBotmar();
         void setPageBotmar(std::string _pagebotmar);
         bool hasPageBotmar();
         void removePageBotmar();
-        /** \brief indicates the amount of whitespace at the left side of a rendered score page.
+        /** \brief indicates the amount of whitespace at the left side of a page.
          */
         MeiAttribute* getPageLeftmar();
         void setPageLeftmar(std::string _pageleftmar);
         bool hasPageLeftmar();
         void removePageLeftmar();
-        /** \brief indicates the amount of whitespace at the right side of a rendered score page.
+        /** \brief indicates the amount of whitespace at the right side of a page.
          */
         MeiAttribute* getPageRightmar();
         void setPageRightmar(std::string _pagerightmar);
@@ -2068,14 +2104,18 @@ class ScoreDefVisMixIn {
         void setSpacingPackfact(std::string _spacingpackfact);
         bool hasSpacingPackfact();
         void removeSpacingPackfact();
-        /** \brief sets the minimum amount of space between staves in the same system.
+        /** \brief specifies the minimum amount of space between adjacent staves in the same
+         *  system; measured from the bottom line of the staff above to the top line of the
+         *  staff below.
          */
         MeiAttribute* getSpacingStaff();
         void setSpacingStaff(std::string _spacingstaff);
         bool hasSpacingStaff();
         void removeSpacingStaff();
-        /** \brief contains a space-separated pair of numbers describing the minimum and maximum
-         *  amount of space between systems.
+        /** \brief describes the space between adjacent systems; a pair of space-separated values
+         *  (minimum and maximum, respectively) provides a range between which a rendering
+         *  system-supplied value may fall, while a single value indicates a fixed amount of
+         *  space; that is, the minimum and maximum values are equal.
          */
         MeiAttribute* getSpacingSystem();
         void setSpacingSystem(std::string _spacingsystem);
@@ -2102,8 +2142,17 @@ class ScoreDefVisMixIn {
         void setSystemTopmar(std::string _systemtopmar);
         bool hasSystemTopmar();
         void removeSystemTopmar();
+        /** \brief defines the height of a "virtual unit" (vu) in terms of real-world units.
+         * 
+         *  A single vu is half the distance between the vertical center point of a staff
+         *  line and that of an adjacent staff line.
+         */
+        MeiAttribute* getVuHeight();
+        void setVuHeight(std::string _vuheight);
+        bool hasVuHeight();
+        void removeVuHeight();
 
-/* include <system.topmarmixin> */
+/* include <vu.heightmixin> */
 
     private:
         MeiElement *b;
@@ -2345,6 +2394,29 @@ class StafflocMixIn {
         MeiElement *b;
 };
 
+class StafflocPitchedMixIn {
+    public:
+        explicit StafflocPitchedMixIn(MeiElement *b);
+        virtual ~StafflocPitchedMixIn();
+        /** \brief captures staff location in terms of written pitch name.
+         */
+        MeiAttribute* getPloc();
+        void setPloc(std::string _ploc);
+        bool hasPloc();
+        void removePloc();
+        /** \brief records staff location in terms of written octave.
+         */
+        MeiAttribute* getOloc();
+        void setOloc(std::string _oloc);
+        bool hasOloc();
+        void removeOloc();
+
+/* include <olocmixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class StartendidMixIn {
     public:
         explicit StartendidMixIn(MeiElement *b);
@@ -2566,6 +2638,24 @@ class TimestampPerformedMixIn {
         void removeTstampReal();
 
 /* include <tstamp.realmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class Timestamp2MusicalMixIn {
+    public:
+        explicit Timestamp2MusicalMixIn(MeiElement *b);
+        virtual ~Timestamp2MusicalMixIn();
+        /** \brief encodes the ending point of an event in terms of musical time, i.e., a count of
+         *  measures plus a beat location.
+         */
+        MeiAttribute* getTstamp2();
+        void setTstamp2(std::string _tstamp2);
+        bool hasTstamp2();
+        void removeTstamp2();
+
+/* include <tstamp2mixin> */
 
     private:
         MeiElement *b;
@@ -2831,17 +2921,32 @@ class Visualoffset2VoMixIn {
         MeiElement *b;
 };
 
+class WhitespaceMixIn {
+    public:
+        explicit WhitespaceMixIn(MeiElement *b);
+        virtual ~WhitespaceMixIn();
+        /** \brief 
+         */
+        MeiAttribute* getSpace();
+        void setSpace(std::string _space);
+        bool hasSpace();
+        void removeSpace();
+
+/* include <spacemixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class WidthMixIn {
     public:
         explicit WidthMixIn(MeiElement *b);
         virtual ~WidthMixIn();
         /** \brief measurement of the horizontal dimension of an entity.
          * 
-         *  This value can only be interpreted meaningfully in combination with the units
-         *  attribute. The width attribute may be used to capture measure width data for
-         *  interchange with music printing systems that utilize this information for
-         *  printing. On <barLine> the width attribute captures the width of the preceding
-         *  measure.
+         *  The width attribute may be used to capture measure width data for interchange
+         *  with music printing systems that utilize this information for printing. On
+         *  <barLine> the width attribute captures the width of the preceding measure.
          */
         MeiAttribute* getWidth();
         void setWidth(std::string _width);

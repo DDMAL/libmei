@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -87,6 +87,7 @@ class MEI_EXPORT Zone : public MeiElement {
         CommonMixIn    m_Common;
         CoordinatedMixIn    m_Coordinated;
         DatapointingMixIn    m_Datapointing;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Zone);
