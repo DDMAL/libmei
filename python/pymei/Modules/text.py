@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2012 Andrew Hankinson
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -45,11 +45,6 @@ class head_(MeiElement):
         MeiElement.__init__(self, "head")
     # <head>
 
-class item_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "item")
-    # <item>
-
 class l_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "l")
@@ -59,6 +54,11 @@ class lg_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "lg")
     # <lg>
+
+class li_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "li")
+    # <li>
 
 class list_(MeiElement):
     def __init__(self):

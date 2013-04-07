@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2012 Andrew Hankinson
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -49,6 +49,16 @@ class hex_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "hex")
     # <hex>
+
+class instrDef_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "instrDef")
+    # <instrDef>
+
+class instrGrp_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "instrGrp")
+    # <instrGrp>
 
 class marker_(MeiElement):
     def __init__(self):

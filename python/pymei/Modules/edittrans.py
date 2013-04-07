@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2012 Andrew Hankinson
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -24,6 +24,11 @@
 
 from pymei import MeiElement
 
+
+class abbr_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "abbr")
+    # <abbr>
 
 class add_(MeiElement):
     def __init__(self):
@@ -49,6 +54,11 @@ class del_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "del")
     # <del>
+
+class expan_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "expan")
+    # <expan>
 
 class gap_(MeiElement):
     def __init__(self):

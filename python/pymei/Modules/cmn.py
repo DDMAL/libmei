@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2012 Andrew Hankinson
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -114,6 +114,16 @@ class measure_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "measure")
     # <measure>
+
+class meterSig_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "meterSig")
+    # <meterSig>
+
+class meterSigGrp_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "meterSigGrp")
+    # <meterSigGrp>
 
 class multiRest_(MeiElement):
     def __init__(self):

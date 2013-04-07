@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2012 Andrew Hankinson
+    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -50,10 +50,25 @@ class application_(MeiElement):
         MeiElement.__init__(self, "application")
     # <application>
 
+class audience_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "audience")
+    # <audience>
+
 class availability_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "availability")
     # <availability>
+
+class captureMode_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "captureMode")
+    # <captureMode>
+
+class carrierForm_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "carrierForm")
+    # <carrierForm>
 
 class change_(MeiElement):
     def __init__(self):
@@ -90,15 +105,15 @@ class contents_(MeiElement):
         MeiElement.__init__(self, "contents")
     # <contents>
 
+class context_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "context")
+    # <context>
+
 class correction_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "correction")
     # <correction>
-
-class creation_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "creation")
-    # <creation>
 
 class dimensions_(MeiElement):
     def __init__(self):
@@ -140,10 +155,10 @@ class exhibHist_(MeiElement):
         MeiElement.__init__(self, "exhibHist")
     # <exhibHist>
 
-class extent_(MeiElement):
+class fileChar_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "extent")
-    # <extent>
+        MeiElement.__init__(self, "fileChar")
+    # <fileChar>
 
 class fileDesc_(MeiElement):
     def __init__(self):
@@ -190,6 +205,16 @@ class instrVoice_(MeiElement):
         MeiElement.__init__(self, "instrVoice")
     # <instrVoice>
 
+class instrVoiceGrp_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "instrVoiceGrp")
+    # <instrVoiceGrp>
+
+class instrumentation_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "instrumentation")
+    # <instrumentation>
+
 class interpretation_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "interpretation")
@@ -215,6 +240,11 @@ class meiHead_(MeiElement):
         MeiElement.__init__(self, "meiHead")
     # <meiHead>
 
+class mensuration_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "mensuration")
+    # <mensuration>
+
 class meter_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "meter")
@@ -230,25 +260,20 @@ class notesStmt_(MeiElement):
         MeiElement.__init__(self, "notesStmt")
     # <notesStmt>
 
+class otherChar_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "otherChar")
+    # <otherChar>
+
 class perfMedium_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "perfMedium")
     # <perfMedium>
 
-class performer_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "performer")
-    # <performer>
-
 class physDesc_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "physDesc")
     # <physDesc>
-
-class physLoc_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "physLoc")
-    # <physLoc>
 
 class physMedium_(MeiElement):
     def __init__(self):
@@ -259,6 +284,11 @@ class plateNum_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "plateNum")
     # <plateNum>
+
+class playingSpeed_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "playingSpeed")
+    # <playingSpeed>
 
 class price_(MeiElement):
     def __init__(self):
@@ -280,21 +310,6 @@ class pubStmt_(MeiElement):
         MeiElement.__init__(self, "pubStmt")
     # <pubStmt>
 
-class relatedItem_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "relatedItem")
-    # <relatedItem>
-
-class resp_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "resp")
-    # <resp>
-
-class respStmt_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "respStmt")
-    # <respStmt>
-
 class revisionDesc_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "revisionDesc")
@@ -304,6 +319,11 @@ class samplingDecl_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "samplingDecl")
     # <samplingDecl>
+
+class scoreFormat_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "scoreFormat")
+    # <scoreFormat>
 
 class segmentation_(MeiElement):
     def __init__(self):
@@ -315,6 +335,11 @@ class seriesStmt_(MeiElement):
         MeiElement.__init__(self, "seriesStmt")
     # <seriesStmt>
 
+class soundChan_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "soundChan")
+    # <soundChan>
+
 class source_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "source")
@@ -325,6 +350,11 @@ class sourceDesc_(MeiElement):
         MeiElement.__init__(self, "sourceDesc")
     # <sourceDesc>
 
+class specRepro_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "specRepro")
+    # <specRepro>
+
 class stdVals_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "stdVals")
@@ -334,6 +364,11 @@ class sysReq_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "sysReq")
     # <sysReq>
+
+class tapeConfig_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "tapeConfig")
+    # <tapeConfig>
 
 class term_(MeiElement):
     def __init__(self):

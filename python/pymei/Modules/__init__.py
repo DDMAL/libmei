@@ -1,4 +1,4 @@
-__all__ = ["cmn", "cmnornaments", "corpus", "critapp", "edittrans", "facsimile", "figtable", "harmony", "header", "linkalign", "lyrics", "mensural", "midi", "namesdates", "neumes", "performance", "ptrref", "shared", "text", "usersymbols"]
+__all__ = ["cmn", "cmnornaments", "corpus", "critapp", "edittrans", "facsimile", "figtable", "frbr", "harmony", "header", "linkalign", "lyrics", "mensural", "midi", "namesdates", "neumes", "performance", "ptrref", "shared", "text", "usersymbols"]
 
 from pymei.Modules.cmn import *
 from pymei.Modules.cmnornaments import *
@@ -7,6 +7,7 @@ from pymei.Modules.critapp import *
 from pymei.Modules.edittrans import *
 from pymei.Modules.facsimile import *
 from pymei.Modules.figtable import *
+from pymei.Modules.frbr import *
 from pymei.Modules.harmony import *
 from pymei.Modules.header import *
 from pymei.Modules.linkalign import *

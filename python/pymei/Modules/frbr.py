@@ -25,18 +25,38 @@
 from pymei import MeiElement
 
 
-class app_(MeiElement):
+class componentGrp_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "app")
-    # <app>
+        MeiElement.__init__(self, "componentGrp")
+    # <componentGrp>
 
-class lem_(MeiElement):
+class expression_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "lem")
-    # <lem>
+        MeiElement.__init__(self, "expression")
+    # <expression>
 
-class rdg_(MeiElement):
+class expressionList_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "rdg")
-    # <rdg>
+        MeiElement.__init__(self, "expressionList")
+    # <expressionList>
+
+class item_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "item")
+    # <item>
+
+class itemList_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "itemList")
+    # <itemList>
+
+class relation_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "relation")
+    # <relation>
+
+class relationList_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "relationList")
+    # <relationList>
 
