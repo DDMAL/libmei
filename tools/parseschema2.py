@@ -27,6 +27,7 @@ if sys.version_info < (2, 7):
 
 from lxml import etree
 import os
+import shutil
 import codecs
 import subprocess
 import tempfile
@@ -50,17 +51,11 @@ TEI_RNG_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/n
 NAMESPACES = {'xml': 'http://www.w3.org/XML/1998/namespace',
                 'xlink': 'http://www.w3.org/1999/xlink'}
 
-# Roma is used to generate the compiled ODD file
-PATH_TO_ROMA = "/usr/local/bin/roma"
-PATH_TO_TEI_STYLESHEET = "/usr/local/share/xml/tei/stylesheet"
-
-
 class MeiSchema(object):
-    def __init__(self, oddfile, outdir):
+    def __init__(self, oddfile):
         parser = etree.XMLParser(resolve_entities=True)
         self.schema = etree.parse(oddfile, parser)
         # self.customization = etree.parse(customization_file)
-        self.outdir = outdir
 
         self.active_modules = []  # the modules active in the resulting output
         self.element_structure = {}  # the element structure.
@@ -196,28 +191,16 @@ class MeiSchema(object):
             return ""
 
 
-def parse_with_roma(source, customization, outdir):
-    p = subprocess.call([PATH_TO_ROMA, "--xsl=" + PATH_TO_TEI_STYLESHEET, "--localsource="+ source,
-                            "--compile", "--nodtd", "--noxsd", "--norelax", customization, outdir], shell=True)
-    compiled_odd = os.path.join(tdir, os.path.basename(customization) + ".compiled")
-    return compiled_odd
-
 if __name__ == "__main__":
     p = ArgumentParser()
 
-    output_group = p.add_argument_group()
-    lang_group = p.add_argument_group()
+    p.add_argument("compiled", help="A compiled ODD file")
+    p.add_argument("-o", "--outdir", default="output", help="output directory")
+    p.add_argument("-l", "--lang", default="python", help="Programming language to output")
+    p.add_argument("-i", "--includes", help="Parse external includes from a given directory")
+    p.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
 
-    output_group.add_argument("-s", "--source", help="MEI Source file")
-    output_group.add_argument("-c", "--customization", help="MEI Customization File")
-    output_group.add_argument("-m", "--compiled", help="A compiled ODD file")
-    output_group.add_argument("-o", "--outdir", help="output directory")
-    output_group.add_argument("-l", "--lang", help="Programming language to output")
-    output_group.add_argument("-i", "--includes", help="Parse external includes from a given directory")
-    output_group.add_argument("-g", "--generate", help="Generate an accompanying MEI RNG Schema (must have Roma installed)", action="store_true")
-    output_group.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
-
-    lang_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
+    p.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
 
     args = p.parse_args()
 
@@ -228,48 +211,49 @@ if __name__ == "__main__":
             print "\t{0}".format(l)
         sys.exit(0)
 
-    if not args.compiled:
-        tdir = tempfile.mkdtemp()
-        if not os.path.exists(args.source):
-            p.error("Cannot find source file {0}".format(args.source))
-            sys.exit(1)
-        if not os.path.exists(args.customization):
-            p.error("Cannot find customization file {0}".format(args.customization))
-            sys.exit(1)
+    compiled_odd = args.compiled
 
-        compiled_odd = parse_with_roma(args.source, args.customization, tdir)
-    else:
-        tdir = None
-        compiled_odd = args.compiled
-
-    cf = codecs.open(compiled_odd, 'r', 'utf-8')
+    mei_source = codecs.open(compiled_odd, 'r', 'utf-8')
     # sf = codecs.open(args.source,'r', "utf-8")
     # cf = codecs.open(args.customization, 'r', "utf-8")
+    outdir = args.outdir
 
     if not os.path.exists(args.outdir):
         os.mkdir(args.outdir)
 
-    schema = MeiSchema(cf, args.outdir)
+    schema = MeiSchema(mei_source)
 
     if "cpp" in args.lang:
         import langs.cplusplus as cpp
-        cpp.create(schema)
+        output_directory = os.path.join(outdir, "cpp")
+        if os.path.exists(output_directory):
+            lg.debug("Removing old C++ output directory")
+            shutil.rmtree(output_directory)
+        os.mkdir(output_directory)
+        cpp.create(schema, output_directory)
         if args.includes:
-            cpp.parse_includes(args.outdir, args.includes)
+            cpp.parse_includes(output_directory, args.includes)
 
     if "python" in args.lang:
         import langs.python as py
-        py.create(schema)
+        output_directory = os.path.join(outdir, "python")
+        if os.path.exists(output_directory):
+            lg.debug("Removing old Python output directory")
+            shutil.rmtree(output_directory)
+        os.mkdir(output_directory)
+        py.create(schema, output_directory)
         if args.includes:
-            py.parse_includes(args.outdir, args.includes)
+            py.parse_includes(output_directory, args.includes)
 
     if "manuscript" in args.lang:
         import langs.manuscript as ms
-        ms.create(schema)
+        output_directory = os.path.join(outdir, "manuscript")
+        if os.path.exists(output_directory):
+            lg.debug("Removing old Manuscript output directory")
+            shutil.rmtree(output_directory)
+        os.mkdir(output_directory)
+        ms.create(schema, output_directory)
 
-    # clean up tempdir
-    if tdir:
-        shutil.rmtree(tdir)
-    cf.close()
+    mei_source.close()
 
     sys.exit(0)

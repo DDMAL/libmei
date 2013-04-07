@@ -22,7 +22,7 @@ class {className}_(MeiElement):
 """
 
 LICENSE = """\"\"\"
-    Copyright (c) 2011-2012 {authors}
+    Copyright (c) 2011-2013 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -46,15 +46,15 @@ LICENSE = """\"\"\"
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
-def create(schema):
+def create(schema, outdir):
     lg.debug("Begin Python Output...")
 
-    __create_python_classes(schema)
-    __create_init(schema)
+    __create_python_classes(schema, outdir)
+    __create_init(schema, outdir)
 
     lg.debug("Success!")
 
-def __create_python_classes(schema):
+def __create_python_classes(schema, outdir):
     lg.debug("Creating Python Modules")
 
     for module, elements in sorted(schema.element_structure.iteritems()):
@@ -75,15 +75,15 @@ def __create_python_classes(schema):
         }
         module_output = MODULE_TEMPLATE.format(**modstr)
 
-        fmi = open(os.path.join(schema.outdir, "{0}.py".format(module.lower())), "w")
+        fmi = open(os.path.join(outdir, "{0}.py".format(module.lower())), "w")
         fmi.write(module_output)
         fmi.close()
         lg.debug("\tCreated {0}.py".format(module.lower()))
 
-def __create_init(schema):
+def __create_init(schema, outdir):
     m = []
     a = []
-    p = open(os.path.join(schema.outdir, "__init__.py"), 'w')
+    p = open(os.path.join(outdir, "__init__.py"), 'w')
     for module, elements in sorted(schema.element_structure.iteritems()):
         a.append('"{0}"'.format(module.lower()))
         m.append("from pymei.Modules.{0} import *\n".format(module.lower()))
