@@ -123,7 +123,12 @@ createXmlTag "(name, attributesList, isTerminal) {
         spacer = ' ';
         for each Pair attr in attributesList {
             if (attr.Value != ' ') {
-                attrstring = attrstring & attr.Name & '=' & Chr(34) & attr.Value & Chr(34) & ' ';
+                if (attrstring = '') {
+                    // Don't add initial space
+                    attrstring = attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
+                } else {
+                    attrstring = attrstring & spacer & attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
+                }
             }
         }
     }
