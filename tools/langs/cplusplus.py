@@ -13,7 +13,8 @@ LANG_NAME="C++"
 
 NS_PREFIX_MAP = {
     "http://www.w3.org/XML/1998/namespace": "xml",
-    "http://www.w3.org/1999/xlink": "xlink"
+    "http://www.w3.org/1999/xlink": "xlink",
+    "http://www.isocat.org/ns/dcr": "datcat"
 }
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
