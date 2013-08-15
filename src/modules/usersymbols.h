@@ -30,16 +30,14 @@
 /* #include_block */
 
 #include "meicommon.h"
-#include "analysismixins.h"
-#include "linkalignmixins.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include <string>
 
 
 namespace mei {
-/** \brief – Container for text that is fixed to a particular location, regardless of
- *  changes made to the layout of the measures around it.
+/** \brief Container for text that is fixed to a particular location, regardless of changes
+ *  made to the layout of the measures around it.
  */
 class MEI_EXPORT AnchoredText : public MeiElement {
     public:
@@ -49,8 +47,6 @@ class MEI_EXPORT AnchoredText : public MeiElement {
 
 /* include <anchoredText> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -65,8 +61,8 @@ class MEI_EXPORT AnchoredText : public MeiElement {
         REGISTER_DECLARATION(AnchoredText);
 };
 
-/** \brief – A curved line that cannot be represented by a more specific element, such as
- *  a <slur>.
+/** \brief A curved line that cannot be represented by a more specific element, such as a
+ *  <slur>.
  */
 class MEI_EXPORT Curve : public MeiElement {
     public:
@@ -76,8 +72,6 @@ class MEI_EXPORT Curve : public MeiElement {
 
 /* include <curve> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         ColorMixIn    m_Color;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -99,7 +93,7 @@ class MEI_EXPORT Curve : public MeiElement {
         REGISTER_DECLARATION(Curve);
 };
 
-/** \brief – A line that cannot be represented by a more specific element.
+/** \brief A line that cannot be represented by a more specific element.
  */
 class MEI_EXPORT Line : public MeiElement {
     public:
@@ -109,8 +103,6 @@ class MEI_EXPORT Line : public MeiElement {
 
 /* include <line> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         ColorMixIn    m_Color;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -131,7 +123,7 @@ class MEI_EXPORT Line : public MeiElement {
         REGISTER_DECLARATION(Line);
 };
 
-/** \brief – A reference to a previously defined symbol.
+/** \brief A reference to a previously defined symbol.
  */
 class MEI_EXPORT Symbol : public MeiElement {
     public:
@@ -147,8 +139,6 @@ class MEI_EXPORT Symbol : public MeiElement {
 
 /* include <symbol> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         ColorMixIn    m_Color;
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -181,7 +171,7 @@ class MEI_EXPORT SymbolDef : public MeiElement {
         REGISTER_DECLARATION(SymbolDef);
 };
 
-/** \brief – Contains individual, user-defined symbols.
+/** \brief Contains individual, user-defined symbols.
  */
 class MEI_EXPORT SymbolTable : public MeiElement {
     public:

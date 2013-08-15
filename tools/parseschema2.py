@@ -134,13 +134,19 @@ class MeiSchema(object):
 
     def __process_att(self, attdef):
         attname = ""
+        attdefident = attdef.get("ident")
+        if "-" in attdefident:
+            f, l = attdefident.split("-")
+            attdefident = "{0}{1}".format(f, l.title())
+
         if attdef.get("ns"):
-            attname = "{0}|{1}".format(attdef.get("ns"), attdef.get("ident"))
-        elif ":" in attdef.get("ident"):
-            pfx, att = attdef.get("ident").split(":")
+            attname = "{0}|{1}".format(attdef.get("ns"), attdefident)
+        elif ":" in attdefident:
+            pfx, att = attdefident.split(":")
             attname = "{0}|{1}".format(NAMESPACES[pfx], att)
         else:
-            attname = "{0}".format(attdef.get("ident"))
+            attname = "{0}".format(attdefident)
+
         return attname
 
     def __get_membership(self, member, resarr):

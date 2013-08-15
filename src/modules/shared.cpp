@@ -25,10 +25,7 @@ mei::Accid::Accid() :
     m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_StafflocPitched(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 REGISTER_DEFINITION(mei::Accid, "accid");
@@ -51,10 +48,7 @@ mei::Accid::Accid(const Accid& other) :
     m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_StafflocPitched(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 
@@ -123,7 +117,6 @@ mei::Annot::Annot() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Source(this),
     m_Typed(this),
     m_Augmentdots(this),
     m_DurationAdditive(this),
@@ -135,8 +128,6 @@ mei::Annot::Annot() :
     m_Timestamp2Musical(this),
     m_TimestampPerformed(this),
     m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Plist(this),
     m_Responsibility(this)
 {
@@ -149,7 +140,6 @@ mei::Annot::Annot(const Annot& other) :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Source(this),
     m_Typed(this),
     m_Augmentdots(this),
     m_DurationAdditive(this),
@@ -161,8 +151,6 @@ mei::Annot::Annot(const Annot& other) :
     m_Timestamp2Musical(this),
     m_TimestampPerformed(this),
     m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Plist(this),
     m_Responsibility(this)
 {
@@ -209,9 +197,7 @@ mei::Artic::Artic() :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 REGISTER_DEFINITION(mei::Artic, "artic");
@@ -234,9 +220,7 @@ mei::Artic::Artic(const Artic& other) :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 
@@ -274,9 +258,7 @@ mei::BarLine::BarLine() :
     m_Color(this),
     m_Measurement(this),
     m_Width(this),
-    m_TimestampMusical(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_TimestampMusical(this)
 {
 }
 REGISTER_DEFINITION(mei::BarLine, "barLine");
@@ -292,9 +274,7 @@ mei::BarLine::BarLine(const BarLine& other) :
     m_Color(this),
     m_Measurement(this),
     m_Width(this),
-    m_TimestampMusical(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_TimestampMusical(this)
 {
 }
 
@@ -472,26 +452,18 @@ mei::Chord::Chord() :
     m_Slurpresent(this),
     m_Tiepresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
-    m_Lvpresent(this),
-    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
     m_Stemmed(this),
-    m_StemmedCmn(this),
     m_Visibility(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_Xy(this),
-    m_Beamsecondary(this),
     m_ArticulationPerformed(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_Graced(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Instrumentident(this)
 {
 }
 REGISTER_DEFINITION(mei::Chord, "chord");
@@ -512,26 +484,18 @@ mei::Chord::Chord(const Chord& other) :
     m_Slurpresent(this),
     m_Tiepresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
-    m_Lvpresent(this),
-    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
     m_Stemmed(this),
-    m_StemmedCmn(this),
     m_Visibility(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_Xy(this),
-    m_Beamsecondary(this),
     m_ArticulationPerformed(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_Graced(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Instrumentident(this)
 {
 }
 
@@ -545,8 +509,6 @@ mei::Clef::Clef() :
     m_Staffident(this),
     m_Layerident(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_ClefLog(this),
     m_Clefshape(this),
     m_Lineloc(this),
@@ -566,8 +528,6 @@ mei::Clef::Clef(const Clef& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_ClefLog(this),
     m_Clefshape(this),
     m_Lineloc(this),
@@ -587,9 +547,7 @@ mei::ClefGrp::ClefGrp() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Facsimile(this)
 {
 }
 REGISTER_DEFINITION(mei::ClefGrp, "clefGrp");
@@ -601,9 +559,7 @@ mei::ClefGrp::ClefGrp(const ClefGrp& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Facsimile(this)
 {
 }
 
@@ -655,15 +611,12 @@ mei::Custos::Custos() :
     MeiElement("custos"),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_CustosLog(this),
     m_Pitch(this),
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
-    m_Staffloc(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Staffloc(this)
 {
 }
 REGISTER_DEFINITION(mei::Custos, "custos");
@@ -672,15 +625,12 @@ mei::Custos::Custos(const Custos& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_CustosLog(this),
     m_Pitch(this),
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
-    m_Staffloc(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Staffloc(this)
 {
 }
 
@@ -692,9 +642,6 @@ mei::Date::Date() :
     m_Calendared(this),
     m_Common(this),
     m_Datable(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
     m_Facsimile(this),
     m_Lang(this)
 {
@@ -707,9 +654,6 @@ mei::Date::Date(const Date& other) :
     m_Calendared(this),
     m_Common(this),
     m_Datable(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
     m_Facsimile(this),
     m_Lang(this)
 {
@@ -740,9 +684,7 @@ mei::Dir::Dir() :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 REGISTER_DEFINITION(mei::Dir, "dir");
@@ -770,9 +712,7 @@ mei::Dir::Dir(const Dir& other) :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 
@@ -811,10 +751,7 @@ mei::Dot::Dot() :
     m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_StafflocPitched(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 REGISTER_DEFINITION(mei::Dot, "dot");
@@ -833,10 +770,7 @@ mei::Dot::Dot(const Dot& other) :
     m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_StafflocPitched(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 
@@ -864,10 +798,7 @@ mei::Dynam::Dynam() :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_Midivalue(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 REGISTER_DEFINITION(mei::Dynam, "dynam");
@@ -894,10 +825,7 @@ mei::Dynam::Dynam(const Dynam& other) :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_Midivalue(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 
@@ -946,9 +874,7 @@ mei::Ending::Ending() :
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
-    m_Pointing(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Ending, "ending");
@@ -958,9 +884,7 @@ mei::Ending::Ending(const Ending& other) :
     m_Common(this),
     m_Facsimile(this),
     m_Typed(this),
-    m_Pointing(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Pointing(this)
 {
 }
 
@@ -969,7 +893,6 @@ mei::Ending::Ending(const Ending& other) :
 mei::Expansion::Expansion() :
     MeiElement("expansion"),
     m_Common(this),
-    m_Source(this),
     m_Typed(this),
     m_Plist(this)
 {
@@ -979,7 +902,6 @@ mei::Expansion::~Expansion() {}
 mei::Expansion::Expansion(const Expansion& other) :
     MeiElement(other),
     m_Common(this),
-    m_Source(this),
     m_Typed(this),
     m_Plist(this)
 {
@@ -1094,9 +1016,7 @@ mei::GrpSym::GrpSym() :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 REGISTER_DEFINITION(mei::GrpSym, "grpSym");
@@ -1109,9 +1029,7 @@ mei::GrpSym::GrpSym(const GrpSym& other) :
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
-    m_Xy(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Xy(this)
 {
 }
 
@@ -1182,8 +1100,6 @@ mei::KeyAccid::KeyAccid() :
     MeiElement("keyAccid"),
     m_Common(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Accidental(this),
     m_Pitch(this),
     m_Octave(this),
@@ -1198,8 +1114,6 @@ mei::KeyAccid::KeyAccid(const KeyAccid& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Accidental(this),
     m_Pitch(this),
     m_Octave(this),
@@ -1234,8 +1148,6 @@ mei::KeySig::KeySig() :
     MeiElement("keySig"),
     m_Common(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
@@ -1247,8 +1159,6 @@ mei::KeySig::KeySig(const KeySig& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
@@ -1261,7 +1171,6 @@ mei::Label::Label() :
     MeiElement("label"),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_Typed(this)
 {
 }
@@ -1271,7 +1180,6 @@ mei::Label::Label(const Label& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_Typed(this)
 {
 }
@@ -1285,9 +1193,7 @@ mei::Layer::Layer() :
     m_Facsimile(this),
     m_LayerLog(this),
     m_Meterconformance(this),
-    m_Visibility(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Visibility(this)
 {
 }
 REGISTER_DEFINITION(mei::Layer, "layer");
@@ -1299,9 +1205,7 @@ mei::Layer::Layer(const Layer& other) :
     m_Facsimile(this),
     m_LayerLog(this),
     m_Meterconformance(this),
-    m_Visibility(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Visibility(this)
 {
 }
 
@@ -1313,7 +1217,6 @@ mei::LayerDef::LayerDef() :
     m_Declaring(this),
     m_DurationDefault(this),
     m_Octavedefault(this),
-    m_BeamingLog(this),
     m_LabelsAddl(this),
     m_BeamingVis(this),
     m_Textstyle(this),
@@ -1329,7 +1232,6 @@ mei::LayerDef::LayerDef(const LayerDef& other) :
     m_Declaring(this),
     m_DurationDefault(this),
     m_Octavedefault(this),
-    m_BeamingLog(this),
     m_LabelsAddl(this),
     m_BeamingVis(this),
     m_Textstyle(this),
@@ -1344,7 +1246,6 @@ mei::Lb::Lb() :
     MeiElement("lb"),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_Typed(this)
 {
 }
@@ -1354,7 +1255,6 @@ mei::Lb::Lb(const Lb& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
     m_Typed(this)
 {
 }
@@ -1525,10 +1425,6 @@ mei::Note::Note() :
     m_Slurpresent(this),
     m_Tiepresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
-    m_Lvpresent(this),
-    m_Ornam(this),
-    m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -1537,29 +1433,15 @@ mei::Note::Note() :
     m_Relativesize(this),
     m_Staffloc(this),
     m_Stemmed(this),
-    m_StemmedCmn(this),
     m_Visibility(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_Xy(this),
-    m_Beamsecondary(this),
     m_NoteGes(this),
     m_AccidentalPerformed(this),
     m_ArticulationPerformed(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_NoteGesCmn(this),
-    m_Graced(this),
-    m_DurationRatio(this),
-    m_NoteGesTablature(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Harmonicfunction(this),
-    m_Intervallicdesc(this),
-    m_Intervalharmonic(this),
-    m_Melodicfunction(this),
-    m_Pitchclass(this),
-    m_Solfa(this)
+    m_Instrumentident(this)
 {
 }
 REGISTER_DEFINITION(mei::Note, "note");
@@ -1583,10 +1465,6 @@ mei::Note::Note(const Note& other) :
     m_Slurpresent(this),
     m_Tiepresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
-    m_Lvpresent(this),
-    m_Ornam(this),
-    m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -1595,29 +1473,15 @@ mei::Note::Note(const Note& other) :
     m_Relativesize(this),
     m_Staffloc(this),
     m_Stemmed(this),
-    m_StemmedCmn(this),
     m_Visibility(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_Xy(this),
-    m_Beamsecondary(this),
     m_NoteGes(this),
     m_AccidentalPerformed(this),
     m_ArticulationPerformed(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_NoteGesCmn(this),
-    m_Graced(this),
-    m_DurationRatio(this),
-    m_NoteGesTablature(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Harmonicfunction(this),
-    m_Intervallicdesc(this),
-    m_Intervalharmonic(this),
-    m_Melodicfunction(this),
-    m_Pitchclass(this),
-    m_Solfa(this)
+    m_Instrumentident(this)
 {
 }
 
@@ -1696,9 +1560,7 @@ mei::Part::Part() :
     MeiElement("part"),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Part, "part");
@@ -1707,9 +1569,7 @@ mei::Part::Part(const Part& other) :
     MeiElement(other),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 
@@ -1719,9 +1579,7 @@ mei::Parts::Parts() :
     MeiElement("parts"),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Parts, "parts");
@@ -1730,9 +1588,7 @@ mei::Parts::Parts(const Parts& other) :
     MeiElement(other),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 
@@ -1743,9 +1599,6 @@ mei::Pb::Pb() :
     m_Common(this),
     m_Facsimile(this),
     m_Pointing(this),
-    m_Source(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_PbVis(this)
 {
 }
@@ -1756,9 +1609,6 @@ mei::Pb::Pb(const Pb& other) :
     m_Common(this),
     m_Facsimile(this),
     m_Pointing(this),
-    m_Source(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_PbVis(this)
 {
 }
@@ -1881,11 +1731,7 @@ mei::Phrase::Phrase() :
     m_Visualoffset2Vo(this),
     m_Xy(this),
     m_Xy2(this),
-    m_Curvature(this),
-    m_Curverend(this),
     m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Joined(this)
 {
 }
@@ -1914,11 +1760,7 @@ mei::Phrase::Phrase(const Phrase& other) :
     m_Visualoffset2Vo(this),
     m_Xy(this),
     m_Xy2(this),
-    m_Curvature(this),
-    m_Curverend(this),
     m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
     m_Joined(this)
 {
 }
@@ -2227,12 +2069,10 @@ mei::Rest::Rest() :
     m_DurationMusical(this),
     m_Fermatapresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
     m_Altsym(this),
     m_Color(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
-    m_RestVisMensural(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
     m_VisualoffsetHo(this),
@@ -2240,10 +2080,7 @@ mei::Rest::Rest() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_DurationRatio(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Instrumentident(this)
 {
 }
 REGISTER_DEFINITION(mei::Rest, "rest");
@@ -2260,12 +2097,10 @@ mei::Rest::Rest(const Rest& other) :
     m_DurationMusical(this),
     m_Fermatapresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
     m_Altsym(this),
     m_Color(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
-    m_RestVisMensural(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
     m_VisualoffsetHo(this),
@@ -2273,10 +2108,7 @@ mei::Rest::Rest(const Rest& other) :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
-    m_Instrumentident(this),
-    m_DurationRatio(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Instrumentident(this)
 {
 }
 
@@ -2324,10 +2156,7 @@ mei::Sb::Sb() :
     MeiElement("sb"),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
-    m_SbVis(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_SbVis(this)
 {
 }
 REGISTER_DEFINITION(mei::Sb, "sb");
@@ -2336,10 +2165,7 @@ mei::Sb::Sb(const Sb& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
-    m_Source(this),
-    m_SbVis(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_SbVis(this)
 {
 }
 
@@ -2349,9 +2175,7 @@ mei::Score::Score() :
     MeiElement("score"),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Score, "score");
@@ -2360,9 +2184,7 @@ mei::Score::Score(const Score& other) :
     MeiElement(other),
     m_Common(this),
     m_Declaring(this),
-    m_Typed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Typed(this)
 {
 }
 
@@ -2377,9 +2199,6 @@ mei::ScoreDef::ScoreDef() :
     m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
-    m_BeamingLog(this),
-    m_MensuralLog(this),
-    m_MensuralShared(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
@@ -2390,17 +2209,7 @@ mei::ScoreDef::ScoreDef() :
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
-    m_ScoreDefVisCmn(this),
-    m_BeamingVis(this),
-    m_Pianopedals(this),
-    m_Rehearsal(this),
-    m_Slurrend(this),
-    m_Tierend(this),
-    m_MensuralVis(this),
     m_ScoreDefGes(this),
-    m_Channelized(this),
-    m_Timebase(this),
-    m_Miditempo(this),
     m_Mmtempo(this)
 {
 }
@@ -2415,9 +2224,6 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
-    m_BeamingLog(this),
-    m_MensuralLog(this),
-    m_MensuralShared(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
@@ -2428,17 +2234,7 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
-    m_ScoreDefVisCmn(this),
-    m_BeamingVis(this),
-    m_Pianopedals(this),
-    m_Rehearsal(this),
-    m_Slurrend(this),
-    m_Tierend(this),
-    m_MensuralVis(this),
     m_ScoreDefGes(this),
-    m_Channelized(this),
-    m_Timebase(this),
-    m_Miditempo(this),
     m_Mmtempo(this)
 {
 }
@@ -2452,9 +2248,7 @@ mei::Section::Section() :
     m_Facsimile(this),
     m_Typed(this),
     m_Pointing(this),
-    m_SectionVis(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_SectionVis(this)
 {
 }
 REGISTER_DEFINITION(mei::Section, "section");
@@ -2466,9 +2260,7 @@ mei::Section::Section(const Section& other) :
     m_Facsimile(this),
     m_Typed(this),
     m_Pointing(this),
-    m_SectionVis(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_SectionVis(this)
 {
 }
 
@@ -2507,11 +2299,8 @@ mei::Space::Space() :
     m_DurationMusical(this),
     m_Fermatapresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
     m_SpaceVis(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 REGISTER_DEFINITION(mei::Space, "space");
@@ -2528,11 +2317,8 @@ mei::Space::Space(const Space& other) :
     m_DurationMusical(this),
     m_Fermatapresent(this),
     m_Tupletpresent(this),
-    m_Beamed(this),
     m_SpaceVis(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_DurationPerformed(this)
 {
 }
 
@@ -2621,9 +2407,7 @@ mei::Staff::Staff() :
     m_Facsimile(this),
     m_StaffLog(this),
     m_Meterconformance(this),
-    m_Visibility(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Visibility(this)
 {
 }
 REGISTER_DEFINITION(mei::Staff, "staff");
@@ -2635,9 +2419,7 @@ mei::Staff::Staff(const Staff& other) :
     m_Facsimile(this),
     m_StaffLog(this),
     m_Meterconformance(this),
-    m_Visibility(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Visibility(this)
 {
 }
 
@@ -2653,9 +2435,6 @@ mei::StaffDef::StaffDef() :
     m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
-    m_BeamingLog(this),
-    m_MensuralLog(this),
-    m_MensuralShared(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
@@ -2668,15 +2447,7 @@ mei::StaffDef::StaffDef() :
     m_Scalable(this),
     m_Textstyle(this),
     m_Visibility(this),
-    m_BeamingVis(this),
-    m_Pianopedals(this),
-    m_Rehearsal(this),
-    m_Slurrend(this),
-    m_Tierend(this),
-    m_MensuralVis(this),
-    m_Instrumentident(this),
-    m_Timebase(this),
-    m_StaffDefGesTablature(this)
+    m_Instrumentident(this)
 {
 }
 REGISTER_DEFINITION(mei::StaffDef, "staffDef");
@@ -2691,9 +2462,6 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
-    m_BeamingLog(this),
-    m_MensuralLog(this),
-    m_MensuralShared(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
@@ -2706,15 +2474,7 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Scalable(this),
     m_Textstyle(this),
     m_Visibility(this),
-    m_BeamingVis(this),
-    m_Pianopedals(this),
-    m_Rehearsal(this),
-    m_Slurrend(this),
-    m_Tierend(this),
-    m_MensuralVis(this),
-    m_Instrumentident(this),
-    m_Timebase(this),
-    m_StaffDefGesTablature(this)
+    m_Instrumentident(this)
 {
 }
 
@@ -2759,9 +2519,7 @@ mei::Syl::Syl() :
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Horizontalalign(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Horizontalalign(this)
 {
 }
 REGISTER_DEFINITION(mei::Syl, "syl");
@@ -2776,9 +2534,7 @@ mei::Syl::Syl(const Syl& other) :
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Horizontalalign(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Horizontalalign(this)
 {
 }
 
@@ -2802,10 +2558,7 @@ mei::Tempo::Tempo() :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_Miditempo(this),
-    m_Mmtempo(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Mmtempo(this)
 {
 }
 REGISTER_DEFINITION(mei::Tempo, "tempo");
@@ -2828,10 +2581,7 @@ mei::Tempo::Tempo(const Tempo& other) :
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
     m_Xy(this),
-    m_Miditempo(this),
-    m_Mmtempo(this),
-    m_CommonAnl(this),
-    m_Alignment(this)
+    m_Mmtempo(this)
 {
 }
 

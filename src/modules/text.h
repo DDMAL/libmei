@@ -177,8 +177,8 @@ class MEI_EXPORT Li : public MeiElement {
         REGISTER_DECLARATION(Li);
 };
 
-/** \brief – A formatting element that contains a series of items separated from one
- *  another and arranged in a linear, often vertical, sequence.
+/** \brief A formatting element that contains a series of items separated from one another
+ *  and arranged in a linear, often vertical, sequence.
  */
 class MEI_EXPORT List : public MeiElement {
     public:
@@ -197,6 +197,7 @@ class MEI_EXPORT List : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
         XyMixIn    m_Xy;
 
     private:

@@ -34,8 +34,8 @@
 
 
 namespace mei {
-/** \brief – Contains a representation of some written source in the form of a set of
- *  images rather than as transcribed or encoded text.
+/** \brief Contains a representation of some written source in the form of a set of images
+ *  rather than as transcribed or encoded text.
  */
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
@@ -52,9 +52,9 @@ class MEI_EXPORT Facsimile : public MeiElement {
         REGISTER_DECLARATION(Facsimile);
 };
 
-/** \brief – Defines a writing surface in terms of a rectangular coordinate space,
- *  optionally grouping one or more graphic representations of that space, and
- *  rectangular zones of interest within it.
+/** \brief Defines a writing surface in terms of a rectangular coordinate space, optionally
+ *  grouping one or more graphic representations of that space, and rectangular
+ *  zones of interest within it.
  */
 class MEI_EXPORT Surface : public MeiElement {
     public:
@@ -74,7 +74,7 @@ class MEI_EXPORT Surface : public MeiElement {
         REGISTER_DECLARATION(Surface);
 };
 
-/** \brief – Defines an area of interest within a surface or graphic file.
+/** \brief Defines an area of interest within a surface or graphic file.
  */
 class MEI_EXPORT Zone : public MeiElement {
     public:
