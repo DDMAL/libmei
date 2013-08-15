@@ -29,9 +29,6 @@ from lxml import etree
 import os
 import shutil
 import codecs
-import subprocess
-import tempfile
-import shutil
 import re
 
 from argparse import ArgumentParser
