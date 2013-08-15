@@ -2,12 +2,10 @@
 
 import os
 import re
-import codecs
 import textwrap
 import logging
 import types
 lg = logging.getLogger('schemaparser')
-import pdb
 
 LANG_NAME="C++"
 
