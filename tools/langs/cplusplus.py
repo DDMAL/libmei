@@ -7,7 +7,7 @@ import logging
 import types
 lg = logging.getLogger('schemaparser')
 
-LANG_NAME="C++"
+LANG_NAME = "C++"
 
 NS_PREFIX_MAP = {
     "http://www.w3.org/XML/1998/namespace": "xml",
@@ -252,10 +252,10 @@ def __create_mixin_classes(schema, outdir):
         fullout = ""
         classes = ""
         methods = ""
-        
+
         if not atgroup:
             continue
-        
+
         for gp, atts in sorted(atgroup.iteritems()):
             if not atts:
                 continue
@@ -263,7 +263,7 @@ def __create_mixin_classes(schema, outdir):
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
-                    ns,att = att.split("|")
+                    ns, att = att.split("|")
                     nssubstr = {
                         "prefix": NS_PREFIX_MAP[ns],
                         "href": ns
@@ -281,7 +281,7 @@ def __create_mixin_classes(schema, outdir):
                     "attNameLowerJoined": schema.strpdot(att),
                     "namespaceDefinition": nsDef,
                     "attrNs": attrNs,
-                    "accessor": "b->", # we need this for mixins
+                    "accessor": "b->",  # we need this for mixins
                 }
                 methods += METHODS_IMPL_TEMPLATE.format(**attsubstr)
             
