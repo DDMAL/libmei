@@ -919,6 +919,25 @@ class FermatapresentMixIn {
         MeiElement *b;
 };
 
+class HandidentMixIn {
+    public:
+        explicit HandidentMixIn(MeiElement *b);
+        virtual ~HandidentMixIn();
+        /** \brief signifies the hand responsible for an action.
+         * 
+         *  The value must be the ID of a <hand> element declared in the header.
+         */
+        MeiAttribute* getHand();
+        void setHand(std::string _hand);
+        bool hasHand();
+        void removeHand();
+
+/* include <handmixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class HorizontalalignMixIn {
     public:
         explicit HorizontalalignMixIn(MeiElement *b);
@@ -1245,6 +1264,32 @@ class LyricstyleMixIn {
         MeiElement *b;
 };
 
+class MeasureLogMixIn {
+    public:
+        explicit MeasureLogMixIn(MeiElement *b);
+        virtual ~MeasureLogMixIn();
+        /** \brief indicates the visual rendition of the left bar line.
+         * 
+         *  It is present here only for facilitation of translation from legacy encodings
+         *  which use it. Usually, it can be safely ignored.
+         */
+        MeiAttribute* getLeft();
+        void setLeft(std::string _left);
+        bool hasLeft();
+        void removeLeft();
+        /** \brief indicates the function of the right bar line and is structurally important.
+         */
+        MeiAttribute* getRight();
+        void setRight(std::string _right);
+        bool hasRight();
+        void removeRight();
+
+/* include <rightmixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class MeasurementMixIn {
     public:
         explicit MeasurementMixIn(MeiElement *b);
@@ -1257,6 +1302,45 @@ class MeasurementMixIn {
         void removeUnit();
 
 /* include <unitmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class MediaboundsMixIn {
+    public:
+        explicit MediaboundsMixIn(MeiElement *b);
+        virtual ~MediaboundsMixIn();
+        /** \brief specifies a point where the relevant content begins.
+         * 
+         *  A numerical value must be less and a time value must be earlier than that in the
+         *  end attribute.
+         */
+        MeiAttribute* getBegin();
+        void setBegin(std::string _begin);
+        bool hasBegin();
+        void removeBegin();
+        /** \brief specifies a point where the relevant content ends.
+         * 
+         *  If not specified, the end of the content is assumed to be the end point. A
+         *  numerical value must be greater and a time value must be later than that in the
+         *  begin attribute.
+         */
+        MeiAttribute* getEnd();
+        void setEnd(std::string _end);
+        bool hasEnd();
+        void removeEnd();
+        /** \brief type of values used in the begin/end attributes.
+         * 
+         *  The begin and end attributes can only be interpreted meaningfully in conjunction
+         *  with this attribute.
+         */
+        MeiAttribute* getBetype();
+        void setBetype(std::string _betype);
+        bool hasBetype();
+        void removeBetype();
+
+/* include <betypemixin> */
 
     private:
         MeiElement *b;
@@ -1283,20 +1367,14 @@ class MeiversionMixIn {
     public:
         explicit MeiversionMixIn(MeiElement *b);
         virtual ~MeiversionMixIn();
-        /** \brief specifies a generic MEI version label.
+        /** \brief specifies the version number of the MEI Guidelines in use.
          */
         MeiAttribute* getMeiversion();
         void setMeiversion(std::string _meiversion);
         bool hasMeiversion();
         void removeMeiversion();
-        /** \brief records a detailed MEI version number.
-         */
-        MeiAttribute* getMeiversionNum();
-        void setMeiversionNum(std::string _meiversionnum);
-        bool hasMeiversionNum();
-        void removeMeiversionNum();
 
-/* include <meiversion.nummixin> */
+/* include <meiversionmixin> */
 
     private:
         MeiElement *b;
@@ -1354,6 +1432,23 @@ class MeterSigLogMixIn {
         void removeUnit();
 
 /* include <unitmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class MeterSigVisMixIn {
+    public:
+        explicit MeterSigVisMixIn(MeiElement *b);
+        virtual ~MeterSigVisMixIn();
+        /** \brief records the appearance and usually the function of the bar line.
+         */
+        MeiAttribute* getRend();
+        void setRend(std::string _rend);
+        bool hasRend();
+        void removeRend();
+
+/* include <rendmixin> */
 
     private:
         MeiElement *b;
@@ -1695,14 +1790,8 @@ class PbVisMixIn {
         void setFunc(std::string _func);
         bool hasFunc();
         void removeFunc();
-        /** \brief Points to a page element ID in the layout section.
-         */
-        MeiAttribute* getPageref();
-        void setPageref(std::string _pageref);
-        bool hasPageref();
-        void removePageref();
 
-/* include <pagerefmixin> */
+/* include <funcmixin> */
 
     private:
         MeiElement *b;
@@ -1864,14 +1953,8 @@ class SbVisMixIn {
         void setRend(std::string _rend);
         bool hasRend();
         void removeRend();
-        /** \brief Points to system element IDs in the layout section.
-         */
-        MeiAttribute* getSystemref();
-        void setSystemref(std::string _systemref);
-        bool hasSystemref();
-        void removeSystemref();
 
-/* include <systemrefmixin> */
+/* include <rendmixin> */
 
     private:
         MeiElement *b;
@@ -2087,6 +2170,24 @@ class SectionVisMixIn {
         void removeRestart();
 
 /* include <restartmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class SequenceMixIn {
+    public:
+        explicit SequenceMixIn(MeiElement *b);
+        virtual ~SequenceMixIn();
+        /** \brief used to assign a sequence number related to the order in which the encoded
+         *  features carrying this attribute are believed to have occurred.
+         */
+        MeiAttribute* getSeq();
+        void setSeq(std::string _seq);
+        bool hasSeq();
+        void removeSeq();
+
+/* include <seqmixin> */
 
     private:
         MeiElement *b;

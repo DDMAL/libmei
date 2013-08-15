@@ -9,6 +9,8 @@ using mei::AttributeNotFoundException;
 
 mei::AnchoredText::AnchoredText() :
     MeiElement("anchoredText"),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -24,6 +26,8 @@ REGISTER_DEFINITION(mei::AnchoredText, "anchoredText");
 mei::AnchoredText::~AnchoredText() {}
 mei::AnchoredText::AnchoredText(const AnchoredText& other) :
     MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
@@ -40,6 +44,8 @@ mei::AnchoredText::AnchoredText(const AnchoredText& other) :
 
 mei::Curve::Curve() :
     MeiElement("curve"),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),
@@ -62,6 +68,8 @@ REGISTER_DEFINITION(mei::Curve, "curve");
 mei::Curve::~Curve() {}
 mei::Curve::Curve(const Curve& other) :
     MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),
@@ -85,6 +93,8 @@ mei::Curve::Curve(const Curve& other) :
 
 mei::Line::Line() :
     MeiElement("line"),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),
@@ -106,6 +116,8 @@ REGISTER_DEFINITION(mei::Line, "line");
 mei::Line::~Line() {}
 mei::Line::Line(const Line& other) :
     MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),
@@ -128,6 +140,8 @@ mei::Line::Line(const Line& other) :
 
 mei::Symbol::Symbol() :
     MeiElement("symbol"),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),
@@ -144,6 +158,8 @@ REGISTER_DEFINITION(mei::Symbol, "symbol");
 mei::Symbol::~Symbol() {}
 mei::Symbol::Symbol(const Symbol& other) :
     MeiElement(other),
+    m_CommonAnl(this),
+    m_Alignment(this),
     m_Color(this),
     m_Common(this),
     m_Facsimile(this),

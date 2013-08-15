@@ -75,7 +75,7 @@ class MEI_EXPORT FigDesc : public MeiElement {
         REGISTER_DECLARATION(FigDesc);
 };
 
-/** \brief Indicates the location of an inline graphic, illustration, or figure.
+/** \brief – Indicates the location of an inline graphic, illustration, or figure.
  */
 class MEI_EXPORT Graphic : public MeiElement {
     public:
@@ -104,7 +104,7 @@ class MEI_EXPORT Graphic : public MeiElement {
         REGISTER_DECLARATION(Graphic);
 };
 
-/** \brief Contains text displayed in tabular form.
+/** \brief – Contains text displayed in tabular form.
  */
 class MEI_EXPORT Table : public MeiElement {
     public:

@@ -157,7 +157,6 @@ mei::List::List() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -168,7 +167,6 @@ mei::List::List(const List& other) :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Typed(this),
     m_Xy(this)
 {
 }

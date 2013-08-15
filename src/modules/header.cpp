@@ -490,6 +490,9 @@ mei::Event::Event() :
     m_Calendared(this),
     m_Common(this),
     m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
     m_Lang(this)
 {
 }
@@ -501,6 +504,9 @@ mei::Event::Event(const Event& other) :
     m_Calendared(this),
     m_Common(this),
     m_Datable(this),
+    m_Edit(this),
+    m_Responsibility(this),
+    m_Source(this),
     m_Lang(this)
 {
 }
@@ -985,7 +991,8 @@ mei::Mensuration::Mensuration() :
     m_Bibl(this),
     m_MensurLog(this),
     m_DurationRatio(this),
-    m_Slashcount(this)
+    m_Slashcount(this),
+    m_MensuralShared(this)
 {
 }
 REGISTER_DEFINITION(mei::Mensuration, "mensuration");
@@ -996,7 +1003,8 @@ mei::Mensuration::Mensuration(const Mensuration& other) :
     m_Bibl(this),
     m_MensurLog(this),
     m_DurationRatio(this),
-    m_Slashcount(this)
+    m_Slashcount(this),
+    m_MensuralShared(this)
 {
 }
 
