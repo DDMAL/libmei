@@ -48,7 +48,10 @@
 #endif
 
 const std::string meiVersions[] = {"2011-05", "2012", "2013"};
-const std::set<std::string> MEI_VERSION(meiVersions, meiVersions+2);
+// ATTENTION: You must update this number as more versions are added.
+const int NUM_VERSIONS_SUPPORTED = 3;
+
+const std::set<std::string> MEI_VERSION(meiVersions, meiVersions + NUM_VERSIONS_SUPPORTED);
 const std::string MEI_NS = "http://www.music-encoding.org/ns/mei";
 const std::string MEI_PREFIX = "mei";
 const std::string MEI_ENCODING = "UTF-8";
