@@ -204,6 +204,10 @@ MeiDocument* mei::MeiElement::getDocument() {
     return this->document;
 }
 
+/*
+    Removing the document pointer from an element will also
+    remove it from all its child elements.
+*/
 void mei::MeiElement::removeDocument() {
     if (document) {
         this->document->rmIdMap(id);
