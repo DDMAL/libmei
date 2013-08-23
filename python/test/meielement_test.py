@@ -1,6 +1,5 @@
 # testing suite
 import unittest
-import os
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument
 
 class MeiElementTest(unittest.TestCase):
@@ -255,9 +254,7 @@ class MeiElementTest(unittest.TestCase):
     
     def test_descendants(self):
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
-        bodyid = b1.id
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
         a1 = MeiElement("accid")
@@ -275,7 +272,6 @@ class MeiElementTest(unittest.TestCase):
 
     def test_peers(self):
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
@@ -302,15 +298,12 @@ class MeiElementTest(unittest.TestCase):
     def test_getpositionindocument(self):
         m = MeiElement("mei")
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
-        noteid = n1.id
         n2 = MeiElement("note")
         n3 = MeiElement("note")
         n4 = MeiElement("note")
-        note4id = n4.id
 
         m.addChild(m1)
         m1.addChild(b1)
@@ -374,10 +367,6 @@ class MeiElementTest(unittest.TestCase):
 
     #     self.assertEqual("c", n1.getAttribute("pname").value)
     #     self.assertEqual("d", n2.getAttribute("pname").value)
-
-
-
-
 
 
 def suite():

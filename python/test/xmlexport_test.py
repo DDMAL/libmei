@@ -3,8 +3,8 @@ import unittest
 import os
 import tempfile
 import shutil
-import pymei
-from pymei import *
+from pymei import XmlImport, XmlExport, XmlInstructions, XmlProcessingInstruction
+from pymei import MeiElement, MeiDocument, MeiNamespace, MeiAttribute
 from pymei.exceptions import DocumentRootNotSetException, FileWriteFailureException
 
 class XmlExportTest(unittest.TestCase):

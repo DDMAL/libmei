@@ -1,10 +1,9 @@
 # testing suite
 import unittest
-import os
-from pymei import MeiElement, MeiAttribute, MeiNamespace, MeiElementList, MeiDocument
+from pymei import MeiElement, MeiNamespace, MeiElementList, MeiDocument
+
 
 class MeiDocumentTest(unittest.TestCase):
-
     def setUp(self):
         pass
     
@@ -111,10 +110,6 @@ class MeiDocumentTest(unittest.TestCase):
         mus = MeiElement("music")
         body = MeiElement("body")
         staff = MeiElement("staff")
-        staff2 = MeiElement("staff")
-        n1 = MeiElement("note")
-        n2 = MeiElement("note")
-        n3 = MeiElement("note")
 
         self.assertEqual(None, mei.document)
         mei.addChild(mus)
@@ -183,8 +178,6 @@ class MeiDocumentTest(unittest.TestCase):
 
         for i,el in enumerate(doc.getFlattenedTree()):
             self.assertEqual(elements[i], doc.getFlattenedTree()[i])
-
-
 
 
 def suite():

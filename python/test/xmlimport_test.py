@@ -1,8 +1,7 @@
 # testing suite
 import unittest
 import os
-import pymei
-from pymei import *
+from pymei import XmlImport, XmlInstructions
 from pymei.exceptions import VersionMismatchException, NoVersionFoundException, MalformedFileException
 
 class XmlImportTest(unittest.TestCase):
