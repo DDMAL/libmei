@@ -288,10 +288,11 @@ void mei::MeiElement::removeChild(MeiElement *child) {
     updateDocument();
 }
 
-void mei::MeiElement::removeChildrenWithName(string name) {
+void mei::MeiElement::removeChildrenWithName(string names) {
     vector<MeiElement*>::iterator iter = this->children.begin();
+    vector<string> tokens = mei::MeiElement::parseNames(names);
     while (iter != this->children.end()) {
-        if (name == (*iter)->getName()) {
+        if ((*iter)->match(tokens)) {
             (*iter)->removeDocument();
             iter = this->children.erase(iter);
         } else {
@@ -338,12 +339,13 @@ vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
     return res;
 }
 
-vector<mei::MeiElement*> mei::MeiElement::getDescendantsByName(string name) {
+vector<mei::MeiElement*> mei::MeiElement::getDescendantsByName(string names) {
     vector<mei::MeiElement*> res;
     vector<mei::MeiElement*> desc = this->flatten();
+    vector<string> tokens = mei::MeiElement::parseNames(names);
 
     for (vector<MeiElement*>::iterator iter = desc.begin(); iter != desc.end(); ++iter) {
-        if ((*iter)->getName() == name) {
+        if ((*iter)->match(tokens)) {
             res.push_back(*iter);
         }
     }
