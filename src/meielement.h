@@ -336,10 +336,11 @@ class MEI_EXPORT MeiElement
         /**
          * Unary operator to match an element against a single token.
          */
-        struct matchToken : public std::unary_function<mei::MeiElement*, bool>
-        {
+        struct matchToken : public std::unary_function<mei::MeiElement*, bool> {
             explicit matchToken(mei::MeiElement* elem) : elem(elem){}
-            bool operator() (const std::string &token) { return (elem->name == token); }
+            bool operator() (const std::string &token) {
+                return (elem->name == token);
+            }
             mei::MeiElement *elem;
         };
         

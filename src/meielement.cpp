@@ -374,7 +374,7 @@ void mei::MeiElement::print() {
 void mei::MeiElement::print(int level) {
     printf("%*s ", level + (int)getName().length(), getName().c_str());
 
-    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
+    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
 
@@ -417,11 +417,11 @@ vector<string> mei::MeiElement::parseNames(string names) {
     string token;
     string ws_set = " \n\t";
     size_t letter = names.find_first_not_of(ws_set);
-    if (letter==string::npos) {
+    if (string::npos == letter) {
         return res;
     }
     size_t ws = names.find_first_of(ws_set, letter);
-    if (ws==string::npos) {
+    if (string::npos == ws) {
         token = names.substr(letter);
     } else {
         token = names.substr(letter, ws-letter);
@@ -433,7 +433,7 @@ vector<string> mei::MeiElement::parseNames(string names) {
 
 bool mei::MeiElement::match(const std::vector<std::string> &tokens) {
     std::vector<std::string>::const_iterator found = std::find_if(tokens.begin(), tokens.end(), mei::MeiElement::matchToken(this));
-    return (found!=tokens.end());
+    return (found == tokens.end());
 }
 
 
