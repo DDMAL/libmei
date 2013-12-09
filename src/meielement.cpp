@@ -279,15 +279,10 @@ void mei::MeiElement::deleteAllChildren() {
 }
 
 void mei::MeiElement::removeChild(MeiElement *child) {
-    vector<MeiElement*>::iterator iter = this->children.begin();
-    while (iter != this->children.end()) {
-        if (child == *iter) {
-            (*iter)->removeDocument();
-            iter = this->children.erase(iter);
-        } else {
-            ++iter;
-        }
-    }
+    vector<MeiElement*>::iterator pos = find(this->children.begin(), this->children.end(), child);
+    if (pos == this->children.end()) return;
+    (*pos)->removeDocument();
+    pos = this->children.erase(pos);
 
     updateDocument();
 }
