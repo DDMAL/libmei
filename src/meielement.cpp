@@ -258,10 +258,11 @@ const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
     return this->children;
 }
 
-const vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) {
+const vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string names) {
     vector<mei::MeiElement*> res;
+    vector<string> tokens = mei::MeiElement::parseNames(names);
     for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
-        if ((*iter)->getName() == name) {
+        if ((*iter)->match(tokens)) {
             res.push_back(*iter);
         }
     }
@@ -408,6 +409,31 @@ const vector<mei::MeiElement*> mei::MeiElement::flatten() {
     }
     return res;
 }
+
+vector<string> mei::MeiElement::parseNames(string names) {
+    vector<std::string> res;
+    string token;
+    string ws_set = " \n\t";
+    size_t letter = names.find_first_not_of(ws_set);
+    if (letter==string::npos) {
+        return res;
+    }
+    size_t ws = names.find_first_of(ws_set, letter);
+    if (ws==string::npos) {
+        token = names.substr(letter);
+    } else {
+        token = names.substr(letter, ws-letter);
+        res = mei::MeiElement::parseNames(names.substr(ws));
+    };
+    res.push_back(token);
+    return res;
+}
+
+bool mei::MeiElement::match(const std::vector<std::string> &tokens) {
+    std::vector<std::string>::const_iterator found = std::find_if(tokens.begin(), tokens.end(), mei::MeiElement::matchToken(this));
+    return (found!=tokens.end());
+}
+
 
 void mei::MeiElement::updateDocument() {
     if (document) {

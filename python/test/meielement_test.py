@@ -159,8 +159,8 @@ class MeiElementTest(unittest.TestCase):
         self.assertEqual(2, len(p.children))
 
     def test_getchildrenbyname(self):
-        p = MeiElement("note")
-        el1 = MeiElement("accid")
+        p = MeiElement("layer")
+        el1 = MeiElement("note")
         el2 = MeiElement("accid")
         el3 = MeiElement("dot")
 
@@ -171,7 +171,7 @@ class MeiElementTest(unittest.TestCase):
         p.children = children
 
         # this should return a new list
-        accid_children = p.getChildrenByName("accid")
+        accid_children = p.getChildrenByName("accid note")
         self.assertEqual(2, len(accid_children))
 
     def test_changechildvalue(self):

@@ -215,9 +215,10 @@ class MEI_EXPORT MeiElement
         const std::vector<MeiElement*>& getChildren();
 
         /**
-         * \brief Get all of the children of this element that have a given name.
+         * \brief Get all of the children of this element that
+         *        appears in a list of tag names.
          */
-        const std::vector<MeiElement*> getChildrenByName(std::string name);
+        const std::vector<MeiElement*> getChildrenByName(std::string names);
 
         /**
          * \brief Remove all of the children of this element.
@@ -319,6 +320,29 @@ class MEI_EXPORT MeiElement
          * of the flatened element tree.
          */
         void generateAndSetId();
+
+        
+        /**
+         * Tokenise a list of tag names. The paramter is a list of tag names
+         * separated by white spaces.
+         */
+        static std::vector<std::string> parseNames(std::string names);
+        
+        /**
+         * Match this element against a set of tokens.
+         */
+        bool match(const std::vector<std::string> &tokens);
+
+        /**
+         * Unary operator to match an element against a single token.
+         */
+        struct matchToken : public std::unary_function<mei::MeiElement*, bool>
+        {
+            explicit matchToken(mei::MeiElement* elem) : elem(elem){}
+            bool operator() (const std::string &token) { return (elem->name == token); }
+            mei::MeiElement *elem;
+        };
+        
         std::string id;
         std::string name;
         std::string value;
