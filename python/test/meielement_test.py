@@ -159,8 +159,8 @@ class MeiElementTest(unittest.TestCase):
         self.assertEqual(2, len(p.children))
 
     def test_getchildrenbyname(self):
-        p = MeiElement("note")
-        el1 = MeiElement("accid")
+        p = MeiElement("layer")
+        el1 = MeiElement("note")
         el2 = MeiElement("accid")
         el3 = MeiElement("dot")
 
@@ -171,7 +171,7 @@ class MeiElementTest(unittest.TestCase):
         p.children = children
 
         # this should return a new list
-        accid_children = p.getChildrenByName("accid")
+        accid_children = p.getChildrenByName("accid note")
         self.assertEqual(2, len(accid_children))
 
     def test_changechildvalue(self):
@@ -206,13 +206,15 @@ class MeiElementTest(unittest.TestCase):
         el1 = MeiElement("note")
         el2 = MeiElement("note")
         el3 = MeiElement("chord")
+        el4 = MeiElement("rest")
 
         p.addChild(el1)
         p.addChild(el2)
         p.addChild(el3)
+        p.addChild(el4)
 
-        self.assertEqual(3, len(p.children))
-        p.removeChildrenWithName("note")
+        self.assertEqual(4, len(p.children))
+        p.removeChildrenWithName("note chord")
         self.assertEqual(1, len(p.children))
 
         # check that el1 was not actually deleted
@@ -269,6 +271,27 @@ class MeiElementTest(unittest.TestCase):
 
         desc2 = a1.getDescendants()
         self.assertEqual(0, len(desc2))
+
+    def test_descendantsbyname(self):
+        m1 = MeiElement("music")
+        b1 = MeiElement("body")
+        s1 = MeiElement("staff")
+        n1 = MeiElement("note")
+        r1 = MeiElement("rest")
+        a1 = MeiElement("accid")
+        
+        m1.addChild(b1)
+        b1.addChild(s1)
+        s1.addChild(n1)
+        s1.addChild(r1)
+        n1.addChild(a1)
+        
+        desc = m1.getDescendantsByName("note rest accid")
+        self.assertEqual(3, len(desc))
+        
+        desc2 = a1.getDescendants()
+        self.assertEqual(0, len(desc2))
+
 
     def test_peers(self):
         m1 = MeiElement("music")
