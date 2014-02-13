@@ -50,6 +50,7 @@ mei::MeiElement::MeiElement(const MeiElement& ele) :
     for (attr_it = ele.attributes.begin(); attr_it != ele.attributes.end(); ++attr_it) {
         this->addAttribute(new MeiAttribute(**attr_it));
     }
+    this->generateAndSetId();
 }
 
 extern "C"
