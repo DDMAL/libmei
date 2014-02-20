@@ -348,6 +348,23 @@ class MeiElementTest(unittest.TestCase):
         self.assertEqual('there', attrs[0].value)
         self.assertEqual(4, len(attrs))
 
+    def test_lookback(self):
+        m = MeiElement("mei")
+        m1 = MeiElement("music")
+        b1 = MeiElement("body")
+        s1 = MeiElement("staff")
+        n1 = MeiElement("note")
+
+        doc = MeiDocument()
+        m.setDocument(doc)
+
+        m.addChild(m1)
+        m1.addChild(b1)
+        b1.addChild(s1)
+        s1.addChild(n1)
+        
+        self.assertEqual(s1.lookBack('mei'), m)
+
     # def test_copyconstructor(self):
     #     n1 = MeiElement("note")
     #     noteid = n1.id
