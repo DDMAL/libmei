@@ -373,6 +373,8 @@ class MeiElementTest(unittest.TestCase):
         m1.addChild(b1)
         b1.addChild(s1)
         s1.addChild(n1)
+        
+        self.assertEqual(m1.lookBack('mei'), m)
 
         self.assertEqual(s1.lookBack('mei'), m)
 
