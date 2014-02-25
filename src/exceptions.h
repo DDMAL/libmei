@@ -92,7 +92,7 @@ public:
 class MEI_EXPORT DocumentRootNotSetException : public MeiException {
 public:
     explicit DocumentRootNotSetException(const std::string &what) :
-        MeiException("The document root was not set. Cannot export.") {}
+        MeiException(what) {}
     ~DocumentRootNotSetException() throw () {}
 };
 
