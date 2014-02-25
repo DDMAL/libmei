@@ -28,7 +28,7 @@ class XmlExportTest(unittest.TestCase):
         root.id = "myid"
         doc.root = root
 
-        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2012\"/>\n";
+        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"/>\n";
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
 
@@ -59,7 +59,7 @@ class XmlExportTest(unittest.TestCase):
         note.tail = "tail"
         root.addChild(note)
 
-        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2012\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
+        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
         ret = XmlExport.meiDocumentToText(doc)
 
         self.assertEqual(expected, ret)
@@ -76,7 +76,7 @@ class XmlExportTest(unittest.TestCase):
         comment.tail = "t"
 
         root.addChild(comment)
-        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2012\"><!--comment-->t</mei>\n";
+        expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><!--comment-->t</mei>\n";
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
 
@@ -91,7 +91,7 @@ class XmlExportTest(unittest.TestCase):
         root.addAttribute(attr)
 
         expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my awesome thing\" meiversion=\"2012\"/>\n";
+xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my awesome thing\" meiversion=\"2013\"/>\n";
 
         ret = XmlExport.meiDocumentToText(doc)
         self.assertEqual(expected, ret)
@@ -112,7 +112,7 @@ xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my aw
         root.addChild(music)
 
         expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2012\">\n  <music \
+xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2013\">\n  <music \
 xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
 
         ret = XmlExport.meiDocumentToText(doc)
@@ -136,7 +136,7 @@ xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n"
         expected = "<?xml version=\"1.0\"?>\n<?xml-model href=\"mei-2012.rng\" type=\"application/xml\" \
 schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<?xml-stylesheet href=\"mei-2012.rng\" type=\"application/xml\" \
 schematypens=\"http://purl.oclc.org/dsdl/schematron\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xml:id=\"myid\" meiversion=\"2012\"/>\n"
+xml:id=\"myid\" meiversion=\"2013\"/>\n"
 
         self.assertEqual(expected, ret)
 
