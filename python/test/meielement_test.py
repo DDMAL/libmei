@@ -1,6 +1,7 @@
 # testing suite
 import unittest
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument
+from pymei.exceptions import DocumentRootNotSetException
 
 class MeiElementTest(unittest.TestCase):
 
@@ -347,6 +348,17 @@ class MeiElementTest(unittest.TestCase):
 
         self.assertEqual('there', attrs[0].value)
         self.assertEqual(4, len(attrs))
+
+    def test_setdocument(self):
+        m = MeiElement("mei")
+        doc = MeiDocument()
+
+        with self.assertRaises(DocumentRootNotSetException) as cm:
+            m.setDocument(doc)
+        self.assertTrue(isinstance(cm.exception, DocumentRootNotSetException))
+        doc.setRootElement(m)
+
+        self.assertEqual(doc.root, m)
 
     def test_lookback(self):
         m = MeiElement("mei")
