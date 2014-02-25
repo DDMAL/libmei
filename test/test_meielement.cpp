@@ -459,3 +459,13 @@ TEST(TestMeiElement, CopyConstructor) {
     ASSERT_EQ("c", n1->m_Pitch.getPname()->getValue());
     
 }
+
+TEST(TestMeiElement, TestSetDocument) {
+    MeiElement *m = new MeiElement("mei");
+    MeiDocument *doc = new MeiDocument();
+    
+    ASSERT_THROW(m->setDocument(doc), mei::DocumentRootNotSetException);
+    
+    doc->setRootElement(m);
+    ASSERT_EQ(doc->getRootElement(), m);
+}
