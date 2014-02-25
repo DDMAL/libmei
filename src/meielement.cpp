@@ -201,7 +201,10 @@ void mei::MeiElement::setDocument(MeiDocument *document) throw(DocumentRootNotSe
 
     this->document = document;
     document->addIdMap(id, this);
-    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+    
+    vector<mei::MeiElement*> descendants = this->getDescendants();
+    
+    for (vector<mei::MeiElement*>::iterator iter = descendants.begin(); iter != descendants.end(); ++iter) {
         (*iter)->setDocument(document);
     }
 }
