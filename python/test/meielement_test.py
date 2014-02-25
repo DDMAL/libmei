@@ -368,34 +368,13 @@ class MeiElementTest(unittest.TestCase):
         n1 = MeiElement("note")
 
         doc = MeiDocument()
-        m.setDocument(doc)
-
+        doc.setRootElement(m)
         m.addChild(m1)
         m1.addChild(b1)
         b1.addChild(s1)
         s1.addChild(n1)
-        
+
         self.assertEqual(s1.lookBack('mei'), m)
-
-    # def test_copyconstructor(self):
-    #     n1 = MeiElement("note")
-    #     noteid = n1.id
-    #     n1.addAttribute("headshape", "diamond")
-    #     n1.addAttribute("pname", "c")
-
-    #     n2 = MeiElement(n1)
-    #     noteid2 = n2.id
-
-    #     # each should have a new id
-    #     self.assertNotEqual(noteid, noteid2)
-
-    #     self.assertEqual("diamond", n2.getAttribute("headshape").value)
-
-    #     # ensure they're independent objects
-    #     n2.getAttribute("pname").value = "d"
-
-    #     self.assertEqual("c", n1.getAttribute("pname").value)
-    #     self.assertEqual("d", n2.getAttribute("pname").value)
 
 
 def suite():
