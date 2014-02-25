@@ -416,7 +416,7 @@ const vector<mei::MeiElement*> mei::MeiElement::flatten() {
 }
 
 void mei::MeiElement::updateDocument() {
-    if (document) {
+    if (document && document->getRootElement() != NULL) {
         document->updateFlattenedTree();
     }
 }
