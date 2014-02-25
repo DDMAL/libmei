@@ -9,6 +9,7 @@
 
 #include "meiattribute.h"
 #include "meidocument.h"
+#include "exceptions.h"
 
 using std::string;
 using std::vector;
@@ -193,7 +194,11 @@ mei::MeiElement* mei::MeiElement::getParent() {
     return this->parent;
 }
 
-void mei::MeiElement::setDocument(MeiDocument *document) {
+void mei::MeiElement::setDocument(MeiDocument *document) throw(DocumentRootNotSetException) {
+    if (!document->getRootElement()) {
+        throw DocumentRootNotSetException("The document root is not set. Please set it using MeiDocument::setRootElement()");
+    }
+
     this->document = document;
     document->addIdMap(id, this);
     for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {

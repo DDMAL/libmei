@@ -175,7 +175,7 @@ class MEI_EXPORT MeiElement
          *
          *  Also updates the document id map for getElementById lookups
          */
-        void setDocument(MeiDocument *doc);
+        void setDocument(MeiDocument *doc) throw (DocumentRootNotSetException);
 
         /** \brief Gets a pointer to the document this element is attached to.
          */
