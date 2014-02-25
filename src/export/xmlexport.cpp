@@ -127,7 +127,7 @@ XmlExportImpl::~XmlExportImpl() {
 
 void XmlExportImpl::init() throw(DocumentRootNotSetException) {
     if (!this->meiDocument->getRootElement()) {
-        throw DocumentRootNotSetException("");
+        throw DocumentRootNotSetException("The document root was not set. Without that, this document cannot be exported.");
     }
 
     rootElement = this->meiDocument->getRootElement();
