@@ -469,3 +469,22 @@ TEST(TestMeiElement, TestSetDocument) {
     doc->setRootElement(m);
     ASSERT_EQ(doc->getRootElement(), m);
 }
+
+TEST(TestMeiElement, TestLookBack) {
+    MeiElement *m = new MeiElement("mei");
+    MeiElement *music = new MeiElement("music");
+    MeiElement *body = new MeiElement("body");
+    MeiElement *staff = new MeiElement("staff");
+    MeiElement *note = new MeiElement("note");
+    
+    MeiDocument *doc = new MeiDocument();
+    doc->setRootElement(m);
+
+    m->addChild(music);
+    music->addChild(body);
+    body->addChild(staff);
+    staff->addChild(note);
+    
+    ASSERT_EQ(staff->lookBack("mei"), m);
+}
+
