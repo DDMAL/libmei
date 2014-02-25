@@ -67,7 +67,7 @@ class MeiDocumentTest(unittest.TestCase):
     
     def test_setversion(self):
         doc = MeiDocument()
-        self.assertEqual("2012", doc.version)
+        self.assertEqual("2013", doc.version)
     
     def test_elementsbyname(self):
         mei = MeiElement("mei")
