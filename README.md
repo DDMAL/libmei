@@ -1,6 +1,8 @@
 LibMEI
 ------
 
+[![Build Status](https://travis-ci.org/DDMAL/libmei.png?branch=master)](https://travis-ci.org/DDMAL/libmei)
+
 LibMEI is a C++ library for reading and writing [MEI](http://music-encoding.org) files
 
 It is developed by the [Distributed Digital Music Archives and Libraries Lab](http://ddmal.music.mcgill.ca/)
