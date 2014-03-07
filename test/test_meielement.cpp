@@ -484,7 +484,8 @@ TEST(TestMeiElement, TestLookBack) {
     music->addChild(body);
     body->addChild(staff);
     staff->addChild(note);
-    
+
+    ASSERT_EQ(music->lookBack("mei"), m);
     ASSERT_EQ(staff->lookBack("mei"), m);
 }
 
