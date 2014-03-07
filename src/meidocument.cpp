@@ -157,7 +157,7 @@ MeiElement* mei::MeiDocument::lookBack(MeiElement* from, std::string name) {
      * We add 1 so that we can skip the element itself and start at the
      * preceding element.
      */
-    int diff = flattenedDoc.size() - (pos - flattenedDoc.begin()) + 1;
+    int diff = flattenedDoc.size() - (pos - flattenedDoc.begin());
 
     // topsy turvy world, where ++ is actually -- (iterating backwards..sdrawkcab gnitareti)
     for (vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
