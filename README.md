@@ -8,6 +8,12 @@ LibMEI is a C++ library for reading and writing [MEI](http://music-encoding.org)
 It is developed by the [Distributed Digital Music Archives and Libraries Lab](http://ddmal.music.mcgill.ca/)
 at the Schulich School of Music at McGill University, Montréal, Canada
 
+This is a modified version that is used for production C++ code for [Verovio](http://www.verovio.org). The main difference with LibMEI are:
+1. it generates only attribute classes (Mixin in LibMEI)
+2. each attribute has a C++ type deduced from the MEI schema or given in a separted configuration file
+3. it uses the MEI page-based customization not included in the MEI 2013 v2.1.0 (see [MEI](http://www.music-encoding.org)).
+
+
 License
 -------
 LibMEI is released under the MIT license.
@@ -15,46 +21,12 @@ LibMEI is released under the MIT license.
 Compilation & Usage
 -------------------
 
-We provide an XCode project for OSX and a cmake script for Linux.
+There is a modified CPP script ```tools/lang/cplusplus_vrv.py``` that can be activated with the ```-l vrv``` language option.
 
-To build on Linux, simply
+Additional C++ includes are in the ```tools/includes/vrv``` directory.
 
-    mkdir build; cd build
-    cmake ..
-    make
-    sudo make install
+A compiled version of the 2013 schema with the latest page-based customization is available in ```mei/xxxx-xx-xx/mei-compiled.xml```.
 
-To use libmei, include
+To generate the code, simply
 
-    #include <mei/mei.h>
-
-We provide two sample applications to demonstrate use. ```util/readmei.cpp``` is a trivial
-example of reading and writing MEI, and making a change to the document structure.
-```util/mxmltomei``` contains a tool to convert between MusicXML and MEI. This tool is
-still in active development.
-
-More detailed information about compilation and use is available at the
-libmei wiki: https://github.com/DDMAL/libmei/wiki
-
-Python
--------
-LibMEI ships with Python bindings using the Boost-Python framework. More information about installing and using
-these bindings can be found in [Installing the Python bindings](https://github.com/DDMAL/libmei/wiki/Installing-the-Python-bindings)
-
-Customization
--------------
-One of the most useful features of the MEI specification is the ability to generate custom schemas (in RelaxNG, DTD or W3C Schema)
-containing only the music notation features that you require. For example, there is no need to validate documents written in mensural
-notation against the Common Music Notation features of MEI. Also, MEI allows you to define new customizations for musical features that
-may not be covered under the core specification. These are features inherited from the TEI project, and you can read more about
-them on the [ODD Overview Page](http://www.tei-c.org/Guidelines/Customization/odds.xml) or in [our paper about MEI and LibMEI](http://ismir2011.ismir.net/papers/OS3-1.pdf).
-
-LibMEI ships with tools that allow you to easily work with these customizations to limit or expand the functionality. In the `tools` directory
-we include a Python script, `parseschema2.py` that will generate custom code for you in either C++ or Python. (Other languages may be added as well, if requested).
-
-You can read more about customization and custom compiliation on our [wiki pages](https://github.com/DDMAL/libmei/wiki/Automatic-Code-Generation).
-
-Contributions
--------------
-We welcome bug reports, feature requests, and patches to the libmei project page:
-https://github.com/DDMAL/libmei
+    python tools/parseschema2.py -l vrv -o vrv -i tools/includes/vrv mei/2013-11-05/mei-compiled.xml
