@@ -99,7 +99,7 @@ public:
 protected:
 {members}
     
-/* include <{mixinNameLower}> */
+/* include <{attNameLower}> */
 
 }};
 """
@@ -110,7 +110,7 @@ MIXIN_CLASS_IMPL_CONS_TEMPLATE = """mei::{attGroupNameUpper}MixIn::{attGroupName
 
 mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}}
 {methods}
-/* include <{mixinNameLower}> */
+/* include <{attNameLower}> */
 """
 
 ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
@@ -134,7 +134,15 @@ def vrv_member_cc(name):
 # globals
 TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/ns/structure/1.0"}
     
-def vrv_getatttype(schema, aname, includes_dir = ""):    
+def vrv_getatttype(schema, aname, includes_dir = ""):   
+    # IDEA:
+    # this is where we probably want to check if the type if defined in the configuration for the attribute
+    # the configuration files could be put in the include directory, e.g.
+    # attsfacimile.types.inc
+    # this means that the includes_dir needs to be passed to the create() method too.
+    # then have a method like:
+    # vrv_hasatttype(includes_dir, module, class, att) that checks if the type is given and return it if yes
+     
     """ returns the attribut type for element name, or string if not detectable."""
     el = schema.xpath("//tei:attDef[@ident=$name]/tei:datatype/rng:data/@type", name=aname, namespaces=TEI_NS)
     if el:
@@ -147,7 +155,7 @@ def vrv_getatttype(schema, aname, includes_dir = ""):
 def create(schema, outdir, includes_dir = ""):
     lg.debug("Begin Verovio C++ Output ... ")
     
-    __create_mixin_classes(schema, outdir, includes_dir)
+    __create_att_classes(schema, outdir, includes_dir)
     
     lg.debug("Success!")
 
@@ -186,7 +194,7 @@ def __get_docstr(text, indent=0):
     docstr += " **/".format(istr)
     return docstr
 
-def __create_mixin_classes(schema, outdir, includes_dir):
+def __create_att_classes(schema, outdir, includes_dir):
     ###########################################################################
     # Header
     ###########################################################################
@@ -228,7 +236,7 @@ def __create_mixin_classes(schema, outdir, includes_dir):
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
                 "methods": methods,
                 "members": members,
-                "mixinNameLower": "{0}mixin".format(att)
+                "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_HEAD_TEMPLATE.format(**clsubstr)
         
@@ -241,10 +249,10 @@ def __create_mixin_classes(schema, outdir, includes_dir):
         if "std::string" in classes:
             tplvars["includes"] = "#include <string>"
         fullout = CLASSES_HEAD_TEMPLATE.format(**tplvars)
-        fmh = open(os.path.join(outdir, "{0}mixins.h".format(module.lower())), 'w')
+        fmh = open(os.path.join(outdir, "atts{0}.h".format(module.lower())), 'w')
         fmh.write(fullout)
         fmh.close()
-        lg.debug("\tCreated {0}mixins.h".format(module.lower()))
+        lg.debug("\tCreated atts{0}.h".format(module.lower()))
         
         
     lg.debug("Creating Mixin Implementations")
@@ -284,26 +292,26 @@ def __create_mixin_classes(schema, outdir, includes_dir):
                     "attNameLowerJoined": schema.strpdot(att),
                     "namespaceDefinition": nsDef,
                     "attrNs": attrNs,
-                    "accessor": "b->", # we need this for mixins
+                    "accessor": "b->", # we need this for atts
                 }
                 methods += METHODS_IMPL_TEMPLATE.format(**attsubstr)
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
                 "methods": methods,
-                "mixinNameLower": "{0}mixin".format(att)
+                "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
             
         tplvars = {
-            "moduleNameLower": "{0}mixins".format(module.lower()),
+            "moduleNameLower": "atts{0}".format(module.lower()),
             "elements": classes
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**tplvars)
-        fmi = open(os.path.join(outdir, "{0}mixins.cpp".format(module.lower())), 'w')
+        fmi = open(os.path.join(outdir, "atts{0}.cpp".format(module.lower())), 'w')
         fmi.write(fullout)
         fmi.close()
-        lg.debug("\tCreated {0}mixins.cpp".format(module.lower()))
+        lg.debug("\tCreated atts{0}.cpp".format(module.lower()))
 
 def parse_includes(file_dir, includes_dir):
     lg.debug("Parsing includes")
