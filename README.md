@@ -9,6 +9,7 @@ It is developed by the [Distributed Digital Music Archives and Libraries Lab](ht
 at the Schulich School of Music at McGill University, Montréal, Canada
 
 This is a modified version that is used for production C++ code for [Verovio](http://www.verovio.org). The main difference with LibMEI are:
+
 1. it generates only attribute classes (Mixin in LibMEI)
 2. each attribute has a C++ type deduced from the MEI schema or given in a separted configuration file
 3. it uses the MEI page-based customization not included in the MEI 2013 v2.1.0 (see [MEI](http://www.music-encoding.org)).
