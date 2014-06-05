@@ -25,39 +25,23 @@ MEMBERS_HEADER_TEMPLATE = """{documentation}
     {attType} m_{attNameLowerJoined}{attTypeName};
 """
 
-METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() {{
-    if (!{accessor}hasAttribute("{attNameLower}")) {{
-        throw AttributeNotFoundException("{attNameLower}");
-    }}
-    return {accessor}getAttribute("{attNameLower}");
-}};
-
-void mei::{className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
-    {namespaceDefinition}MeiAttribute *a = new MeiAttribute({attrNs}"{attNameLower}", _{attNameLowerJoined});
-    {accessor}addAttribute(a);
-}};
-
-bool mei::{className}::has{attNameUpper}() {{
-    return {accessor}hasAttribute("{attNameLower}");
-}};
-
-void mei::{className}::remove{attNameUpper}() {{
-    {accessor}removeAttribute("{attNameLower}");
-}};
-"""
+DEFAULTS_IMPL_TEMPLATE = """m_{attNameLowerJoined}{attTypeName} = {attDefault};"""
 
 NAMESPACE_TEMPLATE = """MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");\n    """
 
-CLASSES_IMPL_TEMPLATE = """#include "{moduleNameLower}.h"
+CLASSES_IMPL_TEMPLATE = """{license}
 
-#include <string>
+#include "{moduleNameLower}.h"
+
+//----------------------------------------------------------------------------
+
 /* #include_block */
-using std::string;
-using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
+namespace vrv {{
+    
 {elements}
+
+}} // vrv namespace
 
 """
 
@@ -72,7 +56,7 @@ namespace vrv {{
     
 {elements}
 
-}}
+}} // vrv namespace
 
 #endif  // __VRV_{moduleNameCaps}_H__
 
@@ -89,6 +73,9 @@ public:
     Att{attGroupNameUpper}();
     virtual ~Att{attGroupNameUpper}();
     
+    /** Reset the default values for the attribute class **/
+    void Reset{attGroupNameUpper}();
+    
     /**
      * @name Setters and getters for class members
      */
@@ -98,18 +85,27 @@ public:
 
 protected:
 {members}
-    
 /* include <{attNameLower}> */
-
 }};
 """
 
-MIXIN_CLASS_IMPL_CONS_TEMPLATE = """mei::{attGroupNameUpper}MixIn::{attGroupNameUpper}MixIn(MeiElement *b) {{
-    this->b = b;
-}};
+MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
+//----------------------------------------------------------------------------
+// Att{attGroupNameUpper}
+//----------------------------------------------------------------------------
 
-mei::{attGroupNameUpper}MixIn::~{attGroupNameUpper}MixIn() {{}}
-{methods}
+Att{attGroupNameUpper}::Att{attGroupNameUpper}() {{
+    Reset{attGroupNameUpper}();
+}}
+
+Att{attGroupNameUpper}::~Att{attGroupNameUpper}() {{
+
+}}
+
+void Att{attGroupNameUpper}::Reset{attGroupNameUpper}() {{
+    {defaults}
+}}
+
 /* include <{attNameLower}> */
 """
 
@@ -125,7 +121,11 @@ LICENSE = """///////////////////////////////////////////////////////////////////
 // Code generated using a modified version of libmei 
 // by Andrew Hankinson, Alastair Porter, and Others
 /////////////////////////////////////////////////////////////////////////////
-"""
+
+///////////////////////////////////////////////////////////////////////////// 
+// NOTE: this file was generated with the Verovio libmei version and 
+// should not be edited because changes will be lost.
+/////////////////////////////////////////////////////////////////////////////"""
 
 def vrv_member_cc(name):
     cc = "".join([n[0].upper() + n[1:] for n in name.split(".")])
@@ -151,6 +151,16 @@ def vrv_getatttype(schema, aname, includes_dir = ""):
         elif el[0] == "decimal":
             return ("double", "Dbl")
     return ("std::string", "")
+
+def vrv_getattdefault(schema, aname, includes_dir = ""):        
+    """ returns the attribut default value for element name, or string if not detectable."""
+    el = schema.xpath("//tei:attDef[@ident=$name]/tei:datatype/rng:data/@type", name=aname, namespaces=TEI_NS)
+    if el:
+        if el[0] == "nonNegativeInteger" or el[0] == "positiveInteger":
+            return ("0", "Int")
+        elif el[0] == "decimal":
+            return ("0.0", "Dbl")
+    return ("\"\"", "")
 
 def create(schema, outdir, includes_dir = ""):
     lg.debug("Begin Verovio C++ Output ... ")
@@ -249,10 +259,10 @@ def __create_att_classes(schema, outdir, includes_dir):
         if "std::string" in classes:
             tplvars["includes"] = "#include <string>"
         fullout = CLASSES_HEAD_TEMPLATE.format(**tplvars)
-        fmh = open(os.path.join(outdir, "atts{0}.h".format(module.lower())), 'w')
+        fmh = open(os.path.join(outdir, "atts_{0}.h".format(module.lower())), 'w')
         fmh.write(fullout)
         fmh.close()
-        lg.debug("\tCreated atts{0}.h".format(module.lower()))
+        lg.debug("\tCreated atts_{0}.h".format(module.lower()))
         
         
     lg.debug("Creating Mixin Implementations")
@@ -271,6 +281,7 @@ def __create_att_classes(schema, outdir, includes_dir):
             if not atts:
                 continue
             methods = ""
+            defaults = ""
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
@@ -284,34 +295,37 @@ def __create_att_classes(schema, outdir, includes_dir):
                 else:
                     nsDef = ""
                     attrNs = ""
+                attdefault, atttypename = vrv_getattdefault(schema.schema, att, includes_dir)
 
                 attsubstr = {
                     "className": "{0}MixIn".format(schema.cc(schema.strpatt(gp))),
                     "attNameUpper": schema.cc(att),
                     "attNameLower": att,
-                    "attNameLowerJoined": schema.strpdot(att),
-                    "namespaceDefinition": nsDef,
-                    "attrNs": attrNs,
-                    "accessor": "b->", # we need this for atts
+                    "attNameLowerJoined": vrv_member_cc(att),
+                    "attDefault": attdefault,
+                    "attTypeName": atttypename
                 }
-                methods += METHODS_IMPL_TEMPLATE.format(**attsubstr)
+                if len(defaults) > 0:
+                    defaults += "\n    "
+                defaults += DEFAULTS_IMPL_TEMPLATE.format(**attsubstr)
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
-                "methods": methods,
+                "defaults": defaults,
                 "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
             
         tplvars = {
-            "moduleNameLower": "atts{0}".format(module.lower()),
-            "elements": classes
+            "license": LICENSE.format(authors=AUTHORS),
+            "moduleNameLower": "atts_{0}".format(module.lower()),
+            "elements": classes.strip()
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**tplvars)
-        fmi = open(os.path.join(outdir, "atts{0}.cpp".format(module.lower())), 'w')
+        fmi = open(os.path.join(outdir, "atts_{0}.cpp".format(module.lower())), 'w')
         fmi.write(fullout)
         fmi.close()
-        lg.debug("\tCreated atts{0}.cpp".format(module.lower()))
+        lg.debug("\tCreated atts_{0}.cpp".format(module.lower()))
 
 def parse_includes(file_dir, includes_dir):
     lg.debug("Parsing includes")
@@ -367,7 +381,7 @@ def __parse_codefile(methods, includes, directory, codefile):
         match = re.match(regmatch, line)
         if match:
             if match.group("elementName") in methods.keys():
-                contents[i] = methods[match.group("elementName")].lstrip("\n") + "\n"
+                contents[i] = methods[match.group("elementName")].lstrip("\n")
     
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)
