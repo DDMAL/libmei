@@ -9,6 +9,8 @@ import types
 lg = logging.getLogger('schemaparser')
 import pdb
 
+import yaml
+
 LANG_NAME="C++"
 
 NS_PREFIX_MAP = {
@@ -133,17 +135,43 @@ def vrv_member_cc(name):
  
 # globals
 TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/ns/structure/1.0"}
+
+def vrv_load_config(includes_dir):
+    """ Load the vrv attribute overrides into CONFIG_DICTIONARY."""
+    global CONFIG_DICTIONARY
     
-def vrv_getatttype(schema, aname, includes_dir = ""):   
-    # IDEA:
-    # this is where we probably want to check if the type if defined in the configuration for the attribute
-    # the configuration files could be put in the include directory, e.g.
-    # attsfacimile.types.inc
-    # this means that the includes_dir needs to be passed to the create() method too.
-    # then have a method like:
-    # vrv_hasatttype(includes_dir, module, class, att) that checks if the type is given and return it if yes
-     
+    if not includes_dir:
+        return
+        
+    config = os.path.join(includes_dir, "config.yml")
+    if not os.path.isfile(config):
+        return
+    
+    f = open(config, "r")
+    CONFIG_DICTIONARY = yaml.load(f)
+    f.close()
+
+def vrv_translatetype(module, att):
+    """ Get the type override for an attribute in module."""
+    if not module in CONFIG_DICTIONARY["files"]:
+        return None, ""
+
+    if not att in CONFIG_DICTIONARY["files"][module]["attributes"]:
+        return None, ""
+        
+    att = CONFIG_DICTIONARY["files"][module]["attributes"][att]
+    return (att, "")
+
+def vrv_getatttype(schema, module, aname, includes_dir = ""):   
     """ returns the attribut type for element name, or string if not detectable."""
+    
+    # Look up if there is an override for this type in the current module, and return it
+    # Note that we do not honor pseudo-hungarian notation
+    attype, hungarian = vrv_translatetype(module, aname)
+    if attype:
+        return (attype, hungarian)
+    
+    # No override, get it from the stylesheet
     el = schema.xpath("//tei:attDef[@ident=$name]/tei:datatype/rng:data/@type", name=aname, namespaces=TEI_NS)
     if el:
         if el[0] == "nonNegativeInteger" or el[0] == "positiveInteger":
@@ -165,6 +193,7 @@ def vrv_getattdefault(schema, aname, includes_dir = ""):
 def create(schema, outdir, includes_dir = ""):
     lg.debug("Begin Verovio C++ Output ... ")
     
+    vrv_load_config(includes_dir)
     __create_att_classes(schema, outdir, includes_dir)
     
     lg.debug("Success!")
@@ -227,7 +256,7 @@ def __create_att_classes(schema, outdir, includes_dir):
             for att in atts:
                 if len(att.split("|")) > 1:
                     ns,att = att.split("|")
-                atttype, atttypename = vrv_getatttype(schema.schema, att, includes_dir)
+                atttype, atttypename = vrv_getatttype(schema.schema, module, att, includes_dir)
                 docstr = __get_docstr(schema.getattdocs(att), indent=4)
                 substrings = {
                     "attNameUpper": schema.cc(schema.strpatt(att)),

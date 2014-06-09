@@ -1,0 +1,10 @@
+---
+files:
+    facsimile:
+        attributes:
+            facs: int
+    cmn:
+        attributes:
+            order: int
+            arrow: int
+            form: int
