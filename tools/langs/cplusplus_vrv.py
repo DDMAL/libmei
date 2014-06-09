@@ -20,7 +20,7 @@ NS_PREFIX_MAP = {
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
-METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}; }};
+METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
     {attType} Get{attNameUpper}{attTypeName}() {{ return m_{attNameLowerJoined}{attTypeName}; }};"""
 
 MEMBERS_HEADER_TEMPLATE = """{documentation}
@@ -153,14 +153,22 @@ def vrv_load_config(includes_dir):
 
 def vrv_translatetype(module, att):
     """ Get the type override for an attribute in module."""
-    if not module in CONFIG_DICTIONARY["files"]:
+    if not module in CONFIG_DICTIONARY["modules"]:
         return None, ""
 
-    if not att in CONFIG_DICTIONARY["files"][module]["attributes"]:
+    if not att in CONFIG_DICTIONARY["modules"][module]["attributes"]:
         return None, ""
         
-    att = CONFIG_DICTIONARY["files"][module]["attributes"][att]
+    att = CONFIG_DICTIONARY["modules"][module]["attributes"][att]
     return (att, "")
+
+def vrv_translatedefault(type):
+    """ Get the type default value."""
+    if not type in CONFIG_DICTIONARY["defaults"]:
+        return None
+        
+    return CONFIG_DICTIONARY["defaults"][type]
+
 
 def vrv_getatttype(schema, module, aname, includes_dir = ""):   
     """ returns the attribut type for element name, or string if not detectable."""
@@ -180,8 +188,17 @@ def vrv_getatttype(schema, module, aname, includes_dir = ""):
             return ("double", "Dbl")
     return ("std::string", "")
 
-def vrv_getattdefault(schema, aname, includes_dir = ""):        
+def vrv_getattdefault(schema, module, aname, includes_dir = ""):        
     """ returns the attribut default value for element name, or string if not detectable."""
+    
+    attype, hungarian = vrv_translatetype(module, aname)
+    if attype:
+        print attype
+        default = vrv_translatedefault(attype)
+        print default
+        if default is not None:
+            return (default, "")
+    
     el = schema.xpath("//tei:attDef[@ident=$name]/tei:datatype/rng:data/@type", name=aname, namespaces=TEI_NS)
     if el:
         if el[0] == "nonNegativeInteger" or el[0] == "positiveInteger":
@@ -324,8 +341,8 @@ def __create_att_classes(schema, outdir, includes_dir):
                 else:
                     nsDef = ""
                     attrNs = ""
-                attdefault, atttypename = vrv_getattdefault(schema.schema, att, includes_dir)
-
+                attdefault, atttypename = vrv_getattdefault(schema.schema, module, att, includes_dir)
+                
                 attsubstr = {
                     "className": "{0}MixIn".format(schema.cc(schema.strpatt(gp))),
                     "attNameUpper": schema.cc(att),

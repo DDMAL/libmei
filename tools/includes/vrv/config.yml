@@ -1,10 +1,7 @@
 ---
-files:
-    facsimile:
+defaults:
+    int: 0
+modules:
+    shared:
         attributes:
-            facs: int
-    cmn:
-        attributes:
-            order: int
-            arrow: int
-            form: int
+            n: int
