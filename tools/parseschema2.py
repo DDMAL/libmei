@@ -244,9 +244,12 @@ if __name__ == "__main__":
             lg.debug("Removing old Verovio C++ output directory")
             shutil.rmtree(output_directory)
         os.mkdir(output_directory)
-        vrv.create(schema, output_directory)
+        
         if args.includes:
+            vrv.create(schema, output_directory, args.includes)
             vrv.parse_includes(output_directory, args.includes)
+        else:
+            vrv.create(schema, output_directory)
 
     if "python" in args.lang:
         import langs.python as py

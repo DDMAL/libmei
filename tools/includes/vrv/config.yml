@@ -1,0 +1,7 @@
+---
+defaults:
+    int: 0
+modules:
+    shared:
+        attributes:
+            n: int
