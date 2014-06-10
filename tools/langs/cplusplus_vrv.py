@@ -115,8 +115,7 @@ ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
 """
 
 LICENSE = """/////////////////////////////////////////////////////////////////////////////
-// Name:        attributes.h
-// Author:      Laurent Pugin
+// Authors:     Laurent Pugin and Rodolfo Zitellini
 // Created:     2014
 // Copyright (c) Authors and others. All rights reserved.
 //
@@ -299,7 +298,7 @@ def __create_att_classes(schema, outdir, includes_dir):
         tplvars = {
             "includes": "",
             'license': LICENSE.format(authors=AUTHORS),
-            'moduleNameCaps': "{0}MIXIN".format(module.upper()),
+            'moduleNameCaps': "ATTS_{0}".format(module.upper()),
             'elements': classes.strip()
         }
         if "std::string" in classes:
