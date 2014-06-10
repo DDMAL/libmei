@@ -18,7 +18,7 @@ NS_PREFIX_MAP = {
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
-METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}; }};
+METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
     {attType} Get{attNameUpper}{attTypeName}() {{ return m_{attNameLowerJoined}{attTypeName}; }};"""
 
 MEMBERS_HEADER_TEMPLATE = """{documentation}
