@@ -239,7 +239,7 @@ if __name__ == "__main__":
 
     if "vrv" in args.lang:
         import langs.cplusplus_vrv as vrv
-        output_directory = os.path.join(outdir, "vrv")
+        output_directory = os.path.join(outdir, "libmei")
         if os.path.exists(output_directory):
             lg.debug("Removing old Verovio C++ output directory")
             shutil.rmtree(output_directory)
