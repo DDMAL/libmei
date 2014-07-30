@@ -1,7 +1,21 @@
+# Warning: do not use tabs, only spaces!
 ---
 defaults:
     int: 0
+    MeterSign: METER_SYMB_NONE
 modules:
     shared:
         attributes:
-            n: int
+            # att.common
+            n: 
+                type: int
+            # att.meterSig.log
+            count: 
+                type: int
+                default: 4
+            sym: 
+                type: MeterSign
+                default: METER_SYMB_NONE
+            unit: 
+                type: int
+                default: 4

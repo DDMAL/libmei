@@ -52,6 +52,10 @@ CLASSES_HEAD_TEMPLATE = """{license}
 #ifndef __VRV_{moduleNameCaps}_H__
 #define __VRV_{moduleNameCaps}_H__
 
+#include "vrvdef.h"
+
+//----------------------------------------------------------------------------
+
 {includes}
 
 namespace vrv {{
@@ -154,20 +158,25 @@ def vrv_translatetype(module, att):
     """ Get the type override for an attribute in module."""
     if not module in CONFIG_DICTIONARY["modules"]:
         return None, ""
-
     if not att in CONFIG_DICTIONARY["modules"][module]["attributes"]:
         return None, ""
         
-    att = CONFIG_DICTIONARY["modules"][module]["attributes"][att]
+    att = CONFIG_DICTIONARY["modules"][module]["attributes"][att]["type"]
     return (att, "")
 
-def vrv_translatedefault(type):
+def vrv_translatedefault(type, module, att):
     """ Get the type default value."""
     if not type in CONFIG_DICTIONARY["defaults"]:
         return None
+    if not module in CONFIG_DICTIONARY["modules"]:
+        return CONFIG_DICTIONARY["defaults"][type]
+    if not att in CONFIG_DICTIONARY["modules"][module]["attributes"]:
+        return CONFIG_DICTIONARY["defaults"][type]
+        
+    if "default" in CONFIG_DICTIONARY["modules"][module]["attributes"][att]:
+        return CONFIG_DICTIONARY["modules"][module]["attributes"][att]["default"]
         
     return CONFIG_DICTIONARY["defaults"][type]
-
 
 def vrv_getatttype(schema, module, aname, includes_dir = ""):   
     """ returns the attribut type for element name, or string if not detectable."""
@@ -193,7 +202,7 @@ def vrv_getattdefault(schema, module, aname, includes_dir = ""):
     attype, hungarian = vrv_translatetype(module, aname)
     if attype:
         print attype
-        default = vrv_translatedefault(attype)
+        default = vrv_translatedefault(attype, module, aname)
         print default
         if default is not None:
             return (default, "")
