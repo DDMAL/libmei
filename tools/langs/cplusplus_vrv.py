@@ -21,13 +21,23 @@ NS_PREFIX_MAP = {
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
-    {attType} Get{attNameUpper}{attTypeName}() {{ return m_{attNameLowerJoined}{attTypeName}; }};"""
+    {attType} Get{attNameUpper}{attTypeName}() const {{ return m_{attNameLowerJoined}{attTypeName}; }};"""
 
 MEMBERS_HEADER_TEMPLATE = """{documentation}
     {attType} m_{attNameLowerJoined}{attTypeName};
 """
 
 DEFAULTS_IMPL_TEMPLATE = """m_{attNameLowerJoined}{attTypeName} = {attDefault};"""
+    
+READS_IMPL_TEMPLATE = """if (element.attribute("{attNameLower}")) {{
+        this->Set{attNameUpper}{attTypeName}({converterRead}(element.attribute("{attNameLower}").value()));
+        hasAttribute = true;
+    }}"""
+    
+WRITES_IMPL_TEMPLATE = """if (this->Get{attNameUpper}{attTypeName}() == {attDefault}) {{
+        element.append_attribute("{attNameLower}") = {converterWrite}(this->Get{attNameUpper}{attTypeName}()).c_str();
+        wroteAttribute = true;
+    }}"""
 
 NAMESPACE_TEMPLATE = """MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");\n    """
 
@@ -52,7 +62,8 @@ CLASSES_HEAD_TEMPLATE = """{license}
 #ifndef __VRV_{moduleNameCaps}_H__
 #define __VRV_{moduleNameCaps}_H__
 
-#include "vrvdef.h"
+#include "att.h"
+#include "pugixml.hpp"
 
 //----------------------------------------------------------------------------
 
@@ -73,7 +84,7 @@ MIXIN_CLASS_HEAD_TEMPLATE = """
 // Att{attGroupNameUpper}
 //----------------------------------------------------------------------------
 
-class Att{attGroupNameUpper} 
+class Att{attGroupNameUpper}: public Att
 {{
 public:
     Att{attGroupNameUpper}();
@@ -81,6 +92,12 @@ public:
     
     /** Reset the default values for the attribute class **/
     void Reset{attGroupNameUpper}();
+    
+    /** Read the values for the attribute class **/
+    bool Read{attGroupNameUpper}( pugi::xml_node element );
+    
+    /** Write the values for the attribute class **/
+    bool Write{attGroupNameUpper}( pugi::xml_node element );
     
     /**
      * @name Setters and getters for class members
@@ -100,7 +117,7 @@ MIXIN_CLASS_IMPL_CONS_TEMPLATE = """
 // Att{attGroupNameUpper}
 //----------------------------------------------------------------------------
 
-Att{attGroupNameUpper}::Att{attGroupNameUpper}() {{
+Att{attGroupNameUpper}::Att{attGroupNameUpper}(): Att() {{
     Reset{attGroupNameUpper}();
 }}
 
@@ -110,6 +127,18 @@ Att{attGroupNameUpper}::~Att{attGroupNameUpper}() {{
 
 void Att{attGroupNameUpper}::Reset{attGroupNameUpper}() {{
     {defaults}
+}}
+
+bool Att{attGroupNameUpper}::Read{attGroupNameUpper}(  pugi::xml_node element ) {{
+    bool hasAttribute = false;
+    {reads}
+    return hasAttribute;
+}}
+
+bool Att{attGroupNameUpper}::Write{attGroupNameUpper}(  pugi::xml_node element ) {{
+    bool wroteAttribute = false;
+    {writes}
+    return wroteAttribute;
 }}
 
 /* include <{attNameLower}> */
@@ -135,13 +164,16 @@ LICENSE = """///////////////////////////////////////////////////////////////////
 def vrv_member_cc(name):
     cc = "".join([n[0].upper() + n[1:] for n in name.split(".")])
     return cc[0].lower() + cc[1:]
+    
+def vrv_member_cc_upper(name):
+    return "".join([n[0].upper() + n[1:] for n in name.split(".")])
  
 # globals
 TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/ns/structure/1.0"}
 
 def vrv_load_config(includes_dir):
-    """ Load the vrv attribute overrides into CONFIG_DICTIONARY."""
-    global CONFIG_DICTIONARY
+    """ Load the vrv attribute overrides into CONFIG."""
+    global CONFIG
     
     if not includes_dir:
         return
@@ -151,32 +183,59 @@ def vrv_load_config(includes_dir):
         return
     
     f = open(config, "r")
-    CONFIG_DICTIONARY = yaml.load(f)
+    CONFIG = yaml.load(f)
     f.close()
+    
+def vrv_get_att_config(module, att):
+    if not module in CONFIG["modules"] or not att in CONFIG["modules"][module]["attributes"]:
+        return None
+    return CONFIG["modules"][module]["attributes"][att]
+    
+def vrv_get_type_config(type):
+    if not type in CONFIG["defaults"]:
+        return None
+    return CONFIG["defaults"][type]
 
 def vrv_translatetype(module, att):
     """ Get the type override for an attribute in module."""
-    if not module in CONFIG_DICTIONARY["modules"]:
-        return None, ""
-    if not att in CONFIG_DICTIONARY["modules"][module]["attributes"]:
+    att_config = vrv_get_att_config(module, att)
+    if att_config is None:
         return None, ""
         
-    att = CONFIG_DICTIONARY["modules"][module]["attributes"][att]["type"]
+    att = att_config["type"]
     return (att, "")
-
+    
 def vrv_translatedefault(type, module, att):
     """ Get the type default value."""
-    if not type in CONFIG_DICTIONARY["defaults"]:
+    # nothing in the defaults
+    type_config = vrv_get_type_config(type)
+    # nothing in the defaults
+    if type_config is None or not "default" in type_config:
         return None
-    if not module in CONFIG_DICTIONARY["modules"]:
-        return CONFIG_DICTIONARY["defaults"][type]
-    if not att in CONFIG_DICTIONARY["modules"][module]["attributes"]:
-        return CONFIG_DICTIONARY["defaults"][type]
-        
-    if "default" in CONFIG_DICTIONARY["modules"][module]["attributes"][att]:
-        return CONFIG_DICTIONARY["modules"][module]["attributes"][att]["default"]
-        
-    return CONFIG_DICTIONARY["defaults"][type]
+
+    att_config = vrv_get_att_config(module, att)
+    # nothing in the module/att
+    if att_config is None or "default" not in att_config:
+        return type_config["default"]
+       
+    # return the module/att default 
+    return att_config["default"]
+
+def vrv_translateconverters(type, module, att):
+    """ Get the type default converters."""
+    default_converters = ["StrTo{0}".format(vrv_member_cc_upper(att)), "{0}ToStr".format(vrv_member_cc_upper(att))]
+    type_config = vrv_get_type_config(type)
+    # nothing in the defaults
+    if type_config is None or not "converters" in type_config:
+         return default_converters
+
+    att_config = vrv_get_att_config(module, att)
+    # nothing in the module/att
+    if att_config is None or "converters" not in att_config:
+        return type_config["converters"]
+       
+    # return the module/att default 
+    return att_config["converters"]
 
 def vrv_getatttype(schema, module, aname, includes_dir = ""):   
     """ returns the attribut type for element name, or string if not detectable."""
@@ -201,19 +260,18 @@ def vrv_getattdefault(schema, module, aname, includes_dir = ""):
     
     attype, hungarian = vrv_translatetype(module, aname)
     if attype:
-        print attype
         default = vrv_translatedefault(attype, module, aname)
-        print default
+        converters = vrv_translateconverters(attype, module, aname)
         if default is not None:
-            return (default, "")
+            return (default, "", converters)
     
     el = schema.xpath("//tei:attDef[@ident=$name]/tei:datatype/rng:data/@type", name=aname, namespaces=TEI_NS)
     if el:
         if el[0] == "nonNegativeInteger" or el[0] == "positiveInteger":
-            return ("0", "Int")
+            return ("0", "Int", ["StrToInt", "IntToStr"])
         elif el[0] == "decimal":
-            return ("0.0", "Dbl")
-    return ("\"\"", "")
+            return ("0.0", "Dbl", ["StrToDbl", "DblToStr"])
+    return ("\"\"", "", ["StrToStr", "StrToStr"])
 
 def create(schema, outdir, includes_dir = ""):
     lg.debug("Begin Verovio C++ Output ... ")
@@ -289,7 +347,7 @@ def __create_att_classes(schema, outdir, includes_dir):
                     "attNameLowerJoined": vrv_member_cc(att),
                     "documentation": docstr,
                     "attType": atttype,
-                    "attTypeName": atttypename
+                    "attTypeName": atttypename,
                 }
                 if len(methods) > 0:
                     methods += "\n    //\n"
@@ -336,6 +394,8 @@ def __create_att_classes(schema, outdir, includes_dir):
                 continue
             methods = ""
             defaults = ""
+            reads = ""
+            writes = ""
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
@@ -349,7 +409,7 @@ def __create_att_classes(schema, outdir, includes_dir):
                 else:
                     nsDef = ""
                     attrNs = ""
-                attdefault, atttypename = vrv_getattdefault(schema.schema, module, att, includes_dir)
+                attdefault, atttypename, converters = vrv_getattdefault(schema.schema, module, att, includes_dir)
                 
                 attsubstr = {
                     "className": "{0}MixIn".format(schema.cc(schema.strpatt(gp))),
@@ -357,15 +417,23 @@ def __create_att_classes(schema, outdir, includes_dir):
                     "attNameLower": att,
                     "attNameLowerJoined": vrv_member_cc(att),
                     "attDefault": attdefault,
-                    "attTypeName": atttypename
+                    "attTypeName": atttypename,
+                    "converterRead": converters[0],
+                    "converterWrite": converters[1]
                 }
                 if len(defaults) > 0:
                     defaults += "\n    "
+                    reads += "\n    "
+                    writes += "\n    " 
                 defaults += DEFAULTS_IMPL_TEMPLATE.format(**attsubstr)
+                reads += READS_IMPL_TEMPLATE.format(**attsubstr)
+                writes += WRITES_IMPL_TEMPLATE.format(**attsubstr)
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
                 "defaults": defaults,
+                "reads": reads,
+                "writes": writes,
                 "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
@@ -385,7 +453,9 @@ def parse_includes(file_dir, includes_dir):
     lg.debug("Parsing includes")
 
     # get the files in the includes directory
-    includes = [f for f in os.listdir(includes_dir) if not f.startswith(".")]
+    includes = [f for f in os.listdir(includes_dir) if not f.startswith(".") and f.endswith(".inc")]
+    # currently unused, see below comment in __copy_codefile
+    # copies = [f for f in os.listdir(includes_dir) if f.endswith(".copy")]
 
     for dp,dn,fn in os.walk(file_dir):
         for f in fn:
@@ -440,11 +510,13 @@ def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)
     f.close()
-
-
-
-
-
-
-
-
+    
+    
+def __copy_codefile(directory, codefile):  
+    # att.h, att_defs.h and att.cpp are required.
+    # These are the only files to be edited by hand.
+    # For now they are in the Verovio codebase because this makes it easier to edit the files.
+    # eventually, we might want to have them in the libmei include dir and use this function to
+    # copy them in the output directory
+    print "Todo"
+    

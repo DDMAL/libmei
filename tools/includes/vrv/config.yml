@@ -1,21 +1,153 @@
 # Warning: do not use tabs, only spaces!
 ---
 defaults:
-    int: 0
-    MeterSign: METER_SYMB_NONE
+    int:
+        default: 0
+        converters: [StrToInt, IntToStr]
+    unsigned char: 
+        default: 0
+        converters: [StrToInt, IntToStr]
+    data_ACCIDENTAL_IMPLICIT:
+        default: ACCIDENTAL_IMPLICIT_NONE
+        converters: [StrToAccidentalImplicit, AccidentalImplicitToStr]
+    data_BARRENDITION: 
+        default: BARRENDITION_NONE
+        converters: [StrToBarRendition, BarRenditionToStr]
+    data_BOOLEAN: 
+        default: BOOLEAN_NONE
+        converters: [StrToBool, BoolToStr]
+    data_CLEFSHAPE:
+        default: CLEFSHAPE_NONE
+        converters: [StrToClefShape, ClefShapeToStr]
+    data_KEYSIGNATURE:
+        default: KEYSIGNATURE_NONE
+        converters: [StrToKeySignature, KeySignatureToStr]
+    data_LIGATURE:
+        default: LIGATURE_NONE
+        converters: [StrToLigature, LigatureToStr]
+    data_MENSURATIONSIGN:
+        default: MENSURATIONSIGN_NONE
+        converters: [StrToMensurationSign, MensurationSignToStr]
+    data_METERSIGN:
+        default: METERSIGN_NONE
+        converters: [StrToMeterSign, MeterSignToStr]
+    data_MODE:
+        default: MODE_NONE
+        converters: [StrToMode, ModeToStr]
+    data_OCTAVE_DIS:
+        default: OCTAVE_DIS_NONE
+        converters: [StrToOctaveDis, OctaveDisToStr]
+    data_ORIENTATION:
+        default: ORIENTATION_NONE
+        converters: [StrToOrientation, OrientationToStr]
+    data_PITCHNAME:
+        default: PITCHNAME_NONE
+        converters: [StrToPitchName, PitchNameToStr]
+    data_PLACE:
+        default: PLACE_NONE
+        converters: [StrToPlace, PlaceToStr]
+    data_STEMDIRECTION:
+        default: STEMDIRECTION_NONE
+        converters: [StrToStemDirection, StemDirectionToStr]
+    data_STEMPOSITION:
+        default: STEMPOSITION_NONE
+        converters: [StrToStemPosition, StemPositionToStr]
 modules:
     shared:
         attributes:
+            # att.barLine.log
+            rend: 
+                type: data_BARRENDITION
+            # att.coloration
+            colored: 
+                type: data_BOOLEAN
             # att.common
             n: 
                 type: int
+            # att.cleffing.log
+            clef.shape: 
+                type: data_CLEFSHAPE
+            clef.line: 
+                type: unsigned char
+            clef.dis: 
+                type: data_OCTAVE_DIS
+            clef.dis.place: 
+                type: data_PLACE
+            # att.clefshape
+            shape: 
+                type: data_CLEFSHAPE
+            # att.coloration
+            colored: 
+                type: data_BOOLEAN
+            # att.keySigDefault.log
+            key.accid: 
+                type: data_ACCIDENTAL_IMPLICIT
+            key.mode: 
+                type: data_MODE
+            key.pname: 
+                type: data_PITCHNAME
+            key.sig: 
+                type: data_KEYSIGNATURE
+            # att.lineloc
+            line: 
+                type: unsigned char
+            # att.measure.log
+            left: 
+                type: data_BARRENDITION
+            right: 
+                type: data_BARRENDITION
+                default: BARRENDITION_single
+            # att.mensur.log
+            dot: 
+                type: data_BOOLEAN
+            sign: 
+                type: data_MENSURATIONSIGN
             # att.meterSig.log
             count: 
                 type: int
-                default: 4
             sym: 
-                type: MeterSign
-                default: METER_SYMB_NONE
+                type: data_METERSIGN
             unit: 
                 type: int
-                default: 4
+            # att.meterSigDefault.log
+            meter.count: 
+                type: int
+            meter.unit: 
+                type: int
+            # att.meterSigDefault.vis
+            meter.sym: 
+                type: data_METERSIGN
+            # att.octavedisplacement
+            dis: 
+                type: data_OCTAVE_DIS
+            dis.place: 
+                type: data_PLACE
+            # att.slashcount
+            slash: 
+                type: unsigned char
+            # att.stemmed
+            stem.dir: 
+                type: data_STEMDIRECTION
+            stem.len: 
+                type: int
+            stem.pos: 
+                type: data_STEMPOSITION
+            stem.x: 
+                type: int
+            stem.y: 
+                type: int
+    mensural:
+        attributes:
+            # att.note.log.mensural
+            lig: 
+                type: data_LIGATURE
+            # att.mensur.default.log
+            mensur.dot: 
+                type: data_BOOLEAN
+            mensur.sign: 
+                type: data_MENSURATIONSIGN 
+            mensur.slash: 
+                type: unsigned char 
+            # att.mensur.vis
+            orient: 
+                type: data_ORIENTATION
