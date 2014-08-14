@@ -21,7 +21,9 @@ NS_PREFIX_MAP = {
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
-    {attType} Get{attNameUpper}{attTypeName}() const {{ return m_{attNameLowerJoined}{attTypeName}; }};"""
+    {attType} Get{attNameUpper}{attTypeName}() const {{ return m_{attNameLowerJoined}{attTypeName}; }};    
+    bool Has{attNameUpper}{attTypeName}( );
+    """
 
 MEMBERS_HEADER_TEMPLATE = """{documentation}
     {attType} m_{attNameLowerJoined}{attTypeName};
@@ -34,10 +36,17 @@ READS_IMPL_TEMPLATE = """if (element.attribute("{attNameLower}")) {{
         hasAttribute = true;
     }}"""
     
-WRITES_IMPL_TEMPLATE = """if (this->Get{attNameUpper}{attTypeName}() == {attDefault}) {{
+WRITES_IMPL_TEMPLATE = """if (this->Has{attNameUpper}{attTypeName}()) {{
         element.append_attribute("{attNameLower}") = {converterWrite}(this->Get{attNameUpper}{attTypeName}()).c_str();
         wroteAttribute = true;
     }}"""
+    
+CHECKERS_IMPL_TEMPLATE = """bool Att{attGroupNameUpper}::Has{attNameUpper}{attTypeName}( )
+{{
+    return (m_{attNameLowerJoined}{attTypeName} != {attDefault});
+}}
+
+"""
 
 NAMESPACE_TEMPLATE = """MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");\n    """
 
@@ -100,8 +109,10 @@ public:
     bool Write{attGroupNameUpper}( pugi::xml_node element );
     
     /**
-     * @name Setters and getters for class members
-     */
+     * @name Setters, getters and presence checker for class members.
+     * The checker returns true if the attribute class is set (e.g., not equal 
+     * to the default value)
+     **/
     ///@{{
 {methods}
     ///@}}
@@ -141,6 +152,7 @@ bool Att{attGroupNameUpper}::Write{attGroupNameUpper}(  pugi::xml_node element )
     return wroteAttribute;
 }}
 
+{checkers}
 /* include <{attNameLower}> */
 """
 
@@ -396,6 +408,7 @@ def __create_att_classes(schema, outdir, includes_dir):
             defaults = ""
             reads = ""
             writes = ""
+            checkers = ""
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
@@ -413,6 +426,7 @@ def __create_att_classes(schema, outdir, includes_dir):
                 
                 attsubstr = {
                     "className": "{0}MixIn".format(schema.cc(schema.strpatt(gp))),
+                    "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
                     "attNameUpper": schema.cc(att),
                     "attNameLower": att,
                     "attNameLowerJoined": vrv_member_cc(att),
@@ -424,16 +438,18 @@ def __create_att_classes(schema, outdir, includes_dir):
                 if len(defaults) > 0:
                     defaults += "\n    "
                     reads += "\n    "
-                    writes += "\n    " 
+                    writes += "\n    "
                 defaults += DEFAULTS_IMPL_TEMPLATE.format(**attsubstr)
                 reads += READS_IMPL_TEMPLATE.format(**attsubstr)
                 writes += WRITES_IMPL_TEMPLATE.format(**attsubstr)
+                checkers += CHECKERS_IMPL_TEMPLATE.format(**attsubstr)
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
                 "defaults": defaults,
                 "reads": reads,
                 "writes": writes,
+                "checkers": checkers,
                 "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
