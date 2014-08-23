@@ -19,6 +19,9 @@ defaults:
     data_CLEFSHAPE:
         default: CLEFSHAPE_NONE
         converters: [StrToClefShape, ClefShapeToStr]
+    data_CON:
+        default: CON_NONE
+        converters: [StrToCon, ConToStr]
     data_KEYSIGNATURE:
         default: KEYSIGNATURE_NONE
         converters: [StrToKeySignature, KeySignatureToStr]
@@ -52,6 +55,9 @@ defaults:
     data_STEMPOSITION:
         default: STEMPOSITION_NONE
         converters: [StrToStemPosition, StemPositionToStr]
+    data_WORDPOS:
+        default: WORDPOS_NONE
+        converters: [StrToWordPos, WordPosToStr]
 modules:
     shared:
         attributes:
@@ -136,6 +142,11 @@ modules:
                 type: int
             stem.y: 
                 type: int
+            # att.syl.log
+            con: 
+                type: data_CON
+            wordpos: 
+                type: data_WORDPOS
     mensural:
         attributes:
             # att.note.log.mensural
