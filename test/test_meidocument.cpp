@@ -189,7 +189,7 @@ TEST(TestMeiDocument, FlattenedDocTree) {
     ASSERT_EQ(7, doc->getFlattenedTree().size());
     ASSERT_EQ(s2, doc->getFlattenedTree()[5]);
     
-    staff->removeChildrenWithName("note");
+    staff->removeChildrenByName("note");
     ASSERT_EQ(6, doc->getFlattenedTree().size());
     
     body->deleteAllChildren();

@@ -197,11 +197,11 @@ class MeiElementTest(unittest.TestCase):
         
         p.addChild(el1)
         p.addChild(el2)
-        
+
         self.assertEqual(2, len(p.children))
         p.removeChild(el1)
         self.assertEqual(1, len(p.children))
-    
+
     def test_removechildrenbyname(self):
         p = MeiElement("layer")
         el1 = MeiElement("note")
@@ -213,12 +213,12 @@ class MeiElementTest(unittest.TestCase):
         p.addChild(el3)
 
         self.assertEqual(3, len(p.children))
-        p.removeChildrenWithName("note")
+        p.removeChildrenByName("note")
         self.assertEqual(1, len(p.children))
 
         # check that el1 was not actually deleted
         self.assertTrue(el1)
-    
+
     def test_deleteallchildren(self):
         p = MeiElement("layer")
         el1 = MeiElement("note")

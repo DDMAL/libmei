@@ -158,7 +158,7 @@ class MeiDocumentTest(unittest.TestCase):
 
         self.assertEqual(staff2, doc.getFlattenedTree()[5])
 
-        staff.removeChildrenWithName("note")
+        staff.removeChildrenByName("note")
         self.assertEqual(6, len(doc.getFlattenedTree()))
 
         body.deleteAllChildren()

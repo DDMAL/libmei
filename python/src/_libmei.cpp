@@ -417,7 +417,7 @@ BOOST_PYTHON_MODULE(_libmei) {
 
         .def("getChildrenByName", &MeiElement::getChildrenByName)
         .def("deleteAllChildren", &MeiElement::deleteAllChildren)
-        .def("removeChildrenWithName", &MeiElement::removeChildrenWithName)
+        .def("removeChildrenByName", &MeiElement::removeChildrenByName)
         .def("removeChild", &MeiElement::removeChild)
         .def("hasChildren", hasChildrenBool)
         .def("hasChildren", hasChildrenArgs)
