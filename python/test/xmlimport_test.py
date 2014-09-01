@@ -80,6 +80,9 @@ class XmlImportTest(unittest.TestCase):
             XmlImport.documentFromFile(os.path.join("test", "testdocs", "malformed.mei"))
         self.assertTrue(isinstance(cm.exception, MalformedFileException))
 
+    def test_readfile_with_itemList(self):
+        doc = XmlImport.documentFromFile(os.path.join("test", "testdocs", "test-itemlist.mei"))
+        self.assertNotEqual(None, doc)
 
 def suite():
     test_suite = unittest.makeSuite(XmlImportTest, 'test')
