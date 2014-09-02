@@ -100,6 +100,10 @@
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
+		67FE00F519B5FFF100C1BCBE /* frbr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67FE00F119B5FFF100C1BCBE /* frbr.cpp */; };
+		67FE00F619B5FFF100C1BCBE /* frbr.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE00F219B5FFF100C1BCBE /* frbr.h */; };
+		67FE00F719B5FFF100C1BCBE /* frbrmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67FE00F319B5FFF100C1BCBE /* frbrmixins.cpp */; };
+		67FE00F819B5FFF100C1BCBE /* frbrmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE00F419B5FFF100C1BCBE /* frbrmixins.h */; };
 		825732E1142D09AA00F3868D /* mxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 825732E0142D09AA00F3868D /* mxmlparser.cpp */; };
 		827EF456142CE661007B9789 /* mxmltomei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 827EF455142CE661007B9789 /* mxmltomei.cpp */; };
 		828D9CD71434DD42008DEF7B /* parttime.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 825732E31431308800F3868D /* parttime.xsl */; };
@@ -263,6 +267,10 @@
 		61DBCC271312C04000B46918 /* mei_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mei_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCCCF1312C85D00B46918 /* mei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = mei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBCD401312DDF500B46918 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_main.cc; path = test/gtest_main.cc; sourceTree = "<group>"; };
+		67FE00F119B5FFF100C1BCBE /* frbr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = frbr.cpp; path = src/modules/frbr.cpp; sourceTree = "<group>"; };
+		67FE00F219B5FFF100C1BCBE /* frbr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = frbr.h; path = src/modules/frbr.h; sourceTree = "<group>"; };
+		67FE00F319B5FFF100C1BCBE /* frbrmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = frbrmixins.cpp; path = src/modules/frbrmixins.cpp; sourceTree = "<group>"; };
+		67FE00F419B5FFF100C1BCBE /* frbrmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = frbrmixins.h; path = src/modules/frbrmixins.h; sourceTree = "<group>"; };
 		825732DE142D099D00F3868D /* mxmlparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mxmlparser.h; sourceTree = "<group>"; };
 		825732E0142D09AA00F3868D /* mxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mxmlparser.cpp; sourceTree = "<group>"; };
 		825732E31431308800F3868D /* parttime.xsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = parttime.xsl; sourceTree = "<group>"; };
@@ -481,6 +489,10 @@
 		9B11C8A5132E6C4E0090FDA6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				67FE00F119B5FFF100C1BCBE /* frbr.cpp */,
+				67FE00F219B5FFF100C1BCBE /* frbr.h */,
+				67FE00F319B5FFF100C1BCBE /* frbrmixins.cpp */,
+				67FE00F419B5FFF100C1BCBE /* frbrmixins.h */,
 				0514A64813FD6D6000310111 /* analysismixins.cpp */,
 				0514A64913FD6D6000310111 /* analysismixins.h */,
 				0514A64A13FD6D6000310111 /* cmn.cpp */,
@@ -582,9 +594,11 @@
 				0514A69213FDAB5200310111 /* analysismixins.h in Headers */,
 				0514A69313FDAB5200310111 /* cmn.h in Headers */,
 				0514A69413FDAB5200310111 /* cmnmixins.h in Headers */,
+				67FE00F819B5FFF100C1BCBE /* frbrmixins.h in Headers */,
 				0514A69513FDAB5200310111 /* cmnornaments.h in Headers */,
 				0514A69613FDAB5200310111 /* cmnornamentsmixins.h in Headers */,
 				0514A69713FDAB5200310111 /* corpus.h in Headers */,
+				67FE00F619B5FFF100C1BCBE /* frbr.h in Headers */,
 				0514A69813FDAB5200310111 /* critapp.h in Headers */,
 				0514A69913FDAB5200310111 /* critappmixins.h in Headers */,
 				0514A69A13FDAB5200310111 /* edittrans.h in Headers */,
@@ -792,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */,
+				67FE00F519B5FFF100C1BCBE /* frbr.cpp in Sources */,
 				0514A6B713FDABAB00310111 /* cmn.cpp in Sources */,
 				0514A6B813FDABAB00310111 /* cmnmixins.cpp in Sources */,
 				0514A6B913FDABAB00310111 /* cmnornaments.cpp in Sources */,
@@ -819,6 +834,7 @@
 				0514A6CF13FDABAB00310111 /* midimixins.cpp in Sources */,
 				0514A6D013FDABAB00310111 /* namesdates.cpp in Sources */,
 				0514A6D113FDABAB00310111 /* neumes.cpp in Sources */,
+				67FE00F719B5FFF100C1BCBE /* frbrmixins.cpp in Sources */,
 				0514A6D213FDABAB00310111 /* neumesmixins.cpp in Sources */,
 				0514A6D313FDABAB00310111 /* performance.cpp in Sources */,
 				0514A6D413FDABAB00310111 /* ptrref.cpp in Sources */,
