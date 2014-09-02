@@ -144,6 +144,23 @@ xml:id=\"myid\" meiversion=\"2013\"/>\n"
         if os.path.exists(self.tempdir):
             shutil.rmtree(self.tempdir)
 
+    def test_copynamespace(self):
+        xml_namespace = MeiNamespace('xml', 'http://www.w3.org/XML/1998/namespace')
+        xml_base = MeiAttribute(xml_namespace, 'base', 'http://example.com/')
+
+        self.assertEqual(xml_base.getNamespace().getPrefix(), 'xml')
+
+        newdoc = MeiDocument()
+        facsimile = MeiElement('facsimile')
+        facsimile.addAttribute(xml_base)
+        facsimile.id = "myid"
+        newdoc.root = facsimile
+
+        expected = '<?xml version="1.0"?>\n<facsimile xmlns="http://www.music-encoding.org/ns/mei" xml:id="myid" xml:base="http://example.com/" meiversion="2013"/>\n'
+
+        ret = XmlExport.meiDocumentToText(newdoc)
+        self.assertEqual(expected, ret)
+
 
 def suite():
     test_suite = unittest.makeSuite(XmlExportTest, 'test')
