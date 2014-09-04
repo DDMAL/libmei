@@ -186,8 +186,25 @@ xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
 
         if ((*iter)->hasNamespace()) {
             MeiNamespace* atns = (*iter)->getNamespace();
+            
+            string pfx = atns->getPrefix();
+            string fullattrname;
+            
+            /* 
+             libxml2 seems to require that members of the xml namespace are actually named explicitly as such.
+             In other words, simply setting the NS and Prefix objects on the xml node won't do the trick; you 
+             must also append the prefix. This is *only* for the xml: prefix; other prefixes work fine.
+             
+             Note that xml:id is handled differently (see above).
+            */
+            if (pfx == "xml") {
+                fullattrname = atns->getPrefix() + ":" + attrname;
+            } else {
+                fullattrname = attrname;
+            }
+
             xmlNsPtr ns = xmlNewNs(documentRootNode, (const xmlChar*)atns->getHref().c_str(), (const xmlChar*)atns->getPrefix().c_str());
-            xmlNewNsProp(curxmlnode, ns, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+            xmlNewNsProp(curxmlnode, ns, (const xmlChar*)fullattrname.c_str(), (const xmlChar*)attrvalue.c_str());
         } else {
             xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
         }
