@@ -434,6 +434,7 @@ BOOST_PYTHON_MODULE(_libmei) {
 
     class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())
         .def(init<MeiNamespace*, string, string>())
+        .def(init<const MeiAttribute&>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
         .def("__str__", &MeiAttribute_Print)
