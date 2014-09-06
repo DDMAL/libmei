@@ -20,9 +20,9 @@ NS_PREFIX_MAP = {
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
-METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}{attTypeName}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
-    {attType} Get{attNameUpper}{attTypeName}() const {{ return m_{attNameLowerJoined}{attTypeName}; }};    
-    bool Has{attNameUpper}{attTypeName}( );
+METHODS_HEADER_TEMPLATE = """    void Set{attNameUpper}({attType} {attNameLowerJoined}{attTypeName}_) {{ m_{attNameLowerJoined}{attTypeName} = {attNameLowerJoined}{attTypeName}_; }};
+    {attType} Get{attNameUpper}() const {{ return m_{attNameLowerJoined}{attTypeName}; }};    
+    bool Has{attNameUpper}( );
     """
 
 MEMBERS_HEADER_TEMPLATE = """{documentation}
@@ -32,16 +32,16 @@ MEMBERS_HEADER_TEMPLATE = """{documentation}
 DEFAULTS_IMPL_TEMPLATE = """m_{attNameLowerJoined}{attTypeName} = {attDefault};"""
     
 READS_IMPL_TEMPLATE = """if (element.attribute("{attNameLower}")) {{
-        this->Set{attNameUpper}{attTypeName}({converterRead}(element.attribute("{attNameLower}").value()));
+        this->Set{attNameUpper}({converterRead}(element.attribute("{attNameLower}").value()));
         hasAttribute = true;
     }}"""
     
-WRITES_IMPL_TEMPLATE = """if (this->Has{attNameUpper}{attTypeName}()) {{
-        element.append_attribute("{attNameLower}") = {converterWrite}(this->Get{attNameUpper}{attTypeName}()).c_str();
+WRITES_IMPL_TEMPLATE = """if (this->Has{attNameUpper}()) {{
+        element.append_attribute("{attNameLower}") = {converterWrite}(this->Get{attNameUpper}()).c_str();
         wroteAttribute = true;
     }}"""
     
-CHECKERS_IMPL_TEMPLATE = """bool Att{attGroupNameUpper}::Has{attNameUpper}{attTypeName}( )
+CHECKERS_IMPL_TEMPLATE = """bool Att{attGroupNameUpper}::Has{attNameUpper}( )
 {{
     return (m_{attNameLowerJoined}{attTypeName} != {attDefault});
 }}
