@@ -26,8 +26,8 @@ There is a modified CPP script ```tools/lang/cplusplus_vrv.py``` that can be act
 
 Additional C++ includes are in the ```tools/includes/vrv``` directory. The code will be generated into a ./libmei sub-directory at organized in Verovio.
 
-A compiled version of the 2013 schema with the latest page-based customization is available in ```mei/xxxx-xx-xx/mei-compiled.xml```.
+A compiled version of the 2013 schema with the latest page-based customization is available in ```mei/xxxx-xx-xx/mei-page-based.xml.odd```.
 
 To generate the code, simply
 
-    python tools/parseschema2.py -l vrv -o path_to_verovio_directory -i tools/includes/vrv mei/2013-11-05/mei-compiled.xml
+    python tools/parseschema2.py -l vrv -o path_to_verovio_directory -i tools/includes/vrv mei/2013-11-05/mei-page-based.xml.odd
