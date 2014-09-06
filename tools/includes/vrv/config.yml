@@ -171,7 +171,7 @@ modules:
             # att.note.log.mensural
             lig: 
                 type: data_LIGATURE
-            # att.mensur.default.log
+            # att.mensural.log
             mensur.dot: 
                 type: data_BOOLEAN
             mensur.sign: 
