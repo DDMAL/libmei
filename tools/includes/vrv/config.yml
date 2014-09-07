@@ -7,6 +7,9 @@ defaults:
     char: 
         default: 0
         converters: [StrToInt, IntToStr]
+    data_ACCIDENTAL_EXPLICIT:
+        default: ACCIDENTAL_EXPLICIT_NONE
+        converters: [StrToAccidentalExplicit, AccidentalExplicitToStr]
     data_ACCIDENTAL_IMPLICIT:
         default: ACCIDENTAL_IMPLICIT_NONE
         converters: [StrToAccidentalImplicit, AccidentalImplicitToStr]
@@ -61,6 +64,9 @@ defaults:
 modules:
     shared:
         attributes:
+            # att.accidental
+            accid: 
+                type: data_ACCIDENTAL_EXPLICIT
             # att.augmentdots
             dots:
                 type: char            
@@ -142,14 +148,25 @@ modules:
             # att.meterSigDefault.vis
             meter.sym: 
                 type: data_METERSIGN
+            # att.octave
+            oct: 
+                type: char
             # att.octavedisplacement
             dis: 
                 type: data_OCTAVE_DIS
             dis.place: 
                 type: data_PLACE
+            # att.pitch
+            pname: 
+                type: data_PITCHNAME
             # att.slashcount
             slash: 
                 type: char
+            # att.staffloc.pitched
+            oloc: 
+                type: char
+            ploc: 
+                type: data_PITCHNAME
             # att.stemmed
             stem.dir: 
                 type: data_STEMDIRECTION
