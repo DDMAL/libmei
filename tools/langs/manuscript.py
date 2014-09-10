@@ -37,31 +37,55 @@ LICENSE = """
 """
 
 EXTRAS = """
-createEntry "(tagname) {
+    createEntry "(tagname) {
     return CreateDictionary(tagname, CreateDictionary('attrs', CreateDictionary(), 'children', CreateSparseArray(), 'text', '', 'tail', ''));
 }"
-getChildren "(obj) {
+    getChildren "(obj) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
     return el['children'];
 }"
-addChild "(obj, child) {
+    setChildren "(obj, childarr) {
+        props = obj.GetPropertyNames();
+        objname = props[0];
+        el = obj[objname];
+        el['children'] = childarr;
+}"
+    addChildAtPosition "(obj, child, position) {
+        c = getChildren(obj);
+        r = CreateSparseArray();
+        // copy the children to the new array. Add two
+        // beyond the length since we'll be adding a new element.
+        for i = c.Length + 2 {
+            if (i = position) {
+                r[i] = child;
+                i = i + 1;
+            } else {
+                r[i] = c[i];
+            }
+        }
+        setChildren(obj, r);
+}"
+    addChild "(obj, child) {
     c = getChildren(obj);
     c.Push(child);
 }"
-getAttributes "(obj) {
+    getAttributes "(obj) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
     return el['attrs'];
 }"
-addAttribute "(obj, attrname, attrval) {
+    addAttribute "(obj, attrname, attrval) {
     a = getAttributes(obj);
-    a[attrname] = attrval;
-}"
+    // check and replace any newlines
 
-getAttribute "(obj, attrname) {
+    val = _encodeEntities(attrval);
+
+    a[attrname] = val;
+}"
+    getAttribute "(obj, attrname) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
@@ -72,14 +96,28 @@ getAttribute "(obj, attrname) {
         return false;
     }
 }"
-//sets all attributes, wiping out any previous ones
-setAttributes "(obj, attrs) {
+    setAttributes "(obj, attrs) {
+    //sets all attributes, wiping out any previous ones
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
-    el['attrs'] = attrs;
+    el['attrs'] = CreateDictionary();
+
+    // this will provide character encoding
+    for each Pair a in attrs
+    {
+        addAttribute(a.Name, a.Value);
+    }
 }"
-removeAttribute "(obj, attrname) {
+    getId "(obj)
+    {
+        return getAttribute(obj, 'xml:id');
+}"
+    setId "(obj, value)
+    {
+        addAttribute(obj, 'xml:id', value);
+}"
+    removeAttribute "(obj, attrname) {
     // since there are no delete functions
     // for dictionaries, we set the attribute
     // to a blank space and this will get 
@@ -87,36 +125,70 @@ removeAttribute "(obj, attrname) {
     a = getAttributes(obj);
     a[attrname] = ' ';
 }"
-getName "(obj) {
+    getName "(obj) {
     n = '';
     props = obj.GetPropertyNames();
     return props[0];
 }"
-setText "(obj, val) {
+    setText "(obj, val) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
-    el['text'] = val;
+    el['text'] = _encodeEntities(val);
 }"
-getText "(obj) {
+    getText "(obj) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
     return el['text'];
 }"
-setTail "(obj, val) {
+    setTail "(obj, val) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
-    el['tail'] = val;
+    el['tail'] = _encodeEntities(val);
 }"
-getTail "(obj) {
+    getTail "(obj) {
     props = obj.GetPropertyNames();
     objname = props[0];
     el = obj[objname];
     return el['tail'];
 }"
-createXmlTag "(name, attributesList, isTerminal) {
+    getElementsByName "(name) {
+    if (not Self.flattened) {
+        return false;
+    }
+    res = CreateSparseArray();
+    for each e in Self.flattened {
+        if (getName(e) = name) {
+            res.Push(e);
+        }
+    }
+    return res;
+}"
+    getPositionInDocument "(obj) {
+    if (not Self.flattened) {
+        return false;
+    }
+    for i = 0 to Length(Self.flattened) {
+        if (Self.flattened[i] = obj) {
+            return i;
+        }
+    }
+    return false;
+}"
+    lookBack "(from, name) {
+    if (not Self.flattened) {
+        return false;
+    }
+    pos = getPositionInDocument(from);
+    for i = pos to 0 step -1 {
+        if (getName(Self.flattened[i]) = name) {
+            return Self.flattened[i];
+        }
+    }
+}"
+    createXmlTag "(name, attributesList, isTerminal) {
     attrstring = '';
     spacer = '';
     if (attributesList) {
@@ -126,7 +198,8 @@ createXmlTag "(name, attributesList, isTerminal) {
                 if (attrstring = '') {
                     // Don't add initial space
                     attrstring = attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
-                } else {
+                }
+                else {
                     attrstring = attrstring & spacer & attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
                 }
             }
@@ -138,7 +211,7 @@ createXmlTag "(name, attributesList, isTerminal) {
         return '<' & name & spacer & attrstring & '>';
     }
 }"
-convertDictToXml "(meiel) {
+    convertDictToXml "(meiel, indent) {
     xmlout = '';
     terminalTag = true;
     nm = libmei.getName(meiel);
@@ -146,7 +219,12 @@ convertDictToXml "(meiel) {
     ch = libmei.getChildren(meiel);
     tx = libmei.getText(meiel);
     tl = libmei.getTail(meiel);
-    
+    tabs = '';
+    if (indent > 0) {
+        // add four spaces for every indent level.
+        arr = utils.CreateArrayBlanket('    ', indent);
+        tabs = JoinStrings(arr, '');
+    }
     if (ch or Length(tx) > 0) {
         terminalTag = false;
     }
@@ -154,13 +232,18 @@ convertDictToXml "(meiel) {
     xmlout = createXmlTag(nm, at, terminalTag);
 
     if (Length(tx) > 0) {
+        endchar = '';
         xmlout = xmlout & tx;
+    } else {
+        xmlout = xmlout & '\n';
     }
 
-    if (ch) {
+    if (ch.Length > 0) {
+        indent = indent + 1;
         for each child in ch {
-            xmlout = xmlout & convertDictToXml(child);
+            xmlout = xmlout & tabs & convertDictToXml(child, indent);
         }
+        indent = indent - 1;
     }
 
     if (Length(tl) > 0) {
@@ -172,24 +255,32 @@ convertDictToXml "(meiel) {
     // take care of the terminal tag here for those 
     // that do.
     if (not terminalTag) {
-        xmlout = xmlout & '</' & nm & '>';
+        if (Length(tx) > 0) {
+            xmlout = xmlout & '</' & nm & '>\n';
+        } else {
+            tabs = Substring(tabs, 0, Length(tabs) - 1);
+            xmlout = xmlout & tabs & '</' & nm & '>\n';
+        }
     }
 
     return xmlout;
 }"
-meiDocumentToFile "(meidoc, filename) {
+    meiDocumentToFile "(meidoc, filename) {
     xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-8' & Chr(34) & ' ?>\n';
-    meiout = xdecl & convertDictToXml(meidoc[0]);
+    indent = 0;
+    meiout = xdecl & convertDictToXml(meidoc[0], indent);
     Sibelius.CreateTextFile(filename);
-    Sibelius.AppendTextFile(filename, meiout, 0);
+    Sibelius.AppendTextFile(filename, meiout, 1);
 
     return true;
 }"
-documentFromFile "(filename) {
+    documentFromFile "(filename) {
+    Self._property:flattened = CreateSparseArray();
     res = _xmlImport(filename);
+
     return res;
 }"
-popMode "(arr) {
+    popMode "(arr) {
     if (arr.Length > 0) {
         return arr.Pop();
     } else {
@@ -197,7 +288,29 @@ popMode "(arr) {
         return 15;
     }
 }"
-_xmlImport "(filename) {
+    _encodeEntities "(string) 
+    {
+        /*
+            Returns an entity-encoded version of the string.
+        */
+        nc = Chr(10);
+        quote = Chr(34);
+        apos = Chr(39);
+        lthan = Chr(60);
+        gthan = Chr(62);
+        amp = Chr(38);
+        
+        // &amp; must go first so it doesn't replace it in the character encoding
+        string = utils.Replace(string, amp, '&amp;', true);
+        string = utils.Replace(string, nc, '&#10;', true);
+        string = utils.Replace(string, quote, '&quot;', true);
+        string = utils.Replace(string, apos, '&apos;', true);
+        string = utils.Replace(string, lthan, '&lt;', true);
+        string = utils.Replace(string, gthan, '&gt;', true);
+
+        return string;
+    }"
+    _xmlImport "(filename) {
     /* 
         Based on the Quick-n-Dirty XML parser at
         http://www.javaworld.com/javatips/jw-javatip128.html
@@ -376,7 +489,7 @@ _xmlImport "(filename) {
                                 sb.Push(Chr(34));
                             }
                             case ('apos') {
-                                sb.Push('\'');
+                                sb.Push(Chr(39));
                             }
                             default {
                                 if (CharAt(cent, 0) = '#') {
@@ -405,6 +518,7 @@ _xmlImport "(filename) {
                     ent = createEntry(tagName);
                     libmei.setAttributes(ent, attrs);
                     libmei.addChild(parentTag[-1], ent);
+                    Self.flattened.Push(ent);
 
                     // doc.endElement(tagName);
                     if (depth = 0) {
@@ -431,6 +545,7 @@ _xmlImport "(filename) {
                             libmei.setAttributes(ent, attrs);
                             libmei.addChild(parentTag[-1], ent);
                             parentTag.Push(ent);
+                            Self.flattened.Push(ent);
 
                             sb.Length = 0;
                             depth = depth + 1;
@@ -482,8 +597,7 @@ _xmlImport "(filename) {
                             mode = IN_TAG;
                         }
                         // not sure what this does
-                        case (' \r\n\u0009') {
-                            // ' \r\n\u0009'.indexOf(c) >= 0
+                        case (' \u0009') {
                             sb.Push(' ');
                         }
                         case ('&') {
@@ -499,12 +613,12 @@ _xmlImport "(filename) {
                 case (ATTRIBUTE_RVALUE) {
                     //trace('rvalue');
                     switch(c) {
-                        case (Chr(34) or '\'') {
+                        case (Chr(34) or Chr(39)) {
                             quotec = c;
                             mode = QUOTE;
                         }
                         case (' ') {
-                            trace(' is whitespace ');
+                            ;
                         }
                         default {
                             trace('Error in attribute processing at line ' & lnum & ' col' & col);
@@ -536,7 +650,7 @@ _xmlImport "(filename) {
                             mode = ATTRIBUTE_RVALUE;
                         }
                         case (' ') {
-                            trace (' is whitespace');
+                            ;
                         }
                         default {
                             trace('Error in attribute processing at line ' & lnum & ' col' & col);
@@ -556,6 +670,7 @@ _xmlImport "(filename) {
                                 libmei.addChild(parentTag[-1], ent);
                             }
                             parentTag.Push(ent);
+                            Self.flattened.Push(ent);
 
                             depth = depth + 1;
                             tagName = '';
@@ -565,7 +680,7 @@ _xmlImport "(filename) {
                             mode = SINGLE_TAG;
                         }
                         case (' ') {
-                            trace ('is whitespace');
+                            ;
                         }
                         default {
                             mode = ATTRIBUTE_LVALUE;
@@ -576,12 +691,6 @@ _xmlImport "(filename) {
             }
         }
         lnum = lnum + 1;
-    }
-    if (mode = DONE) {
-        //doc.endDocument();
-        trace('done');
-    } else {
-        trace('missing end tag!');
     }
     return meidoc;
 }"
