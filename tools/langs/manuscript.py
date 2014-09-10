@@ -1,10 +1,8 @@
 import os
-import codecs
-import re
 import logging
 lg = logging.getLogger('schemaparser')
 
-LANG_NAME="ManuScript"
+LANG_NAME = "ManuScript"
 
 METHOD_TEMPLATE = """
 {className} "() {{
@@ -14,7 +12,7 @@ METHOD_TEMPLATE = """
 LICENSE = """
     _License "() {{
     return 'Copyright (c) 2011-2013 {authors}
-    
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     Software), to deal in the Software without restriction, including
@@ -22,10 +20,10 @@ LICENSE = """
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -120,7 +118,7 @@ EXTRAS = """
     removeAttribute "(obj, attrname) {
     // since there are no delete functions
     // for dictionaries, we set the attribute
-    // to a blank space and this will get 
+    // to a blank space and this will get
     // removed when converted to XML.
     a = getAttributes(obj);
     a[attrname] = ' ';
@@ -251,8 +249,8 @@ EXTRAS = """
     }
 
     // convertDictToXml takes care of adding the />
-    // for tags that do not have children. We'll 
-    // take care of the terminal tag here for those 
+    // for tags that do not have children. We'll
+    // take care of the terminal tag here for those
     // that do.
     if (not terminalTag) {
         if (Length(tx) > 0) {
@@ -288,7 +286,7 @@ EXTRAS = """
         return 15;
     }
 }"
-    _encodeEntities "(string) 
+    _encodeEntities "(string)
     {
         /*
             Returns an entity-encoded version of the string.
@@ -299,7 +297,7 @@ EXTRAS = """
         lthan = Chr(60);
         gthan = Chr(62);
         amp = Chr(38);
-        
+
         // &amp; must go first so it doesn't replace it in the character encoding
         string = utils.Replace(string, amp, '&amp;', true);
         string = utils.Replace(string, nc, '&#10;', true);
@@ -311,7 +309,7 @@ EXTRAS = """
         return string;
     }"
     _xmlImport "(filename) {
-    /* 
+    /*
         Based on the Quick-n-Dirty XML parser at
         http://www.javaworld.com/javatips/jw-javatip128.html
     */
@@ -698,22 +696,25 @@ EXTRAS = """
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
-FILE_TEMPLATE="""
+FILE_TEMPLATE = """
 {{
     {license}
     {classes}
     {extras}
 }}
 """
+
+
 def create(schema, outdir):
     lg.debug("Begin ManuScript Output")
     __create_manuscript_classes(schema, outdir)
 
     lg.debug("Success!")
 
+
 def __create_manuscript_classes(schema, outdir):
     output = ""
-    for module,elements in sorted(schema.element_structure.iteritems()):
+    for module, elements in sorted(schema.element_structure.iteritems()):
         if not elements:
             continue
 
