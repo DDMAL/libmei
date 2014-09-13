@@ -315,7 +315,7 @@ TEST(TestMeiElement, TestRemoveChildByName) {
     p->setChildren(chn);
     ASSERT_TRUE(p->hasChildren("accid"));
     ASSERT_EQ(3, p->getChildren().size());
-    p->removeChildrenWithName("accid");
+    p->removeChildrenByName("accid");
 
     ASSERT_EQ(1, p->getChildren().size());
     ASSERT_FALSE(p->hasChildren("accid"));

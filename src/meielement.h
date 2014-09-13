@@ -229,7 +229,7 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Remove the children from this element that have a given name.
          */
-        void removeChildrenWithName(std::string cname);
+        void removeChildrenByName(std::string cname);
 
         /**
          * \brief Remove the specified element as a child from this element.

@@ -301,7 +301,7 @@ void mei::MeiElement::removeChild(MeiElement *child) {
     updateDocument();
 }
 
-void mei::MeiElement::removeChildrenWithName(string name) {
+void mei::MeiElement::removeChildrenByName(string name) {
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
         if (name == (*iter)->getName()) {

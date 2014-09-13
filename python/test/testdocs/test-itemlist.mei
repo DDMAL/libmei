@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../odd/schemata/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../odd/schemata/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<mei xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.music-encoding.org/ns/mei"
+  meiversion="2013">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title>A Collection of Strathspey or old Highland Reels</title>
+        <composer>
+          <persName>
+            <name type="forename">Angus</name> 
+            <name type="surname">Cumming</name> 
+          </persName>
+        </composer>
+      </titleStmt>
+      <pubStmt>
+        <unpub>incomplete</unpub>
+      </pubStmt>
+      <sourceDesc>
+        <source xml:id="BCul-SRC-AC.1">
+          <titleStmt>
+            <title type="main">A Collection of Strathspey or old Highland Reels</title>
+            <respStmt>
+              <resp>Composer</resp>
+              <persName>
+                <name type="forename">Angus</name> 
+                <name type="surename">Cumming</name> 
+              </persName>
+            </respStmt>
+          </titleStmt>
+          <editionStmt>
+            <edition>1st edition</edition>
+          </editionStmt>
+          <pubStmt>
+            <publisher><geogName>Edinburgh</geogName></publisher>
+            <date>1780</date>
+          </pubStmt>
+          <physDesc>
+            <extent>22 pp</extent>
+            <dimensions unit="cm">
+              <num>26</num>✕<num>35</num>             
+            </dimensions>
+          </physDesc>
+          <itemList>
+            <item>
+              <physLoc>
+                <repository><identifier>GB-A</identifier></repository>
+                <identifier>e.284.c</identifier>
+              </physLoc>
+            </item>
+            <item>
+            <physLoc>
+              <repository><identifier>GB-DU</identifier></repository>
+              <identifier>53677</identifier>
+            </physLoc>
+            </item>
+            <item>  
+              <physLoc>
+                <repository><identifier>GB-En</identifier></repository>
+                <identifier>Glen 234</identifier>
+              </physLoc>
+            </item>
+            <item>  
+              <physLoc>
+                <repository><identifier>GB-Gm</identifier></repository>
+                <identifier>M8755</identifier>
+              </physLoc>
+            </item>
+            <item>  
+              <physLoc>
+                <repository><identifier>GB-Gu</identifier></repository>
+                <identifier>Ca11-y.24</identifier>
+              </physLoc>
+            </item>
+            <item>  
+              <physLoc>
+                <repository><identifier>GB-Lbl</identifier></repository>
+              </physLoc>
+            </item>
+            <item>  
+              <physLoc>
+                <repository><identifier>GB-Lbl</identifier></repository>
+              </physLoc>
+            </item>
+            <item>
+              <physLoc>
+                <repository><identifier>GB-P</identifier></repository>
+                <identifier>O4 34721</identifier>
+              </physLoc>
+            </item>
+          </itemList>
+          <relationList>
+            <relation rel="isEmbodimentOf" target="#BCul-EXPR-AC.1"/>
+          </relationList>
+        </source>
+      </sourceDesc>
+    </fileDesc>
+    <workDesc>
+      <work xml:id="BCul-W-AC.1">
+        <titleStmt>
+          <title type="main">A Collection of Strathspey or old Highland Reels</title>
+          <respStmt>
+            <resp>Composer</resp>
+            <persName>
+              <name type="forename">Angus</name> 
+              <name type="surename">Cumming</name> 
+            </persName>
+          </respStmt>
+        </titleStmt>
+        <expressionList>
+          <expression xml:id="BCul-EXPR-AC.1">
+            <relationList>
+              <relation rel="hasEmbodiment" target="#BCul-SRC-AC.1"/>
+            </relationList>
+          </expression>
+        </expressionList>
+      </work>
+    </workDesc>
+  </meiHead>
+</mei>

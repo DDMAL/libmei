@@ -417,7 +417,7 @@ BOOST_PYTHON_MODULE(_libmei) {
 
         .def("getChildrenByName", &MeiElement::getChildrenByName)
         .def("deleteAllChildren", &MeiElement::deleteAllChildren)
-        .def("removeChildrenWithName", &MeiElement::removeChildrenWithName)
+        .def("removeChildrenByName", &MeiElement::removeChildrenByName)
         .def("removeChild", &MeiElement::removeChild)
         .def("hasChildren", hasChildrenBool)
         .def("hasChildren", hasChildrenArgs)
@@ -434,6 +434,7 @@ BOOST_PYTHON_MODULE(_libmei) {
 
     class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())
         .def(init<MeiNamespace*, string, string>())
+        .def(init<const MeiAttribute&>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
         .def("__str__", &MeiAttribute_Print)
