@@ -489,3 +489,35 @@ TEST(TestMeiElement, TestLookBack) {
     ASSERT_EQ(staff->lookBack("mei"), m);
 }
 
+TEST(TestMeiElement, TestPrintElement) {
+    MeiElement *m = new MeiElement("mei");
+    MeiElement *music = new MeiElement("music");
+    MeiElement *body = new MeiElement("body");
+    MeiElement *staff = new MeiElement("staff");
+    Note *note = new Note();
+    Note *note2 = new Note();
+    
+    MeiDocument *doc = new MeiDocument();
+    doc->setRootElement(m);
+    
+    m->addChild(music);
+    music->addChild(body);
+    body->addChild(staff);
+    staff->addChild(note);
+    staff->addChild(note2);
+    
+    note->m_NoteVis.setHeadshape("diamond");
+    note->m_Pitch.setPname("c");
+
+    note2->m_Pitch.setPname("d");
+    
+    m->printElement();
+    
+    /* 
+        The printElement method does not return anything, so the value of it can't really be tested.
+        This test simply ensures that it is capable of being called without failing. 
+        So we just assert that everything's OK here if we haven't segfaulted by now.
+    */
+    ASSERT_TRUE(true);
+}
+

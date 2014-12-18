@@ -7,6 +7,8 @@ class MeiElementTest(unittest.TestCase):
 
     def setUp(self):
         pass
+    def tearDown(self):
+        pass
 
     def test_copy_constructor(self):
         note = MeiElement("note")
@@ -377,6 +379,25 @@ class MeiElementTest(unittest.TestCase):
         self.assertEqual(m1.lookBack('mei'), m)
 
         self.assertEqual(s1.lookBack('mei'), m)
+
+    def test_printElement(self):
+        m = MeiElement("mei")
+        m1 = MeiElement("music")
+        b1 = MeiElement("body")
+        s1 = MeiElement("staff")
+        n1 = MeiElement("note")
+
+        m.addAttribute("meiversion", "2013")
+
+        doc = MeiDocument()
+        doc.setRootElement(m)
+        m.addChild(m1)
+        m1.addChild(b1)
+        b1.addChild(s1)
+        s1.addChild(n1)
+
+        m.printElement()
+        n1.printElement()
 
 
 def suite():

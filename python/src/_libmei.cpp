@@ -295,6 +295,8 @@ BOOST_PYTHON_MODULE(_libmei) {
     void (MeiElement::*setDocument)(MeiDocument*) = &MeiElement::setDocument;
     bool (MeiElement::*hasChildrenBool)() = &MeiElement::hasChildren;
     bool (MeiElement::*hasChildrenArgs)(string) = &MeiElement::hasChildren;
+    void (MeiElement::*printElement)() = &MeiElement::printElement;
+    //    void (MeiElement::*printElementAtLevel)(int) = &MeiElement::printElement;
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     
@@ -430,6 +432,7 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("lookBack", &MeiElement::lookBack, return_value_policy<reference_existing_object>())
         .def("flatten", &MeiElement::flatten)
         .def("updateDocument", &MeiElement::updateDocument)
+        .def("printElement", printElement)
     ;
 
     class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())

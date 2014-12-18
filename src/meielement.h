@@ -304,12 +304,12 @@ class MEI_EXPORT MeiElement
         const std::vector<MeiElement*> flatten();
 
         /** \brief Print a tree of elements with this one at the root. */
-        void print();
+        void printElement();
 
         /** \brief Print a tree starting at this element, but indented.
          *  \param l the indentation level.
          */
-        void print(int l);
+        void printElement(int indentationLevel);
         template<typename T> static MeiElement* createT(std::string id);
 
         void updateDocument();

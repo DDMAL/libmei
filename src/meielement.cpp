@@ -378,15 +378,16 @@ int mei::MeiElement::getPositionInDocument() {
     return this->document->getPositionInDocument(this);
 }
 
-void mei::MeiElement::print() {
-    print(0);
+void mei::MeiElement::printElement() {
+    printElement(0);
 }
 
-void mei::MeiElement::print(int level) {
-    printf("%*s ", level + (int)getName().length(), getName().c_str());
+void mei::MeiElement::printElement(int level) {
+    printf("%*s", level, "");
+    printf("{%s", getName().c_str());
 
     for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter !=attributes.end(); ++iter) {
-        printf("%s=%s ", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
+        printf(" %s=\"%s\"", (*iter)->getName().c_str(), (*iter)->getValue().c_str());
     }
 
     if (value != "") {
@@ -396,11 +397,11 @@ void mei::MeiElement::print(int level) {
         printf(" (t=%s)", tail.c_str());
     }
 
-    printf("\n");
+    printf("}\n");
 
     vector<MeiElement*>::iterator iter = this->children.begin();
     while (iter != this->children.end()) {
-        (*iter)->print(level+2);
+        (*iter)->printElement(level+2);
         iter++;
     }
 }
