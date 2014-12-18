@@ -108,7 +108,7 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
 MeiDocument* XmlImportImpl::documentFromText(string text) {
     xmlDoc *doc = NULL;
     int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOWARNING;
-    doc = xmlReadMemory(text.c_str(), text.length(), NULL, NULL, options);
+    doc = xmlReadMemory(text.c_str(), (int)text.length(), NULL, NULL, options);
     
     xmlNodePtr child = doc->children;
     while (child != NULL) {
