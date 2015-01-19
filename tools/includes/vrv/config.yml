@@ -25,6 +25,12 @@ defaults:
     data_CON:
         default: CON_NONE
         converters: [StrToCon, ConToStr]
+    data_FONTSTYLE:
+        default: FONTSTYLE_NONE
+        converters: [StrToFontstyle, FontstyleToStr]
+    data_FONTWEIGHT:
+        default: FONTWEIGHT_NONE
+        converters: [StrToFontweight, FontweightToStr]
     data_KEYSIGNATURE:
         default: KEYSIGNATURE_NONE
         converters: [StrToKeySignature, KeySignatureToStr]
@@ -183,6 +189,11 @@ modules:
                 type: data_CON
             wordpos: 
                 type: data_WORDPOS
+            # att.typography
+            fontstyle: 
+                type: data_FONTSTYLE
+            fontweight: 
+                type: data_FONTWEIGHT
     mensural:
         attributes:
             # att.note.log.mensural
