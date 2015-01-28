@@ -64,6 +64,9 @@ defaults:
     data_STEMPOSITION:
         default: STEMPOSITION_NONE
         converters: [StrToStemPosition, StemPositionToStr]
+    data_TIE:
+        default: TIE_NONE
+        converters: [StrToTie, TieToStr]
     data_WORDPOS:
         default: WORDPOS_NONE
         converters: [StrToWordPos, WordPosToStr]
@@ -189,6 +192,9 @@ modules:
                 type: data_CON
             wordpos: 
                 type: data_WORDPOS
+            # att.tiepresent
+            tie: 
+                type: data_TIE
             # att.typography
             fontstyle: 
                 type: data_FONTSTYLE
