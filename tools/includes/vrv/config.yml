@@ -7,6 +7,9 @@ defaults:
     char: 
         default: 0
         converters: [StrToInt, IntToStr]
+    double: 
+        default: 0.0
+        converters: [StrToDbl, DblToStr]
     data_ACCIDENTAL_EXPLICIT:
         default: ACCIDENTAL_EXPLICIT_NONE
         converters: [StrToAccidentalExplicit, AccidentalExplicitToStr]
@@ -70,6 +73,9 @@ defaults:
     data_WORDPOS:
         default: WORDPOS_NONE
         converters: [StrToWordPos, WordPosToStr]
+    typedef_TSTAMP2:
+        default: std::make_pair(-1,-1.0)
+        converters: [StrToTstamp2, Tstamp2ToStr]
 modules:
     shared:
         attributes:
@@ -195,6 +201,13 @@ modules:
             # att.tiepresent
             tie: 
                 type: data_TIE
+            # att.timestamp.musical
+            tstamp:
+                type: double
+                default: -1.0
+            # att.timestamp2.musical
+            tstamp2:
+                type: typedef_TSTAMP2
             # att.typography
             fontstyle: 
                 type: data_FONTSTYLE
