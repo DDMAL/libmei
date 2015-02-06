@@ -48,6 +48,58 @@ CHECKERS_IMPL_TEMPLATE = """bool Att{attGroupNameUpper}::Has{attNameUpper}( )
 
 """
 
+#
+# These templates generate a module level static method for setting attribute on an unspcified Object
+#
+
+SETTERS_IMPL_TEMPLATE_START = """bool Att::Set{moduleNameCap}( Object *element, std::string attrType, std::string attrValue ) {{
+"""
+
+SETTERS_IMPL_TEMPLATE_GRP_START = """    if (dynamic_cast<Att{attGroupNameUpper}*>(element) ) {{
+        Att{attGroupNameUpper} *att = dynamic_cast<Att{attGroupNameUpper}*>(element);
+"""
+
+SETTERS_IMPL_TEMPLATE = """        if (attrType == "{attNameLowerJoined}{attTypeName}") {{
+            att->Set{attNameUpper}(att->{converterRead}(attrValue));
+            return true;
+        }}
+"""
+
+SETTERS_IMPL_TEMPLATE_GRP_END = """    }}
+"""
+
+SETTERS_IMPL_TEMPLATE_END = """
+    return false;
+}}
+
+"""
+
+#
+# These templates generate a module level static method for getting attributes of an unspcified Object
+#
+
+GETTERS_IMPL_TEMPLATE_START = """void Att::Get{moduleNameCap}( Object *element, ArrayOfStrAttr *attributes ) {{
+"""
+
+GETTERS_IMPL_TEMPLATE_GRP_START = """    if (dynamic_cast<Att{attGroupNameUpper}*>(element) ) {{
+        Att{attGroupNameUpper} *att = dynamic_cast<Att{attGroupNameUpper}*>(element);
+"""
+
+GETTERS_IMPL_TEMPLATE = """        if (att->Has{attNameUpper}()) {{
+            attributes->push_back(std::make_pair("{attNameLowerJoined}{attTypeName}", att->{converterWrite}(att->Get{attNameUpper}())));
+        }}
+"""
+
+GETTERS_IMPL_TEMPLATE_GRP_END = """    }}
+"""
+
+GETTERS_IMPL_TEMPLATE_END = """
+}}
+    
+}} // vrv namespace
+    
+"""
+
 NAMESPACE_TEMPLATE = """MeiNamespace *s = new MeiNamespace("{prefix}", "{href}");\n    """
 
 CLASSES_IMPL_TEMPLATE = """{license}
@@ -56,13 +108,13 @@ CLASSES_IMPL_TEMPLATE = """{license}
 
 //----------------------------------------------------------------------------
 
+#include "object.h"
+
 /* #include_block */
 
 namespace vrv {{
     
 {elements}
-
-}} // vrv namespace
 
 """
 
@@ -397,6 +449,8 @@ def __create_att_classes(schema, outdir, includes_dir):
         fullout = ""
         classes = ""
         methods = ""
+        setters = ""
+        getters = ""
         
         if not atgroup:
             continue
@@ -409,6 +463,10 @@ def __create_att_classes(schema, outdir, includes_dir):
             reads = ""
             writes = ""
             checkers = ""
+            setters += SETTERS_IMPL_TEMPLATE_GRP_START.format(**{ "attGroupNameUpper": schema.cc(schema.strpatt(gp)) })
+            getters += GETTERS_IMPL_TEMPLATE_GRP_START.format(**{ "attGroupNameUpper": schema.cc(schema.strpatt(gp)) })
+
+
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
@@ -443,6 +501,8 @@ def __create_att_classes(schema, outdir, includes_dir):
                 reads += READS_IMPL_TEMPLATE.format(**attsubstr)
                 writes += WRITES_IMPL_TEMPLATE.format(**attsubstr)
                 checkers += CHECKERS_IMPL_TEMPLATE.format(**attsubstr)
+                setters += SETTERS_IMPL_TEMPLATE.format(**attsubstr)
+                getters += GETTERS_IMPL_TEMPLATE.format(**attsubstr)
             
             clsubstr = {
                 "attGroupNameUpper": schema.cc(schema.strpatt(gp)),
@@ -453,15 +513,24 @@ def __create_att_classes(schema, outdir, includes_dir):
                 "attNameLower": "att{0}".format(att)
             }
             classes += MIXIN_CLASS_IMPL_CONS_TEMPLATE.format(**clsubstr)
+            setters += SETTERS_IMPL_TEMPLATE_GRP_END.format(**attsubstr)
+            getters += GETTERS_IMPL_TEMPLATE_GRP_END.format(**attsubstr)
             
         tplvars = {
             "license": LICENSE.format(authors=AUTHORS),
             "moduleNameLower": "atts_{0}".format(module.lower()),
+            "moduleNameCap": format(module.capitalize()),
             "elements": classes.strip()
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**tplvars)
         fmi = open(os.path.join(outdir, "atts_{0}.cpp".format(module.lower())), 'w')
         fmi.write(fullout)
+        fmi.write(SETTERS_IMPL_TEMPLATE_START.format(**tplvars))
+        fmi.write(setters)
+        fmi.write(SETTERS_IMPL_TEMPLATE_END.format(**tplvars))
+        fmi.write(GETTERS_IMPL_TEMPLATE_START.format(**tplvars))
+        fmi.write(getters)
+        fmi.write(GETTERS_IMPL_TEMPLATE_END.format(**tplvars))
         fmi.close()
         lg.debug("\tCreated atts_{0}.cpp".format(module.lower()))
 
