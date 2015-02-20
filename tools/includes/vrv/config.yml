@@ -28,6 +28,9 @@ defaults:
     data_CON:
         default: CON_NONE
         converters: [StrToCon, ConToStr]
+    data_DURATION:
+        default: DURATION_NONE
+        converters: [StrToDur, DurToStr]
     data_FONTSTYLE:
         default: FONTSTYLE_NONE
         converters: [StrToFontstyle, FontstyleToStr]
@@ -108,13 +111,11 @@ modules:
                 type: data_CLEFSHAPE
             # att.duration.musical
             dur: 
-                type: int
-                converters: [StrToDur, DurToStr]
+                type: data_DURATION
+                default: DURATION_4
             # att.duration.performed
             dur.ges: 
-                type: int
-                default: VRV_UNSET
-                converters: [StrToDur, DurToStr]
+                type: data_DURATION
             # att.duration.ratio
             num: 
                 type: int
