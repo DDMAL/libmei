@@ -52,6 +52,12 @@ defaults:
     data_MODE:
         default: MODE_NONE
         converters: [StrToMode, ModeToStr]
+    data_MODUSMAIOR:
+        default: MODUSMAIOR_NONE
+        converters: [StrToModusmaior, ModusmaiorToStr]
+    data_MODUSMINOR:
+        default: MODUSMINOR_NONE
+        converters: [StrToModusminor, ModusminorToStr]
     data_OCTAVE_DIS:
         default: OCTAVE_DIS_NONE
         converters: [StrToOctaveDis, OctaveDisToStr]
@@ -64,6 +70,9 @@ defaults:
     data_PLACE:
         default: PLACE_NONE
         converters: [StrToPlace, PlaceToStr]
+    data_PROLATIO:
+        default: PROLATIO_NONE
+        converters: [StrToProlatio, ProlatioToStr]
     data_STEMDIRECTION:
         default: STEMDIRECTION_NONE
         converters: [StrToStemDirection, StemDirectionToStr]
@@ -73,6 +82,9 @@ defaults:
     data_TIE:
         default: TIE_NONE
         converters: [StrToTie, TieToStr]
+    data_TEMPUS:
+        default: TEMPUS_NONE
+        converters: [StrToTempus, TempusToStr]
     data_WORDPOS:
         default: WORDPOS_NONE
         converters: [StrToWordPos, WordPosToStr]
@@ -226,6 +238,15 @@ modules:
                 type: data_MENSURATIONSIGN 
             mensur.slash: 
                 type: char 
+            # att.mensural.shared
+            modusmaior:
+                type: data_MODUSMAIOR
+            modusminor:
+                type: data_MODUSMINOR
+            prolatio:
+                type: data_PROLATIO
+            tempus:
+                type: data_TEMPUS
             # att.mensur.vis
             orient: 
                 type: data_ORIENTATION
