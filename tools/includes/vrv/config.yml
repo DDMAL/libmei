@@ -237,7 +237,13 @@ modules:
             mensur.sign: 
                 type: data_MENSURATIONSIGN 
             mensur.slash: 
-                type: char 
+                type: char
+            proport.num: 
+                type: int
+                default: 1
+            proport.numbase:
+                type: int
+                default: 1  
             # att.mensural.shared
             modusmaior:
                 type: data_MODUSMAIOR
