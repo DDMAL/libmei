@@ -103,6 +103,7 @@ modules:
             # att.barLine.log
             rend: 
                 type: data_BARRENDITION
+                default: BARRENDITION_single
             # att.coloration
             colored: 
                 type: data_BOOLEAN
