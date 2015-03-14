@@ -1,0 +1,259 @@
+# Warning: do not use tabs, only spaces!
+---
+defaults:
+    int:
+        default: 0
+        converters: [StrToInt, IntToStr]
+    char: 
+        default: 0
+        converters: [StrToInt, IntToStr]
+    double: 
+        default: 0.0
+        converters: [StrToDbl, DblToStr]
+    data_ACCIDENTAL_EXPLICIT:
+        default: ACCIDENTAL_EXPLICIT_NONE
+        converters: [StrToAccidentalExplicit, AccidentalExplicitToStr]
+    data_ACCIDENTAL_IMPLICIT:
+        default: ACCIDENTAL_IMPLICIT_NONE
+        converters: [StrToAccidentalImplicit, AccidentalImplicitToStr]
+    data_BARRENDITION: 
+        default: BARRENDITION_NONE
+        converters: [StrToBarRendition, BarRenditionToStr]
+    data_BOOLEAN: 
+        default: BOOLEAN_NONE
+        converters: [StrToBool, BoolToStr]
+    data_CLEFSHAPE:
+        default: CLEFSHAPE_NONE
+        converters: [StrToClefShape, ClefShapeToStr]
+    data_CON:
+        default: CON_NONE
+        converters: [StrToCon, ConToStr]
+    data_DURATION:
+        default: DURATION_NONE
+        converters: [StrToDur, DurToStr]
+    data_FONTSTYLE:
+        default: FONTSTYLE_NONE
+        converters: [StrToFontstyle, FontstyleToStr]
+    data_FONTWEIGHT:
+        default: FONTWEIGHT_NONE
+        converters: [StrToFontweight, FontweightToStr]
+    data_KEYSIGNATURE:
+        default: KEYSIGNATURE_NONE
+        converters: [StrToKeySignature, KeySignatureToStr]
+    data_LIGATURE:
+        default: LIGATURE_NONE
+        converters: [StrToLigature, LigatureToStr]
+    data_MENSURATIONSIGN:
+        default: MENSURATIONSIGN_NONE
+        converters: [StrToMensurationSign, MensurationSignToStr]
+    data_METERSIGN:
+        default: METERSIGN_NONE
+        converters: [StrToMeterSign, MeterSignToStr]
+    data_MODE:
+        default: MODE_NONE
+        converters: [StrToMode, ModeToStr]
+    data_MODUSMAIOR:
+        default: MODUSMAIOR_NONE
+        converters: [StrToModusmaior, ModusmaiorToStr]
+    data_MODUSMINOR:
+        default: MODUSMINOR_NONE
+        converters: [StrToModusminor, ModusminorToStr]
+    data_OCTAVE_DIS:
+        default: OCTAVE_DIS_NONE
+        converters: [StrToOctaveDis, OctaveDisToStr]
+    data_ORIENTATION:
+        default: ORIENTATION_NONE
+        converters: [StrToOrientation, OrientationToStr]
+    data_PITCHNAME:
+        default: PITCHNAME_NONE
+        converters: [StrToPitchName, PitchNameToStr]
+    data_PLACE:
+        default: PLACE_NONE
+        converters: [StrToPlace, PlaceToStr]
+    data_PROLATIO:
+        default: PROLATIO_NONE
+        converters: [StrToProlatio, ProlatioToStr]
+    data_STEMDIRECTION:
+        default: STEMDIRECTION_NONE
+        converters: [StrToStemDirection, StemDirectionToStr]
+    data_STEMPOSITION:
+        default: STEMPOSITION_NONE
+        converters: [StrToStemPosition, StemPositionToStr]
+    data_TIE:
+        default: TIE_NONE
+        converters: [StrToTie, TieToStr]
+    data_TEMPUS:
+        default: TEMPUS_NONE
+        converters: [StrToTempus, TempusToStr]
+    data_WORDPOS:
+        default: WORDPOS_NONE
+        converters: [StrToWordPos, WordPosToStr]
+    typedef_TSTAMP2:
+        default: std::make_pair(-1,-1.0)
+        converters: [StrToTstamp2, Tstamp2ToStr]
+modules:
+    shared:
+        attributes:
+            # att.accidental
+            accid: 
+                type: data_ACCIDENTAL_EXPLICIT
+            # att.augmentdots
+            dots:
+                type: char            
+            # att.barLine.log
+            rend: 
+                type: data_BARRENDITION
+                default: BARRENDITION_single
+            # att.coloration
+            colored: 
+                type: data_BOOLEAN
+            # att.common
+            n: 
+                type: int
+            # att.cleffing.log
+            clef.shape: 
+                type: data_CLEFSHAPE
+            clef.line: 
+                type: char
+            clef.dis: 
+                type: data_OCTAVE_DIS
+            clef.dis.place: 
+                type: data_PLACE
+            # att.clefshape
+            shape: 
+                type: data_CLEFSHAPE
+            # att.duration.musical
+            dur: 
+                type: data_DURATION
+                default: DURATION_4
+            # att.duration.performed
+            dur.ges: 
+                type: data_DURATION
+            # att.duration.ratio
+            num: 
+                type: int
+                default: -1
+            numbase: 
+                type: int
+                default: -1
+            # att.fermatapresent
+            fermata: 
+                type: data_PLACE
+            # att.keySigDefault.log
+            key.accid: 
+                type: data_ACCIDENTAL_IMPLICIT
+            key.mode: 
+                type: data_MODE
+            key.pname: 
+                type: data_PITCHNAME
+            key.sig: 
+                type: data_KEYSIGNATURE
+            # att.lineloc
+            line: 
+                type: char
+            # att.measure.log
+            left: 
+                type: data_BARRENDITION
+            right: 
+                type: data_BARRENDITION
+                default: BARRENDITION_single
+            # att.mensur.log
+            dot: 
+                type: data_BOOLEAN
+            sign: 
+                type: data_MENSURATIONSIGN
+            # att.meterSig.log
+            count: 
+                type: int
+            sym: 
+                type: data_METERSIGN
+            unit: 
+                type: int
+            # att.meterSigDefault.log
+            meter.count: 
+                type: int
+            meter.unit: 
+                type: int
+            # att.meterSigDefault.vis
+            meter.sym: 
+                type: data_METERSIGN
+            # att.octave
+            oct: 
+                type: char
+            # att.octavedisplacement
+            dis: 
+                type: data_OCTAVE_DIS
+            dis.place: 
+                type: data_PLACE
+            # att.pitch
+            pname: 
+                type: data_PITCHNAME
+            # att.slashcount
+            slash: 
+                type: char
+            # att.staffloc.pitched
+            oloc: 
+                type: char
+            ploc: 
+                type: data_PITCHNAME
+            # att.stemmed
+            stem.dir: 
+                type: data_STEMDIRECTION
+            stem.len: 
+                type: int
+            stem.pos: 
+                type: data_STEMPOSITION
+            stem.x: 
+                type: int
+            stem.y: 
+                type: int
+            # att.syl.log
+            con: 
+                type: data_CON
+            wordpos: 
+                type: data_WORDPOS
+            # att.tiepresent
+            tie: 
+                type: data_TIE
+            # att.timestamp.musical
+            tstamp:
+                type: double
+                default: -1.0
+            # att.timestamp2.musical
+            tstamp2:
+                type: typedef_TSTAMP2
+            # att.typography
+            fontstyle: 
+                type: data_FONTSTYLE
+            fontweight: 
+                type: data_FONTWEIGHT
+    mensural:
+        attributes:
+            # att.note.log.mensural
+            lig: 
+                type: data_LIGATURE
+            # att.mensural.log
+            mensur.dot: 
+                type: data_BOOLEAN
+            mensur.sign: 
+                type: data_MENSURATIONSIGN 
+            mensur.slash: 
+                type: char
+            proport.num: 
+                type: int
+                default: -1
+            proport.numbase:
+                type: int
+                default: -1  
+            # att.mensural.shared
+            modusmaior:
+                type: data_MODUSMAIOR
+            modusminor:
+                type: data_MODUSMINOR
+            prolatio:
+                type: data_PROLATIO
+            tempus:
+                type: data_TEMPUS
+            # att.mensur.vis
+            orient: 
+                type: data_ORIENTATION
