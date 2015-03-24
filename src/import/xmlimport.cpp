@@ -9,9 +9,13 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
-#include <libxml/xmlreader.h>
 
+/*
+#include <libxml/xmlreader.h>
+*/
 #include "xmlimport_impl.h"
+
+ 
 #include "xmlimport.h"
 #include "meidocument.h"
 #include "meixml.h"
@@ -70,22 +74,20 @@ MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
 }
 
 XmlImportImpl::XmlImportImpl() {
-    rootXmlNode = NULL;
-    xmlMeiDocument = NULL;
+    //rootXmlNode;
+    xmlMeiDocument.reset();
     meiDocument = NULL;
     rootMeiElement = NULL;
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(string filename) {
-    xmlDocPtr doc = NULL;
-    /* XML_PARSE_NOERROR will simply suppress the libxml error messages on malformed XML,
-        it won't actually stop it from parsing. */
-    doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR | XML_PARSE_NONET | XML_PARSE_NOWARNING);
-
-    if (doc == NULL) {
+    pugi::xml_parse_result result = this->xmlMeiDocument.load_file( filename.c_str() );
+    if (!result)
+    {
         throw MalformedFileException(filename);
     }
     
+    /*
     xmlNodePtr child = doc->children;
     while (child != NULL) {
         if (child->type == XML_PI_NODE) {
@@ -94,9 +96,9 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
         }
         child = child->next;
     }
+    */
     
-    this->xmlMeiDocument = doc;
-    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
+    this->rootXmlNode = this->xmlMeiDocument.first_child();
 
     if (this->checkCompatibility(this->rootXmlNode)) {
         this->init();
@@ -106,33 +108,36 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
 }
 
 MeiDocument* XmlImportImpl::documentFromText(string text) {
-    xmlDoc *doc = NULL;
-    int options = XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOWARNING;
-    doc = xmlReadMemory(text.c_str(), (int)text.length(), NULL, NULL, options);
     
-    xmlNodePtr child = doc->children;
-    while (child != NULL) {
-        if (child->type == XML_PI_NODE) {
-            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
-            this->pi.push_back(xpi);            
-        }
-        child = child->next;
+    pugi::xml_parse_result result = this->xmlMeiDocument.load( text.c_str() );
+    if (!result)
+    {
+        throw MalformedFileException("[input text]");
     }
     
-    this->xmlMeiDocument = doc;
-    this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
-
+    /*
+     xmlNodePtr child = doc->children;
+     while (child != NULL) {
+     if (child->type == XML_PI_NODE) {
+     XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
+     this->pi.push_back(xpi);
+     }
+     child = child->next;
+     }
+     */
+    
+    this->rootXmlNode = this->xmlMeiDocument.first_child();
+    
     if (this->checkCompatibility(this->rootXmlNode)) {
-        this->init();        
-        return this->meiDocument;
+        this->init();
+        return this->getMeiDocument();
     }
     return NULL;
 }
 
 void XmlImportImpl::init() {
     // get mei version from document
-    xmlAttrPtr meiversAttr = xmlHasProp(this->rootXmlNode, (const xmlChar*)"meiversion");
-    string meiVersion = string((const char*)meiversAttr->children->content);
+    string meiVersion = string(this->rootXmlNode.attribute("meiversion").value());
     
     MeiDocument *doc = new MeiDocument(meiVersion);
     this->meiDocument = doc;
@@ -142,59 +147,54 @@ void XmlImportImpl::init() {
 }
 
 mei::XmlImportImpl::~XmlImportImpl() {
-    if (xmlMeiDocument) {
-        xmlFreeDoc(xmlMeiDocument);
-    }
 }
 
 MeiDocument* XmlImportImpl::getMeiDocument() {
     return this->meiDocument;
 }
 
-MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
+MeiElement* XmlImportImpl::xmlNodeToMeiElement(pugi::xml_node el) {
     string id = "";
     vector<MeiAttribute*> attributes;
     // XML attributes and children. Text nodes will never have these.
-    if (el->properties) {
-        xmlAttr *curattr = NULL;
-        for (curattr = el->properties; curattr; curattr = curattr->next) {
-            if (curattr->atype == XML_ATTRIBUTE_ID) {
-                /* we store the ID on the element, not as an attribute. This will be serialized out
-                 *   on export
-                 */
-                id = (const char*)curattr->children->content;
-            } else {
-                string attrname = (const char*)curattr->name;
-                // values are rendered as children of the attribute *facepalm*
-                string attrvalue = (const char*)curattr->children->content;
+    for (pugi::xml_attribute attr = el.first_attribute(); attr; attr = attr.next_attribute()) {
+        if (strcmp(attr.name(),"xml:id")==0) {
+            /* we store the ID on the element, not as an attribute. This will be serialized out
+             *   on export
+             */
+            id = string(attr.value());
+        } else {
+            string attrname = string(attr.name());
+            // values are rendered as children of the attribute *facepalm*
+            string attrvalue = string(attr.value());
 
-                MeiNamespace* meins = NULL;
-                if (curattr->ns) {
-                    if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
-                        string prefix = (const char*)curattr->ns->prefix;
-                        string href = (const char*)curattr->ns->href;
-                        meins = new MeiNamespace(prefix, href);
-                    } else {
-                        meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
-                    }
+            MeiNamespace* meins = NULL;
+            /*
+            if (curattr->ns) {
+                if (!this->meiDocument->hasNamespace(string((const char*)curattr->ns->href))) {
+                    string prefix = (const char*)curattr->ns->prefix;
+                    string href = (const char*)curattr->ns->href;
+                    meins = new MeiNamespace(prefix, href);
+                } else {
+                    meins = this->meiDocument->getNamespace(string((const char*)curattr->ns->href));
                 }
-                MeiAttribute *a = new MeiAttribute(meins, attrname, attrvalue);
-
-                attributes.push_back(a);
             }
+            */
+            MeiAttribute *a = new MeiAttribute(meins, attrname, attrvalue);
+
+            attributes.push_back(a);
         }
     }
 
-    MeiElement *obj = MeiFactory::createInstance((const char*)el->name, id);
+    MeiElement *obj = MeiFactory::createInstance((const char*)el.name(), id);
     obj->setAttributes(attributes);
 
-    MeiElement *lastElement = NULL;
-    xmlNodePtr child = el->children;
-    while (child != NULL) {
-        if (child->type == XML_ELEMENT_NODE) {
+    for (pugi::xml_node child = el.first_child(); child; child = child.next_sibling()) {
+        //if (child->type == XML_ELEMENT_NODE) {
             MeiElement* ch = xmlNodeToMeiElement(child);
             obj->addChild(ch);
-            lastElement = ch;
+            //lastElement = ch;
+        /*
         } else if (child->type == XML_TEXT_NODE) {
             if (lastElement) {
                 const char *content = (const char*)child->content;
@@ -211,18 +211,18 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
             MeiElement *comment = new MeiCommentNode();
             comment->setValue(string((const char*)child->content));
             obj->addChild(comment);
+
         }
-        child = child->next;
+        */
     }
     return obj;
 }
 
-bool XmlImportImpl::checkCompatibility(xmlNode *r) throw(NoVersionFoundException, VersionMismatchException) {
-    xmlAttrPtr meivers = xmlHasProp(r, (const xmlChar*)"meiversion");
-    if (meivers == NULL) {
+bool XmlImportImpl::checkCompatibility(pugi::xml_node r) throw(NoVersionFoundException, VersionMismatchException) {
+    if (!r.attribute("meiversion")) {
         throw NoVersionFoundException("");
-    } else if (MEI_VERSION.find(string((const char*)meivers->children->content)) == MEI_VERSION.end()) {
-        throw VersionMismatchException(string((const char*)meivers->children->content));
+    } else if (MEI_VERSION.find(string(r.attribute("meiversion").value())) == MEI_VERSION.end()) {
+        throw VersionMismatchException(string(r.attribute("meiversion").value()));
     } else {
         return true;
     }
