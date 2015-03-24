@@ -14,6 +14,7 @@
 #include "xmlimport_impl.h"
 #include "xmlimport.h"
 #include "meidocument.h"
+#include "modules/shared.h"
 #include "meixml.h"
 
 #include <iostream>
@@ -24,6 +25,7 @@ using std::vector;
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiFactory;
+using mei::Mei;
 using mei::XmlImport;
 using mei::XmlImportImpl;
 using mei::XmlInstructions;
@@ -57,9 +59,12 @@ MeiDocument* XmlImport::documentFromText(string text) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromText(text);
     delete import;
+    //MeiDocument *d = new MeiDocument("2016!");
+    //MeiElement *m = new MeiElement("mei");
+    //d->setRootElement(m);
     return d;
 }
-
+/*
 MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromText(text);
@@ -68,7 +73,7 @@ MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
     delete import;
     return d;
 }
-
+*/
 XmlImportImpl::XmlImportImpl() {
     rootXmlNode = NULL;
     xmlMeiDocument = NULL;

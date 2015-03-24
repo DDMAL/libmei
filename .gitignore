@@ -24,3 +24,5 @@ python/build
 *.so
 python/dist
 pymei.egg-info
+libmei.js
+a.out

@@ -76,7 +76,7 @@ void mei::MeiElement::generateAndSetId() {
     RpcStringFreeA(&str);
 #else
     uuid_t uuid;
-    uuid_generate_random(uuid);
+    uuid_generate(uuid);
     char s[37];
     uuid_unparse(uuid, s);
 #endif
