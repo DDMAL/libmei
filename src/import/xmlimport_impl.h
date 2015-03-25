@@ -26,7 +26,7 @@
 
 #include "meidocument.h"
 #include "meixml.h"
-#include <libxml/xmlreader.h>
+#include "pugixml.hpp"
 #include <string>
 
 namespace mei {
@@ -42,12 +42,12 @@ namespace mei {
             void init();
 
             MeiDocument* getMeiDocument();
-            MeiElement* xmlNodeToMeiElement(xmlNode *el);
+            MeiElement* xmlNodeToMeiElement(pugi::xml_node el);
 
-            bool checkCompatibility(xmlNode *n) throw(NoVersionFoundException, VersionMismatchException);
+            bool checkCompatibility(pugi::xml_node n) throw(NoVersionFoundException, VersionMismatchException);
 
-            xmlNode* rootXmlNode;
-            xmlDoc* xmlMeiDocument;
+            pugi::xml_node rootXmlNode;
+            pugi::xml_document xmlMeiDocument;
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
             XmlInstructions pi;

@@ -97,6 +97,10 @@
 		05B6605814017D8400D54F9A /* test_xmloutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05B6605714017A2800D54F9A /* test_xmloutput.cpp */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
 		05FF4EFD18B7A98900F93F6B /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
+		4D0CAF3A1AC2F91200A16096 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CAF381AC2F91200A16096 /* pugixml.cpp */; };
+		4D0CAF3B1AC2F91E00A16096 /* pugiconfig.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4D0CAF371AC2F91200A16096 /* pugiconfig.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D0CAF3C1AC2F91E00A16096 /* pugixml.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4D0CAF391AC2F91200A16096 /* pugixml.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D0CAF3D1AC2F93500A16096 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CAF381AC2F91200A16096 /* pugixml.cpp */; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
@@ -261,6 +265,9 @@
 		05B6605714017A2800D54F9A /* test_xmloutput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmloutput.cpp; path = test/test_xmloutput.cpp; sourceTree = "<group>"; };
 		05CEA56513FC61CB0009A15E /* test_meifactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meifactory.cpp; path = test/test_meifactory.cpp; sourceTree = "<group>"; };
 		05CED9A2142A726F003A8CB6 /* test_cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_cmn.cpp; path = test/test_cmn.cpp; sourceTree = "<group>"; };
+		4D0CAF371AC2F91200A16096 /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pugiconfig.hpp; path = src/pugiconfig.hpp; sourceTree = "<group>"; };
+		4D0CAF381AC2F91200A16096 /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pugixml.cpp; path = src/pugixml.cpp; sourceTree = "<group>"; };
+		4D0CAF391AC2F91200A16096 /* pugixml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pugixml.hpp; path = src/pugixml.hpp; sourceTree = "<group>"; };
 		5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiProj.xcconfig; sourceTree = "<group>"; };
 		5073E0C709E734A800EC74B6 /* libmeiTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiTarget.xcconfig; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
@@ -411,6 +418,9 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4D0CAF371AC2F91200A16096 /* pugiconfig.hpp */,
+				4D0CAF381AC2F91200A16096 /* pugixml.cpp */,
+				4D0CAF391AC2F91200A16096 /* pugixml.hpp */,
 				056BCFEF157028DD006E51A4 /* meixml.h */,
 				056BCFF7157423ED006E51A4 /* meixml.cpp */,
 				0514A63F13FD6B8E00310111 /* Export */,
@@ -636,6 +646,8 @@
 				67FE00F619B5FFF100C1BCBE /* frbr.h in Headers */,
 				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
 				056BCFF2157029E3006E51A4 /* meixml.h in Headers */,
+				4D0CAF3B1AC2F91E00A16096 /* pugiconfig.hpp in Headers */,
+				4D0CAF3C1AC2F91E00A16096 /* pugixml.hpp in Headers */,
 				A1F5D1791455D90100CE6CE6 /* mei.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +795,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0CAF3A1AC2F91200A16096 /* pugixml.cpp in Sources */,
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +820,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0CAF3D1AC2F93500A16096 /* pugixml.cpp in Sources */,
 				0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */,
 				67FE00F519B5FFF100C1BCBE /* frbr.cpp in Sources */,
 				0514A6B713FDABAB00310111 /* cmn.cpp in Sources */,

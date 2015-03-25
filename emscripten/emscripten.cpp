@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
-// Name:        emscripten_main.cpp
-// Author:      Rodolfo Zitellini
-// Created:     05/11/2013
+// Name:        emscripten.cpp
+// Author:      Laurent Pugin
+// Created:     24/02/2015
 // Copyright (c) Authors and others. All rights reserved.
 /////////////////////////////////////////////////////////////////////////////
 

@@ -1,4 +1,23 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-  <script src="libmei.js"></script>
+    <head>
+        <meta charset="UTF-16">
+        <title></title>
+        <script src="libmei.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var doc;
+            $.ajax({
+                type: "GET",
+                url: "bach.mei",
+                dataType: "text",
+                success: function(data) {
+                    doc = Module.XmlImport.documentFromText(data);
+                    //console.log(data);
+                }
+            });
+        </script>
+    </body>
 </html>

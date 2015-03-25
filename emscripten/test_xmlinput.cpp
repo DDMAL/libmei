@@ -22,8 +22,8 @@ using std::vector;
 
 int main(int argc, char** argv)
 {
-    //mei::XmlImport import;
-    mei::MeiDocument *d = mei::XmlImport::documentFromText("<?xml version='1.0' encoding='UTF-8'?><mei meiversion='2013'></mei>");
+    //mei::MeiDocument *d = mei::XmlImport::documentFromText("<?xml version='1.0' encoding='UTF-8'?><mei meiversion='2013'><p></p></mei>");
+    mei::MeiDocument* d = mei::XmlImport::documentFromFile("bach.mei");
     std::cout << d->getVersion();
     
 }
