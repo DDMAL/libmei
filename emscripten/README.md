@@ -6,7 +6,7 @@ Experimental work on compiling LibMEI to JavaScript using [Emscripten](http://ww
 Emscripten
 ----------
 
-The emscripten.cpp file contains basic bindings for making the C++ classes available in the JavaScript module. Additional LibMEI core classes and methods. We also need to have an additional ./tools/langs/emscripten.py for generated similar bindings for all MEI classes.
+The emscripten.cpp file contains basic bindings for making the C++ classes available in the JavaScript module. Additional LibMEI core classes and methods will need to be added to this file. We also need to have an additional ./tools/langs/emscripten.py for generated similar bindings for all MEI classes.
 
 Ideally, the ./build.sh makefile should be generated according to the modules included. 
 
