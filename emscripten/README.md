@@ -10,7 +10,7 @@ The emscripten.cpp file contains basic bindings for making the C++ classes avail
 
 Ideally, the ./build.sh makefile should be generated according to the modules included. 
 
-Pugximl
+Pugixml
 -------
 
 Pugixml was tested only for the import and export is missing (it is not included in the ./build.sh because it requires libxml2). Discarded features in the import are:
