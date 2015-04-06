@@ -66,9 +66,27 @@ bool mei::MeiDocument::hasNamespace(string href) {
     return false;
 }
 
+bool mei::MeiDocument::hasNamespacePrefix(string prefix) {
+    if (this->namespaces.empty()) return false;
+    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
+        if ((*iter)->getPrefix() == prefix) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 MeiNamespace* mei::MeiDocument::getNamespace(string href) {
     for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
         if ((*iter)->getHref() == href) return *iter;
+    }
+    return NULL;
+}
+
+MeiNamespace* mei::MeiDocument::getNamespaceByPrefix(string prefix) {
+    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
+        if ((*iter)->getPrefix() == prefix) return *iter;
     }
     return NULL;
 }

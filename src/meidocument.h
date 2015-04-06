@@ -51,7 +51,9 @@ class MEI_EXPORT MeiDocument {
         ~MeiDocument();
 
         bool hasNamespace(std::string href);
+        bool hasNamespacePrefix(std::string href);
         MeiNamespace* getNamespace(std::string href);
+        MeiNamespace* getNamespaceByPrefix(std::string prefix);
         std::vector<MeiNamespace*> getNamespaces();
         void addNamespace(MeiNamespace* ns);
 
