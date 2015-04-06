@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="mei-2012.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-stylesheet href="mei-2012.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" xml:id="m-4a3c8d81-25fd-4c2e-b5e1-63bfaf955ae3" meiversion="2012"/>
+<mei xmlns="http://www.music-encoding.org/ns/mei" xml:id="m-4a3c8d81-25fd-4c2e-b5e1-63bfaf955ae3" meiversion="2013"/>
