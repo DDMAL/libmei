@@ -67,6 +67,15 @@ TEST(TestMeiXmlImport, ParseNamespacesCorrectly) {
     ASSERT_TRUE(doc->hasNamespacePrefix("xlink"));
 }
 
+TEST(TestMeiXmlImport, ParseCommentsCorrectly) {
+    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xmlns:xlink=\"http://www.foo.com/ns/foo\" xml:id=\"i\" meiversion=\"2013\"><!-- some comment --></mei>";
+    MeiDocument *doc = mei::XmlImport::documentFromText(input);
+    vector<MeiElement*> comments = doc->getElementsByName("_comment");
+    
+    ASSERT_EQ(1, comments.size());
+    ASSERT_EQ(" some comment ", comments[0]->getValue());
+}
+
 TEST(TestMeiXmlImport, ReadFileIn) {
     MeiDocument* docf = mei::XmlImport::documentFromFile("beethoven.mei");
     ASSERT_NE((MeiDocument*)NULL, docf);
