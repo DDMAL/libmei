@@ -52,6 +52,7 @@ namespace mei {
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
             XmlInstructions pi;
+            unsigned int options;
     };
 }
 

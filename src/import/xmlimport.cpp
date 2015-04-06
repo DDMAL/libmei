@@ -29,6 +29,32 @@ using mei::XmlImportImpl;
 using mei::XmlInstructions;
 using mei::XmlProcessingInstruction;
 
+bool find_namespace_declaration_attributes(pugi::xml_attribute attr) {
+    // xmlid is a special case, so ignore it.
+    if (strcmp(attr.name(), "xml:id") == 0) return false;
+    
+    string attrname = string(attr.name());
+    if (attrname.find("xmlns:") != std::string::npos) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+struct processing_instruction_walker: pugi::xml_tree_walker {
+    vector<XmlProcessingInstruction*> xpi;
+    virtual bool for_each(pugi::xml_node &node) {
+        if (node.type() == pugi::node_pi) {
+            std::cout << "Found PI node" << std::endl;
+            string piname = string(node.name());
+            string pivalue = string(node.value());
+            mei::XmlProcessingInstruction *xp = new mei::XmlProcessingInstruction(piname, pivalue);
+            xpi.push_back(xp);
+        }
+        return true;
+    }
+};
+
 XmlImport::XmlImport() : impl(new XmlImportImpl) {
 }
 
@@ -60,42 +86,33 @@ MeiDocument* XmlImport::documentFromText(string text) {
     return d;
 }
 
-/* This was commented for the pugixml experiment
 MeiDocument* XmlImport::documentFromText(string text, XmlInstructions &inst) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromText(text);
     inst = import->impl->pi;
-    
     delete import;
     return d;
 }
-*/
 
 XmlImportImpl::XmlImportImpl() {
     xmlMeiDocument.reset();
     meiDocument = NULL;
     rootMeiElement = NULL;
+    options = pugi::parse_pi | pugi::parse_comments;
 }
 
 MeiDocument* XmlImportImpl::documentFromFile(string filename) {
-    pugi::xml_parse_result result = this->xmlMeiDocument.load_file( filename.c_str() );
-    if (!result)
-    {
+    pugi::xml_parse_result result = this->xmlMeiDocument.load_file(filename.c_str(), this->options);
+
+    if (!result) {
         throw MalformedFileException(filename);
     }
     
-    /* This was commented for the pugixml experiment
-    xmlNodePtr child = doc->children;
-    while (child != NULL) {
-        if (child->type == XML_PI_NODE) {
-            XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
-            this->pi.push_back(xpi);            
-        }
-        child = child->next;
-    }
-    */
-    
-    this->rootXmlNode = this->xmlMeiDocument.first_child();
+    this->rootXmlNode = this->xmlMeiDocument.document_element();
+
+    processing_instruction_walker walker;
+    this->xmlMeiDocument.traverse(walker);
+    this->pi = walker.xpi;
 
     if (this->checkCompatibility(this->rootXmlNode)) {
         this->init();
@@ -106,25 +123,18 @@ MeiDocument* XmlImportImpl::documentFromFile(string filename) {
 
 MeiDocument* XmlImportImpl::documentFromText(string text) {
     
-    pugi::xml_parse_result result = this->xmlMeiDocument.load( text.c_str() );
-    if (!result)
-    {
+    pugi::xml_parse_result result = this->xmlMeiDocument.load(text.c_str(), this->options);
+
+    if (!result) {
         throw MalformedFileException("[input text]");
     }
-    
-    /* This was commented for the pugixml experiment
-     xmlNodePtr child = doc->children;
-     while (child != NULL) {
-     if (child->type == XML_PI_NODE) {
-     XmlProcessingInstruction *xpi = new XmlProcessingInstruction((const char*)child->name, (const char*)child->content);
-     this->pi.push_back(xpi);
-     }
-     child = child->next;
-     }
-     */
-    
-    this->rootXmlNode = this->xmlMeiDocument.first_child();
-    
+
+    this->rootXmlNode = this->xmlMeiDocument.document_element();
+
+    processing_instruction_walker walker;
+    this->xmlMeiDocument.traverse(walker);
+    this->pi = walker.xpi;
+
     if (this->checkCompatibility(this->rootXmlNode)) {
         this->init();
         return this->getMeiDocument();
@@ -139,6 +149,7 @@ void XmlImportImpl::init() {
     MeiDocument *doc = new MeiDocument(meiVersion);
     this->meiDocument = doc;
 
+    // start at the first child, not at the root element, so that we can also capture any processing instructions as we iterate.
     this->rootMeiElement = this->xmlNodeToMeiElement(this->rootXmlNode);
     doc->setRootElement(this->rootMeiElement);
 }
@@ -148,18 +159,6 @@ mei::XmlImportImpl::~XmlImportImpl() {
 
 MeiDocument* XmlImportImpl::getMeiDocument() {
     return this->meiDocument;
-}
-
-bool find_namespace_declaration_attributes(pugi::xml_attribute attr) {
-    // xmlid is a special case, so ignore it.
-    if (strcmp(attr.name(), "xml:id") == 0) return false;
-
-    string attrname = string(attr.name());
-    if (attrname.find("xmlns:") != std::string::npos) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 MeiElement* XmlImportImpl::xmlNodeToMeiElement(pugi::xml_node el) {
@@ -205,10 +204,18 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(pugi::xml_node el) {
     obj->setAttributes(attributes);
 
     for (pugi::xml_node child = el.first_child(); child; child = child.next_sibling()) {
-        if (!child.text()) {
-            MeiElement* ch = xmlNodeToMeiElement(child);
+        if (child.type() == pugi::node_element) {
+            MeiElement *ch = xmlNodeToMeiElement(child);
             obj->addChild(ch);
+        } else if (child.type() == pugi::node_pcdata) {
+            std::cout << "PC Text Content" << std::endl;
+        } else if (child.type() == pugi::node_comment) {
+            MeiElement *comment = new MeiCommentNode();
+            string c = string(child.value());
+            comment->setValue(c);
+            obj->addChild(comment);
         }
+        
         /* This was commented for the pugixml experiment
         } else if (child->type == XML_TEXT_NODE) {
             if (lastElement) {

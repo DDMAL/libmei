@@ -95,17 +95,17 @@ TEST(TestMeiXmlImport, TestMalformedFileException) {
 
 TEST(TestMeiXmlImport, TestProcessingInstructionImportFromFile) {
     XmlInstructions inst;
-    mei::XmlImport::documentFromFile("test-procinst.mei", inst);
+    MeiDocument *doc = mei::XmlImport::documentFromFile("test-procinst.mei", inst);
     
     ASSERT_EQ(2, inst.size());
 }
 
-TEST(TestMeiXmlExport, TestProcessingInstructionImportFromText) {
+TEST(TestMeiXmlImport, TestProcessingInstructionImportFromText) {
     XmlInstructions inst;
-    string importstr = "<\?xml version=\"1.0\"\?>\n<\?xml-model href=\"mei-2012.rng\" \
-type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"\?>\n<\?xml-stylesheet \
-href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"\?>\n<mei \
-xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m1234\" meiversion=\"2012\"/>\n";
+    string importstr = "<?xml version=\"1.0\" ?>\n<?xml-model href=\"mei-2012.rng\" \
+type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\" ?>\n<?xml-stylesheet \
+href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\" ?>\n<mei \
+xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m1234\" meiversion=\"2013\"/>\n";
     
     mei::XmlImport::documentFromText(importstr, inst);
     
