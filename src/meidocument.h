@@ -107,7 +107,6 @@ class MEI_EXPORT MeiDocument {
         MeiElement* root;
 
         std::vector<MeiNamespace*> namespaces;
-        bool nsMatch(std::string href);
 
         std::map<std::string, MeiElement*> idMap;
         std::vector<MeiElement*> flattenedDoc;
