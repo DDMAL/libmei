@@ -20,6 +20,7 @@
 
 using mei::MeiDocument;
 using mei::MeiElement;
+using mei::MeiAttribute;
 using mei::Note;
 using mei::XmlInstructions;
 
@@ -51,6 +52,19 @@ TEST(TestMeiXmlImport, SetValueAndTail) {
     ASSERT_EQ("p", ch[1]->getChildren()[0]->getName());
     ASSERT_EQ("pinner", ch[1]->getChildren()[0]->getValue());
     ASSERT_EQ("", ch[1]->getChildren()[0]->getTail());
+}
+
+TEST(TestMeiXmlImport, ParseNamespacesCorrectly) {
+    // Not a valid looking document, but representative of what is being tested
+    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xmlns:xlink=\"http://www.foo.com/ns/foo\" xml:id=\"i\" meiversion=\"2013\"><note xlink:href=\"somecrazyvalue\" /></mei>";
+    
+    MeiDocument *doc = mei::XmlImport::documentFromText(input);
+    vector<MeiElement*> notes = doc->getElementsByName("note");
+    MeiAttribute *href = notes[0]->getAttribute("xlink:href");
+    ASSERT_TRUE(href->hasNamespace());
+    ASSERT_EQ(href->getNamespace()->getPrefix(), "xlink");
+    ASSERT_EQ(href->getNamespace()->getHref(), "http://www.foo.com/ns/foo");
+    ASSERT_TRUE(doc->hasNamespacePrefix("xlink"));
 }
 
 TEST(TestMeiXmlImport, ReadFileIn) {

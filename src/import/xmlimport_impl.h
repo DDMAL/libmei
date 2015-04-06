@@ -43,6 +43,7 @@ namespace mei {
 
             MeiDocument* getMeiDocument();
             MeiElement* xmlNodeToMeiElement(pugi::xml_node el);
+            void registerNamespaces(pugi::xml_node el);
 
             bool checkCompatibility(pugi::xml_node n) throw(NoVersionFoundException, VersionMismatchException);
 
