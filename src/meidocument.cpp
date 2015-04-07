@@ -54,6 +54,11 @@ mei::MeiDocument::~MeiDocument() {
     for(iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {
        delete *iter; 
     }
+    
+    vector<MeiNamespace*>::iterator nsiter;
+    for (nsiter = this->namespaces.begin(); nsiter != this->namespaces.end(); ++nsiter) {
+        delete *nsiter;
+    }
 }
 
 bool mei::MeiDocument::hasNamespace(string href) {
