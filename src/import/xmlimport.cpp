@@ -45,7 +45,6 @@ struct processing_instruction_walker: pugi::xml_tree_walker {
     vector<XmlProcessingInstruction*> xpi;
     virtual bool for_each(pugi::xml_node &node) {
         if (node.type() == pugi::node_pi) {
-            std::cout << "Found PI node" << std::endl;
             string piname = string(node.name());
             string pivalue = string(node.value());
             mei::XmlProcessingInstruction *xp = new mei::XmlProcessingInstruction(piname, pivalue);
@@ -155,6 +154,10 @@ void XmlImportImpl::init() {
 }
 
 mei::XmlImportImpl::~XmlImportImpl() {
+    vector<XmlProcessingInstruction*>::iterator it;
+    for (it = this->pi.begin(); it != this->pi.end(); ++it) {
+        delete *it;
+    }
 }
 
 MeiDocument* XmlImportImpl::getMeiDocument() {
@@ -203,39 +206,27 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(pugi::xml_node el) {
     MeiElement *obj = MeiFactory::createInstance((const char*)el.name(), id);
     obj->setAttributes(attributes);
 
+    MeiElement *lastElement = NULL;
+
     for (pugi::xml_node child = el.first_child(); child; child = child.next_sibling()) {
         if (child.type() == pugi::node_element) {
             MeiElement *ch = xmlNodeToMeiElement(child);
             obj->addChild(ch);
+            lastElement = ch;
         } else if (child.type() == pugi::node_pcdata) {
-            std::cout << "PC Text Content" << std::endl;
+            // text content for elements are stored in value/tail
+            string content = string(child.value());
+            if (lastElement) {
+                lastElement->setTail(content);
+            } else {
+                obj->setValue(content);
+            }
         } else if (child.type() == pugi::node_comment) {
             MeiElement *comment = new MeiCommentNode();
             string c = string(child.value());
             comment->setValue(c);
             obj->addChild(comment);
         }
-        
-        /* This was commented for the pugixml experiment
-        } else if (child->type == XML_TEXT_NODE) {
-            if (lastElement) {
-                const char *content = (const char*)child->content;
-                if (content) {
-                    lastElement->setTail(content);
-                }
-            } else {
-                const char *content = (const char*)child->content;
-                if (content) {
-                    obj->setValue(content);
-                }
-            }
-        } else if (child->type == XML_COMMENT_NODE) {
-            MeiElement *comment = new MeiCommentNode();
-            comment->setValue(string((const char*)child->content));
-            obj->addChild(comment);
-
-        }
-        */
     }
     return obj;
 }
