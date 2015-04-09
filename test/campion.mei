@@ -5,7 +5,7 @@
   <meiHead>
     <fileDesc>
       <titleStmt>
-        <title>Lute Tablature</title>
+          <title xml:id="testid">Lute Tablature</title>
         <respStmt>
           <name>Campion</name>
         </respStmt>
