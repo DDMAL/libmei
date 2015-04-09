@@ -11,9 +11,12 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include <stdio.h>
-#include <libxml/xmlwriter.h>
+#include "pugixml.hpp"
+
+//#include <libxml/xmlwriter.h>
 
 #include "meidocument.h"
 #include "meielement.h"
@@ -54,24 +57,18 @@ XmlExport::~XmlExport() {
 
 bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
     XmlExport *ex = new XmlExport(doc);
-    return ex->impl->meiDocumentToFile(filename);
-}
+    bool status = ex->impl->meiDocumentToFile(filename);
+    delete ex;
 
-bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename, XmlInstructions &pi) {
-    XmlExport *ex = new XmlExport(doc);
-    ex->impl->convertProcessingInstructions(pi);
-    return ex->impl->meiDocumentToFile(filename);
+    return status;
 }
 
 string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
     XmlExport *ex = new XmlExport(doc);
-    return ex->impl->meiDocumentToText();
-}
-
-string XmlExport::meiDocumentToText(mei::MeiDocument *doc, XmlInstructions &pi) {
-    XmlExport *ex = new XmlExport(doc);
-    ex->impl->convertProcessingInstructions(pi);
-    return ex->impl->meiDocumentToText();
+    string status = ex->impl->meiDocumentToText();
+    delete ex;
+    
+    return status;
 }
 
 /** Convert an element and its children to XML. Will also add
@@ -83,33 +80,27 @@ string XmlExport::meiElementToText(mei::MeiElement *el) {
     return ex->impl->meiDocumentToText();
 }
 
-bool XmlExportImpl::meiDocumentToFile(string filename) throw(FileWriteFailureException) {
-    xmlKeepBlanksDefault(0);
-    if (xmlSaveFormatFileEnc(filename.c_str(), this->xmlDocOutput, "UTF-8", 1) == -1) {
-        throw FileWriteFailureException(filename);
-    } else {
-        return true;
-    }
-}
+/**
+ *  Implementation methods
+ *
+ */
 
-void XmlExportImpl::convertProcessingInstructions(XmlInstructions &pi) {
-    xmlDocPtr d = this->xmlDocOutput;
-    xmlNodePtr r = xmlDocGetRootElement(d);
-    for (vector<XmlProcessingInstruction*>::iterator iter = pi.begin(); iter != pi.end(); ++iter) {
-        xmlNodePtr p = xmlNewDocPI(d, (xmlChar*)(*iter)->getName().c_str(), (xmlChar*)(*iter)->getValue().c_str());
-        if (p != NULL) {
-            xmlAddPrevSibling(r, p);
-        }
+struct xml_string_writer: pugi::xml_writer {
+    std::string result;
+    virtual void write(const void* data, size_t size) {
+        result += std::string(static_cast<const char*>(data), size);
     }
+};
+
+bool XmlExportImpl::meiDocumentToFile(string filename) throw(FileWriteFailureException) {
+    return this->xmlDocOutput.save_file(filename.c_str());
 }
 
 string XmlExportImpl::meiDocumentToText() {
-    xmlChar *xmlbuf;
-    int buffersize;
-    xmlDocDumpFormatMemory(xmlDocOutput, &xmlbuf, &buffersize, 1);
-
-    string s((char*)xmlbuf);
-    return s;
+    xml_string_writer writer;
+    this->xmlDocOutput.save(writer);
+    
+    return writer.result;
 }
 
 XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
@@ -120,9 +111,6 @@ XmlExportImpl::XmlExportImpl(MeiDocument *doc) {
 }
 
 XmlExportImpl::~XmlExportImpl() {
-    if (xmlDocOutput) {
-        xmlFreeDoc(xmlDocOutput);
-    }
 }
 
 void XmlExportImpl::init() throw(DocumentRootNotSetException) {
@@ -130,16 +118,14 @@ void XmlExportImpl::init() throw(DocumentRootNotSetException) {
         throw DocumentRootNotSetException("The document root was not set. Without that, this document cannot be exported.");
     }
 
-    rootElement = this->meiDocument->getRootElement();
+    this->rootElement = this->meiDocument->getRootElement();
+
     // Copy the version from the document into the root element
-    rootElement->addAttribute("meiversion", meiDocument->getVersion());
+    this->rootElement->addAttribute("meiversion", meiDocument->getVersion());
 
-    xmlNode* xroot = this->meiElementToXmlNode(rootElement);
-
-    xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
-    xmlDocSetRootElement(xmldoc, xroot);
-    this->xmlDocOutput = xmldoc;
-    documentRootNode = NULL;
+    pugi::xml_node xroot = this->xmlDocOutput.append_child(this->rootElement->getName().c_str());
+    
+    this->meiElementToXmlNode(this->rootElement, xroot);
 }
 
 /** Special init method if we don't have a document.
@@ -147,91 +133,86 @@ void XmlExportImpl::init() throw(DocumentRootNotSetException) {
  * meiElementToXmlNode.
  */
 void XmlExportImpl::initRootElement(MeiElement *root) {
-    meiDocument = new MeiDocument();
-    rootElement = root;
-    xmlNodePtr xroot = this->meiElementToXmlNode(root);
-
-    xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
-    xmlDocSetRootElement(xmldoc, xroot);
-    this->xmlDocOutput = xmldoc;
-    documentRootNode = NULL;
+//    meiDocument = new MeiDocument();
+//    rootElement = root;
+//    xmlNodePtr xroot = this->meiElementToXmlNode(root);
+//
+//    xmlDocPtr xmldoc = xmlNewDoc((const xmlChar*)"1.0");
+//    xmlDocSetRootElement(xmldoc, xroot);
+//    this->xmlDocOutput = xmldoc;
+//    documentRootNode = NULL;
 }
 
-xmlNode* XmlExportImpl::meiElementToXmlNode(MeiElement *el) {
-    xmlNodePtr curxmlnode = xmlNewNode(NULL, (const xmlChar*)el->getName().c_str());
+void XmlExportImpl::meiElementToXmlNode(MeiElement *el, pugi::xml_node parentnode) {
+    pugi::xml_node curxmlnode;
 
-    if (el == rootElement) {
-        // we're working with the root element of this document. We need to set up any global namespaces.
-        std::vector<MeiNamespace*> nsps = this->meiDocument->getNamespaces();
-        for (std::vector<MeiNamespace*>::iterator iter = nsps.begin(); iter != nsps.end(); ++iter) {
-            if ((*iter)->getPrefix() == "mei") {
-                // the default namespace
-                xmlNewNs(curxmlnode, (const xmlChar*)(*iter)->getHref().c_str(), NULL);
-            } else {
-                xmlNewNs(curxmlnode, (const xmlChar*)(*iter)->getHref().c_str(), (const xmlChar*)(*iter)->getPrefix().c_str());
-            }
-        }
-        documentRootNode = curxmlnode;
+    if (el == this->rootElement) {
+        curxmlnode = parentnode;
+    } else if (el->getName() == "_comment") {
+        curxmlnode = parentnode.append_child(pugi::node_comment);
+        curxmlnode.set_value(el->getValue().c_str());
+    } else {
+        curxmlnode = parentnode.append_child(pugi::node_element);
+        curxmlnode.set_name(el->getName().c_str());
     }
-
+    
     if (el->hasId()) {
         string idvalue = el->getId();
-        xmlNewProp(curxmlnode, XML_XML_ID, (const xmlChar*)idvalue.c_str());
+        pugi::xml_attribute idattrib = curxmlnode.append_attribute("xml:id");
+        idattrib.set_value(idvalue.c_str());
     }
-
+    
+    // Add child for text node
+    if (el->getValue() != "") {
+        pugi::xml_node value = curxmlnode.append_child(pugi::node_pcdata);
+        value.set_value(el->getValue().c_str());
+    }
+    
     vector<MeiAttribute*> ats = el->getAttributes();
     for (vector<MeiAttribute*>::iterator iter = ats.begin(); iter != ats.end(); ++iter) {
         string attrname = (*iter)->getName();
         string attrvalue = (*iter)->getValue();
 
         if ((*iter)->hasNamespace()) {
-            MeiNamespace* atns = (*iter)->getNamespace();
-            
-            string pfx = atns->getPrefix();
-            string fullattrname;
-            
-            /* 
-             libxml2 seems to require that members of the xml namespace are actually named explicitly as such.
-             In other words, simply setting the NS and Prefix objects on the xml node won't do the trick; you 
-             must also append the prefix. This is *only* for the xml: prefix; other prefixes work fine.
-             
-             Note that xml:id is handled differently (see above).
-            */
-            if (pfx == "xml") {
-                fullattrname = atns->getPrefix() + ":" + attrname;
-            } else {
-                fullattrname = attrname;
-            }
-
-            xmlNsPtr ns = xmlNewNs(documentRootNode, (const xmlChar*)atns->getHref().c_str(), (const xmlChar*)atns->getPrefix().c_str());
-            xmlNewNsProp(curxmlnode, ns, (const xmlChar*)fullattrname.c_str(), (const xmlChar*)attrvalue.c_str());
-        } else {
-            xmlNewProp(curxmlnode, (const xmlChar*)attrname.c_str(), (const xmlChar*)attrvalue.c_str());
+            attrname = (*iter)->getNamespace()->getPrefix() + ":" + attrname;
         }
-    }
 
-    // Add child for text node
-    if (el->getValue() != "") {
-        xmlNode *value = xmlNewText((const xmlChar*)el->getValue().c_str());
-        xmlAddChild(curxmlnode, value);
+        pugi::xml_attribute attrib = curxmlnode.append_attribute(attrname.c_str());
+        attrib.set_value(attrvalue.c_str());
     }
-
-    // Add all other children
+    
     vector<MeiElement*> cn = el->getChildren();
     for (vector<MeiElement*>::iterator iter = cn.begin(); iter != cn.end(); ++iter) {
         if ((*iter)->getName() == "_comment") {
-            xmlNode *comment = xmlNewComment((const xmlChar*)(*iter)->getValue().c_str());
-            xmlAddChild(curxmlnode, comment);
+            pugi::xml_node comment = curxmlnode.append_child(pugi::node_comment);
+            comment.set_value((*iter)->getValue().c_str());
         } else {
-            xmlNodePtr child = meiElementToXmlNode(*iter);
-            xmlAddChild(curxmlnode, child);
+            meiElementToXmlNode(*iter, curxmlnode);
         }
-        // A node's tail is added as a text node peer
+        
         if ((*iter)->getTail() != "") {
-            xmlNode *tail = xmlNewText((const xmlChar*)(*iter)->getTail().c_str());
-            xmlAddChild(curxmlnode, tail);
+            pugi::xml_node tail = curxmlnode.append_child(pugi::node_pcdata);
+            tail.set_value((*iter)->getTail().c_str());
         }
     }
+    
+    vector<MeiNamespace*> ns = el->getNamespaces();
+    for (vector<MeiNamespace*>::iterator iter = ns.begin(); iter != ns.end(); ++iter) {
+        string nsprefix = (*iter)->getPrefix();
+        string nsname;
+        string nshref;
+        
+        // deal with the default namespace v. other namespaces
+        if (nsprefix == "mei") {
+            nsname = "xmlns";
+            nshref = (*iter)->getHref();
+        } else {
+            nsname = "xmlns:" + nsprefix;
+            nshref = (*iter)->getHref();
+        }
 
-    return curxmlnode;
+        pugi::xml_attribute attrib = curxmlnode.append_attribute(nsname.c_str());
+        attrib.set_value(nshref.c_str());
+    }
+
 }

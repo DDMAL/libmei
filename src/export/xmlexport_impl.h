@@ -26,7 +26,8 @@
 
 #include <string>
 
-#include <libxml/xmlreader.h>
+//#include <libxml/xmlreader.h>
+#include "pugixml.hpp"
 
 #include "xmlexport.h"
 #include "meidocument.h"
@@ -42,17 +43,16 @@ namespace mei {
         void init() throw(DocumentRootNotSetException);
         void initRootElement(MeiElement* root);
 
-        xmlNode* meiElementToXmlNode(MeiElement *el);
+        void meiElementToXmlNode(MeiElement *el, pugi::xml_node parentnode);
         void outputToFile(const char* filename);
 
         bool meiDocumentToFile(std::string filename) throw(FileWriteFailureException);
         std::string meiDocumentToText();
-        void convertProcessingInstructions(XmlInstructions &pi);
 
         MeiElement* rootElement;
         MeiDocument* meiDocument;
-        xmlDocPtr xmlDocOutput;
-        xmlNodePtr documentRootNode;
+        pugi::xml_document xmlDocOutput;
+        pugi::xml_node documentRootNode;
     };
 }
 
