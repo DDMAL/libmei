@@ -66,9 +66,9 @@ TEST(TestMeiAttribute, TestNsNameValueCopyConstructor) {
     // test the global namespace attributes
     MeiDocument *doc = new MeiDocument();
     MeiNamespace *y = new MeiNamespace("ynot", "http://example.org/ynot/");
-    doc->addNamespace(y);
 
     Mei *m = new Mei();
+    m->addNamespace(y);
     m->setId("m-21ce1ba5-f055-42cc-88db-03ab5bc837c2");
     
     Note *n = new Note();
@@ -84,7 +84,7 @@ TEST(TestMeiAttribute, TestNsNameValueCopyConstructor) {
 
     doc->setRootElement(m);
     
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xmlns:ynot=\"http://example.org/ynot/\" xml:id=\"m-21ce1ba5-f055-42cc-88db-03ab5bc837c2\" meiversion=\"2013\">\n  <note xml:id=\"m-903c95ae-3030-4e90-bf53-4aba90dca7ac\" xml:base=\"blahblahblah\"/>\n</mei>\n";
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"m-21ce1ba5-f055-42cc-88db-03ab5bc837c2\" meiversion=\"2013\" xmlns:ynot=\"http://example.org/ynot/\" xmlns=\"http://www.music-encoding.org/ns/mei\">\n\t<note xml:id=\"m-903c95ae-3030-4e90-bf53-4aba90dca7ac\" xml:base=\"blahblahblah\" />\n</mei>\n";
    
     ASSERT_EQ(XmlExport::meiDocumentToText(doc), expected);
 }
