@@ -13,7 +13,6 @@
 #include <mei/meidocument.h>
 #include <mei/exceptions.h>
 #include <mei/shared.h>
-#include <mei/meixml.h>
 
 #include <string>
 #include <vector>
@@ -22,7 +21,6 @@ using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::Note;
-using mei::XmlInstructions;
 
 using std::string;
 using std::vector;
@@ -52,19 +50,6 @@ TEST(TestMeiXmlImport, SetValueAndTail) {
     ASSERT_EQ("p", ch[1]->getChildren()[0]->getName());
     ASSERT_EQ("pinner", ch[1]->getChildren()[0]->getValue());
     ASSERT_EQ("", ch[1]->getChildren()[0]->getTail());
-}
-
-TEST(TestMeiXmlImport, ParseNamespacesCorrectly) {
-    // Not a valid looking document, but representative of what is being tested
-    string input = "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xmlns:xlink=\"http://www.foo.com/ns/foo\" xml:id=\"i\" meiversion=\"2013\"><note xlink:href=\"somecrazyvalue\" /></mei>";
-    
-    MeiDocument *doc = mei::XmlImport::documentFromText(input);
-    vector<MeiElement*> notes = doc->getElementsByName("note");
-    MeiAttribute *href = notes[0]->getAttribute("xlink:href");
-    ASSERT_TRUE(href->hasNamespace());
-    ASSERT_EQ(href->getNamespace()->getPrefix(), "xlink");
-    ASSERT_EQ(href->getNamespace()->getHref(), "http://www.foo.com/ns/foo");
-    ASSERT_TRUE(doc->hasNamespacePrefix("xlink"));
 }
 
 TEST(TestMeiXmlImport, ParseCommentsCorrectly) {
@@ -99,25 +84,5 @@ TEST(TestMeiXmlImport, TestNoVersionException) {
 }
 
 TEST(TestMeiXmlImport, TestMalformedFileException) {
-    ASSERT_THROW(mei::XmlImport::documentFromFile("malformed.mei"), mei::MalformedFileException);
-}
-
-TEST(TestMeiXmlImport, TestProcessingInstructionImportFromFile) {
-    XmlInstructions inst;
-    MeiDocument *doc = mei::XmlImport::documentFromFile("test-procinst.mei", inst);
-    
-    ASSERT_EQ(2, inst.size());
-}
-
-TEST(TestMeiXmlImport, TestProcessingInstructionImportFromText) {
-    XmlInstructions inst;
-    string importstr = "<?xml version=\"1.0\" ?>\n<?xml-model href=\"mei-2012.rng\" \
-type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\" ?>\n<?xml-stylesheet \
-href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\" ?>\n<mei \
-xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m1234\" meiversion=\"2013\"/>\n";
-    
-    mei::XmlImport::documentFromText(importstr, inst);
-    
-    ASSERT_EQ(2, inst.size());
-    
+    ASSERT_THROW(mei::XmlImport::documentFromFile("malformed.mei"), mei::FileReadFailureException);
 }
