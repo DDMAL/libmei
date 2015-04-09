@@ -78,7 +78,7 @@ public:
 class MEI_EXPORT NoVersionFoundException : public MeiException {
 public:
     explicit NoVersionFoundException(const std::string &what) :
-    MeiException("No mei version was found on this document.") {}
+    MeiException("No MEI version was found on this document.") {}
     ~NoVersionFoundException() throw() {}
 };
 
@@ -102,12 +102,19 @@ public:
     MeiException("There was an error writing the file " + what + ".") {}
     ~FileWriteFailureException() throw () {}
 };
-    
-class MEI_EXPORT MalformedFileException : public MeiException {
+
+class MEI_EXPORT FileReadFailureException : public MeiException {
 public:
-    explicit MalformedFileException(const std::string &what) :
-    MeiException("The file " + what + " is malformed.") {}
-    ~MalformedFileException() throw () {}
+    explicit FileReadFailureException(const std::string &what) :
+    MeiException("There was an error reading the file " + what + ". Check that the file exists and that the software has read permissions for it.") {}
+    ~FileReadFailureException() throw () {}
+};
+
+class MEI_EXPORT MalformedXMLException : public MeiException {
+public:
+    explicit MalformedXMLException(const std::string &what) :
+    MeiException(what + " could not be parsed, probably due to malformed XML.") {}
+    ~MalformedXMLException() throw () {}
 };
 }
 #endif
