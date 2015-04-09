@@ -51,8 +51,6 @@ using mei::MeiAttribute;
 using mei::MeiDocument;
 using mei::XmlImport;
 using mei::XmlExport;
-using mei::XmlInstructions;
-using mei::XmlProcessingInstruction;
 
 typedef vector<MeiElement*> MeiElementList;
 typedef vector<MeiAttribute*> MeiAttributeList;
@@ -97,7 +95,6 @@ void MeiElementList_PushToList(MeiElementList* x, MeiElement* y) {
     x->insert(x->begin(), y);
 }
 
-
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 bool MeiAttributeList_NonZero(const MeiAttributeList x) { return !x.empty(); }
@@ -141,33 +138,6 @@ MeiNamespace* MeiNamespaceList_PopFromList(MeiNamespaceList* x) {
 }
 
 void MeiNamespaceList_PushToList(MeiNamespaceList* x, MeiNamespace* y) {
-    x->insert(x->begin(), y);
-}
-
-
-string MeiProcessingInstruction_Print(XmlProcessingInstruction x) { return "<XmlProcessingInstruction " + x.getName() + ":" + x.getValue() + ">"; }
-
-string MeiXmlInstructions_Print(XmlInstructions x) {
-    stringstream res;
-    res << "[ ";
-    for (vector<XmlProcessingInstruction*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<XmlProcessingInstruction " << (*iter)->getName() << ":" << (*iter)->getValue() << "> ";
-    }
-    res << "]";
-    return res.str();
-}
-
-
-bool MeiXmlInstructions_EqualWrap(const XmlInstructions x, const XmlInstructions y) { return x == y; }
-bool MeiXmlInstructions_NEqualWrap(const XmlInstructions x, const XmlInstructions y) { return x != y; }
-bool MeiXmlInstructions_NonZero(const XmlInstructions x) { return !x.empty(); }
-XmlProcessingInstruction* MeiXmlInstructions_PopFromList(XmlInstructions* x) {
-    XmlProcessingInstruction* t = x->back();
-    x->pop_back();
-    return t;
-}
-
-void MeiXmlInstructions_PushToList(XmlInstructions* x, XmlProcessingInstruction* y) {
     x->insert(x->begin(), y);
 }
 
@@ -221,26 +191,6 @@ BOOST_PYTHON_MODULE(_libmei) {
     VectorFromList<MeiElement>();
     VectorFromList<MeiAttribute>();
     VectorFromList<MeiNamespace>();
-    VectorFromList<XmlProcessingInstruction>();
-
-    class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
-        .def(vector_indexing_suite<XmlInstructions>())
-        .def("__eq__", &MeiXmlInstructions_EqualWrap)
-        .def("__ne__", &MeiXmlInstructions_NEqualWrap)
-        .def("__iter__", boost::python::iterator<XmlInstructions>())
-        .def("__nonzero__", &MeiXmlInstructions_NonZero)
-        .def("__str__", &MeiXmlInstructions_Print)
-        .def("__repr__", &MeiXmlInstructions_Print)
-        .def("pop", &MeiXmlInstructions_PopFromList, return_value_policy<reference_existing_object>())
-        .def("push", &MeiXmlInstructions_PushToList)
-    ;
-
-    class_<XmlProcessingInstruction, XmlProcessingInstruction*>("XmlProcessingInstruction", init<string, string>())
-        .add_property("name", &XmlProcessingInstruction::getName)
-        .add_property("value", &XmlProcessingInstruction::getValue)
-        .def("__str__", &MeiProcessingInstruction_Print)
-        .def("__repr__", &MeiProcessingInstruction_Print)
-    ;
 
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
@@ -296,27 +246,22 @@ BOOST_PYTHON_MODULE(_libmei) {
     bool (MeiElement::*hasChildrenBool)() = &MeiElement::hasChildren;
     bool (MeiElement::*hasChildrenArgs)(string) = &MeiElement::hasChildren;
     void (MeiElement::*printElement)() = &MeiElement::printElement;
-    //    void (MeiElement::*printElementAtLevel)(int) = &MeiElement::printElement;
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     
     class_<XmlImport>("XmlImport", init<>())
         .def("documentFromText", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
-        .def("documentFromText", static_cast<MeiDocument*(*)(string, XmlInstructions&)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
         .staticmethod("documentFromText")
 
         .def("documentFromFile", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromFile), return_value_policy<manage_new_object>())
-        .def("documentFromFile", static_cast<MeiDocument*(*)(string, XmlInstructions&)>(&XmlImport::documentFromFile), return_value_policy<manage_new_object>())
         .staticmethod("documentFromFile")
     ;
 
     class_<XmlExport>("XmlExport", boost::python::no_init)
         .def("meiDocumentToFile", static_cast<bool(*)(MeiDocument*, string)>(&XmlExport::meiDocumentToFile))
-        .def("meiDocumentToFile", static_cast<bool(*)(MeiDocument*, string, XmlInstructions&)>(&XmlExport::meiDocumentToFile))
         .staticmethod("meiDocumentToFile")
 
         .def("meiDocumentToText", static_cast<string(*)(MeiDocument*)>(&XmlExport::meiDocumentToText))
-        .def("meiDocumentToText", static_cast<string(*)(MeiDocument*, XmlInstructions&)>(&XmlExport::meiDocumentToText))
         .staticmethod("meiDocumentToText")
 
         .def("meiElementToText", &XmlExport::meiElementToText)
