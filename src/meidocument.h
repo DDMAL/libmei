@@ -50,12 +50,12 @@ class MEI_EXPORT MeiDocument {
         MeiDocument(std::string meiVers = *--MEI_VERSION.end());
         ~MeiDocument();
 
-        bool hasNamespace(std::string href);
-        bool hasNamespacePrefix(std::string href);
-        MeiNamespace* getNamespace(std::string href);
-        MeiNamespace* getNamespaceByPrefix(std::string prefix);
-        std::vector<MeiNamespace*> getNamespaces();
-        void addNamespace(MeiNamespace* ns);
+//        bool hasNamespace(std::string href);
+//        bool hasNamespacePrefix(std::string href);
+//        MeiNamespace* getNamespace(std::string href);
+//        MeiNamespace* getNamespaceByPrefix(std::string prefix);
+//        std::vector<MeiNamespace*> getNamespaces();
+//        void addNamespace(MeiNamespace* ns);
 
         std::string getVersion();
 
@@ -108,7 +108,7 @@ class MEI_EXPORT MeiDocument {
         std::string meiVersion;
         MeiElement* root;
 
-        std::vector<MeiNamespace*> namespaces;
+//        std::vector<MeiNamespace*> namespaces;
 
         std::map<std::string, MeiElement*> idMap;
         std::vector<MeiElement*> flattenedDoc;

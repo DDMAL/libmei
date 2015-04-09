@@ -44,66 +44,12 @@ using mei::MeiNamespace;
 mei::MeiDocument::MeiDocument(string meiVers) {
     this->root = NULL;
     this->meiVersion = meiVers;
-    // add the default MEI namespace
-    MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
-    this->namespaces.push_back(mei);
 }
 
 mei::MeiDocument::~MeiDocument() {
     vector<MeiElement*>::iterator iter;
     for(iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {
        delete *iter; 
-    }
-    
-    vector<MeiNamespace*>::iterator nsiter;
-    for (nsiter = this->namespaces.begin(); nsiter != this->namespaces.end(); ++nsiter) {
-        delete *nsiter;
-    }
-}
-
-bool mei::MeiDocument::hasNamespace(string href) {
-    if (this->namespaces.empty()) return false;
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getHref() == href) {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool mei::MeiDocument::hasNamespacePrefix(string prefix) {
-    if (this->namespaces.empty()) return false;
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getPrefix() == prefix) {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-MeiNamespace* mei::MeiDocument::getNamespace(string href) {
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getHref() == href) return *iter;
-    }
-    return NULL;
-}
-
-MeiNamespace* mei::MeiDocument::getNamespaceByPrefix(string prefix) {
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getPrefix() == prefix) return *iter;
-    }
-    return NULL;
-}
-
-vector<mei::MeiNamespace*> mei::MeiDocument::getNamespaces() {
-    return this->namespaces;
-}
-
-// note: should this raise an error if we try to add a namespace that already exists?
-void mei::MeiDocument::addNamespace(mei::MeiNamespace *ns) {
-    if (!hasNamespace(ns->getHref())) {
-        this->namespaces.push_back(ns);
     }
 }
 
@@ -114,6 +60,10 @@ MeiElement* mei::MeiDocument::getRootElement() {
 void mei::MeiDocument::setRootElement(MeiElement* root) {
     this->root = root;
     root->setDocument(this);
+
+    // when we set the root element we also assume that this will set the namespace for the MEI document.
+    MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
+    root->addNamespace(mei);
 
     updateFlattenedTree();
 }
