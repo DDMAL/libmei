@@ -34,8 +34,8 @@ namespace mei {
     class XmlImportImpl {
         private:
             friend class XmlImport;
-            MeiDocument* documentFromFile(std::string filename);
-            MeiDocument* documentFromText(std::string text);
+            MeiDocument* documentFromFile(std::string filename) throw (FileReadFailureException, VersionMismatchException, NoVersionFoundException);
+            MeiDocument* documentFromText(std::string text) throw (MalformedXMLException, VersionMismatchException, NoVersionFoundException);
 
             XmlImportImpl();
             virtual ~XmlImportImpl();
@@ -43,15 +43,12 @@ namespace mei {
 
             MeiDocument* getMeiDocument();
             MeiElement* xmlNodeToMeiElement(pugi::xml_node el);
-            void registerNamespaces(pugi::xml_node el);
-
             bool checkCompatibility(pugi::xml_node n) throw(NoVersionFoundException, VersionMismatchException);
 
             pugi::xml_node rootXmlNode;
             pugi::xml_document xmlMeiDocument;
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
-            XmlInstructions pi;
             unsigned int options;
     };
 }

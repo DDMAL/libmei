@@ -38,11 +38,9 @@ class MEI_EXPORT XmlImport {
         virtual ~XmlImport();
         /** \brief Read in an MEI Document from a filename */
         static MeiDocument* documentFromFile(std::string filename);
-        static MeiDocument* documentFromFile(std::string filename, XmlInstructions &inst);
     
         /** \brief Read in an MEI Document from a string */
         static MeiDocument* documentFromText(std::string text);
-        static MeiDocument* documentFromText(std::string text, XmlInstructions &inst);
     private:
         XmlImportImpl *impl;
 };
