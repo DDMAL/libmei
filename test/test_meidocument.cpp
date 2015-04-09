@@ -21,19 +21,19 @@ using mei::Body;
 using mei::Staff;
 using mei::Note;
 
-TEST(TestMeiDocument, GetNamespace) {
-    MeiDocument *doc = new MeiDocument();
-    MeiNamespace *ns = new MeiNamespace("prefix", "http://example.com/ns");
-
-    ASSERT_EQ("http://www.music-encoding.org/ns/mei", doc->getNamespaces().at(0)->getHref());
-
-    doc->addNamespace(ns);
-    ASSERT_EQ(2, doc->getNamespaces().size());
-    ASSERT_EQ(ns, doc->getNamespace("http://example.com/ns"));
-
-    ASSERT_TRUE(doc->hasNamespace("http://www.music-encoding.org/ns/mei"));
-    ASSERT_FALSE(doc->hasNamespace("http://www.mcgill.ca"));
-}
+//TEST(TestMeiDocument, GetNamespace) {
+//    MeiDocument *doc = new MeiDocument();
+//    MeiNamespace *ns = new MeiNamespace("prefix", "http://example.com/ns");
+//
+//    ASSERT_EQ("http://www.music-encoding.org/ns/mei", doc->getNamespaces().at(0)->getHref());
+//
+//    doc->addNamespace(ns);
+//    ASSERT_EQ(2, doc->getNamespaces().size());
+//    ASSERT_EQ(ns, doc->getNamespace("http://example.com/ns"));
+//
+//    ASSERT_TRUE(doc->hasNamespace("http://www.music-encoding.org/ns/mei"));
+//    ASSERT_FALSE(doc->hasNamespace("http://www.mcgill.ca"));
+//}
 
 TEST(TestMeiDocument, RootElement) {
     MeiDocument *doc = new MeiDocument();
