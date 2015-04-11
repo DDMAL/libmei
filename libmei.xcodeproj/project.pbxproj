@@ -88,6 +88,8 @@
 		0567A7191AD2D72800DAEA8C /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567A7181AD2D72800DAEA8C /* gtest.framework */; };
 		058359E813FB2F8700919769 /* test_meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E613FB2F8700919769 /* test_meielement.cpp */; };
 		058359E913FB2F8700919769 /* test_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E713FB2F8700919769 /* test_shared.cpp */; };
+		0595DD341AD98C7200BFDF83 /* emscripten.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0595DD321AD98C7200BFDF83 /* emscripten.cpp */; };
+		0595DD351AD98C7200BFDF83 /* test_xmlinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0595DD331AD98C7200BFDF83 /* test_xmlinput.cpp */; };
 		059A88B014016691006BA118 /* bach.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 059A88AE1401667A006BA118 /* bach.mei */; };
 		05A1338319B8C02A00C66C70 /* test_meiattribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A1338219B8C02A00C66C70 /* test_meiattribute.cpp */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
@@ -226,6 +228,9 @@
 		056BCFF6157297BF006E51A4 /* _libmei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _libmei.cpp; path = python/src/_libmei.cpp; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
 		058359E713FB2F8700919769 /* test_shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_shared.cpp; path = test/test_shared.cpp; sourceTree = "<group>"; };
+		0595DD311AD98C7200BFDF83 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = build.sh; path = emscripten/build.sh; sourceTree = "<group>"; };
+		0595DD321AD98C7200BFDF83 /* emscripten.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = emscripten.cpp; path = emscripten/emscripten.cpp; sourceTree = "<group>"; };
+		0595DD331AD98C7200BFDF83 /* test_xmlinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmlinput.cpp; path = emscripten/test_xmlinput.cpp; sourceTree = "<group>"; };
 		059A88AE1401667A006BA118 /* bach.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = bach.mei; path = test/bach.mei; sourceTree = "<group>"; };
 		05A1338219B8C02A00C66C70 /* test_meiattribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meiattribute.cpp; path = test/test_meiattribute.cpp; sourceTree = "<group>"; };
 		05B6605714017A2800D54F9A /* test_xmloutput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmloutput.cpp; path = test/test_xmloutput.cpp; sourceTree = "<group>"; };
@@ -326,9 +331,20 @@
 			name = "Python Bindings";
 			sourceTree = "<group>";
 		};
+		0595DD301AD98C5A00BFDF83 /* Emscripten */ = {
+			isa = PBXGroup;
+			children = (
+				0595DD311AD98C7200BFDF83 /* build.sh */,
+				0595DD321AD98C7200BFDF83 /* emscripten.cpp */,
+				0595DD331AD98C7200BFDF83 /* test_xmlinput.cpp */,
+			);
+			name = Emscripten;
+			sourceTree = "<group>";
+		};
 		0867D691FE84028FC02AAC07 /* libmei */ = {
 			isa = PBXGroup;
 			children = (
+				0595DD301AD98C5A00BFDF83 /* Emscripten */,
 				0567A7181AD2D72800DAEA8C /* gtest.framework */,
 				056BCFF41572979D006E51A4 /* Python Bindings */,
 				617B4333130453F500EBBE7F /* Util */,
@@ -660,6 +676,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D0CAF3A1AC2F91200A16096 /* pugixml.cpp in Sources */,
+				0595DD341AD98C7200BFDF83 /* emscripten.cpp in Sources */,
+				0595DD351AD98C7200BFDF83 /* test_xmlinput.cpp in Sources */,
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
