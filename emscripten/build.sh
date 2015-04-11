@@ -49,7 +49,7 @@ done
 
 echo "Compiling"
 
-python $EMCC $CHATTY --bind \
+$EMCC $CHATTY --bind \
 	-I$LIBMEI_INCLUDE/ \
     -I$LIBMEI_INCLUDE/modules/ \
 	-o libmei.js \
@@ -59,8 +59,6 @@ python $EMCC $CHATTY --bind \
 	$LIBMEI_ROOT/src/meiattribute.cpp \
     $LIBMEI_ROOT/src/meidocument.cpp \
     $LIBMEI_ROOT/src/meielement.cpp \
-    $LIBMEI_ROOT/src/meinamespace.cpp \
-    $LIBMEI_ROOT/src/meixml.cpp \
     \
     $LIBMEI_ROOT/src/import/xmlimport.cpp \
     \
