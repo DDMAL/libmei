@@ -1,6 +1,6 @@
 # -- coding: utf-8 --
 
-# Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+# Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -30,10 +30,9 @@ import os
 import shutil
 import codecs
 import re
-
 from argparse import ArgumentParser
-
 import logging
+
 lg = logging.getLogger('schemaparser')
 f = logging.Formatter("%(levelname)s %(asctime)s On Line: %(lineno)d %(message)s")
 h = logging.StreamHandler()
@@ -46,7 +45,8 @@ lg.addHandler(h)
 TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0"}
 TEI_RNG_NS = {"tei": "http://www.tei-c.org/ns/1.0", "rng": "http://relaxng.org/ns/structure/1.0"}
 NAMESPACES = {'xml': 'http://www.w3.org/XML/1998/namespace',
-                'xlink': 'http://www.w3.org/1999/xlink'}
+              'xlink': 'http://www.w3.org/1999/xlink'}
+
 
 class MeiSchema(object):
     def __init__(self, oddfile):
@@ -121,12 +121,12 @@ class MeiSchema(object):
                 self.attribute_group_structure[group_module][group_name].append(attname)
 
     def invert_attribute_group_structure(self):
-        for module, groups in self.attribute_group_structure.iteritems():
+        for module, groups in self.attribute_group_structure.items():
             for attgroup in groups:
                 self.inverse_attribute_group_structure[attgroup] = module
 
     def set_active_modules(self):
-        self.active_modules = self.element_structure.keys()
+        self.active_modules = list(self.element_structure.keys())
         self.active_modules.sort()
 
     def __process_att(self, attdef):
@@ -209,9 +209,9 @@ if __name__ == "__main__":
 
     if args.showlang:
         import langs
-        print "Available Output Languages"
+        print("Available Output Languages")
         for l in langs.AVAILABLE_LANGS:
-            print "\t{0}".format(l)
+            print("\t{0}".format(l))
         sys.exit(0)
 
     compiled_odd = args.compiled
