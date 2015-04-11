@@ -44,6 +44,11 @@ mei::MeiDocument::MeiDocument(string meiVers) {
     this->meiVersion = meiVers;
 }
 
+mei::MeiDocument::MeiDocument() {
+    this->root = NULL;
+    this->meiVersion = *--MEI_VERSION.end();
+}
+
 mei::MeiDocument::~MeiDocument() {
     vector<MeiElement*>::iterator iter;
     for(iter = flattenedDoc.begin(); iter != flattenedDoc.end(); ++iter) {

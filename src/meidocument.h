@@ -44,9 +44,15 @@ namespace mei {
 class MEI_EXPORT MeiDocument {
     public:
         /**
-         * \brief Create a new document.
+         * \brief Create a new document with a particular MEI Version type
          */
-        MeiDocument(std::string meiVers = *--MEI_VERSION.end());
+        MeiDocument(std::string meiVers);
+    
+        /**
+         *  \brief Create a new document. This will be assigned the latest supported MEI Version.
+         */
+        MeiDocument();
+
         ~MeiDocument();
 
         std::string getVersion();
