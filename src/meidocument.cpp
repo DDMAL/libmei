@@ -31,7 +31,6 @@
 #include <algorithm>
 
 #include "meielement.h"
-#include "meinamespace.h"
 
 using std::map;
 using std::string;
@@ -39,7 +38,6 @@ using std::vector;
 using std::find;
 
 using mei::MeiElement;
-using mei::MeiNamespace;
 
 mei::MeiDocument::MeiDocument(string meiVers) {
     this->root = NULL;
@@ -62,8 +60,8 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
     root->setDocument(this);
 
     // when we set the root element we also assume that this will set the namespace for the MEI document.
-    MeiNamespace* mei = new MeiNamespace(MEI_PREFIX, MEI_NS);
-    root->addNamespace(mei);
+    MeiAttribute* meins = new MeiAttribute("xmlns", MEI_NS);
+    root->addAttribute(meins);
 
     updateFlattenedTree();
 }

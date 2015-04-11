@@ -32,8 +32,6 @@ using mei::MeiFactory;
 using mei::XmlExport;
 using mei::XmlExportImpl;
 using mei::Mei;
-using mei::XmlInstructions;
-using mei::XmlProcessingInstruction;
 
 /*
  XmlImport and XmlExport use a Partial Implementation (PImpl) model for their class structure.
@@ -72,7 +70,7 @@ string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
 }
 
 /** Convert an element and its children to XML. Will also add
- * the <?xml > prelude and namespace to the text.
+ * the <?xml > prelude.
  */
 string XmlExport::meiElementToText(mei::MeiElement *el) {
     XmlExport *ex = new XmlExport(NULL);
@@ -173,10 +171,6 @@ void XmlExportImpl::meiElementToXmlNode(MeiElement *el, pugi::xml_node parentnod
         string attrname = (*iter)->getName();
         string attrvalue = (*iter)->getValue();
 
-        if ((*iter)->hasNamespace()) {
-            attrname = (*iter)->getNamespace()->getPrefix() + ":" + attrname;
-        }
-
         pugi::xml_attribute attrib = curxmlnode.append_attribute(attrname.c_str());
         attrib.set_value(attrvalue.c_str());
     }
@@ -195,24 +189,4 @@ void XmlExportImpl::meiElementToXmlNode(MeiElement *el, pugi::xml_node parentnod
             tail.set_value((*iter)->getTail().c_str());
         }
     }
-    
-    vector<MeiNamespace*> ns = el->getNamespaces();
-    for (vector<MeiNamespace*>::iterator iter = ns.begin(); iter != ns.end(); ++iter) {
-        string nsprefix = (*iter)->getPrefix();
-        string nsname;
-        string nshref;
-        
-        // deal with the default namespace v. other namespaces
-        if (nsprefix == "mei") {
-            nsname = "xmlns";
-            nshref = (*iter)->getHref();
-        } else {
-            nsname = "xmlns:" + nsprefix;
-            nshref = (*iter)->getHref();
-        }
-
-        pugi::xml_attribute attrib = curxmlnode.append_attribute(nsname.c_str());
-        attrib.set_value(nshref.c_str());
-    }
-
 }

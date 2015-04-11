@@ -25,7 +25,6 @@
 #define MEI_XMLIMPORT_IMPL_H_
 
 #include "meidocument.h"
-#include "meixml.h"
 #include "pugixml.hpp"
 #include <string>
 
@@ -49,6 +48,7 @@ namespace mei {
             pugi::xml_document xmlMeiDocument;
             MeiDocument* meiDocument;
             MeiElement* rootMeiElement;
+
             unsigned int options;
     };
 }

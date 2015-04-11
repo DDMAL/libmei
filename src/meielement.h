@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter and Others
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter and Others
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -30,7 +30,6 @@
 #include <map>
 
 #include "meicommon.h"
-#include "meinamespace.h"
 #include "meiattribute.h"
 #include "exceptions.h"
 
@@ -166,48 +165,6 @@ class MEI_EXPORT MeiElement
          *  \return True if it does, False if it does not
          */
         bool hasParent();
-
-        /** \brief Check if this element has a specific namespace definition on it
-         *
-         *  \return True if it does, False if it does not.
-         */
-        bool hasNamespace(std::string href);
-
-        /** \brief Check if this element has a namespace definition on it, by prefix
-         *
-         *  \return True if it does, False if it does not.
-         */
-        bool hasNamespacePrefix(std::string href);
-        
-        /** \brief Get a namespace defined on this element
-         *
-         *  \return MeiNamespace, or NULL if the namespace does not exist.
-         */
-        MeiNamespace* getNamespace(std::string href);
-        
-        /** \brief Get a namespace defined on this element, selected by prefix
-         *
-         *  \return MeiNamespace, or NULL if the namespace does not exist.
-         */
-        MeiNamespace* getNamespaceByPrefix(std::string prefix);
-        
-        /** \brief Get all namespaces defined on this element
-         *
-         *  \return vector<MeiNamespace*>, or NULL if no namespaces exist on this element.
-         */
-        std::vector<MeiNamespace*> getNamespaces();
-
-        /** \brief Add a namespace defined to this element
-         *
-         *  \return void.
-         */
-        void addNamespace(MeiNamespace* ns);
-
-        /** \brief Set all namespaces on this element
-         *
-         *  \return void.
-         */
-        void setNamespaces(std::vector<MeiNamespace*> ns);
         
         /** \brief Get this element's parent, if it exists.
          */
@@ -365,11 +322,9 @@ class MEI_EXPORT MeiElement
         std::string name;
         std::string value;
         std::string tail;
-        std::string ns;                         // the namespace of the element
 
         std::vector<MeiAttribute*> attributes;
         std::vector<MeiElement*> children;
-        std::vector<MeiNamespace*> namespaces;  // namespaces defined in the context of this element's subtree.
         MeiElement *parent;
         MeiDocument *document;
 };

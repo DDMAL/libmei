@@ -34,15 +34,10 @@ mei::MeiElement::~MeiElement() {
     for (it = attributes.begin(); it != attributes.end(); ++it) {
         delete *it;
     }
-    
-    vector<MeiNamespace*>::iterator nsiter;
-    for (nsiter = this->namespaces.begin(); nsiter != this->namespaces.end(); ++nsiter) {
-        delete *nsiter;
-    }
 }
 
 mei::MeiElement::MeiElement(const MeiElement& ele) :
- name(ele.name), value(ele.value), tail(ele.tail), ns(ele.ns), parent(ele.parent), document(NULL) {
+ name(ele.name), value(ele.value), tail(ele.tail), parent(ele.parent), document(NULL) {
     // deep copy child elements
     vector<MeiElement*>::const_iterator ele_it;
     for (ele_it = ele.children.begin(); ele_it != ele.children.end(); ++ele_it) {
@@ -134,7 +129,7 @@ void mei::MeiElement::setAttributes(const vector<MeiAttribute*> attrs) {
     attributes.clear();
     // Add one at a time so the element link gets added
     for (vector<MeiAttribute*>::const_iterator i = attrs.begin(); i != attrs.end(); ++i) {
-        addAttribute(*i);
+        this->addAttribute(*i);
     }
 }
 
@@ -158,7 +153,7 @@ bool mei::MeiElement::hasAttribute(string name) {
 
 void mei::MeiElement::addAttribute(MeiAttribute *attr) {
     if (this->hasAttribute(attr->getName())) {
-        removeAttribute(attr->getName());
+        this->removeAttribute(attr->getName());
     }
     attr->setElement(this);
     attributes.push_back(attr);
@@ -184,60 +179,6 @@ void mei::MeiElement::removeAttribute(string name) {
         } else {
             ++iter;
         }
-    }
-}
-
-bool mei::MeiElement::hasNamespace(string href) {
-    if (this->namespaces.empty()) return false;
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getHref() == href) {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool mei::MeiElement::hasNamespacePrefix(string prefix) {
-    if (this->namespaces.empty()) return false;
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getPrefix() == prefix) {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-mei::MeiNamespace* mei::MeiElement::getNamespace(string href) {
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getHref() == href) return *iter;
-    }
-    return NULL;
-}
-
-mei::MeiNamespace* mei::MeiElement::getNamespaceByPrefix(string prefix) {
-    for (vector<MeiNamespace*>::iterator iter = namespaces.begin(); iter != namespaces.end(); ++iter) {
-        if ((*iter)->getPrefix() == prefix) return *iter;
-    }
-    return NULL;
-}
-
-vector<mei::MeiNamespace*> mei::MeiElement::getNamespaces() {
-    return this->namespaces;
-}
-
-// note: should this raise an error if we try to add a namespace that already exists?
-void mei::MeiElement::addNamespace(mei::MeiNamespace *ns) {
-    if (!hasNamespace(ns->getHref())) {
-        this->namespaces.push_back(ns);
-    }
-}
-
-void mei::MeiElement::setNamespaces(std::vector<MeiNamespace *> ns) {
-    this->namespaces.clear();
-    // Add one at a time so the element link gets added
-    for (vector<MeiNamespace*>::const_iterator i = ns.begin(); i != ns.end(); ++i) {
-        addNamespace(*i);
     }
 }
 

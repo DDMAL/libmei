@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter and Others
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter and Others
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,7 +28,6 @@
 #include <string>
 
 #include "meicommon.h"
-#include "meinamespace.h"
 
 namespace mei {
 
@@ -48,8 +47,6 @@ namespace mei {
         public:
             /** \brief The MeiAttribute Constructor, requires the attribute name and value*/
             MeiAttribute(std::string attrname, std::string attrvalue);
-            MeiAttribute(MeiNamespace *ns, std::string attrname, std::string attrvalue);
-
 
             virtual ~MeiAttribute() {}
 
@@ -73,13 +70,10 @@ namespace mei {
             MeiElement* getElement();
             void setElement(MeiElement* el);
 
-            bool hasNamespace();
-            MeiNamespace* getNamespace();
         private:
             std::string name;
             std::string value;
             MeiElement* element;
-            MeiNamespace* ns;
         };
 }
 

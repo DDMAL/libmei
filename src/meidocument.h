@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter and Others
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter and Others
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -30,7 +30,6 @@
 #include <map>
 #include "meicommon.h"
 #include "meielement.h"
-#include "meinamespace.h"
 
 namespace mei {
 
@@ -50,19 +49,17 @@ class MEI_EXPORT MeiDocument {
         MeiDocument(std::string meiVers = *--MEI_VERSION.end());
         ~MeiDocument();
 
-//        bool hasNamespace(std::string href);
-//        bool hasNamespacePrefix(std::string href);
-//        MeiNamespace* getNamespace(std::string href);
-//        MeiNamespace* getNamespaceByPrefix(std::string prefix);
-//        std::vector<MeiNamespace*> getNamespaces();
-//        void addNamespace(MeiNamespace* ns);
-
         std::string getVersion();
 
         /** \brief Find the root element of the tree structure in the Mei document*/
         MeiElement* getRootElement();
 
-        /** \brief Make an Mei element the Root element of a document*/
+        /** 
+         *   \brief Make an Mei element the Root element of a document
+         *   
+         *   Note that adding an element as the root will also set the default MEI Namespace on that
+         *   element automatically.
+         */
         void setRootElement(MeiElement* root);
 
         /** \brief Get the element with the given ID.
@@ -107,8 +104,6 @@ class MEI_EXPORT MeiDocument {
         /** The version of this MEI document. */
         std::string meiVersion;
         MeiElement* root;
-
-//        std::vector<MeiNamespace*> namespaces;
 
         std::map<std::string, MeiElement*> idMap;
         std::vector<MeiElement*> flattenedDoc;

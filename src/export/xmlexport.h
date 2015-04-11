@@ -29,7 +29,6 @@
 #include <utility>
 
 #include "meidocument.h"
-#include "meixml.h"
 
 namespace mei {
 
