@@ -19,6 +19,15 @@ using mei::Body;
 using mei::Staff;
 using mei::Note;
 
+TEST(TestMeiDocument, SetsCorrectMeiVersion) {
+    MeiDocument *doc = new MeiDocument();
+    ASSERT_EQ(*--MEI_VERSION.end(), doc->getVersion());
+    
+    MeiDocument *doc2 = new MeiDocument("2012");
+    ASSERT_EQ("2012", doc2->getVersion());
+}
+
+
 TEST(TestMeiDocument, SetsDefaultNamespace) {
     MeiDocument *doc = new MeiDocument();
     MeiElement *root = new MeiElement("mei");
