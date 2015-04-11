@@ -40,7 +40,9 @@ EMSCRIPTEN_BINDINGS(libmei) {
     .function("getTail", &MeiElement::getTail)
     .function("getValue", &MeiElement::getValue)
     .function("getAttributes", &MeiElement::getAttributes, allow_raw_pointers())
-//    .function("addAttribute", &MeiElement::addAttribute)
+ //   .function("addAttribute", &MeiElement::addAttribute, allow_raw_pointers())
+    .function("addAttribute", select_overload<void(MeiAttribute*)>(&MeiElement::addAttribute), allow_raw_pointers())
+    .function("addAttribute", select_overload<void(std::string, std::string)>(&MeiElement::addAttribute))
     .function("setAttributes", &MeiElement::setAttributes)
     .function("removeAttribute", &MeiElement::removeAttribute)
     ;
