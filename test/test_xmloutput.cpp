@@ -12,7 +12,6 @@
 #include <mei/xmlexport.h>
 #include <mei/meidocument.h>
 #include <mei/meielement.h>
-#include <mei/meinamespace.h>
 #include <mei/meiattribute.h>
 #include <mei/exceptions.h>
 
@@ -23,10 +22,7 @@ using std::string;
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::XmlExport;
-using mei::MeiNamespace;
 using mei::MeiAttribute;
-using mei::XmlProcessingInstruction;
-using mei::XmlInstructions;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
     MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
@@ -85,8 +81,8 @@ TEST(TestXmlMeiExport, ExportNamespace) {
     MeiDocument *d = new MeiDocument();
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
-    MeiNamespace *xlink = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-    MeiAttribute *attr = new MeiAttribute(xlink, "title", "my awesome thing");
+    MeiAttribute *xlink = new MeiAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *attr = new MeiAttribute("xlink:title", "my awesome thing");
     root->addAttribute(attr);
 
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
@@ -101,8 +97,8 @@ TEST(TestXmlMeiExport, ExportNamespace2) {
     MeiDocument *d = new MeiDocument();
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
-    MeiNamespace *xlink = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
-    MeiAttribute *attr = new MeiAttribute(xlink, "title", "my awesome thing");
+    MeiAttribute *xlink = new MeiAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *attr = new MeiAttribute("xlink:title", "my awesome thing");
     MeiElement *music = mei::MeiFactory::createInstance("music", "musid");
     music->addAttribute(attr);
     music->setValue("mus!");

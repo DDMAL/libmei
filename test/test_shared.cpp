@@ -11,10 +11,8 @@
 #include <mei/shared.h>
 #include <mei/header.h>
 #include <mei/meielement.h>
-#include <mei/meinamespace.h>
 using mei::MeiAttribute;
 using mei::MeiElement;
-using mei::MeiNamespace;
 using mei::Note;
 using mei::Hand;
 using mei::Accid;
@@ -84,17 +82,4 @@ TEST(TestMeiShared, NoteMixinBaseMethodsTest) {
     n->removeAttribute("color");
     
     ASSERT_FALSE(n->m_Color.hasColor());
-}
-
-TEST(TestMeiShared, NamespacedElementTest) {
-    Note* n = new Note();
-    n->m_Common.setBase("foobar");
-    ASSERT_TRUE(n->m_Common.hasBase());
-
-    MeiAttribute* a = n->m_Common.getBase();
-    ASSERT_TRUE(a->hasNamespace());
-
-    MeiNamespace* s = a->getNamespace();
-    ASSERT_EQ("http://www.w3.org/XML/1998/namespace", s->getHref());
-
 }

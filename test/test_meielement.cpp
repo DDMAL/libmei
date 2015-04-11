@@ -24,7 +24,6 @@ using std::string;
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
 using mei::Staff;
 using mei::Layer;
 using mei::Accid;
@@ -51,30 +50,6 @@ TEST(TestMeiElement, TestGetSet) {
 TEST(TestMeiElement, TestGetNoAttribute) {
     MeiElement *p = new MeiElement("note");
     ASSERT_EQ(NULL, p->getAttribute("color"));
-}
-
-TEST(TestMeiElement, TestNamespacesOnElements) {
-    MeiElement *p = new MeiElement("note");
-    MeiNamespace *ns = new MeiNamespace("xlink", "http://www.w3.org/xlink/something");
-    p->addNamespace(ns);
-    
-    ASSERT_TRUE(p->hasNamespace("http://www.w3.org/xlink/something"));
-    ASSERT_TRUE(p->hasNamespacePrefix("xlink"));
-    
-    ASSERT_EQ(ns, p->getNamespaceByPrefix("xlink"));
-    ASSERT_EQ(ns, p->getNamespace("http://www.w3.org/xlink/something"));
-    
-    MeiNamespace *ns2 = new MeiNamespace("xinlclude", "http://www.w3.org/xinclude/something");
-    p->addNamespace(ns2);
-    ASSERT_EQ(2, p->getNamespaces().size());
-    
-    MeiElement *p2 = new MeiElement("note");
-    vector<MeiNamespace*> stuff;
-    stuff.push_back(ns);
-    stuff.push_back(ns2);
-    p2->setNamespaces(stuff);
-    
-    ASSERT_EQ(2, p2->getNamespaces().size());
 }
 
 // Adding an attribute to an element sets the attr's element.
