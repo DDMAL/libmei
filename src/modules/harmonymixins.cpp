@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::FretlocationMixIn::FretlocationMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::FretlocationMixIn::FretlocationMixIn(MeiElement *b) {
 mei::FretlocationMixIn::~FretlocationMixIn() {}
 MeiAttribute* mei::FretlocationMixIn::getFret() {
     if (!b->hasAttribute("fret")) {
-        throw AttributeNotFoundException("fret");
+        return NULL;
     }
     return b->getAttribute("fret");
 };
@@ -40,7 +38,7 @@ mei::HarmLogMixIn::HarmLogMixIn(MeiElement *b) {
 mei::HarmLogMixIn::~HarmLogMixIn() {}
 MeiAttribute* mei::HarmLogMixIn::getChordref() {
     if (!b->hasAttribute("chordref")) {
-        throw AttributeNotFoundException("chordref");
+        return NULL;
     }
     return b->getAttribute("chordref");
 };
@@ -66,7 +64,7 @@ mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
 mei::HarmVisMixIn::~HarmVisMixIn() {}
 MeiAttribute* mei::HarmVisMixIn::getExtender() {
     if (!b->hasAttribute("extender")) {
-        throw AttributeNotFoundException("extender");
+        return NULL;
     }
     return b->getAttribute("extender");
 };
@@ -85,7 +83,7 @@ void mei::HarmVisMixIn::removeExtender() {
 };
 MeiAttribute* mei::HarmVisMixIn::getRendgrid() {
     if (!b->hasAttribute("rendgrid")) {
-        throw AttributeNotFoundException("rendgrid");
+        return NULL;
     }
     return b->getAttribute("rendgrid");
 };

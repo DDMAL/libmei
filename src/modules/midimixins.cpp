@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::ChannelizedMixIn::ChannelizedMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::ChannelizedMixIn::ChannelizedMixIn(MeiElement *b) {
 mei::ChannelizedMixIn::~ChannelizedMixIn() {}
 MeiAttribute* mei::ChannelizedMixIn::getMidiChannel() {
     if (!b->hasAttribute("midi.channel")) {
-        throw AttributeNotFoundException("midi.channel");
+        return NULL;
     }
     return b->getAttribute("midi.channel");
 };
@@ -33,7 +31,7 @@ void mei::ChannelizedMixIn::removeMidiChannel() {
 };
 MeiAttribute* mei::ChannelizedMixIn::getMidiDuty() {
     if (!b->hasAttribute("midi.duty")) {
-        throw AttributeNotFoundException("midi.duty");
+        return NULL;
     }
     return b->getAttribute("midi.duty");
 };
@@ -52,7 +50,7 @@ void mei::ChannelizedMixIn::removeMidiDuty() {
 };
 MeiAttribute* mei::ChannelizedMixIn::getMidiPort() {
     if (!b->hasAttribute("midi.port")) {
-        throw AttributeNotFoundException("midi.port");
+        return NULL;
     }
     return b->getAttribute("midi.port");
 };
@@ -71,7 +69,7 @@ void mei::ChannelizedMixIn::removeMidiPort() {
 };
 MeiAttribute* mei::ChannelizedMixIn::getMidiTrack() {
     if (!b->hasAttribute("midi.track")) {
-        throw AttributeNotFoundException("midi.track");
+        return NULL;
     }
     return b->getAttribute("midi.track");
 };
@@ -97,7 +95,7 @@ mei::MidiinstrumentMixIn::MidiinstrumentMixIn(MeiElement *b) {
 mei::MidiinstrumentMixIn::~MidiinstrumentMixIn() {}
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrnum() {
     if (!b->hasAttribute("midi.instrnum")) {
-        throw AttributeNotFoundException("midi.instrnum");
+        return NULL;
     }
     return b->getAttribute("midi.instrnum");
 };
@@ -116,7 +114,7 @@ void mei::MidiinstrumentMixIn::removeMidiInstrnum() {
 };
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiInstrname() {
     if (!b->hasAttribute("midi.instrname")) {
-        throw AttributeNotFoundException("midi.instrname");
+        return NULL;
     }
     return b->getAttribute("midi.instrname");
 };
@@ -135,7 +133,7 @@ void mei::MidiinstrumentMixIn::removeMidiInstrname() {
 };
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiPan() {
     if (!b->hasAttribute("midi.pan")) {
-        throw AttributeNotFoundException("midi.pan");
+        return NULL;
     }
     return b->getAttribute("midi.pan");
 };
@@ -154,7 +152,7 @@ void mei::MidiinstrumentMixIn::removeMidiPan() {
 };
 MeiAttribute* mei::MidiinstrumentMixIn::getMidiVolume() {
     if (!b->hasAttribute("midi.volume")) {
-        throw AttributeNotFoundException("midi.volume");
+        return NULL;
     }
     return b->getAttribute("midi.volume");
 };
@@ -180,7 +178,7 @@ mei::MidinumberMixIn::MidinumberMixIn(MeiElement *b) {
 mei::MidinumberMixIn::~MidinumberMixIn() {}
 MeiAttribute* mei::MidinumberMixIn::getNum() {
     if (!b->hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
+        return NULL;
     }
     return b->getAttribute("num");
 };
@@ -206,7 +204,7 @@ mei::MiditempoMixIn::MiditempoMixIn(MeiElement *b) {
 mei::MiditempoMixIn::~MiditempoMixIn() {}
 MeiAttribute* mei::MiditempoMixIn::getMidiTempo() {
     if (!b->hasAttribute("midi.tempo")) {
-        throw AttributeNotFoundException("midi.tempo");
+        return NULL;
     }
     return b->getAttribute("midi.tempo");
 };
@@ -232,7 +230,7 @@ mei::MidivalueMixIn::MidivalueMixIn(MeiElement *b) {
 mei::MidivalueMixIn::~MidivalueMixIn() {}
 MeiAttribute* mei::MidivalueMixIn::getVal() {
     if (!b->hasAttribute("val")) {
-        throw AttributeNotFoundException("val");
+        return NULL;
     }
     return b->getAttribute("val");
 };
@@ -258,7 +256,7 @@ mei::TimebaseMixIn::TimebaseMixIn(MeiElement *b) {
 mei::TimebaseMixIn::~TimebaseMixIn() {}
 MeiAttribute* mei::TimebaseMixIn::getPpq() {
     if (!b->hasAttribute("ppq")) {
-        throw AttributeNotFoundException("ppq");
+        return NULL;
     }
     return b->getAttribute("ppq");
 };

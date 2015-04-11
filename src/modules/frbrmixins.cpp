@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::RelMixIn::RelMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::RelMixIn::RelMixIn(MeiElement *b) {
 mei::RelMixIn::~RelMixIn() {}
 MeiAttribute* mei::RelMixIn::getRel() {
     if (!b->hasAttribute("rel")) {
-        throw AttributeNotFoundException("rel");
+        return NULL;
     }
     return b->getAttribute("rel");
 };

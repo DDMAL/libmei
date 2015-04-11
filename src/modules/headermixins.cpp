@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::RegularmethodMixIn::RegularmethodMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::RegularmethodMixIn::RegularmethodMixIn(MeiElement *b) {
 mei::RegularmethodMixIn::~RegularmethodMixIn() {}
 MeiAttribute* mei::RegularmethodMixIn::getMethod() {
     if (!b->hasAttribute("method")) {
-        throw AttributeNotFoundException("method");
+        return NULL;
     }
     return b->getAttribute("method");
 };

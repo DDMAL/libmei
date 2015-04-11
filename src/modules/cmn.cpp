@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Arpeg::Arpeg() :
     MeiElement("arpeg"),
@@ -913,7 +911,7 @@ mei::MeterSigGrp::MeterSigGrp(const MeterSigGrp& other) :
 
 MeiAttribute* mei::MeterSigGrp::getFunc() {
     if (!hasAttribute("func")) {
-        throw AttributeNotFoundException("func");
+        return NULL;
     }
     return getAttribute("func");
 };

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Accid::Accid() :
     MeiElement("accid"),
@@ -1211,7 +1209,7 @@ mei::KeyAccid::KeyAccid(const KeyAccid& other) :
 
 MeiAttribute* mei::KeyAccid::getForm() {
     if (!hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return getAttribute("form");
 };
@@ -1361,7 +1359,7 @@ mei::Lb::Lb(const Lb& other) :
 
 MeiAttribute* mei::Lb::getFunc() {
     if (!hasAttribute("func")) {
-        throw AttributeNotFoundException("func");
+        return NULL;
     }
     return getAttribute("func");
 };
@@ -2024,7 +2022,7 @@ mei::RelatedItem::RelatedItem(const RelatedItem& other) :
 
 MeiAttribute* mei::RelatedItem::getRel() {
     if (!hasAttribute("rel")) {
-        throw AttributeNotFoundException("rel");
+        return NULL;
     }
     return getAttribute("rel");
 };
@@ -2068,7 +2066,7 @@ mei::Rend::Rend(const Rend& other) :
 
 MeiAttribute* mei::Rend::getAltrend() {
     if (!hasAttribute("altrend")) {
-        throw AttributeNotFoundException("altrend");
+        return NULL;
     }
     return getAttribute("altrend");
 };
@@ -2087,7 +2085,7 @@ void mei::Rend::removeAltrend() {
 };
 MeiAttribute* mei::Rend::getRend() {
     if (!hasAttribute("rend")) {
-        throw AttributeNotFoundException("rend");
+        return NULL;
     }
     return getAttribute("rend");
 };
@@ -2106,7 +2104,7 @@ void mei::Rend::removeRend() {
 };
 MeiAttribute* mei::Rend::getRotation() {
     if (!hasAttribute("rotation")) {
-        throw AttributeNotFoundException("rotation");
+        return NULL;
     }
     return getAttribute("rotation");
 };
@@ -2125,7 +2123,7 @@ void mei::Rend::removeRotation() {
 };
 MeiAttribute* mei::Rend::getValign() {
     if (!hasAttribute("valign")) {
-        throw AttributeNotFoundException("valign");
+        return NULL;
     }
     return getAttribute("valign");
 };
@@ -2576,7 +2574,7 @@ mei::Stack::Stack(const Stack& other) :
 
 MeiAttribute* mei::Stack::getDelim() {
     if (!hasAttribute("delim")) {
-        throw AttributeNotFoundException("delim");
+        return NULL;
     }
     return getAttribute("delim");
 };
@@ -2595,7 +2593,7 @@ void mei::Stack::removeDelim() {
 };
 MeiAttribute* mei::Stack::getAlign() {
     if (!hasAttribute("align")) {
-        throw AttributeNotFoundException("align");
+        return NULL;
     }
     return getAttribute("align");
 };
@@ -2856,7 +2854,7 @@ mei::TextLang::TextLang(const TextLang& other) :
 
 MeiAttribute* mei::TextLang::getMainLang() {
     if (!hasAttribute("mainLang")) {
-        throw AttributeNotFoundException("mainLang");
+        return NULL;
     }
     return getAttribute("mainLang");
 };
@@ -2875,7 +2873,7 @@ void mei::TextLang::removeMainLang() {
 };
 MeiAttribute* mei::TextLang::getOtherLangs() {
     if (!hasAttribute("otherLangs")) {
-        throw AttributeNotFoundException("otherLangs");
+        return NULL;
     }
     return getAttribute("otherLangs");
 };
@@ -2921,7 +2919,7 @@ mei::Title::Title(const Title& other) :
 
 MeiAttribute* mei::Title::getLevel() {
     if (!hasAttribute("level")) {
-        throw AttributeNotFoundException("level");
+        return NULL;
     }
     return getAttribute("level");
 };

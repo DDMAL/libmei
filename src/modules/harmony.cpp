@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Barre::Barre() :
     MeiElement("barre"),
@@ -43,7 +41,7 @@ mei::ChordDef::ChordDef(const ChordDef& other) :
 
 MeiAttribute* mei::ChordDef::getPos() {
     if (!hasAttribute("pos")) {
-        throw AttributeNotFoundException("pos");
+        return NULL;
     }
     return getAttribute("pos");
 };
@@ -87,7 +85,7 @@ mei::ChordMember::ChordMember(const ChordMember& other) :
 
 MeiAttribute* mei::ChordMember::getFing() {
     if (!hasAttribute("fing")) {
-        throw AttributeNotFoundException("fing");
+        return NULL;
     }
     return getAttribute("fing");
 };
@@ -144,7 +142,7 @@ mei::F::F(const F& other) :
 
 MeiAttribute* mei::F::getExtender() {
     if (!hasAttribute("extender")) {
-        throw AttributeNotFoundException("extender");
+        return NULL;
     }
     return getAttribute("extender");
 };

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::CritMixIn::CritMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::CritMixIn::CritMixIn(MeiElement *b) {
 mei::CritMixIn::~CritMixIn() {}
 MeiAttribute* mei::CritMixIn::getCause() {
     if (!b->hasAttribute("cause")) {
-        throw AttributeNotFoundException("cause");
+        return NULL;
     }
     return b->getAttribute("cause");
 };
@@ -40,7 +38,7 @@ mei::SourceMixIn::SourceMixIn(MeiElement *b) {
 mei::SourceMixIn::~SourceMixIn() {}
 MeiAttribute* mei::SourceMixIn::getSource() {
     if (!b->hasAttribute("source")) {
-        throw AttributeNotFoundException("source");
+        return NULL;
     }
     return b->getAttribute("source");
 };

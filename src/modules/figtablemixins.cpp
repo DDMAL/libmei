@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::TabularMixIn::TabularMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::TabularMixIn::TabularMixIn(MeiElement *b) {
 mei::TabularMixIn::~TabularMixIn() {}
 MeiAttribute* mei::TabularMixIn::getColspan() {
     if (!b->hasAttribute("colspan")) {
-        throw AttributeNotFoundException("colspan");
+        return NULL;
     }
     return b->getAttribute("colspan");
 };
@@ -33,7 +31,7 @@ void mei::TabularMixIn::removeColspan() {
 };
 MeiAttribute* mei::TabularMixIn::getRowspan() {
     if (!b->hasAttribute("rowspan")) {
-        throw AttributeNotFoundException("rowspan");
+        return NULL;
     }
     return b->getAttribute("rowspan");
 };

@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define USERSYMBOLS_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -38,8 +37,8 @@
 
 
 namespace mei {
-/** \brief – Container for text that is fixed to a particular location, regardless of
- *  changes made to the layout of the measures around it.
+/** \brief Container for text that is fixed to a particular location, regardless of changes
+ *  made to the layout of the measures around it.
  */
 class MEI_EXPORT AnchoredText : public MeiElement {
     public:
@@ -65,8 +64,8 @@ class MEI_EXPORT AnchoredText : public MeiElement {
         REGISTER_DECLARATION(AnchoredText);
 };
 
-/** \brief – A curved line that cannot be represented by a more specific element, such as
- *  a <slur>.
+/** \brief A curved line that cannot be represented by a more specific element, such as a
+ *  <slur>.
  */
 class MEI_EXPORT Curve : public MeiElement {
     public:
@@ -99,7 +98,7 @@ class MEI_EXPORT Curve : public MeiElement {
         REGISTER_DECLARATION(Curve);
 };
 
-/** \brief – A line that cannot be represented by a more specific element.
+/** \brief A line that cannot be represented by a more specific element.
  */
 class MEI_EXPORT Line : public MeiElement {
     public:
@@ -131,7 +130,7 @@ class MEI_EXPORT Line : public MeiElement {
         REGISTER_DECLARATION(Line);
 };
 
-/** \brief – A reference to a previously defined symbol.
+/** \brief A reference to a previously defined symbol.
  */
 class MEI_EXPORT Symbol : public MeiElement {
     public:
@@ -181,7 +180,7 @@ class MEI_EXPORT SymbolDef : public MeiElement {
         REGISTER_DECLARATION(SymbolDef);
 };
 
-/** \brief – Contains individual, user-defined symbols.
+/** \brief Contains individual, user-defined symbols.
  */
 class MEI_EXPORT SymbolTable : public MeiElement {
     public:

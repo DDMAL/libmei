@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::AnchoredText::AnchoredText() :
     MeiElement("anchoredText"),
@@ -175,7 +173,7 @@ mei::Symbol::Symbol(const Symbol& other) :
 
 MeiAttribute* mei::Symbol::getRef() {
     if (!hasAttribute("ref")) {
-        throw AttributeNotFoundException("ref");
+        return NULL;
     }
     return getAttribute("ref");
 };

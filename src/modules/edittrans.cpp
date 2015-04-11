@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Abbr::Abbr() :
     MeiElement("abbr"),
@@ -38,7 +36,7 @@ mei::Abbr::Abbr(const Abbr& other) :
 
 MeiAttribute* mei::Abbr::getExpan() {
     if (!hasAttribute("expan")) {
-        throw AttributeNotFoundException("expan");
+        return NULL;
     }
     return getAttribute("expan");
 };
@@ -149,7 +147,7 @@ mei::Damage::Damage(const Damage& other) :
 
 MeiAttribute* mei::Damage::getDegree() {
     if (!hasAttribute("degree")) {
-        throw AttributeNotFoundException("degree");
+        return NULL;
     }
     return getAttribute("degree");
 };
@@ -189,7 +187,7 @@ mei::Del::Del(const Del& other) :
 
 MeiAttribute* mei::Del::getRend() {
     if (!hasAttribute("rend")) {
-        throw AttributeNotFoundException("rend");
+        return NULL;
     }
     return getAttribute("rend");
 };
@@ -239,7 +237,7 @@ mei::Expan::Expan(const Expan& other) :
 
 MeiAttribute* mei::Expan::getAbbr() {
     if (!hasAttribute("abbr")) {
-        throw AttributeNotFoundException("abbr");
+        return NULL;
     }
     return getAttribute("abbr");
 };
@@ -312,7 +310,7 @@ mei::HandShift::HandShift(const HandShift& other) :
 
 MeiAttribute* mei::HandShift::getCharacter() {
     if (!hasAttribute("character")) {
-        throw AttributeNotFoundException("character");
+        return NULL;
     }
     return getAttribute("character");
 };
@@ -331,7 +329,7 @@ void mei::HandShift::removeCharacter() {
 };
 MeiAttribute* mei::HandShift::getNew() {
     if (!hasAttribute("new")) {
-        throw AttributeNotFoundException("new");
+        return NULL;
     }
     return getAttribute("new");
 };
@@ -350,7 +348,7 @@ void mei::HandShift::removeNew() {
 };
 MeiAttribute* mei::HandShift::getOld() {
     if (!hasAttribute("old")) {
-        throw AttributeNotFoundException("old");
+        return NULL;
     }
     return getAttribute("old");
 };
@@ -446,7 +444,7 @@ mei::Restore::Restore(const Restore& other) :
 
 MeiAttribute* mei::Restore::getDesc() {
     if (!hasAttribute("desc")) {
-        throw AttributeNotFoundException("desc");
+        return NULL;
     }
     return getAttribute("desc");
 };

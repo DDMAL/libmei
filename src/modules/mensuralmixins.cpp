@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::LigatureLogMixIn::LigatureLogMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::LigatureLogMixIn::LigatureLogMixIn(MeiElement *b) {
 mei::LigatureLogMixIn::~LigatureLogMixIn() {}
 MeiAttribute* mei::LigatureLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return b->getAttribute("form");
 };
@@ -40,7 +38,7 @@ mei::MensurVisMixIn::MensurVisMixIn(MeiElement *b) {
 mei::MensurVisMixIn::~MensurVisMixIn() {}
 MeiAttribute* mei::MensurVisMixIn::getForm() {
     if (!b->hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return b->getAttribute("form");
 };
@@ -59,7 +57,7 @@ void mei::MensurVisMixIn::removeForm() {
 };
 MeiAttribute* mei::MensurVisMixIn::getOrient() {
     if (!b->hasAttribute("orient")) {
-        throw AttributeNotFoundException("orient");
+        return NULL;
     }
     return b->getAttribute("orient");
 };
@@ -85,7 +83,7 @@ mei::MensuralLogMixIn::MensuralLogMixIn(MeiElement *b) {
 mei::MensuralLogMixIn::~MensuralLogMixIn() {}
 MeiAttribute* mei::MensuralLogMixIn::getMensurDot() {
     if (!b->hasAttribute("mensur.dot")) {
-        throw AttributeNotFoundException("mensur.dot");
+        return NULL;
     }
     return b->getAttribute("mensur.dot");
 };
@@ -104,7 +102,7 @@ void mei::MensuralLogMixIn::removeMensurDot() {
 };
 MeiAttribute* mei::MensuralLogMixIn::getMensurSign() {
     if (!b->hasAttribute("mensur.sign")) {
-        throw AttributeNotFoundException("mensur.sign");
+        return NULL;
     }
     return b->getAttribute("mensur.sign");
 };
@@ -123,7 +121,7 @@ void mei::MensuralLogMixIn::removeMensurSign() {
 };
 MeiAttribute* mei::MensuralLogMixIn::getMensurSlash() {
     if (!b->hasAttribute("mensur.slash")) {
-        throw AttributeNotFoundException("mensur.slash");
+        return NULL;
     }
     return b->getAttribute("mensur.slash");
 };
@@ -142,7 +140,7 @@ void mei::MensuralLogMixIn::removeMensurSlash() {
 };
 MeiAttribute* mei::MensuralLogMixIn::getProportNum() {
     if (!b->hasAttribute("proport.num")) {
-        throw AttributeNotFoundException("proport.num");
+        return NULL;
     }
     return b->getAttribute("proport.num");
 };
@@ -161,7 +159,7 @@ void mei::MensuralLogMixIn::removeProportNum() {
 };
 MeiAttribute* mei::MensuralLogMixIn::getProportNumbase() {
     if (!b->hasAttribute("proport.numbase")) {
-        throw AttributeNotFoundException("proport.numbase");
+        return NULL;
     }
     return b->getAttribute("proport.numbase");
 };
@@ -187,7 +185,7 @@ mei::MensuralSharedMixIn::MensuralSharedMixIn(MeiElement *b) {
 mei::MensuralSharedMixIn::~MensuralSharedMixIn() {}
 MeiAttribute* mei::MensuralSharedMixIn::getModusmaior() {
     if (!b->hasAttribute("modusmaior")) {
-        throw AttributeNotFoundException("modusmaior");
+        return NULL;
     }
     return b->getAttribute("modusmaior");
 };
@@ -206,7 +204,7 @@ void mei::MensuralSharedMixIn::removeModusmaior() {
 };
 MeiAttribute* mei::MensuralSharedMixIn::getModusminor() {
     if (!b->hasAttribute("modusminor")) {
-        throw AttributeNotFoundException("modusminor");
+        return NULL;
     }
     return b->getAttribute("modusminor");
 };
@@ -225,7 +223,7 @@ void mei::MensuralSharedMixIn::removeModusminor() {
 };
 MeiAttribute* mei::MensuralSharedMixIn::getProlatio() {
     if (!b->hasAttribute("prolatio")) {
-        throw AttributeNotFoundException("prolatio");
+        return NULL;
     }
     return b->getAttribute("prolatio");
 };
@@ -244,7 +242,7 @@ void mei::MensuralSharedMixIn::removeProlatio() {
 };
 MeiAttribute* mei::MensuralSharedMixIn::getTempus() {
     if (!b->hasAttribute("tempus")) {
-        throw AttributeNotFoundException("tempus");
+        return NULL;
     }
     return b->getAttribute("tempus");
 };
@@ -270,7 +268,7 @@ mei::MensuralVisMixIn::MensuralVisMixIn(MeiElement *b) {
 mei::MensuralVisMixIn::~MensuralVisMixIn() {}
 MeiAttribute* mei::MensuralVisMixIn::getMensurColor() {
     if (!b->hasAttribute("mensur.color")) {
-        throw AttributeNotFoundException("mensur.color");
+        return NULL;
     }
     return b->getAttribute("mensur.color");
 };
@@ -289,7 +287,7 @@ void mei::MensuralVisMixIn::removeMensurColor() {
 };
 MeiAttribute* mei::MensuralVisMixIn::getMensurForm() {
     if (!b->hasAttribute("mensur.form")) {
-        throw AttributeNotFoundException("mensur.form");
+        return NULL;
     }
     return b->getAttribute("mensur.form");
 };
@@ -308,7 +306,7 @@ void mei::MensuralVisMixIn::removeMensurForm() {
 };
 MeiAttribute* mei::MensuralVisMixIn::getMensurLoc() {
     if (!b->hasAttribute("mensur.loc")) {
-        throw AttributeNotFoundException("mensur.loc");
+        return NULL;
     }
     return b->getAttribute("mensur.loc");
 };
@@ -327,7 +325,7 @@ void mei::MensuralVisMixIn::removeMensurLoc() {
 };
 MeiAttribute* mei::MensuralVisMixIn::getMensurOrient() {
     if (!b->hasAttribute("mensur.orient")) {
-        throw AttributeNotFoundException("mensur.orient");
+        return NULL;
     }
     return b->getAttribute("mensur.orient");
 };
@@ -346,7 +344,7 @@ void mei::MensuralVisMixIn::removeMensurOrient() {
 };
 MeiAttribute* mei::MensuralVisMixIn::getMensurSize() {
     if (!b->hasAttribute("mensur.size")) {
-        throw AttributeNotFoundException("mensur.size");
+        return NULL;
     }
     return b->getAttribute("mensur.size");
 };
@@ -372,7 +370,7 @@ mei::NoteLogMensuralMixIn::NoteLogMensuralMixIn(MeiElement *b) {
 mei::NoteLogMensuralMixIn::~NoteLogMensuralMixIn() {}
 MeiAttribute* mei::NoteLogMensuralMixIn::getLig() {
     if (!b->hasAttribute("lig")) {
-        throw AttributeNotFoundException("lig");
+        return NULL;
     }
     return b->getAttribute("lig");
 };
@@ -398,7 +396,7 @@ mei::RestVisMensuralMixIn::RestVisMensuralMixIn(MeiElement *b) {
 mei::RestVisMensuralMixIn::~RestVisMensuralMixIn() {}
 MeiAttribute* mei::RestVisMensuralMixIn::getSpaces() {
     if (!b->hasAttribute("spaces")) {
-        throw AttributeNotFoundException("spaces");
+        return NULL;
     }
     return b->getAttribute("spaces");
 };

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::FacsimileMixIn::FacsimileMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::FacsimileMixIn::FacsimileMixIn(MeiElement *b) {
 mei::FacsimileMixIn::~FacsimileMixIn() {}
 MeiAttribute* mei::FacsimileMixIn::getFacs() {
     if (!b->hasAttribute("facs")) {
-        throw AttributeNotFoundException("facs");
+        return NULL;
     }
     return b->getAttribute("facs");
 };

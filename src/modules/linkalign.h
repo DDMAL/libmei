@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define LINKALIGN_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -35,8 +34,8 @@
 
 
 namespace mei {
-/** \brief – Provides a set of ordered points in time to which musical elements can be
- *  linked in order to create a temporal alignment of those elements.
+/** \brief Provides a set of ordered points in time to which musical elements can be linked
+ *  in order to create a temporal alignment of those elements.
  */
 class MEI_EXPORT Timeline : public MeiElement {
     public:
@@ -67,9 +66,9 @@ class MEI_EXPORT Timeline : public MeiElement {
         REGISTER_DECLARATION(Timeline);
 };
 
-/** \brief – Indicates a point in time either absolutely (using the absolute attribute),
- *  or relative to other elements in the same timeline element (using the interval
- *  and since attributes).
+/** \brief Indicates a point in time either absolutely (using the absolute attribute), or
+ *  relative to other elements in the same timeline element (using the interval and
+ *  since attributes).
  */
 class MEI_EXPORT When : public MeiElement {
     public:

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::CommonAnlMixIn::CommonAnlMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::CommonAnlMixIn::CommonAnlMixIn(MeiElement *b) {
 mei::CommonAnlMixIn::~CommonAnlMixIn() {}
 MeiAttribute* mei::CommonAnlMixIn::getCopyof() {
     if (!b->hasAttribute("copyof")) {
-        throw AttributeNotFoundException("copyof");
+        return NULL;
     }
     return b->getAttribute("copyof");
 };
@@ -33,7 +31,7 @@ void mei::CommonAnlMixIn::removeCopyof() {
 };
 MeiAttribute* mei::CommonAnlMixIn::getCorresp() {
     if (!b->hasAttribute("corresp")) {
-        throw AttributeNotFoundException("corresp");
+        return NULL;
     }
     return b->getAttribute("corresp");
 };
@@ -52,7 +50,7 @@ void mei::CommonAnlMixIn::removeCorresp() {
 };
 MeiAttribute* mei::CommonAnlMixIn::getNext() {
     if (!b->hasAttribute("next")) {
-        throw AttributeNotFoundException("next");
+        return NULL;
     }
     return b->getAttribute("next");
 };
@@ -71,7 +69,7 @@ void mei::CommonAnlMixIn::removeNext() {
 };
 MeiAttribute* mei::CommonAnlMixIn::getPrev() {
     if (!b->hasAttribute("prev")) {
-        throw AttributeNotFoundException("prev");
+        return NULL;
     }
     return b->getAttribute("prev");
 };
@@ -90,7 +88,7 @@ void mei::CommonAnlMixIn::removePrev() {
 };
 MeiAttribute* mei::CommonAnlMixIn::getSameas() {
     if (!b->hasAttribute("sameas")) {
-        throw AttributeNotFoundException("sameas");
+        return NULL;
     }
     return b->getAttribute("sameas");
 };
@@ -109,7 +107,7 @@ void mei::CommonAnlMixIn::removeSameas() {
 };
 MeiAttribute* mei::CommonAnlMixIn::getSynch() {
     if (!b->hasAttribute("synch")) {
-        throw AttributeNotFoundException("synch");
+        return NULL;
     }
     return b->getAttribute("synch");
 };
@@ -135,7 +133,7 @@ mei::HarmonicfunctionMixIn::HarmonicfunctionMixIn(MeiElement *b) {
 mei::HarmonicfunctionMixIn::~HarmonicfunctionMixIn() {}
 MeiAttribute* mei::HarmonicfunctionMixIn::getDeg() {
     if (!b->hasAttribute("deg")) {
-        throw AttributeNotFoundException("deg");
+        return NULL;
     }
     return b->getAttribute("deg");
 };
@@ -161,7 +159,7 @@ mei::IntervalharmonicMixIn::IntervalharmonicMixIn(MeiElement *b) {
 mei::IntervalharmonicMixIn::~IntervalharmonicMixIn() {}
 MeiAttribute* mei::IntervalharmonicMixIn::getInth() {
     if (!b->hasAttribute("inth")) {
-        throw AttributeNotFoundException("inth");
+        return NULL;
     }
     return b->getAttribute("inth");
 };
@@ -187,7 +185,7 @@ mei::IntervallicdescMixIn::IntervallicdescMixIn(MeiElement *b) {
 mei::IntervallicdescMixIn::~IntervallicdescMixIn() {}
 MeiAttribute* mei::IntervallicdescMixIn::getIntm() {
     if (!b->hasAttribute("intm")) {
-        throw AttributeNotFoundException("intm");
+        return NULL;
     }
     return b->getAttribute("intm");
 };
@@ -213,7 +211,7 @@ mei::MelodicfunctionMixIn::MelodicfunctionMixIn(MeiElement *b) {
 mei::MelodicfunctionMixIn::~MelodicfunctionMixIn() {}
 MeiAttribute* mei::MelodicfunctionMixIn::getMfunc() {
     if (!b->hasAttribute("mfunc")) {
-        throw AttributeNotFoundException("mfunc");
+        return NULL;
     }
     return b->getAttribute("mfunc");
 };
@@ -239,7 +237,7 @@ mei::PitchclassMixIn::PitchclassMixIn(MeiElement *b) {
 mei::PitchclassMixIn::~PitchclassMixIn() {}
 MeiAttribute* mei::PitchclassMixIn::getPclass() {
     if (!b->hasAttribute("pclass")) {
-        throw AttributeNotFoundException("pclass");
+        return NULL;
     }
     return b->getAttribute("pclass");
 };
@@ -265,7 +263,7 @@ mei::SolfaMixIn::SolfaMixIn(MeiElement *b) {
 mei::SolfaMixIn::~SolfaMixIn() {}
 MeiAttribute* mei::SolfaMixIn::getPsolfa() {
     if (!b->hasAttribute("psolfa")) {
-        throw AttributeNotFoundException("psolfa");
+        return NULL;
     }
     return b->getAttribute("psolfa");
 };

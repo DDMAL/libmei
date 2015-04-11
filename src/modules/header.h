@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define HEADER_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -40,8 +39,8 @@
 
 
 namespace mei {
-/** \brief (access restriction) – Describes the conditions that affect the accessibility
- *  of material.
+/** \brief (access restriction) – Describes the conditions that affect the accessibility of
+ *  material.
  */
 class MEI_EXPORT AccessRestrict : public MeiElement {
     public:
@@ -59,9 +58,9 @@ class MEI_EXPORT AccessRestrict : public MeiElement {
         REGISTER_DECLARATION(AccessRestrict);
 };
 
-/** \brief (acquisition source) – Post-publication source, such as a vendor or
- *  distributor, from which access to a bibliographic item may be obtained,
- *  including electronic access.
+/** \brief (acquisition source) – Post-publication source, such as a vendor or distributor,
+ *  from which access to a bibliographic item may be obtained, including electronic
+ *  access.
  */
 class MEI_EXPORT AcqSource : public MeiElement {
     public:
@@ -79,10 +78,9 @@ class MEI_EXPORT AcqSource : public MeiElement {
         REGISTER_DECLARATION(AcqSource);
 };
 
-/** \brief (alternative identifier) – May contain a bibliographic identifier that does
- *  not fit within the meiHead element's id attribute, for example because the id
- *  does not fit the definition of an XML id or because multiple identifiers are
- *  needed.
+/** \brief (alternative identifier) – May contain a bibliographic identifier that does not
+ *  fit within the meiHead element's id attribute, for example because the id does
+ *  not fit the definition of an XML id or because multiple identifiers are needed.
  */
 class MEI_EXPORT AltId : public MeiElement {
     public:
@@ -117,7 +115,7 @@ class MEI_EXPORT AppInfo : public MeiElement {
         REGISTER_DECLARATION(AppInfo);
 };
 
-/** \brief – Provides information about an application which has acted upon the current
+/** \brief Provides information about an application which has acted upon the current
  *  document.
  */
 class MEI_EXPORT Application : public MeiElement {
@@ -143,7 +141,7 @@ class MEI_EXPORT Application : public MeiElement {
         REGISTER_DECLARATION(Application);
 };
 
-/** \brief – Defines the class of user for which the work is intended, as defined by age
+/** \brief Defines the class of user for which the work is intended, as defined by age
  *  group (e.g., children, young adults, adults, etc.), educational level (e.g.,
  *  primary, secondary, etc.), or other categorization.
  */
@@ -163,8 +161,8 @@ class MEI_EXPORT Audience : public MeiElement {
         REGISTER_DECLARATION(Audience);
 };
 
-/** \brief – Groups elements that describe the availability of and access to a
- *  bibliographic item, including an MEI-encoded document.
+/** \brief Groups elements that describe the availability of and access to a bibliographic
+ *  item, including an MEI-encoded document.
  */
 class MEI_EXPORT Availability : public MeiElement {
     public:
@@ -202,8 +200,8 @@ class MEI_EXPORT CaptureMode : public MeiElement {
         REGISTER_DECLARATION(CaptureMode);
 };
 
-/** \brief (carrier form) – The specific class of material to which the physical carrier
- *  of the source/manifestation belongs (e.g., sound cassette, videodisc, microfilm
+/** \brief (carrier form) – The specific class of material to which the physical carrier of
+ *  the source/manifestation belongs (e.g., sound cassette, videodisc, microfilm
  *  cartridge, transparency, etc.).
  * 
  *  The carrier for a manifestation comprising multiple physical components may
@@ -226,7 +224,7 @@ class MEI_EXPORT CarrierForm : public MeiElement {
         REGISTER_DECLARATION(CarrierForm);
 };
 
-/** \brief – Individual change within the revision description.
+/** \brief Individual change within the revision description.
  */
 class MEI_EXPORT Change : public MeiElement {
     public:
@@ -263,10 +261,10 @@ class MEI_EXPORT ChangeDesc : public MeiElement {
         REGISTER_DECLARATION(ChangeDesc);
 };
 
-/** \brief (classification code) – Holds a citation to the source of controlled-
- *  vocabulary terms used in the <termList> element; for example, Library of
- *  Congress Subject Headings (LCSH), Library of Congress Classification (LCC),
- *  Library of Congress Name Authority File (LCNAF), or other thesaurus or ontology.
+/** \brief (classification code) – Holds a citation to the source of controlled-vocabulary
+ *  terms used in the <termList> element; for example, Library of Congress Subject
+ *  Headings (LCSH), Library of Congress Classification (LCC), Library of Congress
+ *  Name Authority File (LCNAF), or other thesaurus or ontology.
  */
 class MEI_EXPORT ClassCode : public MeiElement {
     public:
@@ -284,7 +282,7 @@ class MEI_EXPORT ClassCode : public MeiElement {
         REGISTER_DECLARATION(ClassCode);
 };
 
-/** \brief – Groups information which describes the nature or topic of an entity.
+/** \brief Groups information which describes the nature or topic of an entity.
  */
 class MEI_EXPORT Classification : public MeiElement {
     public:
@@ -302,7 +300,7 @@ class MEI_EXPORT Classification : public MeiElement {
         REGISTER_DECLARATION(Classification);
 };
 
-/** \brief – The physical condition of an item, particularly any variances between the
+/** \brief The physical condition of an item, particularly any variances between the
  *  physical makeup of the item and that of other copies of the same item (e.g.,
  *  missing pages, plates, etc.).
  */
@@ -322,7 +320,7 @@ class MEI_EXPORT Condition : public MeiElement {
         REGISTER_DECLARATION(Condition);
 };
 
-/** \brief – Contains a single entry within a content description element.
+/** \brief Contains a single entry within a content description element.
  */
 class MEI_EXPORT ContentItem : public MeiElement {
     public:
@@ -339,7 +337,7 @@ class MEI_EXPORT ContentItem : public MeiElement {
         REGISTER_DECLARATION(ContentItem);
 };
 
-/** \brief – Description of the material contained within a resource.
+/** \brief Description of the material contained within a resource.
  */
 class MEI_EXPORT Contents : public MeiElement {
     public:
@@ -357,10 +355,10 @@ class MEI_EXPORT Contents : public MeiElement {
         REGISTER_DECLARATION(Contents);
 };
 
-/** \brief – The historical, social, intellectual, artistic, or other context within
- *  which the work was originally conceived (e.g., the 17th century restoration of
- *  the monarchy in England, the aesthetic movement of the late 19th century, etc.)
- *  or the historical, social, intellectual, artistic, or other context within which
+/** \brief The historical, social, intellectual, artistic, or other context within which
+ *  the work was originally conceived (e.g., the 17th century restoration of the
+ *  monarchy in England, the aesthetic movement of the late 19th century, etc.) or
+ *  the historical, social, intellectual, artistic, or other context within which
  *  the expression was realized.
  */
 class MEI_EXPORT Context : public MeiElement {
@@ -379,8 +377,7 @@ class MEI_EXPORT Context : public MeiElement {
         REGISTER_DECLARATION(Context);
 };
 
-/** \brief – States how and under what circumstances corrections have been made in the
- *  text.
+/** \brief States how and under what circumstances corrections have been made in the text.
  */
 class MEI_EXPORT Correction : public MeiElement {
     public:
@@ -406,8 +403,8 @@ class MEI_EXPORT Correction : public MeiElement {
         REGISTER_DECLARATION(Correction);
 };
 
-/** \brief – Information about the physical size of a bibliographic source; usually
- *  includes numerical data.
+/** \brief Information about the physical size of a bibliographic source; usually includes
+ *  numerical data.
  */
 class MEI_EXPORT Dimensions : public MeiElement {
     public:
@@ -425,8 +422,8 @@ class MEI_EXPORT Dimensions : public MeiElement {
         REGISTER_DECLARATION(Dimensions);
 };
 
-/** \brief (edition statement) – Container for meta-data pertaining to a particular
- *  edition of the material being described.
+/** \brief (edition statement) – Container for meta-data pertaining to a particular edition
+ *  of the material being described.
  */
 class MEI_EXPORT EditionStmt : public MeiElement {
     public:
@@ -483,8 +480,8 @@ class MEI_EXPORT EncodingDesc : public MeiElement {
         REGISTER_DECLARATION(EncodingDesc);
 };
 
-/** \brief – The name of a standard instrumental or vocal grouping, such as 'orchestra'
- *  or 'marching band'.
+/** \brief The name of a standard instrumental or vocal grouping, such as 'orchestra' or
+ *  'marching band'.
  */
 class MEI_EXPORT Ensemble : public MeiElement {
     public:
@@ -503,7 +500,7 @@ class MEI_EXPORT Ensemble : public MeiElement {
         REGISTER_DECLARATION(Ensemble);
 };
 
-/** \brief – Contains a description of an event, including the dates and locations of its
+/** \brief Contains a description of an event, including the dates and locations of its
  *  occurrence and prominent participants.
  */
 class MEI_EXPORT Event : public MeiElement {
@@ -527,8 +524,7 @@ class MEI_EXPORT Event : public MeiElement {
         REGISTER_DECLARATION(Event);
 };
 
-/** \brief – Contains historical information given as a sequence of significant past
- *  events.
+/** \brief Contains historical information given as a sequence of significant past events.
  */
 class MEI_EXPORT EventList : public MeiElement {
     public:
@@ -546,8 +542,8 @@ class MEI_EXPORT EventList : public MeiElement {
         REGISTER_DECLARATION(EventList);
 };
 
-/** \brief (exhibition history) – A record of public exhibitions, including dates,
- *  venues, etc.
+/** \brief (exhibition history) – A record of public exhibitions, including dates, venues,
+ *  etc.
  */
 class MEI_EXPORT ExhibHist : public MeiElement {
     public:
@@ -585,8 +581,7 @@ class MEI_EXPORT FileChar : public MeiElement {
         REGISTER_DECLARATION(FileChar);
 };
 
-/** \brief (file description) – Contains a full bibliographic description of the MEI
- *  file.
+/** \brief (file description) – Contains a full bibliographic description of the MEI file.
  */
 class MEI_EXPORT FileDesc : public MeiElement {
     public:
@@ -603,9 +598,9 @@ class MEI_EXPORT FileDesc : public MeiElement {
         REGISTER_DECLARATION(FileDesc);
 };
 
-/** \brief – Contains a string that uniquely identifies an item, such as those
- *  constructed by combining groups of characters transcribed from specified pages
- *  of a printed item or a file's checksum.
+/** \brief Contains a string that uniquely identifies an item, such as those constructed by
+ *  combining groups of characters transcribed from specified pages of a printed
+ *  item or a file's checksum.
  */
 class MEI_EXPORT Fingerprint : public MeiElement {
     public:
@@ -623,7 +618,7 @@ class MEI_EXPORT Fingerprint : public MeiElement {
         REGISTER_DECLARATION(Fingerprint);
 };
 
-/** \brief – Defines a distinct scribe or handwriting style.
+/** \brief Defines a distinct scribe or handwriting style.
  */
 class MEI_EXPORT Hand : public MeiElement {
     public:
@@ -649,7 +644,7 @@ class MEI_EXPORT Hand : public MeiElement {
         REGISTER_DECLARATION(Hand);
 };
 
-/** \brief – Container for one or more hand elements.
+/** \brief Container for one or more hand elements.
  */
 class MEI_EXPORT HandList : public MeiElement {
     public:
@@ -666,7 +661,7 @@ class MEI_EXPORT HandList : public MeiElement {
         REGISTER_DECLARATION(HandList);
 };
 
-/** \brief – Provides a container for information about the creation and history of a
+/** \brief Provides a container for information about the creation and history of a
  *  resource.
  */
 class MEI_EXPORT History : public MeiElement {
@@ -684,7 +679,7 @@ class MEI_EXPORT History : public MeiElement {
         REGISTER_DECLARATION(History);
 };
 
-/** \brief – Incipit coded in a non-XML, plain text format, such as Plaine & Easie Code.
+/** \brief Incipit coded in a non-XML, plain text format, such as Plaine & Easie Code.
  */
 class MEI_EXPORT IncipCode : public MeiElement {
     public:
@@ -710,7 +705,7 @@ class MEI_EXPORT IncipCode : public MeiElement {
         REGISTER_DECLARATION(IncipCode);
 };
 
-/** \brief – Opening words of a musical composition.
+/** \brief Opening words of a musical composition.
  */
 class MEI_EXPORT IncipText : public MeiElement {
     public:
@@ -730,7 +725,7 @@ class MEI_EXPORT IncipText : public MeiElement {
         REGISTER_DECLARATION(IncipText);
 };
 
-/** \brief – An inscription added to an item, such as a bookplate, a note designating the
+/** \brief An inscription added to an item, such as a bookplate, a note designating the
  *  item as a gift, and/or the author's signature.
  */
 class MEI_EXPORT Inscription : public MeiElement {
@@ -787,7 +782,7 @@ class MEI_EXPORT InstrVoice : public MeiElement {
         REGISTER_DECLARATION(InstrVoice);
 };
 
-/** \brief – Several instrumental or vocal resources treated as a group.
+/** \brief Several instrumental or vocal resources treated as a group.
  */
 class MEI_EXPORT InstrVoiceGrp : public MeiElement {
     public:
@@ -806,7 +801,7 @@ class MEI_EXPORT InstrVoiceGrp : public MeiElement {
         REGISTER_DECLARATION(InstrVoiceGrp);
 };
 
-/** \brief – Instrumental and non-dramatic vocal resources.
+/** \brief Instrumental and non-dramatic vocal resources.
  */
 class MEI_EXPORT Instrumentation : public MeiElement {
     public:
@@ -824,7 +819,7 @@ class MEI_EXPORT Instrumentation : public MeiElement {
         REGISTER_DECLARATION(Instrumentation);
 };
 
-/** \brief – Describes the scope of any analytic or interpretive information added to the
+/** \brief Describes the scope of any analytic or interpretive information added to the
  *  transcription of the music.
  */
 class MEI_EXPORT Interpretation : public MeiElement {
@@ -844,7 +839,7 @@ class MEI_EXPORT Interpretation : public MeiElement {
         REGISTER_DECLARATION(Interpretation);
 };
 
-/** \brief – Key captures information about tonal center and mode.
+/** \brief Key captures information about tonal center and mode.
  */
 class MEI_EXPORT Key : public MeiElement {
     public:
@@ -883,7 +878,7 @@ class MEI_EXPORT LangUsage : public MeiElement {
         REGISTER_DECLARATION(LangUsage);
 };
 
-/** \brief – Description of a language used in the document.
+/** \brief Description of a language used in the document.
  */
 class MEI_EXPORT Language : public MeiElement {
     public:
@@ -928,7 +923,7 @@ class MEI_EXPORT MeiHead : public MeiElement {
         REGISTER_DECLARATION(MeiHead);
 };
 
-/** \brief – Captures information about mensuration within bibliographic descriptions.
+/** \brief Captures information about mensuration within bibliographic descriptions.
  */
 class MEI_EXPORT Mensuration : public MeiElement {
     public:
@@ -949,8 +944,7 @@ class MEI_EXPORT Mensuration : public MeiElement {
         REGISTER_DECLARATION(Mensuration);
 };
 
-/** \brief – Captures information about the time signature within bibliographic
- *  descriptions.
+/** \brief Captures information about the time signature within bibliographic descriptions.
  */
 class MEI_EXPORT Meter : public MeiElement {
     public:
@@ -968,8 +962,8 @@ class MEI_EXPORT Meter : public MeiElement {
         REGISTER_DECLARATION(Meter);
 };
 
-/** \brief – Indicates the extent of normalization or regularization of the original
- *  source carried out in converting it to electronic form.
+/** \brief Indicates the extent of normalization or regularization of the original source
+ *  carried out in converting it to electronic form.
  */
 class MEI_EXPORT Normalization : public MeiElement {
     public:
@@ -1121,7 +1115,7 @@ class MEI_EXPORT PlayingSpeed : public MeiElement {
         REGISTER_DECLARATION(PlayingSpeed);
 };
 
-/** \brief – The cost of access to a bibliographic item.
+/** \brief The cost of access to a bibliographic item.
  */
 class MEI_EXPORT Price : public MeiElement {
     public:
@@ -1162,7 +1156,7 @@ class MEI_EXPORT ProjectDesc : public MeiElement {
         REGISTER_DECLARATION(ProjectDesc);
 };
 
-/** \brief – The record of ownership or custodianship of an item.
+/** \brief The record of ownership or custodianship of an item.
  */
 class MEI_EXPORT Provenance : public MeiElement {
     public:
@@ -1180,8 +1174,8 @@ class MEI_EXPORT Provenance : public MeiElement {
         REGISTER_DECLARATION(Provenance);
 };
 
-/** \brief (publication statement) – Container for information regarding the publication
- *  or distribution of a bibliographic item, including the publisher's name and
+/** \brief (publication statement) – Container for information regarding the publication or
+ *  distribution of a bibliographic item, including the publisher's name and
  *  address, the date of publication, and other relevant details.
  */
 class MEI_EXPORT PubStmt : public MeiElement {
@@ -1237,8 +1231,8 @@ class MEI_EXPORT SamplingDecl : public MeiElement {
         REGISTER_DECLARATION(SamplingDecl);
 };
 
-/** \brief – Describes the type of score used to represent a musical composition (e.g.,
- *  short score, full score, condensed score, close score, etc.).
+/** \brief Describes the type of score used to represent a musical composition (e.g., short
+ *  score, full score, condensed score, close score, etc.).
  */
 class MEI_EXPORT ScoreFormat : public MeiElement {
     public:
@@ -1256,8 +1250,8 @@ class MEI_EXPORT ScoreFormat : public MeiElement {
         REGISTER_DECLARATION(ScoreFormat);
 };
 
-/** \brief – Describes the principles according to which the musical text has been
- *  segmented, for example into movements, sections, etc.
+/** \brief Describes the principles according to which the musical text has been segmented,
+ *  for example into movements, sections, etc.
  */
 class MEI_EXPORT Segmentation : public MeiElement {
     public:
@@ -1313,8 +1307,8 @@ class MEI_EXPORT SoundChan : public MeiElement {
         REGISTER_DECLARATION(SoundChan);
 };
 
-/** \brief – A bibliographic description of a source used in the creation of the
- *  electronic file.
+/** \brief A bibliographic description of a source used in the creation of the electronic
+ *  file.
  */
 class MEI_EXPORT Source : public MeiElement {
     public:
@@ -1333,8 +1327,8 @@ class MEI_EXPORT Source : public MeiElement {
         REGISTER_DECLARATION(Source);
 };
 
-/** \brief (source description) – A container for the descriptions of the source(s) used
- *  in the creation of the electronic file.
+/** \brief (source description) – A container for the descriptions of the source(s) used in
+ *  the creation of the electronic file.
  */
 class MEI_EXPORT SourceDesc : public MeiElement {
     public:
@@ -1350,8 +1344,8 @@ class MEI_EXPORT SourceDesc : public MeiElement {
         REGISTER_DECLARATION(SourceDesc);
 };
 
-/** \brief (special reproduction characteristic) – The equalization system, noise
- *  reduction system, etc.
+/** \brief (special reproduction characteristic) – The equalization system, noise reduction
+ *  system, etc.
  * 
  *  used in making the recording (e.g., NAB, DBX, Dolby, etc.).
  */
@@ -1428,7 +1422,7 @@ class MEI_EXPORT TapeConfig : public MeiElement {
         REGISTER_DECLARATION(TapeConfig);
 };
 
-/** \brief – Keyword or phrase which describes a resource.
+/** \brief Keyword or phrase which describes a resource.
  */
 class MEI_EXPORT Term : public MeiElement {
     public:
@@ -1454,7 +1448,7 @@ class MEI_EXPORT Term : public MeiElement {
         REGISTER_DECLARATION(Term);
 };
 
-/** \brief – Collection of text phrases which describe a resource.
+/** \brief Collection of text phrases which describe a resource.
  */
 class MEI_EXPORT TermList : public MeiElement {
     public:
@@ -1570,7 +1564,7 @@ class MEI_EXPORT UseRestrict : public MeiElement {
         REGISTER_DECLARATION(UseRestrict);
 };
 
-/** \brief – Contains a description of a watermark or similar device.
+/** \brief Contains a description of a watermark or similar device.
  */
 class MEI_EXPORT Watermark : public MeiElement {
     public:
@@ -1588,9 +1582,9 @@ class MEI_EXPORT Watermark : public MeiElement {
         REGISTER_DECLARATION(Watermark);
 };
 
-/** \brief – Provides a detailed description of a work, specifically its history,
- *  language use, and high-level musical attributes: key, tempo, meter, and medium
- *  of performance.
+/** \brief Provides a detailed description of a work, specifically its history, language
+ *  use, and high-level musical attributes: key, tempo, meter, and medium of
+ *  performance.
  */
 class MEI_EXPORT Work : public MeiElement {
     public:

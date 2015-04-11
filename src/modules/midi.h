@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define MIDI_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -112,7 +111,7 @@ class MEI_EXPORT ChanPr : public MeiElement {
         REGISTER_DECLARATION(ChanPr);
 };
 
-/** \brief – MIDI cue point.
+/** \brief MIDI cue point.
  */
 class MEI_EXPORT Cue : public MeiElement {
     public:
@@ -133,7 +132,7 @@ class MEI_EXPORT Cue : public MeiElement {
         REGISTER_DECLARATION(Cue);
 };
 
-/** \brief – Arbitrary MIDI data in hexadecimal form.
+/** \brief Arbitrary MIDI data in hexadecimal form.
  */
 class MEI_EXPORT Hex : public MeiElement {
     public:
@@ -188,7 +187,7 @@ class MEI_EXPORT InstrGrp : public MeiElement {
         REGISTER_DECLARATION(InstrGrp);
 };
 
-/** \brief – MIDI marker meta-event.
+/** \brief MIDI marker meta-event.
  */
 class MEI_EXPORT Marker : public MeiElement {
     public:
@@ -209,7 +208,7 @@ class MEI_EXPORT Marker : public MeiElement {
         REGISTER_DECLARATION(Marker);
 };
 
-/** \brief – MIDI text meta-event.
+/** \brief MIDI text meta-event.
  */
 class MEI_EXPORT MetaText : public MeiElement {
     public:
@@ -230,7 +229,7 @@ class MEI_EXPORT MetaText : public MeiElement {
         REGISTER_DECLARATION(MetaText);
 };
 
-/** \brief – Container for elements that contain information useful when generating MIDI
+/** \brief Container for elements that contain information useful when generating MIDI
  *  output.
  */
 class MEI_EXPORT Midi : public MeiElement {
@@ -251,7 +250,7 @@ class MEI_EXPORT Midi : public MeiElement {
         REGISTER_DECLARATION(Midi);
 };
 
-/** \brief – MIDI note-off event.
+/** \brief MIDI note-off event.
  */
 class MEI_EXPORT NoteOff : public MeiElement {
     public:
@@ -273,7 +272,7 @@ class MEI_EXPORT NoteOff : public MeiElement {
         REGISTER_DECLARATION(NoteOff);
 };
 
-/** \brief – MIDI note-on event.
+/** \brief MIDI note-on event.
  */
 class MEI_EXPORT NoteOn : public MeiElement {
     public:
@@ -295,7 +294,7 @@ class MEI_EXPORT NoteOn : public MeiElement {
         REGISTER_DECLARATION(NoteOn);
 };
 
-/** \brief – MIDI port.
+/** \brief MIDI port.
  */
 class MEI_EXPORT Port : public MeiElement {
     public:

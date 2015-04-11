@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Cc::Cc() :
     MeiElement("cc"),
@@ -61,7 +59,7 @@ mei::Chan::Chan(const Chan& other) :
 
 MeiAttribute* mei::Chan::getNum() {
     if (!hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
+        return NULL;
     }
     return getAttribute("num");
 };
@@ -397,7 +395,7 @@ mei::SeqNum::SeqNum(const SeqNum& other) :
 
 MeiAttribute* mei::SeqNum::getNum() {
     if (!hasAttribute("num")) {
-        throw AttributeNotFoundException("num");
+        return NULL;
     }
     return getAttribute("num");
 };
@@ -468,7 +466,7 @@ mei::Vel::Vel(const Vel& other) :
 
 MeiAttribute* mei::Vel::getForm() {
     if (!hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return getAttribute("form");
 };

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Back::Back() :
     MeiElement("back"),
@@ -157,6 +155,7 @@ mei::List::List() :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -167,13 +166,14 @@ mei::List::List(const List& other) :
     m_Common(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }
 
 MeiAttribute* mei::List::getForm() {
     if (!hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return getAttribute("form");
 };

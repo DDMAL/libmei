@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define EDITTRANS_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -38,8 +37,8 @@
 
 
 namespace mei {
-/** \brief (abbreviation) – A generic element for 1) a shortened form of a word,
- *  including an acronym or 2) a shorthand notation.
+/** \brief (abbreviation) – A generic element for 1) a shortened form of a word, including
+ *  an acronym or 2) a shorthand notation.
  */
 class MEI_EXPORT Abbr : public MeiElement {
     public:
@@ -91,7 +90,7 @@ class MEI_EXPORT Add : public MeiElement {
         REGISTER_DECLARATION(Add);
 };
 
-/** \brief – Groups a number of alternative encodings for the same point in a text.
+/** \brief Groups a number of alternative encodings for the same point in a text.
  */
 class MEI_EXPORT Choice : public MeiElement {
     public:
@@ -128,7 +127,7 @@ class MEI_EXPORT Corr : public MeiElement {
         REGISTER_DECLARATION(Corr);
 };
 
-/** \brief – Contains an area of damage to the physical medium.
+/** \brief Contains an area of damage to the physical medium.
  */
 class MEI_EXPORT Damage : public MeiElement {
     public:
@@ -212,9 +211,8 @@ class MEI_EXPORT Expan : public MeiElement {
         REGISTER_DECLARATION(Expan);
 };
 
-/** \brief – Indicates a point where material has been omitted in a transcription,
- *  whether as part of sampling practice or for editorial reasons described in the
- *  MEI header.
+/** \brief Indicates a point where material has been omitted in a transcription, whether as
+ *  part of sampling practice or for editorial reasons described in the MEI header.
  */
 class MEI_EXPORT Gap : public MeiElement {
     public:
@@ -237,8 +235,8 @@ class MEI_EXPORT Gap : public MeiElement {
         REGISTER_DECLARATION(Gap);
 };
 
-/** \brief – Marks the beginning of a passage written in a new hand, or of a change in
- *  the scribe, writing style, ink or character of the document hand.
+/** \brief Marks the beginning of a passage written in a new hand, or of a change in the
+ *  scribe, writing style, ink or character of the document hand.
  */
 class MEI_EXPORT HandShift : public MeiElement {
     public:
@@ -281,8 +279,8 @@ class MEI_EXPORT HandShift : public MeiElement {
         REGISTER_DECLARATION(HandShift);
 };
 
-/** \brief (original) – Contains material which is marked as following the original,
- *  rather than being normalized or corrected.
+/** \brief (original) – Contains material which is marked as following the original, rather
+ *  than being normalized or corrected.
  */
 class MEI_EXPORT Orig : public MeiElement {
     public:
@@ -303,8 +301,8 @@ class MEI_EXPORT Orig : public MeiElement {
         REGISTER_DECLARATION(Orig);
 };
 
-/** \brief (regularization) – Contains material which has been regularized or normalized
- *  in some sense.
+/** \brief (regularization) – Contains material which has been regularized or normalized in
+ *  some sense.
  */
 class MEI_EXPORT Reg : public MeiElement {
     public:
@@ -324,7 +322,7 @@ class MEI_EXPORT Reg : public MeiElement {
         REGISTER_DECLARATION(Reg);
 };
 
-/** \brief – Indicates restoration of material to an earlier state by cancellation of an
+/** \brief Indicates restoration of material to an earlier state by cancellation of an
  *  editorial or authorial marking or instruction.
  */
 class MEI_EXPORT Restore : public MeiElement {
@@ -354,7 +352,7 @@ class MEI_EXPORT Restore : public MeiElement {
         REGISTER_DECLARATION(Restore);
 };
 
-/** \brief – Contains apparently incorrect or inaccurate material.
+/** \brief Contains apparently incorrect or inaccurate material.
  */
 class MEI_EXPORT Sic : public MeiElement {
     public:
@@ -393,9 +391,9 @@ class MEI_EXPORT Subst : public MeiElement {
         REGISTER_DECLARATION(Subst);
 };
 
-/** \brief – Contains material supplied by the transcriber or editor in place of text
- *  which cannot be read, either because of physical damage or loss in the original
- *  or because it is illegible for any reason.
+/** \brief Contains material supplied by the transcriber or editor in place of text which
+ *  cannot be read, either because of physical damage or loss in the original or
+ *  because it is illegible for any reason.
  */
 class MEI_EXPORT Supplied : public MeiElement {
     public:
@@ -417,7 +415,7 @@ class MEI_EXPORT Supplied : public MeiElement {
         REGISTER_DECLARATION(Supplied);
 };
 
-/** \brief – Contains material that cannot be transcribed with certainty because it is
+/** \brief Contains material that cannot be transcribed with certainty because it is
  *  illegible or inaudible in the source.
  */
 class MEI_EXPORT Unclear : public MeiElement {

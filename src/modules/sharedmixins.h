@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define SHAREDMIXIN_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -1367,14 +1366,20 @@ class MeiversionMixIn {
     public:
         explicit MeiversionMixIn(MeiElement *b);
         virtual ~MeiversionMixIn();
-        /** \brief specifies the version number of the MEI Guidelines in use.
+        /** \brief specifies a generic MEI version label.
          */
         MeiAttribute* getMeiversion();
         void setMeiversion(std::string _meiversion);
         bool hasMeiversion();
         void removeMeiversion();
+        /** \brief records a detailed MEI version number.
+         */
+        MeiAttribute* getMeiversionNum();
+        void setMeiversionNum(std::string _meiversionnum);
+        bool hasMeiversionNum();
+        void removeMeiversionNum();
 
-/* include <meiversionmixin> */
+/* include <meiversion.nummixin> */
 
     private:
         MeiElement *b;
@@ -2672,8 +2677,8 @@ class TranspositionMixIn {
         void setTransDiat(std::string _transdiat);
         bool hasTransDiat();
         void removeTransDiat();
-        /** \brief records the amount of pitch shift in semitones, e.g., C to C♯ = 1, C to D♭ =
-         *  1, necessary to calculate the sounded pitch from the written one.
+        /** \brief records the amount of pitch shift in semitones, e.g., C to C♯ = 1, C to D♭ = 1,
+         *  necessary to calculate the sounded pitch from the written one.
          */
         MeiAttribute* getTransSemi();
         void setTransSemi(std::string _transsemi);

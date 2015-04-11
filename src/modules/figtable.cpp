@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Fig::Fig() :
     MeiElement("fig"),
@@ -72,7 +70,7 @@ mei::Graphic::Graphic(const Graphic& other) :
 
 MeiAttribute* mei::Graphic::getHeight() {
     if (!hasAttribute("height")) {
-        throw AttributeNotFoundException("height");
+        return NULL;
     }
     return getAttribute("height");
 };

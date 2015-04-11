@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::Timeline::Timeline() :
     MeiElement("timeline"),
@@ -22,7 +20,7 @@ mei::Timeline::Timeline(const Timeline& other) :
 
 MeiAttribute* mei::Timeline::getAvref() {
     if (!hasAttribute("avref")) {
-        throw AttributeNotFoundException("avref");
+        return NULL;
     }
     return getAttribute("avref");
 };
@@ -41,7 +39,7 @@ void mei::Timeline::removeAvref() {
 };
 MeiAttribute* mei::Timeline::getOrigin() {
     if (!hasAttribute("origin")) {
-        throw AttributeNotFoundException("origin");
+        return NULL;
     }
     return getAttribute("origin");
 };
@@ -77,7 +75,7 @@ mei::When::When(const When& other) :
 
 MeiAttribute* mei::When::getAbsolute() {
     if (!hasAttribute("absolute")) {
-        throw AttributeNotFoundException("absolute");
+        return NULL;
     }
     return getAttribute("absolute");
 };
@@ -96,7 +94,7 @@ void mei::When::removeAbsolute() {
 };
 MeiAttribute* mei::When::getInterval() {
     if (!hasAttribute("interval")) {
-        throw AttributeNotFoundException("interval");
+        return NULL;
     }
     return getAttribute("interval");
 };
@@ -115,7 +113,7 @@ void mei::When::removeInterval() {
 };
 MeiAttribute* mei::When::getInttype() {
     if (!hasAttribute("inttype")) {
-        throw AttributeNotFoundException("inttype");
+        return NULL;
     }
     return getAttribute("inttype");
 };
@@ -134,7 +132,7 @@ void mei::When::removeInttype() {
 };
 MeiAttribute* mei::When::getSince() {
     if (!hasAttribute("since")) {
-        throw AttributeNotFoundException("since");
+        return NULL;
     }
     return getAttribute("since");
 };

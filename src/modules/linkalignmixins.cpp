@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::AlignmentMixIn::AlignmentMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::AlignmentMixIn::AlignmentMixIn(MeiElement *b) {
 mei::AlignmentMixIn::~AlignmentMixIn() {}
 MeiAttribute* mei::AlignmentMixIn::getWhen() {
     if (!b->hasAttribute("when")) {
-        throw AttributeNotFoundException("when");
+        return NULL;
     }
     return b->getAttribute("when");
 };

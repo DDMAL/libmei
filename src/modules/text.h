@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define TEXT_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -136,9 +135,9 @@ class MEI_EXPORT L : public MeiElement {
         REGISTER_DECLARATION(L);
 };
 
-/** \brief (line group) – May be used for any section of text that is organized as a
- *  group of lines; however, it is most often used for a group of verse lines
- *  functioning as a formal unit, e.g.
+/** \brief (line group) – May be used for any section of text that is organized as a group
+ *  of lines; however, it is most often used for a group of verse lines functioning
+ *  as a formal unit, e.g.
  * 
  *  a stanza, refrain, verse paragraph, etc.
  */
@@ -177,8 +176,8 @@ class MEI_EXPORT Li : public MeiElement {
         REGISTER_DECLARATION(Li);
 };
 
-/** \brief – A formatting element that contains a series of items separated from one
- *  another and arranged in a linear, often vertical, sequence.
+/** \brief A formatting element that contains a series of items separated from one another
+ *  and arranged in a linear, often vertical, sequence.
  */
 class MEI_EXPORT List : public MeiElement {
     public:
@@ -197,15 +196,16 @@ class MEI_EXPORT List : public MeiElement {
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
         XyMixIn    m_Xy;
 
     private:
         REGISTER_DECLARATION(List);
 };
 
-/** \brief (block quote) – A formatting element that designates an extended quotation;
- *  that is, a passage attributed to a source external to the text and normally set
- *  off from the text by spacing or other typographic distinction.
+/** \brief (block quote) – A formatting element that designates an extended quotation; that
+ *  is, a passage attributed to a source external to the text and normally set off
+ *  from the text by spacing or other typographic distinction.
  */
 class MEI_EXPORT Quote : public MeiElement {
     public:

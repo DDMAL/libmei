@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::NoteGesTablatureMixIn::NoteGesTablatureMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::NoteGesTablatureMixIn::NoteGesTablatureMixIn(MeiElement *b) {
 mei::NoteGesTablatureMixIn::~NoteGesTablatureMixIn() {}
 MeiAttribute* mei::NoteGesTablatureMixIn::getTabFret() {
     if (!b->hasAttribute("tab.fret")) {
-        throw AttributeNotFoundException("tab.fret");
+        return NULL;
     }
     return b->getAttribute("tab.fret");
 };
@@ -33,7 +31,7 @@ void mei::NoteGesTablatureMixIn::removeTabFret() {
 };
 MeiAttribute* mei::NoteGesTablatureMixIn::getTabString() {
     if (!b->hasAttribute("tab.string")) {
-        throw AttributeNotFoundException("tab.string");
+        return NULL;
     }
     return b->getAttribute("tab.string");
 };
@@ -59,7 +57,7 @@ mei::StaffDefGesTablatureMixIn::StaffDefGesTablatureMixIn(MeiElement *b) {
 mei::StaffDefGesTablatureMixIn::~StaffDefGesTablatureMixIn() {}
 MeiAttribute* mei::StaffDefGesTablatureMixIn::getTabStrings() {
     if (!b->hasAttribute("tab.strings")) {
-        throw AttributeNotFoundException("tab.strings");
+        return NULL;
     }
     return b->getAttribute("tab.strings");
 };

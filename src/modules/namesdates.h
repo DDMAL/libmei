@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define NAMESDATES_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -37,8 +36,8 @@
 
 
 namespace mei {
-/** \brief (corporate name) – Identifies an organization or group of people that acts as
- *  a single entity.
+/** \brief (corporate name) – Identifies an organization or group of people that acts as a
+ *  single entity.
  */
 class MEI_EXPORT CorpName : public MeiElement {
     public:
@@ -65,8 +64,8 @@ class MEI_EXPORT CorpName : public MeiElement {
         REGISTER_DECLARATION(CorpName);
 };
 
-/** \brief (geographic name) – The proper noun designation for a place, natural feature,
- *  or political jurisdiction.
+/** \brief (geographic name) – The proper noun designation for a place, natural feature, or
+ *  political jurisdiction.
  */
 class MEI_EXPORT GeogName : public MeiElement {
     public:

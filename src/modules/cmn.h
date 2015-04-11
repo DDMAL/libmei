@@ -1,6 +1,6 @@
 /*
-    Copyright (c) 2011-2013 Andrew Hankinson, Alastair Porter, and Others
-    
+    Copyright (c) 2011-2015 Andrew Hankinson, Alastair Porter, and Others
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +25,6 @@
 #define CMN_H_
 
 #include "meielement.h"
-#include "meinamespace.h"
 #include "exceptions.h"
 /* #include_block */
 
@@ -102,7 +101,7 @@ class MEI_EXPORT BTrem : public MeiElement {
         REGISTER_DECLARATION(BTrem);
 };
 
-/** \brief – A container for a series of explicitly beamed events that begins and ends
+/** \brief A container for a series of explicitly beamed events that begins and ends
  *  entirely within a measure.
  */
 class MEI_EXPORT Beam : public MeiElement {
@@ -191,8 +190,8 @@ class MEI_EXPORT BeatRpt : public MeiElement {
         REGISTER_DECLARATION(BeatRpt);
 };
 
-/** \brief – A variation in pitch (often micro-tonal) upwards or downwards during the
- *  course of a note.
+/** \brief A variation in pitch (often micro-tonal) upwards or downwards during the course
+ *  of a note.
  */
 class MEI_EXPORT Bend : public MeiElement {
     public:
@@ -233,8 +232,8 @@ class MEI_EXPORT Bend : public MeiElement {
         REGISTER_DECLARATION(Bend);
 };
 
-/** \brief (breath mark) – A indication of a point at which the performer on an
- *  instrument requiring breath (including the voice) may breathe.
+/** \brief (breath mark) – A indication of a point at which the performer on an instrument
+ *  requiring breath (including the voice) may breathe.
  */
 class MEI_EXPORT Breath : public MeiElement {
     public:
@@ -300,7 +299,7 @@ class MEI_EXPORT FTrem : public MeiElement {
         REGISTER_DECLARATION(FTrem);
 };
 
-/** \brief – An indication placed over a note or rest to indicate that it should be held
+/** \brief An indication placed over a note or rest to indicate that it should be held
  *  longer than its written value.
  * 
  *  May also occur over a bar line to indicate the end of a phrase or section.
@@ -381,8 +380,8 @@ class MEI_EXPORT Gliss : public MeiElement {
         REGISTER_DECLARATION(Gliss);
 };
 
-/** \brief – Indicates continuous dynamics expressed on the score as wedge-shaped
- *  graphics, e.g.
+/** \brief Indicates continuous dynamics expressed on the score as wedge-shaped graphics,
+ *  e.g.
  * 
  *  < and >.
  */
@@ -612,7 +611,7 @@ class MEI_EXPORT MSpace : public MeiElement {
         REGISTER_DECLARATION(MSpace);
 };
 
-/** \brief – Unit of musical time consisting of a fixed number of note-values of a given
+/** \brief Unit of musical time consisting of a fixed number of note-values of a given
  *  type, as determined by the prevailing meter, and delimited in musical notation
  *  by two bar lines.
  */
@@ -664,8 +663,8 @@ class MEI_EXPORT MeterSig : public MeiElement {
         REGISTER_DECLARATION(MeterSig);
 };
 
-/** \brief (meter signature group) – Used to capture alternating, interchanging, and
- *  mixed meter signatures.
+/** \brief (meter signature group) – Used to capture alternating, interchanging, and mixed
+ *  meter signatures.
  */
 class MEI_EXPORT MeterSigGrp : public MeiElement {
     public:
@@ -747,8 +746,8 @@ class MEI_EXPORT MultiRpt : public MeiElement {
         REGISTER_DECLARATION(MultiRpt);
 };
 
-/** \brief – An indication that a passage should be performed one or more octaves above
- *  or below its written pitch.
+/** \brief An indication that a passage should be performed one or more octaves above or
+ *  below its written pitch.
  */
 class MEI_EXPORT Octave : public MeiElement {
     public:
@@ -787,7 +786,7 @@ class MEI_EXPORT Octave : public MeiElement {
         REGISTER_DECLARATION(Octave);
 };
 
-/** \brief – An alternate notational version *present in the source being transcribed*.
+/** \brief An alternate notational version *present in the source being transcribed*.
  */
 class MEI_EXPORT Ossia : public MeiElement {
     public:
@@ -806,7 +805,7 @@ class MEI_EXPORT Ossia : public MeiElement {
         REGISTER_DECLARATION(Ossia);
 };
 
-/** \brief – Piano pedal mark.
+/** \brief Piano pedal mark.
  */
 class MEI_EXPORT Pedal : public MeiElement {
     public:
@@ -871,7 +870,7 @@ class MEI_EXPORT Reh : public MeiElement {
         REGISTER_DECLARATION(Reh);
 };
 
-/** \brief – Indication of 1) a "unified melodic idea" or 2) performance technique.
+/** \brief Indication of 1) a "unified melodic idea" or 2) performance technique.
  */
 class MEI_EXPORT Slur : public MeiElement {
     public:
@@ -914,7 +913,7 @@ class MEI_EXPORT Slur : public MeiElement {
         REGISTER_DECLARATION(Slur);
 };
 
-/** \brief – An indication that two notes of the same pitch form a single note with their
+/** \brief An indication that two notes of the same pitch form a single note with their
  *  combined rhythmic values.
  */
 class MEI_EXPORT Tie : public MeiElement {
@@ -954,7 +953,7 @@ class MEI_EXPORT Tie : public MeiElement {
         REGISTER_DECLARATION(Tie);
 };
 
-/** \brief – A group of notes with "irregular" (sometimes called "irrational") rhythmic
+/** \brief A group of notes with "irregular" (sometimes called "irrational") rhythmic
  *  values, for example, three notes in the time normally occupied by two or nine in
  *  the time of five.
  */
@@ -989,8 +988,8 @@ class MEI_EXPORT Tuplet : public MeiElement {
         REGISTER_DECLARATION(Tuplet);
 };
 
-/** \brief (tuplet span) – Alternative element for encoding tuplets, especially useful
- *  for tuplets that extend across bar lines.
+/** \brief (tuplet span) – Alternative element for encoding tuplets, especially useful for
+ *  tuplets that extend across bar lines.
  */
 class MEI_EXPORT TupletSpan : public MeiElement {
     public:

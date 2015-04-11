@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::MordentLogMixIn::MordentLogMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::MordentLogMixIn::MordentLogMixIn(MeiElement *b) {
 mei::MordentLogMixIn::~MordentLogMixIn() {}
 MeiAttribute* mei::MordentLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return b->getAttribute("form");
 };
@@ -33,7 +31,7 @@ void mei::MordentLogMixIn::removeForm() {
 };
 MeiAttribute* mei::MordentLogMixIn::getLong() {
     if (!b->hasAttribute("long")) {
-        throw AttributeNotFoundException("long");
+        return NULL;
     }
     return b->getAttribute("long");
 };
@@ -59,7 +57,7 @@ mei::OrnamMixIn::OrnamMixIn(MeiElement *b) {
 mei::OrnamMixIn::~OrnamMixIn() {}
 MeiAttribute* mei::OrnamMixIn::getOrnam() {
     if (!b->hasAttribute("ornam")) {
-        throw AttributeNotFoundException("ornam");
+        return NULL;
     }
     return b->getAttribute("ornam");
 };
@@ -85,7 +83,7 @@ mei::OrnamentaccidMixIn::OrnamentaccidMixIn(MeiElement *b) {
 mei::OrnamentaccidMixIn::~OrnamentaccidMixIn() {}
 MeiAttribute* mei::OrnamentaccidMixIn::getAccidupper() {
     if (!b->hasAttribute("accidupper")) {
-        throw AttributeNotFoundException("accidupper");
+        return NULL;
     }
     return b->getAttribute("accidupper");
 };
@@ -104,7 +102,7 @@ void mei::OrnamentaccidMixIn::removeAccidupper() {
 };
 MeiAttribute* mei::OrnamentaccidMixIn::getAccidlower() {
     if (!b->hasAttribute("accidlower")) {
-        throw AttributeNotFoundException("accidlower");
+        return NULL;
     }
     return b->getAttribute("accidlower");
 };
@@ -130,7 +128,7 @@ mei::TurnLogMixIn::TurnLogMixIn(MeiElement *b) {
 mei::TurnLogMixIn::~TurnLogMixIn() {}
 MeiAttribute* mei::TurnLogMixIn::getDelayed() {
     if (!b->hasAttribute("delayed")) {
-        throw AttributeNotFoundException("delayed");
+        return NULL;
     }
     return b->getAttribute("delayed");
 };
@@ -149,7 +147,7 @@ void mei::TurnLogMixIn::removeDelayed() {
 };
 MeiAttribute* mei::TurnLogMixIn::getForm() {
     if (!b->hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return b->getAttribute("form");
 };

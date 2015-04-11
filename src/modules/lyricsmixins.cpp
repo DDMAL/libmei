@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::VerseLogMixIn::VerseLogMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::VerseLogMixIn::VerseLogMixIn(MeiElement *b) {
 mei::VerseLogMixIn::~VerseLogMixIn() {}
 MeiAttribute* mei::VerseLogMixIn::getRefrain() {
     if (!b->hasAttribute("refrain")) {
-        throw AttributeNotFoundException("refrain");
+        return NULL;
     }
     return b->getAttribute("refrain");
 };
@@ -33,7 +31,7 @@ void mei::VerseLogMixIn::removeRefrain() {
 };
 MeiAttribute* mei::VerseLogMixIn::getRhythm() {
     if (!b->hasAttribute("rhythm")) {
-        throw AttributeNotFoundException("rhythm");
+        return NULL;
     }
     return b->getAttribute("rhythm");
 };

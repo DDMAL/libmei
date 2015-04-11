@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::AccessRestrict::AccessRestrict() :
     MeiElement("accessRestrict"),
@@ -98,7 +96,7 @@ mei::Application::Application(const Application& other) :
 
 MeiAttribute* mei::Application::getVersion() {
     if (!hasAttribute("version")) {
-        throw AttributeNotFoundException("version");
+        return NULL;
     }
     return getAttribute("version");
 };
@@ -368,7 +366,7 @@ mei::Correction::Correction(const Correction& other) :
 
 MeiAttribute* mei::Correction::getCorrlevel() {
     if (!hasAttribute("corrlevel")) {
-        throw AttributeNotFoundException("corrlevel");
+        return NULL;
     }
     return getAttribute("corrlevel");
 };
@@ -627,7 +625,7 @@ mei::Hand::Hand(const Hand& other) :
 
 MeiAttribute* mei::Hand::getInitial() {
     if (!hasAttribute("initial")) {
-        throw AttributeNotFoundException("initial");
+        return NULL;
     }
     return getAttribute("initial");
 };
@@ -703,7 +701,7 @@ mei::IncipCode::IncipCode(const IncipCode& other) :
 
 MeiAttribute* mei::IncipCode::getForm() {
     if (!hasAttribute("form")) {
-        throw AttributeNotFoundException("form");
+        return NULL;
     }
     return getAttribute("form");
 };
@@ -785,7 +783,7 @@ mei::InstrVoice::InstrVoice(const InstrVoice& other) :
 
 MeiAttribute* mei::InstrVoice::getCount() {
     if (!hasAttribute("count")) {
-        throw AttributeNotFoundException("count");
+        return NULL;
     }
     return getAttribute("count");
 };
@@ -804,7 +802,7 @@ void mei::InstrVoice::removeCount() {
 };
 MeiAttribute* mei::InstrVoice::getSolo() {
     if (!hasAttribute("solo")) {
-        throw AttributeNotFoundException("solo");
+        return NULL;
     }
     return getAttribute("solo");
 };
@@ -966,7 +964,7 @@ mei::MeiHead::MeiHead(const MeiHead& other) :
 
 MeiAttribute* mei::MeiHead::getType() {
     if (!hasAttribute("type")) {
-        throw AttributeNotFoundException("type");
+        return NULL;
     }
     return getAttribute("type");
 };
@@ -1500,7 +1498,7 @@ mei::Term::Term(const Term& other) :
 
 MeiAttribute* mei::Term::getClasscode() {
     if (!hasAttribute("classcode")) {
-        throw AttributeNotFoundException("classcode");
+        return NULL;
     }
     return getAttribute("classcode");
 };
@@ -1536,7 +1534,7 @@ mei::TermList::TermList(const TermList& other) :
 
 MeiAttribute* mei::TermList::getClasscode() {
     if (!hasAttribute("classcode")) {
-        throw AttributeNotFoundException("classcode");
+        return NULL;
     }
     return getAttribute("classcode");
 };

@@ -4,8 +4,6 @@
 /* #include_block */
 using std::string;
 using mei::MeiAttribute;
-using mei::MeiNamespace;
-using mei::AttributeNotFoundException;
 
 mei::AgentidentMixIn::AgentidentMixIn(MeiElement *b) {
     this->b = b;
@@ -14,7 +12,7 @@ mei::AgentidentMixIn::AgentidentMixIn(MeiElement *b) {
 mei::AgentidentMixIn::~AgentidentMixIn() {}
 MeiAttribute* mei::AgentidentMixIn::getAgent() {
     if (!b->hasAttribute("agent")) {
-        throw AttributeNotFoundException("agent");
+        return NULL;
     }
     return b->getAttribute("agent");
 };
@@ -40,7 +38,7 @@ mei::EditMixIn::EditMixIn(MeiElement *b) {
 mei::EditMixIn::~EditMixIn() {}
 MeiAttribute* mei::EditMixIn::getCert() {
     if (!b->hasAttribute("cert")) {
-        throw AttributeNotFoundException("cert");
+        return NULL;
     }
     return b->getAttribute("cert");
 };
@@ -59,7 +57,7 @@ void mei::EditMixIn::removeCert() {
 };
 MeiAttribute* mei::EditMixIn::getEvidence() {
     if (!b->hasAttribute("evidence")) {
-        throw AttributeNotFoundException("evidence");
+        return NULL;
     }
     return b->getAttribute("evidence");
 };
@@ -85,7 +83,7 @@ mei::ExtentMixIn::ExtentMixIn(MeiElement *b) {
 mei::ExtentMixIn::~ExtentMixIn() {}
 MeiAttribute* mei::ExtentMixIn::getExtent() {
     if (!b->hasAttribute("extent")) {
-        throw AttributeNotFoundException("extent");
+        return NULL;
     }
     return b->getAttribute("extent");
 };
@@ -111,7 +109,7 @@ mei::ReasonidentMixIn::ReasonidentMixIn(MeiElement *b) {
 mei::ReasonidentMixIn::~ReasonidentMixIn() {}
 MeiAttribute* mei::ReasonidentMixIn::getReason() {
     if (!b->hasAttribute("reason")) {
-        throw AttributeNotFoundException("reason");
+        return NULL;
     }
     return b->getAttribute("reason");
 };
