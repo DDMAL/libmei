@@ -54,6 +54,18 @@ mei::MeiElement::MeiElement(const MeiElement& ele) :
     this->generateAndSetId();
 }
 
+
+bool mei::MeiElement::operator==(const mei::MeiElement &other) const {
+    return (this->id != "" &&
+            this->name == other.name &&
+            this->id == other.id);
+}
+
+bool mei::MeiElement::operator!=(const mei::MeiElement &other) const {
+    return !(*this == other);
+}
+
+
 extern "C"
 {
 #ifdef WIN32

@@ -73,7 +73,11 @@ class MEI_EXPORT MeiElement
          * The copied element will not be tied to a document
          */
         MeiElement(const MeiElement& ele);
-
+        
+        /* \brief Basic equality check. NB: This does not compare attributes! */
+        bool operator==(const MeiElement &other) const;
+        bool operator!=(const MeiElement &other) const;
+        
         virtual ~MeiElement();
 
         /** \brief Get the id of this element.

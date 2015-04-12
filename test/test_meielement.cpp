@@ -52,6 +52,25 @@ TEST(TestMeiElement, TestGetNoAttribute) {
     ASSERT_EQ(NULL, p->getAttribute("color"));
 }
 
+TEST(TestMeiElement, TestMeiElementEquality) {
+    MeiElement *p = new MeiElement("one");
+    MeiElement *q = new MeiElement("two");
+    MeiElement *r = new MeiElement(*p);
+    MeiElement *s = new MeiElement(*p);
+    
+    // two elements with the same name and the same ID
+    string pId = p->getId();
+    r->setId(pId);
+    ASSERT_EQ(*p, *r);
+
+    // two elements with different names and the same ID
+    q->setId(pId);
+    ASSERT_NE(*p, *q);
+    
+    // two elements with the same name and different IDs
+    ASSERT_NE(*p, *s);
+}
+
 // Adding an attribute to an element sets the attr's element.
 TEST(TestMeiElement, TestAttributeLink) {
     MeiElement *p = new MeiElement("note");
