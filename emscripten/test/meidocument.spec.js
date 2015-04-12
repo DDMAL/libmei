@@ -15,7 +15,7 @@ describe('libmei', function()
             expect(doc.getVersion()).toBe("2013");
         });
         
-        it('should construct an MEI 2012 document with explicit version string', function()
+        it('should construct a document with corresponding version with explicit version string', function()
         {
             var doc = new Module.MeiDocument("test-version");
             expect(doc).not.toBe(null);
