@@ -1,7 +1,17 @@
-EMSCRIPTEN AND PUXIGML
----------------------
+Setup
+-----
 
-Experimental work on compiling LibMEI to JavaScript using [Emscripten](http://www.emscripten.org). This includes experimental change to the [Pugixml](http://pugixml.org/) XML library for reading (and eventually writing) the XML files.
+You can compile the libmei emscripten bindings with the build.sh script. Instructions on how to get started with emscripten can be found on the [emscripten website](http://kripken.github.io/emscripten-site/docs/).
+
+Testing
+-------
+
+Karma and Jasmine are used to run the unit tests for the emscripten bindings. You can set up your development environment by installing the dependencies listed in the package.json file using npm:
+
+    $> npm install
+    $> karma start
+
+(Unless you want to pass in the path to node_modules/bin/karma, you should install karma globally with `npm install -g karma`.)
 
 Emscripten
 ----------
