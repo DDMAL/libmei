@@ -336,7 +336,9 @@ class MEI_EXPORT MeiElement
 // This implements the element map for allowing the creation of an element given its
 // name. e.g. "note" -> a Note object.
 // http://stackoverflow.com/questions/582331/c-is-there-a-way-to-instantiate-objects-from-a-string-holding-their-class-name/582456#582456
-template<typename T> MeiElement* MeiElement::createT(std::string id) {
+
+template<typename T>
+MeiElement* MeiElement::createT(std::string id) {
     MeiElement *ret = new T();
     if (id == "") {
         ret->generateAndSetId();
