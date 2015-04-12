@@ -18,12 +18,16 @@ using namespace emscripten;
 // Binding code
 EMSCRIPTEN_BINDINGS(libmei) {
     register_vector<MeiAttribute*>("MeiAttributeList");
+    register_vector<MeiElement*>("MeiElementList");
 
     class_<MeiDocument>("MeiDocument")
-    .constructor<std::string>()
-//    .constructor<>()
+    .constructor<>()
     .function("getRootElement", &MeiDocument::getRootElement, allow_raw_pointers())
+    .function("setRootElement", &MeiDocument::setRootElement, allow_raw_pointers())
     .function("getVersion", &MeiDocument::getVersion)
+    .function("getElementById", select_overload<MeiElement*(std::string)>(&MeiDocument::getElementById), allow_raw_pointers())
+    .function("getElementsByName", &MeiDocument::getElementsByName, allow_raw_pointers())
+    .function("getPositionInDocument", &MeiDocument::getPositionInDocument, allow_raw_pointers())
     ;
     
     class_<MeiAttribute>("MeiAttribute")
@@ -39,12 +43,14 @@ EMSCRIPTEN_BINDINGS(libmei) {
     .function("getName", &MeiElement::getName)
     .function("getTail", &MeiElement::getTail)
     .function("getValue", &MeiElement::getValue)
+    .function("getAttribute", &MeiElement::getAttribute, allow_raw_pointers())
     .function("getAttributes", &MeiElement::getAttributes, allow_raw_pointers())
  //   .function("addAttribute", &MeiElement::addAttribute, allow_raw_pointers())
     .function("addAttribute", select_overload<void(MeiAttribute*)>(&MeiElement::addAttribute), allow_raw_pointers())
     .function("addAttribute", select_overload<void(std::string, std::string)>(&MeiElement::addAttribute))
     .function("setAttributes", &MeiElement::setAttributes)
     .function("removeAttribute", &MeiElement::removeAttribute)
+    .function("addChild", &MeiElement::addChild, allow_raw_pointers())
     ;
     
     class_<XmlImport>("XmlImport")
