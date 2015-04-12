@@ -40,10 +40,10 @@ class XmlExportImpl;
 class MEI_EXPORT XmlExport {
     public:
         /** \brief Save a document to a file. */
-        static bool meiDocumentToFile(MeiDocument *doc, std::string filename);
+        static bool documentToFile(MeiDocument *doc, std::string filename);
 
         /** \brief Return the XML text of a document. */
-        static std::string meiDocumentToText(MeiDocument *doc);
+        static std::string documentToText(MeiDocument *doc);
 
         /** \brief Convert an MeiElement segment to text. */
         static std::string meiElementToText(MeiElement *element);

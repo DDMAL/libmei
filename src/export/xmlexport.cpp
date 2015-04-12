@@ -53,7 +53,7 @@ XmlExport::~XmlExport() {
     delete impl;
 }
 
-bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
+bool XmlExport::documentToFile(mei::MeiDocument *doc, string filename) {
     XmlExport *ex = new XmlExport(doc);
     bool status = ex->impl->meiDocumentToFile(filename);
     delete ex;
@@ -61,7 +61,7 @@ bool XmlExport::meiDocumentToFile(mei::MeiDocument *doc, string filename) {
     return status;
 }
 
-string XmlExport::meiDocumentToText(mei::MeiDocument *doc) {
+string XmlExport::documentToText(mei::MeiDocument *doc) {
     XmlExport *ex = new XmlExport(doc);
     string status = ex->impl->meiDocumentToText();
     delete ex;
