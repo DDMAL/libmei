@@ -65,6 +65,7 @@ set( LIBMEI_SRC
 
 set( LIBMEI_H
 	${src_headers}
+    ${src_header_hpp}
 	${module_headers}
 	${import_headers}
 	${export_headers}
