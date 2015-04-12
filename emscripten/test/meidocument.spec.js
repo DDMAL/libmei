@@ -14,6 +14,13 @@ describe('libmei', function()
             expect(doc).not.toBe(null);
             expect(doc.getVersion()).toBe("2013");
         });
+        
+        it('should construct an MEI 2012 document with explicit version string', function()
+        {
+            var doc = new Module.MeiDocument("test-version");
+            expect(doc).not.toBe(null);
+            expect(doc.getVersion()).toBe("test-version");
+        });
 
         it('should set the root element', function() {
             var doc = new Module.MeiDocument();

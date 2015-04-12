@@ -22,6 +22,7 @@ EMSCRIPTEN_BINDINGS(libmei) {
 
     class_<MeiDocument>("MeiDocument")
     .constructor<>()
+    .constructor<std::string>()
     .function("getRootElement", &MeiDocument::getRootElement, allow_raw_pointers())
     .function("setRootElement", &MeiDocument::setRootElement, allow_raw_pointers())
     .function("getVersion", &MeiDocument::getVersion)
