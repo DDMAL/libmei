@@ -87,7 +87,20 @@ class MEI_EXPORT MeiDocument {
          */
         int getPositionInDocument(MeiElement* element);
 
+        /** 
+         *  \brief Adds an ID and an element to the ID Map.
+         *  
+         *  Usage note: This is public so that it may be used by other members of the libmei
+         *  core, but generally the ID map is managed internally, so except in rare cases 
+         *  it should not be called directly.
+         */
         void addIdMap(std::string, MeiElement*);
+    
+        /**
+         *  \brief Removes an ID from the ID Map.
+         *  
+         *  See usage note on addIdMap for more information.
+         */
         void rmIdMap(std::string id);
 
         /** \brief Returns the flattened document tree */
