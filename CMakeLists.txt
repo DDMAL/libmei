@@ -2,7 +2,6 @@ project( libmei )
 
 cmake_minimum_required( VERSION 2.6 )
 
-FIND_PACKAGE( LibXml2 REQUIRED )
 find_path    (UUID_INCLUDE_DIR   uuid/uuid.h)
 find_library (UUID_LIBRARY NAMES uuid)
 if (UUID_INCLUDE_DIR AND UUID_LIBRARY)
@@ -48,6 +47,7 @@ ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 FILE(GLOB src_files "src/*.cpp")
+FILE(GLOB src_header_hpp "src/*.hpp")
 FILE(GLOB module_files "src/modules/*.cpp")
 FILE(GLOB src_headers "src/*.h")
 FILE(GLOB module_headers "src/modules/*.h")
@@ -79,18 +79,15 @@ INCLUDE_DIRECTORIES(
 	${CMAKE_CURRENT_SOURCE_DIR}/src/import
 	${CMAKE_CURRENT_SOURCE_DIR}/src/export
 	${CMAKE_CURRENT_SOURCE_DIR}/src/modules
-	${LIBXML2_INCLUDE_DIR}
 	${UUID_INCLUDE_DIR}
 )
 
 ADD_DEFINITIONS(
-	${LIBXML2_DEFINITIONS}
 )
 
 add_library( mei SHARED ${LIBMEI_SRC} )
 target_link_libraries( mei
 	${OS_SPECIFIC_LINK_LIBRARIES}
-	${LIBXML2_LIBRARIES}
 	${UUID_LIBRARY}
     ${GTEST_LIBRARIES}
 )

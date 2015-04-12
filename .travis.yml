@@ -1,7 +1,6 @@
 language: cpp
 before_script:
   - sudo apt-get install uuid-dev
-  - sudo apt-get install libxml2-dev
   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
   - unzip -q gtest-1.6.0.zip
   - cd gtest-1.6.0
