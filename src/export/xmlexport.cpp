@@ -118,9 +118,6 @@ void XmlExportImpl::init() throw(DocumentRootNotSetException) {
 
     this->rootElement = this->meiDocument->getRootElement();
 
-    // Copy the version from the document into the root element
-    this->rootElement->addAttribute("meiversion", meiDocument->getVersion());
-
     pugi::xml_node xroot = this->xmlDocOutput.append_child(this->rootElement->getName().c_str());
     
     this->meiElementToXmlNode(this->rootElement, xroot);

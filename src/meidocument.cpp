@@ -67,6 +67,9 @@ void mei::MeiDocument::setRootElement(MeiElement* root) {
     // when we set the root element we also assume that this will set the namespace for the MEI document.
     MeiAttribute* meins = new MeiAttribute("xmlns", MEI_NS);
     root->addAttribute(meins);
+    
+    MeiAttribute* meiversion = new MeiAttribute("meiversion", this->meiVersion);
+    root->addAttribute(meiversion);
 
     updateFlattenedTree();
 }
