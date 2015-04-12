@@ -26,3 +26,4 @@ python/dist
 pymei.egg-info
 libmei.js
 a.out
+emscripten/node_modules
