@@ -1,0 +1,19 @@
+{
+  "name": "libmei.js",
+  "version": "1.0.0",
+  "description": "EMSCRIPTEN AND PUXIGML ---------------------",
+  "main": "libmei.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
