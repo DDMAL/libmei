@@ -11,6 +11,7 @@
 #include "meielement.h"
 #include "meiattribute.h"
 #include "import/xmlimport.h"
+#include "export/xmlexport.h"
 
 using namespace mei;
 using namespace emscripten;
@@ -29,6 +30,8 @@ EMSCRIPTEN_BINDINGS(libmei) {
     .function("getElementById", select_overload<MeiElement*(std::string)>(&MeiDocument::getElementById), allow_raw_pointers())
     .function("getElementsByName", &MeiDocument::getElementsByName, allow_raw_pointers())
     .function("getPositionInDocument", &MeiDocument::getPositionInDocument, allow_raw_pointers())
+    .function("lookBack", &MeiDocument::lookBack, allow_raw_pointers())
+    .function("getFlattenedTree", &MeiDocument::getFlattenedTree, allow_raw_pointers())
     ;
     
     class_<MeiAttribute>("MeiAttribute")
@@ -40,10 +43,13 @@ EMSCRIPTEN_BINDINGS(libmei) {
     
     class_<MeiElement>("MeiElement")
     .constructor<std::string>()
+    // .constructor<const MeiElement>() NB (2015): Constructors with the same number of arguments are not currently supported in emscripten.
     .function("getId", &MeiElement::getId)
     .function("getName", &MeiElement::getName)
     .function("getTail", &MeiElement::getTail)
+    .function("setTail", &MeiElement::setTail)
     .function("getValue", &MeiElement::getValue)
+    .function("setValue", &MeiElement::setValue)
     .function("getAttribute", &MeiElement::getAttribute, allow_raw_pointers())
     .function("getAttributes", &MeiElement::getAttributes, allow_raw_pointers())
  //   .function("addAttribute", &MeiElement::addAttribute, allow_raw_pointers())
@@ -52,10 +58,16 @@ EMSCRIPTEN_BINDINGS(libmei) {
     .function("setAttributes", &MeiElement::setAttributes)
     .function("removeAttribute", &MeiElement::removeAttribute)
     .function("addChild", &MeiElement::addChild, allow_raw_pointers())
+    .function("printElement", select_overload<void()>(&MeiElement::printElement))
     ;
     
     class_<XmlImport>("XmlImport")
     .constructor<>()
     .class_function("documentFromText", &XmlImport::documentFromText, allow_raw_pointers())
+    ;
+
+    class_<XmlExport>("XmlExport")
+    .constructor<MeiDocument*>()
+    .class_function("documentToText", &XmlExport::documentToText, allow_raw_pointers())
     ;
 }
