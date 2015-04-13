@@ -39,6 +39,7 @@ class XmlExportImpl;
  */
 class MEI_EXPORT XmlExport {
     public:
+        XmlExport(MeiDocument *doc);
         /** \brief Save a document to a file. */
         static bool documentToFile(MeiDocument *doc, std::string filename);
 
@@ -49,7 +50,6 @@ class MEI_EXPORT XmlExport {
         static std::string meiElementToText(MeiElement *element);
     virtual ~XmlExport();
     private:
-        XmlExport(MeiDocument *doc);
         XmlExportImpl *impl;
 };
 }
