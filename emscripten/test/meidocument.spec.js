@@ -15,7 +15,7 @@ describe('libmei', function()
             expect(doc.getVersion()).toBe("2013");
         });
         
-        it('should construct a document with corresponding version with explicit version string', function()
+        it('should construct a document with an3 explicit version string', function()
         {
             var doc = new Module.MeiDocument("test-version");
             expect(doc).not.toBe(null);
@@ -89,6 +89,41 @@ describe('libmei', function()
             var notepos = doc.getPositionInDocument(note2);
 
             expect(notepos).toEqual(2); // NB Position is 0-based
+        });
+
+        it('should look back from one element to find the other', function()
+        {
+            var doc = new Module.MeiDocument();
+            var rt = new Module.MeiElement("mei");
+            doc.setRootElement(rt);
+
+            var note1 = new Module.MeiElement("note");
+            var note2 = new Module.MeiElement("note");
+
+            rt.addChild(note1);
+            rt.addChild(note2);
+
+            var lookback = doc.lookBack(note2, "mei");
+
+            expect(lookback).toEqual(rt);
+        });
+
+        it('should get the flattened tree structure', function()
+        {
+            var doc = new Module.MeiDocument();
+            var rt = new Module.MeiElement("mei");
+            doc.setRootElement(rt);
+
+            var note1 = new Module.MeiElement("note");
+            var note2 = new Module.MeiElement("note");
+
+            rt.addChild(note1);
+            rt.addChild(note2);
+
+            var flat = doc.getFlattenedTree();
+
+            expect(flat).not.toBe(null);
+            expect(flat.size()).toBe(3);
         });
     })
 })
