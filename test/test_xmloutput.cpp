@@ -26,12 +26,12 @@ using mei::MeiAttribute;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
     MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
-    XmlExport::meiDocumentToFile(docf, "filename.mei");
+    XmlExport::documentToFile(docf, "filename.mei");
 }
 
 TEST(TextXmlMeiExport, TextExportWithComments) {
     MeiDocument *docf = mei::XmlImport::documentFromFile("campion.mei");
-    XmlExport::meiDocumentToFile(docf, "campion-out.mei");
+    XmlExport::documentToFile(docf, "campion-out.mei");
 }
 
 // Test that we can turn a document into a valid string
@@ -41,7 +41,7 @@ TEST(TestXmlMeiExport, ExportToString) {
     d->setRootElement(root);
 
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"/>\n";
-    string ret = XmlExport::meiDocumentToText(d);
+    string ret = XmlExport::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -56,7 +56,7 @@ TEST(TestXmlMeiExport, ExportValueAndTail) {
     root->addChild(note);
 
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
-    string ret = XmlExport::meiDocumentToText(d);
+    string ret = XmlExport::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -71,7 +71,7 @@ TEST(TestXmlMeiExport, ExportComment) {
     root->addChild(comment);
 
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><!--comment-->t</mei>\n";
-    string ret = XmlExport::meiDocumentToText(d);
+    string ret = XmlExport::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -87,7 +87,7 @@ TEST(TestXmlMeiExport, ExportNamespace) {
 
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
 xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my awesome thing\" meiversion=\"2013\"/>\n";
-    string ret = XmlExport::meiDocumentToText(d);
+    string ret = XmlExport::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -107,20 +107,20 @@ TEST(TestXmlMeiExport, ExportNamespace2) {
     string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
 xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2013\">\n  <music \
 xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n";
-    string ret = XmlExport::meiDocumentToText(d);
+    string ret = XmlExport::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
 TEST(TestXmlMeiExport, ThrowsDocumentRootException) {
     MeiDocument *d = new MeiDocument();
-    ASSERT_THROW(XmlExport::meiDocumentToText(d), mei::DocumentRootNotSetException);
+    ASSERT_THROW(XmlExport::documentToText(d), mei::DocumentRootNotSetException);
 }
 
 TEST(TestXmlMeiExport, ThrowsFileWriteFailureException) {
     MeiDocument *d = new MeiDocument();
     MeiElement *m = new MeiElement("mei");
     d->setRootElement(m);
-    ASSERT_THROW(XmlExport::meiDocumentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
+    ASSERT_THROW(XmlExport::documentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
 }
 
 TEST(TestXmlMeiExport, TestElementToText) {
