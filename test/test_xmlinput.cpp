@@ -38,17 +38,17 @@ TEST(TestMeiXMLImport, TestFromTextFunction)
     xml:id=\"root\" meiversion=\"2013\">\n  <layer xml:id=\"layerid\">\n    \
     <note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </layer>\n</mei>\n";
     
-    XMLImportResult *res = mei::documentFromText(goodMei, MEI_STRICT_IMPORT);
+    XMLImportResult res = mei::documentFromText(goodMei, MEI_STRICT_IMPORT);
     
-    ASSERT_TRUE(res->meiDocument);
+    ASSERT_TRUE(res.meiDocument);
 }
 
 TEST(TestMeiXMLImport, TestFromFileFunction)
 {
     string filename = "beethoven.mei";
-    XMLImportResult *res = mei::documentFromFile(filename, MEI_STRICT_IMPORT);
+    XMLImportResult res = mei::documentFromFile(filename, MEI_STRICT_IMPORT);
     
-    ASSERT_TRUE(res->meiDocument);
+    ASSERT_TRUE(res.meiDocument);
 }
 
 TEST(TestMeiXMLImport, TestImportInStrictMode)
@@ -81,21 +81,21 @@ TEST(TestMeiXMLImport, TestImportInLaxMode)
 
 TEST(TestMeiXMLImport, TestImportProcessingInstructions)
 {
-    XMLImportResult *res = mei::documentFromFile("test-procinst.mei", MEI_STRICT_IMPORT);
-    ASSERT_EQ(res->xmlProcessingInstructions.size(), 2);
+    XMLImportResult res = mei::documentFromFile("test-procinst.mei", MEI_STRICT_IMPORT);
+    ASSERT_EQ(res.xmlProcessingInstructions.size(), 2);
     
     string pi = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\
     <?xml-model href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://purl.oclc.org/dsdl/schematron\"?> \
     <?xml-stylesheet href=\"mei-2012.rng\" type=\"application/xml\" schematypens=\"http://relaxng.org/ns/structure/1.0\"?> \
     <mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"m-4a3c8d81-25fd-4c2e-b5e1-63bfaf955ae3\" meiversion=\"2013\"/>";
     
-    XMLImportResult *res2 = mei::documentFromText(pi, MEI_STRICT_IMPORT);
-    ASSERT_EQ(res2->xmlProcessingInstructions.size(), 2);
+    XMLImportResult res2 = mei::documentFromText(pi, MEI_STRICT_IMPORT);
+    ASSERT_EQ(res2.xmlProcessingInstructions.size(), 2);
 }
 
 TEST(TestMeiXMLImport, TestReadLargeFileIn) {
-    XMLImportResult *res = mei::documentFromFile("bach.mei", MEI_STRICT_IMPORT);
-    ASSERT_NE((MeiDocument*)NULL, res->meiDocument);
+    XMLImportResult res = mei::documentFromFile("bach.mei", MEI_STRICT_IMPORT);
+    ASSERT_NE((MeiDocument*)NULL, res.meiDocument);
 }
 
 TEST(TestMeiXMLimport, TestImportWarningsAndStatus)
@@ -104,28 +104,28 @@ TEST(TestMeiXMLimport, TestImportWarningsAndStatus)
     xml:id=\"root\" meiversion=\"2013\">\n  <foo xml:id=\"layerid\">\n    \
     <note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </foo>\n</mei>\n";
     
-    XMLImportResult *res = mei::documentFromText(badMei, MEI_LAX_IMPORT);
+    XMLImportResult res = mei::documentFromText(badMei, MEI_LAX_IMPORT);
     
-    ASSERT_EQ(res->importStatus, mei::status_warnings);
-    ASSERT_EQ(res->importWarnings.size(), 1);
+    ASSERT_EQ(res.importStatus, mei::status_warnings);
+    ASSERT_EQ(res.importWarnings.size(), 1);
     
     string goodMei = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
     xml:id=\"root\" meiversion=\"2013\">\n  <layer xml:id=\"layerid\">\n    \
     <note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </layer>\n</mei>\n";
 
-    XMLImportResult *res2 = mei::documentFromText(goodMei, MEI_LAX_IMPORT);
+    XMLImportResult res2 = mei::documentFromText(goodMei, MEI_LAX_IMPORT);
     
-    ASSERT_EQ(res2->importStatus, mei::status_ok);
-    ASSERT_EQ(res2->importWarnings.size(), 0);
+    ASSERT_EQ(res2.importStatus, mei::status_ok);
+    ASSERT_EQ(res2.importWarnings.size(), 0);
 }
 
 TEST(TestMeiXMLImport, CheckBasicDocumentTraversalFunctions)
 {
-    XMLImportResult *res = mei::documentFromFile("beethoven.mei", MEI_STRICT_IMPORT);
+    XMLImportResult res = mei::documentFromFile("beethoven.mei", MEI_STRICT_IMPORT);
 
-    ASSERT_NE((MeiDocument*)NULL, res->meiDocument);
+    ASSERT_NE((MeiDocument*)NULL, res.meiDocument);
     
-    MeiDocument* doc = res->meiDocument;
+    MeiDocument* doc = res.meiDocument;
     
     std::vector<MeiElement*> notes = doc->getElementsByName("note");
     
@@ -141,9 +141,9 @@ TEST(TestMeiXmlImport, TestNoVersionException)
     ASSERT_THROW(documentFromFile("noversion.mei", MEI_STRICT_IMPORT), mei::NoVersionFoundException);
     ASSERT_NO_THROW(documentFromFile("noversion.mei", MEI_LAX_IMPORT));
     
-    XMLImportResult *res = documentFromFile("noversion.mei", MEI_LAX_IMPORT);
+    XMLImportResult res = documentFromFile("noversion.mei", MEI_LAX_IMPORT);
     
-    ASSERT_TRUE(res->importWarnings.size() > 0);
+    ASSERT_TRUE(res.importWarnings.size() > 0);
     //    ASSERT_THROW(mei::XmlImport::documentFromFile("noversion.mei"), mei::NoVersionFoundException);
 }
 

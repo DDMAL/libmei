@@ -36,7 +36,7 @@ struct xml_string_writer: pugi::xml_writer
 };
 
 
-XMLImportResult* mei::documentFromText(string text, bool strict)
+XMLImportResult mei::documentFromText(string text, bool strict)
 {
     shared_ptr<pugi::xml_document> xdoc = std::make_shared<pugi::xml_document>();
     pugi::xml_parse_result result = xdoc->load_string(text.c_str(), LIBMEI_PXML_IMPORT_OPTIONS);
@@ -47,10 +47,11 @@ XMLImportResult* mei::documentFromText(string text, bool strict)
     }
     
     XMLImportResult *res = parseMEIXML(xdoc, strict);
-    return res;
+
+    return (*res);
 }
 
-XMLImportResult* mei::documentFromFile(string filename, bool strict)
+XMLImportResult mei::documentFromFile(string filename, bool strict)
 {
     shared_ptr<pugi::xml_document> xdoc = std::make_shared<pugi::xml_document>();
     pugi::xml_parse_result result = xdoc->load_file(filename.c_str(), LIBMEI_PXML_IMPORT_OPTIONS);
@@ -61,7 +62,8 @@ XMLImportResult* mei::documentFromFile(string filename, bool strict)
     }
     
     XMLImportResult *res = parseMEIXML(xdoc, strict);
-    return res;
+
+    return (*res);
 }
 
 // private implementations

@@ -51,8 +51,8 @@ namespace mei
         status_warnings
     };
     
-    MEI_EXPORT XMLImportResult* documentFromFile(std::string filename, bool strict);
-    MEI_EXPORT XMLImportResult* documentFromText(std::string text, bool strict);
+    MEI_EXPORT XMLImportResult documentFromFile(std::string filename, bool strict);
+    MEI_EXPORT XMLImportResult documentFromText(std::string text, bool strict);
 }
 
 
