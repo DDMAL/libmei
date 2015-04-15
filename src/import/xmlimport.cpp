@@ -21,7 +21,7 @@ using mei::ImportWarnings;
 
 static int LIBMEI_PXML_IMPORT_OPTIONS = pugi::parse_pi | pugi::parse_comments;
 static MeiElement* XMLNodeToMEIElement(pugi::xml_node *el, bool strict, ImportWarnings *warn);
-static XMLImportResult* parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool strict);
+static XMLImportResult parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool strict);
 static XMLProcessingInstructions extractProcessingInstructions(shared_ptr<pugi::xml_document> xmldoc);
 
 
@@ -46,9 +46,9 @@ XMLImportResult mei::documentFromText(string text, bool strict)
         throw MeiException("There was a problem reading the input text. The XML Parser returned: " + string(result.description()));
     }
     
-    XMLImportResult *res = parseMEIXML(xdoc, strict);
+    XMLImportResult res = parseMEIXML(xdoc, strict);
 
-    return (*res);
+    return res;
 }
 
 XMLImportResult mei::documentFromFile(string filename, bool strict)
@@ -61,9 +61,9 @@ XMLImportResult mei::documentFromFile(string filename, bool strict)
         throw MeiException("There was a problem reading " + filename + ". The XML Parser returned " + string(result.description()));
     }
     
-    XMLImportResult *res = parseMEIXML(xdoc, strict);
+    XMLImportResult res = parseMEIXML(xdoc, strict);
 
-    return (*res);
+    return res;
 }
 
 // private implementations
@@ -84,7 +84,7 @@ static XMLProcessingInstructions extractProcessingInstructions(shared_ptr<pugi::
     return inst;
 }
 
-static XMLImportResult* parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool strict)
+static XMLImportResult parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool strict)
 {
     pugi::xml_node rootXMLNode = xmldoc->document_element();
     string meiversion = string(rootXMLNode.attribute("meiversion").value());
@@ -109,11 +109,11 @@ static XMLImportResult* parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool 
     
     doc->setRootElement(rootMEIElement);
     
-    XMLImportResult *result = new XMLImportResult;
-    result->meiDocument = doc;
-    result->xmlProcessingInstructions = inst;
-    result->importWarnings = warn;
-    result->importStatus = warn.size() > 0 ? mei::status_warnings : mei::status_ok;
+    XMLImportResult result;
+    result.meiDocument = doc;
+    result.xmlProcessingInstructions = inst;
+    result.importWarnings = warn;
+    result.importStatus = warn.size() > 0 ? mei::status_warnings : mei::status_ok;
     
     return result;
 }
