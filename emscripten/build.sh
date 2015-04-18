@@ -49,6 +49,8 @@ done
 echo "Compiling"
 
 $EMCC $CHATTY --bind \
+    -O2 \
+    -s DISABLE_EXCEPTION_CATCHING=0 \
 	-I$LIBMEI_INCLUDE/ \
     -I$LIBMEI_INCLUDE/modules/ \
 	-o libmei.js \
@@ -60,6 +62,7 @@ $EMCC $CHATTY --bind \
     $LIBMEI_ROOT/src/meielement.cpp \
     \
     $LIBMEI_ROOT/src/import/xmlimport.cpp \
+    $LIBMEI_ROOT/src/export/xmlexport.cpp \
     \
     $LIBMEI_ROOT/src/pugixml.cpp \
     \

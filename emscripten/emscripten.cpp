@@ -10,6 +10,7 @@
 #include "meidocument.h"
 #include "meielement.h"
 #include "meiattribute.h"
+#include "exceptions.h"
 #include "import/xmlimport.h"
 #include "export/xmlexport.h"
 
@@ -17,9 +18,17 @@ using namespace mei;
 using namespace emscripten;
 
 // Binding code
-EMSCRIPTEN_BINDINGS(libmei) {
+EMSCRIPTEN_BINDINGS(libmei)
+{
     register_vector<MeiAttribute*>("MeiAttributeList");
     register_vector<MeiElement*>("MeiElementList");
+    // register_vector<std::string>("ImportWarnings");
+     register_vector<std::string>("XMLProcessingInstructions");
+
+     class_<MeiException>("MeiException")
+     .constructor<std::string>()
+     .function("what", &MeiException::what, allow_raw_pointers())
+     ;
 
     class_<MeiDocument>("MeiDocument")
     .constructor<>()
@@ -61,13 +70,17 @@ EMSCRIPTEN_BINDINGS(libmei) {
     .function("printElement", select_overload<void()>(&MeiElement::printElement))
     ;
     
-    class_<XmlImport>("XmlImport")
-    .constructor<>()
-    .class_function("documentFromText", &XmlImport::documentFromText, allow_raw_pointers())
+    class_<XMLImportResult>("XMLImportResult")
+    .function("getMeiDocument", &XMLImportResult::getMeiDocument, allow_raw_pointers())
+    .function("getXMLProcessingInstructions", &XMLImportResult::getXMLProcessingInstructions, allow_raw_pointers())
+    .function("getImportWarnings", &XMLImportResult::getImportWarnings, allow_raw_pointers())
+    .function("getImportStatus", &XMLImportResult::getImportStatus)
     ;
+    
+    function("documentFromText", select_overload<XMLImportResult(std::string, bool)>(&mei::documentFromText), allow_raw_pointers());
+    function("documentFromText", select_overload<XMLImportResult(std::string)>(&mei::documentFromText), allow_raw_pointers());
 
-    class_<XmlExport>("XmlExport")
-    .constructor<MeiDocument*>()
-    .class_function("documentToText", &XmlExport::documentToText, allow_raw_pointers())
-    ;
+    function("documentToText", select_overload<std::string(MeiDocument*)>(&mei::documentToText), allow_raw_pointers());
+    function("documentToText", select_overload<std::string(MeiDocument*, std::vector<std::string>)>(&mei::documentToText), allow_raw_pointers());
+    function("elementToText", &mei::elementToText, allow_raw_pointers());
 }

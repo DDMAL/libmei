@@ -2,9 +2,8 @@ describe('libmei', function()
 {
     describe('XML Export', function()
     {
-        it("should export MEI to a string", function()
+        it("should export an MEI Document to a string", function()
         {
-            // TODO
             var d = new Module.MeiDocument();
             var r = new Module.MeiElement("mei");
             d.setRootElement(r);
@@ -15,9 +14,19 @@ describe('libmei', function()
             var mu = new Module.MeiElement("music");
             r.addChild(mu);
 
-            console.log(Module.XmlExport.documentToText(d));
-            // var element = new Module.MeiElement("note");
-            // expect(element.getName()).toBe("note");
+            expect(Module.documentToText(d)).not.toBe(null);
+        });
+
+        it("should export an MEI Element to a string", function()
+        {
+            var r = new Module.MeiElement("mei");
+            var mh = new Module.MeiElement("meiHead");
+            r.addChild(mh);
+
+            var mu = new Module.MeiElement("music");
+            r.addChild(mu);
+
+            expect(Module.elementToText(r)).not.toBe(null);
         });
     });
 });
