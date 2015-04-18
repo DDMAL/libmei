@@ -143,8 +143,7 @@ TEST(TestMeiXmlImport, TestNoVersionException)
     
     XMLImportResult res = documentFromFile("noversion.mei", MEI_LAX_IMPORT);
     
-    ASSERT_TRUE(res.importWarnings.size() > 0);
-    //    ASSERT_THROW(mei::XmlImport::documentFromFile("noversion.mei"), mei::NoVersionFoundException);
+    ASSERT_TRUE(res.getImportWarnings().size() > 0);
 }
 
 TEST(TestMeiXmlImport, TestMalformedFileException)
