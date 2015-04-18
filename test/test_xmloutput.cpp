@@ -21,17 +21,17 @@
 using std::string;
 using mei::MeiDocument;
 using mei::MeiElement;
-using mei::XmlExport;
 using mei::MeiAttribute;
+using mei::XMLImportResult;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
-    MeiDocument *docf = mei::XmlImport::documentFromFile("beethoven.mei");
-    XmlExport::documentToFile(docf, "filename.mei");
+    XMLImportResult imp = mei::documentFromFile("beethoven.mei");
+    mei::documentToFile(imp.getMeiDocument(), "filename.mei");
 }
 
 TEST(TextXmlMeiExport, TextExportWithComments) {
-    MeiDocument *docf = mei::XmlImport::documentFromFile("campion.mei");
-    XmlExport::documentToFile(docf, "campion-out.mei");
+    XMLImportResult imp = mei::documentFromFile("campion.mei");
+    mei::documentToFile(imp.getMeiDocument(), "campion-out.mei");
 }
 
 // Test that we can turn a document into a valid string
@@ -40,8 +40,10 @@ TEST(TestXmlMeiExport, ExportToString) {
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
     d->setRootElement(root);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"/>\n";
-    string ret = XmlExport::documentToText(d);
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"myid\" xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\" />\n";
+    
+    string ret = mei::documentToText(d);
+
     ASSERT_EQ(expected, ret);
 }
 
@@ -55,8 +57,9 @@ TEST(TestXmlMeiExport, ExportValueAndTail) {
     note->setTail("tail");
     root->addChild(note);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><note xml:id=\"noteid\">value</note>tail</mei>\n";
-    string ret = XmlExport::documentToText(d);
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"myid\" xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\">\n\t<note xml:id=\"noteid\">value</note>tail</mei>\n";
+
+    string ret = mei::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -67,11 +70,11 @@ TEST(TestXmlMeiExport, ExportComment) {
     d->setRootElement(root);
     MeiElement *comment = new mei::MeiElement("_comment");
     comment->setValue("comment");
-    comment->setTail("t");
+    comment->setTail("tail");
     root->addChild(comment);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" xml:id=\"myid\" meiversion=\"2013\"><!--comment-->t</mei>\n";
-    string ret = XmlExport::documentToText(d);
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"myid\" xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\">\n\t<!--comment-->tail</mei>\n";
+    string ret = mei::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
@@ -83,16 +86,14 @@ TEST(TestXmlMeiExport, ExportNamespace) {
     d->setRootElement(root);
     MeiAttribute *xlink = new MeiAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
     MeiAttribute *attr = new MeiAttribute("xlink:title", "my awesome thing");
+    root->addAttribute(xlink);
     root->addAttribute(attr);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" xlink:title=\"my awesome thing\" meiversion=\"2013\"/>\n";
-    string ret = XmlExport::documentToText(d);
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"myid\" xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:title=\"my awesome thing\" />\n";
+    string ret = mei::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
-// Test that adding a namespace to an attribute makes it turn up on the
-// root element
 TEST(TestXmlMeiExport, ExportNamespace2) {
     MeiDocument *d = new MeiDocument();
     MeiElement *root = mei::MeiFactory::createInstance("mei", "myid");
@@ -100,27 +101,26 @@ TEST(TestXmlMeiExport, ExportNamespace2) {
     MeiAttribute *xlink = new MeiAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
     MeiAttribute *attr = new MeiAttribute("xlink:title", "my awesome thing");
     MeiElement *music = mei::MeiFactory::createInstance("music", "musid");
+    root->addAttribute(xlink);
     music->addAttribute(attr);
     music->setValue("mus!");
     root->addChild(music);
 
-    string expected = "<?xml version=\"1.0\"?>\n<mei xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:id=\"myid\" meiversion=\"2013\">\n  <music \
-xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n";
-    string ret = XmlExport::documentToText(d);
+    string expected = "<?xml version=\"1.0\"?>\n<mei xml:id=\"myid\" xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n\t<music xml:id=\"musid\" xlink:title=\"my awesome thing\">mus!</music>\n</mei>\n";
+    string ret = mei::documentToText(d);
     ASSERT_EQ(expected, ret);
 }
 
-TEST(TestXmlMeiExport, ThrowsDocumentRootException) {
+TEST(TestXmlMeiExport, ThrowsExceptionIfRootNotSet) {
     MeiDocument *d = new MeiDocument();
-    ASSERT_THROW(XmlExport::documentToText(d), mei::DocumentRootNotSetException);
+    ASSERT_THROW(mei::documentToText(d), mei::DocumentRootNotSetException);
 }
 
 TEST(TestXmlMeiExport, ThrowsFileWriteFailureException) {
     MeiDocument *d = new MeiDocument();
     MeiElement *m = new MeiElement("mei");
     d->setRootElement(m);
-    ASSERT_THROW(XmlExport::documentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
+    ASSERT_THROW(mei::documentToFile(d, "C:/StupidName"), mei::FileWriteFailureException);
 }
 
 TEST(TestXmlMeiExport, TestElementToText) {
@@ -134,10 +134,8 @@ TEST(TestXmlMeiExport, TestElementToText) {
     measure->addChild(layer);
     layer->addChild(note);
 
-    string expected = "<?xml version=\"1.0\"?>\n<measure xmlns=\"http://www.music-encoding.org/ns/mei\" \
-xml:id=\"measureid\">\n  <layer xml:id=\"layerid\">\n    \
-<note xml:id=\"noteid\" pname=\"c\" oct=\"3\"/>\n  </layer>\n</measure>\n";
+    string expected = "<measure xml:id=\"measureid\">\n\t<layer xml:id=\"layerid\">\n\t\t<note xml:id=\"noteid\" pname=\"c\" oct=\"3\" />\n\t</layer>\n</measure>\n";
 
-    string ret = XmlExport::meiElementToText(measure);
+    string ret = mei::elementToText(measure);
     ASSERT_EQ(expected, ret);
 }
