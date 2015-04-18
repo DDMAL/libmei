@@ -114,7 +114,8 @@ int mei::MeiDocument::getPositionInDocument(MeiElement* element) {
     vector<MeiElement*> els = this->getFlattenedTree();
     vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), element);
     if (pos != els.end()) {
-        return pos - els.begin();
+        return (int)std::distance(els.begin(), pos);
+        //        return pos - els.begin();
     }
     return -1;
 }
@@ -136,7 +137,8 @@ MeiElement* mei::MeiDocument::lookBack(MeiElement* from, std::string name) {
      * We add 1 so that we can skip the element itself and start at the
      * preceding element.
      */
-    int diff = flattenedDoc.size() - (pos - flattenedDoc.begin());
+    int backwardsPos = (int)std::distance(flattenedDoc.begin(), pos);
+    int diff = (int)flattenedDoc.size() - backwardsPos;
 
     // topsy turvy world, where ++ is actually -- (iterating backwards..sdrawkcab gnitareti)
     for (vector<MeiElement*>::reverse_iterator iter = flattenedDoc.rbegin() + diff; iter != flattenedDoc.rend(); ++iter) {
