@@ -22,7 +22,6 @@ using std::string;
 using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiAttribute;
-using mei::XmlExport;
 using mei::Mei;
 using mei::Note;
 
