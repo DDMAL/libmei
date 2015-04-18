@@ -51,6 +51,12 @@ XMLImportResult mei::documentFromText(string text, bool strict)
     return res;
 }
 
+// helper function for the strict parser (default)
+XMLImportResult mei::documentFromText(string text)
+{
+    return mei::documentFromText(text, true);
+}
+
 XMLImportResult mei::documentFromFile(string filename, bool strict)
 {
     shared_ptr<pugi::xml_document> xdoc = std::make_shared<pugi::xml_document>();
@@ -64,6 +70,11 @@ XMLImportResult mei::documentFromFile(string filename, bool strict)
     XMLImportResult res = parseMEIXML(xdoc, strict);
 
     return res;
+}
+
+XMLImportResult mei::documentFromFile(string filename)
+{
+    return mei::documentFromFile(filename, true);
 }
 
 // private implementations
@@ -194,4 +205,32 @@ static MeiElement* XMLNodeToMEIElement(pugi::xml_node* el, bool strictparsing, I
         }
     }
     return obj;
+}
+
+XMLImportResult::XMLImportResult()
+{
+}
+
+XMLImportResult::~XMLImportResult()
+{
+}
+
+ImportWarnings XMLImportResult::getImportWarnings()
+{
+    return this->importWarnings;
+}
+
+XMLProcessingInstructions XMLImportResult::getXMLProcessingInstructions()
+{
+    return this->xmlProcessingInstructions;
+}
+
+MeiDocument* XMLImportResult::getMeiDocument()
+{
+    return this->meiDocument;
+}
+
+int XMLImportResult::getImportStatus()
+{
+    return this->importStatus;
 }

@@ -34,11 +34,25 @@ namespace mei
     typedef std::vector<std::string> XMLProcessingInstructions;
     typedef std::vector<std::string> ImportWarnings;
     
-    bool MEI_STRICT_IMPORT = true;
-    bool MEI_LAX_IMPORT = false;
-    
-    struct MEI_EXPORT XMLImportResult
+    enum MEI_EXPORT mei_import_strictness
     {
+        MEI_STRICT_IMPORT = true,
+        MEI_LAX_IMPORT = false
+    };
+
+    class MEI_EXPORT XMLImportResult
+    {
+    public:
+        XMLImportResult();
+        ~XMLImportResult();
+
+        /* NB: Emscripten is happier if properties are accessed through getters. */
+        MeiDocument* getMeiDocument();
+        XMLProcessingInstructions getXMLProcessingInstructions();
+        ImportWarnings getImportWarnings();
+        int getImportStatus();
+
+        /* Public properties so that we don't have to write explicit setters. */
         MeiDocument *meiDocument;
         XMLProcessingInstructions xmlProcessingInstructions;
         ImportWarnings importWarnings;
@@ -51,8 +65,31 @@ namespace mei
         status_warnings
     };
     
+    /**
+     *  \brief Imports a document from a filename
+     *
+     *  \param filename A pathname string to the file to import
+     *  \param strict   Sets the importer's strictness level. You may use the MEI_STRICT_IMPORT (true) or
+     *      MEI_LAX_IMPORT (false) enums.
+     *
+     *  \return XMLImportResult An object containing the results of the import process.
+     */
     MEI_EXPORT XMLImportResult documentFromFile(std::string filename, bool strict);
+    MEI_EXPORT XMLImportResult documentFromFile(std::string filename);
+
+    /**
+     *  \brief Imports a document from a string
+     *
+     *  \param text The XML fragment to import. Note that this should be a complete MEI representation,
+            as the importer will refuse to import (in strict mode) or raise warnings (in lax mode) if a
+            partial MEI string is supplied.
+     *  \param strict   Sets the importer's strictness level. You may use the MEI_STRICT_IMPORT (true) or
+     *      MEI_LAX_IMPORT (false) enums.
+     *
+     *  \return XMLImportResult An object containing the results of the import process.
+     */
     MEI_EXPORT XMLImportResult documentFromText(std::string text, bool strict);
+    MEI_EXPORT XMLImportResult documentFromText(std::string text);
 }
 
 
