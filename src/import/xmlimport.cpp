@@ -25,17 +25,6 @@ static XMLImportResult parseMEIXML(shared_ptr<pugi::xml_document> xmldoc, bool s
 static XMLProcessingInstructions extractProcessingInstructions(shared_ptr<pugi::xml_document> xmldoc);
 
 
-struct xml_string_writer: pugi::xml_writer
-{
-    std::string result;
-    
-    virtual void write(const void* data, size_t size)
-    {
-        result.append(static_cast<const char*>(data), size);
-    }
-};
-
-
 XMLImportResult mei::documentFromText(string text, bool strict)
 {
     shared_ptr<pugi::xml_document> xdoc = std::make_shared<pugi::xml_document>();
@@ -81,14 +70,13 @@ XMLImportResult mei::documentFromFile(string filename)
 static XMLProcessingInstructions extractProcessingInstructions(shared_ptr<pugi::xml_document> xmldoc)
 {
     XMLProcessingInstructions inst;
-    xml_string_writer writer;
-
     for (pugi::xml_node_iterator it = xmldoc->begin(); it != xmldoc->end(); ++it)
     {
+        // store the name/value as a single string. When this is exported in xmlexport, the
+        // exporter will add the opening/closing tags.
         if (it->type() == pugi::node_pi)
         {
-            it->print(writer);
-            inst.push_back(writer.result);
+            inst.push_back(string(it->name()) + " " + string(it->value()));
         }
     }
 

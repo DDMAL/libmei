@@ -27,6 +27,7 @@ using std::shared_ptr;
 static int LIBMEI_PXML_EXPORT_OPTIONS = pugi::format_default;
 void MEIElementToXMLNode(MeiElement *el, pugi::xml_node parentnode, bool isRoot);
 shared_ptr<pugi::xml_document> exportMEIToXML(MeiDocument *doc);
+void addProcessingInstructions(shared_ptr<pugi::xml_document> xdoc, std::vector<std::string> processingInstructions);
 
 struct xml_string_writer: pugi::xml_writer {
     std::string result;
@@ -96,8 +97,26 @@ void MEIElementToXMLNode(MeiElement *el, pugi::xml_node parentnode, bool isRoot)
     }
 }
 
+void addProcessingInstructions(shared_ptr<pugi::xml_document> xdoc, vector<string> instructions)
+{
+    if (instructions.size() > 0)
+    {
+        pugi::xml_node xroot = xdoc->document_element();
+        for (vector<string>::iterator iter = instructions.begin(); iter != instructions.end(); ++iter)
+        {
+            pugi::xml_node pi = xroot.prepend_child(pugi::node_pi);
+            pi.set_name(iter->c_str());
+        }
+    }
+}
 
-bool mei::documentToFile(MeiDocument *doc, std::string filename) throw (FileWriteFailureException, DocumentRootNotSetException)
+bool mei::documentToFile(MeiDocument *doc, string filename) throw (FileWriteFailureException, DocumentRootNotSetException)
+{
+    vector<string> pi;
+    return documentToFile(doc, filename, pi);
+}
+
+bool mei::documentToFile(MeiDocument *doc, string filename, vector<string> instructions) throw (FileWriteFailureException, DocumentRootNotSetException)
 {
     if (doc->getRootElement() == NULL)
     {
@@ -105,6 +124,9 @@ bool mei::documentToFile(MeiDocument *doc, std::string filename) throw (FileWrit
     };
     
     shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc);
+    
+    addProcessingInstructions(xdoc, instructions);
+    
     bool res = xdoc->save_file(filename.c_str(), "\t", LIBMEI_PXML_EXPORT_OPTIONS);
     
     if (!res)
@@ -131,12 +153,20 @@ string mei::elementToText(MeiElement *element)
 
 string mei::documentToText(MeiDocument *doc)
 {
+    vector<string> pi;
+    return mei::documentToText(doc, pi);
+}
+
+string mei::documentToText(MeiDocument *doc, vector<string> processingInstructions)
+{
     if (doc->getRootElement() == NULL)
     {
         throw DocumentRootNotSetException("The document root was not set. Without that, this document cannot be exported.");
     };
     
     shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc);
+    
+    addProcessingInstructions(xdoc, processingInstructions);
     
     xml_string_writer writer;
     xdoc->save(writer, "\t", LIBMEI_PXML_EXPORT_OPTIONS);

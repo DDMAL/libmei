@@ -23,6 +23,7 @@ using mei::MeiDocument;
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::XMLImportResult;
+using mei::MEI_STRICT_IMPORT;
 
 TEST(TextXmlMeiExport, TestBasicExport) {
     XMLImportResult imp = mei::documentFromFile("beethoven.mei");
@@ -138,4 +139,12 @@ TEST(TestXmlMeiExport, TestElementToText) {
 
     string ret = mei::elementToText(measure);
     ASSERT_EQ(expected, ret);
+}
+
+TEST(TestXmlMeiExport, TestExportProcessingInstructions)
+{
+    XMLImportResult res = mei::documentFromFile("test-procinst.mei", MEI_STRICT_IMPORT);
+    bool out = mei::documentToFile(res.getMeiDocument(), "procinst-filename.mei", res.getXMLProcessingInstructions());
+    
+    ASSERT_TRUE(out);
 }

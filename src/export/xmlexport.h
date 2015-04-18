@@ -32,8 +32,11 @@ namespace mei
 {
     bool documentToFile(MeiDocument *doc, std::string filename) throw (FileWriteFailureException, DocumentRootNotSetException);
 
-    MEI_EXPORT std::string documentToText(MeiDocument *doc);
-    MEI_EXPORT std::string elementToText(MeiElement* element);
+    bool documentToFile(MeiDocument *doc, std::string filename, std::vector<std::string> processingInstructions) throw (FileWriteFailureException, DocumentRootNotSetException);
+
+    std::string documentToText(MeiDocument *doc);
+    std::string documentToText(MeiDocument *doc, std::vector<std::string> processingInstructions);
+    std::string elementToText(MeiElement* element);
 }
 
 #endif /* MEI_XMLEXPORT_H_ */
