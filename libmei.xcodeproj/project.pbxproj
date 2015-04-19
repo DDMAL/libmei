@@ -84,7 +84,6 @@
 		053C409714040E710003363C /* noversion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 053C409414040D560003363C /* noversion.mei */; };
 		0550E42F1401C7240005B735 /* campion.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0550E42D1401C71F0005B735 /* campion.mei */; };
 		056605A91ADE05B400F1F859 /* malformed.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 056605A81ADE052000F1F859 /* malformed.mei */; };
-		056605B01ADFCEFB00F1F859 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056605AE1ADFCEFB00F1F859 /* xmlexport.cpp */; };
 		056605B11ADFCFE300F1F859 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056605AB1ADFCEDF00F1F859 /* xmlexport.cpp */; };
 		056605B21ADFCFF500F1F859 /* xmlexport.h in Headers */ = {isa = PBXBuildFile; fileRef = 056605AC1ADFCEDF00F1F859 /* xmlexport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0567A7191AD2D72800DAEA8C /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567A7181AD2D72800DAEA8C /* gtest.framework */; };
@@ -216,7 +215,6 @@
 		0514A68D13FD6D6000310111 /* text.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = text.h; path = src/modules/text.h; sourceTree = "<group>"; };
 		0514A68E13FD6D6000310111 /* usersymbols.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbols.cpp; path = src/modules/usersymbols.cpp; sourceTree = "<group>"; };
 		0514A68F13FD6D6000310111 /* usersymbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = usersymbols.h; path = src/modules/usersymbols.h; sourceTree = "<group>"; };
-		0514A69013FDAAF500310111 /* test_xmlinput-old.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test_xmlinput-old.cpp"; path = "test/test_xmlinput-old.cpp"; sourceTree = "<group>"; };
 		053C409314040D560003363C /* badversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = badversion.mei; path = test/badversion.mei; sourceTree = "<group>"; };
 		053C409414040D560003363C /* noversion.mei */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = noversion.mei; path = test/noversion.mei; sourceTree = "<group>"; };
 		053D6F5318BD24CC00E30E2E /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "../../../../Library/Developer/Xcode/DerivedData/gtest-fargituubtxgmybnrglhovyjqpye/Build/Products/Debug/gtest.framework"; sourceTree = "<group>"; };
@@ -225,9 +223,6 @@
 		056605A81ADE052000F1F859 /* malformed.mei */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = malformed.mei; path = test/malformed.mei; sourceTree = "<group>"; };
 		056605AB1ADFCEDF00F1F859 /* xmlexport.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport.cpp; path = src/export/xmlexport.cpp; sourceTree = "<group>"; };
 		056605AC1ADFCEDF00F1F859 /* xmlexport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = src/export/xmlexport.h; sourceTree = "<group>"; };
-		056605AD1ADFCEFB00F1F859 /* xmlexport_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport_impl.h; path = "src/export-old/xmlexport_impl.h"; sourceTree = "<group>"; };
-		056605AE1ADFCEFB00F1F859 /* xmlexport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlexport.cpp; path = "src/export-old/xmlexport.cpp"; sourceTree = "<group>"; };
-		056605AF1ADFCEFB00F1F859 /* xmlexport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlexport.h; path = "src/export-old/xmlexport.h"; sourceTree = "<group>"; };
 		0567A7181AD2D72800DAEA8C /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		0567A71A1AD33BFA00DAEA8C /* test-procinst.mei */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "test-procinst.mei"; path = "test/test-procinst.mei"; sourceTree = "<group>"; };
 		056BCFF3157165FB006E51A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -244,9 +239,6 @@
 		05B6605714017A2800D54F9A /* test_xmloutput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmloutput.cpp; path = test/test_xmloutput.cpp; sourceTree = "<group>"; };
 		05CEA56513FC61CB0009A15E /* test_meifactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meifactory.cpp; path = test/test_meifactory.cpp; sourceTree = "<group>"; };
 		05CED9A2142A726F003A8CB6 /* test_cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_cmn.cpp; path = test/test_cmn.cpp; sourceTree = "<group>"; };
-		05FDEB3B1ADC5AC100598B19 /* xmlimport_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport_impl.h; path = "src/import-old/xmlimport_impl.h"; sourceTree = "<group>"; };
-		05FDEB3C1ADC5AC100598B19 /* xmlimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlimport.cpp; path = "src/import-old/xmlimport.cpp"; sourceTree = "<group>"; };
-		05FDEB3D1ADC5AC100598B19 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = "src/import-old/xmlimport.h"; sourceTree = "<group>"; };
 		05FDEB401ADC5AEB00598B19 /* xmlimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xmlimport.cpp; path = src/import/xmlimport.cpp; sourceTree = "<group>"; };
 		05FDEB411ADC5AEB00598B19 /* xmlimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmlimport.h; path = src/import/xmlimport.h; sourceTree = "<group>"; };
 		05FDEB441ADC68C800598B19 /* test_xmlinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_xmlinput.cpp; path = test/test_xmlinput.cpp; sourceTree = "<group>"; };
@@ -312,26 +304,6 @@
 				61DBCCCF1312C85D00B46918 /* mei.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0514A63D13FD6B8500310111 /* Import-old */ = {
-			isa = PBXGroup;
-			children = (
-				05FDEB3B1ADC5AC100598B19 /* xmlimport_impl.h */,
-				05FDEB3C1ADC5AC100598B19 /* xmlimport.cpp */,
-				05FDEB3D1ADC5AC100598B19 /* xmlimport.h */,
-			);
-			name = "Import-old";
-			sourceTree = "<group>";
-		};
-		0514A63F13FD6B8E00310111 /* Export-old */ = {
-			isa = PBXGroup;
-			children = (
-				056605AD1ADFCEFB00F1F859 /* xmlexport_impl.h */,
-				056605AE1ADFCEFB00F1F859 /* xmlexport.cpp */,
-				056605AF1ADFCEFB00F1F859 /* xmlexport.h */,
-			);
-			name = "Export-old";
 			sourceTree = "<group>";
 		};
 		056605AA1ADFCEBF00F1F859 /* Export */ = {
@@ -404,8 +376,6 @@
 				4D0CAF371AC2F91200A16096 /* pugiconfig.hpp */,
 				4D0CAF381AC2F91200A16096 /* pugixml.cpp */,
 				4D0CAF391AC2F91200A16096 /* pugixml.hpp */,
-				0514A63F13FD6B8E00310111 /* Export-old */,
-				0514A63D13FD6B8500310111 /* Import-old */,
 				9B11C8A5132E6C4E0090FDA6 /* Modules */,
 				A1F5D1781455B93C00CE6CE6 /* mei.h */,
 				9BE4E742131D570100A59F5D /* meielement.h */,
@@ -439,7 +409,6 @@
 				058359E713FB2F8700919769 /* test_shared.cpp */,
 				61DBCD401312DDF500B46918 /* gtest_main.cc */,
 				05CEA56513FC61CB0009A15E /* test_meifactory.cpp */,
-				0514A69013FDAAF500310111 /* test_xmlinput-old.cpp */,
 				B28CF23E140ADFAF00A87C7A /* test_meidocument.cpp */,
 				05A1338219B8C02A00C66C70 /* test_meiattribute.cpp */,
 				05FDEB441ADC68C800598B19 /* test_xmlinput.cpp */,
@@ -711,7 +680,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
-				056605B01ADFCEFB00F1F859 /* xmlexport.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
