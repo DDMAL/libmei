@@ -26,8 +26,9 @@ using std::shared_ptr;
 
 static int LIBMEI_PXML_EXPORT_OPTIONS = pugi::format_default;
 void MEIElementToXMLNode(MeiElement *el, pugi::xml_node parentnode, bool isRoot);
-shared_ptr<pugi::xml_document> exportMEIToXML(MeiDocument *doc);
+shared_ptr<pugi::xml_document> exportMEIToXML(MeiDocument *doc, vector<string> instructions);
 void addProcessingInstructions(shared_ptr<pugi::xml_document> xdoc, std::vector<std::string> processingInstructions);
+void addCustomDeclaration(shared_ptr<pugi::xml_document> xdoc);
 
 struct xml_string_writer: pugi::xml_writer {
     std::string result;
@@ -36,10 +37,11 @@ struct xml_string_writer: pugi::xml_writer {
     }
 };
 
-shared_ptr<pugi::xml_document> exportMEIToXML(MeiDocument *doc)
+shared_ptr<pugi::xml_document> exportMEIToXML(MeiDocument *doc, vector<string> instructions)
 {
     shared_ptr<pugi::xml_document> xdoc = std::make_shared<pugi::xml_document>();
-
+    addCustomDeclaration(xdoc);
+    addProcessingInstructions(xdoc, instructions);
     pugi::xml_node xroot = xdoc->append_child(doc->getRootElement()->getName().c_str());
     
     MEIElementToXMLNode(doc->getRootElement(), xroot, true);
@@ -101,13 +103,19 @@ void addProcessingInstructions(shared_ptr<pugi::xml_document> xdoc, vector<strin
 {
     if (instructions.size() > 0)
     {
-        pugi::xml_node xroot = xdoc->document_element();
         for (vector<string>::iterator iter = instructions.begin(); iter != instructions.end(); ++iter)
         {
-            pugi::xml_node pi = xroot.prepend_child(pugi::node_pi);
+            pugi::xml_node pi = xdoc->append_child(pugi::node_pi);
             pi.set_name(iter->c_str());
         }
     }
+}
+
+void addCustomDeclaration(shared_ptr<pugi::xml_document> xdoc)
+{
+    pugi::xml_node decl = xdoc->append_child(pugi::node_declaration);
+    decl.append_attribute("version") = "1.0";
+    decl.append_attribute("encoding") = "UTF-8";
 }
 
 bool mei::documentToFile(MeiDocument *doc, string filename) throw (FileWriteFailureException, DocumentRootNotSetException)
@@ -123,11 +131,9 @@ bool mei::documentToFile(MeiDocument *doc, string filename, vector<string> instr
         throw DocumentRootNotSetException("The document root was not set. Without that, this document cannot be exported.");
     };
     
-    shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc);
-    
-    addProcessingInstructions(xdoc, instructions);
-    
-    bool res = xdoc->save_file(filename.c_str(), "\t", LIBMEI_PXML_EXPORT_OPTIONS);
+    shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc, instructions);
+
+    bool res = xdoc->save_file(filename.c_str(), "\t", LIBMEI_PXML_EXPORT_OPTIONS, pugi::encoding_utf8);
     
     if (!res)
     {
@@ -146,7 +152,7 @@ string mei::elementToText(MeiElement *element)
     MEIElementToXMLNode(element, xroot, true);
 
     xml_string_writer writer;
-    xdoc->print(writer, "\t", LIBMEI_PXML_EXPORT_OPTIONS);
+    xdoc->print(writer, "\t", LIBMEI_PXML_EXPORT_OPTIONS, pugi::encoding_utf8);
 
     return writer.result;
 }
@@ -157,19 +163,17 @@ string mei::documentToText(MeiDocument *doc)
     return mei::documentToText(doc, pi);
 }
 
-string mei::documentToText(MeiDocument *doc, vector<string> processingInstructions)
+string mei::documentToText(MeiDocument *doc, vector<string> instructions)
 {
     if (doc->getRootElement() == NULL)
     {
         throw DocumentRootNotSetException("The document root was not set. Without that, this document cannot be exported.");
     };
     
-    shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc);
-    
-    addProcessingInstructions(xdoc, processingInstructions);
+    shared_ptr<pugi::xml_document> xdoc = exportMEIToXML(doc, instructions);
     
     xml_string_writer writer;
-    xdoc->save(writer, "\t", LIBMEI_PXML_EXPORT_OPTIONS);
+    xdoc->save(writer, "\t", LIBMEI_PXML_EXPORT_OPTIONS, pugi::encoding_utf8);
     
     return writer.result;
 }
