@@ -148,3 +148,10 @@ TEST(TestXmlMeiExport, TestExportProcessingInstructions)
     
     ASSERT_TRUE(out);
 }
+
+TEST(TestXmlMeiExport, TestSibmeiImportExport)
+{
+    XMLImportResult res = mei::documentFromFile("sibmei.mei");
+    bool out = mei::documentToFile(res.getMeiDocument(), "sibmei-filename.mei");
+    ASSERT_TRUE(out);
+}
