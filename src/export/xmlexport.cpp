@@ -8,6 +8,8 @@
 
 #include <string>
 #include <vector>
+#include <memory>
+
 #include "xmlexport.h"
 #include "meielement.h"
 #include "meiattribute.h"
