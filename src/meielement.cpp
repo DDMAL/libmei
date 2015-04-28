@@ -30,10 +30,7 @@ mei::MeiElement::MeiElement(string name) {
 }
 
 mei::MeiElement::~MeiElement() {
-    vector<MeiAttribute*>::iterator it;
-    for (it = attributes.begin(); it != attributes.end(); ++it) {
-        delete *it;
-    }
+    this->attributes.clear();
 }
 
 mei::MeiElement::MeiElement(const MeiElement& ele) :
