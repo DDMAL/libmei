@@ -81,7 +81,7 @@ class PymeiDebugTest(unittest.TestCase):
                     staffDef.parent.removeChild(staffDef)
 
         # head_score.addChild(mainScoreDef)
-        self.assertEqual(4, len(head_score.getDescendantsByName('staffDef')))
+        self.assertEqual(8, len(head_score.getDescendantsByName('staffDef')))
 
 
 def suite():
