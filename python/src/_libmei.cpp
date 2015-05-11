@@ -22,14 +22,12 @@
 */
 
 #include "Python.h"
-#include <mei/meinamespace.h>
 #include <mei/meielement.h>
 #include <mei/meiattribute.h>
 #include <mei/meidocument.h>
 #include <mei/xmlimport.h>
 #include <mei/xmlexport.h>
 #include <mei/exceptions.h>
-#include <mei/meixml.h>
 
 #include <boost/python.hpp>
 #include <boost/python/tuple.hpp>
@@ -45,16 +43,15 @@
 using namespace boost::python;
 using namespace std;
 
-using mei::MeiNamespace;
 using mei::MeiElement;
 using mei::MeiAttribute;
 using mei::MeiDocument;
-using mei::XmlImport;
-using mei::XmlExport;
+using mei::XMLImportResult;
 
 typedef vector<MeiElement*> MeiElementList;
 typedef vector<MeiAttribute*> MeiAttributeList;
-typedef vector<MeiNamespace*> MeiNamespaceList;
+typedef vector<string> XMLProcessingInstructions;
+typedef vector<string> ImportWarnings;
 
 bool MeiElement_EqualWrap(const MeiElement* x, const MeiElement* y) { return x == y; }
 bool MeiElement_NEqualWrap(const MeiElement* x, const MeiElement* y) { return x != y; }
@@ -67,10 +64,6 @@ string MeiDocument_Print(MeiDocument *x) { return "<MeiDocument " + x->getVersio
 bool MeiAttribute_EqualWrap(const MeiAttribute* x, const MeiAttribute* y) { return x == y; }
 bool MeiAttribute_NEqualWrap(const MeiAttribute* x, const MeiAttribute* y) { return x != y; }
 string MeiAttribute_Print(MeiAttribute* x) { return "<MeiAttribute " + x->getName() + ":" + x->getValue() + ">"; }
-
-bool MeiNamespace_EqualWrap(const MeiNamespace* x, const MeiNamespace* y) { return x == y; }
-bool MeiNamespace_NEqualWrap(const MeiNamespace* x, const MeiNamespace* y) { return x != y; }
-string MeiNamespace_Print(MeiNamespace* x) { return "<MeiNamespace " + x->getPrefix() + ":" + x->getHref() + ">"; }
 
 bool MeiElementList_EqualWrap(const MeiElementList x, const MeiElementList y) { return x == y; }
 bool MeiElementList_NEqualWrap(const MeiElementList x, const MeiElementList y) { return x != y; }
@@ -115,29 +108,6 @@ MeiAttribute* MeiAttributeList_PopFromList(MeiAttributeList* x) {
 }
 
 void MeiAttributeList_PushToList(MeiAttributeList* x, MeiAttribute* y) {
-    x->insert(x->begin(), y);
-}
-
-bool MeiNamespaceList_EqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x == y; }
-bool MeiNamespaceList_NEqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x != y; }
-bool MeiNamespaceList_NonZero(const MeiNamespaceList x) { return !x.empty(); }
-string MeiNamespaceList_Print(MeiNamespaceList x) {
-    stringstream res;
-    res << "[ ";
-    for(vector<MeiNamespace*>::iterator iter = x.begin(); iter != x.end(); ++iter) {
-        res << "<MeiNamespace " << (*iter)->getPrefix() << ":" << (*iter)->getHref()  << "> ";
-    }
-    res << "]";
-    return res.str();
-}
-
-MeiNamespace* MeiNamespaceList_PopFromList(MeiNamespaceList* x) {
-    MeiNamespace* t = x->back();
-    x->pop_back();
-    return t;
-}
-
-void MeiNamespaceList_PushToList(MeiNamespaceList* x, MeiNamespace* y) {
     x->insert(x->begin(), y);
 }
 
@@ -187,10 +157,9 @@ BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
 
     // initialize converters for python lists to MeiElementList,
-    // MeiAttributeList, and MeiNamespaceList
+    // MeiAttributeList
     VectorFromList<MeiElement>();
     VectorFromList<MeiAttribute>();
-    VectorFromList<MeiNamespace>();
 
     class_<MeiElementList>("MeiElementList")
         .def(vector_indexing_suite<MeiElementList>())
@@ -217,29 +186,6 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("push", &MeiAttributeList_PushToList)
     ;
 
-    class_<MeiNamespaceList>("MeiNamespaceList")
-        .def(vector_indexing_suite<MeiNamespaceList>())
-        .def("__eq__", &MeiNamespaceList_EqualWrap)
-        .def("__ne__", &MeiNamespaceList_NEqualWrap)
-        .def("__iter__", boost::python::iterator<MeiNamespaceList>())
-        .def("__nonzero__", &MeiNamespaceList_NonZero)
-        .def("__str__", &MeiNamespaceList_Print)
-        .def("__repr__", &MeiNamespaceList_Print)
-        .def("pop", &MeiNamespaceList_PopFromList, return_value_policy<reference_existing_object>())
-        .def("push", &MeiNamespaceList_PushToList)
-    ;
-
-    class_<MeiNamespace, MeiNamespace*>("MeiNamespace", init<string, string>())
-        .def("__eq__", &MeiNamespace_EqualWrap)
-        .def("__ne__", &MeiNamespace_NEqualWrap)
-        .def("__str__", &MeiNamespace_Print)
-        .def("__repr__", &MeiNamespace_Print)
-        .def("getHref", &MeiNamespace::getHref)
-        .add_property("href", &MeiNamespace::getHref)
-        .def("getPrefix", &MeiNamespace::getPrefix)
-        .add_property("prefix", &MeiNamespace::getPrefix)
-    ;
-
     void (MeiElement::*addAttributeByObject)(MeiAttribute*) = &MeiElement::addAttribute;
     void (MeiElement::*addAttributeByString)(string, string) = &MeiElement::addAttribute;
     void (MeiElement::*setDocument)(MeiDocument*) = &MeiElement::setDocument;
@@ -249,36 +195,45 @@ BOOST_PYTHON_MODULE(_libmei) {
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     
-    class_<XmlImport>("XmlImport", init<>())
-        .def("documentFromText", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromText), return_value_policy<manage_new_object>())
-        .staticmethod("documentFromText")
-
-        .def("documentFromFile", static_cast<MeiDocument*(*)(string)>(&XmlImport::documentFromFile), return_value_policy<manage_new_object>())
-        .staticmethod("documentFromFile")
+    /*
+        Import functions
+    */
+    class_<XMLImportResult>("XMLImportResult", init<>())
+        .def("getMeiDocument", &XMLImportResult::getMeiDocument, return_value_policy<reference_existing_object>())
+        .def("getXMLProcessingInstructions", &XMLImportResult::getXMLProcessingInstructions)
+        .def("getImportWarnings", &XMLImportResult::getImportWarnings)
+        .def("getImportStatus", &XMLImportResult::getImportStatus)
     ;
 
-    class_<XmlExport>("XmlExport", boost::python::no_init)
-        .def("meiDocumentToFile", static_cast<bool(*)(MeiDocument*, string)>(&XmlExport::meiDocumentToFile))
-        .staticmethod("meiDocumentToFile")
+    XMLImportResult (*documentFromFileStrictImport)(string) = mei::documentFromFile;
+    XMLImportResult (*documentFromFileChooseImport)(string, bool) = mei::documentFromFile;
+    def("documentFromFile", documentFromFileStrictImport);
+    def("documentFromFile", documentFromFileChooseImport);
 
-        .def("meiDocumentToText", static_cast<string(*)(MeiDocument*)>(&XmlExport::meiDocumentToText))
-        .staticmethod("meiDocumentToText")
+    XMLImportResult (*documentFromTextStrictImport)(string) = mei::documentFromText;
+    XMLImportResult (*documentFromTextChooseImport)(string, bool) = mei::documentFromText;
+    def("documentFromText", documentFromTextStrictImport);
+    def("documentFromText", documentFromTextChooseImport);
 
-        .def("meiElementToText", &XmlExport::meiElementToText)
-        .staticmethod("meiElementToText")
-    ;
+    /*
+        Export Functions
+    */
+    bool (*documentToFileStandard)(MeiDocument*, string) = mei::documentToFile;
+    bool (*documentToFileWithPI)(MeiDocument*, string, vector<string>) = mei::documentToFile;
+    def("documentToFile", documentToFileStandard);
+    def("documentToFile", documentToFileWithPI);
+
+    string (*documentToTextStandard)(MeiDocument*) = mei::documentToText;
+    string (*documentToTextWithPI)(MeiDocument*, vector<string>) = mei::documentToText;
+    def("documentToText", documentToTextStandard);
+    def("documentToText", documentToTextWithPI);
+    def("elementToText", mei::elementToText);
 
     class_<MeiDocument, MeiDocument*>("MeiDocument", init<optional<string> >())
         .def("__eq__", &MeiDocument_EqualWrap)
         .def("__ne__", &MeiDocument_NEqualWrap)
         .def("__str__", &MeiDocument_Print)
         .def("__repr__", &MeiDocument_Print)
-        .def("hasNamespace", &MeiDocument::hasNamespace)
-        .def("getNamespace", &MeiDocument::getNamespace, return_value_policy<reference_existing_object>())
-        .def("getNamespaces", &MeiDocument::getNamespaces)
-        .add_property("namespaces", &MeiDocument::getNamespaces)
-
-        .def("addNamespace", &MeiDocument::addNamespace)
         .def("getVersion", &MeiDocument::getVersion)
         .add_property("version", &MeiDocument::getVersion)
         .def("getRootElement", &MeiDocument::getRootElement, return_value_policy<reference_existing_object>())
@@ -381,7 +336,6 @@ BOOST_PYTHON_MODULE(_libmei) {
     ;
 
     class_<MeiAttribute, MeiAttribute*>("MeiAttribute", init<string, string>())
-        .def(init<MeiNamespace*, string, string>())
         .def(init<const MeiAttribute&>())
         .def("__eq__", &MeiAttribute_EqualWrap)
         .def("__ne__", &MeiAttribute_NEqualWrap)
@@ -393,9 +347,6 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("getValue", &MeiAttribute::getValue)
         .def("setValue", &MeiAttribute::setValue)
         .add_property("value", &MeiAttribute::getValue, &MeiAttribute::setValue)
-
-        .def("hasNamespace", &MeiAttribute::hasNamespace)
-        .def("getNamespace", &MeiAttribute::getNamespace, return_value_policy<reference_existing_object>())
     ;
 
 }

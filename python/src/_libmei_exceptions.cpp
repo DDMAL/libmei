@@ -224,5 +224,5 @@ BOOST_PYTHON_MODULE(_libmei_exceptions) {
         .add_property("message", &mei::MalformedXMLException::what)
     ;
     pyMalformedXMLExceptionType = createExceptionClass("MalformedXMLException");
-    register_exception_translator<mei::MalformedFileException>(&MalformedXMLExceptionTranslate);
+    register_exception_translator<mei::MalformedXMLException>(&MalformedXMLExceptionTranslate);
 }
