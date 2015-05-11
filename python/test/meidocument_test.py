@@ -1,31 +1,19 @@
 # testing suite
 import unittest
-from pymei import MeiElement, MeiNamespace, MeiElementList, MeiDocument
+from pymei import MeiElement, MeiElementList, MeiDocument
 
 
 class MeiDocumentTest(unittest.TestCase):
     def setUp(self):
         pass
-    
-    def test_getnamespace(self):
-        doc = MeiDocument()
-        ns = MeiNamespace("prefix", "http://example.com/ns")
-        self.assertEqual("http://www.music-encoding.org/ns/mei", doc.getNamespaces()[0].href)
 
-        doc.addNamespace(ns)
-        self.assertEqual(2, len(doc.getNamespaces()))
-        self.assertEqual(ns, doc.getNamespace("http://example.com/ns"))
-
-        self.assertTrue(doc.hasNamespace("http://www.music-encoding.org/ns/mei"))
-        self.assertFalse(doc.hasNamespace("http://www.mcgill.ca"))
-    
     def test_getroot(self):
         doc = MeiDocument()
         mei = MeiElement("mei")
         doc.root = mei
 
         self.assertEqual(mei, doc.root)
-    
+
     def test_elementbyid(self):
         mei = MeiElement("mei")
         mus = MeiElement("music")
@@ -64,11 +52,10 @@ class MeiDocumentTest(unittest.TestCase):
         staff2.removeChild(n5)
         self.assertEqual(None, doc.getElementById(newid))
 
-    
     def test_setversion(self):
         doc = MeiDocument()
         self.assertEqual("2013", doc.version)
-    
+
     def test_elementsbyname(self):
         mei = MeiElement("mei")
         mus = MeiElement("music")
@@ -104,7 +91,6 @@ class MeiDocumentTest(unittest.TestCase):
         notes_new = doc.getElementsByName('note')
         self.assertEqual(5, len(notes_new))
 
-    
     def test_documentpointers(self):
         mei = MeiElement("mei")
         mus = MeiElement("music")
@@ -126,7 +112,7 @@ class MeiDocumentTest(unittest.TestCase):
         self.assertEqual(None, staff.document)
         body.addChild(staff)
         self.assertEqual(doc, staff.document)
-    
+
     def test_flattenedtree(self):
         mei = MeiElement("mei")
         mus = MeiElement("music")
@@ -176,7 +162,7 @@ class MeiDocumentTest(unittest.TestCase):
 
         elements = [mei, mus, body, staff3, staff4]
 
-        for i,el in enumerate(doc.getFlattenedTree()):
+        for i, el in enumerate(doc.getFlattenedTree()):
             self.assertEqual(elements[i], doc.getFlattenedTree()[i])
 
 
