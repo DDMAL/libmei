@@ -29,7 +29,6 @@ using mei::Layer;
 using mei::Accid;
 using mei::Note;
 
-
 TEST(TestMeiElement, TestConstructor) {
     MeiElement *m = new MeiElement("note");
     ASSERT_EQ("note", m->getName());
@@ -318,6 +317,49 @@ TEST(TestMeiElement, TestRemoveChild) {
     p->removeChild(c1);
     ASSERT_FALSE(p->hasChildren("accid"));
     ASSERT_EQ(0, p->getChildren().size());
+}
+
+TEST(TestMeiElement, TestRemoveManyChildren) {
+    MeiDocument *doc = new MeiDocument();
+    MeiElement *mei = new MeiElement("mei");
+    MeiElement *sd1 = new MeiElement("staffDef");
+    MeiElement *sd2 = new MeiElement("staffDef");
+    MeiElement *sd3 = new MeiElement("staffDef");
+    MeiElement *sd4 = new MeiElement("staffDef");
+    MeiElement *sd5 = new MeiElement("staffDef");
+    MeiElement *sd6 = new MeiElement("staffDef");
+    
+    doc->setRootElement(mei);
+    
+    MeiElement *music = new mei::MeiElement("music");
+    MeiElement *scoreDef = new mei::MeiElement("scoreDef");
+    
+    mei->addChild(music);
+    music->addChild(scoreDef);
+    scoreDef->addChild(sd1);
+    scoreDef->addChild(sd2);
+    scoreDef->addChild(sd3);
+    scoreDef->addChild(sd4);
+    scoreDef->addChild(sd5);
+    scoreDef->addChild(sd6);
+    
+    sd1->addAttribute("n", "1");
+    sd2->addAttribute("n", "2");
+    sd3->addAttribute("n", "3");
+    sd4->addAttribute("n", "4");
+    sd5->addAttribute("n", "5");
+    sd6->addAttribute("n", "6");
+    
+    vector<MeiElement*> scoreDefs = doc->getRootElement()->getDescendantsByName("scoreDef");
+    vector<MeiElement*> staffDefs = doc->getRootElement()->getDescendantsByName("staffDef");
+    
+    for (vector<MeiElement*>::iterator iter = staffDefs.begin(); iter != staffDefs.end(); ++iter) {
+        if ((*iter)->getAttribute("n")->getValue() == "3" || (*iter)->getAttribute("n")->getValue() == "6") {
+            (*iter)->getParent()->removeChild((*iter));
+        }
+    }
+    ASSERT_EQ(4, music->getDescendantsByName("staffDef").size());
+    
 }
 
 TEST(TestMeiElement, TestRemoveChildByName) {
