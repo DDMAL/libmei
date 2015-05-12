@@ -232,7 +232,7 @@ def __create_mixin_classes(schema, outdir):
         tplvars = {
             "includes": "",
             'license': LICENSE.format(authors=AUTHORS),
-            'moduleNameCaps': "{0}MIXIN".format(module.upper()),
+            'moduleNameCaps': "{0}MIXIN".format((module.upper()).replace("-","_")),
             'elements': classes.strip()
         }
         if "std::string" in classes:
@@ -361,7 +361,7 @@ def __create_element_classes(schema, outdir):
         outvars = {
             "includes": incl_output,
             "license": LICENSE.format(authors=AUTHORS),
-            "moduleNameCaps": module.upper(),
+            "moduleNameCaps": (module.upper()).replace("-","_"),
             "elements": element_output.strip()
         }
         if "std::string" in element_output:
