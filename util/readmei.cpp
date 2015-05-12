@@ -23,7 +23,14 @@ using std::endl;
 using std::cerr;
 using std::string;
 
-using namespace mei;
+using mei::XMLImportResult;
+using mei::documentToFile;
+using mei::documentFromFile;
+using mei::MeiDocument;
+using mei::MeiElement;
+using mei::MeiAttribute;
+using mei::MEI_STRICT_IMPORT;
+using mei::Note;
 
 int main(int argc, char **argv) {
     if (argc < 3) {
@@ -31,8 +38,9 @@ int main(int argc, char **argv) {
         cerr << "       Use this program on beethoven.mei" << endl;
         return 1;
     }
-
-    MeiDocument* doc = XmlImport::documentFromFile(string(argv[1]));
+    
+    XMLImportResult res = documentFromFile(string(argv[1]), MEI_STRICT_IMPORT);
+    MeiDocument* doc = res.getMeiDocument();
 
     // Find an element
     MeiElement *note1 = doc->getElementById("d1e111");
@@ -61,7 +69,7 @@ int main(int argc, char **argv) {
     }
 
     // Save out again
-    XmlExport::meiDocumentToFile(doc, string(argv[2]));
+    documentToFile(doc, string(argv[2]));
 
 	return 0;
 }
