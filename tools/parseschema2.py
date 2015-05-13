@@ -197,7 +197,7 @@ class MeiSchema(object):
 if __name__ == "__main__":
     p = ArgumentParser()
 
-    p.add_argument("compiled", help="A compiled ODD file")
+    p.add_argument("compiled", help="A compiled ODD file", nargs="?") # Due to nargs="?", "compiled" will appear as optional and not positional
     p.add_argument("-o", "--outdir", default="output", help="output directory")
     p.add_argument("-l", "--lang", default="python", help="Programming language to output")
     p.add_argument("-i", "--includes", help="Parse external includes from a given directory")
@@ -215,6 +215,13 @@ if __name__ == "__main__":
         sys.exit(0)
 
     compiled_odd = args.compiled
+
+    #If no compiled argument is given, it is set to NONE. In this case, we print the usage, an error message, and then exit
+    if not compiled_odd:
+        p.print_usage()
+        print("error: too few arguments, requires a compiled ODD file")
+        sys.exit(1)
+
 
     mei_source = codecs.open(compiled_odd, 'r', 'utf-8')
     # sf = codecs.open(args.source,'r', "utf-8")
