@@ -222,7 +222,6 @@ if __name__ == "__main__":
         print("error: too few arguments, requires a compiled ODD file")
         sys.exit(1)
 
-
     mei_source = codecs.open(compiled_odd, 'r', 'utf-8')
     # sf = codecs.open(args.source,'r', "utf-8")
     # cf = codecs.open(args.customization, 'r', "utf-8")
