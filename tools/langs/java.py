@@ -6,24 +6,26 @@ lg = logging.getLogger('schemaparser')
 
 LANG_NAME="Java"
 
-MODULE_TEMPLATE = """
-{license}
+MODULE_TEMPLATE = """{license}
 
-import javaMei.MeiElement
+package javaMei.{package};
+
+import javaMei.MeiElement;
 
 {classes}
 """
 
 MODULE_CLASS_TEMPLATE = """
-class {className}_ extends MeiElement {
-    void {className}_{MeiElement}() {
+/**
+ * <{className}>
+ */
+class {className} extends MeiElement {{
+    void {className}() {{
         super("{className}");
-    # <{className}>
-    }
-}
-"""
+    }}
+}}"""
 
-LICENSE = """\"\"\"
+LICENSE = """/*
     Copyright (c) 2011-2013 {authors}
 
     Permission is hereby granted, free of charge, to any person obtaining
@@ -44,51 +46,59 @@ LICENSE = """\"\"\"
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-\"\"\""""
+*/"""
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 def create(schema, outdir):
     lg.debug("Begin Python Output...")
 
-    __create_python_classes(schema, outdir)
+    __create_java_classes(schema, outdir)
     __create_init(schema, outdir)
 
     lg.debug("Success!")
 
-def __create_python_classes(schema, outdir):
+def __create_java_classes(schema, outdir):
     lg.debug("Creating Python Modules")
 
     for module, elements in sorted(schema.element_structure.iteritems()):
         if not elements:
             continue
-        class_output = ""
-        module_output = ""
 
         for element, atgroups in sorted(elements.iteritems()):
+            class_name = element.title()
+            # Generate the class
             methstr = {
-                "className": element
+                "className": class_name
             }
-            class_output += MODULE_CLASS_TEMPLATE.format(**methstr)
+            class_output = MODULE_CLASS_TEMPLATE.format(**methstr)
 
-        modstr = {
-            "classes": class_output,
-            "license": LICENSE.format(authors=AUTHORS),
-        }
-        module_output = MODULE_TEMPLATE.format(**modstr)
+            # Generate the module
+            modstr = {
+                "package": module,
+                "classes": class_output,
+                "license": LICENSE.format(authors=AUTHORS),
+            }
+            module_output = MODULE_TEMPLATE.format(**modstr)
 
-        fmi = open(os.path.join(outdir, "{0}.py".format(module.lower())), "w")
-        fmi.write(module_output)
-        fmi.close()
-        lg.debug("\tCreated {0}.py".format(module.lower()))
+            # Save to a file
+            file_name = "{0}.java".format(class_name)
+            path = os.path.join(outdir, module.lower())
+            # Make directory if necessary
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fmi = open(os.path.join(path, file_name), "w")
+            fmi.write(module_output)
+            fmi.close()
+            lg.debug("\tCreated {0}".format(file_name, class_name))
 
 def __create_init(schema, outdir):
     m = []
     a = []
-    p = open(os.path.join(outdir, "__init__.py"), 'w')
+    p = open(os.path.join(outdir, "__init__.java"), 'w')
     for module, elements in sorted(schema.element_structure.iteritems()):
         a.append('"{0}"'.format(module.lower()))
-        m.append("from pymei.Modules.{0} import *\n".format(module.lower()))
+        m.append("import javaMei.Modules.{0};\n".format(module.lower()))
     p.write("__all__ = [{0}]\n\n".format(", ".join(a)))
     p.writelines(m)
     p.close()
@@ -98,7 +108,7 @@ def parse_includes(file_dir, includes_dir):
     # get the files in the includes directory
     includes = [f for f in os.listdir(includes_dir) if not f.startswith(".")]
 
-    for dp,dn,fn in os.walk(file_dir):
+    for dp, dn, fn in os.walk(file_dir):
         for f in fn:
             if f.startswith("."):
                 continue
