@@ -54,7 +54,7 @@ def create(schema, outdir):
     lg.debug("Begin Java Output...")
 
     __create_java_classes(schema, outdir)
-    
+
     lg.debug("Success!")
 
 def __create_java_classes(schema, outdir):
