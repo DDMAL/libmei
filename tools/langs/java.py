@@ -54,8 +54,7 @@ def create(schema, outdir):
     lg.debug("Begin Java Output...")
 
     __create_java_classes(schema, outdir)
-    __create_init(schema, outdir)
-
+    
     lg.debug("Success!")
 
 def __create_java_classes(schema, outdir):
@@ -91,17 +90,6 @@ def __create_java_classes(schema, outdir):
             fmi.write(module_output)
             fmi.close()
             lg.debug("\tCreated {0}".format(file_name, class_name))
-
-def __create_init(schema, outdir):
-    m = []
-    a = []
-    p = open(os.path.join(outdir, "__init__.java"), 'w')
-    for module, elements in sorted(schema.element_structure.iteritems()):
-        a.append('"{0}"'.format(module.lower()))
-        m.append("import javaMei.Modules.{0};\n".format(module.lower()))
-    p.write("__all__ = [{0}]\n\n".format(", ".join(a)))
-    p.writelines(m)
-    p.close()
 
 def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'r')
