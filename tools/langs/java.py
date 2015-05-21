@@ -51,7 +51,7 @@ LICENSE = """/*
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 def create(schema, outdir):
-    lg.debug("Begin Python Output...")
+    lg.debug("Begin Java Output...")
 
     __create_java_classes(schema, outdir)
     __create_init(schema, outdir)
