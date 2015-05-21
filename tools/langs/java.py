@@ -4,21 +4,23 @@ import re
 import logging
 lg = logging.getLogger('schemaparser')
 
-LANG_NAME="Python"
+LANG_NAME="Java"
 
 MODULE_TEMPLATE = """
 {license}
 
-from pymei import MeiElement
+import javaMei.MeiElement
 
 {classes}
 """
 
 MODULE_CLASS_TEMPLATE = """
-class {className}_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "{className}")
+class {className}_ extends MeiElement {
+    void {className}_{MeiElement}() {
+        super("{className}");
     # <{className}>
+    }
+}
 """
 
 LICENSE = """\"\"\"
@@ -149,11 +151,3 @@ def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)
     f.close()
-
-
-
-
-
-
-
-
