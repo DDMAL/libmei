@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
     schema = MeiSchema(mei_source)
 
-    if "cpp" in args.lang:
+    if "cpp" in args.lang.lower():
         import langs.cplusplus as cpp
         output_directory = os.path.join(outdir, "cpp")
         if os.path.exists(output_directory):
@@ -236,7 +236,7 @@ if __name__ == "__main__":
         if args.includes:
             cpp.parse_includes(output_directory, args.includes)
 
-    if "python" in args.lang:
+    if "python" in args.lang.lower():
         import langs.python as py
         output_directory = os.path.join(outdir, "python")
         if os.path.exists(output_directory):
@@ -247,7 +247,7 @@ if __name__ == "__main__":
         if args.includes:
             py.parse_includes(output_directory, args.includes)
 
-    if "manuscript" in args.lang:
+    if "manuscript" in args.lang.lower():
         import langs.manuscript as ms
         output_directory = os.path.join(outdir, "manuscript")
         if os.path.exists(output_directory):
