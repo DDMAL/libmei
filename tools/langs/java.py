@@ -66,7 +66,7 @@ def __create_java_classes(schema, outdir):
             continue
 
         for element, atgroups in sorted(elements.iteritems()):
-            class_name = element.title()
+            class_name = capitalize_first_letter(element)
             # Generate the class
             methstr = {
                 "className": class_name
@@ -123,3 +123,11 @@ def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'w')
     f.writelines(contents)
     f.close()
+
+def capitalize_first_letter(text):
+    """
+    Given a string, capitalize the first letter.
+    """
+    chars = list(text.strip())
+    chars[0] = chars[0].upper()
+    return "".join(chars)
