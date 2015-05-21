@@ -103,44 +103,6 @@ def __create_init(schema, outdir):
     p.writelines(m)
     p.close()
 
-def parse_includes(file_dir, includes_dir):
-    lg.debug("Parsing includes")
-    # get the files in the includes directory
-    includes = [f for f in os.listdir(includes_dir) if not f.startswith(".")]
-
-    for dp, dn, fn in os.walk(file_dir):
-        for f in fn:
-            if f.startswith("."):
-                continue
-            methods, inc = __process_include(f, includes, includes_dir)
-            if methods:
-                __parse_codefile(methods, inc, dp, f)
-
-def __process_include(fname, includes, includes_dir):
-    name,ext = os.path.splitext(fname)
-    new_methods, includes_block = None, None
-    if "{0}.inc".format(fname) in includes:
-        lg.debug("\tProcessing include for {0}".format(fname))
-        f = open(os.path.join(includes_dir, "{0}.inc".format(fname)), 'r')
-        includefile = f.read()
-        f.close()
-        new_methods, includes_block = __parse_includefile(includefile)
-        return (new_methods, includes_block)
-    else:
-        return (None, None)
-
-def __parse_includefile(contents):
-    # parse the include file for our methods.
-    ret = {}
-    inc = []
-    reg = re.compile(r"# <(?P<elementName>[^>]+)>(.+?)# </(?P=elementName)>", re.MULTILINE|re.DOTALL)
-    ret = dict(re.findall(reg, contents))
-
-    # grab the include for the includes...
-    reginc = re.compile(r"/\* #include_block \*/(.+?)/\* #include_block \*/", re.MULTILINE|re.DOTALL)
-    inc = re.findall(reginc, contents)
-    return (ret, inc)
-
 def __parse_codefile(methods, includes, directory, codefile):
     f = open(os.path.join(directory, codefile), 'r')
     contents = f.readlines()
