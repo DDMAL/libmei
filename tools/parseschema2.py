@@ -199,12 +199,21 @@ if __name__ == "__main__":
     exclusive_group = p.add_mutually_exclusive_group(required=True)
     exclusive_group.add_argument("compiled", help="A compiled ODD file", nargs="?") # Due to nargs="?", "compiled" will appear as optional and not positional
     p.add_argument("-o", "--outdir", default="output", help="output directory")
-    p.add_argument("-l", "--lang", default="python", help="Programming language to output", nargs="*")
+    p.add_argument("-l", "--lang", default=["python"], help="Programming language or languages to output. To output multiple languages at once, list desired languages separated by a space after -l. For example: python parseschema2.py [compiled] -l python cpp", nargs="*")
     p.add_argument("-i", "--includes", help="Parse external includes from a given directory")
     p.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
     exclusive_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
 
     args = p.parse_args()
+
+    avail_langs = ["cpp", "python", "manuscript"]
+    
+    if not args.lang == "python":
+        for l_langs in args.lang:
+            if l_langs.lower() not in avail_langs:
+                p.print_usage()
+                print("error: One or more of the languages you have chosen are not supported. To check supported languages use the -sl flag")
+                sys.exit(1)
 
     if args.showlang:
         import langs
