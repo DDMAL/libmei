@@ -195,11 +195,11 @@ class MeiSchema(object):
 
 
 if __name__ == "__main__":
-    p = ArgumentParser()
+    p = ArgumentParser(usage='%(prog)s [compiled | -sl] [-h] [-o OUTDIR] [-i INCLUDES] [-d] [-l [LANG [LANG ...]]]') #Custom usage message to show user [compiled] should go before all other flags 
     exclusive_group = p.add_mutually_exclusive_group(required=True)
     exclusive_group.add_argument("compiled", help="A compiled ODD file", nargs="?") # Due to nargs="?", "compiled" will appear as optional and not positional
     p.add_argument("-o", "--outdir", default="output", help="output directory")
-    p.add_argument("-l", "--lang", default="python", help="Programming language to output")
+    p.add_argument("-l", "--lang", default="python", help="Programming language to output", nargs="*")
     p.add_argument("-i", "--includes", help="Parse external includes from a given directory")
     p.add_argument("-d", "--debugging", help="Run with verbose output", action="store_true")
     exclusive_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
@@ -225,36 +225,37 @@ if __name__ == "__main__":
 
     schema = MeiSchema(mei_source)
 
-    if "cpp" in args.lang.lower():
-        import langs.cplusplus as cpp
-        output_directory = os.path.join(outdir, "cpp")
-        if os.path.exists(output_directory):
-            lg.debug("Removing old C++ output directory")
-            shutil.rmtree(output_directory)
-        os.mkdir(output_directory)
-        cpp.create(schema, output_directory)
-        if args.includes:
-            cpp.parse_includes(output_directory, args.includes)
+    for l_langs in args.lang:
+        if "cpp" in l_langs.lower():
+            import langs.cplusplus as cpp
+            output_directory = os.path.join(outdir, "cpp")
+            if os.path.exists(output_directory):
+                lg.debug("Removing old C++ output directory")
+                shutil.rmtree(output_directory)
+            os.mkdir(output_directory)
+            cpp.create(schema, output_directory)
+            if args.includes:
+                cpp.parse_includes(output_directory, args.includes)
 
-    if "python" in args.lang.lower():
-        import langs.python as py
-        output_directory = os.path.join(outdir, "python")
-        if os.path.exists(output_directory):
-            lg.debug("Removing old Python output directory")
-            shutil.rmtree(output_directory)
-        os.mkdir(output_directory)
-        py.create(schema, output_directory)
-        if args.includes:
-            py.parse_includes(output_directory, args.includes)
+        if "python" in l_langs.lower():
+            import langs.python as py
+            output_directory = os.path.join(outdir, "python")
+            if os.path.exists(output_directory):
+                lg.debug("Removing old Python output directory")
+                shutil.rmtree(output_directory)
+            os.mkdir(output_directory)
+            py.create(schema, output_directory)
+            if args.includes:
+                py.parse_includes(output_directory, args.includes)
 
-    if "manuscript" in args.lang.lower():
-        import langs.manuscript as ms
-        output_directory = os.path.join(outdir, "manuscript")
-        if os.path.exists(output_directory):
-            lg.debug("Removing old Manuscript output directory")
-            shutil.rmtree(output_directory)
-        os.mkdir(output_directory)
-        ms.create(schema, output_directory)
+        if "manuscript" in l_langs.lower():
+            import langs.manuscript as ms
+            output_directory = os.path.join(outdir, "manuscript")
+            if os.path.exists(output_directory):
+                lg.debug("Removing old Manuscript output directory")
+                shutil.rmtree(output_directory)
+            os.mkdir(output_directory)
+            ms.create(schema, output_directory)
 
     mei_source.close()
 
