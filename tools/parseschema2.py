@@ -196,7 +196,7 @@ class MeiSchema(object):
 
 if __name__ == "__main__":
     p = ArgumentParser(usage='%(prog)s [compiled | -sl] [-h] [-o OUTDIR] [-i INCLUDES] [-d] [-l [LANG [LANG ...]]]') #Custom usage message to show user [compiled] should go before all other flags 
-    exclusive_group = p.add_mutually_exclusive_group(required=True)
+    exclusive_group = p.add_mutually_exclusive_group()
     exclusive_group.add_argument("compiled", help="A compiled ODD file", nargs="?") # Due to nargs="?", "compiled" will appear as optional and not positional
     p.add_argument("-o", "--outdir", default="output", help="output directory")
     p.add_argument("-l", "--lang", default=["python"], help="Programming language or languages to output. To output multiple languages at once, list desired languages separated by a space after -l. For example: python parseschema2.py [compiled] -l python cpp", nargs="*")
@@ -205,6 +205,11 @@ if __name__ == "__main__":
     exclusive_group.add_argument("-sl", "--showlang", help="Show languages and exit.", action="store_true")
 
     args = p.parse_args()
+
+    if not args.showlang and not args.compiled:
+        p.print_usage()
+        print("error: You must include a compiled ODD file")
+        sys.exit(1)
 
     avail_langs = ["cpp", "python", "manuscript"]
     
