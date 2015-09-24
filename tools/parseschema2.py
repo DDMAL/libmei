@@ -271,6 +271,17 @@ if __name__ == "__main__":
             os.mkdir(output_directory)
             ms.create(schema, output_directory)
 
+    if "java" in args.lang:
+        import langs.java as java
+        output_directory = os.path.join(outdir, "java")
+        if os.path.exists(output_directory):
+            lg.debug("Removing old Java output directory")
+            shutil.rmtree(output_directory)
+        os.mkdir(output_directory)
+        java.create(schema, output_directory)
+        if args.includes:
+            java.parse_includes(output_directory, args.includes)
+
     mei_source.close()
 
     sys.exit(0)
