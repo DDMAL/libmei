@@ -6,7 +6,7 @@ import os
 longdesc = """ Python Bindings for LibMEI. """
 
 if sys.platform == "darwin":
-    link_args = ["-framework", "mei"]
+    link_args = ["-F", "/Library/Frameworks","-framework", "mei"]
     libraries = ["boost_python-mt"]
     library_dirs = []
     runtime_library_dirs = []
