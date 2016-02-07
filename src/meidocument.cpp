@@ -95,9 +95,8 @@ MeiElement* mei::MeiDocument::getElementById(string id) {
     map<string, MeiElement*>::iterator iter = idMap.find(id);
     if (iter == idMap.end()) {
         return NULL;
-    } else {
-        return iter->second;
     }
+    return iter->second;
 }
 
 vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
