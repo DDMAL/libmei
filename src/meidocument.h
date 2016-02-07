@@ -85,7 +85,7 @@ class MEI_EXPORT MeiDocument {
         /** \brief Gets an element's position in the flattened
          *      tree representation.
          */
-        int getPositionInDocument(MeiElement* element);
+        int getPositionInDocument(MeiElement* element) const;
 
         /** 
          *  \brief Adds an ID and an element to the ID Map.
@@ -104,7 +104,7 @@ class MEI_EXPORT MeiDocument {
         void rmIdMap(std::string id);
 
         /** \brief Returns the flattened document tree */
-        const std::vector<MeiElement*> &getFlattenedTree();
+        const std::vector<MeiElement*> &getFlattenedTree() const;
         
         /** \brief Returns the most immediate previous element elName, given a starting point
          */

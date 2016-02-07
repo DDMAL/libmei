@@ -17,13 +17,13 @@ NS_PREFIX_MAP = {
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
 
 METHODS_HEADER_TEMPLATE = """{documentation}
-        MeiAttribute* get{attNameUpper}();
+        MeiAttribute* get{attNameUpper}() const;
         void set{attNameUpper}(std::string _{attNameLowerJoined});
-        bool has{attNameUpper}();
+        bool has{attNameUpper}() const;
         void remove{attNameUpper}();
 """
 
-METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() {{
+METHODS_IMPL_TEMPLATE = """MeiAttribute* mei::{className}::get{attNameUpper}() const {{
     if (!{accessor}hasAttribute("{attNameLower}")) {{
         return NULL;
     }}
@@ -35,7 +35,7 @@ void mei::{className}::set{attNameUpper}(std::string _{attNameLowerJoined}) {{
     {accessor}addAttribute(a);
 }};
 
-bool mei::{className}::has{attNameUpper}() {{
+bool mei::{className}::has{attNameUpper}() const {{
     return {accessor}hasAttribute("{attNameLower}");
 }};
 

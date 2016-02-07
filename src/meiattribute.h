@@ -57,17 +57,17 @@ namespace mei {
              *  Each attribute is created with a name and value, the attribute cannot exist without a name
              *  \return string containing the attribute name.
              */
-            std::string getName();
+            std::string getName() const;
 
             /** \brief Get the value of the attribute.
              *  \return A string indicating the attribute value
              */
-            std::string getValue();
+            std::string getValue() const;
 
             /** \brief Set/change the value of an attribute*/
             void setValue(std::string attrvalue);
 
-            MeiElement* getElement();
+            MeiElement* getElement() const;
             void setElement(MeiElement* el);
 
         private:

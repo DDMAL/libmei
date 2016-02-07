@@ -98,7 +98,7 @@ void mei::MeiElement::generateAndSetId() {
     this->setId(out);
 }
 
-const string mei::MeiElement::getId() {
+const string mei::MeiElement::getId() const {
     return this->id;
 }
 
@@ -110,11 +110,11 @@ bool mei::MeiElement::hasId() {
     return this->id != "";
 }
 
-const string mei::MeiElement::getName() {
+const string mei::MeiElement::getName() const {
     return this->name;
 }
 
-const string mei::MeiElement::getValue() {
+const string mei::MeiElement::getValue() const {
     return this->value;
 }
 
@@ -122,7 +122,7 @@ void mei::MeiElement::setValue(string value) {
     this->value = value;
 }
 
-const string mei::MeiElement::getTail() {
+const string mei::MeiElement::getTail() const {
     return this->tail;
 }
 
@@ -130,7 +130,7 @@ void mei::MeiElement::setTail(string tail) {
     this->tail = tail;
 }
 
-const vector<MeiAttribute*>& mei::MeiElement::getAttributes() {
+const vector<MeiAttribute*>& mei::MeiElement::getAttributes() const {
     return this->attributes;
 }
 
@@ -142,8 +142,8 @@ void mei::MeiElement::setAttributes(const vector<MeiAttribute*> attrs) {
     }
 }
 
-MeiAttribute* mei::MeiElement::getAttribute(string name) {
-    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+MeiAttribute* mei::MeiElement::getAttribute(string name) const {
+    for (vector<MeiAttribute*>::const_iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         if ((*iter)->getName() == name) {
             return *iter;
         }
@@ -151,10 +151,10 @@ MeiAttribute* mei::MeiElement::getAttribute(string name) {
     return NULL;
 }
 
-bool mei::MeiElement::hasAttribute(string name) {
+bool mei::MeiElement::hasAttribute(string name) const {
     if (attributes.empty()) return false;
     
-    for (vector<MeiAttribute*>::iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
+    for (vector<MeiAttribute*>::const_iterator iter = attributes.begin(); iter != attributes.end(); ++iter) {
         if ((*iter)->getName() == name) return true;
     }
     return false;
@@ -191,7 +191,7 @@ void mei::MeiElement::removeAttribute(string name) {
     }
 }
 
-bool mei::MeiElement::hasParent() {
+bool mei::MeiElement::hasParent() const {
     return parent != NULL;
 }
 
@@ -199,7 +199,7 @@ void mei::MeiElement::setParent(MeiElement *parent) {
     this->parent = parent;
 }
 
-mei::MeiElement* mei::MeiElement::getParent() {
+mei::MeiElement* mei::MeiElement::getParent() const {
     return this->parent;
 }
 
@@ -218,7 +218,7 @@ void mei::MeiElement::setDocument(MeiDocument *document) throw(DocumentRootNotSe
     }
 }
 
-MeiDocument* mei::MeiElement::getDocument() {
+MeiDocument* mei::MeiElement::getDocument() const {
     return this->document;
 }
 
@@ -272,13 +272,13 @@ void mei::MeiElement::setChildren(vector<MeiElement*> children) {
     updateDocument();
 }
 
-const vector<mei::MeiElement*>& mei::MeiElement::getChildren() {
+const vector<mei::MeiElement*>& mei::MeiElement::getChildren() const {
     return this->children;
 }
 
-const vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) {
+const vector<mei::MeiElement*> mei::MeiElement::getChildrenByName(string name) const {
     vector<mei::MeiElement*> res;
-    for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
+    for (vector<MeiElement*>::const_iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getName() == name) {
             res.push_back(*iter);
         }
@@ -324,19 +324,19 @@ void mei::MeiElement::removeChildrenByName(string name) {
     updateDocument();
 }
 
-bool mei::MeiElement::hasChildren() {
+bool mei::MeiElement::hasChildren() const {
     // topsy-turvy world! returns true if not empty.
     return !this->children.empty();
 }
 
-bool mei::MeiElement::hasChildren(string cname) {
-    for (vector<MeiElement*>::iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
+bool mei::MeiElement::hasChildren(string cname) const {
+    for (vector<MeiElement*>::const_iterator iter = this->children.begin(); iter != this->children.end(); ++iter) {
         if ((*iter)->getName() == cname) return true;
     }
     return false;
 }
 
-mei::MeiElement* mei::MeiElement::getAncestor(string name) {
+mei::MeiElement* mei::MeiElement::getAncestor(string name) const {
     if (parent == NULL) {
         return NULL;
     }
@@ -346,7 +346,7 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
     return parent->getAncestor(name);
 }
 
-bool mei::MeiElement::hasAncestor(string name) {
+bool mei::MeiElement::hasAncestor(string name) const {
     MeiElement* m = getAncestor(name);
     if (m != NULL) {
         return true;
@@ -372,7 +372,7 @@ vector<mei::MeiElement*> mei::MeiElement::getDescendantsByName(string name) {
     return res;
 }
 
-vector<mei::MeiElement*> mei::MeiElement::getPeers() {
+vector<mei::MeiElement*> mei::MeiElement::getPeers() const {
     if (this->parent) {
         return this->parent->getChildren();
     }
