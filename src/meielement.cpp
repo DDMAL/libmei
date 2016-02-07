@@ -21,11 +21,8 @@ using mei::MeiDocument;
 
 MeiFactory::default_map * MeiFactory::defaultmap;
 
-mei::MeiElement::MeiElement(string name) {
-    this->name = name;
-    this->value = "";
-    this->parent = NULL;
-    this->document = NULL;
+mei::MeiElement::MeiElement(string name)
+: name(name), value(""), parent(NULL), document(NULL) {
     this->generateAndSetId();
 }
 

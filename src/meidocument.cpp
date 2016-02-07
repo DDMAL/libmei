@@ -39,14 +39,12 @@ using std::find;
 
 using mei::MeiElement;
 
-mei::MeiDocument::MeiDocument(string meiVers) {
-    this->root = NULL;
-    this->meiVersion = meiVers;
+mei::MeiDocument::MeiDocument(string meiVers)
+: meiVersion(meiVers), root(NULL) {
 }
 
-mei::MeiDocument::MeiDocument() {
-    this->root = NULL;
-    this->meiVersion = *--MEI_VERSION.end();
+mei::MeiDocument::MeiDocument()
+: meiVersion(*--MEI_VERSION.end()), root(NULL) {
 }
 
 mei::MeiDocument::~MeiDocument() {
