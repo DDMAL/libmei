@@ -33,8 +33,8 @@
 
 
 namespace mei {
-/** \brief (MEI corpus) – A group of related MEI documents, consisting of a header for the
- *  group, and one or more <mei> elements, each with its own complete header.
+/** \brief (MEI corpus) – A group of related MEI documents, consisting of a header for
+ *  the group, and one or more <mei> elements, each with its own complete header.
  */
 class MEI_EXPORT MeiCorpus : public MeiElement {
     public:
@@ -45,6 +45,7 @@ class MEI_EXPORT MeiCorpus : public MeiElement {
 /* include <meiCorpus> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         MeiversionMixIn    m_Meiversion;
 
     private:

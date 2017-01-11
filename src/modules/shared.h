@@ -31,8 +31,10 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
+#include "usersymbolsmixins.h"
+#include "externalsymbolsmixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
 #include "critappmixins.h"
 #include "cmnmixins.h"
 #include "cmnornamentsmixins.h"
@@ -40,6 +42,7 @@
 #include "midimixins.h"
 #include "mensuralmixins.h"
 #include "tablaturemixins.h"
+#include "meimixins.h"
 #include <string>
 
 
@@ -55,23 +58,28 @@ class MEI_EXPORT Accid : public MeiElement {
 /* include <accid> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TypographyMixIn    m_Typography;
         AccidLogMixIn    m_AccidLog;
         AccidentalMixIn    m_Accidental;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
         PlacementMixIn    m_Placement;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
         StafflocPitchedMixIn    m_StafflocPitched;
+        AccidentalPerformedMixIn    m_AccidentalPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -90,6 +98,7 @@ class MEI_EXPORT Actor : public MeiElement {
 /* include <actor> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -108,6 +117,7 @@ class MEI_EXPORT AddrLine : public MeiElement {
 /* include <addrLine> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -127,6 +137,7 @@ class MEI_EXPORT Address : public MeiElement {
 /* include <address> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -134,8 +145,8 @@ class MEI_EXPORT Address : public MeiElement {
         REGISTER_DECLARATION(Address);
 };
 
-/** \brief (annotation) – Provides a short statement explaining the text or indicating the
- *  basis for an assertion.
+/** \brief (annotation) – Provides a short statement explaining the text or indicating
+ *  the basis for an assertion.
  */
 class MEI_EXPORT Annot : public MeiElement {
     public:
@@ -147,10 +158,10 @@ class MEI_EXPORT Annot : public MeiElement {
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         SourceMixIn    m_Source;
-        TypedMixIn    m_Typed;
         AugmentdotsMixIn    m_Augmentdots;
         DurationAdditiveMixIn    m_DurationAdditive;
         LayeridentMixIn    m_Layerident;
@@ -165,6 +176,8 @@ class MEI_EXPORT Annot : public MeiElement {
         AlignmentMixIn    m_Alignment;
         PlistMixIn    m_Plist;
         ResponsibilityMixIn    m_Responsibility;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Annot);
@@ -183,8 +196,10 @@ class MEI_EXPORT Arranger : public MeiElement {
 /* include <arranger> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -202,22 +217,27 @@ class MEI_EXPORT Artic : public MeiElement {
 /* include <artic> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TypographyMixIn    m_Typography;
         ArticulationMixIn    m_Articulation;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
         PlacementMixIn    m_Placement;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
+        ArticulationPerformedMixIn    m_ArticulationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -237,8 +257,10 @@ class MEI_EXPORT Author : public MeiElement {
 /* include <author> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -257,8 +279,10 @@ class MEI_EXPORT BarLine : public MeiElement {
 /* include <barLine> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
         BarLineLogMixIn    m_BarLineLog;
         MeterconformanceBarMixIn    m_MeterconformanceBar;
         BarplacementMixIn    m_Barplacement;
@@ -273,8 +297,8 @@ class MEI_EXPORT BarLine : public MeiElement {
         REGISTER_DECLARATION(BarLine);
 };
 
-/** \brief (bibliographic reference) – Provides a loosely-structured bibliographic citation
- *  in which the sub-components may or may not be explicitly marked.
+/** \brief (bibliographic reference) – Provides a loosely-structured bibliographic
+ *  citation in which the sub-components may or may not be explicitly marked.
  */
 class MEI_EXPORT Bibl : public MeiElement {
     public:
@@ -285,9 +309,12 @@ class MEI_EXPORT Bibl : public MeiElement {
 /* include <bibl> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         PointingMixIn    m_Pointing;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Bibl);
@@ -304,6 +331,8 @@ class MEI_EXPORT BiblList : public MeiElement {
 /* include <biblList> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
@@ -324,8 +353,10 @@ class MEI_EXPORT BiblScope : public MeiElement {
 /* include <biblScope> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         MeasurementMixIn    m_Measurement;
 
     private:
@@ -343,6 +374,7 @@ class MEI_EXPORT Body : public MeiElement {
 /* include <body> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
 
     private:
@@ -360,6 +392,7 @@ class MEI_EXPORT Caption : public MeiElement {
 /* include <caption> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -379,6 +412,7 @@ class MEI_EXPORT CastGrp : public MeiElement {
 /* include <castGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -398,6 +432,8 @@ class MEI_EXPORT CastItem : public MeiElement {
 /* include <castItem> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -416,8 +452,11 @@ class MEI_EXPORT CastList : public MeiElement {
 /* include <castList> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(CastList);
@@ -435,6 +474,7 @@ class MEI_EXPORT Chord : public MeiElement {
 /* include <chord> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -454,9 +494,12 @@ class MEI_EXPORT Chord : public MeiElement {
         ChordVisMixIn    m_ChordVis;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
         RelativesizeMixIn    m_Relativesize;
-        StemmedMixIn    m_Stemmed;
-        StemmedCmnMixIn    m_StemmedCmn;
+        StemsMixIn    m_Stems;
+        StemsCmnMixIn    m_StemsCmn;
+        TypographyMixIn    m_Typography;
         VisibilityMixIn    m_Visibility;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -485,6 +528,7 @@ class MEI_EXPORT Clef : public MeiElement {
 /* include <clef> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -499,6 +543,8 @@ class MEI_EXPORT Clef : public MeiElement {
         OctavedisplacementMixIn    m_Octavedisplacement;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
 
     private:
         REGISTER_DECLARATION(Clef);
@@ -515,6 +561,7 @@ class MEI_EXPORT ClefGrp : public MeiElement {
 /* include <clefGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -538,8 +585,10 @@ class MEI_EXPORT Composer : public MeiElement {
 /* include <composer> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -548,6 +597,8 @@ class MEI_EXPORT Composer : public MeiElement {
 
 /** \brief Non-bibliographic details of the creation of an intellectual entity, in
  *  narrative form, such as the date, place, and circumstances of its composition.
+ * 
+ *  More detailed information may be captured within the history element.
  */
 class MEI_EXPORT Creation : public MeiElement {
     public:
@@ -558,6 +609,7 @@ class MEI_EXPORT Creation : public MeiElement {
 /* include <creation> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -580,6 +632,7 @@ class MEI_EXPORT Custos : public MeiElement {
 /* include <custos> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         SourceMixIn    m_Source;
         CustosLogMixIn    m_CustosLog;
@@ -587,7 +640,9 @@ class MEI_EXPORT Custos : public MeiElement {
         OctaveMixIn    m_Octave;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -608,20 +663,67 @@ class MEI_EXPORT Date : public MeiElement {
         BiblMixIn    m_Bibl;
         CalendaredMixIn    m_Calendared;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DatableMixIn    m_Datable;
-        EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Date);
 };
 
-/** \brief (directive) – A text expression that is on the score (typically above, below, or
- *  between staves, but not on the staff) not encoded elsewhere in more specific
- *  elements, such as <tempo> or <dynam>.
+/** \brief Description of a measurement taken through a three-dimensional object.
+ */
+class MEI_EXPORT Depth : public MeiElement {
+    public:
+        Depth();
+        Depth(const Depth& other);
+        virtual ~Depth();
+
+/* include <depth> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
+        LangMixIn    m_Lang;
+        QuantityMixIn    m_Quantity;
+        MeasurementMixIn    m_Measurement;
+
+    private:
+        REGISTER_DECLARATION(Depth);
+};
+
+/** \brief (description) – Container for text that briefly describes the feature to which
+ *  it is attached, including its intended usage, purpose, or application as
+ *  appropriate.
+ */
+class MEI_EXPORT Desc : public MeiElement {
+    public:
+        Desc();
+        Desc(const Desc& other);
+        virtual ~Desc();
+
+/* include <desc> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        SourceMixIn    m_Source;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(Desc);
+};
+
+/** \brief (directive) – An instruction expressed as a combination of text and symbols
+ *  — such as segno and coda symbols, fermatas over a bar line, etc., typically
+ *  above, below, or between staves, but not on the staff — that is not encoded
+ *  elsewhere in more specific elements, like <tempo> or <dynam>.
  */
 class MEI_EXPORT Dir : public MeiElement {
     public:
@@ -632,10 +734,11 @@ class MEI_EXPORT Dir : public MeiElement {
 /* include <dir> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        TypedMixIn    m_Typed;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -645,6 +748,9 @@ class MEI_EXPORT Dir : public MeiElement {
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        ExtenderMixIn    m_Extender;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -655,13 +761,14 @@ class MEI_EXPORT Dir : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Dir);
 };
 
-/** \brief Name of a person or other agency responsible for the distribution of a
- *  bibliographic item.
+/** \brief Person or agency, other than a publisher, from which access (including
+ *  electronic access) to a bibliographic entity may be obtained.
  */
 class MEI_EXPORT Distributor : public MeiElement {
     public:
@@ -672,11 +779,48 @@ class MEI_EXPORT Distributor : public MeiElement {
 /* include <distributor> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Distributor);
+};
+
+/** \brief (division) – Major structural division of text, such as a preface, chapter or
+ *  section.
+ */
+class MEI_EXPORT Div : public MeiElement {
+    public:
+        Div();
+        Div(const Div& other);
+        virtual ~Div();
+        /** \brief Characterizes the element in some sense, using any convenient classification
+         *  scheme or typology.
+         */
+        MeiAttribute* getType();
+        void setType(std::string _type);
+        bool hasType();
+        void removeType();
+        /** \brief Provide any sub-classification for the element, additional to that given by its
+         *  type attribute.
+         */
+        MeiAttribute* getSubtype();
+        void setSubtype(std::string _subtype);
+        bool hasSubtype();
+        void removeSubtype();
+
+/* include <div> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        DeclaringMixIn    m_Declaring;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+
+    private:
+        REGISTER_DECLARATION(Div);
 };
 
 /** \brief Dot of augmentation or division.
@@ -690,15 +834,20 @@ class MEI_EXPORT Dot : public MeiElement {
 /* include <dot> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         DotLogMixIn    m_DotLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
@@ -721,9 +870,9 @@ class MEI_EXPORT Dynam : public MeiElement {
 /* include <dynam> */
 
         CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-        LangMixIn    m_Lang;
+        CommonPartMixIn    m_CommonPart;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -742,8 +891,12 @@ class MEI_EXPORT Dynam : public MeiElement {
         XyMixIn    m_Xy;
         DurationPerformedMixIn    m_DurationPerformed;
         MidivalueMixIn    m_Midivalue;
+        Midivalue2MixIn    m_Midivalue2;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Dynam);
@@ -766,7 +919,9 @@ class MEI_EXPORT Edition : public MeiElement {
 /* include <edition> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Edition);
@@ -784,8 +939,10 @@ class MEI_EXPORT Editor : public MeiElement {
 /* include <editor> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -804,14 +961,62 @@ class MEI_EXPORT Ending : public MeiElement {
 /* include <ending> */
 
         CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
-        PointingMixIn    m_Pointing;
+        CommonPartMixIn    m_CommonPart;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        FacsimileMixIn    m_Facsimile;
+        PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Ending);
+};
+
+/** \brief Contains a free-text event description.
+ */
+class MEI_EXPORT Event : public MeiElement {
+    public:
+        Event();
+        Event(const Event& other);
+        virtual ~Event();
+
+/* include <event> */
+
+        BiblMixIn    m_Bibl;
+        CalendaredMixIn    m_Calendared;
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        DatableMixIn    m_Datable;
+        ResponsibilityMixIn    m_Responsibility;
+        SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(Event);
+};
+
+/** \brief Contains historical information given as a sequence of significant past events.
+ */
+class MEI_EXPORT EventList : public MeiElement {
+    public:
+        EventList();
+        EventList(const EventList& other);
+        virtual ~EventList();
+
+/* include <eventList> */
+
+        BiblMixIn    m_Bibl;
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(EventList);
 };
 
 /** \brief Indicates how a section may be programmatically expanded into its 'through-
@@ -826,9 +1031,11 @@ class MEI_EXPORT Expansion : public MeiElement {
 /* include <expansion> */
 
         CommonMixIn    m_Common;
-        SourceMixIn    m_Source;
-        TypedMixIn    m_Typed;
+        CommonPartMixIn    m_CommonPart;
         PlistMixIn    m_Plist;
+        SourceMixIn    m_Source;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Expansion);
@@ -847,8 +1054,10 @@ class MEI_EXPORT Extent : public MeiElement {
 /* include <extent> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         MeasurementMixIn    m_Measurement;
 
     private:
@@ -869,33 +1078,13 @@ class MEI_EXPORT Funder : public MeiElement {
 /* include <funder> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Funder);
-};
-
-/** \brief (forme work) – This element is intended for capture of header/footer material
- *  that is non-repeating; that is, occuring on isolated pages.
- * 
- *  For recurring headers and footers use pgHead* and pgFoot* elements.
- */
-class MEI_EXPORT Fw : public MeiElement {
-    public:
-        Fw();
-        Fw(const Fw& other);
-        virtual ~Fw();
-
-/* include <fw> */
-
-        CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-        LangMixIn    m_Lang;
-        TypedMixIn    m_Typed;
-
-    private:
-        REGISTER_DECLARATION(Fw);
 };
 
 /** \brief Term or terms that designate a category characterizing a particular style, form,
@@ -910,9 +1099,11 @@ class MEI_EXPORT Genre : public MeiElement {
 /* include <genre> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         AuthorizedMixIn    m_Authorized;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Genre);
@@ -931,14 +1122,15 @@ class MEI_EXPORT Group : public MeiElement {
 /* include <group> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
 
     private:
         REGISTER_DECLARATION(Group);
 };
 
-/** \brief (group symbol) – A brace or bracket used to group two or more staves of a score
- *  or part.
+/** \brief (group symbol) – A brace or bracket used to group two or more staves of a
+ *  score or part.
  */
 class MEI_EXPORT GrpSym : public MeiElement {
     public:
@@ -949,8 +1141,15 @@ class MEI_EXPORT GrpSym : public MeiElement {
 /* include <grpSym> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        GrpSymLogMixIn    m_GrpSymLog;
         StaffgroupingsymMixIn    m_Staffgroupingsym;
+        StartendidMixIn    m_Startendid;
+        StartidMixIn    m_Startid;
+        AltsymMixIn    m_Altsym;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -960,6 +1159,49 @@ class MEI_EXPORT GrpSym : public MeiElement {
 
     private:
         REGISTER_DECLARATION(GrpSym);
+};
+
+/** \brief (heading) – Contains any heading, for example, the title of a section of text,
+ *  or the heading of a list.
+ */
+class MEI_EXPORT Head : public MeiElement {
+    public:
+        Head();
+        Head(const Head& other);
+        virtual ~Head();
+
+/* include <head> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
+        XyMixIn    m_Xy;
+
+    private:
+        REGISTER_DECLARATION(Head);
+};
+
+/** \brief Description of the vertical size of an object.
+ */
+class MEI_EXPORT Height : public MeiElement {
+    public:
+        Height();
+        Height(const Height& other);
+        virtual ~Height();
+
+/* include <height> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
+        LangMixIn    m_Lang;
+        QuantityMixIn    m_Quantity;
+        MeasurementMixIn    m_Measurement;
+
+    private:
+        REGISTER_DECLARATION(Height);
 };
 
 /** \brief An alpha-numeric string that establishes the identity of the described material.
@@ -975,6 +1217,7 @@ class MEI_EXPORT Identifier : public MeiElement {
         AuthorizedMixIn    m_Authorized;
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
 
@@ -993,6 +1236,7 @@ class MEI_EXPORT Imprint : public MeiElement {
 /* include <imprint> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
 
@@ -1011,6 +1255,7 @@ class MEI_EXPORT Incip : public MeiElement {
 /* include <incip> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         TypedMixIn    m_Typed;
 
@@ -1025,7 +1270,7 @@ class MEI_EXPORT KeyAccid : public MeiElement {
         KeyAccid();
         KeyAccid(const KeyAccid& other);
         virtual ~KeyAccid();
-        /** \brief records the function of the dot.
+        /** \brief Records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -1035,14 +1280,18 @@ class MEI_EXPORT KeyAccid : public MeiElement {
 /* include <keyAccid> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         AccidentalMixIn    m_Accidental;
         PitchMixIn    m_Pitch;
         OctaveMixIn    m_Octave;
+        AltsymMixIn    m_Altsym;
         EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         XyMixIn    m_Xy;
 
     private:
@@ -1060,12 +1309,15 @@ class MEI_EXPORT KeySig : public MeiElement {
 /* include <keySig> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         KeySigLogMixIn    m_KeySigLog;
         AccidentalMixIn    m_Accidental;
         PitchMixIn    m_Pitch;
+        KeySigVisMixIn    m_KeySigVis;
+        VisibilityMixIn    m_Visibility;
 
     private:
         REGISTER_DECLARATION(KeySig);
@@ -1082,7 +1334,9 @@ class MEI_EXPORT Label : public MeiElement {
 /* include <label> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
 
@@ -1097,10 +1351,16 @@ class MEI_EXPORT Layer : public MeiElement {
         Layer();
         Layer(const Layer& other);
         virtual ~Layer();
+        /** \brief Provides a number-like designation for an element.
+         */
+        MeiAttribute* getN();
+        void setN(std::string _n);
+        bool hasN();
+        void removeN();
 
 /* include <layer> */
 
-        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         LayerLogMixIn    m_LayerLog;
@@ -1120,14 +1380,21 @@ class MEI_EXPORT LayerDef : public MeiElement {
         LayerDef();
         LayerDef(const LayerDef& other);
         virtual ~LayerDef();
+        /** \brief Provides a number-like designation for an element.
+         */
+        MeiAttribute* getN();
+        void setN(std::string _n);
+        bool hasN();
+        void removeN();
 
 /* include <layerDef> */
 
-        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         DurationDefaultMixIn    m_DurationDefault;
-        OctavedefaultMixIn    m_Octavedefault;
         BeamingLogMixIn    m_BeamingLog;
+        OctavedefaultMixIn    m_Octavedefault;
+        TranspositionMixIn    m_Transposition;
         LabelsAddlMixIn    m_LabelsAddl;
         BeamingVisMixIn    m_BeamingVis;
         TextstyleMixIn    m_Textstyle;
@@ -1146,7 +1413,7 @@ class MEI_EXPORT Lb : public MeiElement {
         Lb();
         Lb(const Lb& other);
         virtual ~Lb();
-        /** \brief records the function of an accidental.
+        /** \brief Records the function of an accidental.
          */
         MeiAttribute* getFunc();
         void setFunc(std::string _func);
@@ -1156,6 +1423,7 @@ class MEI_EXPORT Lb : public MeiElement {
 /* include <lb> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         SourceMixIn    m_Source;
         TypedMixIn    m_Typed;
@@ -1175,8 +1443,10 @@ class MEI_EXPORT Librettist : public MeiElement {
 /* include <librettist> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -1194,15 +1464,17 @@ class MEI_EXPORT Lyricist : public MeiElement {
 /* include <lyricist> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Lyricist);
 };
 
-/** \brief (musical division) – contains a subdivision of the body of a musical text.
+/** \brief (musical division) – Contains a subdivision of the body of a musical text.
  */
 class MEI_EXPORT Mdiv : public MeiElement {
     public:
@@ -1213,6 +1485,7 @@ class MEI_EXPORT Mdiv : public MeiElement {
 /* include <mdiv> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
@@ -1250,6 +1523,7 @@ class MEI_EXPORT Music : public MeiElement {
 /* include <music> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         MeiversionMixIn    m_Meiversion;
 
@@ -1264,17 +1538,36 @@ class MEI_EXPORT Name : public MeiElement {
         Name();
         Name(const Name& other);
         virtual ~Name();
+        /** \brief Characterizes the element in some sense, using any convenient classification
+         *  scheme or typology.
+         */
+        MeiAttribute* getType();
+        void setType(std::string _type);
+        bool hasType();
+        void removeType();
+        /** \brief Provide any sub-classification for the element, additional to that given by its
+         *  type attribute.
+         */
+        MeiAttribute* getSubtype();
+        void setSubtype(std::string _subtype);
+        bool hasSubtype();
+        void removeSubtype();
 
 /* include <name> */
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        ResponsibilityMixIn    m_Responsibility;
+        SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         NameMixIn    m_Name;
         AuthorizedMixIn    m_Authorized;
         CanonicalMixIn    m_Canonical;
-        TypedMixIn    m_Typed;
+        DatableMixIn    m_Datable;
+        FilingMixIn    m_Filing;
 
     private:
         REGISTER_DECLARATION(Name);
@@ -1291,6 +1584,7 @@ class MEI_EXPORT Note : public MeiElement {
 /* include <note> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -1311,15 +1605,17 @@ class MEI_EXPORT Note : public MeiElement {
         LvpresentMixIn    m_Lvpresent;
         OrnamMixIn    m_Ornam;
         NoteLogMensuralMixIn    m_NoteLogMensural;
-        NoteVisMixIn    m_NoteVis;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ColorationMixIn    m_Coloration;
         EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
+        NoteheadsMixIn    m_Noteheads;
         RelativesizeMixIn    m_Relativesize;
         StafflocMixIn    m_Staffloc;
-        StemmedMixIn    m_Stemmed;
-        StemmedCmnMixIn    m_StemmedCmn;
+        StemsMixIn    m_Stems;
+        StemsCmnMixIn    m_StemsCmn;
+        TypographyMixIn    m_Typography;
         VisibilityMixIn    m_Visibility;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -1330,6 +1626,7 @@ class MEI_EXPORT Note : public MeiElement {
         ArticulationPerformedMixIn    m_ArticulationPerformed;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
+        MidivelocityMixIn    m_Midivelocity;
         NoteGesCmnMixIn    m_NoteGesCmn;
         GracedMixIn    m_Graced;
         DurationRatioMixIn    m_DurationRatio;
@@ -1337,8 +1634,7 @@ class MEI_EXPORT Note : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         HarmonicfunctionMixIn    m_Harmonicfunction;
-        IntervallicdescMixIn    m_Intervallicdesc;
-        IntervalharmonicMixIn    m_Intervalharmonic;
+        IntervalmelodicMixIn    m_Intervalmelodic;
         MelodicfunctionMixIn    m_Melodicfunction;
         PitchclassMixIn    m_Pitchclass;
         SolfaMixIn    m_Solfa;
@@ -1354,16 +1650,67 @@ class MEI_EXPORT Num : public MeiElement {
         Num();
         Num(const Num& other);
         virtual ~Num();
+        /** \brief Numeric value capturing a measurement or count.
+         * 
+         *  Can only be interpreted in combination with the unit attribute.
+         */
+        MeiAttribute* getValue();
+        void setValue(std::string _value);
+        bool hasValue();
+        void removeValue();
 
 /* include <num> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         MeasurementMixIn    m_Measurement;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Num);
+};
+
+/** \brief An element indicating an ornament that is not a mordent, turn, or trill.
+ */
+class MEI_EXPORT Ornam : public MeiElement {
+    public:
+        Ornam();
+        Ornam(const Ornam& other);
+        virtual ~Ornam();
+
+/* include <ornam> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
+        PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
+        TimestampMusicalMixIn    m_TimestampMusical;
+        TimestampPerformedMixIn    m_TimestampPerformed;
+        StaffidentMixIn    m_Staffident;
+        LayeridentMixIn    m_Layerident;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        OrnamentaccidMixIn    m_Ornamentaccid;
+        StartendidMixIn    m_Startendid;
+        StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        ColorMixIn    m_Color;
+        PlacementMixIn    m_Placement;
+        VisualoffsetHoMixIn    m_VisualoffsetHo;
+        VisualoffsetToMixIn    m_VisualoffsetTo;
+        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        Visualoffset2HoMixIn    m_Visualoffset2Ho;
+        Visualoffset2ToMixIn    m_Visualoffset2To;
+        XyMixIn    m_Xy;
+        DurationPerformedMixIn    m_DurationPerformed;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(Ornam);
 };
 
 /** \brief (paragraph) – One or more text phrases that form a logical prose passage.
@@ -1377,6 +1724,7 @@ class MEI_EXPORT P : public MeiElement {
 /* include <p> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1397,6 +1745,7 @@ class MEI_EXPORT Pad : public MeiElement {
 /* include <pad> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         PadLogMixIn    m_PadLog;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -1419,10 +1768,11 @@ class MEI_EXPORT Part : public MeiElement {
 /* include <part> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
-        TypedMixIn    m_Typed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Part);
@@ -1439,10 +1789,11 @@ class MEI_EXPORT Parts : public MeiElement {
 /* include <parts> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
-        TypedMixIn    m_Typed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Parts);
@@ -1460,9 +1811,11 @@ class MEI_EXPORT Pb : public MeiElement {
 /* include <pb> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
         SourceMixIn    m_Source;
+        TypedMixIn    m_Typed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         PbVisMixIn    m_PbVis;
@@ -1483,6 +1836,7 @@ class MEI_EXPORT PgDesc : public MeiElement {
 /* include <pgDesc> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         LangMixIn    m_Lang;
 
     private:
@@ -1490,18 +1844,28 @@ class MEI_EXPORT PgDesc : public MeiElement {
 };
 
 /** \brief (page footer) – A running footer on the first page.
+ * 
+ *  Also, used to temporarily override a running footer on individual pages.
  */
 class MEI_EXPORT PgFoot : public MeiElement {
     public:
         PgFoot();
         PgFoot(const PgFoot& other);
         virtual ~PgFoot();
+        /** \brief Records horizontal alignment.
+         */
+        MeiAttribute* getHalign();
+        void setHalign(std::string _halign);
+        bool hasHalign();
+        void removeHalign();
 
 /* include <pgFoot> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PgFoot);
@@ -1514,30 +1878,48 @@ class MEI_EXPORT PgFoot2 : public MeiElement {
         PgFoot2();
         PgFoot2(const PgFoot2& other);
         virtual ~PgFoot2();
+        /** \brief Records horizontal alignment.
+         */
+        MeiAttribute* getHalign();
+        void setHalign(std::string _halign);
+        bool hasHalign();
+        void removeHalign();
 
 /* include <pgFoot2> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PgFoot2);
 };
 
 /** \brief (page header) – A running header on the first page.
+ * 
+ *  Also, used to temporarily override a running header on individual pages.
  */
 class MEI_EXPORT PgHead : public MeiElement {
     public:
         PgHead();
         PgHead(const PgHead& other);
         virtual ~PgHead();
+        /** \brief Records horizontal alignment.
+         */
+        MeiAttribute* getHalign();
+        void setHalign(std::string _halign);
+        bool hasHalign();
+        void removeHalign();
 
 /* include <pgHead> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PgHead);
@@ -1550,12 +1932,20 @@ class MEI_EXPORT PgHead2 : public MeiElement {
         PgHead2();
         PgHead2(const PgHead2& other);
         virtual ~PgHead2();
+        /** \brief Records horizontal alignment.
+         */
+        MeiAttribute* getHalign();
+        void setHalign(std::string _halign);
+        bool hasHalign();
+        void removeHalign();
 
 /* include <pgHead2> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PgHead2);
@@ -1572,8 +1962,10 @@ class MEI_EXPORT Phrase : public MeiElement {
 /* include <phrase> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -1598,14 +1990,15 @@ class MEI_EXPORT Phrase : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         JoinedMixIn    m_Joined;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Phrase);
 };
 
-/** \brief (physical location) – Groups information about the physical location of a
- *  bibliographic item, such as the repository in which it is located and its shelf
- *  mark.
+/** \brief (physical location) – Groups information about the current physical location
+ *  of a bibliographic item, such as the repository in which it is located and its
+ *  shelf mark(s), and its previous locations.
  */
 class MEI_EXPORT PhysLoc : public MeiElement {
     public:
@@ -1616,6 +2009,7 @@ class MEI_EXPORT PhysLoc : public MeiElement {
 /* include <physLoc> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
 
@@ -1635,8 +2029,10 @@ class MEI_EXPORT PubPlace : public MeiElement {
 /* include <pubPlace> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(PubPlace);
@@ -1654,8 +2050,10 @@ class MEI_EXPORT Publisher : public MeiElement {
 /* include <publisher> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Publisher);
@@ -1673,8 +2071,10 @@ class MEI_EXPORT Recipient : public MeiElement {
 /* include <recipient> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Recipient);
@@ -1688,7 +2088,7 @@ class MEI_EXPORT RelatedItem : public MeiElement {
         RelatedItem();
         RelatedItem(const RelatedItem& other);
         virtual ~RelatedItem();
-        /** \brief describes the relationship between the <relatedItem> and the resource described
+        /** \brief Describes the relationship between the <relatedItem> and the resource described
          *  in the parent element, i.e., <bibl>, <source> or <relatedItem>.
          * 
          *  The values are based on MODS version 3.4. The subject of these relations is
@@ -1704,29 +2104,32 @@ class MEI_EXPORT RelatedItem : public MeiElement {
 
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(RelatedItem);
 };
 
-/** \brief (render) – A formatting element indicating special visual rendering, e.g., bold
- *  or italicized, of a text word or phrase.
+/** \brief (render) – A formatting element indicating special visual rendering, e.g.,
+ *  bold or italicized, of a text word or phrase.
  */
 class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
         Rend(const Rend& other);
         virtual ~Rend();
-        /** \brief used to extend the values of the rend attribute.
+        /** \brief Used to extend the values of the rend attribute.
          */
         MeiAttribute* getAltrend();
         void setAltrend(std::string _altrend);
         bool hasAltrend();
         void removeAltrend();
-        /** \brief records the appearance and usually the function of the bar line.
+        /** \brief Captures the appearance of the element's contents using MEI-defined descriptors.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -1739,7 +2142,7 @@ class MEI_EXPORT Rend : public MeiElement {
         void setRotation(std::string _rotation);
         bool hasRotation();
         void removeRotation();
-        /** \brief specifies the vertical position of the element content relative to the
+        /** \brief Specifies the vertical position of the element content relative to the
          *  surrounding text.
          */
         MeiAttribute* getValign();
@@ -1751,6 +2154,7 @@ class MEI_EXPORT Rend : public MeiElement {
 
         ColorMixIn    m_Color;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         HorizontalalignMixIn    m_Horizontalalign;
         LangMixIn    m_Lang;
         TypographyMixIn    m_Typography;
@@ -1772,11 +2176,14 @@ class MEI_EXPORT Repository : public MeiElement {
 
         BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         NameMixIn    m_Name;
         AuthorizedMixIn    m_Authorized;
         CanonicalMixIn    m_Canonical;
+        DatableMixIn    m_Datable;
+        FilingMixIn    m_Filing;
         TypedMixIn    m_Typed;
 
     private:
@@ -1795,10 +2202,12 @@ class MEI_EXPORT Resp : public MeiElement {
 /* include <resp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         AuthorizedMixIn    m_Authorized;
         BiblMixIn    m_Bibl;
-        CodedMixIn    m_Coded;
+        CanonicalMixIn    m_Canonical;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Resp);
@@ -1817,6 +2226,7 @@ class MEI_EXPORT RespStmt : public MeiElement {
 /* include <respStmt> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
 
@@ -1835,6 +2245,7 @@ class MEI_EXPORT Rest : public MeiElement {
 /* include <rest> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         AugmentdotsMixIn    m_Augmentdots;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -1852,6 +2263,7 @@ class MEI_EXPORT Rest : public MeiElement {
         RestVisMensuralMixIn    m_RestVisMensural;
         StafflocMixIn    m_Staffloc;
         StafflocPitchedMixIn    m_StafflocPitched;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -1877,6 +2289,7 @@ class MEI_EXPORT Role : public MeiElement {
 /* include <role> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -1895,6 +2308,7 @@ class MEI_EXPORT RoleDesc : public MeiElement {
 /* include <roleDesc> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -1914,9 +2328,13 @@ class MEI_EXPORT Sb : public MeiElement {
 /* include <sb> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         SourceMixIn    m_Source;
         SbVisMixIn    m_SbVis;
+        AltsymMixIn    m_Altsym;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -1935,10 +2353,11 @@ class MEI_EXPORT Score : public MeiElement {
 /* include <score> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
-        TypedMixIn    m_Typed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Score);
@@ -1955,6 +2374,7 @@ class MEI_EXPORT ScoreDef : public MeiElement {
 /* include <scoreDef> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CleffingLogMixIn    m_CleffingLog;
         DurationDefaultMixIn    m_DurationDefault;
         KeySigDefaultLogMixIn    m_KeySigDefaultLog;
@@ -1968,11 +2388,18 @@ class MEI_EXPORT ScoreDef : public MeiElement {
         BarplacementMixIn    m_Barplacement;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
+        EndingsMixIn    m_Endings;
         KeySigDefaultVisMixIn    m_KeySigDefaultVis;
         LyricstyleMixIn    m_Lyricstyle;
+        MeasurenumbersMixIn    m_Measurenumbers;
         MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
         MultinummeasuresMixIn    m_Multinummeasures;
+        NotationstyleMixIn    m_Notationstyle;
         OnelinestaffMixIn    m_Onelinestaff;
+        OptimizationMixIn    m_Optimization;
+        PagesMixIn    m_Pages;
+        SpacingMixIn    m_Spacing;
+        SystemsMixIn    m_Systems;
         TextstyleMixIn    m_Textstyle;
         ScoreDefVisCmnMixIn    m_ScoreDefVisCmn;
         BeamingVisMixIn    m_BeamingVis;
@@ -2002,13 +2429,15 @@ class MEI_EXPORT Section : public MeiElement {
 /* include <section> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
         SectionVisMixIn    m_SectionVis;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Section);
@@ -2026,6 +2455,7 @@ class MEI_EXPORT Series : public MeiElement {
 /* include <series> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -2048,6 +2478,7 @@ class MEI_EXPORT Space : public MeiElement {
 /* include <space> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         AugmentdotsMixIn    m_Augmentdots;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -2082,8 +2513,10 @@ class MEI_EXPORT Sponsor : public MeiElement {
 /* include <sponsor> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Sponsor);
@@ -2096,14 +2529,14 @@ class MEI_EXPORT Stack : public MeiElement {
         Stack();
         Stack(const Stack& other);
         virtual ~Stack();
-        /** \brief indicates the delimiter used to mark the portions of text that are to be
+        /** \brief Indicates the delimiter used to mark the portions of text that are to be
          *  stacked.
          */
         MeiAttribute* getDelim();
         void setDelim(std::string _delim);
         bool hasDelim();
         void removeDelim();
-        /** \brief specifies how the stacked text components should be aligned.
+        /** \brief Specifies how the stacked text components should be aligned.
          */
         MeiAttribute* getAlign();
         void setAlign(std::string _align);
@@ -2113,6 +2546,7 @@ class MEI_EXPORT Stack : public MeiElement {
 /* include <stack> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -2132,10 +2566,16 @@ class MEI_EXPORT Staff : public MeiElement {
         Staff();
         Staff(const Staff& other);
         virtual ~Staff();
+        /** \brief Provides a number-like designation for an element.
+         */
+        MeiAttribute* getN();
+        void setN(std::string _n);
+        bool hasN();
+        void removeN();
 
 /* include <staff> */
 
-        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         StaffLogMixIn    m_StaffLog;
@@ -2155,15 +2595,22 @@ class MEI_EXPORT StaffDef : public MeiElement {
         StaffDef();
         StaffDef(const StaffDef& other);
         virtual ~StaffDef();
+        /** \brief Provides a number-like designation for an element.
+         */
+        MeiAttribute* getN();
+        void setN(std::string _n);
+        bool hasN();
+        void removeN();
 
 /* include <staffDef> */
 
-        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         CleffingLogMixIn    m_CleffingLog;
         DurationDefaultMixIn    m_DurationDefault;
         KeySigDefaultLogMixIn    m_KeySigDefaultLog;
         MeterSigDefaultLogMixIn    m_MeterSigDefaultLog;
+        NotationtypeMixIn    m_Notationtype;
         OctavedefaultMixIn    m_Octavedefault;
         TranspositionMixIn    m_Transposition;
         BeamingLogMixIn    m_BeamingLog;
@@ -2206,6 +2653,7 @@ class MEI_EXPORT StaffGrp : public MeiElement {
 /* include <staffGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         StaffGrpVisMixIn    m_StaffGrpVis;
@@ -2229,7 +2677,9 @@ class MEI_EXPORT Syl : public MeiElement {
 /* include <syl> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         SylLogMixIn    m_SylLog;
         TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
@@ -2256,9 +2706,13 @@ class MEI_EXPORT Tempo : public MeiElement {
 /* include <tempo> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TempoLogMixIn    m_TempoLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -2275,6 +2729,7 @@ class MEI_EXPORT Tempo : public MeiElement {
         MmtempoMixIn    m_Mmtempo;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Tempo);
@@ -2306,8 +2761,10 @@ class MEI_EXPORT TextLang : public MeiElement {
 /* include <textLang> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(TextLang);
@@ -2320,22 +2777,37 @@ class MEI_EXPORT Title : public MeiElement {
         Title();
         Title(const Title& other);
         virtual ~Title();
-        /** \brief indicates the bibliographic level for a title.
+        /** \brief Indicates the nesting level of staff grouping symbols.
          */
         MeiAttribute* getLevel();
         void setLevel(std::string _level);
         bool hasLevel();
         void removeLevel();
+        /** \brief Characterizes the element in some sense, using any convenient classification
+         *  scheme or typology.
+         */
+        MeiAttribute* getType();
+        void setType(std::string _type);
+        bool hasType();
+        void removeType();
+        /** \brief Provide any sub-classification for the element, additional to that given by its
+         *  type attribute.
+         */
+        MeiAttribute* getSubtype();
+        void setSubtype(std::string _subtype);
+        bool hasSubtype();
+        void removeSubtype();
 
 /* include <title> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         AuthorizedMixIn    m_Authorized;
-        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
+        CanonicalMixIn    m_Canonical;
         FacsimileMixIn    m_Facsimile;
+        FilingMixIn    m_Filing;
         LangMixIn    m_Lang;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Title);
@@ -2352,11 +2824,35 @@ class MEI_EXPORT TitlePage : public MeiElement {
 /* include <titlePage> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(TitlePage);
+};
+
+/** \brief Description of the horizontal size of an object.
+ */
+class MEI_EXPORT Width : public MeiElement {
+    public:
+        Width();
+        Width(const Width& other);
+        virtual ~Width();
+
+/* include <width> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
+        LangMixIn    m_Lang;
+        QuantityMixIn    m_Quantity;
+        MeasurementMixIn    m_Measurement;
+
+    private:
+        REGISTER_DECLARATION(Width);
 };
 }
 #endif  // SHARED_H_

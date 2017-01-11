@@ -145,6 +145,16 @@ class date_(MeiElement):
         MeiElement.__init__(self, "date")
     # <date>
 
+class depth_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "depth")
+    # <depth>
+
+class desc_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "desc")
+    # <desc>
+
 class dir_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "dir")
@@ -154,6 +164,11 @@ class distributor_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "distributor")
     # <distributor>
+
+class div_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "div")
+    # <div>
 
 class dot_(MeiElement):
     def __init__(self):
@@ -180,6 +195,16 @@ class ending_(MeiElement):
         MeiElement.__init__(self, "ending")
     # <ending>
 
+class event_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "event")
+    # <event>
+
+class eventList_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "eventList")
+    # <eventList>
+
 class expansion_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "expansion")
@@ -195,11 +220,6 @@ class funder_(MeiElement):
         MeiElement.__init__(self, "funder")
     # <funder>
 
-class fw_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "fw")
-    # <fw>
-
 class genre_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "genre")
@@ -214,6 +234,16 @@ class grpSym_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "grpSym")
     # <grpSym>
+
+class head_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "head")
+    # <head>
+
+class height_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "height")
+    # <height>
 
 class identifier_(MeiElement):
     def __init__(self):
@@ -299,6 +329,11 @@ class num_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "num")
     # <num>
+
+class ornam_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "ornam")
+    # <ornam>
 
 class p_(MeiElement):
     def __init__(self):
@@ -494,4 +529,9 @@ class titlePage_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "titlePage")
     # <titlePage>
+
+class width_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "width")
+    # <width>
 

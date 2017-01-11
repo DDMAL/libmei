@@ -6,12 +6,12 @@ LANG_NAME = "ManuScript"
 
 METHOD_TEMPLATE = """
 {className} "() {{
-    createEntry('{elementName}');
+    CreateElement('{elementName}', null);
 }}"
 """
 LICENSE = """
     _License "() {{
-    return 'Copyright (c) 2011-2013 {authors}
+    return 'Copyright (c) 2011-2015 {authors}
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -35,23 +35,58 @@ LICENSE = """
 """
 
 EXTRAS = """
-    createEntry "(tagname) {
-    return CreateDictionary(tagname, CreateDictionary('attrs', CreateDictionary(), 'children', CreateSparseArray(), 'text', '', 'tail', ''));
+Initialize "() {
+        tree_doc = CreateSparseArray();
+        flat_doc = CreateDictionary();
+        id_incr = 0;
+
+        Self._property:MEIDocument = tree_doc;
+        Self._property:MEIFlattened = flat_doc;
+        Self._property:MEIID = id_incr;
 }"
-    getChildren "(obj) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    return el['children'];
+
+    XMLComment "(comment) {
+    commentObj = Create('<!--', null);
+    commentObj.text = comment;
+    return commentObj;
 }"
-    setChildren "(obj, childarr) {
-        props = obj.GetPropertyNames();
-        objname = props[0];
-        el = obj[objname];
-        el['children'] = childarr;
+CreateElement "(tagname, orig_id) {
+    element = CreateDictionary(
+        'name', tagname,
+        'attrs', CreateDictionary(),
+        'children', CreateSparseArray(),
+        'text', '',
+        'tail', '',
+        '_id', '',
+        '_parent', null);
+
+    if (orig_id = null)
+    {
+        element._id = generateRandomID();
+    }
+    else
+    {
+        element._id = orig_id;
+    }
+
+    f = Self._property:MEIFlattened;
+    f[element._id] = element;
+
+    return element;
 }"
-    addChildAtPosition "(obj, child, position) {
-        c = getChildren(obj);
+GetChildren "(element) {
+        c = CreateSparseArray();
+        for each child_id in element.children {
+            child = Self.MEIFlattened[child_id];
+            c.Push(child);
+        }
+        return c;
+}"
+SetChildren "(element, childarr) {
+        element.children = childarr;
+}"
+AddChildAtPosition "(element, child, position) {
+        c = element.children;
         r = CreateSparseArray();
         // copy the children to the new array. Add two
         // beyond the length since we'll be adding a new element.
@@ -63,101 +98,129 @@ EXTRAS = """
                 r[i] = c[i];
             }
         }
-        setChildren(obj, r);
+        element.children = r;
 }"
-    addChild "(obj, child) {
-    c = getChildren(obj);
-    c.Push(child);
+AddChild "(element, child) {
+        cid = child._id;
+        child._parent = element._id;
+        element.children.Push(cid);
 }"
-    getAttributes "(obj) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    return el['attrs'];
+GetAttributes "(element) {
+    return element.attrs;
 }"
-    addAttribute "(obj, attrname, attrval) {
-    a = getAttributes(obj);
+AddAttribute "(element, attrname, attrval) {
+    a = element.attrs;
     // check and replace any newlines
-
     val = _encodeEntities(attrval);
-
     a[attrname] = val;
 }"
-    getAttribute "(obj, attrname) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    attrs = el['attrs'];
-    if (attrs.PropertyExists(attrname)) {
-        return attrs[attrname];
-    } else {
-        return false;
+AddAttributeValue "(element, attrname, attrval) {
+    // appends a value to an existing attribute. Used, for example,
+    // in appending multiple articulations to @artic on note.
+    a = element.attrs;
+
+    if (a.PropertyExists(attrname))
+    {
+        origval = a[attrname];
+        newval = _encodeEntities(attrval);
+        val = origval & ' ' & newval;
     }
+    else
+    {
+        val = attrval;
+    }
+
+    element.attrs[attrname] = val;
 }"
-    setAttributes "(obj, attrs) {
+GetAttribute "(element, attrname) {
+        attrs = element.attrs;
+        if (attrs.PropertyExists(attrname))
+        {
+            return attrs[attrname];
+        }
+        else
+        {
+            return False;
+        }
+}"
+SetAttributes "(element, new_attrs) {
     //sets all attributes, wiping out any previous ones
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    el['attrs'] = CreateDictionary();
+    element.attrs = CreateDictionary();
 
     // this will provide character encoding
-    for each Pair a in attrs
+    for each Pair a in new_attrs
     {
-        addAttribute(a.Name, a.Value);
+        libmei.AddAttribute(element, a.Name, a.Value);
     }
 }"
-    getId "(obj)
-    {
-        return getAttribute(obj, 'xml:id');
+GetId "(element) {
+        return element._id;
 }"
-    setId "(obj, value)
-    {
-        addAttribute(obj, 'xml:id', value);
+SetId "(element, value) {
+        element._id = value;
 }"
-    removeAttribute "(obj, attrname) {
+RemoveAttribute "(element, attrname) {
     // since there are no delete functions
     // for dictionaries, we set the attribute
     // to a blank space and this will get
     // removed when converted to XML.
-    a = getAttributes(obj);
-    a[attrname] = ' ';
+    element.attrs[attrname] = ' ';
 }"
-    getName "(obj) {
-    n = '';
-    props = obj.GetPropertyNames();
-    return props[0];
+GetName "(element) {
+    return element.name;
 }"
-    setText "(obj, val) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    el['text'] = _encodeEntities(val);
+SetText "(element, val) {
+    element.text = _encodeEntities(val);
 }"
-    getText "(obj) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    return el['text'];
+GetText "(element) {
+    return element.text;
 }"
-    setTail "(obj, val) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    el['tail'] = _encodeEntities(val);
+SetTail "(element, val) {
+    element.tail = _encodeEntities(val);
 }"
-    getTail "(obj) {
-    props = obj.GetPropertyNames();
-    objname = props[0];
-    el = obj[objname];
-    return el['tail'];
+GetTail "(element) {
+    return element.tail;
 }"
+
+    destroy "() {
+        // cleans up 
+        Self._property:MEIFlattened = CreateDictionary();
+        Self._property:MEIDocument = CreateSparseArray();
+        Self._property:MEIID = 0;
+    }"
+
+    setDocumentRoot "(el) {
+        d = Self._property:MEIDocument;
+        d.Push(el);
+    }"
+
+    getDocumentRoot "() {
+        d = Self._property:MEIDocument;
+        return d[0];
+    }"
+
+    getDocument "() {
+        return Self._property:MEIDocument;
+    }"
+
+    getElementById "(id) {
+        d = Self._property:MEIFlattened;
+        if (d.PropertyExists(id))
+        {
+            return d[id];
+        }
+        else
+        {
+            return null;
+        }
+    }"
+
     getElementsByName "(name) {
-    if (not Self.flattened) {
+    if (not Self.MEIFlattened) {
         return false;
     }
     res = CreateSparseArray();
-    for each e in Self.flattened {
+    for each e in Self.MEIFlattened {
         if (getName(e) = name) {
             res.Push(e);
         }
@@ -165,86 +228,140 @@ EXTRAS = """
     return res;
 }"
     getPositionInDocument "(obj) {
-    if (not Self.flattened) {
+    if (not Self.MEIFlattened) {
         return false;
     }
-    for i = 0 to Length(Self.flattened) {
-        if (Self.flattened[i] = obj) {
+    for i = 0 to Length(Self.MEIFlattened) {
+        if (Self.MEIFlattened[i] = obj) {
             return i;
         }
     }
     return false;
 }"
     lookBack "(from, name) {
-    if (not Self.flattened) {
+    if (not Self.MEIFlattened) {
         return false;
     }
     pos = getPositionInDocument(from);
     for i = pos to 0 step -1 {
-        if (getName(Self.flattened[i]) = name) {
-            return Self.flattened[i];
+        if (getName(Self.MEIFlattened[i]) = name) {
+            return Self.MEIFlattened[i];
         }
     }
 }"
-    createXmlTag "(name, attributesList, isTerminal) {
+    createXmlTag "(name, id, attributesList, isTerminal) {
+    if (name = '<!--')
+    {
+        // handle XML comments
+        return name;
+    }
+
     attrstring = '';
     spacer = '';
-    if (attributesList) {
+
+    if (id != null)
+    {
+        attrstring = 'xml:id=' & Chr(34) & id & Chr(34);
+    }
+
+    if (attributesList != null)
+    {
         spacer = ' ';
-        for each Pair attr in attributesList {
-            if (attr.Value != ' ') {
-                if (attrstring = '') {
+        for each Pair attr in attributesList
+        {
+            if (attr.Value != ' ')
+            {
+                if (attrstring = '')
+                {
                     // Don't add initial space
                     attrstring = attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
                 }
-                else {
+                else
+                {
                     attrstring = attrstring & spacer & attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
                 }
             }
         }
     }
-    if (isTerminal) {
+
+    if (isTerminal)
+    {
         return '<' & name & spacer & attrstring & '/>';
-    } else {
+    }
+    else
+    {
         return '<' & name & spacer & attrstring & '>';
     }
 }"
     convertDictToXml "(meiel, indent) {
     xmlout = '';
     terminalTag = true;
-    nm = libmei.getName(meiel);
-    at = libmei.getAttributes(meiel);
-    ch = libmei.getChildren(meiel);
-    tx = libmei.getText(meiel);
-    tl = libmei.getTail(meiel);
+    trace('convert: ');
+    trace(meiel);
+
+    nm = libmei.GetName(meiel);
+    at = libmei.GetAttributes(meiel);
+    ch = libmei.GetChildren(meiel);
+    tx = libmei.GetText(meiel);
+    tl = libmei.GetTail(meiel);
+    id = libmei.GetId(meiel);
+
     tabs = '';
-    if (indent > 0) {
+    if (indent > 0)
+    {
         // add four spaces for every indent level.
         arr = utils.CreateArrayBlanket('    ', indent);
         tabs = JoinStrings(arr, '');
     }
-    if (ch or Length(tx) > 0) {
+
+    // comments are simple so they're handled specially.
+    if (nm = '<!--')
+    {
+        xmlout = nm & ' ' & tx & ' -->
+';
+        return xmlout;
+    }
+
+    if (ch or Length(tx) > 0)
+    {
         terminalTag = false;
     }
 
-    xmlout = createXmlTag(nm, at, terminalTag);
+    xmlout = createXmlTag(nm, id, at, terminalTag);
 
-    if (Length(tx) > 0) {
+    if (Length(tx) > 0)
+    {
         endchar = '';
         xmlout = xmlout & tx;
-    } else {
-        xmlout = xmlout & '\n';
+    }
+    else
+    {
+        xmlout = xmlout & '
+';
     }
 
-    if (ch.Length > 0) {
+    trace(ch);
+
+    if (ch.Length > 0)
+    {
         indent = indent + 1;
-        for each child in ch {
+        for each child in ch
+        {
+            if (child = null)
+            {
+                trace('child is null!');
+            }
+            else
+            {
+                trace(child);
+            }
             xmlout = xmlout & tabs & convertDictToXml(child, indent);
         }
         indent = indent - 1;
     }
 
-    if (Length(tl) > 0) {
+    if (Length(tl) > 0)
+    {
         xmlout = xmlout & tl;
     }
 
@@ -252,28 +369,45 @@ EXTRAS = """
     // for tags that do not have children. We'll
     // take care of the terminal tag here for those
     // that do.
-    if (not terminalTag) {
-        if (Length(tx) > 0) {
-            xmlout = xmlout & '</' & nm & '>\n';
-        } else {
-            tabs = Substring(tabs, 0, Length(tabs) - 1);
-            xmlout = xmlout & tabs & '</' & nm & '>\n';
+    if (not terminalTag)
+    {
+        if (Length(tx) > 0)
+        {
+            xmlout = xmlout & '</' & nm & '>
+';
+        }
+        else
+        {
+            tabs = Substring(tabs, 0, Length(tabs) - 4);
+            xmlout = xmlout & tabs & '</' & nm & '>
+';
         }
     }
 
     return xmlout;
 }"
-    meiDocumentToFile "(meidoc, filename) {
-    xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-8' & Chr(34) & ' ?>\n';
-    indent = 0;
-    meiout = xdecl & convertDictToXml(meidoc[0], indent);
-    Sibelius.CreateTextFile(filename);
-    Sibelius.AppendTextFile(filename, meiout, 1);
 
-    return true;
+    _exportMeiDocument "(meidoc) {
+        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>
+';
+        indent = 0;
+        meiout = xdecl & convertDictToXml(meidoc[0], indent);
+
+        return meiout;
+    }"
+
+    meiDocumentToFile "(meidoc, filename) {
+        meiout = _exportMeiDocument(meidoc);
+        Sibelius.CreateTextFile(filename);
+        Sibelius.AppendTextFile(filename, meiout, 1);
+
+        return true;
 }"
+
+    meiDocumentToString "(meidoc) {
+        return _exportMeiDocument(meidoc);
+    }"
     documentFromFile "(filename) {
-    Self._property:flattened = CreateSparseArray();
     res = _xmlImport(filename);
 
     return res;
@@ -291,6 +425,11 @@ EXTRAS = """
         /*
             Returns an entity-encoded version of the string.
         */
+        if (string = '')
+        {
+            return string;
+        }
+
         nc = Chr(10);
         quote = Chr(34);
         apos = Chr(39);
@@ -516,7 +655,7 @@ EXTRAS = """
                     ent = createEntry(tagName);
                     libmei.setAttributes(ent, attrs);
                     libmei.addChild(parentTag[-1], ent);
-                    Self.flattened.Push(ent);
+                    Self.MEIFlattened.Push(ent);
 
                     // doc.endElement(tagName);
                     if (depth = 0) {
@@ -543,7 +682,7 @@ EXTRAS = """
                             libmei.setAttributes(ent, attrs);
                             libmei.addChild(parentTag[-1], ent);
                             parentTag.Push(ent);
-                            Self.flattened.Push(ent);
+                            Self.MEIFlattened.Push(ent);
 
                             sb.Length = 0;
                             depth = depth + 1;
@@ -595,7 +734,7 @@ EXTRAS = """
                             mode = IN_TAG;
                         }
                         // not sure what this does
-                        case (' \u0009') {
+                        case ('     ') {
                             sb.Push(' ');
                         }
                         case ('&') {
@@ -668,7 +807,7 @@ EXTRAS = """
                                 libmei.addChild(parentTag[-1], ent);
                             }
                             parentTag.Push(ent);
-                            Self.flattened.Push(ent);
+                            Self.MEIFlattened.Push(ent);
 
                             depth = depth + 1;
                             tagName = '';
@@ -692,6 +831,15 @@ EXTRAS = """
     }
     return meidoc;
 }"
+
+generateRandomID "() {
+//$module(ExportGenerators.mss)
+    id = Self._property:MEIID + 1;
+    Self._property:MEIID = id;
+    id = 'm-' & id;
+    return id;
+}"
+}
 """
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
@@ -714,11 +862,11 @@ def create(schema, outdir):
 
 def __create_manuscript_classes(schema, outdir):
     output = ""
-    for module, elements in sorted(schema.element_structure.iteritems()):
+    for module, elements in sorted(schema.element_structure.items()):
         if not elements:
             continue
 
-        for element, atgroups in sorted(elements.iteritems()):
+        for element, atgroups in sorted(elements.items()):
             methstr = {
                 'className': element[0].upper() + element[1:],
                 'elementName': element

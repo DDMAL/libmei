@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef FRBRMIXIN_H_
-#define FRBRMIXIN_H_
+#ifndef PERFORMANCEMIXIN_H_
+#define PERFORMANCEMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,26 +31,23 @@
 #include <string>
 
 namespace mei {
-class RelMixIn {
+class AlignmentMixIn {
     public:
-        explicit RelMixIn(MeiElement *b);
-        virtual ~RelMixIn();
-        /** \brief Describes the relationship between the <relatedItem> and the resource described
-         *  in the parent element, i.e., <bibl>, <source> or <relatedItem>.
+        explicit AlignmentMixIn(MeiElement *b);
+        virtual ~AlignmentMixIn();
+        /** \brief Indicates the point of occurrence of this feature along a time line.
          * 
-         *  The values are based on MODS version 3.4. The subject of these relations is
-         *  always the <relatedItem>, and the object is always the parent of the
-         *  <relatedItem>. "preceding" and "succeeding" indicate temporal order.
+         *  Its value must be the ID of a
          */
-        MeiAttribute* getRel();
-        void setRel(std::string _rel);
-        bool hasRel();
-        void removeRel();
+        MeiAttribute* getWhen();
+        void setWhen(std::string _when);
+        bool hasWhen();
+        void removeWhen();
 
-/* include <relmixin> */
+/* include <whenmixin> */
 
     private:
         MeiElement *b;
 };
 }
-#endif  // FRBRMIXIN_H_
+#endif  // PERFORMANCEMIXIN_H_

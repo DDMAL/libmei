@@ -8,6 +8,7 @@ using mei::MeiAttribute;
 mei::MeiCorpus::MeiCorpus() :
     MeiElement("meiCorpus"),
     m_Common(this),
+    m_CommonPart(this),
     m_Meiversion(this)
 {
 }
@@ -16,6 +17,7 @@ mei::MeiCorpus::~MeiCorpus() {}
 mei::MeiCorpus::MeiCorpus(const MeiCorpus& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Meiversion(this)
 {
 }

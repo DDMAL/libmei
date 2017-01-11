@@ -178,28 +178,28 @@ void mei::IntervalharmonicMixIn::removeInth() {
 };
 
 /* include <inthmixin> */
-mei::IntervallicdescMixIn::IntervallicdescMixIn(MeiElement *b) {
+mei::IntervalmelodicMixIn::IntervalmelodicMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::IntervallicdescMixIn::~IntervallicdescMixIn() {}
-MeiAttribute* mei::IntervallicdescMixIn::getIntm() {
+mei::IntervalmelodicMixIn::~IntervalmelodicMixIn() {}
+MeiAttribute* mei::IntervalmelodicMixIn::getIntm() {
     if (!b->hasAttribute("intm")) {
         return NULL;
     }
     return b->getAttribute("intm");
 };
 
-void mei::IntervallicdescMixIn::setIntm(std::string _intm) {
+void mei::IntervalmelodicMixIn::setIntm(std::string _intm) {
     MeiAttribute *a = new MeiAttribute("intm", _intm);
     b->addAttribute(a);
 };
 
-bool mei::IntervallicdescMixIn::hasIntm() {
+bool mei::IntervalmelodicMixIn::hasIntm() {
     return b->hasAttribute("intm");
 };
 
-void mei::IntervallicdescMixIn::removeIntm() {
+void mei::IntervalmelodicMixIn::removeIntm() {
     b->removeAttribute("intm");
 };
 

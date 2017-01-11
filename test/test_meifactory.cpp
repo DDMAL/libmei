@@ -36,8 +36,8 @@ TEST(TestMeiFactory, TestFactoryWithMixins) {
     ASSERT_EQ("note", e->getName());
 //    Note *n = static_cast<Note*>(e);
     // only note has these methods.
-    e->m_NoteVis.setHeadshape("diamond");
-    ASSERT_EQ("diamond", e->m_NoteVis.getHeadshape()->getValue());
+    e->m_Noteheads.setHeadShape("diamond");
+    ASSERT_EQ("diamond", e->m_Noteheads.getHeadShape()->getValue());
 }
 
 TEST(TestMeiFactory, TestFactoryBadElement) {

@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef FRBRMIXIN_H_
-#define FRBRMIXIN_H_
+#ifndef MEIMIXIN_H_
+#define MEIMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,26 +31,29 @@
 #include <string>
 
 namespace mei {
-class RelMixIn {
+class NotationtypeMixIn {
     public:
-        explicit RelMixIn(MeiElement *b);
-        virtual ~RelMixIn();
-        /** \brief Describes the relationship between the <relatedItem> and the resource described
-         *  in the parent element, i.e., <bibl>, <source> or <relatedItem>.
-         * 
-         *  The values are based on MODS version 3.4. The subject of these relations is
-         *  always the <relatedItem>, and the object is always the parent of the
-         *  <relatedItem>. "preceding" and "succeeding" indicate temporal order.
+        explicit NotationtypeMixIn(MeiElement *b);
+        virtual ~NotationtypeMixIn();
+        /** \brief Contains classification of the notation contained or described by the element
+         *  bearing this attribute.
          */
-        MeiAttribute* getRel();
-        void setRel(std::string _rel);
-        bool hasRel();
-        void removeRel();
+        MeiAttribute* getNotationtype();
+        void setNotationtype(std::string _notationtype);
+        bool hasNotationtype();
+        void removeNotationtype();
+        /** \brief Provides any sub-classification of the notation contained or described by the
+         *  element, additional to that given by its notationtype attribute.
+         */
+        MeiAttribute* getNotationsubtype();
+        void setNotationsubtype(std::string _notationsubtype);
+        bool hasNotationsubtype();
+        void removeNotationsubtype();
 
-/* include <relmixin> */
+/* include <notationsubtypemixin> */
 
     private:
         MeiElement *b;
 };
 }
-#endif  // FRBRMIXIN_H_
+#endif  // MEIMIXIN_H_

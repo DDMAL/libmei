@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef CMNORNAMENTS_H_
-#define CMNORNAMENTS_H_
+#ifndef FINGERING_H_
+#define FINGERING_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,68 +31,29 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
-#include "cmnornamentsmixins.h"
-#include "usersymbolsmixins.h"
-#include "externalsymbolsmixins.h"
 #include "analysismixins.h"
 #include "performancemixins.h"
+#include "usersymbolsmixins.h"
+#include "fingeringmixins.h"
 
 
 namespace mei {
-/** \brief An ornament indicating rapid alternation of the main note with a secondary note,
- *  usually a step below, but sometimes a step above.
+/** \brief finger – An individual finger in a fingering indication.
  */
-class MEI_EXPORT Mordent : public MeiElement {
+class MEI_EXPORT Fing : public MeiElement {
     public:
-        Mordent();
-        Mordent(const Mordent& other);
-        virtual ~Mordent();
+        Fing();
+        Fing(const Fing& other);
+        virtual ~Fing();
 
-/* include <mordent> */
+/* include <fing> */
 
         CommonMixIn    m_Common;
         CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        MordentLogMixIn    m_MordentLog;
-        PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        OrnamentaccidMixIn    m_Ornamentaccid;
-        AltsymMixIn    m_Altsym;
-        ColorMixIn    m_Color;
-        ExtsymMixIn    m_Extsym;
-        PlacementMixIn    m_Placement;
-        TypographyMixIn    m_Typography;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
-        TypedMixIn    m_Typed;
-
-    private:
-        REGISTER_DECLARATION(Mordent);
-};
-
-/** \brief Rapid alternation of a note with another (usually at the interval of a second
- *  above).
- */
-class MEI_EXPORT Trill : public MeiElement {
-    public:
-        Trill();
-        Trill(const Trill& other);
-        virtual ~Trill();
-
-/* include <trill> */
-
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        FacsimileMixIn    m_Facsimile;
+        DurationPerformedMixIn    m_DurationPerformed;
         PlistMixIn    m_Plist;
         TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -101,71 +62,66 @@ class MEI_EXPORT Trill : public MeiElement {
         LayeridentMixIn    m_Layerident;
         AugmentdotsMixIn    m_Augmentdots;
         DurationAdditiveMixIn    m_DurationAdditive;
-        OrnamentaccidMixIn    m_Ornamentaccid;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
         AltsymMixIn    m_Altsym;
-        ColorMixIn    m_Color;
         ExtenderMixIn    m_Extender;
         LinerendMixIn    m_Linerend;
         LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
-        ExtsymMixIn    m_Extsym;
-        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
-        Visualoffset2HoMixIn    m_Visualoffset2Ho;
-        Visualoffset2ToMixIn    m_Visualoffset2To;
         XyMixIn    m_Xy;
-        DurationPerformedMixIn    m_DurationPerformed;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Trill);
+        REGISTER_DECLARATION(Fing);
 };
 
-/** \brief An ornament consisting of four notes — the upper neighbor of the written note,
- *  the written note, the lower neighbor, and the written note.
+/** \brief (finger group)– A group of individual fingers in a fingering indication.
  */
-class MEI_EXPORT Turn : public MeiElement {
+class MEI_EXPORT FingGrp : public MeiElement {
     public:
-        Turn();
-        Turn(const Turn& other);
-        virtual ~Turn();
+        FingGrp();
+        FingGrp(const FingGrp& other);
+        virtual ~FingGrp();
 
-/* include <turn> */
+/* include <fingGrp> */
 
         CommonMixIn    m_Common;
         CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TurnLogMixIn    m_TurnLog;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+        DurationPerformedMixIn    m_DurationPerformed;
+        FingGrpLogMixIn    m_FingGrpLog;
         PlistMixIn    m_Plist;
         TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
-        OrnamentaccidMixIn    m_Ornamentaccid;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        FingGrpVisMixIn    m_FingGrpVis;
         AltsymMixIn    m_Altsym;
-        ColorMixIn    m_Color;
-        ExtsymMixIn    m_Extsym;
+        ExtenderMixIn    m_Extender;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
-        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
         TypedMixIn    m_Typed;
 
     private:
-        REGISTER_DECLARATION(Turn);
+        REGISTER_DECLARATION(FingGrp);
 };
 }
-#endif  // CMNORNAMENTS_H_
+#endif  // FINGERING_H_

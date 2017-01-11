@@ -91,7 +91,7 @@ TEST(TestMeiDocument, ElementById) {
 // Making a document sets the version
 TEST(TestMeiDocument, SetVersion) {
     mei::MeiDocument *doc = new mei::MeiDocument();
-    ASSERT_EQ("2013", doc->getVersion());
+    ASSERT_EQ("3.0.0", doc->getVersion());
 }
 
 TEST(TestMeiDocument, ElementsByName) {

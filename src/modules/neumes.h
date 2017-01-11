@@ -32,13 +32,15 @@
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "neumesmixins.h"
+#include "usersymbolsmixins.h"
+#include "externalsymbolsmixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
 
 
 namespace mei {
-/** \brief (interrupted neume) – a graphically interrupted neume; that is, a neume which is
- *  logically a single entity but is written using multiple signs.
+/** \brief (interrupted neume) – A graphically interrupted neume; that is, a neume which
+ *  is logically a single entity but is written using multiple signs.
  */
 class MEI_EXPORT Ineume : public MeiElement {
     public:
@@ -49,13 +51,17 @@ class MEI_EXPORT Ineume : public MeiElement {
 /* include <ineume> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
         IneumeLogMixIn    m_IneumeLog;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Ineume);
@@ -75,6 +81,7 @@ class MEI_EXPORT Syllable : public MeiElement {
 /* include <syllable> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(Syllable);
@@ -91,6 +98,7 @@ class MEI_EXPORT Uneume : public MeiElement {
 /* include <uneume> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TypedMixIn    m_Typed;
         UneumeLogMixIn    m_UneumeLog;
@@ -101,17 +109,18 @@ class MEI_EXPORT Uneume : public MeiElement {
         SyltextMixIn    m_Syltext;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         RelativesizeMixIn    m_Relativesize;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
+        VisibilityMixIn    m_Visibility;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         XyMixIn    m_Xy;
-        VisibilityMixIn    m_Visibility;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         HarmonicfunctionMixIn    m_Harmonicfunction;
+        IntervalmelodicMixIn    m_Intervalmelodic;
         MelodicfunctionMixIn    m_Melodicfunction;
-        IntervallicdescMixIn    m_Intervallicdesc;
-        IntervalharmonicMixIn    m_Intervalharmonic;
         SolfaMixIn    m_Solfa;
 
     private:

@@ -185,24 +185,24 @@ mei::BeamrendMixIn::BeamrendMixIn(MeiElement *b) {
 };
 
 mei::BeamrendMixIn::~BeamrendMixIn() {}
-MeiAttribute* mei::BeamrendMixIn::getRend() {
-    if (!b->hasAttribute("rend")) {
+MeiAttribute* mei::BeamrendMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         return NULL;
     }
-    return b->getAttribute("rend");
+    return b->getAttribute("form");
 };
 
-void mei::BeamrendMixIn::setRend(std::string _rend) {
-    MeiAttribute *a = new MeiAttribute("rend", _rend);
+void mei::BeamrendMixIn::setForm(std::string _form) {
+    MeiAttribute *a = new MeiAttribute("form", _form);
     b->addAttribute(a);
 };
 
-bool mei::BeamrendMixIn::hasRend() {
-    return b->hasAttribute("rend");
+bool mei::BeamrendMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void mei::BeamrendMixIn::removeRend() {
-    b->removeAttribute("rend");
+void mei::BeamrendMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 MeiAttribute* mei::BeamrendMixIn::getSlope() {
     if (!b->hasAttribute("slope")) {
@@ -251,32 +251,58 @@ void mei::BeamsecondaryMixIn::removeBreaksec() {
 };
 
 /* include <breaksecmixin> */
+mei::BeatRptLogMixIn::BeatRptLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::BeatRptLogMixIn::~BeatRptLogMixIn() {}
+MeiAttribute* mei::BeatRptLogMixIn::getBeatDef() {
+    if (!b->hasAttribute("beatDef")) {
+        return NULL;
+    }
+    return b->getAttribute("beatDef");
+};
+
+void mei::BeatRptLogMixIn::setBeatDef(std::string _beatDef) {
+    MeiAttribute *a = new MeiAttribute("beatDef", _beatDef);
+    b->addAttribute(a);
+};
+
+bool mei::BeatRptLogMixIn::hasBeatDef() {
+    return b->hasAttribute("beatDef");
+};
+
+void mei::BeatRptLogMixIn::removeBeatDef() {
+    b->removeAttribute("beatDef");
+};
+
+/* include <beatDefmixin> */
 mei::BeatRptVisMixIn::BeatRptVisMixIn(MeiElement *b) {
     this->b = b;
 };
 
 mei::BeatRptVisMixIn::~BeatRptVisMixIn() {}
-MeiAttribute* mei::BeatRptVisMixIn::getRend() {
-    if (!b->hasAttribute("rend")) {
+MeiAttribute* mei::BeatRptVisMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         return NULL;
     }
-    return b->getAttribute("rend");
+    return b->getAttribute("form");
 };
 
-void mei::BeatRptVisMixIn::setRend(std::string _rend) {
-    MeiAttribute *a = new MeiAttribute("rend", _rend);
+void mei::BeatRptVisMixIn::setForm(std::string _form) {
+    MeiAttribute *a = new MeiAttribute("form", _form);
     b->addAttribute(a);
 };
 
-bool mei::BeatRptVisMixIn::hasRend() {
-    return b->hasAttribute("rend");
+bool mei::BeatRptVisMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void mei::BeatRptVisMixIn::removeRend() {
-    b->removeAttribute("rend");
+void mei::BeatRptVisMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
-/* include <rendmixin> */
+/* include <formmixin> */
 mei::BendGesMixIn::BendGesMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -426,32 +452,6 @@ void mei::FermataVisMixIn::removeShape() {
 };
 
 /* include <shapemixin> */
-mei::GlissVisMixIn::GlissVisMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::GlissVisMixIn::~GlissVisMixIn() {}
-MeiAttribute* mei::GlissVisMixIn::getText() {
-    if (!b->hasAttribute("text")) {
-        return NULL;
-    }
-    return b->getAttribute("text");
-};
-
-void mei::GlissVisMixIn::setText(std::string _text) {
-    MeiAttribute *a = new MeiAttribute("text", _text);
-    b->addAttribute(a);
-};
-
-bool mei::GlissVisMixIn::hasText() {
-    return b->hasAttribute("text");
-};
-
-void mei::GlissVisMixIn::removeText() {
-    b->removeAttribute("text");
-};
-
-/* include <textmixin> */
 mei::GracedMixIn::GracedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -521,8 +521,27 @@ bool mei::HairpinLogMixIn::hasForm() {
 void mei::HairpinLogMixIn::removeForm() {
     b->removeAttribute("form");
 };
+MeiAttribute* mei::HairpinLogMixIn::getNiente() {
+    if (!b->hasAttribute("niente")) {
+        return NULL;
+    }
+    return b->getAttribute("niente");
+};
 
-/* include <formmixin> */
+void mei::HairpinLogMixIn::setNiente(std::string _niente) {
+    MeiAttribute *a = new MeiAttribute("niente", _niente);
+    b->addAttribute(a);
+};
+
+bool mei::HairpinLogMixIn::hasNiente() {
+    return b->hasAttribute("niente");
+};
+
+void mei::HairpinLogMixIn::removeNiente() {
+    b->removeAttribute("niente");
+};
+
+/* include <nientemixin> */
 mei::HairpinVisMixIn::HairpinVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -715,6 +734,32 @@ void mei::LvpresentMixIn::removeLv() {
 };
 
 /* include <lvmixin> */
+mei::MeterSigGrpLogMixIn::MeterSigGrpLogMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MeterSigGrpLogMixIn::~MeterSigGrpLogMixIn() {}
+MeiAttribute* mei::MeterSigGrpLogMixIn::getFunc() {
+    if (!b->hasAttribute("func")) {
+        return NULL;
+    }
+    return b->getAttribute("func");
+};
+
+void mei::MeterSigGrpLogMixIn::setFunc(std::string _func) {
+    MeiAttribute *a = new MeiAttribute("func", _func);
+    b->addAttribute(a);
+};
+
+bool mei::MeterSigGrpLogMixIn::hasFunc() {
+    return b->hasAttribute("func");
+};
+
+void mei::MeterSigGrpLogMixIn::removeFunc() {
+    b->removeAttribute("func");
+};
+
+/* include <funcmixin> */
 mei::MultiRestVisMixIn::MultiRestVisMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -895,27 +940,27 @@ mei::PedalVisMixIn::PedalVisMixIn(MeiElement *b) {
 };
 
 mei::PedalVisMixIn::~PedalVisMixIn() {}
-MeiAttribute* mei::PedalVisMixIn::getStyle() {
-    if (!b->hasAttribute("style")) {
+MeiAttribute* mei::PedalVisMixIn::getForm() {
+    if (!b->hasAttribute("form")) {
         return NULL;
     }
-    return b->getAttribute("style");
+    return b->getAttribute("form");
 };
 
-void mei::PedalVisMixIn::setStyle(std::string _style) {
-    MeiAttribute *a = new MeiAttribute("style", _style);
+void mei::PedalVisMixIn::setForm(std::string _form) {
+    MeiAttribute *a = new MeiAttribute("form", _form);
     b->addAttribute(a);
 };
 
-bool mei::PedalVisMixIn::hasStyle() {
-    return b->hasAttribute("style");
+bool mei::PedalVisMixIn::hasForm() {
+    return b->hasAttribute("form");
 };
 
-void mei::PedalVisMixIn::removeStyle() {
-    b->removeAttribute("style");
+void mei::PedalVisMixIn::removeForm() {
+    b->removeAttribute("form");
 };
 
-/* include <stylemixin> */
+/* include <formmixin> */
 mei::PianopedalsMixIn::PianopedalsMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -999,68 +1044,68 @@ mei::SlurrendMixIn::SlurrendMixIn(MeiElement *b) {
 };
 
 mei::SlurrendMixIn::~SlurrendMixIn() {}
-MeiAttribute* mei::SlurrendMixIn::getSlurRend() {
-    if (!b->hasAttribute("slur.rend")) {
+MeiAttribute* mei::SlurrendMixIn::getSlurLform() {
+    if (!b->hasAttribute("slur.lform")) {
         return NULL;
     }
-    return b->getAttribute("slur.rend");
+    return b->getAttribute("slur.lform");
 };
 
-void mei::SlurrendMixIn::setSlurRend(std::string _slurrend) {
-    MeiAttribute *a = new MeiAttribute("slur.rend", _slurrend);
+void mei::SlurrendMixIn::setSlurLform(std::string _slurlform) {
+    MeiAttribute *a = new MeiAttribute("slur.lform", _slurlform);
     b->addAttribute(a);
 };
 
-bool mei::SlurrendMixIn::hasSlurRend() {
-    return b->hasAttribute("slur.rend");
+bool mei::SlurrendMixIn::hasSlurLform() {
+    return b->hasAttribute("slur.lform");
 };
 
-void mei::SlurrendMixIn::removeSlurRend() {
-    b->removeAttribute("slur.rend");
+void mei::SlurrendMixIn::removeSlurLform() {
+    b->removeAttribute("slur.lform");
+};
+MeiAttribute* mei::SlurrendMixIn::getSlurLwidth() {
+    if (!b->hasAttribute("slur.lwidth")) {
+        return NULL;
+    }
+    return b->getAttribute("slur.lwidth");
 };
 
-/* include <slur.rendmixin> */
-mei::StemmedCmnMixIn::StemmedCmnMixIn(MeiElement *b) {
+void mei::SlurrendMixIn::setSlurLwidth(std::string _slurlwidth) {
+    MeiAttribute *a = new MeiAttribute("slur.lwidth", _slurlwidth);
+    b->addAttribute(a);
+};
+
+bool mei::SlurrendMixIn::hasSlurLwidth() {
+    return b->hasAttribute("slur.lwidth");
+};
+
+void mei::SlurrendMixIn::removeSlurLwidth() {
+    b->removeAttribute("slur.lwidth");
+};
+
+/* include <slur.lwidthmixin> */
+mei::StemsCmnMixIn::StemsCmnMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::StemmedCmnMixIn::~StemmedCmnMixIn() {}
-MeiAttribute* mei::StemmedCmnMixIn::getStemMod() {
-    if (!b->hasAttribute("stem.mod")) {
-        return NULL;
-    }
-    return b->getAttribute("stem.mod");
-};
-
-void mei::StemmedCmnMixIn::setStemMod(std::string _stemmod) {
-    MeiAttribute *a = new MeiAttribute("stem.mod", _stemmod);
-    b->addAttribute(a);
-};
-
-bool mei::StemmedCmnMixIn::hasStemMod() {
-    return b->hasAttribute("stem.mod");
-};
-
-void mei::StemmedCmnMixIn::removeStemMod() {
-    b->removeAttribute("stem.mod");
-};
-MeiAttribute* mei::StemmedCmnMixIn::getStemWith() {
+mei::StemsCmnMixIn::~StemsCmnMixIn() {}
+MeiAttribute* mei::StemsCmnMixIn::getStemWith() {
     if (!b->hasAttribute("stem.with")) {
         return NULL;
     }
     return b->getAttribute("stem.with");
 };
 
-void mei::StemmedCmnMixIn::setStemWith(std::string _stemwith) {
+void mei::StemsCmnMixIn::setStemWith(std::string _stemwith) {
     MeiAttribute *a = new MeiAttribute("stem.with", _stemwith);
     b->addAttribute(a);
 };
 
-bool mei::StemmedCmnMixIn::hasStemWith() {
+bool mei::StemsCmnMixIn::hasStemWith() {
     return b->hasAttribute("stem.with");
 };
 
-void mei::StemmedCmnMixIn::removeStemWith() {
+void mei::StemsCmnMixIn::removeStemWith() {
     b->removeAttribute("stem.with");
 };
 
@@ -1070,27 +1115,46 @@ mei::TierendMixIn::TierendMixIn(MeiElement *b) {
 };
 
 mei::TierendMixIn::~TierendMixIn() {}
-MeiAttribute* mei::TierendMixIn::getTieRend() {
-    if (!b->hasAttribute("tie.rend")) {
+MeiAttribute* mei::TierendMixIn::getTieLform() {
+    if (!b->hasAttribute("tie.lform")) {
         return NULL;
     }
-    return b->getAttribute("tie.rend");
+    return b->getAttribute("tie.lform");
 };
 
-void mei::TierendMixIn::setTieRend(std::string _tierend) {
-    MeiAttribute *a = new MeiAttribute("tie.rend", _tierend);
+void mei::TierendMixIn::setTieLform(std::string _tielform) {
+    MeiAttribute *a = new MeiAttribute("tie.lform", _tielform);
     b->addAttribute(a);
 };
 
-bool mei::TierendMixIn::hasTieRend() {
-    return b->hasAttribute("tie.rend");
+bool mei::TierendMixIn::hasTieLform() {
+    return b->hasAttribute("tie.lform");
 };
 
-void mei::TierendMixIn::removeTieRend() {
-    b->removeAttribute("tie.rend");
+void mei::TierendMixIn::removeTieLform() {
+    b->removeAttribute("tie.lform");
+};
+MeiAttribute* mei::TierendMixIn::getTieLwidth() {
+    if (!b->hasAttribute("tie.lwidth")) {
+        return NULL;
+    }
+    return b->getAttribute("tie.lwidth");
 };
 
-/* include <tie.rendmixin> */
+void mei::TierendMixIn::setTieLwidth(std::string _tielwidth) {
+    MeiAttribute *a = new MeiAttribute("tie.lwidth", _tielwidth);
+    b->addAttribute(a);
+};
+
+bool mei::TierendMixIn::hasTieLwidth() {
+    return b->hasAttribute("tie.lwidth");
+};
+
+void mei::TierendMixIn::removeTieLwidth() {
+    b->removeAttribute("tie.lwidth");
+};
+
+/* include <tie.lwidthmixin> */
 mei::TremmeasuredMixIn::TremmeasuredMixIn(MeiElement *b) {
     this->b = b;
 };

@@ -8,21 +8,28 @@ using mei::MeiAttribute;
 mei::Arpeg::Arpeg() :
     MeiElement("arpeg"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_ArpegLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Startid(this),
     m_ArpegVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Arpeg, "arpeg");
@@ -30,21 +37,28 @@ mei::Arpeg::~Arpeg() {}
 mei::Arpeg::Arpeg(const Arpeg& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_ArpegLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
+    m_Startid(this),
     m_ArpegVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -53,6 +67,7 @@ mei::Arpeg::Arpeg(const Arpeg& other) :
 mei::BTrem::BTrem() :
     MeiElement("bTrem"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_BTremLog(this),
     m_TimestampMusical(this),
@@ -73,6 +88,7 @@ mei::BTrem::~BTrem() {}
 mei::BTrem::BTrem(const BTrem& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_BTremLog(this),
     m_TimestampMusical(this),
@@ -94,6 +110,7 @@ mei::BTrem::BTrem(const BTrem& other) :
 mei::Beam::Beam() :
     MeiElement("beam"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -111,6 +128,7 @@ mei::Beam::~Beam() {}
 mei::Beam::Beam(const Beam& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -129,8 +147,10 @@ mei::Beam::Beam(const Beam& other) :
 mei::BeamSpan::BeamSpan() :
     MeiElement("beamSpan"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -145,7 +165,8 @@ mei::BeamSpan::BeamSpan() :
     m_Beamrend(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::BeamSpan, "beamSpan");
@@ -153,8 +174,10 @@ mei::BeamSpan::~BeamSpan() {}
 mei::BeamSpan::BeamSpan(const BeamSpan& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -169,7 +192,8 @@ mei::BeamSpan::BeamSpan(const BeamSpan& other) :
     m_Beamrend(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -178,7 +202,9 @@ mei::BeamSpan::BeamSpan(const BeamSpan& other) :
 mei::BeatRpt::BeatRpt() :
     MeiElement("beatRpt"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_BeatRptLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -187,8 +213,12 @@ mei::BeatRpt::BeatRpt() :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Plist(this),
+    m_Targeteval(this)
 {
 }
 REGISTER_DEFINITION(mei::BeatRpt, "beatRpt");
@@ -196,7 +226,9 @@ mei::BeatRpt::~BeatRpt() {}
 mei::BeatRpt::BeatRpt(const BeatRpt& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_BeatRptLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -205,8 +237,12 @@ mei::BeatRpt::BeatRpt(const BeatRpt& other) :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Plist(this),
+    m_Targeteval(this)
 {
 }
 
@@ -215,8 +251,10 @@ mei::BeatRpt::BeatRpt(const BeatRpt& other) :
 mei::Bend::Bend() :
     MeiElement("bend"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -239,7 +277,8 @@ mei::Bend::Bend() :
     m_Curverend(this),
     m_BendGes(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Bend, "bend");
@@ -247,8 +286,10 @@ mei::Bend::~Bend() {}
 mei::Bend::Bend(const Bend& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -271,7 +312,8 @@ mei::Bend::Bend(const Bend& other) :
     m_Curverend(this),
     m_BendGes(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -280,8 +322,10 @@ mei::Bend::Bend(const Bend& other) :
 mei::Breath::Breath() :
     MeiElement("breath"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -293,13 +337,16 @@ mei::Breath::Breath() :
     m_Timestamp2Musical(this),
     m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Breath, "breath");
@@ -307,8 +354,10 @@ mei::Breath::~Breath() {}
 mei::Breath::Breath(const Breath& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -320,13 +369,16 @@ mei::Breath::Breath(const Breath& other) :
     m_Timestamp2Musical(this),
     m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -335,6 +387,7 @@ mei::Breath::Breath(const Breath& other) :
 mei::FTrem::FTrem() :
     MeiElement("fTrem"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_FTremLog(this),
     m_TimestampMusical(this),
@@ -354,6 +407,7 @@ mei::FTrem::~FTrem() {}
 mei::FTrem::FTrem(const FTrem& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_FTremLog(this),
     m_TimestampMusical(this),
@@ -374,8 +428,10 @@ mei::FTrem::FTrem(const FTrem& other) :
 mei::Fermata::Fermata() :
     MeiElement("fermata"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -385,14 +441,17 @@ mei::Fermata::Fermata() :
     m_FermataVis(this),
     m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Fermata, "fermata");
@@ -400,8 +459,10 @@ mei::Fermata::~Fermata() {}
 mei::Fermata::Fermata(const Fermata& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -411,14 +472,17 @@ mei::Fermata::Fermata(const Fermata& other) :
     m_FermataVis(this),
     m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -427,8 +491,10 @@ mei::Fermata::Fermata(const Fermata& other) :
 mei::Gliss::Gliss() :
     MeiElement("gliss"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -438,8 +504,10 @@ mei::Gliss::Gliss() :
     m_Startendid(this),
     m_Startid(this),
     m_Timestamp2Musical(this),
-    m_GlissVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -449,9 +517,11 @@ mei::Gliss::Gliss() :
     m_Xy(this),
     m_Xy2(this),
     m_Linerend(this),
+    m_LinerendBase(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Gliss, "gliss");
@@ -459,8 +529,10 @@ mei::Gliss::~Gliss() {}
 mei::Gliss::Gliss(const Gliss& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -470,8 +542,10 @@ mei::Gliss::Gliss(const Gliss& other) :
     m_Startendid(this),
     m_Startid(this),
     m_Timestamp2Musical(this),
-    m_GlissVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -481,9 +555,11 @@ mei::Gliss::Gliss(const Gliss& other) :
     m_Xy(this),
     m_Xy2(this),
     m_Linerend(this),
+    m_LinerendBase(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -492,9 +568,11 @@ mei::Gliss::Gliss(const Gliss& other) :
 mei::Hairpin::Hairpin() :
     MeiElement("hairpin"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_HairpinLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -506,6 +584,7 @@ mei::Hairpin::Hairpin() :
     m_Timestamp2Musical(this),
     m_HairpinVis(this),
     m_Color(this),
+    m_LinerendBase(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -516,8 +595,11 @@ mei::Hairpin::Hairpin() :
     m_Xy(this),
     m_Xy2(this),
     m_DurationPerformed(this),
+    m_Midivalue(this),
+    m_Midivalue2(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Hairpin, "hairpin");
@@ -525,9 +607,11 @@ mei::Hairpin::~Hairpin() {}
 mei::Hairpin::Hairpin(const Hairpin& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_HairpinLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -539,6 +623,7 @@ mei::Hairpin::Hairpin(const Hairpin& other) :
     m_Timestamp2Musical(this),
     m_HairpinVis(this),
     m_Color(this),
+    m_LinerendBase(this),
     m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -549,8 +634,11 @@ mei::Hairpin::Hairpin(const Hairpin& other) :
     m_Xy(this),
     m_Xy2(this),
     m_DurationPerformed(this),
+    m_Midivalue(this),
+    m_Midivalue2(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -559,6 +647,7 @@ mei::Hairpin::Hairpin(const Hairpin& other) :
 mei::HalfmRpt::HalfmRpt() :
     MeiElement("halfmRpt"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -568,6 +657,8 @@ mei::HalfmRpt::HalfmRpt() :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -580,6 +671,7 @@ mei::HalfmRpt::~HalfmRpt() {}
 mei::HalfmRpt::HalfmRpt(const HalfmRpt& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -589,6 +681,8 @@ mei::HalfmRpt::HalfmRpt(const HalfmRpt& other) :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -602,24 +696,30 @@ mei::HalfmRpt::HalfmRpt(const HalfmRpt& other) :
 mei::HarpPedal::HarpPedal() :
     MeiElement("harpPedal"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_HarpPedalLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::HarpPedal, "harpPedal");
@@ -627,24 +727,30 @@ mei::HarpPedal::~HarpPedal() {}
 mei::HarpPedal::HarpPedal(const HarpPedal& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_HarpPedalLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
     m_Placement(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -653,6 +759,7 @@ mei::HarpPedal::HarpPedal(const HarpPedal& other) :
 mei::MRest::MRest() :
     MeiElement("mRest"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_DurationMusical(this),
     m_TimestampMusical(this),
@@ -662,9 +769,11 @@ mei::MRest::MRest() :
     m_Fermatapresent(this),
     m_Altsym(this),
     m_Cutout(this),
+    m_Extsym(this),
     m_Relativesize(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -681,6 +790,7 @@ mei::MRest::~MRest() {}
 mei::MRest::MRest(const MRest& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_DurationMusical(this),
     m_TimestampMusical(this),
@@ -690,9 +800,11 @@ mei::MRest::MRest(const MRest& other) :
     m_Fermatapresent(this),
     m_Altsym(this),
     m_Cutout(this),
+    m_Extsym(this),
     m_Relativesize(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -710,6 +822,7 @@ mei::MRest::MRest(const MRest& other) :
 mei::MRpt::MRpt() :
     MeiElement("mRpt"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -718,6 +831,8 @@ mei::MRpt::MRpt() :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -727,6 +842,7 @@ mei::MRpt::~MRpt() {}
 mei::MRpt::MRpt(const MRpt& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -735,6 +851,8 @@ mei::MRpt::MRpt(const MRpt& other) :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -745,6 +863,7 @@ mei::MRpt::MRpt(const MRpt& other) :
 mei::MRpt2::MRpt2() :
     MeiElement("mRpt2"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -753,6 +872,8 @@ mei::MRpt2::MRpt2() :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -762,6 +883,7 @@ mei::MRpt2::~MRpt2() {}
 mei::MRpt2::MRpt2(const MRpt2& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -770,6 +892,8 @@ mei::MRpt2::MRpt2(const MRpt2& other) :
     m_Altsym(this),
     m_Color(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -780,6 +904,7 @@ mei::MRpt2::MRpt2(const MRpt2& other) :
 mei::MSpace::MSpace() :
     MeiElement("mSpace"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Augmentdots(this),
     m_TimestampMusical(this),
@@ -803,6 +928,7 @@ mei::MSpace::~MSpace() {}
 mei::MSpace::MSpace(const MSpace& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Augmentdots(this),
     m_TimestampMusical(this),
@@ -827,9 +953,9 @@ mei::MSpace::MSpace(const MSpace& other) :
 mei::Measure::Measure() :
     MeiElement("measure"),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Pointing(this),
     m_MeasureLog(this),
     m_MeterconformanceBar(this),
@@ -839,7 +965,9 @@ mei::Measure::Measure() :
     m_TimestampPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Joined(this)
+    m_Joined(this),
+    m_Targeteval(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Measure, "measure");
@@ -847,9 +975,9 @@ mei::Measure::~Measure() {}
 mei::Measure::Measure(const Measure& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Pointing(this),
     m_MeasureLog(this),
     m_MeterconformanceBar(this),
@@ -859,7 +987,9 @@ mei::Measure::Measure(const Measure& other) :
     m_TimestampPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Joined(this)
+    m_Joined(this),
+    m_Targeteval(this),
+    m_Typed(this)
 {
 }
 
@@ -868,11 +998,15 @@ mei::Measure::Measure(const Measure& other) :
 mei::MeterSig::MeterSig() :
     MeiElement("meterSig"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this),
     m_MeterSigLog(this),
-    m_MeterSigVis(this)
+    m_MeterSigVis(this),
+    m_Altsym(this),
+    m_Extsym(this),
+    m_Typography(this)
 {
 }
 REGISTER_DEFINITION(mei::MeterSig, "meterSig");
@@ -880,11 +1014,15 @@ mei::MeterSig::~MeterSig() {}
 mei::MeterSig::MeterSig(const MeterSig& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this),
     m_MeterSigLog(this),
-    m_MeterSigVis(this)
+    m_MeterSigVis(this),
+    m_Altsym(this),
+    m_Extsym(this),
+    m_Typography(this)
 {
 }
 
@@ -893,9 +1031,11 @@ mei::MeterSig::MeterSig(const MeterSig& other) :
 mei::MeterSigGrp::MeterSigGrp() :
     MeiElement("meterSigGrp"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_MeterSigGrpLog(this)
 {
 }
 REGISTER_DEFINITION(mei::MeterSigGrp, "meterSigGrp");
@@ -903,36 +1043,20 @@ mei::MeterSigGrp::~MeterSigGrp() {}
 mei::MeterSigGrp::MeterSigGrp(const MeterSigGrp& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_MeterSigGrpLog(this)
 {
 }
 
-MeiAttribute* mei::MeterSigGrp::getFunc() {
-    if (!hasAttribute("func")) {
-        return NULL;
-    }
-    return getAttribute("func");
-};
-
-void mei::MeterSigGrp::setFunc(std::string _func) {
-    MeiAttribute *a = new MeiAttribute("func", _func);
-    addAttribute(a);
-};
-
-bool mei::MeterSigGrp::hasFunc() {
-    return hasAttribute("func");
-};
-
-void mei::MeterSigGrp::removeFunc() {
-    removeAttribute("func");
-};
 /* include <meterSigGrp> */
 
 mei::MultiRest::MultiRest() :
     MeiElement("multiRest"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -941,8 +1065,10 @@ mei::MultiRest::MultiRest() :
     m_Numbered(this),
     m_MultiRestVis(this),
     m_Altsym(this),
+    m_Extsym(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
+    m_Typography(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_CommonAnl(this),
@@ -954,6 +1080,7 @@ mei::MultiRest::~MultiRest() {}
 mei::MultiRest::MultiRest(const MultiRest& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -962,8 +1089,10 @@ mei::MultiRest::MultiRest(const MultiRest& other) :
     m_Numbered(this),
     m_MultiRestVis(this),
     m_Altsym(this),
+    m_Extsym(this),
     m_Staffloc(this),
     m_StafflocPitched(this),
+    m_Typography(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_CommonAnl(this),
@@ -976,6 +1105,7 @@ mei::MultiRest::MultiRest(const MultiRest& other) :
 mei::MultiRpt::MultiRpt() :
     MeiElement("multiRpt"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -984,6 +1114,8 @@ mei::MultiRpt::MultiRpt() :
     m_Numbered(this),
     m_Altsym(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -993,6 +1125,7 @@ mei::MultiRpt::~MultiRpt() {}
 mei::MultiRpt::MultiRpt(const MultiRpt& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -1001,6 +1134,8 @@ mei::MultiRpt::MultiRpt(const MultiRpt& other) :
     m_Numbered(this),
     m_Altsym(this),
     m_Expandable(this),
+    m_Extsym(this),
+    m_Typography(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -1011,9 +1146,11 @@ mei::MultiRpt::MultiRpt(const MultiRpt& other) :
 mei::Octave::Octave() :
     MeiElement("octave"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_OctaveLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1024,16 +1161,20 @@ mei::Octave::Octave() :
     m_Startendid(this),
     m_Startid(this),
     m_Timestamp2Musical(this),
-    m_Xy(this),
+    m_Color(this),
+    m_Extender(this),
+    m_Linerend(this),
+    m_LinerendBase(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
-    m_Linerend(this),
+    m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Octave, "octave");
@@ -1041,9 +1182,11 @@ mei::Octave::~Octave() {}
 mei::Octave::Octave(const Octave& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_OctaveLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1054,16 +1197,20 @@ mei::Octave::Octave(const Octave& other) :
     m_Startendid(this),
     m_Startid(this),
     m_Timestamp2Musical(this),
-    m_Xy(this),
+    m_Color(this),
+    m_Extender(this),
+    m_Linerend(this),
+    m_LinerendBase(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Visualoffset2Ho(this),
     m_Visualoffset2To(this),
-    m_Linerend(this),
+    m_Xy(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -1072,6 +1219,7 @@ mei::Octave::Octave(const Octave& other) :
 mei::Ossia::Ossia() :
     MeiElement("ossia"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this)
@@ -1082,6 +1230,7 @@ mei::Ossia::~Ossia() {}
 mei::Ossia::Ossia(const Ossia& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_CommonAnl(this),
     m_Alignment(this)
@@ -1093,9 +1242,11 @@ mei::Ossia::Ossia(const Ossia& other) :
 mei::Pedal::Pedal() :
     MeiElement("pedal"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_PedalLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1103,14 +1254,20 @@ mei::Pedal::Pedal() :
     m_Startendid(this),
     m_Startid(this),
     m_PedalVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Linerend(this),
+    m_LinerendBase(this),
     m_Placement(this),
-    m_Xy(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
+    m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Pedal, "pedal");
@@ -1118,9 +1275,11 @@ mei::Pedal::~Pedal() {}
 mei::Pedal::Pedal(const Pedal& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_PedalLog(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1128,14 +1287,20 @@ mei::Pedal::Pedal(const Pedal& other) :
     m_Startendid(this),
     m_Startid(this),
     m_PedalVis(this),
+    m_Altsym(this),
     m_Color(this),
+    m_Extsym(this),
+    m_Linerend(this),
+    m_LinerendBase(this),
     m_Placement(this),
-    m_Xy(this),
+    m_Typography(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
+    m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -1144,7 +1309,9 @@ mei::Pedal::Pedal(const Pedal& other) :
 mei::Reh::Reh() :
     MeiElement("reh"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Startid(this),
     m_TimestampMusical(this),
@@ -1157,7 +1324,8 @@ mei::Reh::Reh() :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Reh, "reh");
@@ -1165,7 +1333,9 @@ mei::Reh::~Reh() {}
 mei::Reh::Reh(const Reh& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Startid(this),
     m_TimestampMusical(this),
@@ -1178,7 +1348,8 @@ mei::Reh::Reh(const Reh& other) :
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -1187,9 +1358,10 @@ mei::Reh::Reh(const Reh& other) :
 mei::Slur::Slur() :
     MeiElement("slur"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1213,7 +1385,8 @@ mei::Slur::Slur() :
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Joined(this)
+    m_Joined(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Slur, "slur");
@@ -1221,9 +1394,10 @@ mei::Slur::~Slur() {}
 mei::Slur::Slur(const Slur& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1247,7 +1421,8 @@ mei::Slur::Slur(const Slur& other) :
     m_DurationPerformed(this),
     m_CommonAnl(this),
     m_Alignment(this),
-    m_Joined(this)
+    m_Joined(this),
+    m_Typed(this)
 {
 }
 
@@ -1256,9 +1431,10 @@ mei::Slur::Slur(const Slur& other) :
 mei::Tie::Tie() :
     MeiElement("tie"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1278,7 +1454,8 @@ mei::Tie::Tie() :
     m_Curvature(this),
     m_Curverend(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Tie, "tie");
@@ -1286,9 +1463,10 @@ mei::Tie::~Tie() {}
 mei::Tie::Tie(const Tie& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Typed(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1308,7 +1486,8 @@ mei::Tie::Tie(const Tie& other) :
     m_Curvature(this),
     m_Curverend(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 
@@ -1317,6 +1496,7 @@ mei::Tie::Tie(const Tie& other) :
 mei::Tuplet::Tuplet() :
     MeiElement("tuplet"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -1341,6 +1521,7 @@ mei::Tuplet::~Tuplet() {}
 mei::Tuplet::Tuplet(const Tuplet& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
@@ -1366,8 +1547,10 @@ mei::Tuplet::Tuplet(const Tuplet& other) :
 mei::TupletSpan::TupletSpan() :
     MeiElement("tupletSpan"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1384,7 +1567,8 @@ mei::TupletSpan::TupletSpan() :
     m_Numberplacement(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::TupletSpan, "tupletSpan");
@@ -1392,8 +1576,10 @@ mei::TupletSpan::~TupletSpan() {}
 mei::TupletSpan::TupletSpan(const TupletSpan& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Plist(this),
+    m_Targeteval(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
@@ -1410,7 +1596,8 @@ mei::TupletSpan::TupletSpan(const TupletSpan& other) :
     m_Numberplacement(this),
     m_DurationPerformed(this),
     m_CommonAnl(this),
-    m_Alignment(this)
+    m_Alignment(this),
+    m_Typed(this)
 {
 }
 

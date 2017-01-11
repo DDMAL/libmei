@@ -8,9 +8,10 @@ using mei::MeiAttribute;
 mei::Abbr::Abbr() :
     MeiElement("abbr"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Handident(this),
@@ -23,9 +24,10 @@ mei::Abbr::~Abbr() {}
 mei::Abbr::Abbr(const Abbr& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Handident(this),
@@ -58,12 +60,15 @@ void mei::Abbr::removeExpan() {
 mei::Add::Add() :
     MeiElement("add"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Edit(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Add, "add");
@@ -71,27 +76,51 @@ mei::Add::~Add() {}
 mei::Add::Add(const Add& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
-    m_Edit(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 
+MeiAttribute* mei::Add::getMethod() {
+    if (!hasAttribute("method")) {
+        return NULL;
+    }
+    return getAttribute("method");
+};
+
+void mei::Add::setMethod(std::string _method) {
+    MeiAttribute *a = new MeiAttribute("method", _method);
+    addAttribute(a);
+};
+
+bool mei::Add::hasMethod() {
+    return hasAttribute("method");
+};
+
+void mei::Add::removeMethod() {
+    removeAttribute("method");
+};
 /* include <add> */
 
 mei::Choice::Choice() :
     MeiElement("choice"),
-    m_Common(this)
+    m_Common(this),
+    m_CommonPart(this)
 {
 }
 REGISTER_DEFINITION(mei::Choice, "choice");
 mei::Choice::~Choice() {}
 mei::Choice::Choice(const Choice& other) :
     MeiElement(other),
-    m_Common(this)
+    m_Common(this),
+    m_CommonPart(this)
 {
 }
 
@@ -100,11 +129,14 @@ mei::Choice::Choice(const Choice& other) :
 mei::Corr::Corr() :
     MeiElement("corr"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Corr, "corr");
@@ -112,23 +144,103 @@ mei::Corr::~Corr() {}
 mei::Corr::Corr(const Corr& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 
 /* include <corr> */
 
+mei::CpMark::CpMark() :
+    MeiElement("cpMark"),
+    m_Common(this),
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Plist(this),
+    m_Targeteval(this),
+    m_TimestampMusical(this),
+    m_TimestampPerformed(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_Startendid(this),
+    m_Startid(this),
+    m_Timestamp2Musical(this),
+    m_OriginTimestampMusical(this),
+    m_OriginStaffident(this),
+    m_OriginLayerident(this),
+    m_OriginStartendid(this),
+    m_Octavedisplacement(this),
+    m_Altsym(this),
+    m_Color(this),
+    m_Enclosingchars(this),
+    m_Extsym(this),
+    m_Placement(this),
+    m_Typography(this),
+    m_VisualoffsetHo(this),
+    m_VisualoffsetTo(this),
+    m_VisualoffsetVo(this),
+    m_Xy(this),
+    m_DurationPerformed(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Typed(this)
+{
+}
+REGISTER_DEFINITION(mei::CpMark, "cpMark");
+mei::CpMark::~CpMark() {}
+mei::CpMark::CpMark(const CpMark& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Plist(this),
+    m_Targeteval(this),
+    m_TimestampMusical(this),
+    m_TimestampPerformed(this),
+    m_Staffident(this),
+    m_Layerident(this),
+    m_Startendid(this),
+    m_Startid(this),
+    m_Timestamp2Musical(this),
+    m_OriginTimestampMusical(this),
+    m_OriginStaffident(this),
+    m_OriginLayerident(this),
+    m_OriginStartendid(this),
+    m_Octavedisplacement(this),
+    m_Altsym(this),
+    m_Color(this),
+    m_Enclosingchars(this),
+    m_Extsym(this),
+    m_Placement(this),
+    m_Typography(this),
+    m_VisualoffsetHo(this),
+    m_VisualoffsetTo(this),
+    m_VisualoffsetVo(this),
+    m_Xy(this),
+    m_DurationPerformed(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_Typed(this)
+{
+}
+
+/* include <cpMark> */
+
 mei::Damage::Damage() :
     MeiElement("damage"),
     m_Agentident(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Extent(this),
     m_Facsimile(this),
     m_Handident(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }
@@ -138,9 +250,11 @@ mei::Damage::Damage(const Damage& other) :
     MeiElement(other),
     m_Agentident(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Extent(this),
     m_Facsimile(this),
     m_Handident(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }
@@ -169,9 +283,12 @@ void mei::Damage::removeDegree() {
 mei::Del::Del() :
     MeiElement("del"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 REGISTER_DEFINITION(mei::Del, "del");
@@ -179,9 +296,12 @@ mei::Del::~Del() {}
 mei::Del::Del(const Del& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Handident(this),
-    m_Sequence(this)
+    m_Sequence(this),
+    m_Typed(this)
 {
 }
 
@@ -209,9 +329,10 @@ void mei::Del::removeRend() {
 mei::Expan::Expan() :
     MeiElement("expan"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Handident(this),
@@ -224,9 +345,10 @@ mei::Expan::~Expan() {}
 mei::Expan::Expan(const Expan& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Handident(this),
@@ -259,9 +381,10 @@ void mei::Expan::removeAbbr() {
 mei::Gap::Gap() :
     MeiElement("gap"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Extent(this),
     m_Handident(this),
     m_Reasonident(this),
@@ -273,9 +396,10 @@ mei::Gap::~Gap() {}
 mei::Gap::Gap(const Gap& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Extent(this),
     m_Handident(this),
     m_Reasonident(this),
@@ -288,9 +412,10 @@ mei::Gap::Gap(const Gap& other) :
 mei::HandShift::HandShift() :
     MeiElement("handShift"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Medium(this)
 {
@@ -300,9 +425,10 @@ mei::HandShift::~HandShift() {}
 mei::HandShift::HandShift(const HandShift& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Medium(this)
 {
@@ -370,10 +496,12 @@ void mei::HandShift::removeOld() {
 mei::Orig::Orig() :
     MeiElement("orig"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }
@@ -382,10 +510,12 @@ mei::Orig::~Orig() {}
 mei::Orig::Orig(const Orig& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Typed(this)
 {
 }
@@ -395,10 +525,12 @@ mei::Orig::Orig(const Orig& other) :
 mei::Reg::Reg() :
     MeiElement("reg"),
     m_Common(this),
+    m_CommonPart(this),
     m_Authorized(this),
-    m_Edit(this),
     m_Responsibility(this),
-    m_Source(this)
+    m_Source(this),
+    m_Evidence(this),
+    m_Lang(this)
 {
 }
 REGISTER_DEFINITION(mei::Reg, "reg");
@@ -406,10 +538,12 @@ mei::Reg::~Reg() {}
 mei::Reg::Reg(const Reg& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Authorized(this),
-    m_Edit(this),
     m_Responsibility(this),
-    m_Source(this)
+    m_Source(this),
+    m_Evidence(this),
+    m_Lang(this)
 {
 }
 
@@ -418,10 +552,12 @@ mei::Reg::Reg(const Reg& other) :
 mei::Restore::Restore() :
     MeiElement("restore"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Handident(this),
     m_Sequence(this),
     m_Typed(this)
@@ -432,10 +568,12 @@ mei::Restore::~Restore() {}
 mei::Restore::Restore(const Restore& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Handident(this),
     m_Sequence(this),
     m_Typed(this)
@@ -466,7 +604,9 @@ void mei::Restore::removeDesc() {
 mei::Sic::Sic() :
     MeiElement("sic"),
     m_Common(this),
-    m_Facsimile(this)
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Lang(this)
 {
 }
 REGISTER_DEFINITION(mei::Sic, "sic");
@@ -474,7 +614,9 @@ mei::Sic::~Sic() {}
 mei::Sic::Sic(const Sic& other) :
     MeiElement(other),
     m_Common(this),
-    m_Facsimile(this)
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Lang(this)
 {
 }
 
@@ -483,9 +625,10 @@ mei::Sic::Sic(const Sic& other) :
 mei::Subst::Subst() :
     MeiElement("subst"),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Handident(this),
     m_Sequence(this)
 {
@@ -495,9 +638,10 @@ mei::Subst::~Subst() {}
 mei::Subst::Subst(const Subst& other) :
     MeiElement(other),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Handident(this),
     m_Sequence(this)
 {
@@ -509,10 +653,12 @@ mei::Supplied::Supplied() :
     MeiElement("supplied"),
     m_Agentident(this),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Reasonident(this)
 {
 }
@@ -522,10 +668,12 @@ mei::Supplied::Supplied(const Supplied& other) :
     MeiElement(other),
     m_Agentident(this),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
+    m_Lang(this),
     m_Reasonident(this)
 {
 }
@@ -536,11 +684,13 @@ mei::Unclear::Unclear() :
     MeiElement("unclear"),
     m_Agentident(this),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Handident(this),
+    m_Lang(this),
     m_Reasonident(this)
 {
 }
@@ -550,11 +700,13 @@ mei::Unclear::Unclear(const Unclear& other) :
     MeiElement(other),
     m_Agentident(this),
     m_Common(this),
-    m_Edit(this),
+    m_CommonPart(this),
     m_Responsibility(this),
     m_Source(this),
+    m_Evidence(this),
     m_Facsimile(this),
     m_Handident(this),
+    m_Lang(this),
     m_Reasonident(this)
 {
 }

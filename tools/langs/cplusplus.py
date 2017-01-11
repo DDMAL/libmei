@@ -93,8 +93,7 @@ ELEMENT_CLASS_IMPL_CONS_TEMPLATE = """mei::{elementNameUpper}::{elementNameUpper
 REGISTER_DEFINITION(mei::{elementNameUpper}, \"{elementNameLower}\");
 mei::{elementNameUpper}::~{elementNameUpper}() {{}}
 mei::{elementNameUpper}::{elementNameUpper}(const {elementNameUpper}& other) :
-    MeiElement(other),
-{onlyMixIns}
+    MeiElement(other){onlyMixIns}
 {{
 }}
 
@@ -417,9 +416,8 @@ def __create_element_classes(schema, outdir):
                         attribute_methods += METHODS_IMPL_TEMPLATE.format(**methstr)
                 else:
                     element_mixins += "    m_{0}(this),\n".format(schema.cc(schema.strpatt(attribute)))
-                    element_onlymixins += "    m_{0}(this),\n".format(schema.cc(schema.strpatt(attribute)))
+                    element_onlymixins += ",\n    m_{0}(this)".format(schema.cc(schema.strpatt(attribute)))
             element_mixins = element_mixins.rstrip(",\n")
-            element_onlymixins = element_onlymixins.rstrip(",\n")
 
             consvars = {
                 'elementNameUpper': schema.cc(element),
@@ -428,7 +426,6 @@ def __create_element_classes(schema, outdir):
                 'onlyMixIns': element_onlymixins,
                 'methods': attribute_methods
             }
-
             element_constructor += ELEMENT_CLASS_IMPL_CONS_TEMPLATE.format(**consvars)
 
         implvars = {

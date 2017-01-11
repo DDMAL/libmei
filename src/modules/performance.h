@@ -31,6 +31,7 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
+#include <string>
 
 
 namespace mei {
@@ -44,7 +45,9 @@ class MEI_EXPORT AvFile : public MeiElement {
 
 /* include <avFile> */
 
+        BiblMixIn    m_Bibl;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         InternetmediaMixIn    m_Internetmedia;
         FacsimileMixIn    m_Facsimile;
@@ -67,6 +70,8 @@ class MEI_EXPORT Clip : public MeiElement {
 /* include <clip> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        DatapointingMixIn    m_Datapointing;
         DeclaringMixIn    m_Declaring;
         MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
@@ -86,6 +91,7 @@ class MEI_EXPORT Performance : public MeiElement {
 /* include <performance> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
 
     private:
@@ -103,12 +109,75 @@ class MEI_EXPORT Recording : public MeiElement {
 /* include <recording> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        DatapointingMixIn    m_Datapointing;
         DeclaringMixIn    m_Declaring;
         MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
 
     private:
         REGISTER_DECLARATION(Recording);
+};
+
+/** \brief Indicates a point in time either absolutely (using the absolute attribute), or
+ *  relative to another when element (using the since, interval and inttype
+ *  attributes).
+ */
+class MEI_EXPORT When : public MeiElement {
+    public:
+        When();
+        When(const When& other);
+        virtual ~When();
+        /** \brief Provides an absolute value for the time point.
+         */
+        MeiAttribute* getAbsolute();
+        void setAbsolute(std::string _absolute);
+        bool hasAbsolute();
+        void removeAbsolute();
+        /** \brief Specifies the time interval between this time point and the one designated by
+         *  the since attribute.
+         * 
+         *  This attribute can only be interpreted meaningfully in conjunction with the
+         *  inttype attribute.
+         */
+        MeiAttribute* getInterval();
+        void setInterval(std::string _interval);
+        bool hasInterval();
+        void removeInterval();
+        /** \brief Specifies the kind of values used in the absolute attribute.
+         */
+        MeiAttribute* getAbstype();
+        void setAbstype(std::string _abstype);
+        bool hasAbstype();
+        void removeAbstype();
+        /** \brief Specifies the kind of values used in the interval attribute.
+         */
+        MeiAttribute* getInttype();
+        void setInttype(std::string _inttype);
+        bool hasInttype();
+        void removeInttype();
+        /** \brief Identifies the reference point for determining the time of the current when
+         *  element, which is obtained by adding the interval to the time of the reference
+         *  point.
+         * 
+         *  The value should be the ID of another when element within the same parent
+         *  element. If the since attribute is omitted and the absolute attribute is not
+         *  specified, then the reference point is understood to be the immediately
+         *  preceding when element.
+         */
+        MeiAttribute* getSince();
+        void setSince(std::string _since);
+        bool hasSince();
+        void removeSince();
+
+/* include <when> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        DatapointingMixIn    m_Datapointing;
+
+    private:
+        REGISTER_DECLARATION(When);
 };
 }
 #endif  // PERFORMANCE_H_

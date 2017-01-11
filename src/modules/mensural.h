@@ -33,7 +33,9 @@
 #include "facsimilemixins.h"
 #include "mensuralmixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
+#include "usersymbolsmixins.h"
+#include "externalsymbolsmixins.h"
 
 
 namespace mei {
@@ -48,6 +50,7 @@ class MEI_EXPORT Ligature : public MeiElement {
 /* include <ligature> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LigatureLogMixIn    m_LigatureLog;
         CommonAnlMixIn    m_CommonAnl;
@@ -69,15 +72,19 @@ class MEI_EXPORT Mensur : public MeiElement {
 /* include <mensur> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
         SlashcountMixIn    m_Slashcount;
         MensuralSharedMixIn    m_MensuralShared;
         MensurVisMixIn    m_MensurVis;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         RelativesizeMixIn    m_Relativesize;
         StafflocMixIn    m_Staffloc;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -96,8 +103,12 @@ class MEI_EXPORT Proport : public MeiElement {
 /* include <proport> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         DurationRatioMixIn    m_DurationRatio;
+        AltsymMixIn    m_Altsym;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 

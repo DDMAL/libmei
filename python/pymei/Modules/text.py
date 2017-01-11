@@ -30,20 +30,10 @@ class back_(MeiElement):
         MeiElement.__init__(self, "back")
     # <back>
 
-class div_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "div")
-    # <div>
-
 class front_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "front")
     # <front>
-
-class head_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "head")
-    # <head>
 
 class l_(MeiElement):
     def __init__(self):

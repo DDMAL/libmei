@@ -45,3 +45,8 @@ class recording_(MeiElement):
         MeiElement.__init__(self, "recording")
     # <recording>
 
+class when_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "when")
+    # <when>
+

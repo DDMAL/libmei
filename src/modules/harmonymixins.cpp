@@ -62,25 +62,6 @@ mei::HarmVisMixIn::HarmVisMixIn(MeiElement *b) {
 };
 
 mei::HarmVisMixIn::~HarmVisMixIn() {}
-MeiAttribute* mei::HarmVisMixIn::getExtender() {
-    if (!b->hasAttribute("extender")) {
-        return NULL;
-    }
-    return b->getAttribute("extender");
-};
-
-void mei::HarmVisMixIn::setExtender(std::string _extender) {
-    MeiAttribute *a = new MeiAttribute("extender", _extender);
-    b->addAttribute(a);
-};
-
-bool mei::HarmVisMixIn::hasExtender() {
-    return b->hasAttribute("extender");
-};
-
-void mei::HarmVisMixIn::removeExtender() {
-    b->removeAttribute("extender");
-};
 MeiAttribute* mei::HarmVisMixIn::getRendgrid() {
     if (!b->hasAttribute("rendgrid")) {
         return NULL;

@@ -202,27 +202,46 @@ mei::MiditempoMixIn::MiditempoMixIn(MeiElement *b) {
 };
 
 mei::MiditempoMixIn::~MiditempoMixIn() {}
-MeiAttribute* mei::MiditempoMixIn::getMidiTempo() {
-    if (!b->hasAttribute("midi.tempo")) {
+MeiAttribute* mei::MiditempoMixIn::getMidiBpm() {
+    if (!b->hasAttribute("midi.bpm")) {
         return NULL;
     }
-    return b->getAttribute("midi.tempo");
+    return b->getAttribute("midi.bpm");
 };
 
-void mei::MiditempoMixIn::setMidiTempo(std::string _miditempo) {
-    MeiAttribute *a = new MeiAttribute("midi.tempo", _miditempo);
+void mei::MiditempoMixIn::setMidiBpm(std::string _midibpm) {
+    MeiAttribute *a = new MeiAttribute("midi.bpm", _midibpm);
     b->addAttribute(a);
 };
 
-bool mei::MiditempoMixIn::hasMidiTempo() {
-    return b->hasAttribute("midi.tempo");
+bool mei::MiditempoMixIn::hasMidiBpm() {
+    return b->hasAttribute("midi.bpm");
 };
 
-void mei::MiditempoMixIn::removeMidiTempo() {
-    b->removeAttribute("midi.tempo");
+void mei::MiditempoMixIn::removeMidiBpm() {
+    b->removeAttribute("midi.bpm");
+};
+MeiAttribute* mei::MiditempoMixIn::getMidiMspb() {
+    if (!b->hasAttribute("midi.mspb")) {
+        return NULL;
+    }
+    return b->getAttribute("midi.mspb");
 };
 
-/* include <midi.tempomixin> */
+void mei::MiditempoMixIn::setMidiMspb(std::string _midimspb) {
+    MeiAttribute *a = new MeiAttribute("midi.mspb", _midimspb);
+    b->addAttribute(a);
+};
+
+bool mei::MiditempoMixIn::hasMidiMspb() {
+    return b->hasAttribute("midi.mspb");
+};
+
+void mei::MiditempoMixIn::removeMidiMspb() {
+    b->removeAttribute("midi.mspb");
+};
+
+/* include <midi.mspbmixin> */
 mei::MidivalueMixIn::MidivalueMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -249,6 +268,58 @@ void mei::MidivalueMixIn::removeVal() {
 };
 
 /* include <valmixin> */
+mei::Midivalue2MixIn::Midivalue2MixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::Midivalue2MixIn::~Midivalue2MixIn() {}
+MeiAttribute* mei::Midivalue2MixIn::getVal2() {
+    if (!b->hasAttribute("val2")) {
+        return NULL;
+    }
+    return b->getAttribute("val2");
+};
+
+void mei::Midivalue2MixIn::setVal2(std::string _val2) {
+    MeiAttribute *a = new MeiAttribute("val2", _val2);
+    b->addAttribute(a);
+};
+
+bool mei::Midivalue2MixIn::hasVal2() {
+    return b->hasAttribute("val2");
+};
+
+void mei::Midivalue2MixIn::removeVal2() {
+    b->removeAttribute("val2");
+};
+
+/* include <val2mixin> */
+mei::MidivelocityMixIn::MidivelocityMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::MidivelocityMixIn::~MidivelocityMixIn() {}
+MeiAttribute* mei::MidivelocityMixIn::getVel() {
+    if (!b->hasAttribute("vel")) {
+        return NULL;
+    }
+    return b->getAttribute("vel");
+};
+
+void mei::MidivelocityMixIn::setVel(std::string _vel) {
+    MeiAttribute *a = new MeiAttribute("vel", _vel);
+    b->addAttribute(a);
+};
+
+bool mei::MidivelocityMixIn::hasVel() {
+    return b->hasAttribute("vel");
+};
+
+void mei::MidivelocityMixIn::removeVel() {
+    b->removeAttribute("vel");
+};
+
+/* include <velmixin> */
 mei::TimebaseMixIn::TimebaseMixIn(MeiElement *b) {
     this->b = b;
 };

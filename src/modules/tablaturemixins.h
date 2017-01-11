@@ -35,13 +35,13 @@ class NoteGesTablatureMixIn {
     public:
         explicit NoteGesTablatureMixIn(MeiElement *b);
         virtual ~NoteGesTablatureMixIn();
-        /** \brief records the fret at which a string should be stopped.
+        /** \brief Records the fret at which a string should be stopped.
          */
         MeiAttribute* getTabFret();
         void setTabFret(std::string _tabfret);
         bool hasTabFret();
         void removeTabFret();
-        /** \brief records which string is to be played.
+        /** \brief Records which string is to be played.
          */
         MeiAttribute* getTabString();
         void setTabString(std::string _tabstring);
@@ -58,7 +58,7 @@ class StaffDefGesTablatureMixIn {
     public:
         explicit StaffDefGesTablatureMixIn(MeiElement *b);
         virtual ~StaffDefGesTablatureMixIn();
-        /** \brief provides a *written* pitch and octave for each open string.
+        /** \brief Provides a *written* pitch and octave for each open string or course of strings.
          */
         MeiAttribute* getTabStrings();
         void setTabStrings(std::string _tabstrings);
