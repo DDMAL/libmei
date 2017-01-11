@@ -32,7 +32,7 @@
 #include "sharedmixins.h"
 #include "critappmixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
 
 
 namespace mei {
@@ -47,6 +47,7 @@ class MEI_EXPORT App : public MeiElement {
 /* include <app> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         TypedMixIn    m_Typed;
 
     private:
@@ -64,15 +65,17 @@ class MEI_EXPORT Lem : public MeiElement {
 /* include <lem> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CritMixIn    m_Crit;
         HandidentMixIn    m_Handident;
         ResponsibilityMixIn    m_Responsibility;
         SequenceMixIn    m_Sequence;
         SourceMixIn    m_Source;
-        TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Lem);
@@ -89,15 +92,17 @@ class MEI_EXPORT Rdg : public MeiElement {
 /* include <rdg> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CritMixIn    m_Crit;
         HandidentMixIn    m_Handident;
         ResponsibilityMixIn    m_Responsibility;
         SequenceMixIn    m_Sequence;
         SourceMixIn    m_Source;
-        TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Rdg);

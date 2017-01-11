@@ -30,19 +30,13 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "edittransmixins.h"
 #include "critappmixins.h"
+#include "edittransmixins.h"
 #include "frbrmixins.h"
 
 
 namespace mei {
-/** \brief (component group) – The child elements of this element are treated as parts of
- *  the elements header.
- * 
- *  Although this is an implicit way of expressing FRBR's hasPart / isPartOf
- *  -relationships, it avoids this terminology in order to prevent confusion with
- *  musical terminology. All children of a component must be the same type as its
- *  parent: works within work, items in item, etc.
+/** \brief (component group) – Container for components of a bibliographic entity.
  */
 class MEI_EXPORT ComponentGrp : public MeiElement {
     public:
@@ -53,6 +47,7 @@ class MEI_EXPORT ComponentGrp : public MeiElement {
 /* include <componentGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(ComponentGrp);
@@ -70,6 +65,7 @@ class MEI_EXPORT Expression : public MeiElement {
 
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
 
     private:
@@ -87,6 +83,7 @@ class MEI_EXPORT ExpressionList : public MeiElement {
 /* include <expressionList> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(ExpressionList);
@@ -104,8 +101,10 @@ class MEI_EXPORT Item : public MeiElement {
 
         DatapointingMixIn    m_Datapointing;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         BiblMixIn    m_Bibl;
         PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
 
     private:
         REGISTER_DECLARATION(Item);
@@ -122,6 +121,8 @@ class MEI_EXPORT ItemList : public MeiElement {
 /* include <itemList> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(ItemList);
@@ -138,12 +139,15 @@ class MEI_EXPORT Relation : public MeiElement {
 
 /* include <relation> */
 
-        PointingMixIn    m_Pointing;
-        EditMixIn    m_Edit;
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        BiblMixIn    m_Bibl;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
+        PointingMixIn    m_Pointing;
         RelMixIn    m_Rel;
-        CommonMixIn    m_Common;
+        TargetevalMixIn    m_Targeteval;
 
     private:
         REGISTER_DECLARATION(Relation);
@@ -160,6 +164,7 @@ class MEI_EXPORT RelationList : public MeiElement {
 /* include <relationList> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(RelationList);

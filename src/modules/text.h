@@ -48,33 +48,13 @@ class MEI_EXPORT Back : public MeiElement {
 /* include <back> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Back);
-};
-
-/** \brief (division) – Major structural division of text, such as a preface, chapter or
- *  section.
- */
-class MEI_EXPORT Div : public MeiElement {
-    public:
-        Div();
-        Div(const Div& other);
-        virtual ~Div();
-
-/* include <div> */
-
-        CommonMixIn    m_Common;
-        DeclaringMixIn    m_Declaring;
-        FacsimileMixIn    m_Facsimile;
-        LangMixIn    m_Lang;
-        TypedMixIn    m_Typed;
-
-    private:
-        REGISTER_DECLARATION(Div);
 };
 
 /** \brief (front matter) – Bundles prefatory text found before the start of the musical
@@ -89,32 +69,13 @@ class MEI_EXPORT Front : public MeiElement {
 /* include <front> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Front);
-};
-
-/** \brief (heading) – Contains any heading, for example, the title of a section of text,
- *  or the heading of a list.
- */
-class MEI_EXPORT Head : public MeiElement {
-    public:
-        Head();
-        Head(const Head& other);
-        virtual ~Head();
-
-/* include <head> */
-
-        CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-        LangMixIn    m_Lang;
-        XyMixIn    m_Xy;
-
-    private:
-        REGISTER_DECLARATION(Head);
 };
 
 /** \brief (line of text) – Contains a single line of text within a line group.
@@ -128,6 +89,7 @@ class MEI_EXPORT L : public MeiElement {
 /* include <l> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -135,9 +97,9 @@ class MEI_EXPORT L : public MeiElement {
         REGISTER_DECLARATION(L);
 };
 
-/** \brief (line group) – May be used for any section of text that is organized as a group
- *  of lines; however, it is most often used for a group of verse lines functioning
- *  as a formal unit, e.g.
+/** \brief (line group) – May be used for any section of text that is organized as a
+ *  group of lines; however, it is most often used for a group of verse lines
+ *  functioning as a formal unit, e.g.
  * 
  *  a stanza, refrain, verse paragraph, etc.
  */
@@ -150,9 +112,11 @@ class MEI_EXPORT Lg : public MeiElement {
 /* include <lg> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
         XyMixIn    m_Xy;
 
     private:
@@ -170,7 +134,9 @@ class MEI_EXPORT Li : public MeiElement {
 /* include <li> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Li);
@@ -184,28 +150,35 @@ class MEI_EXPORT List : public MeiElement {
         List();
         List(const List& other);
         virtual ~List();
-        /** \brief records the function of the dot.
+        /** \brief Records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
+        /** \brief Characterizes the element in some sense, using any convenient classification
+         *  scheme or typology.
+         */
+        MeiAttribute* getType();
+        void setType(std::string _type);
+        bool hasType();
+        void removeType();
 
 /* include <list> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        TypedMixIn    m_Typed;
         XyMixIn    m_Xy;
 
     private:
         REGISTER_DECLARATION(List);
 };
 
-/** \brief (block quote) – A formatting element that designates an extended quotation; that
- *  is, a passage attributed to a source external to the text and normally set off
- *  from the text by spacing or other typographic distinction.
+/** \brief (block quote) – A formatting element that designates an extended quotation;
+ *  that is, a passage attributed to a source external to the text and normally set
+ *  off from the text by spacing or other typographic distinction.
  */
 class MEI_EXPORT Quote : public MeiElement {
     public:
@@ -216,8 +189,10 @@ class MEI_EXPORT Quote : public MeiElement {
 /* include <quote> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
+        TypedMixIn    m_Typed;
         XyMixIn    m_Xy;
 
     private:

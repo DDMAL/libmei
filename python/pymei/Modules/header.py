@@ -30,11 +30,6 @@ class accessRestrict_(MeiElement):
         MeiElement.__init__(self, "accessRestrict")
     # <accessRestrict>
 
-class acqSource_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "acqSource")
-    # <acqSource>
-
 class altId_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "altId")
@@ -59,6 +54,11 @@ class availability_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "availability")
     # <availability>
+
+class byline_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "byline")
+    # <byline>
 
 class captureMode_(MeiElement):
     def __init__(self):
@@ -135,25 +135,15 @@ class encodingDesc_(MeiElement):
         MeiElement.__init__(self, "encodingDesc")
     # <encodingDesc>
 
-class ensemble_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "ensemble")
-    # <ensemble>
-
-class event_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "event")
-    # <event>
-
-class eventList_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "eventList")
-    # <eventList>
-
 class exhibHist_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "exhibHist")
     # <exhibHist>
+
+class extMeta_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "extMeta")
+    # <extMeta>
 
 class fileChar_(MeiElement):
     def __init__(self):
@@ -199,21 +189,6 @@ class inscription_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "inscription")
     # <inscription>
-
-class instrVoice_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "instrVoice")
-    # <instrVoice>
-
-class instrVoiceGrp_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "instrVoiceGrp")
-    # <instrVoiceGrp>
-
-class instrumentation_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "instrumentation")
-    # <instrumentation>
 
 class interpretation_(MeiElement):
     def __init__(self):
@@ -265,10 +240,25 @@ class otherChar_(MeiElement):
         MeiElement.__init__(self, "otherChar")
     # <otherChar>
 
+class perfDuration_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "perfDuration")
+    # <perfDuration>
+
 class perfMedium_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "perfMedium")
     # <perfMedium>
+
+class perfRes_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "perfRes")
+    # <perfRes>
+
+class perfResList_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "perfResList")
+    # <perfResList>
 
 class physDesc_(MeiElement):
     def __init__(self):
@@ -365,11 +355,6 @@ class sysReq_(MeiElement):
         MeiElement.__init__(self, "sysReq")
     # <sysReq>
 
-class tapeConfig_(MeiElement):
-    def __init__(self):
-        MeiElement.__init__(self, "tapeConfig")
-    # <tapeConfig>
-
 class term_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "term")
@@ -384,6 +369,11 @@ class titleStmt_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "titleStmt")
     # <titleStmt>
+
+class trackConfig_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "trackConfig")
+    # <trackConfig>
 
 class treatHist_(MeiElement):
     def __init__(self):

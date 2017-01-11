@@ -45,15 +45,18 @@ class MEI_EXPORT Ptr : public MeiElement {
 /* include <ptr> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         InternetmediaMixIn    m_Internetmedia;
         PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Ptr);
 };
 
-/** \brief (reference) – Defines a reference to another location that may contain text and
- *  sub-elements to describe the destination.
+/** \brief (reference) – Defines a reference to another location that may contain text
+ *  and sub-elements to describe the destination.
  */
 class MEI_EXPORT Ref : public MeiElement {
     public:
@@ -64,9 +67,12 @@ class MEI_EXPORT Ref : public MeiElement {
 /* include <ref> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         InternetmediaMixIn    m_Internetmedia;
         LangMixIn    m_Lang;
         PointingMixIn    m_Pointing;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Ref);

@@ -30,7 +30,7 @@
 
 #include "meicommon.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
 #include "sharedmixins.h"
 #include "midimixins.h"
 #include <string>
@@ -50,6 +50,7 @@ class MEI_EXPORT Cc : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -67,7 +68,7 @@ class MEI_EXPORT Chan : public MeiElement {
         Chan();
         Chan(const Chan& other);
         virtual ~Chan();
-        /** \brief along with numbase, describes duration as a ratio.
+        /** \brief Along with numbase, describes duration as a ratio.
          * 
          *  num is the first value in the ratio, while numbase is the second.
          */
@@ -81,6 +82,7 @@ class MEI_EXPORT Chan : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -102,6 +104,7 @@ class MEI_EXPORT ChanPr : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -124,6 +127,8 @@ class MEI_EXPORT Cue : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -145,6 +150,7 @@ class MEI_EXPORT Hex : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -164,6 +170,7 @@ class MEI_EXPORT InstrDef : public MeiElement {
 /* include <instrDef> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         ChannelizedMixIn    m_Channelized;
         MidiinstrumentMixIn    m_Midiinstrument;
 
@@ -182,6 +189,7 @@ class MEI_EXPORT InstrGrp : public MeiElement {
 /* include <instrGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(InstrGrp);
@@ -200,6 +208,8 @@ class MEI_EXPORT Marker : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -221,6 +231,8 @@ class MEI_EXPORT MetaText : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -241,6 +253,7 @@ class MEI_EXPORT Midi : public MeiElement {
 /* include <midi> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         CommonAnlMixIn    m_CommonAnl;
@@ -263,6 +276,7 @@ class MEI_EXPORT NoteOff : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -285,6 +299,7 @@ class MEI_EXPORT NoteOn : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -307,6 +322,7 @@ class MEI_EXPORT Port : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -329,6 +345,7 @@ class MEI_EXPORT Prog : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -345,7 +362,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
         SeqNum();
         SeqNum(const SeqNum& other);
         virtual ~SeqNum();
-        /** \brief along with numbase, describes duration as a ratio.
+        /** \brief Along with numbase, describes duration as a ratio.
          * 
          *  num is the first value in the ratio, while numbase is the second.
          */
@@ -359,6 +376,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -380,6 +398,8 @@ class MEI_EXPORT TrkName : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -395,7 +415,7 @@ class MEI_EXPORT Vel : public MeiElement {
         Vel();
         Vel(const Vel& other);
         virtual ~Vel();
-        /** \brief records the function of the dot.
+        /** \brief Records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -407,6 +427,7 @@ class MEI_EXPORT Vel : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         TimestampMusicalMixIn    m_TimestampMusical;

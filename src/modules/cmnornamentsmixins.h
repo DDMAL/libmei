@@ -35,7 +35,7 @@ class MordentLogMixIn {
     public:
         explicit MordentLogMixIn(MeiElement *b);
         virtual ~MordentLogMixIn();
-        /** \brief records the function of the dot.
+        /** \brief Records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -59,7 +59,7 @@ class OrnamMixIn {
     public:
         explicit OrnamMixIn(MeiElement *b);
         virtual ~OrnamMixIn();
-        /** \brief indicates that this element has an attached ornament.
+        /** \brief Indicates that this element has an attached ornament.
          * 
          *  If visual information about the ornament is needed, then one of the elements
          *  that represents an ornament (mordent, trill, or turn) should be employed.
@@ -79,13 +79,13 @@ class OrnamentaccidMixIn {
     public:
         explicit OrnamentaccidMixIn(MeiElement *b);
         virtual ~OrnamentaccidMixIn();
-        /** \brief records the written accidental associated with an upper neighboring note.
+        /** \brief Records the written accidental associated with an upper neighboring note.
          */
         MeiAttribute* getAccidupper();
         void setAccidupper(std::string _accidupper);
         bool hasAccidupper();
         void removeAccidupper();
-        /** \brief records the written accidental associated with a lower neighboring note.
+        /** \brief Records the written accidental associated with a lower neighboring note.
          */
         MeiAttribute* getAccidlower();
         void setAccidlower(std::string _accidlower);
@@ -111,7 +111,7 @@ class TurnLogMixIn {
         void setDelayed(std::string _delayed);
         bool hasDelayed();
         void removeDelayed();
-        /** \brief records the function of the dot.
+        /** \brief Records the appearance and usually the function of the bar line.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);

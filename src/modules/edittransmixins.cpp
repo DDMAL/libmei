@@ -31,47 +31,47 @@ void mei::AgentidentMixIn::removeAgent() {
 };
 
 /* include <agentmixin> */
-mei::EditMixIn::EditMixIn(MeiElement *b) {
+mei::EvidenceMixIn::EvidenceMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::EditMixIn::~EditMixIn() {}
-MeiAttribute* mei::EditMixIn::getCert() {
+mei::EvidenceMixIn::~EvidenceMixIn() {}
+MeiAttribute* mei::EvidenceMixIn::getCert() {
     if (!b->hasAttribute("cert")) {
         return NULL;
     }
     return b->getAttribute("cert");
 };
 
-void mei::EditMixIn::setCert(std::string _cert) {
+void mei::EvidenceMixIn::setCert(std::string _cert) {
     MeiAttribute *a = new MeiAttribute("cert", _cert);
     b->addAttribute(a);
 };
 
-bool mei::EditMixIn::hasCert() {
+bool mei::EvidenceMixIn::hasCert() {
     return b->hasAttribute("cert");
 };
 
-void mei::EditMixIn::removeCert() {
+void mei::EvidenceMixIn::removeCert() {
     b->removeAttribute("cert");
 };
-MeiAttribute* mei::EditMixIn::getEvidence() {
+MeiAttribute* mei::EvidenceMixIn::getEvidence() {
     if (!b->hasAttribute("evidence")) {
         return NULL;
     }
     return b->getAttribute("evidence");
 };
 
-void mei::EditMixIn::setEvidence(std::string _evidence) {
+void mei::EvidenceMixIn::setEvidence(std::string _evidence) {
     MeiAttribute *a = new MeiAttribute("evidence", _evidence);
     b->addAttribute(a);
 };
 
-bool mei::EditMixIn::hasEvidence() {
+bool mei::EvidenceMixIn::hasEvidence() {
     return b->hasAttribute("evidence");
 };
 
-void mei::EditMixIn::removeEvidence() {
+void mei::EvidenceMixIn::removeEvidence() {
     b->removeAttribute("evidence");
 };
 

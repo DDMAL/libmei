@@ -35,13 +35,13 @@ class TabularMixIn {
     public:
         explicit TabularMixIn(MeiElement *b);
         virtual ~TabularMixIn();
-        /** \brief the number of columns spanned by this cell.
+        /** \brief The number of columns spanned by this cell.
          */
         MeiAttribute* getColspan();
         void setColspan(std::string _colspan);
         bool hasColspan();
         void removeColspan();
-        /** \brief the number of rows spanned by this cell.
+        /** \brief The number of rows spanned by this cell.
          */
         MeiAttribute* getRowspan();
         void setRowspan(std::string _rowspan);

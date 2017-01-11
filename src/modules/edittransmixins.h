@@ -35,7 +35,7 @@ class AgentidentMixIn {
     public:
         explicit AgentidentMixIn(MeiElement *b);
         virtual ~AgentidentMixIn();
-        /** \brief signifies the causative agent of damage, illegibility, or other loss of original
+        /** \brief Signifies the causative agent of damage, illegibility, or other loss of original
          *  text.
          */
         MeiAttribute* getAgent();
@@ -49,17 +49,17 @@ class AgentidentMixIn {
         MeiElement *b;
 };
 
-class EditMixIn {
+class EvidenceMixIn {
     public:
-        explicit EditMixIn(MeiElement *b);
-        virtual ~EditMixIn();
-        /** \brief signifies the degree of certainty or precision associated with a feature.
+        explicit EvidenceMixIn(MeiElement *b);
+        virtual ~EvidenceMixIn();
+        /** \brief Signifies the degree of certainty or precision associated with a feature.
          */
         MeiAttribute* getCert();
         void setCert(std::string _cert);
         bool hasCert();
         void removeCert();
-        /** \brief indicates the nature of the evidence supporting the reliability or accuracy of
+        /** \brief Indicates the nature of the evidence supporting the reliability or accuracy of
          *  the intervention or interpretation.
          * 
          *  Suggested values include: 'internal', 'external', 'conjecture'.
@@ -79,7 +79,7 @@ class ExtentMixIn {
     public:
         explicit ExtentMixIn(MeiElement *b);
         virtual ~ExtentMixIn();
-        /** \brief indicates the extent of damage or omission.
+        /** \brief Indicates the extent of damage or omission.
          */
         MeiAttribute* getExtent();
         void setExtent(std::string _extent);
@@ -96,7 +96,7 @@ class ReasonidentMixIn {
     public:
         explicit ReasonidentMixIn(MeiElement *b);
         virtual ~ReasonidentMixIn();
-        /** \brief holds a short phrase describing the reason for missing textual material (gap),
+        /** \brief Holds a short phrase describing the reason for missing textual material (gap),
          *  why material is supplied (supplied), or why transcription is difficult
          *  (unclear).
          */

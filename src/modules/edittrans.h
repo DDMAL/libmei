@@ -30,22 +30,26 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "edittransmixins.h"
 #include "critappmixins.h"
+#include "edittransmixins.h"
 #include "facsimilemixins.h"
+#include "usersymbolsmixins.h"
+#include "externalsymbolsmixins.h"
+#include "analysismixins.h"
+#include "performancemixins.h"
 #include <string>
 
 
 namespace mei {
-/** \brief (abbreviation) – A generic element for 1) a shortened form of a word, including
- *  an acronym or 2) a shorthand notation.
+/** \brief (abbreviation) – A generic element for 1) a shortened form of a word,
+ *  including an acronym or 2) a shorthand notation.
  */
 class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
         Abbr(const Abbr& other);
         virtual ~Abbr();
-        /** \brief records the expansion of a text abbreviation.
+        /** \brief Records the expansion of a text abbreviation.
          */
         MeiAttribute* getExpan();
         void setExpan(std::string _expan);
@@ -55,9 +59,10 @@ class MEI_EXPORT Abbr : public MeiElement {
 /* include <abbr> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
@@ -75,16 +80,25 @@ class MEI_EXPORT Add : public MeiElement {
         Add();
         Add(const Add& other);
         virtual ~Add();
+        /** \brief Indicates the method employed to mark corrections and normalizations.
+         */
+        MeiAttribute* getMethod();
+        void setMethod(std::string _method);
+        bool hasMethod();
+        void removeMethod();
 
 /* include <add> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
+        LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Add);
@@ -101,6 +115,7 @@ class MEI_EXPORT Choice : public MeiElement {
 /* include <choice> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(Choice);
@@ -117,14 +132,64 @@ class MEI_EXPORT Corr : public MeiElement {
 /* include <corr> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
+        LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Corr);
+};
+
+/** \brief (copy/colla parte mark) – A verbal or graphical indication to copy musical
+ *  material written elsewhere.
+ */
+class MEI_EXPORT CpMark : public MeiElement {
+    public:
+        CpMark();
+        CpMark(const CpMark& other);
+        virtual ~CpMark();
+
+/* include <cpMark> */
+
+        CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
+        PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
+        TimestampMusicalMixIn    m_TimestampMusical;
+        TimestampPerformedMixIn    m_TimestampPerformed;
+        StaffidentMixIn    m_Staffident;
+        LayeridentMixIn    m_Layerident;
+        StartendidMixIn    m_Startendid;
+        StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        OriginTimestampMusicalMixIn    m_OriginTimestampMusical;
+        OriginStaffidentMixIn    m_OriginStaffident;
+        OriginLayeridentMixIn    m_OriginLayerident;
+        OriginStartendidMixIn    m_OriginStartendid;
+        OctavedisplacementMixIn    m_Octavedisplacement;
+        AltsymMixIn    m_Altsym;
+        ColorMixIn    m_Color;
+        EnclosingcharsMixIn    m_Enclosingchars;
+        ExtsymMixIn    m_Extsym;
+        PlacementMixIn    m_Placement;
+        TypographyMixIn    m_Typography;
+        VisualoffsetHoMixIn    m_VisualoffsetHo;
+        VisualoffsetToMixIn    m_VisualoffsetTo;
+        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        XyMixIn    m_Xy;
+        DurationPerformedMixIn    m_DurationPerformed;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(CpMark);
 };
 
 /** \brief Contains an area of damage to the physical medium.
@@ -134,7 +199,7 @@ class MEI_EXPORT Damage : public MeiElement {
         Damage();
         Damage(const Damage& other);
         virtual ~Damage();
-        /** \brief records the degree of damage.
+        /** \brief Records the degree of damage.
          */
         MeiAttribute* getDegree();
         void setDegree(std::string _degree);
@@ -145,9 +210,11 @@ class MEI_EXPORT Damage : public MeiElement {
 
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         ExtentMixIn    m_Extent;
         FacsimileMixIn    m_Facsimile;
         HandidentMixIn    m_Handident;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
@@ -163,7 +230,7 @@ class MEI_EXPORT Del : public MeiElement {
         Del();
         Del(const Del& other);
         virtual ~Del();
-        /** \brief records the appearance and usually the function of the bar line.
+        /** \brief Captures the appearance of the element's contents using MEI-defined descriptors.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -173,9 +240,12 @@ class MEI_EXPORT Del : public MeiElement {
 /* include <del> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Del);
@@ -188,7 +258,7 @@ class MEI_EXPORT Expan : public MeiElement {
         Expan();
         Expan(const Expan& other);
         virtual ~Expan();
-        /** \brief captures the unabbreviated form of the text.
+        /** \brief Captures the abbreviated form of the text.
          */
         MeiAttribute* getAbbr();
         void setAbbr(std::string _abbr);
@@ -198,9 +268,10 @@ class MEI_EXPORT Expan : public MeiElement {
 /* include <expan> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
@@ -223,9 +294,10 @@ class MEI_EXPORT Gap : public MeiElement {
 /* include <gap> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         ExtentMixIn    m_Extent;
         HandidentMixIn    m_Handident;
         ReasonidentMixIn    m_Reasonident;
@@ -243,13 +315,13 @@ class MEI_EXPORT HandShift : public MeiElement {
         HandShift();
         HandShift(const HandShift& other);
         virtual ~HandShift();
-        /** \brief describes the character of the new hand.
+        /** \brief Describes the character of the new hand.
          */
         MeiAttribute* getCharacter();
         void setCharacter(std::string _character);
         bool hasCharacter();
         void removeCharacter();
-        /** \brief identifies the new hand.
+        /** \brief Identifies the new hand.
          * 
          *  The value must contain the ID of a hand element given elsewhere in the document.
          */
@@ -257,7 +329,7 @@ class MEI_EXPORT HandShift : public MeiElement {
         void setNew(std::string _new);
         bool hasNew();
         void removeNew();
-        /** \brief identifies the old hand.
+        /** \brief Identifies the old hand.
          * 
          *  The value must contain the ID of a hand element given elsewhere in the document.
          */
@@ -269,9 +341,10 @@ class MEI_EXPORT HandShift : public MeiElement {
 /* include <handShift> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         MediumMixIn    m_Medium;
 
@@ -279,8 +352,8 @@ class MEI_EXPORT HandShift : public MeiElement {
         REGISTER_DECLARATION(HandShift);
 };
 
-/** \brief (original) – Contains material which is marked as following the original, rather
- *  than being normalized or corrected.
+/** \brief (original) – Contains material which is marked as following the original,
+ *  rather than being normalized or corrected.
  */
 class MEI_EXPORT Orig : public MeiElement {
     public:
@@ -291,18 +364,20 @@ class MEI_EXPORT Orig : public MeiElement {
 /* include <orig> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Orig);
 };
 
-/** \brief (regularization) – Contains material which has been regularized or normalized in
- *  some sense.
+/** \brief (regularization) – Contains material which has been regularized or normalized
+ *  in some sense.
  */
 class MEI_EXPORT Reg : public MeiElement {
     public:
@@ -313,10 +388,12 @@ class MEI_EXPORT Reg : public MeiElement {
 /* include <reg> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         AuthorizedMixIn    m_Authorized;
-        EditMixIn    m_Edit;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Reg);
@@ -330,7 +407,8 @@ class MEI_EXPORT Restore : public MeiElement {
         Restore();
         Restore(const Restore& other);
         virtual ~Restore();
-        /** \brief provides a description of the means of restoration.
+        /** \brief Provides a description of the means of restoration, 'stet' or 'strike-down', for
+         *  example.
          */
         MeiAttribute* getDesc();
         void setDesc(std::string _desc);
@@ -340,10 +418,12 @@ class MEI_EXPORT Restore : public MeiElement {
 /* include <restore> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
         TypedMixIn    m_Typed;
@@ -363,7 +443,9 @@ class MEI_EXPORT Sic : public MeiElement {
 /* include <sic> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Sic);
@@ -381,9 +463,10 @@ class MEI_EXPORT Subst : public MeiElement {
 /* include <subst> */
 
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
 
@@ -391,9 +474,7 @@ class MEI_EXPORT Subst : public MeiElement {
         REGISTER_DECLARATION(Subst);
 };
 
-/** \brief Contains material supplied by the transcriber or editor in place of text which
- *  cannot be read, either because of physical damage or loss in the original or
- *  because it is illegible for any reason.
+/** \brief Contains material supplied by the transcriber or editor for any reason.
  */
 class MEI_EXPORT Supplied : public MeiElement {
     public:
@@ -405,10 +486,12 @@ class MEI_EXPORT Supplied : public MeiElement {
 
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         ReasonidentMixIn    m_Reasonident;
 
     private:
@@ -428,11 +511,13 @@ class MEI_EXPORT Unclear : public MeiElement {
 
         AgentidentMixIn    m_Agentident;
         CommonMixIn    m_Common;
-        EditMixIn    m_Edit;
+        CommonPartMixIn    m_CommonPart;
         ResponsibilityMixIn    m_Responsibility;
         SourceMixIn    m_Source;
+        EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
         HandidentMixIn    m_Handident;
+        LangMixIn    m_Lang;
         ReasonidentMixIn    m_Reasonident;
 
     private:

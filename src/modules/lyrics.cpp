@@ -8,6 +8,7 @@ using mei::MeiAttribute;
 mei::Lyrics::Lyrics() :
     MeiElement("lyrics"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Staffident(this),
@@ -23,6 +24,7 @@ mei::Lyrics::~Lyrics() {}
 mei::Lyrics::Lyrics(const Lyrics& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
     m_Staffident(this),
@@ -39,9 +41,11 @@ mei::Lyrics::Lyrics(const Lyrics& other) :
 mei::Verse::Verse() :
     MeiElement("verse"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
     m_VerseLog(this),
+    m_Color(this),
     m_Typography(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
@@ -55,9 +59,11 @@ mei::Verse::~Verse() {}
 mei::Verse::Verse(const Verse& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
     m_VerseLog(this),
+    m_Color(this),
     m_Typography(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),

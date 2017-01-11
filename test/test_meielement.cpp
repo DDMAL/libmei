@@ -504,14 +504,14 @@ TEST(TestMeiElement, GetPositionInDocument) {
 
 TEST(TestMeiElement, CopyConstructor) {
     Note *n1 = new Note();
-    n1->m_NoteVis.setHeadshape("diamond");
+    n1->m_Noteheads.setHeadShape("diamond");
     n1->m_Pitch.setPname("c");
 
     Note *n2 = new Note(*n1);
 
     ASSERT_NE(n1->getId(),n2->getId());
     ASSERT_EQ(n1->getAttributes().size(), n2->getAttributes().size());
-    ASSERT_EQ("diamond", n2->m_NoteVis.getHeadshape()->getValue());
+    ASSERT_EQ("diamond", n2->m_Noteheads.getHeadShape()->getValue());
     ASSERT_EQ("c", n2->m_Pitch.getPname()->getValue());
 
     n2->m_Pitch.setPname("a");
@@ -567,7 +567,7 @@ TEST(TestMeiElement, TestPrintElement) {
     staff->addChild(note);
     staff->addChild(note2);
     
-    note->m_NoteVis.setHeadshape("diamond");
+    note->m_Noteheads.setHeadShape("diamond");
     note->m_Pitch.setPname("c");
 
     note2->m_Pitch.setPname("d");

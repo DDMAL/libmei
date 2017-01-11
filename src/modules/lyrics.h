@@ -32,7 +32,7 @@
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
+#include "performancemixins.h"
 #include "lyricsmixins.h"
 
 
@@ -48,6 +48,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
 /* include <lyrics> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
@@ -72,9 +73,11 @@ class MEI_EXPORT Verse : public MeiElement {
 /* include <verse> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         VerseLogMixIn    m_VerseLog;
+        ColorMixIn    m_Color;
         TypographyMixIn    m_Typography;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;

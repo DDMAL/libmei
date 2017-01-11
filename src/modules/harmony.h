@@ -32,8 +32,9 @@
 #include "sharedmixins.h"
 #include "harmonymixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
 #include "facsimilemixins.h"
+#include "performancemixins.h"
+#include "usersymbolsmixins.h"
 #include <string>
 
 
@@ -49,6 +50,7 @@ class MEI_EXPORT Barre : public MeiElement {
 /* include <barre> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FretlocationMixIn    m_Fretlocation;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
@@ -64,7 +66,7 @@ class MEI_EXPORT ChordDef : public MeiElement {
         ChordDef();
         ChordDef(const ChordDef& other);
         virtual ~ChordDef();
-        /** \brief records the fret position at which the chord tablature is to be played.
+        /** \brief Records the fret position at which the chord tablature is to be played.
          */
         MeiAttribute* getPos();
         void setPos(std::string _pos);
@@ -74,6 +76,7 @@ class MEI_EXPORT ChordDef : public MeiElement {
 /* include <chordDef> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(ChordDef);
@@ -86,7 +89,7 @@ class MEI_EXPORT ChordMember : public MeiElement {
         ChordMember();
         ChordMember(const ChordMember& other);
         virtual ~ChordMember();
-        /** \brief indicates which finger, if any, should be used to play an individual string.
+        /** \brief Indicates which finger, if any, should be used to play an individual string.
          * 
          *  The index, middle, ring, and little fingers are represented by the values 1-4,
          *  while 't' is for the thumb. The values 'x' and 'o' indicate muffled and open
@@ -100,6 +103,7 @@ class MEI_EXPORT ChordMember : public MeiElement {
 /* include <chordMember> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         AccidentalPerformedMixIn    m_AccidentalPerformed;
         FretlocationMixIn    m_Fretlocation;
         IntervalharmonicMixIn    m_Intervalharmonic;
@@ -121,6 +125,7 @@ class MEI_EXPORT ChordTable : public MeiElement {
 /* include <chordTable> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(ChordTable);
@@ -133,22 +138,35 @@ class MEI_EXPORT F : public MeiElement {
         F();
         F(const F& other);
         virtual ~F();
-        /** \brief indicates the presence of an extension symbol, typically a dash or underscore,
-         *  drawn from the end of the harmonic indication to the point indicated by the dur
-         *  attribute.
-         */
-        MeiAttribute* getExtender();
-        void setExtender(std::string _extender);
-        bool hasExtender();
-        void removeExtender();
 
 /* include <f> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
+        FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        DurationPerformedMixIn    m_DurationPerformed;
+        PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
+        TimestampMusicalMixIn    m_TimestampMusical;
+        TimestampPerformedMixIn    m_TimestampPerformed;
+        StaffidentMixIn    m_Staffident;
+        LayeridentMixIn    m_Layerident;
+        AugmentdotsMixIn    m_Augmentdots;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        StartendidMixIn    m_Startendid;
+        StartidMixIn    m_Startid;
+        Timestamp2MusicalMixIn    m_Timestamp2Musical;
         AltsymMixIn    m_Altsym;
-        FacsimileMixIn    m_Facsimile;
+        ExtenderMixIn    m_Extender;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
+        PlacementMixIn    m_Placement;
+        VisualoffsetHoMixIn    m_VisualoffsetHo;
+        VisualoffsetToMixIn    m_VisualoffsetTo;
+        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        XyMixIn    m_Xy;
 
     private:
         REGISTER_DECLARATION(F);
@@ -168,6 +186,7 @@ class MEI_EXPORT Fb : public MeiElement {
 /* include <fb> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         FacsimileMixIn    m_Facsimile;
@@ -188,9 +207,11 @@ class MEI_EXPORT Harm : public MeiElement {
 /* include <harm> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         HarmLogMixIn    m_HarmLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -201,6 +222,9 @@ class MEI_EXPORT Harm : public MeiElement {
         StartidMixIn    m_Startid;
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
         HarmVisMixIn    m_HarmVis;
+        ExtenderMixIn    m_Extender;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -211,6 +235,8 @@ class MEI_EXPORT Harm : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        IntervalharmonicMixIn    m_Intervalharmonic;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Harm);

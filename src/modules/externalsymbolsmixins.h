@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef FRBRMIXIN_H_
-#define FRBRMIXIN_H_
+#ifndef EXTERNALSYMBOLSMIXIN_H_
+#define EXTERNALSYMBOLSMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,26 +31,29 @@
 #include <string>
 
 namespace mei {
-class RelMixIn {
+class ExtsymMixIn {
     public:
-        explicit RelMixIn(MeiElement *b);
-        virtual ~RelMixIn();
-        /** \brief Describes the relationship between the <relatedItem> and the resource described
-         *  in the parent element, i.e., <bibl>, <source> or <relatedItem>.
-         * 
-         *  The values are based on MODS version 3.4. The subject of these relations is
-         *  always the <relatedItem>, and the object is always the parent of the
-         *  <relatedItem>. "preceding" and "succeeding" indicate temporal order.
+        explicit ExtsymMixIn(MeiElement *b);
+        virtual ~ExtsymMixIn();
+        /** \brief Glyph name.
          */
-        MeiAttribute* getRel();
-        void setRel(std::string _rel);
-        bool hasRel();
-        void removeRel();
+        MeiAttribute* getGlyphname();
+        void setGlyphname(std::string _glyphname);
+        bool hasGlyphname();
+        void removeGlyphname();
+        /** \brief Numeric glyph reference in hexadecimal notation, e.g.
+         * 
+         *  "#xE000" or "U+E000". N.B. SMuFL version 1.18 uses the range U+E000 - U+ECBF.
+         */
+        MeiAttribute* getGlyphnum();
+        void setGlyphnum(std::string _glyphnum);
+        bool hasGlyphnum();
+        void removeGlyphnum();
 
-/* include <relmixin> */
+/* include <glyphnummixin> */
 
     private:
         MeiElement *b;
 };
 }
-#endif  // FRBRMIXIN_H_
+#endif  // EXTERNALSYMBOLSMIXIN_H_

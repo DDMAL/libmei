@@ -8,6 +8,7 @@ using mei::MeiAttribute;
 mei::Back::Back() :
     MeiElement("back"),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this)
@@ -18,6 +19,7 @@ mei::Back::~Back() {}
 mei::Back::Back(const Back& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this)
@@ -26,32 +28,10 @@ mei::Back::Back(const Back& other) :
 
 /* include <back> */
 
-mei::Div::Div() :
-    MeiElement("div"),
-    m_Common(this),
-    m_Declaring(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Typed(this)
-{
-}
-REGISTER_DEFINITION(mei::Div, "div");
-mei::Div::~Div() {}
-mei::Div::Div(const Div& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Declaring(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Typed(this)
-{
-}
-
-/* include <div> */
-
 mei::Front::Front() :
     MeiElement("front"),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this)
@@ -62,6 +42,7 @@ mei::Front::~Front() {}
 mei::Front::Front(const Front& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this)
@@ -70,30 +51,10 @@ mei::Front::Front(const Front& other) :
 
 /* include <front> */
 
-mei::Head::Head() :
-    MeiElement("head"),
-    m_Common(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Xy(this)
-{
-}
-REGISTER_DEFINITION(mei::Head, "head");
-mei::Head::~Head() {}
-mei::Head::Head(const Head& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Xy(this)
-{
-}
-
-/* include <head> */
-
 mei::L::L() :
     MeiElement("l"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this)
 {
@@ -103,6 +64,7 @@ mei::L::~L() {}
 mei::L::L(const L& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this)
 {
@@ -113,9 +75,11 @@ mei::L::L(const L& other) :
 mei::Lg::Lg() :
     MeiElement("lg"),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -124,9 +88,11 @@ mei::Lg::~Lg() {}
 mei::Lg::Lg(const Lg& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Declaring(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -136,7 +102,9 @@ mei::Lg::Lg(const Lg& other) :
 mei::Li::Li() :
     MeiElement("li"),
     m_Common(this),
-    m_Facsimile(this)
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Lang(this)
 {
 }
 REGISTER_DEFINITION(mei::Li, "li");
@@ -144,7 +112,9 @@ mei::Li::~Li() {}
 mei::Li::Li(const Li& other) :
     MeiElement(other),
     m_Common(this),
-    m_Facsimile(this)
+    m_CommonPart(this),
+    m_Facsimile(this),
+    m_Lang(this)
 {
 }
 
@@ -153,9 +123,9 @@ mei::Li::Li(const Li& other) :
 mei::List::List() :
     MeiElement("list"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -164,9 +134,9 @@ mei::List::~List() {}
 mei::List::List(const List& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -190,13 +160,34 @@ bool mei::List::hasForm() {
 void mei::List::removeForm() {
     removeAttribute("form");
 };
+MeiAttribute* mei::List::getType() {
+    if (!hasAttribute("type")) {
+        return NULL;
+    }
+    return getAttribute("type");
+};
+
+void mei::List::setType(std::string _type) {
+    MeiAttribute *a = new MeiAttribute("type", _type);
+    addAttribute(a);
+};
+
+bool mei::List::hasType() {
+    return hasAttribute("type");
+};
+
+void mei::List::removeType() {
+    removeAttribute("type");
+};
 /* include <list> */
 
 mei::Quote::Quote() :
     MeiElement("quote"),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }
@@ -205,8 +196,10 @@ mei::Quote::~Quote() {}
 mei::Quote::Quote(const Quote& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Facsimile(this),
     m_Lang(this),
+    m_Typed(this),
     m_Xy(this)
 {
 }

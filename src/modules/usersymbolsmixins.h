@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef LINKALIGNMIXIN_H_
-#define LINKALIGNMIXIN_H_
+#ifndef USERSYMBOLSMIXIN_H_
+#define USERSYMBOLSMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,23 +31,23 @@
 #include <string>
 
 namespace mei {
-class AlignmentMixIn {
+class AltsymMixIn {
     public:
-        explicit AlignmentMixIn(MeiElement *b);
-        virtual ~AlignmentMixIn();
-        /** \brief indicates the point of occurrence of this feature along a time line.
+        explicit AltsymMixIn(MeiElement *b);
+        virtual ~AltsymMixIn();
+        /** \brief Provides a way of pointing to a user-defined symbol.
          * 
-         *  Its value must be the ID of a <when> element.
+         *  It must contain an ID of a <symbolDef> element elsewhere in the document.
          */
-        MeiAttribute* getWhen();
-        void setWhen(std::string _when);
-        bool hasWhen();
-        void removeWhen();
+        MeiAttribute* getAltsym();
+        void setAltsym(std::string _altsym);
+        bool hasAltsym();
+        void removeAltsym();
 
-/* include <whenmixin> */
+/* include <altsymmixin> */
 
     private:
         MeiElement *b;
 };
 }
-#endif  // LINKALIGNMIXIN_H_
+#endif  // USERSYMBOLSMIXIN_H_

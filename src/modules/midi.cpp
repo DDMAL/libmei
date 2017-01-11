@@ -10,6 +10,7 @@ mei::Cc::Cc() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -24,6 +25,7 @@ mei::Cc::Cc(const Cc& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -39,6 +41,7 @@ mei::Chan::Chan() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -51,6 +54,7 @@ mei::Chan::Chan(const Chan& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -83,6 +87,7 @@ mei::ChanPr::ChanPr() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -96,6 +101,7 @@ mei::ChanPr::ChanPr(const ChanPr& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -110,6 +116,8 @@ mei::Cue::Cue() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -122,6 +130,8 @@ mei::Cue::Cue(const Cue& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -135,6 +145,7 @@ mei::Hex::Hex() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -147,6 +158,7 @@ mei::Hex::Hex(const Hex& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -158,6 +170,7 @@ mei::Hex::Hex(const Hex& other) :
 mei::InstrDef::InstrDef() :
     MeiElement("instrDef"),
     m_Common(this),
+    m_CommonPart(this),
     m_Channelized(this),
     m_Midiinstrument(this)
 {
@@ -167,6 +180,7 @@ mei::InstrDef::~InstrDef() {}
 mei::InstrDef::InstrDef(const InstrDef& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Channelized(this),
     m_Midiinstrument(this)
 {
@@ -176,14 +190,16 @@ mei::InstrDef::InstrDef(const InstrDef& other) :
 
 mei::InstrGrp::InstrGrp() :
     MeiElement("instrGrp"),
-    m_Common(this)
+    m_Common(this),
+    m_CommonPart(this)
 {
 }
 REGISTER_DEFINITION(mei::InstrGrp, "instrGrp");
 mei::InstrGrp::~InstrGrp() {}
 mei::InstrGrp::InstrGrp(const InstrGrp& other) :
     MeiElement(other),
-    m_Common(this)
+    m_Common(this),
+    m_CommonPart(this)
 {
 }
 
@@ -194,6 +210,8 @@ mei::Marker::Marker() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -206,6 +224,8 @@ mei::Marker::Marker(const Marker& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -219,6 +239,8 @@ mei::MetaText::MetaText() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -231,6 +253,8 @@ mei::MetaText::MetaText(const MetaText& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -242,6 +266,7 @@ mei::MetaText::MetaText(const MetaText& other) :
 mei::Midi::Midi() :
     MeiElement("midi"),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_CommonAnl(this),
@@ -253,6 +278,7 @@ mei::Midi::~Midi() {}
 mei::Midi::Midi(const Midi& other) :
     MeiElement(other),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_CommonAnl(this),
@@ -267,6 +293,7 @@ mei::NoteOff::NoteOff() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -280,6 +307,7 @@ mei::NoteOff::NoteOff(const NoteOff& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -294,6 +322,7 @@ mei::NoteOn::NoteOn() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -307,6 +336,7 @@ mei::NoteOn::NoteOn(const NoteOn& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -321,6 +351,7 @@ mei::Port::Port() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -334,6 +365,7 @@ mei::Port::Port(const Port& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -348,6 +380,7 @@ mei::Prog::Prog() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -361,6 +394,7 @@ mei::Prog::Prog(const Prog& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -375,6 +409,7 @@ mei::SeqNum::SeqNum() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -387,6 +422,7 @@ mei::SeqNum::SeqNum(const SeqNum& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -419,6 +455,8 @@ mei::TrkName::TrkName() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -431,6 +469,8 @@ mei::TrkName::TrkName(const TrkName& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
+    m_Lang(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this)
@@ -444,6 +484,7 @@ mei::Vel::Vel() :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),
@@ -457,6 +498,7 @@ mei::Vel::Vel(const Vel& other) :
     m_CommonAnl(this),
     m_Alignment(this),
     m_Common(this),
+    m_CommonPart(this),
     m_Staffident(this),
     m_Layerident(this),
     m_TimestampMusical(this),

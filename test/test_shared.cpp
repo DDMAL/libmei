@@ -47,15 +47,15 @@ TEST(TestMeiShared, NoteDefinedBaseMethodsTest) {
     //test the interaction between the defined methods and the base methods.
     Note * n = new Note();
     
-    ASSERT_FALSE(n->hasAttribute("headshape"));
+    ASSERT_FALSE(n->hasAttribute("head.shape"));
     
-    n->m_NoteVis.setHeadshape("diamond");
+    n->m_Noteheads.setHeadShape("diamond");
     
-    ASSERT_TRUE(n->hasAttribute("headshape"));
+    ASSERT_TRUE(n->hasAttribute("head.shape"));
     
-    n->removeAttribute("headshape");
+    n->removeAttribute("head.shape");
     
-    ASSERT_FALSE(n->m_NoteVis.hasHeadshape());
+    ASSERT_FALSE(n->m_Noteheads.hasHeadShape());
 }
 
 TEST(TestMeiShared, NoteMixinMethodsTest) {

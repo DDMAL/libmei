@@ -32,9 +32,11 @@
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "cmnmixins.h"
+#include "usersymbolsmixins.h"
+#include "externalsymbolsmixins.h"
 #include "analysismixins.h"
-#include "linkalignmixins.h"
-#include <string>
+#include "performancemixins.h"
+#include "midimixins.h"
 
 
 namespace mei {
@@ -52,21 +54,28 @@ class MEI_EXPORT Arpeg : public MeiElement {
 /* include <arpeg> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         ArpegLogMixIn    m_ArpegLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
+        StartidMixIn    m_Startid;
         ArpegVisMixIn    m_ArpegVis;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Arpeg);
@@ -83,6 +92,7 @@ class MEI_EXPORT BTrem : public MeiElement {
 /* include <bTrem> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         BTremLogMixIn    m_BTremLog;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -113,6 +123,7 @@ class MEI_EXPORT Beam : public MeiElement {
 /* include <beam> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -140,8 +151,10 @@ class MEI_EXPORT BeamSpan : public MeiElement {
 /* include <beamSpan> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -157,6 +170,7 @@ class MEI_EXPORT BeamSpan : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(BeamSpan);
@@ -174,7 +188,9 @@ class MEI_EXPORT BeatRpt : public MeiElement {
 /* include <beatRpt> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        BeatRptLogMixIn    m_BeatRptLog;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -183,8 +199,12 @@ class MEI_EXPORT BeatRpt : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ExpandableMixIn    m_Expandable;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
 
     private:
         REGISTER_DECLARATION(BeatRpt);
@@ -202,8 +222,10 @@ class MEI_EXPORT Bend : public MeiElement {
 /* include <bend> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -227,13 +249,14 @@ class MEI_EXPORT Bend : public MeiElement {
         BendGesMixIn    m_BendGes;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Bend);
 };
 
-/** \brief (breath mark) – A indication of a point at which the performer on an instrument
- *  requiring breath (including the voice) may breathe.
+/** \brief (breath mark) – A indication of a point at which the performer on an
+ *  instrument requiring breath (including the voice) may breathe.
  */
 class MEI_EXPORT Breath : public MeiElement {
     public:
@@ -244,8 +267,10 @@ class MEI_EXPORT Breath : public MeiElement {
 /* include <breath> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -257,13 +282,16 @@ class MEI_EXPORT Breath : public MeiElement {
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         PlacementMixIn    m_Placement;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Breath);
@@ -282,6 +310,7 @@ class MEI_EXPORT FTrem : public MeiElement {
 /* include <fTrem> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         FTremLogMixIn    m_FTremLog;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -314,8 +343,10 @@ class MEI_EXPORT Fermata : public MeiElement {
 /* include <fermata> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -325,7 +356,9 @@ class MEI_EXPORT Fermata : public MeiElement {
         FermataVisMixIn    m_FermataVis;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         PlacementMixIn    m_Placement;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -333,6 +366,7 @@ class MEI_EXPORT Fermata : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Fermata);
@@ -350,8 +384,10 @@ class MEI_EXPORT Gliss : public MeiElement {
 /* include <gliss> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -361,8 +397,10 @@ class MEI_EXPORT Gliss : public MeiElement {
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
-        GlissVisMixIn    m_GlissVis;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -372,9 +410,11 @@ class MEI_EXPORT Gliss : public MeiElement {
         XyMixIn    m_Xy;
         Xy2MixIn    m_Xy2;
         LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Gliss);
@@ -394,9 +434,11 @@ class MEI_EXPORT Hairpin : public MeiElement {
 /* include <hairpin> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         HairpinLogMixIn    m_HairpinLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -408,6 +450,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
         HairpinVisMixIn    m_HairpinVis;
         ColorMixIn    m_Color;
+        LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -418,8 +461,11 @@ class MEI_EXPORT Hairpin : public MeiElement {
         XyMixIn    m_Xy;
         Xy2MixIn    m_Xy2;
         DurationPerformedMixIn    m_DurationPerformed;
+        MidivalueMixIn    m_Midivalue;
+        Midivalue2MixIn    m_Midivalue2;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Hairpin);
@@ -436,6 +482,7 @@ class MEI_EXPORT HalfmRpt : public MeiElement {
 /* include <halfmRpt> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -445,6 +492,8 @@ class MEI_EXPORT HalfmRpt : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ExpandableMixIn    m_Expandable;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -466,17 +515,22 @@ class MEI_EXPORT HarpPedal : public MeiElement {
 /* include <harpPedal> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         HarpPedalLogMixIn    m_HarpPedalLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
         PlacementMixIn    m_Placement;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -484,6 +538,7 @@ class MEI_EXPORT HarpPedal : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(HarpPedal);
@@ -500,6 +555,7 @@ class MEI_EXPORT MRest : public MeiElement {
 /* include <mRest> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         DurationMusicalMixIn    m_DurationMusical;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -509,9 +565,11 @@ class MEI_EXPORT MRest : public MeiElement {
         FermatapresentMixIn    m_Fermatapresent;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
+        ExtsymMixIn    m_Extsym;
         RelativesizeMixIn    m_Relativesize;
         StafflocMixIn    m_Staffloc;
         StafflocPitchedMixIn    m_StafflocPitched;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
@@ -537,6 +595,7 @@ class MEI_EXPORT MRpt : public MeiElement {
 /* include <mRpt> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -545,6 +604,8 @@ class MEI_EXPORT MRpt : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ExpandableMixIn    m_Expandable;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -564,6 +625,7 @@ class MEI_EXPORT MRpt2 : public MeiElement {
 /* include <mRpt2> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -572,6 +634,8 @@ class MEI_EXPORT MRpt2 : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         ExpandableMixIn    m_Expandable;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -590,6 +654,7 @@ class MEI_EXPORT MSpace : public MeiElement {
 /* include <mSpace> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         AugmentdotsMixIn    m_Augmentdots;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -613,7 +678,7 @@ class MEI_EXPORT MSpace : public MeiElement {
 
 /** \brief Unit of musical time consisting of a fixed number of note-values of a given
  *  type, as determined by the prevailing meter, and delimited in musical notation
- *  by two bar lines.
+ *  by bar lines.
  */
 class MEI_EXPORT Measure : public MeiElement {
     public:
@@ -624,9 +689,9 @@ class MEI_EXPORT Measure : public MeiElement {
 /* include <measure> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
         FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
         PointingMixIn    m_Pointing;
         MeasureLogMixIn    m_MeasureLog;
         MeterconformanceBarMixIn    m_MeterconformanceBar;
@@ -637,6 +702,8 @@ class MEI_EXPORT Measure : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         JoinedMixIn    m_Joined;
+        TargetevalMixIn    m_Targeteval;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Measure);
@@ -653,37 +720,37 @@ class MEI_EXPORT MeterSig : public MeiElement {
 /* include <meterSig> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         MeterSigLogMixIn    m_MeterSigLog;
         MeterSigVisMixIn    m_MeterSigVis;
+        AltsymMixIn    m_Altsym;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
 
     private:
         REGISTER_DECLARATION(MeterSig);
 };
 
-/** \brief (meter signature group) – Used to capture alternating, interchanging, and mixed
- *  meter signatures.
+/** \brief (meter signature group) – Used to capture alternating, interchanging, and
+ *  mixed meter signatures.
  */
 class MEI_EXPORT MeterSigGrp : public MeiElement {
     public:
         MeterSigGrp();
         MeterSigGrp(const MeterSigGrp& other);
         virtual ~MeterSigGrp();
-        /** \brief records the function of an accidental.
-         */
-        MeiAttribute* getFunc();
-        void setFunc(std::string _func);
-        bool hasFunc();
-        void removeFunc();
 
 /* include <meterSigGrp> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        MeterSigGrpLogMixIn    m_MeterSigGrpLog;
 
     private:
         REGISTER_DECLARATION(MeterSigGrp);
@@ -701,6 +768,7 @@ class MEI_EXPORT MultiRest : public MeiElement {
 /* include <multiRest> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -709,8 +777,10 @@ class MEI_EXPORT MultiRest : public MeiElement {
         NumberedMixIn    m_Numbered;
         MultiRestVisMixIn    m_MultiRestVis;
         AltsymMixIn    m_Altsym;
+        ExtsymMixIn    m_Extsym;
         StafflocMixIn    m_Staffloc;
         StafflocPitchedMixIn    m_StafflocPitched;
+        TypographyMixIn    m_Typography;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         CommonAnlMixIn    m_CommonAnl;
@@ -731,6 +801,7 @@ class MEI_EXPORT MultiRpt : public MeiElement {
 /* include <multiRpt> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -739,6 +810,8 @@ class MEI_EXPORT MultiRpt : public MeiElement {
         NumberedMixIn    m_Numbered;
         AltsymMixIn    m_Altsym;
         ExpandableMixIn    m_Expandable;
+        ExtsymMixIn    m_Extsym;
+        TypographyMixIn    m_Typography;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -758,9 +831,11 @@ class MEI_EXPORT Octave : public MeiElement {
 /* include <octave> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         OctaveLogMixIn    m_OctaveLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -771,22 +846,26 @@ class MEI_EXPORT Octave : public MeiElement {
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         Timestamp2MusicalMixIn    m_Timestamp2Musical;
-        XyMixIn    m_Xy;
+        ColorMixIn    m_Color;
+        ExtenderMixIn    m_Extender;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         Visualoffset2HoMixIn    m_Visualoffset2Ho;
         Visualoffset2ToMixIn    m_Visualoffset2To;
-        LinerendMixIn    m_Linerend;
+        XyMixIn    m_Xy;
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Octave);
 };
 
-/** \brief An alternate notational version *present in the source being transcribed*.
+/** \brief An alternate notational version
  */
 class MEI_EXPORT Ossia : public MeiElement {
     public:
@@ -797,6 +876,7 @@ class MEI_EXPORT Ossia : public MeiElement {
 /* include <ossia> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
@@ -816,9 +896,11 @@ class MEI_EXPORT Pedal : public MeiElement {
 /* include <pedal> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PedalLogMixIn    m_PedalLog;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -826,14 +908,20 @@ class MEI_EXPORT Pedal : public MeiElement {
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
         PedalVisMixIn    m_PedalVis;
+        AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        ExtsymMixIn    m_Extsym;
+        LinerendMixIn    m_Linerend;
+        LinerendBaseMixIn    m_LinerendBase;
         PlacementMixIn    m_Placement;
-        XyMixIn    m_Xy;
+        TypographyMixIn    m_Typography;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
+        XyMixIn    m_Xy;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Pedal);
@@ -851,7 +939,9 @@ class MEI_EXPORT Reh : public MeiElement {
 /* include <reh> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
         StaffidentMixIn    m_Staffident;
         StartidMixIn    m_Startid;
         TimestampMusicalMixIn    m_TimestampMusical;
@@ -865,6 +955,7 @@ class MEI_EXPORT Reh : public MeiElement {
         XyMixIn    m_Xy;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Reh);
@@ -881,9 +972,10 @@ class MEI_EXPORT Slur : public MeiElement {
 /* include <slur> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -908,6 +1000,7 @@ class MEI_EXPORT Slur : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         JoinedMixIn    m_Joined;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Slur);
@@ -925,9 +1018,10 @@ class MEI_EXPORT Tie : public MeiElement {
 /* include <tie> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
-        TypedMixIn    m_Typed;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -948,6 +1042,7 @@ class MEI_EXPORT Tie : public MeiElement {
         CurverendMixIn    m_Curverend;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Tie);
@@ -966,6 +1061,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
 /* include <tuplet> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
@@ -988,8 +1084,8 @@ class MEI_EXPORT Tuplet : public MeiElement {
         REGISTER_DECLARATION(Tuplet);
 };
 
-/** \brief (tuplet span) – Alternative element for encoding tuplets, especially useful for
- *  tuplets that extend across bar lines.
+/** \brief (tuplet span) – Alternative element for encoding tuplets, especially useful
+ *  for tuplets that extend across bar lines.
  */
 class MEI_EXPORT TupletSpan : public MeiElement {
     public:
@@ -1000,8 +1096,10 @@ class MEI_EXPORT TupletSpan : public MeiElement {
 /* include <tupletSpan> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         FacsimileMixIn    m_Facsimile;
         PlistMixIn    m_Plist;
+        TargetevalMixIn    m_Targeteval;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
@@ -1019,6 +1117,7 @@ class MEI_EXPORT TupletSpan : public MeiElement {
         DurationPerformedMixIn    m_DurationPerformed;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(TupletSpan);

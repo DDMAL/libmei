@@ -45,6 +45,7 @@ class MEI_EXPORT Facsimile : public MeiElement {
 /* include <facsimile> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         DeclaringMixIn    m_Declaring;
 
     private:
@@ -64,10 +65,12 @@ class MEI_EXPORT Surface : public MeiElement {
 /* include <surface> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CoordinatedMixIn    m_Coordinated;
         DatapointingMixIn    m_Datapointing;
         DeclaringMixIn    m_Declaring;
         StartidMixIn    m_Startid;
+        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Surface);
@@ -84,6 +87,7 @@ class MEI_EXPORT Zone : public MeiElement {
 /* include <zone> */
 
         CommonMixIn    m_Common;
+        CommonPartMixIn    m_CommonPart;
         CoordinatedMixIn    m_Coordinated;
         DatapointingMixIn    m_Datapointing;
         TypedMixIn    m_Typed;

@@ -25,15 +25,60 @@
 from pymei import MeiElement
 
 
+class addName_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "addName")
+    # <addName>
+
+class bloc_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "bloc")
+    # <bloc>
+
 class corpName_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "corpName")
     # <corpName>
 
+class country_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "country")
+    # <country>
+
+class district_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "district")
+    # <district>
+
+class famName_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "famName")
+    # <famName>
+
+class foreName_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "foreName")
+    # <foreName>
+
+class genName_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "genName")
+    # <genName>
+
+class geogFeat_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "geogFeat")
+    # <geogFeat>
+
 class geogName_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "geogName")
     # <geogName>
+
+class nameLink_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "nameLink")
+    # <nameLink>
 
 class periodName_(MeiElement):
     def __init__(self):
@@ -44,6 +89,36 @@ class persName_(MeiElement):
     def __init__(self):
         MeiElement.__init__(self, "persName")
     # <persName>
+
+class postBox_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "postBox")
+    # <postBox>
+
+class postCode_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "postCode")
+    # <postCode>
+
+class region_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "region")
+    # <region>
+
+class roleName_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "roleName")
+    # <roleName>
+
+class settlement_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "settlement")
+    # <settlement>
+
+class street_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "street")
+    # <street>
 
 class styleName_(MeiElement):
     def __init__(self):

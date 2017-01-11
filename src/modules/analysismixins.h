@@ -35,39 +35,39 @@ class CommonAnlMixIn {
     public:
         explicit CommonAnlMixIn(MeiElement *b);
         virtual ~CommonAnlMixIn();
-        /** \brief points to an element of which the current element is a copy.
+        /** \brief Points to an element of which the current element is a copy.
          */
         MeiAttribute* getCopyof();
         void setCopyof(std::string _copyof);
         bool hasCopyof();
         void removeCopyof();
-        /** \brief used to point to other elements that correspond to this one in a generic
+        /** \brief Used to point to other elements that correspond to this one in a generic
          *  fashion.
          */
         MeiAttribute* getCorresp();
         void setCorresp(std::string _corresp);
         bool hasCorresp();
         void removeCorresp();
-        /** \brief used to point to the next event(s) in a user-defined collection.
+        /** \brief Used to point to the next event(s) in a user-defined collection.
          */
         MeiAttribute* getNext();
         void setNext(std::string _next);
         bool hasNext();
         void removeNext();
-        /** \brief points to the previous event(s) in a user-defined collection.
+        /** \brief Points to the previous event(s) in a user-defined collection.
          */
         MeiAttribute* getPrev();
         void setPrev(std::string _prev);
         bool hasPrev();
         void removePrev();
-        /** \brief points to an element that is the same as the current element but is not a
+        /** \brief Points to an element that is the same as the current element but is not a
          *  literal copy of the current element.
          */
         MeiAttribute* getSameas();
         void setSameas(std::string _sameas);
         bool hasSameas();
         void removeSameas();
-        /** \brief points to elements that are synchronous with the current element.
+        /** \brief Points to elements that are synchronous with the current element.
          */
         MeiAttribute* getSynch();
         void setSynch(std::string _synch);
@@ -84,7 +84,7 @@ class HarmonicfunctionMixIn {
     public:
         explicit HarmonicfunctionMixIn(MeiElement *b);
         virtual ~HarmonicfunctionMixIn();
-        /** \brief captures relative scale degree information using Humdrum **deg syntax -- an
+        /** \brief Captures relative scale degree information using Humdrum **deg syntax -- an
          *  optional indicator of melodic approach (^ = ascending approach, v = descending
          *  approach), a scale degree value (1 = tonic ...
          * 
@@ -106,8 +106,7 @@ class IntervalharmonicMixIn {
     public:
         explicit IntervalharmonicMixIn(MeiElement *b);
         virtual ~IntervalharmonicMixIn();
-        /** \brief encodes the harmonic interval between this note and other pitches occurring at
-         *  the same time.
+        /** \brief Encodes the harmonic interval between pitches occurring at the same time.
          */
         MeiAttribute* getInth();
         void setInth(std::string _inth);
@@ -120,11 +119,11 @@ class IntervalharmonicMixIn {
         MeiElement *b;
 };
 
-class IntervallicdescMixIn {
+class IntervalmelodicMixIn {
     public:
-        explicit IntervallicdescMixIn(MeiElement *b);
-        virtual ~IntervallicdescMixIn();
-        /** \brief encodes the melodic interval from the previous pitch.
+        explicit IntervalmelodicMixIn(MeiElement *b);
+        virtual ~IntervalmelodicMixIn();
+        /** \brief Encodes the melodic interval from the previous pitch.
          * 
          *  The value may be a general directional indication (u, d, s), an indication of
          *  diatonic interval direction, quality, and size, or a precise numeric value in
@@ -145,7 +144,7 @@ class MelodicfunctionMixIn {
     public:
         explicit MelodicfunctionMixIn(MeiElement *b);
         virtual ~MelodicfunctionMixIn();
-        /** \brief describes melodic function using Humdrum **embel syntax.
+        /** \brief Describes melodic function using Humdrum **embel syntax.
          */
         MeiAttribute* getMfunc();
         void setMfunc(std::string _mfunc);
@@ -162,7 +161,7 @@ class PitchclassMixIn {
     public:
         explicit PitchclassMixIn(MeiElement *b);
         virtual ~PitchclassMixIn();
-        /** \brief holds pitch class information.
+        /** \brief Holds pitch class information.
          */
         MeiAttribute* getPclass();
         void setPclass(std::string _pclass);
@@ -179,7 +178,7 @@ class SolfaMixIn {
     public:
         explicit SolfaMixIn(MeiElement *b);
         virtual ~SolfaMixIn();
-        /** \brief contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
+        /** \brief Contains sol-fa designation, e.g., do, re, mi, etc., in either a fixed or
          *  movable Do system.
          */
         MeiAttribute* getPsolfa();
