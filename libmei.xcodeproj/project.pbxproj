@@ -25,8 +25,6 @@
 		0514A6A113FDAB5200310111 /* harmonymixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66713FD6D6000310111 /* harmonymixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A6A213FDAB5200310111 /* header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66913FD6D6000310111 /* header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A6A313FDAB5200310111 /* headermixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66B13FD6D6000310111 /* headermixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0514A6A413FDAB5200310111 /* linkalign.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66D13FD6D6000310111 /* linkalign.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0514A6A513FDAB5200310111 /* linkalignmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A66F13FD6D6000310111 /* linkalignmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A6A613FDAB5200310111 /* lyrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67113FD6D6000310111 /* lyrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A6A713FDAB5200310111 /* lyricsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67313FD6D6000310111 /* lyricsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0514A6A813FDAB5200310111 /* mensural.h in Headers */ = {isa = PBXBuildFile; fileRef = 0514A67513FD6D6000310111 /* mensural.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,8 +59,6 @@
 		0514A6C513FDABAB00310111 /* harmonymixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66613FD6D6000310111 /* harmonymixins.cpp */; };
 		0514A6C613FDABAB00310111 /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66813FD6D6000310111 /* header.cpp */; };
 		0514A6C713FDABAB00310111 /* headermixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66A13FD6D6000310111 /* headermixins.cpp */; };
-		0514A6C813FDABAB00310111 /* linkalign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66C13FD6D6000310111 /* linkalign.cpp */; };
-		0514A6C913FDABAB00310111 /* linkalignmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A66E13FD6D6000310111 /* linkalignmixins.cpp */; };
 		0514A6CA13FDABAB00310111 /* lyrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67013FD6D6000310111 /* lyrics.cpp */; };
 		0514A6CB13FDABAB00310111 /* lyricsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67213FD6D6000310111 /* lyricsmixins.cpp */; };
 		0514A6CC13FDABAB00310111 /* mensural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0514A67413FD6D6000310111 /* mensural.cpp */; };
@@ -87,6 +83,24 @@
 		056605B11ADFCFE300F1F859 /* xmlexport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056605AB1ADFCEDF00F1F859 /* xmlexport.cpp */; };
 		056605B21ADFCFF500F1F859 /* xmlexport.h in Headers */ = {isa = PBXBuildFile; fileRef = 056605AC1ADFCEDF00F1F859 /* xmlexport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0567A7191AD2D72800DAEA8C /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567A7181AD2D72800DAEA8C /* gtest.framework */; };
+		056DFA9A1ECAFD620029B266 /* externalsymbolsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA8E1ECAFD620029B266 /* externalsymbolsmixins.cpp */; };
+		056DFA9B1ECAFD620029B266 /* fingering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA901ECAFD620029B266 /* fingering.cpp */; };
+		056DFA9C1ECAFD620029B266 /* fingeringmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA921ECAFD620029B266 /* fingeringmixins.cpp */; };
+		056DFA9D1ECAFD620029B266 /* meimixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA941ECAFD620029B266 /* meimixins.cpp */; };
+		056DFA9E1ECAFD620029B266 /* performancemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA961ECAFD620029B266 /* performancemixins.cpp */; };
+		056DFA9F1ECAFD620029B266 /* usersymbolsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA981ECAFD620029B266 /* usersymbolsmixins.cpp */; };
+		056DFAA01ECAFD740029B266 /* externalsymbolsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA8E1ECAFD620029B266 /* externalsymbolsmixins.cpp */; };
+		056DFAA11ECAFD740029B266 /* fingering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA901ECAFD620029B266 /* fingering.cpp */; };
+		056DFAA21ECAFD740029B266 /* fingeringmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA921ECAFD620029B266 /* fingeringmixins.cpp */; };
+		056DFAA31ECAFD740029B266 /* meimixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA941ECAFD620029B266 /* meimixins.cpp */; };
+		056DFAA41ECAFD740029B266 /* performancemixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA961ECAFD620029B266 /* performancemixins.cpp */; };
+		056DFAA51ECAFD740029B266 /* usersymbolsmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056DFA981ECAFD620029B266 /* usersymbolsmixins.cpp */; };
+		056DFAA61ECAFD840029B266 /* externalsymbolsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA8F1ECAFD620029B266 /* externalsymbolsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056DFAA71ECAFD840029B266 /* fingering.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA911ECAFD620029B266 /* fingering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056DFAA81ECAFD840029B266 /* fingeringmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA931ECAFD620029B266 /* fingeringmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056DFAA91ECAFD840029B266 /* meimixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA951ECAFD620029B266 /* meimixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056DFAAA1ECAFD840029B266 /* performancemixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA971ECAFD620029B266 /* performancemixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056DFAAB1ECAFD840029B266 /* usersymbolsmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 056DFA991ECAFD620029B266 /* usersymbolsmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		058359E813FB2F8700919769 /* test_meielement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E613FB2F8700919769 /* test_meielement.cpp */; };
 		058359E913FB2F8700919769 /* test_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058359E713FB2F8700919769 /* test_shared.cpp */; };
 		059A88B014016691006BA118 /* bach.mei in CopyFiles */ = {isa = PBXBuildFile; fileRef = 059A88AE1401667A006BA118 /* bach.mei */; };
@@ -179,10 +193,6 @@
 		0514A66913FD6D6000310111 /* header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = header.h; path = src/modules/header.h; sourceTree = "<group>"; };
 		0514A66A13FD6D6000310111 /* headermixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = headermixins.cpp; path = src/modules/headermixins.cpp; sourceTree = "<group>"; };
 		0514A66B13FD6D6000310111 /* headermixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = headermixins.h; path = src/modules/headermixins.h; sourceTree = "<group>"; };
-		0514A66C13FD6D6000310111 /* linkalign.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = linkalign.cpp; path = src/modules/linkalign.cpp; sourceTree = "<group>"; };
-		0514A66D13FD6D6000310111 /* linkalign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = linkalign.h; path = src/modules/linkalign.h; sourceTree = "<group>"; };
-		0514A66E13FD6D6000310111 /* linkalignmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = linkalignmixins.cpp; path = src/modules/linkalignmixins.cpp; sourceTree = "<group>"; };
-		0514A66F13FD6D6000310111 /* linkalignmixins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = linkalignmixins.h; path = src/modules/linkalignmixins.h; sourceTree = "<group>"; };
 		0514A67013FD6D6000310111 /* lyrics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = lyrics.cpp; path = src/modules/lyrics.cpp; sourceTree = "<group>"; };
 		0514A67113FD6D6000310111 /* lyrics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lyrics.h; path = src/modules/lyrics.h; sourceTree = "<group>"; };
 		0514A67213FD6D6000310111 /* lyricsmixins.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = lyricsmixins.cpp; path = src/modules/lyricsmixins.cpp; sourceTree = "<group>"; };
@@ -228,6 +238,18 @@
 		056BCFF3157165FB006E51A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		056BCFF5157297BF006E51A4 /* _libmei_exceptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _libmei_exceptions.cpp; path = python/src/_libmei_exceptions.cpp; sourceTree = "<group>"; };
 		056BCFF6157297BF006E51A4 /* _libmei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _libmei.cpp; path = python/src/_libmei.cpp; sourceTree = "<group>"; };
+		056DFA8E1ECAFD620029B266 /* externalsymbolsmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = externalsymbolsmixins.cpp; path = src/modules/externalsymbolsmixins.cpp; sourceTree = "<group>"; };
+		056DFA8F1ECAFD620029B266 /* externalsymbolsmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = externalsymbolsmixins.h; path = src/modules/externalsymbolsmixins.h; sourceTree = "<group>"; };
+		056DFA901ECAFD620029B266 /* fingering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fingering.cpp; path = src/modules/fingering.cpp; sourceTree = "<group>"; };
+		056DFA911ECAFD620029B266 /* fingering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fingering.h; path = src/modules/fingering.h; sourceTree = "<group>"; };
+		056DFA921ECAFD620029B266 /* fingeringmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fingeringmixins.cpp; path = src/modules/fingeringmixins.cpp; sourceTree = "<group>"; };
+		056DFA931ECAFD620029B266 /* fingeringmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fingeringmixins.h; path = src/modules/fingeringmixins.h; sourceTree = "<group>"; };
+		056DFA941ECAFD620029B266 /* meimixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meimixins.cpp; path = src/modules/meimixins.cpp; sourceTree = "<group>"; };
+		056DFA951ECAFD620029B266 /* meimixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meimixins.h; path = src/modules/meimixins.h; sourceTree = "<group>"; };
+		056DFA961ECAFD620029B266 /* performancemixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = performancemixins.cpp; path = src/modules/performancemixins.cpp; sourceTree = "<group>"; };
+		056DFA971ECAFD620029B266 /* performancemixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = performancemixins.h; path = src/modules/performancemixins.h; sourceTree = "<group>"; };
+		056DFA981ECAFD620029B266 /* usersymbolsmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = usersymbolsmixins.cpp; path = src/modules/usersymbolsmixins.cpp; sourceTree = "<group>"; };
+		056DFA991ECAFD620029B266 /* usersymbolsmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usersymbolsmixins.h; path = src/modules/usersymbolsmixins.h; sourceTree = "<group>"; };
 		058359E613FB2F8700919769 /* test_meielement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meielement.cpp; path = test/test_meielement.cpp; sourceTree = "<group>"; };
 		058359E713FB2F8700919769 /* test_shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_shared.cpp; path = test/test_shared.cpp; sourceTree = "<group>"; };
 		0595DD311AD98C7200BFDF83 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = build.sh; path = emscripten/build.sh; sourceTree = "<group>"; };
@@ -427,6 +449,18 @@
 		9B11C8A5132E6C4E0090FDA6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				056DFA8E1ECAFD620029B266 /* externalsymbolsmixins.cpp */,
+				056DFA8F1ECAFD620029B266 /* externalsymbolsmixins.h */,
+				056DFA901ECAFD620029B266 /* fingering.cpp */,
+				056DFA911ECAFD620029B266 /* fingering.h */,
+				056DFA921ECAFD620029B266 /* fingeringmixins.cpp */,
+				056DFA931ECAFD620029B266 /* fingeringmixins.h */,
+				056DFA941ECAFD620029B266 /* meimixins.cpp */,
+				056DFA951ECAFD620029B266 /* meimixins.h */,
+				056DFA961ECAFD620029B266 /* performancemixins.cpp */,
+				056DFA971ECAFD620029B266 /* performancemixins.h */,
+				056DFA981ECAFD620029B266 /* usersymbolsmixins.cpp */,
+				056DFA991ECAFD620029B266 /* usersymbolsmixins.h */,
 				67FE00F119B5FFF100C1BCBE /* frbr.cpp */,
 				67FE00F219B5FFF100C1BCBE /* frbr.h */,
 				67FE00F319B5FFF100C1BCBE /* frbrmixins.cpp */,
@@ -467,10 +501,6 @@
 				0514A66913FD6D6000310111 /* header.h */,
 				0514A66A13FD6D6000310111 /* headermixins.cpp */,
 				0514A66B13FD6D6000310111 /* headermixins.h */,
-				0514A66C13FD6D6000310111 /* linkalign.cpp */,
-				0514A66D13FD6D6000310111 /* linkalign.h */,
-				0514A66E13FD6D6000310111 /* linkalignmixins.cpp */,
-				0514A66F13FD6D6000310111 /* linkalignmixins.h */,
 				0514A67013FD6D6000310111 /* lyrics.cpp */,
 				0514A67113FD6D6000310111 /* lyrics.h */,
 				0514A67213FD6D6000310111 /* lyricsmixins.cpp */,
@@ -550,8 +580,6 @@
 				0514A6A113FDAB5200310111 /* harmonymixins.h in Headers */,
 				0514A6A213FDAB5200310111 /* header.h in Headers */,
 				0514A6A313FDAB5200310111 /* headermixins.h in Headers */,
-				0514A6A413FDAB5200310111 /* linkalign.h in Headers */,
-				0514A6A513FDAB5200310111 /* linkalignmixins.h in Headers */,
 				0514A6A613FDAB5200310111 /* lyrics.h in Headers */,
 				0514A6A713FDAB5200310111 /* lyricsmixins.h in Headers */,
 				0514A6A813FDAB5200310111 /* mensural.h in Headers */,
@@ -577,6 +605,12 @@
 				4D0CAF3C1AC2F91E00A16096 /* pugixml.hpp in Headers */,
 				056605B21ADFCFF500F1F859 /* xmlexport.h in Headers */,
 				A1F5D1791455D90100CE6CE6 /* mei.h in Headers */,
+				056DFAA61ECAFD840029B266 /* externalsymbolsmixins.h in Headers */,
+				056DFAA71ECAFD840029B266 /* fingering.h in Headers */,
+				056DFAA81ECAFD840029B266 /* fingeringmixins.h in Headers */,
+				056DFAA91ECAFD840029B266 /* meimixins.h in Headers */,
+				056DFAAA1ECAFD840029B266 /* performancemixins.h in Headers */,
+				056DFAAB1ECAFD840029B266 /* usersymbolsmixins.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +713,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056DFA9A1ECAFD620029B266 /* externalsymbolsmixins.cpp in Sources */,
+				056DFA9C1ECAFD620029B266 /* fingeringmixins.cpp in Sources */,
+				056DFA9B1ECAFD620029B266 /* fingering.cpp in Sources */,
+				056DFA9D1ECAFD620029B266 /* meimixins.cpp in Sources */,
+				056DFA9E1ECAFD620029B266 /* performancemixins.cpp in Sources */,
+				056DFA9F1ECAFD620029B266 /* usersymbolsmixins.cpp in Sources */,
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +743,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056DFAA01ECAFD740029B266 /* externalsymbolsmixins.cpp in Sources */,
+				056DFAA11ECAFD740029B266 /* fingering.cpp in Sources */,
+				056DFAA21ECAFD740029B266 /* fingeringmixins.cpp in Sources */,
+				056DFAA31ECAFD740029B266 /* meimixins.cpp in Sources */,
+				056DFAA41ECAFD740029B266 /* performancemixins.cpp in Sources */,
+				056DFAA51ECAFD740029B266 /* usersymbolsmixins.cpp in Sources */,
 				056605B11ADFCFE300F1F859 /* xmlexport.cpp in Sources */,
 				4D0CAF3D1AC2F93500A16096 /* pugixml.cpp in Sources */,
 				0514A6B613FDABAB00310111 /* analysismixins.cpp in Sources */,
@@ -724,8 +770,6 @@
 				0514A6C513FDABAB00310111 /* harmonymixins.cpp in Sources */,
 				0514A6C613FDABAB00310111 /* header.cpp in Sources */,
 				0514A6C713FDABAB00310111 /* headermixins.cpp in Sources */,
-				0514A6C813FDABAB00310111 /* linkalign.cpp in Sources */,
-				0514A6C913FDABAB00310111 /* linkalignmixins.cpp in Sources */,
 				0514A6CA13FDABAB00310111 /* lyrics.cpp in Sources */,
 				0514A6CB13FDABAB00310111 /* lyricsmixins.cpp in Sources */,
 				0514A6CC13FDABAB00310111 /* mensural.cpp in Sources */,
