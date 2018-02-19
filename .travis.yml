@@ -1,5 +1,4 @@
 language: cpp
-dist: trusty
 before_script:
   - sudo apt-get install uuid-dev
   - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
