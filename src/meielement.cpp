@@ -347,11 +347,7 @@ mei::MeiElement* mei::MeiElement::getAncestor(string name) {
 }
 
 bool mei::MeiElement::hasAncestor(string name) {
-    MeiElement* m = getAncestor(name);
-    if (m != NULL) {
-        return true;
-    }
-    return false;
+    return getAncestor(name) != NULL;
 }
 
 vector<mei::MeiElement*> mei::MeiElement::getDescendants() {
