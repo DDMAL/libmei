@@ -6,10 +6,8 @@
 using std::string;
 using mei::MeiElement;
 
-mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue) {
-    this->name = attrname;
-    this->value = attrvalue;
-    this->element = NULL;
+mei::MeiAttribute::MeiAttribute(string attrname, string attrvalue)
+: name(attrname), value(attrvalue), element(NULL) {
 }
 
 bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
