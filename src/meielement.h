@@ -82,7 +82,7 @@ class MEI_EXPORT MeiElement
 
         /** \brief Get the id of this element.
          */
-        const std::string getId();
+        const std::string getId() const;
 
         /** \brief Set an element's ID. 
          *   This is not always necessary since an element
@@ -97,14 +97,14 @@ class MEI_EXPORT MeiElement
 
         /** \brief Get the name of this element
          */
-        const std::string getName();
+        const std::string getName() const;
 
         /** \brief get the xml tail of an Mei Element
          *
          *  \return The xml tail associated with the Mei Element or
          *          an empty string if the Mei Element has no tail
          */
-        const std::string getTail();
+        const std::string getTail() const;
 
         /** \brief Set the xml tail associated with the Mei Element */
         void setTail(std::string tail);
@@ -114,7 +114,7 @@ class MEI_EXPORT MeiElement
          *  \return A string indicating the value of the Mei Element or
          *          an empty string if the element has no value
          */
-        const std::string getValue();
+        const std::string getValue() const;
 
         /** \brief Set the value associated with the Mei Element */
         void setValue(std::string value);
@@ -123,7 +123,7 @@ class MEI_EXPORT MeiElement
          *
          *  \return A const vector of the attributes on this element.
          */
-        const std::vector<MeiAttribute*>& getAttributes();
+        const std::vector<MeiAttribute*>& getAttributes() const;
 
         /**
          * \brief add all of the given attributes to this element.
@@ -152,7 +152,7 @@ class MEI_EXPORT MeiElement
          *
          * \return the attribute with this name, or NULL if the atribute doesn't exist.
          */
-        MeiAttribute* getAttribute(std::string name);
+        MeiAttribute* getAttribute(std::string name) const;
 
         /**
          * \brief Remove the attribute with the given name.
@@ -162,17 +162,17 @@ class MEI_EXPORT MeiElement
         /**
          * \brief See if this element has an attribute with the given name.
          */
-        bool hasAttribute(std::string name);
+        bool hasAttribute(std::string name) const;
 
         /** \brief Check if this element has a parent element
          *
          *  \return True if it does, False if it does not
          */
-        bool hasParent();
+        bool hasParent() const;
         
         /** \brief Get this element's parent, if it exists.
          */
-        MeiElement *getParent();
+        MeiElement *getParent() const;
 
         /** \brief Links this element and it's children to the given document
          *
@@ -182,7 +182,7 @@ class MEI_EXPORT MeiElement
 
         /** \brief Gets a pointer to the document this element is attached to.
          */
-        MeiDocument* getDocument();
+        MeiDocument* getDocument() const;
 
         /** \brief Removes the pointer from this element and it's children to its currently assigned document
          *
@@ -215,12 +215,12 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Get all of the children of this element.
          */
-        const std::vector<MeiElement*>& getChildren();
+        const std::vector<MeiElement*>& getChildren() const;
 
         /**
          * \brief Get all of the children of this element that have a given name.
          */
-        const std::vector<MeiElement*> getChildrenByName(std::string name);
+        const std::vector<MeiElement*> getChildrenByName(std::string name) const;
 
         /**
          * \brief Remove all of the children of this element.
@@ -245,25 +245,25 @@ class MEI_EXPORT MeiElement
         /**
          * \brief Check if this element has any children.
          */
-        bool hasChildren();
+        bool hasChildren() const;
 
         /**
          * \brief Check if this element has any children with the given name.
          */
-        bool hasChildren(std::string cname);
+        bool hasChildren(std::string cname) const;
 
         /**
          *  \brief Get the ancestor with a given element name
          *
          *  \return MeiElement, or NULL if no ancestor is found.
          */
-        MeiElement* getAncestor(std::string name);
+        MeiElement* getAncestor(std::string name) const;
 
         /**
          *  \brief Returns TRUE if this element has an ancestor element 
          *     with a given name; FALSE otherwise
          */   
-        bool hasAncestor(std::string name);
+        bool hasAncestor(std::string name) const;
 
         /**
          *  \brief Get all descendants of the current element.
@@ -287,7 +287,7 @@ class MEI_EXPORT MeiElement
          *
          *  \return A vector of MeiElements (possibly empty).
          */
-        std::vector<MeiElement*> getPeers();
+        std::vector<MeiElement*> getPeers() const;
 
         /** \brief Gets this item's position in the flattened document structure.
          *      Position is numbered by the order the elements occur, so the first

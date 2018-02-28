@@ -17,11 +17,11 @@ bool mei::MeiAttribute::operator==(const MeiAttribute &other) const {
             this->value == other.value);
 }
 
-string mei::MeiAttribute::getName() {
+string mei::MeiAttribute::getName() const {
     return this->name;
 }
 
-string mei::MeiAttribute::getValue() {
+string mei::MeiAttribute::getValue() const {
     return this->value;
 }
 
@@ -29,7 +29,7 @@ void mei::MeiAttribute::setValue(string attrvalue) {
     this->value = attrvalue;
 }
 
-MeiElement* mei::MeiAttribute::getElement() {
+MeiElement* mei::MeiAttribute::getElement() const {
     return this->element;
 }
 

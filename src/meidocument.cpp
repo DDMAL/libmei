@@ -110,7 +110,7 @@ vector<MeiElement*> mei::MeiDocument::getElementsByName(string name) {
     return ret;
 }
 
-int mei::MeiDocument::getPositionInDocument(MeiElement* element) {
+int mei::MeiDocument::getPositionInDocument(MeiElement* element) const {
     vector<MeiElement*> els = this->getFlattenedTree();
     vector<MeiElement*>::iterator pos = find(els.begin(), els.end(), element);
     if (pos != els.end()) {
@@ -120,7 +120,7 @@ int mei::MeiDocument::getPositionInDocument(MeiElement* element) {
     return -1;
 }
 
-const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedTree() {
+const std::vector<MeiElement*> &mei::MeiDocument::getFlattenedTree() const {
     return flattenedDoc;
 }
 
