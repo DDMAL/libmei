@@ -30,3 +30,7 @@ install:
 script:
   # Run Unittests.
   - make test
+notifications:
+  email: false
+  slack:
+    secure: uc59AHlohSmJvpAPcLLiNJS0W83iZ2vPxTPrkzUANdSL77UGpDiM1KbrbHhPFp0FBWPCQ9uhGURIAdEV0oSE6iFaeu95xgGloX3k5ozsw6eD1qXXunSYX5fztPdcB5zuDiU6haLUU/Pu6/Yen8n9GaDxMjmGsUGt3zj87l4xJDs=
