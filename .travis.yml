@@ -1,17 +1,32 @@
 language: cpp
-before_script:
-  - sudo apt-get install uuid-dev
-  - wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
-  - unzip -q gtest-1.6.0.zip
-  - cd gtest-1.6.0
-  - sudo cmake . 
-  - sudo make
-  - cd ..
-  - cmake -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_LIBRARY_PATH=gtest-1.6.0 -DCMAKE_INCLUDE_PATH=gtest-1.6.0/include .
-script: 
+# Add more platforms here as they become needed.
+matrix:
+  include:
+    # Linux Installation.
+    - os: linux
+      env:
+        - MATRIX_EVAL="sudo apt-get install build-essential software-properties-common git unzip wget apt-utils uuid-dev -y"
+        - LIBMEI_EVAL="cmake -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_LIBRARY_PATH=gtest-$GTEST_VERSION -DCMAKE_INCLUDE_PATH=gtest-$GTEST_VERSION/include . && make"
+    # Mac Installation.
+    - os: osx
+      env:
+        - MATRIX_EVAL="brew install ossp-uuid"
+        - LIBMEI_EVAL="cmake -DCMAKE_FIND_FRAMEWORK=LAST && make"
+before_install:
+    # Install OS dependencies.
+    - eval "${MATRIX_EVAL}"
+    # Edit the GTEST version here, to update the unittest framework.
+    - export GTEST_VERSION=1.8.0
+install:
+  # Install GTEST.
+  - wget https://github.com/google/googletest/archive/release-${GTEST_VERSION}.zip
+  - unzip -q ./release-${GTEST_VERSION}.zip
+  - cd googletest-release-${GTEST_VERSION}
+  - cmake .
   - make
-after_script: 
+  # Install LibMEI.
+  - cd ..
+  - eval "${LIBMEI_EVAL}"
+script:
+  # Run Unittests.
   - make test
-compiler:
-  - gcc
-  - clang
