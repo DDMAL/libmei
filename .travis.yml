@@ -1,4 +1,5 @@
 language: cpp
+if: (branch = master AND type = (pull_request OR cron)) OR (branch = develop)
 # Add more platforms here as they become needed.
 matrix:
   include:
