@@ -19,4 +19,9 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from _libmei_exceptions import *
+from sys import version_info
+
+if version_info.major >= 3:
+    from ._libmei_exceptions import *
+else:
+    from _libmei_exceptions import *
