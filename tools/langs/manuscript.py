@@ -398,10 +398,11 @@ GetTail "(element) {
 
     meiDocumentToFile "(meidoc, filename) {
         meiout = _exportMeiDocument(meidoc);
-        Sibelius.CreateTextFile(filename);
-        Sibelius.AppendTextFile(filename, meiout, 1);
-
-        return true;
+        if (Sibelius.CreateTextFile(filename)) {
+            return Sibelius.AppendTextFile(filename, meiout, true);
+        } else {
+            return false;
+        }
 }"
 
     meiDocumentToString "(meidoc) {
