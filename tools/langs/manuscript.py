@@ -839,7 +839,6 @@ generateRandomID "() {
     id = 'm-' & id;
     return id;
 }"
-}
 """
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
