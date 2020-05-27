@@ -150,7 +150,7 @@ SetAttributes "(element, new_attrs) {
     // this will provide character encoding
     for each Pair a in new_attrs
     {
-        libmei.AddAttribute(element, a.Name, a.Value);
+        AddAttribute(element, a.Name, a.Value);
     }
 }"
 GetId "(element) {
@@ -299,12 +299,12 @@ GetTail "(element) {
     trace('convert: ');
     trace(meiel);
 
-    nm = libmei.GetName(meiel);
-    at = libmei.GetAttributes(meiel);
-    ch = libmei.GetChildren(meiel);
-    tx = libmei.GetText(meiel);
-    tl = libmei.GetTail(meiel);
-    id = libmei.GetId(meiel);
+    nm = GetName(meiel);
+    at = GetAttributes(meiel);
+    ch = GetChildren(meiel);
+    tx = GetText(meiel);
+    tl = GetTail(meiel);
+    id = GetId(meiel);
 
     tabs = '';
     if (indent > 0)
@@ -653,8 +653,8 @@ GetTail "(element) {
                     }
                     // doc.startElement(tagName, attrs);
                     ent = createEntry(tagName);
-                    libmei.setAttributes(ent, attrs);
-                    libmei.addChild(parentTag[-1], ent);
+                    setAttributes(ent, attrs);
+                    addChild(parentTag[-1], ent);
                     Self.MEIFlattened.Push(ent);
 
                     // doc.endElement(tagName);
@@ -679,8 +679,8 @@ GetTail "(element) {
                                 tagName = sb.Join('');
                             }
                             ent = createEntry(tagName);
-                            libmei.setAttributes(ent, attrs);
-                            libmei.addChild(parentTag[-1], ent);
+                            setAttributes(ent, attrs);
+                            addChild(parentTag[-1], ent);
                             parentTag.Push(ent);
                             Self.MEIFlattened.Push(ent);
 
@@ -802,9 +802,9 @@ GetTail "(element) {
                             mode = popMode(st);
                             // doc.startElement(tagname, attrs);
                             ent = createEntry(tagName);
-                            libmei.setAttributes(ent, attrs);
+                            setAttributes(ent, attrs);
                             if (parentTag.Length > 0) {
-                                libmei.addChild(parentTag[-1], ent);
+                                addChild(parentTag[-1], ent);
                             }
                             parentTag.Push(ent);
                             Self.MEIFlattened.Push(ent);
