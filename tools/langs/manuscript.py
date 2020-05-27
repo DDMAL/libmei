@@ -150,7 +150,7 @@ SetAttributes "(element, new_attrs) {
     // this will provide character encoding
     for each Pair a in new_attrs
     {
-        libmei.AddAttribute(element, a.Name, a.Value);
+        AddAttribute(element, a.Name, a.Value);
     }
 }"
 GetId "(element) {
@@ -299,12 +299,12 @@ GetTail "(element) {
     trace('convert: ');
     trace(meiel);
 
-    nm = libmei.GetName(meiel);
-    at = libmei.GetAttributes(meiel);
-    ch = libmei.GetChildren(meiel);
-    tx = libmei.GetText(meiel);
-    tl = libmei.GetTail(meiel);
-    id = libmei.GetId(meiel);
+    nm = GetName(meiel);
+    at = GetAttributes(meiel);
+    ch = GetChildren(meiel);
+    tx = GetText(meiel);
+    tl = GetTail(meiel);
+    id = GetId(meiel);
 
     tabs = '';
     if (indent > 0)
