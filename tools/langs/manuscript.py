@@ -380,11 +380,6 @@ GetTail "(element) {
         indent = indent - 1;
     }
 
-    if (Length(tl) > 0)
-    {
-        xmlout = xmlout & tl;
-    }
-
     // convertDictToXml takes care of adding the />
     // for tags that do not have children. We'll
     // take care of the terminal tag here for those
@@ -402,6 +397,11 @@ GetTail "(element) {
             xmlout = xmlout & tabs & '</' & nm & '>
 ';
         }
+    }
+
+    if (Length(tl) > 0)
+    {
+        xmlout = xmlout & tl;
     }
 
     return xmlout;
