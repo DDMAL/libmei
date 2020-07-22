@@ -83,6 +83,7 @@ set( LIBMEI_H
 
 if (CMAKE_COMPILER_IS_GNUCXX)
     add_definitions( -Werror )
+    add_definitions( -Wno-error=deprecated )
 endif (CMAKE_COMPILER_IS_GNUCXX)
 
 INCLUDE_DIRECTORIES(
