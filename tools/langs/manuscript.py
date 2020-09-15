@@ -454,7 +454,7 @@ GetTail "(element) {
     _xmlImport "(filename) {
     /*
         Based on the Quick-n-Dirty XML parser at
-        http://www.javaworld.com/javatips/jw-javatip128.html
+        https://www.infoworld.com/article/2077493/java-tip-128--create-a-quick-and-dirty-xml-parser.html
     */
     xmlinput = Sibelius.ReadTextFile(filename, true);
     meidoc = CreateSparseArray();
