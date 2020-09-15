@@ -46,7 +46,7 @@ Initialize "() {
 }"
 
     XMLComment "(comment) {
-    commentObj = Create('<!--', null);
+    commentObj = CreateElement('<!--', null);
     commentObj.text = comment;
     return commentObj;
 }"
@@ -86,24 +86,31 @@ SetChildren "(element, childarr) {
         element.children = childarr;
 }"
 AddChildAtPosition "(element, child, position) {
+        AddChild(element, child);
         c = element.children;
-        r = CreateSparseArray();
-        // copy the children to the new array. Add two
-        // beyond the length since we'll be adding a new element.
-        for i = c.Length + 2 {
-            if (i = position) {
-                r[i] = child;
-                i = i + 1;
-            } else {
-                r[i] = c[i];
-            }
+        // shift all children that are at a higher index than `position`
+        for i = c.Length - 1 to position step -1 {
+            c[i] = c[i - 1];
         }
-        element.children = r;
+        element.children[position] = child._id;
 }"
 AddChild "(element, child) {
         cid = child._id;
         child._parent = element._id;
         element.children.Push(cid);
+}"
+RemoveChild "(element, child) {
+    newarr = CreateSparseArray();
+
+    for each elid in element.children
+    {
+        if (elid != child._id)
+        {
+            newarr.Push(elid);
+        }
+    }
+
+    element.children = newarr;
 }"
 GetAttributes "(element) {
     return element.attrs;
@@ -157,7 +164,13 @@ GetId "(element) {
         return element._id;
 }"
 SetId "(element, value) {
+        olddict = Self._property:MEIFlattened;
+        oldid = element._id;
+
+        newdict = removeKeyFromDictionary(olddict, oldid);
         element._id = value;
+        newdict[value] = element;
+        Self._property:MEIFlattened = newdict;
 }"
 RemoveAttribute "(element, attrname) {
     // since there are no delete functions
@@ -183,7 +196,7 @@ GetTail "(element) {
 }"
 
     destroy "() {
-        // cleans up 
+        // cleans up
         Self._property:MEIFlattened = CreateDictionary();
         Self._property:MEIDocument = CreateSparseArray();
         Self._property:MEIID = 0;
@@ -296,8 +309,6 @@ GetTail "(element) {
     convertDictToXml "(meiel, indent) {
     xmlout = '';
     terminalTag = true;
-    trace('convert: ');
-    trace(meiel);
 
     nm = GetName(meiel);
     at = GetAttributes(meiel);
@@ -317,12 +328,11 @@ GetTail "(element) {
     // comments are simple so they're handled specially.
     if (nm = '<!--')
     {
-        xmlout = nm & ' ' & tx & ' -->
-';
+        xmlout = nm & ' ' & tx & ' -->' & Chr(10);
         return xmlout;
     }
 
-    if (ch or Length(tx) > 0)
+    if (ch.Length > 0 or Length(tx) > 0)
     {
         terminalTag = false;
     }
@@ -333,28 +343,24 @@ GetTail "(element) {
     {
         endchar = '';
         xmlout = xmlout & tx;
+
+        // if an element has both text and children,
+        // insert a line break.
+        if (ch.Length > 0)
+        {
+            xmlout = xmlout & Chr(10);
+        }
     }
     else
     {
-        xmlout = xmlout & '
-';
+        xmlout = xmlout & Chr(10);
     }
-
-    trace(ch);
 
     if (ch.Length > 0)
     {
         indent = indent + 1;
         for each child in ch
         {
-            if (child = null)
-            {
-                trace('child is null!');
-            }
-            else
-            {
-                trace(child);
-            }
             xmlout = xmlout & tabs & convertDictToXml(child, indent);
         }
         indent = indent - 1;
@@ -366,30 +372,27 @@ GetTail "(element) {
     // that do.
     if (not terminalTag)
     {
-        if (Length(tx) > 0)
+        if (ch.Length = 0 and Length(tx) > 0)
         {
-            xmlout = xmlout & '</' & nm & '>
-';
+            xmlout = xmlout & '</' & nm & '>' & Chr(10);
         }
         else
         {
             tabs = Substring(tabs, 0, Length(tabs) - 4);
-            xmlout = xmlout & tabs & '</' & nm & '>
-';
+            xmlout = xmlout & tabs & '</' & nm & '>' & Chr(10);
         }
     }
 
     if (Length(tl) > 0)
     {
-        xmlout = xmlout & tl;
+        xmlout = xmlout & tabs & tl & Chr(10);
     }
 
     return xmlout;
 }"
 
     _exportMeiDocument "(meidoc) {
-        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>
-';
+        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>' & Chr(10);
         indent = 0;
         meiout = xdecl & convertDictToXml(meidoc[0], indent);
 
@@ -451,7 +454,7 @@ GetTail "(element) {
     _xmlImport "(filename) {
     /*
         Based on the Quick-n-Dirty XML parser at
-        https://www.infoworld.com/article/2077493/java-tip-128--create-a-quick-and-dirty-xml-parser.html
+        http://www.javaworld.com/javatips/jw-javatip128.html
     */
     xmlinput = Sibelius.ReadTextFile(filename, true);
     meidoc = CreateSparseArray();
@@ -840,7 +843,19 @@ generateRandomID "() {
     id = 'm-' & id;
     return id;
 }"
-}
+
+removeKeyFromDictionary "(dict, key) {
+    newdict = CreateDictionary();
+    for each Pair p in dict
+    {
+        if (p.Name != key)
+        {
+            newdict[p.Name] = p.Value;
+        }
+    }
+
+    return newdict;
+}"
 """
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
