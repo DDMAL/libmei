@@ -858,7 +858,7 @@ removeKeyFromDictionary "(dict, key) {
 }"
 """
 
-AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
+AUTHORS = "Andrew Hankinson, Alastair Porter, Thomas Weber and Others"
 
 FILE_TEMPLATE = """
 {{
