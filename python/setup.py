@@ -10,7 +10,7 @@ if sys.platform == "darwin":
     if sys.version_info.major == 2:
         libraries = ["boost_python27-mt"]
     elif sys.version_info.major == 3:
-        libraries = ["boost_python36-mt"]
+        libraries = ["boost_python3"+str(sys.version_info.minor)+"-mt"]
     else:
         libraries = ["boost_python-mt"]
     library_dirs = []
