@@ -7,12 +7,7 @@ longdesc = """ Python Bindings for LibMEI. """
 
 if sys.platform == "darwin":
     link_args = ["-F", "/Library/Frameworks","-framework", "mei"]
-    if sys.version_info.major == 2:
-        libraries = ["boost_python27-mt"]
-    elif sys.version_info.major == 3:
-        libraries = ["boost_python36-mt"]
-    else:
-        libraries = ["boost_python-mt"]
+    libraries = ["boost_python{major}{minor}-mt".format(major=sys.version_info.major, minor=sys.version_info.minor)]
     library_dirs = []
     runtime_library_dirs = []
     include_dirs = []
