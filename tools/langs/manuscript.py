@@ -105,6 +105,22 @@ AddChild "(element, child) {
         child._parent = element._id;
         element.children.Push(cid);
 }"
+RemoveChild "(element, child) {
+    child._parent = null;
+    UnregisterId(child._id);
+
+    newarr = CreateSparseArray();
+
+    for each elid in element.children
+    {
+        if (elid != child._id)
+        {
+            newarr.Push(elid);
+        }
+    }
+
+    element.children = newarr;
+}"
 GetAttributes "(element) {
     return element.attrs;
 }"
