@@ -46,7 +46,7 @@ Initialize "() {
 }"
 
     XMLComment "(comment) {
-    commentObj = Create('<!--', null);
+    commentObj = CreateElement('<!--', null);
     commentObj.text = comment;
     return commentObj;
 }"
