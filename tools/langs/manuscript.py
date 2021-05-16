@@ -86,19 +86,13 @@ SetChildren "(element, childarr) {
         element.children = childarr;
 }"
 AddChildAtPosition "(element, child, position) {
+        AddChild(element, child);
         c = element.children;
-        r = CreateSparseArray();
-        // copy the children to the new array. Add two
-        // beyond the length since we'll be adding a new element.
-        for i = c.Length + 2 {
-            if (i = position) {
-                r[i] = child;
-                i = i + 1;
-            } else {
-                r[i] = c[i];
-            }
+        // shift all children that are at a higher index than `position`
+        for i = c.Length - 1 to position step -1 {
+            c[i] = c[i - 1];
         }
-        element.children = r;
+        element.children[position] = child._id;
 }"
 AddChild "(element, child) {
         cid = child._id;
