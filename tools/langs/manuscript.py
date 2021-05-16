@@ -385,14 +385,6 @@ GetTail "(element) {
     meiDocumentToString "(meidoc) {
         return _exportMeiDocument(meidoc);
     }"
-    popMode "(arr) {
-    if (arr.Length > 0) {
-        return arr.Pop();
-    } else {
-        // return PRE
-        return 15;
-    }
-}"
     _encodeEntities "(string)
     {
         /*
