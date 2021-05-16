@@ -156,8 +156,18 @@ SetAttributes "(element, new_attrs) {
 GetId "(element) {
         return element._id;
 }"
-SetId "(element, value) {
-        element._id = value;
+SetId "(element, newId) {
+    oldId = element._id;
+    UnregisterId(oldId);
+    Self.MEIFlattened[newId] = element;
+    element._id = newId;
+}"
+UnregisterId "(id) {
+    // ManuScript dictionaries will return the empty string if an entry does
+    // not exists, so the most sensible way to cancel an element is to put the
+    // empty string in its place as ManuScript does not allow us to remove an
+    // entry entirely from a Dictionary
+    Self.MEIFlattened[id] = '';
 }"
 RemoveAttribute "(element, attrname) {
     // since there are no delete functions
@@ -221,7 +231,7 @@ GetTail "(element) {
     }
     res = CreateSparseArray();
     for each e in Self.MEIFlattened {
-        if (getName(e) = name) {
+        if (IsObject(e) and getName(e) = name) {
             res.Push(e);
         }
     }
