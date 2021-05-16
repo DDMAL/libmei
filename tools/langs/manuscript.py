@@ -313,11 +313,21 @@ GetTail "(element) {
         return '<' & name & spacer & attrstring & '>';
     }
 }"
+    childHasTail "(children) {
+    for each child in children
+    {
+        if (Length(GetTail(child)) > 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}"
     convertDictToXml "(meiel, indent) {
+    // The indent parameter includes the leading line break
+
     xmlout = '';
     terminalTag = true;
-    trace('convert: ');
-    trace(meiel);
 
     nm = libmei.GetName(meiel);
     at = libmei.GetAttributes(meiel);
@@ -326,58 +336,45 @@ GetTail "(element) {
     tl = libmei.GetTail(meiel);
     id = libmei.GetId(meiel);
 
-    tabs = '';
-    if (indent > 0)
-    {
-        // add four spaces for every indent level.
-        arr = utils.CreateArrayBlanket('    ', indent);
-        tabs = JoinStrings(arr, '');
-    }
 
     // comments are simple so they're handled specially.
     if (nm = '<!--')
     {
-        xmlout = nm & ' ' & tx & ' -->
-';
+        xmlout = indent & nm & ' ' & tx & ' -->';
         return xmlout;
     }
 
-    if (ch or Length(tx) > 0)
+    if (ch.Length > 0 or Length(tx) > 0)
     {
         terminalTag = false;
     }
 
-    xmlout = createXmlTag(nm, id, at, terminalTag);
+    xmlout = indent & createXmlTag(nm, id, at, terminalTag);
 
-    if (Length(tx) > 0)
+    hasTextChild = Length(tx) > 0 or childHasTail(ch);
+
+    if (hasTextChild)
     {
-        endchar = '';
         xmlout = xmlout & tx;
+        // Do not add indentation whitespace as it might mess up text content
+        indent = '';
     }
-    else
-    {
-        xmlout = xmlout & '
-';
-    }
-
-    trace(ch);
 
     if (ch.Length > 0)
     {
-        indent = indent + 1;
+        if (indent != '')
+        {
+            innerIndent = indent & '    ';
+        }
+        else
+        {
+            innerIndent = '';
+        }
+
         for each child in ch
         {
-            if (child = null)
-            {
-                trace('child is null!');
-            }
-            else
-            {
-                trace(child);
-            }
-            xmlout = xmlout & tabs & convertDictToXml(child, indent);
+            xmlout = xmlout & convertDictToXml(child, innerIndent);
         }
-        indent = indent - 1;
     }
 
     // convertDictToXml takes care of adding the />
@@ -386,17 +383,7 @@ GetTail "(element) {
     // that do.
     if (not terminalTag)
     {
-        if (Length(tx) > 0)
-        {
-            xmlout = xmlout & '</' & nm & '>
-';
-        }
-        else
-        {
-            tabs = Substring(tabs, 0, Length(tabs) - 4);
-            xmlout = xmlout & tabs & '</' & nm & '>
-';
-        }
+        xmlout = xmlout & indent & '</' & nm & '>';
     }
 
     if (Length(tl) > 0)
@@ -408,10 +395,8 @@ GetTail "(element) {
 }"
 
     _exportMeiDocument "(meidoc) {
-        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>
-';
-        indent = 0;
-        meiout = xdecl & convertDictToXml(meidoc[0], indent);
+        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>';
+        meiout = xdecl & convertDictToXml(meidoc[0], Chr(10));
 
         return meiout;
     }"
