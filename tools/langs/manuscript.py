@@ -98,6 +98,9 @@ AddChild "(element, child) {
         cid = child._id;
         child._parent = element._id;
         element.children.Push(cid);
+        // The following might be redundant, but in case a child is removed from
+        // one parent and added to another, it's safer to re-register the ID.
+        Self.MEIFlattened[cid] = child;
 }"
 RemoveChild "(element, child) {
     child._parent = null;
@@ -167,17 +170,14 @@ GetId "(element) {
         return element._id;
 }"
 SetId "(element, newId) {
-    oldId = element._id;
-    UnregisterId(oldId);
-    Self.MEIFlattened[newId] = element;
-    element._id = newId;
+    UnregisterId(element._id);
+    element._id = value;
+    Self.MEIFlattened[value] = element;
 }"
 UnregisterId "(id) {
-    // ManuScript dictionaries will return the empty string if an entry does
-    // not exists, so the most sensible way to cancel an element is to put the
-    // empty string in its place as ManuScript does not allow us to remove an
-    // entry entirely from a Dictionary
-    Self.MEIFlattened[id] = '';
+    olddict = Self._property:MEIFlattened;
+    newdict = removeKeyFromDictionary(olddict, oldid);
+    Self._property:MEIFlattened = newdict;
 }"
 RemoveAttribute "(element, attrname) {
     // since there are no delete functions
