@@ -171,12 +171,12 @@ GetId "(element) {
 }"
 SetId "(element, newId) {
     UnregisterId(element._id);
-    element._id = value;
-    Self.MEIFlattened[value] = element;
+    element._id = newId;
+    Self.MEIFlattened[newId] = element;
 }"
 UnregisterId "(id) {
     olddict = Self._property:MEIFlattened;
-    newdict = removeKeyFromDictionary(olddict, oldid);
+    newdict = removeKeyFromDictionary(olddict, id);
     Self._property:MEIFlattened = newdict;
 }"
 RemoveAttribute "(element, attrname) {
