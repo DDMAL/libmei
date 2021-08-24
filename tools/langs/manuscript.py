@@ -46,7 +46,7 @@ Initialize "() {
 }"
 
     XMLComment "(comment) {
-    commentObj = Create('<!--', null);
+    commentObj = CreateElement('<!--', null);
     commentObj.text = comment;
     return commentObj;
 }"
@@ -86,24 +86,37 @@ SetChildren "(element, childarr) {
         element.children = childarr;
 }"
 AddChildAtPosition "(element, child, position) {
+        AddChild(element, child);
         c = element.children;
-        r = CreateSparseArray();
-        // copy the children to the new array. Add two
-        // beyond the length since we'll be adding a new element.
-        for i = c.Length + 2 {
-            if (i = position) {
-                r[i] = child;
-                i = i + 1;
-            } else {
-                r[i] = c[i];
-            }
+        // shift all children that are at a higher index than `position`
+        for i = c.Length - 1 to position step -1 {
+            c[i] = c[i - 1];
         }
-        element.children = r;
+        element.children[position] = child._id;
 }"
 AddChild "(element, child) {
         cid = child._id;
         child._parent = element._id;
         element.children.Push(cid);
+        // The following might be redundant, but in case a child is removed from
+        // one parent and added to another, it's safer to re-register the ID.
+        Self.MEIFlattened[cid] = child;
+}"
+RemoveChild "(element, child) {
+    child._parent = null;
+    UnregisterId(child._id);
+
+    newarr = CreateSparseArray();
+
+    for each elid in element.children
+    {
+        if (elid != child._id)
+        {
+            newarr.Push(elid);
+        }
+    }
+
+    element.children = newarr;
 }"
 GetAttributes "(element) {
     return element.attrs;
@@ -156,8 +169,15 @@ SetAttributes "(element, new_attrs) {
 GetId "(element) {
         return element._id;
 }"
-SetId "(element, value) {
-        element._id = value;
+SetId "(element, newId) {
+    UnregisterId(element._id);
+    element._id = newId;
+    Self.MEIFlattened[newId] = element;
+}"
+UnregisterId "(id) {
+    olddict = Self._property:MEIFlattened;
+    newdict = removeKeyFromDictionary(olddict, id);
+    Self._property:MEIFlattened = newdict;
 }"
 RemoveAttribute "(element, attrname) {
     // since there are no delete functions
@@ -221,7 +241,7 @@ GetTail "(element) {
     }
     res = CreateSparseArray();
     for each e in Self.MEIFlattened {
-        if (getName(e) = name) {
+        if (IsObject(e) and getName(e) = name) {
             res.Push(e);
         }
     }
@@ -293,11 +313,21 @@ GetTail "(element) {
         return '<' & name & spacer & attrstring & '>';
     }
 }"
+    childHasTail "(children) {
+    for each child in children
+    {
+        if (Length(GetTail(child)) > 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}"
     convertDictToXml "(meiel, indent) {
+    // The indent parameter includes the leading line break
+
     xmlout = '';
     terminalTag = true;
-    trace('convert: ');
-    trace(meiel);
 
     nm = libmei.GetName(meiel);
     at = libmei.GetAttributes(meiel);
@@ -306,63 +336,45 @@ GetTail "(element) {
     tl = libmei.GetTail(meiel);
     id = libmei.GetId(meiel);
 
-    tabs = '';
-    if (indent > 0)
-    {
-        // add four spaces for every indent level.
-        arr = utils.CreateArrayBlanket('    ', indent);
-        tabs = JoinStrings(arr, '');
-    }
 
     // comments are simple so they're handled specially.
     if (nm = '<!--')
     {
-        xmlout = nm & ' ' & tx & ' -->
-';
+        xmlout = indent & nm & ' ' & tx & ' -->';
         return xmlout;
     }
 
-    if (ch or Length(tx) > 0)
+    if (ch.Length > 0 or Length(tx) > 0)
     {
         terminalTag = false;
     }
 
-    xmlout = createXmlTag(nm, id, at, terminalTag);
+    xmlout = indent & createXmlTag(nm, id, at, terminalTag);
 
-    if (Length(tx) > 0)
+    hasTextChild = Length(tx) > 0 or childHasTail(ch);
+
+    if (hasTextChild)
     {
-        endchar = '';
         xmlout = xmlout & tx;
+        // Do not add indentation whitespace as it might mess up text content
+        indent = '';
     }
-    else
-    {
-        xmlout = xmlout & '
-';
-    }
-
-    trace(ch);
 
     if (ch.Length > 0)
     {
-        indent = indent + 1;
+        if (indent != '')
+        {
+            innerIndent = indent & '    ';
+        }
+        else
+        {
+            innerIndent = '';
+        }
+
         for each child in ch
         {
-            if (child = null)
-            {
-                trace('child is null!');
-            }
-            else
-            {
-                trace(child);
-            }
-            xmlout = xmlout & tabs & convertDictToXml(child, indent);
+            xmlout = xmlout & convertDictToXml(child, innerIndent);
         }
-        indent = indent - 1;
-    }
-
-    if (Length(tl) > 0)
-    {
-        xmlout = xmlout & tl;
     }
 
     // convertDictToXml takes care of adding the />
@@ -371,37 +383,31 @@ GetTail "(element) {
     // that do.
     if (not terminalTag)
     {
-        if (Length(tx) > 0)
-        {
-            xmlout = xmlout & '</' & nm & '>
-';
-        }
-        else
-        {
-            tabs = Substring(tabs, 0, Length(tabs) - 4);
-            xmlout = xmlout & tabs & '</' & nm & '>
-';
-        }
+        xmlout = xmlout & indent & '</' & nm & '>';
+    }
+
+    if (Length(tl) > 0)
+    {
+        xmlout = xmlout & tl;
     }
 
     return xmlout;
 }"
 
     _exportMeiDocument "(meidoc) {
-        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>
-';
-        indent = 0;
-        meiout = xdecl & convertDictToXml(meidoc[0], indent);
+        xdecl = '<?xml version=' & Chr(34) & '1.0' & Chr(34) & ' encoding=' & Chr(34) & 'UTF-16' & Chr(34) & ' ?>';
+        meiout = xdecl & convertDictToXml(meidoc[0], Chr(10));
 
         return meiout;
     }"
 
     meiDocumentToFile "(meidoc, filename) {
         meiout = _exportMeiDocument(meidoc);
-        Sibelius.CreateTextFile(filename);
-        Sibelius.AppendTextFile(filename, meiout, 1);
-
-        return true;
+        if (Sibelius.CreateTextFile(filename)) {
+            return Sibelius.AppendTextFile(filename, meiout, true);
+        } else {
+            return false;
+        }
 }"
 
     meiDocumentToString "(meidoc) {
@@ -839,10 +845,9 @@ generateRandomID "() {
     id = 'm-' & id;
     return id;
 }"
-}
 """
 
-AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
+AUTHORS = "Andrew Hankinson, Alastair Porter, Thomas Weber and Others"
 
 FILE_TEMPLATE = """
 {{
