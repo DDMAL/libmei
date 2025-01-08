@@ -1,3 +1,7 @@
+**DEPRECATED**: This library is no longer maintained. A fork of this library [lives on in the Verovio project](https://github.com/rism-digital/verovio/tree/develop/libmei). This includes the most useful tool from this project, the ability to generate code from a new MEI Schema using the `parseschema2.py` script. 
+
+Libmei was an interesting concept when we started it, but there are much better XML libraries available that support nice features like XPath and proper namespaces. You're better off using those instead of this now. 
+
 LibMEI
 ------
 
